@@ -1,0 +1,81 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-11-12T20:08:38Z",
+    "tools": [
+      {
+        "name": "PQC Posture Scanner",
+        "version": "0.2.0"
+      }
+    ],
+    "component": {
+      "name": "paramiko",
+      "type": "application"
+    }
+  },
+  "cryptoProperties": {
+    "algorithms": [
+      {
+        "name": "ECDSA",
+        "occurrences": 116,
+        "quantumSafe": false
+      },
+      {
+        "name": "Ed25519",
+        "occurrences": 45,
+        "quantumSafe": false
+      },
+      {
+        "name": "SSH RSA/ECDSA Keys",
+        "occurrences": 99,
+        "quantumSafe": false
+      },
+      {
+        "name": "SHA-1",
+        "occurrences": 3,
+        "quantumSafe": false
+      },
+      {
+        "name": "Crypto Dependencies",
+        "occurrences": 2,
+        "quantumSafe": false
+      },
+      {
+        "name": "ECDH",
+        "occurrences": 29,
+        "quantumSafe": false
+      },
+      {
+        "name": "DES/3DES",
+        "occurrences": 6,
+        "quantumSafe": false
+      },
+      {
+        "name": "AES-128",
+        "occurrences": 1,
+        "quantumSafe": false
+      },
+      {
+        "name": "AES-256",
+        "occurrences": 1,
+        "quantumSafe": true
+      },
+      {
+        "name": "MD5",
+        "occurrences": 1,
+        "quantumSafe": false
+      },
+      {
+        "name": "RSA Key Exchange",
+        "occurrences": 1,
+        "quantumSafe": false
+      }
+    ],
+    "libraries": [
+      "cryptography (Python)",
+      "hashlib (Python)"
+    ]
+  }
+}

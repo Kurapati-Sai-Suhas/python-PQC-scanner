@@ -1,0 +1,14 @@
+CBOM written to C:/Users/Suhas/quantum computing project/docs/pilot/raw_tool_outputs/pqblocks_paramiko.cbom.json
+SARIF report written to C:/Users/Suhas/quantum computing project/docs/pilot/raw_tool_outputs/pqblocks_paramiko.sarif
+
+=== pqblocks-scan Assessment Result ===
+Total Assets Detected: 353
+CARS Readiness Score:  50.3/100.0
+Assigned Grade:        D
+
+Regulatory Sunset Deadlines (244 findings):
+  [2026] MD5 (prohibited): FIPS 140-2 sunset September 21, 2026; immediate removal required
+  [2026] MD5 (prohibited): FIPS 140-2 sunset September 21, 2026; immediate removal required
+  [2026] MD5 (prohibited): FIPS 140-2 sunset September 21, 2026; immediate removal required
+  [2026] MD5 (prohibited): FIPS 140-2 sunset September 21, 2026; immediate removal required
+  [2026] MD5 (prohibited): FIPS 140-2 sunset September 21, 2026; immediate removal required

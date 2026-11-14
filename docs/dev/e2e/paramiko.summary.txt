@@ -1,0 +1,40 @@
+pqscan 0.1.0.dev0 | policy 1.1 | threshold T2 | arm full
+files scanned: 70, skipped: 3, execution failures: 0, semgrep: ok
+sites: 35 (ABSTAIN=6, FLAG_NO_TARGET=7, RECOMMEND=22); excluded non-PK sites: 3; unsupported-library imports: 236 (PyNaCl, paramiko (as a library))
+target classes: ABSTAIN=6, INVENTORY=4, KEM=10, NO_ACTION_HYBRID=3, SIG=12
+
+paramiko/ecdsakey.py:167  EC       VERIFY             T3  RECOMMEND      SIG
+paramiko/ecdsakey.py:225  EC       SIGN               T2  RECOMMEND      SIG
+paramiko/ecdsakey.py:241  EC       VERIFY             T2  RECOMMEND      SIG
+paramiko/ecdsakey.py:268  EC       SIGN               T2  RECOMMEND      SIG
+paramiko/ecdsakey.py:285  ANY      SIGN               T2  RECOMMEND      SIG
+paramiko/ecdsakey.py:305  EC       SIGN               T2  RECOMMEND      SIG
+paramiko/ed25519key.py:203  ANY      SIGN               T0  ABSTAIN        ABSTAIN
+paramiko/ed25519key.py:211  ANY      VERIFY             T0  ABSTAIN        ABSTAIN
+paramiko/kex_curve25519.py:30  X25519   KEY_MATERIAL_ONLY  T2  FLAG_NO_TARGET INVENTORY
+paramiko/kex_curve25519.py:37  X25519   KEY_ESTABLISHMENT  T3  RECOMMEND      KEM
+paramiko/kex_curve25519.py:45  X25519   KEY_ESTABLISHMENT  T3  RECOMMEND      KEM
+paramiko/kex_curve25519.py:71  X25519   KEY_ESTABLISHMENT  T3  RECOMMEND      KEM
+paramiko/kex_curve25519.py:109  X25519   KEY_ESTABLISHMENT  T3  RECOMMEND      KEM
+paramiko/kex_ecdh_nist.py:59  EC       KEY_ESTABLISHMENT  T3  RECOMMEND      KEM
+paramiko/kex_ecdh_nist.py:67  EC       KEY_ESTABLISHMENT  T3  RECOMMEND      KEM
+paramiko/kex_ecdh_nist.py:71  EC       KEY_ESTABLISHMENT  T3  RECOMMEND      KEM
+paramiko/kex_ecdh_nist.py:113  EC       KEY_ESTABLISHMENT  T3  RECOMMEND      KEM
+paramiko/kex_ecdh_nist.py:117  EC       KEY_ESTABLISHMENT  T3  RECOMMEND      KEM
+paramiko/kex_mlkem.py:76  X25519   KEY_MATERIAL_ONLY  T2  FLAG_NO_TARGET INVENTORY
+paramiko/kex_mlkem.py:84  X25519   KEY_ESTABLISHMENT  T3  FLAG_NO_TARGET NO_ACTION_HYBRID
+paramiko/kex_mlkem.py:111  X25519   KEY_ESTABLISHMENT  T3  FLAG_NO_TARGET NO_ACTION_HYBRID
+paramiko/kex_mlkem.py:112  X25519   KEY_ESTABLISHMENT  T3  FLAG_NO_TARGET NO_ACTION_HYBRID
+paramiko/pkey.py:195  ANY      KEY_MATERIAL_ONLY  T2  FLAG_NO_TARGET INVENTORY
+paramiko/pkey.py:200  ANY      KEY_MATERIAL_ONLY  T2  FLAG_NO_TARGET INVENTORY
+paramiko/rsakey.py:78  RSA      VERIFY             T3  RECOMMEND      SIG
+paramiko/rsakey.py:141  RSA      SIGN               T2  RECOMMEND      SIG
+paramiko/rsakey.py:170  RSA      VERIFY             T2  RECOMMEND      SIG
+paramiko/rsakey.py:188  RSA      SIGN               T3  RECOMMEND      SIG
+paramiko/rsakey.py:207  ANY      SIGN               T2  RECOMMEND      SIG
+paramiko/rsakey.py:215  RSA      SIGN               T2  RECOMMEND      SIG
+tests/test_kex.py:61  EC       UNKNOWN            T1  ABSTAIN        ABSTAIN
+tests/test_kex.py:64  EC       UNKNOWN            T1  ABSTAIN        ABSTAIN
+tests/test_kex.py:68  EC       UNKNOWN            T1  ABSTAIN        ABSTAIN
+tests/test_kex.py:72  EC       UNKNOWN            T1  ABSTAIN        ABSTAIN
+tests/test_kex.py:142  X25519   KEY_ESTABLISHMENT  T2  RECOMMEND      KEM

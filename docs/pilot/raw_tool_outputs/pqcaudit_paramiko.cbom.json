@@ -1,0 +1,836 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:c73a1422-6af1-4baf-9bb2-ce4519b2209e",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-11-12T14:38:36+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "pqc-audit",
+          "version": "0.4.1"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "crypto:hashlib:SHA-1:hashing",
+      "name": "SHA-1",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "cryptoFunctions": [
+            "digest"
+          ]
+        }
+      },
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko\\paramiko\\config.py",
+            "line": 449,
+            "offset": 18,
+            "symbol": "sha1"
+          },
+          {
+            "location": "paramiko\\paramiko\\hostkeys.py",
+            "line": 294,
+            "offset": 30,
+            "symbol": "sha1"
+          },
+          {
+            "location": "paramiko\\paramiko\\hostkeys.py",
+            "line": 299,
+            "offset": 28,
+            "symbol": "sha1"
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqc-audit:classification",
+          "value": "GROVER"
+        },
+        {
+          "name": "pqc-audit:severity",
+          "value": "MEDIUM"
+        },
+        {
+          "name": "pqc-audit:migrationTarget",
+          "value": "SHA-256 / SHA-3"
+        },
+        {
+          "name": "pqc-audit:compliance",
+          "value": "Not a PQC deadline; classical-strength issue \u2014 move to AES-256 / SHA-256+ (NIST SP 800-131A)"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "crypto:cryptography:ECC:key_generation",
+      "name": "ECC",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      },
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko\\paramiko\\ecdsakey.py",
+            "line": 268,
+            "offset": 22,
+            "symbol": "ec.generate_private_key"
+          },
+          {
+            "location": "paramiko\\paramiko\\kex_ecdh_nist.py",
+            "line": 59,
+            "offset": 17,
+            "symbol": "ec.generate_private_key"
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqc-audit:classification",
+          "value": "SHOR"
+        },
+        {
+          "name": "pqc-audit:severity",
+          "value": "CRITICAL"
+        },
+        {
+          "name": "pqc-audit:migrationTarget",
+          "value": "ML-KEM (ECDH) / ML-DSA (ECDSA)"
+        },
+        {
+          "name": "pqc-audit:compliance",
+          "value": "NIST IR 8547 / CNSA 2.0: deprecated after 2030, disallowed after 2035 \u2014 harvest-now-decrypt-later risk applies today"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "crypto:cryptography:X25519:key_exchange",
+      "name": "X25519",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "key-agree",
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      },
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko\\paramiko\\kex_curve25519.py",
+            "line": 30,
+            "offset": 12,
+            "symbol": "X25519PrivateKey.generate"
+          },
+          {
+            "location": "paramiko\\paramiko\\kex_curve25519.py",
+            "line": 45,
+            "offset": 19,
+            "symbol": "X25519PrivateKey.generate"
+          },
+          {
+            "location": "paramiko\\paramiko\\kex_mlkem.py",
+            "line": 76,
+            "offset": 12,
+            "symbol": "X25519PrivateKey.generate"
+          },
+          {
+            "location": "paramiko\\paramiko\\kex_mlkem.py",
+            "line": 84,
+            "offset": 26,
+            "symbol": "X25519PrivateKey.generate"
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqc-audit:classification",
+          "value": "SHOR"
+        },
+        {
+          "name": "pqc-audit:severity",
+          "value": "CRITICAL"
+        },
+        {
+          "name": "pqc-audit:migrationTarget",
+          "value": "ML-KEM"
+        },
+        {
+          "name": "pqc-audit:compliance",
+          "value": "NIST IR 8547 / CNSA 2.0: deprecated after 2030, disallowed after 2035 \u2014 harvest-now-decrypt-later risk applies today"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "crypto:hashlib:MD5:hashing",
+      "name": "MD5",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "cryptoFunctions": [
+            "digest"
+          ]
+        }
+      },
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko\\paramiko\\pkey.py",
+            "line": 390,
+            "offset": 15,
+            "symbol": "md5"
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqc-audit:classification",
+          "value": "GROVER"
+        },
+        {
+          "name": "pqc-audit:severity",
+          "value": "MEDIUM"
+        },
+        {
+          "name": "pqc-audit:migrationTarget",
+          "value": "SHA-256 / SHA-3"
+        },
+        {
+          "name": "pqc-audit:compliance",
+          "value": "Not a PQC deadline; classical-strength issue \u2014 move to AES-256 / SHA-256+ (NIST SP 800-131A)"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "crypto:cryptography:AES:encryption",
+      "name": "AES",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "block-cipher",
+          "cryptoFunctions": [
+            "encrypt"
+          ]
+        }
+      },
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko\\paramiko\\pkey.py",
+            "line": 727,
+            "offset": 16,
+            "symbol": "algorithms.AES"
+          },
+          {
+            "location": "paramiko\\tests\\test_packetizer.py",
+            "line": 49,
+            "offset": 12,
+            "symbol": "algorithms.AES"
+          },
+          {
+            "location": "paramiko\\tests\\test_packetizer.py",
+            "line": 79,
+            "offset": 12,
+            "symbol": "algorithms.AES"
+          },
+          {
+            "location": "paramiko\\tests\\test_packetizer.py",
+            "line": 103,
+            "offset": 12,
+            "symbol": "algorithms.AES"
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqc-audit:classification",
+          "value": "GROVER"
+        },
+        {
+          "name": "pqc-audit:severity",
+          "value": "MEDIUM"
+        },
+        {
+          "name": "pqc-audit:migrationTarget",
+          "value": "AES-256"
+        },
+        {
+          "name": "pqc-audit:compliance",
+          "value": "Not a PQC deadline; classical-strength issue \u2014 move to AES-256 / SHA-256+ (NIST SP 800-131A)"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "crypto:cryptography:RSA:key_generation",
+      "name": "RSA",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      },
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko\\paramiko\\rsakey.py",
+            "line": 188,
+            "offset": 14,
+            "symbol": "rsa.generate_private_key"
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqc-audit:classification",
+          "value": "SHOR"
+        },
+        {
+          "name": "pqc-audit:severity",
+          "value": "CRITICAL"
+        },
+        {
+          "name": "pqc-audit:migrationTarget",
+          "value": "ML-KEM (key establishment) / ML-DSA (signatures)"
+        },
+        {
+          "name": "pqc-audit:compliance",
+          "value": "NIST IR 8547 / CNSA 2.0: deprecated after 2030, disallowed after 2035 \u2014 harvest-now-decrypt-later risk applies today"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "crypto:paramiko:ECDSA:signing",
+      "name": "ECDSA",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      },
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko\\tests\\test_client.py",
+            "line": 608,
+            "offset": 19,
+            "symbol": "paramiko.ECDSAKey.generate"
+          },
+          {
+            "location": "paramiko\\tests\\test_pkey.py",
+            "line": 217,
+            "offset": 14,
+            "symbol": "ECDSAKey.generate"
+          },
+          {
+            "location": "paramiko\\tests\\test_pkey.py",
+            "line": 224,
+            "offset": 14,
+            "symbol": "ECDSAKey.generate"
+          },
+          {
+            "location": "paramiko\\tests\\test_pkey.py",
+            "line": 231,
+            "offset": 14,
+            "symbol": "ECDSAKey.generate"
+          },
+          {
+            "location": "paramiko\\tests\\test_pkey.py",
+            "line": 238,
+            "offset": 14,
+            "symbol": "ECDSAKey.generate"
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqc-audit:classification",
+          "value": "SHOR"
+        },
+        {
+          "name": "pqc-audit:severity",
+          "value": "CRITICAL"
+        },
+        {
+          "name": "pqc-audit:migrationTarget",
+          "value": "ML-DSA"
+        },
+        {
+          "name": "pqc-audit:compliance",
+          "value": "NIST IR 8547 / CNSA 2.0: deprecated after 2030, disallowed after 2035 \u2014 harvest-now-decrypt-later risk applies today"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "crypto:paramiko:RSA-2048:key_generation",
+      "name": "RSA-2048",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "parameterSetIdentifier": "2048",
+          "nistQuantumSecurityLevel": 0
+        }
+      },
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko\\tests\\test_client.py",
+            "line": 613,
+            "offset": 19,
+            "symbol": "paramiko.RSAKey.generate"
+          },
+          {
+            "location": "paramiko\\tests\\test_ssh_exception.py",
+            "line": 60,
+            "offset": 18,
+            "symbol": "RSAKey.generate"
+          },
+          {
+            "location": "paramiko\\tests\\test_ssh_exception.py",
+            "line": 61,
+            "offset": 21,
+            "symbol": "RSAKey.generate"
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqc-audit:classification",
+          "value": "SHOR"
+        },
+        {
+          "name": "pqc-audit:severity",
+          "value": "CRITICAL"
+        },
+        {
+          "name": "pqc-audit:migrationTarget",
+          "value": "ML-KEM (key establishment) / ML-DSA (signatures)"
+        },
+        {
+          "name": "pqc-audit:compliance",
+          "value": "NIST IR 8547 / CNSA 2.0: deprecated after 2030, disallowed after 2035 \u2014 harvest-now-decrypt-later risk applies today"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "crypto:paramiko:RSA-4096:key_generation",
+      "name": "RSA-4096",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "parameterSetIdentifier": "4096",
+          "nistQuantumSecurityLevel": 0
+        }
+      },
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko\\tests\\test_pkey.py",
+            "line": 208,
+            "offset": 14,
+            "symbol": "RSAKey.generate"
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqc-audit:classification",
+          "value": "SHOR"
+        },
+        {
+          "name": "pqc-audit:severity",
+          "value": "CRITICAL"
+        },
+        {
+          "name": "pqc-audit:migrationTarget",
+          "value": "ML-KEM (key establishment) / ML-DSA (signatures)"
+        },
+        {
+          "name": "pqc-audit:compliance",
+          "value": "NIST IR 8547 / CNSA 2.0: deprecated after 2030, disallowed after 2035 \u2014 harvest-now-decrypt-later risk applies today"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "crypto:openssh:SSH private key:configuration",
+      "name": "SSH private key",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      },
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko\\tests\\badhash_key1.ed25519.key",
+            "line": 1,
+            "offset": 0,
+            "symbol": "BEGIN OPENSSH PRIVATE KEY"
+          },
+          {
+            "location": "paramiko\\tests\\badhash_key2.ed25519.key",
+            "line": 1,
+            "offset": 0,
+            "symbol": "BEGIN OPENSSH PRIVATE KEY"
+          },
+          {
+            "location": "paramiko\\tests\\test_ecdsa_384_openssh.key",
+            "line": 1,
+            "offset": 0,
+            "symbol": "BEGIN OPENSSH PRIVATE KEY"
+          },
+          {
+            "location": "paramiko\\tests\\test_ed25519-funky-padding.key",
+            "line": 1,
+            "offset": 0,
+            "symbol": "BEGIN OPENSSH PRIVATE KEY"
+          },
+          {
+            "location": "paramiko\\tests\\test_ed25519-funky-padding_password.key",
+            "line": 1,
+            "offset": 0,
+            "symbol": "BEGIN OPENSSH PRIVATE KEY"
+          },
+          {
+            "location": "paramiko\\tests\\test_ed25519_password.key",
+            "line": 1,
+            "offset": 0,
+            "symbol": "BEGIN OPENSSH PRIVATE KEY"
+          },
+          {
+            "location": "paramiko\\tests\\test_rsa_openssh.key",
+            "line": 1,
+            "offset": 0,
+            "symbol": "BEGIN OPENSSH PRIVATE KEY"
+          },
+          {
+            "location": "paramiko\\tests\\test_rsa_openssh_nopad.key",
+            "line": 1,
+            "offset": 0,
+            "symbol": "BEGIN OPENSSH PRIVATE KEY"
+          },
+          {
+            "location": "paramiko\\tests\\_support\\ed25519.key",
+            "line": 1,
+            "offset": 0,
+            "symbol": "BEGIN OPENSSH PRIVATE KEY"
+          },
+          {
+            "location": "paramiko\\tests\\_support\\rsa-passphrased.key",
+            "line": 1,
+            "offset": 0,
+            "symbol": "BEGIN OPENSSH PRIVATE KEY"
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqc-audit:classification",
+          "value": "SHOR"
+        },
+        {
+          "name": "pqc-audit:severity",
+          "value": "CRITICAL"
+        },
+        {
+          "name": "pqc-audit:migrationTarget",
+          "value": "ML-KEM (key establishment) / ML-DSA (signatures)"
+        },
+        {
+          "name": "pqc-audit:compliance",
+          "value": "NIST IR 8547 / CNSA 2.0: deprecated after 2030, disallowed after 2035 \u2014 harvest-now-decrypt-later risk applies today"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "crypto:pem:ECC:configuration",
+      "name": "ECC",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      },
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko\\tests\\test_ecdsa_384.key",
+            "line": 1,
+            "offset": 0,
+            "symbol": "BEGIN EC PRIVATE KEY"
+          },
+          {
+            "location": "paramiko\\tests\\test_ecdsa_521.key",
+            "line": 1,
+            "offset": 0,
+            "symbol": "BEGIN EC PRIVATE KEY"
+          },
+          {
+            "location": "paramiko\\tests\\test_ecdsa_password_256.key",
+            "line": 1,
+            "offset": 0,
+            "symbol": "BEGIN EC PRIVATE KEY"
+          },
+          {
+            "location": "paramiko\\tests\\test_ecdsa_password_384.key",
+            "line": 1,
+            "offset": 0,
+            "symbol": "BEGIN EC PRIVATE KEY"
+          },
+          {
+            "location": "paramiko\\tests\\test_ecdsa_password_521.key",
+            "line": 1,
+            "offset": 0,
+            "symbol": "BEGIN EC PRIVATE KEY"
+          },
+          {
+            "location": "paramiko\\tests\\_support\\ecdsa-256.key",
+            "line": 1,
+            "offset": 0,
+            "symbol": "BEGIN EC PRIVATE KEY"
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqc-audit:classification",
+          "value": "SHOR"
+        },
+        {
+          "name": "pqc-audit:severity",
+          "value": "CRITICAL"
+        },
+        {
+          "name": "pqc-audit:migrationTarget",
+          "value": "ML-KEM (ECDH) / ML-DSA (ECDSA)"
+        },
+        {
+          "name": "pqc-audit:compliance",
+          "value": "NIST IR 8547 / CNSA 2.0: deprecated after 2030, disallowed after 2035 \u2014 harvest-now-decrypt-later risk applies today"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "crypto:openssh:RSA:configuration",
+      "name": "RSA",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      },
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko\\tests\\test_rsa.key.pub",
+            "line": 1,
+            "offset": 0,
+            "symbol": "ssh-rsa public key"
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqc-audit:classification",
+          "value": "SHOR"
+        },
+        {
+          "name": "pqc-audit:severity",
+          "value": "CRITICAL"
+        },
+        {
+          "name": "pqc-audit:migrationTarget",
+          "value": "ML-KEM (key establishment) / ML-DSA (signatures)"
+        },
+        {
+          "name": "pqc-audit:compliance",
+          "value": "NIST IR 8547 / CNSA 2.0: deprecated after 2030, disallowed after 2035 \u2014 harvest-now-decrypt-later risk applies today"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "crypto:pem:RSA:configuration",
+      "name": "RSA",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      },
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko\\tests\\test_rsa_password.key",
+            "line": 1,
+            "offset": 0,
+            "symbol": "BEGIN RSA PRIVATE KEY"
+          },
+          {
+            "location": "paramiko\\tests\\_support\\rsa-lonely.key",
+            "line": 1,
+            "offset": 0,
+            "symbol": "BEGIN RSA PRIVATE KEY"
+          },
+          {
+            "location": "paramiko\\tests\\_support\\rsa.key",
+            "line": 1,
+            "offset": 0,
+            "symbol": "BEGIN RSA PRIVATE KEY"
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqc-audit:classification",
+          "value": "SHOR"
+        },
+        {
+          "name": "pqc-audit:severity",
+          "value": "CRITICAL"
+        },
+        {
+          "name": "pqc-audit:migrationTarget",
+          "value": "ML-KEM (key establishment) / ML-DSA (signatures)"
+        },
+        {
+          "name": "pqc-audit:compliance",
+          "value": "NIST IR 8547 / CNSA 2.0: deprecated after 2030, disallowed after 2035 \u2014 harvest-now-decrypt-later risk applies today"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "dependency:cryptography:unknown",
+      "name": "cryptography",
+      "properties": [
+        {
+          "name": "pqc-audit:classification",
+          "value": "SHOR"
+        },
+        {
+          "name": "pqc-audit:severity",
+          "value": "CRITICAL"
+        },
+        {
+          "name": "pqc-audit:migrationTarget",
+          "value": "ML-KEM (key establishment) / ML-DSA (signatures)"
+        },
+        {
+          "name": "pqc-audit:compliance",
+          "value": "NIST IR 8547 / CNSA 2.0: deprecated after 2030, disallowed after 2035 \u2014 harvest-now-decrypt-later risk applies today"
+        },
+        {
+          "name": "pqc-audit:provides",
+          "value": "RSA/ECC/DH/Ed25519"
+        }
+      ],
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko\\pyproject.toml",
+            "line": 13
+          }
+        ]
+      },
+      "purl": "pkg:pypi/cryptography"
+    },
+    {
+      "type": "library",
+      "bom-ref": "dependency:pynacl:unknown",
+      "name": "pynacl",
+      "properties": [
+        {
+          "name": "pqc-audit:classification",
+          "value": "SHOR"
+        },
+        {
+          "name": "pqc-audit:severity",
+          "value": "CRITICAL"
+        },
+        {
+          "name": "pqc-audit:migrationTarget",
+          "value": "ML-KEM (key establishment) / ML-DSA (signatures)"
+        },
+        {
+          "name": "pqc-audit:compliance",
+          "value": "NIST IR 8547 / CNSA 2.0: deprecated after 2030, disallowed after 2035 \u2014 harvest-now-decrypt-later risk applies today"
+        },
+        {
+          "name": "pqc-audit:provides",
+          "value": "Ed25519/Curve25519"
+        }
+      ],
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko\\pyproject.toml",
+            "line": 15
+          }
+        ]
+      },
+      "purl": "pkg:pypi/pynacl"
+    }
+  ]
+}

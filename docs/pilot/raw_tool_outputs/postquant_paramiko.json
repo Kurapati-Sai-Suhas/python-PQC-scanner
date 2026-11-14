@@ -1,0 +1,1844 @@
+{
+  "version": "0.7.0",
+  "timestamp": "2026-11-12T14:38:40.343Z",
+  "scanRoot": "C:\\Users\\Suhas\\AppData\\Local\\Temp\\claude\\2d7fdb9b645ead63\\2ab8e4cc-510b-4616-a451-4c4114aaa08e\\scratchpad\\pilot_repos\\paramiko",
+  "grade": "D-",
+  "baseGrade": "D",
+  "modifier": "-",
+  "pqcDetected": true,
+  "findings": [
+    {
+      "patternId": "python-aes",
+      "file": "tests\\test_packetizer.py",
+      "line": 49,
+      "matchedLine": "algorithms.AES(zero_byte * 16),",
+      "language": "python",
+      "category": "weak-symmetric",
+      "algorithm": "AES",
+      "risk": "moderate",
+      "reason": "AES-128 provides reduced security against quantum attacks (Grover's algorithm)",
+      "migration": "Use AES-256 for quantum-resistant symmetric encryption",
+      "confidence": "high",
+      "originalRisk": "moderate",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "medium",
+        "contextEvidence": [
+          "↑ nearby-code: encrypt",
+          "↑ import-context: paramiko/ssh2/libssh"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "encrypt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "paramiko/ssh2/libssh",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-aes",
+      "file": "tests\\test_packetizer.py",
+      "line": 79,
+      "matchedLine": "algorithms.AES(zero_byte * 16),",
+      "language": "python",
+      "category": "weak-symmetric",
+      "algorithm": "AES",
+      "risk": "moderate",
+      "reason": "AES-128 provides reduced security against quantum attacks (Grover's algorithm)",
+      "migration": "Use AES-256 for quantum-resistant symmetric encryption",
+      "confidence": "high",
+      "originalRisk": "moderate",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "medium",
+        "contextEvidence": [
+          "↑ nearby-code: encrypt",
+          "↑ import-context: paramiko/ssh2/libssh"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "encrypt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "paramiko/ssh2/libssh",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-aes",
+      "file": "tests\\test_packetizer.py",
+      "line": 103,
+      "matchedLine": "algorithms.AES(zero_byte * 16),",
+      "language": "python",
+      "category": "weak-symmetric",
+      "algorithm": "AES",
+      "risk": "moderate",
+      "reason": "AES-128 provides reduced security against quantum attacks (Grover's algorithm)",
+      "migration": "Use AES-256 for quantum-resistant symmetric encryption",
+      "confidence": "high",
+      "originalRisk": "moderate",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "medium",
+        "contextEvidence": [
+          "↑ nearby-code: encrypt",
+          "↑ import-context: paramiko/ssh2/libssh"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "encrypt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "paramiko/ssh2/libssh",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "paramiko\\ecdsakey.py",
+      "line": 220,
+      "matchedLine": "def can_sign(self):",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ import-context: paramiko/ssh2/libssh"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "paramiko/ssh2/libssh",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "paramiko\\ecdsakey.py",
+      "line": 225,
+      "matchedLine": "sig = self.signing_key.sign(data, ecdsa)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ import-context: paramiko/ssh2/libssh"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "paramiko/ssh2/libssh",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-ec-keygen",
+      "file": "paramiko\\ecdsakey.py",
+      "line": 268,
+      "matchedLine": "private_key = ec.generate_private_key(curve, backend=default_backend())",
+      "language": "python",
+      "category": "asymmetric-encryption",
+      "algorithm": "ECDSA",
+      "risk": "critical",
+      "reason": "Elliptic curve key generation is vulnerable to quantum attacks via Shor's algorithm",
+      "migration": "Migrate to ML-DSA (FIPS 204) for signatures or ML-KEM (FIPS 203) for key exchange",
+      "confidence": "verified",
+      "scopeInfo": {
+        "functionName": "generate",
+        "className": "ECDSAKey",
+        "isTestCode": false,
+        "isConditionalPath": false
+      },
+      "astEnriched": true,
+      "originalRisk": "critical",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "critical",
+        "contextEvidence": [
+          "↑ nearby-code: password",
+          "↑ import-context: paramiko/ssh2/libssh",
+          "• ast-scope: generate"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "password",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "paramiko/ssh2/libssh",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "ast-scope",
+            "value": "generate",
+            "influence": "neutral"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "paramiko\\ed25519key.py",
+      "line": 186,
+      "matchedLine": "def can_sign(self):",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ import-context: passlib/bcrypt/argon2",
+          "↑ import-context: paramiko/ssh2/libssh"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "passlib/bcrypt/argon2",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "paramiko/ssh2/libssh",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "paramiko\\ed25519key.py",
+      "line": 194,
+      "matchedLine": "if self.can_sign():",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ import-context: passlib/bcrypt/argon2",
+          "↑ import-context: paramiko/ssh2/libssh"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "passlib/bcrypt/argon2",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "paramiko/ssh2/libssh",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "paramiko\\ed25519key.py",
+      "line": 203,
+      "matchedLine": "m.add_string(self._signing_key.sign(data).signature)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ import-context: passlib/bcrypt/argon2",
+          "↑ import-context: paramiko/ssh2/libssh"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "passlib/bcrypt/argon2",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "paramiko/ssh2/libssh",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-x25519",
+      "file": "paramiko\\kex_curve25519.py",
+      "line": 30,
+      "matchedLine": "X25519PrivateKey.generate()",
+      "language": "python",
+      "category": "key-exchange",
+      "algorithm": "X25519",
+      "risk": "critical",
+      "reason": "X25519 key exchange is vulnerable to quantum attacks via Shor's algorithm",
+      "migration": "Migrate to ML-KEM (FIPS 203) for key exchange",
+      "confidence": "verified",
+      "scopeInfo": {
+        "functionName": "is_available",
+        "className": "KexCurve25519",
+        "isTestCode": false,
+        "isConditionalPath": true
+      },
+      "astEnriched": true,
+      "originalRisk": "critical",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "critical",
+        "contextEvidence": [
+          "↑ import-context: paramiko/ssh2/libssh",
+          "• ast-scope: is_available",
+          "↓ ast-scope: conditional-fallback"
+        ],
+        "signals": [
+          {
+            "type": "import-context",
+            "value": "paramiko/ssh2/libssh",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "ast-scope",
+            "value": "is_available",
+            "influence": "neutral"
+          },
+          {
+            "type": "ast-scope",
+            "value": "conditional-fallback",
+            "influence": "decreases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-x25519",
+      "file": "paramiko\\kex_curve25519.py",
+      "line": 45,
+      "matchedLine": "self.key = X25519PrivateKey.generate()",
+      "language": "python",
+      "category": "key-exchange",
+      "algorithm": "X25519",
+      "risk": "critical",
+      "reason": "X25519 key exchange is vulnerable to quantum attacks via Shor's algorithm",
+      "migration": "Migrate to ML-KEM (FIPS 203) for key exchange",
+      "confidence": "verified",
+      "scopeInfo": {
+        "functionName": "start_kex",
+        "className": "KexCurve25519",
+        "isTestCode": false,
+        "isConditionalPath": false
+      },
+      "astEnriched": true,
+      "originalRisk": "critical",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "critical",
+        "contextEvidence": [
+          "↑ nearby-code: key_exchange",
+          "↑ import-context: paramiko/ssh2/libssh",
+          "• ast-scope: start_kex"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "key_exchange",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "paramiko/ssh2/libssh",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "ast-scope",
+            "value": "start_kex",
+            "influence": "neutral"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-ec-keygen",
+      "file": "paramiko\\kex_ecdh_nist.py",
+      "line": 59,
+      "matchedLine": "self.P = ec.generate_private_key(self.curve, default_backend())",
+      "language": "python",
+      "category": "asymmetric-encryption",
+      "algorithm": "ECDSA",
+      "risk": "critical",
+      "reason": "Elliptic curve key generation is vulnerable to quantum attacks via Shor's algorithm",
+      "migration": "Migrate to ML-DSA (FIPS 204) for signatures or ML-KEM (FIPS 203) for key exchange",
+      "confidence": "verified",
+      "scopeInfo": {
+        "functionName": "_generate_key_pair",
+        "className": "KexNistp256",
+        "isTestCode": false,
+        "isConditionalPath": false
+      },
+      "astEnriched": true,
+      "originalRisk": "critical",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "critical",
+        "contextEvidence": [
+          "↑ nearby-code: key_exchange",
+          "↑ import-context: paramiko/ssh2/libssh",
+          "• ast-scope: _generate_key_pair"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "key_exchange",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "paramiko/ssh2/libssh",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "ast-scope",
+            "value": "_generate_key_pair",
+            "influence": "neutral"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-ecdh-exchange",
+      "file": "paramiko\\kex_ecdh_nist.py",
+      "line": 71,
+      "matchedLine": "K = self.P.exchange(ec.ECDH(), self.Q_C)",
+      "language": "python",
+      "category": "key-exchange",
+      "algorithm": "ECDH",
+      "risk": "critical",
+      "reason": "ECDH key exchange is vulnerable to quantum attacks via Shor's algorithm",
+      "migration": "Migrate to ML-KEM (FIPS 203) for key encapsulation",
+      "confidence": "high",
+      "originalRisk": "critical",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "critical",
+        "contextEvidence": [
+          "↑ import-context: paramiko/ssh2/libssh"
+        ],
+        "signals": [
+          {
+            "type": "import-context",
+            "value": "paramiko/ssh2/libssh",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-ecdh-exchange",
+      "file": "paramiko\\kex_ecdh_nist.py",
+      "line": 117,
+      "matchedLine": "K = self.P.exchange(ec.ECDH(), self.Q_S)",
+      "language": "python",
+      "category": "key-exchange",
+      "algorithm": "ECDH",
+      "risk": "critical",
+      "reason": "ECDH key exchange is vulnerable to quantum attacks via Shor's algorithm",
+      "migration": "Migrate to ML-KEM (FIPS 203) for key encapsulation",
+      "confidence": "high",
+      "originalRisk": "critical",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "critical",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ import-context: paramiko/ssh2/libssh"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "paramiko/ssh2/libssh",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-x25519",
+      "file": "paramiko\\kex_mlkem.py",
+      "line": 76,
+      "matchedLine": "X25519PrivateKey.generate()",
+      "language": "python",
+      "category": "key-exchange",
+      "algorithm": "X25519",
+      "risk": "critical",
+      "reason": "X25519 key exchange is vulnerable to quantum attacks via Shor's algorithm",
+      "migration": "Migrate to ML-KEM (FIPS 203) for key exchange",
+      "confidence": "verified",
+      "scopeInfo": {
+        "functionName": "is_available",
+        "className": "KexMLKEM768X25519",
+        "isTestCode": false,
+        "isConditionalPath": true
+      },
+      "astEnriched": true,
+      "originalRisk": "critical",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "critical",
+        "contextEvidence": [
+          "↑ import-context: paramiko/ssh2/libssh",
+          "• ast-scope: is_available",
+          "↓ ast-scope: conditional-fallback"
+        ],
+        "signals": [
+          {
+            "type": "import-context",
+            "value": "paramiko/ssh2/libssh",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "ast-scope",
+            "value": "is_available",
+            "influence": "neutral"
+          },
+          {
+            "type": "ast-scope",
+            "value": "conditional-fallback",
+            "influence": "decreases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-x25519",
+      "file": "paramiko\\kex_mlkem.py",
+      "line": 84,
+      "matchedLine": "self.x25519_key = X25519PrivateKey.generate()",
+      "language": "python",
+      "category": "key-exchange",
+      "algorithm": "X25519",
+      "risk": "critical",
+      "reason": "X25519 key exchange is vulnerable to quantum attacks via Shor's algorithm",
+      "migration": "Migrate to ML-KEM (FIPS 203) for key exchange",
+      "confidence": "verified",
+      "scopeInfo": {
+        "functionName": "start_kex",
+        "className": "KexMLKEM768X25519",
+        "isTestCode": false,
+        "isConditionalPath": false
+      },
+      "astEnriched": true,
+      "originalRisk": "critical",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "critical",
+        "contextEvidence": [
+          "↑ nearby-code: key_exchange",
+          "↑ import-context: paramiko/ssh2/libssh",
+          "• ast-scope: start_kex"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "key_exchange",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "paramiko/ssh2/libssh",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "ast-scope",
+            "value": "start_kex",
+            "influence": "neutral"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "paramiko\\packet.py",
+      "line": 447,
+      "matchedLine": "out = packet[0:4] + self.__block_engine_out.encrypt(",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: encrypt",
+          "↑ import-context: paramiko/ssh2/libssh"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "encrypt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "paramiko/ssh2/libssh",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "paramiko\\pkey.py",
+      "line": 374,
+      "matchedLine": "def can_sign(self):",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↓ nearby-code: legacy",
+          "↑ import-context: passlib/bcrypt/argon2",
+          "↑ import-context: paramiko/ssh2/libssh"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "legacy",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "passlib/bcrypt/argon2",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "paramiko/ssh2/libssh",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-aes",
+      "file": "paramiko\\pkey.py",
+      "line": 727,
+      "matchedLine": "algorithms.AES(key), mode(iv), default_backend()",
+      "language": "python",
+      "category": "weak-symmetric",
+      "algorithm": "AES",
+      "risk": "moderate",
+      "reason": "AES-128 provides reduced security against quantum attacks (Grover's algorithm)",
+      "migration": "Use AES-256 for quantum-resistant symmetric encryption",
+      "confidence": "high",
+      "originalRisk": "moderate",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "medium",
+        "contextEvidence": [
+          "↑ nearby-code: encrypt",
+          "↑ import-context: passlib/bcrypt/argon2",
+          "↑ import-context: paramiko/ssh2/libssh"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "encrypt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "passlib/bcrypt/argon2",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "paramiko/ssh2/libssh",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "paramiko\\rsakey.py",
+      "line": 131,
+      "matchedLine": "def can_sign(self):",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ import-context: paramiko/ssh2/libssh"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "paramiko/ssh2/libssh",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "paramiko\\rsakey.py",
+      "line": 141,
+      "matchedLine": "sig = self.key.sign(",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ import-context: paramiko/ssh2/libssh"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "paramiko/ssh2/libssh",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-rsa-keygen",
+      "file": "paramiko\\rsakey.py",
+      "line": 188,
+      "matchedLine": "key = rsa.generate_private_key(",
+      "language": "python",
+      "category": "asymmetric-encryption",
+      "algorithm": "RSA",
+      "risk": "critical",
+      "reason": "RSA key generation is vulnerable to quantum attacks via Shor's algorithm",
+      "migration": "Migrate to ML-KEM (FIPS 203) for encryption or ML-DSA (FIPS 204) for signatures",
+      "confidence": "verified",
+      "scopeInfo": {
+        "functionName": "generate",
+        "className": "RSAKey",
+        "isTestCode": false,
+        "isConditionalPath": false
+      },
+      "astEnriched": true,
+      "originalRisk": "critical",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "critical",
+        "contextEvidence": [
+          "↑ import-context: paramiko/ssh2/libssh",
+          "• ast-scope: generate"
+        ],
+        "signals": [
+          {
+            "type": "import-context",
+            "value": "paramiko/ssh2/libssh",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "ast-scope",
+            "value": "generate",
+            "influence": "neutral"
+          }
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "critical": 9,
+    "moderate": 4,
+    "safe": 9,
+    "total": 22,
+    "filesScanned": 70,
+    "filesWithFindings": 9
+  },
+  "migrationNotes": [
+    "Use AES-256 for quantum-resistant symmetric encryption",
+    "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+    "Migrate to ML-DSA (FIPS 204) for signatures or ML-KEM (FIPS 203) for key exchange",
+    "Migrate to ML-KEM (FIPS 203) for key exchange",
+    "Migrate to ML-KEM (FIPS 203) for key encapsulation",
+    "Migrate to ML-KEM (FIPS 203) for encryption or ML-DSA (FIPS 204) for signatures"
+  ],
+  "fileBreakdown": [
+    {
+      "file": "tests\\test_packetizer.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-aes",
+          "file": "tests\\test_packetizer.py",
+          "line": 49,
+          "matchedLine": "algorithms.AES(zero_byte * 16),",
+          "language": "python",
+          "category": "weak-symmetric",
+          "algorithm": "AES",
+          "risk": "moderate",
+          "reason": "AES-128 provides reduced security against quantum attacks (Grover's algorithm)",
+          "migration": "Use AES-256 for quantum-resistant symmetric encryption",
+          "confidence": "high",
+          "originalRisk": "moderate",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "medium",
+            "contextEvidence": [
+              "↑ nearby-code: encrypt",
+              "↑ import-context: paramiko/ssh2/libssh"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "encrypt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "paramiko/ssh2/libssh",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-aes",
+          "file": "tests\\test_packetizer.py",
+          "line": 79,
+          "matchedLine": "algorithms.AES(zero_byte * 16),",
+          "language": "python",
+          "category": "weak-symmetric",
+          "algorithm": "AES",
+          "risk": "moderate",
+          "reason": "AES-128 provides reduced security against quantum attacks (Grover's algorithm)",
+          "migration": "Use AES-256 for quantum-resistant symmetric encryption",
+          "confidence": "high",
+          "originalRisk": "moderate",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "medium",
+            "contextEvidence": [
+              "↑ nearby-code: encrypt",
+              "↑ import-context: paramiko/ssh2/libssh"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "encrypt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "paramiko/ssh2/libssh",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-aes",
+          "file": "tests\\test_packetizer.py",
+          "line": 103,
+          "matchedLine": "algorithms.AES(zero_byte * 16),",
+          "language": "python",
+          "category": "weak-symmetric",
+          "algorithm": "AES",
+          "risk": "moderate",
+          "reason": "AES-128 provides reduced security against quantum attacks (Grover's algorithm)",
+          "migration": "Use AES-256 for quantum-resistant symmetric encryption",
+          "confidence": "high",
+          "originalRisk": "moderate",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "medium",
+            "contextEvidence": [
+              "↑ nearby-code: encrypt",
+              "↑ import-context: paramiko/ssh2/libssh"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "encrypt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "paramiko/ssh2/libssh",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 0,
+      "moderateCount": 3,
+      "safeCount": 0
+    },
+    {
+      "file": "paramiko\\ecdsakey.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "paramiko\\ecdsakey.py",
+          "line": 220,
+          "matchedLine": "def can_sign(self):",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ import-context: paramiko/ssh2/libssh"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "paramiko/ssh2/libssh",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "paramiko\\ecdsakey.py",
+          "line": 225,
+          "matchedLine": "sig = self.signing_key.sign(data, ecdsa)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ import-context: paramiko/ssh2/libssh"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "paramiko/ssh2/libssh",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-ec-keygen",
+          "file": "paramiko\\ecdsakey.py",
+          "line": 268,
+          "matchedLine": "private_key = ec.generate_private_key(curve, backend=default_backend())",
+          "language": "python",
+          "category": "asymmetric-encryption",
+          "algorithm": "ECDSA",
+          "risk": "critical",
+          "reason": "Elliptic curve key generation is vulnerable to quantum attacks via Shor's algorithm",
+          "migration": "Migrate to ML-DSA (FIPS 204) for signatures or ML-KEM (FIPS 203) for key exchange",
+          "confidence": "verified",
+          "scopeInfo": {
+            "functionName": "generate",
+            "className": "ECDSAKey",
+            "isTestCode": false,
+            "isConditionalPath": false
+          },
+          "astEnriched": true,
+          "originalRisk": "critical",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "critical",
+            "contextEvidence": [
+              "↑ nearby-code: password",
+              "↑ import-context: paramiko/ssh2/libssh",
+              "• ast-scope: generate"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "password",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "paramiko/ssh2/libssh",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "ast-scope",
+                "value": "generate",
+                "influence": "neutral"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 1,
+      "moderateCount": 0,
+      "safeCount": 2
+    },
+    {
+      "file": "paramiko\\ed25519key.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "paramiko\\ed25519key.py",
+          "line": 186,
+          "matchedLine": "def can_sign(self):",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ import-context: passlib/bcrypt/argon2",
+              "↑ import-context: paramiko/ssh2/libssh"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "passlib/bcrypt/argon2",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "paramiko/ssh2/libssh",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "paramiko\\ed25519key.py",
+          "line": 194,
+          "matchedLine": "if self.can_sign():",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ import-context: passlib/bcrypt/argon2",
+              "↑ import-context: paramiko/ssh2/libssh"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "passlib/bcrypt/argon2",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "paramiko/ssh2/libssh",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "paramiko\\ed25519key.py",
+          "line": 203,
+          "matchedLine": "m.add_string(self._signing_key.sign(data).signature)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ import-context: passlib/bcrypt/argon2",
+              "↑ import-context: paramiko/ssh2/libssh"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "passlib/bcrypt/argon2",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "paramiko/ssh2/libssh",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 0,
+      "moderateCount": 0,
+      "safeCount": 3
+    },
+    {
+      "file": "paramiko\\kex_curve25519.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-x25519",
+          "file": "paramiko\\kex_curve25519.py",
+          "line": 30,
+          "matchedLine": "X25519PrivateKey.generate()",
+          "language": "python",
+          "category": "key-exchange",
+          "algorithm": "X25519",
+          "risk": "critical",
+          "reason": "X25519 key exchange is vulnerable to quantum attacks via Shor's algorithm",
+          "migration": "Migrate to ML-KEM (FIPS 203) for key exchange",
+          "confidence": "verified",
+          "scopeInfo": {
+            "functionName": "is_available",
+            "className": "KexCurve25519",
+            "isTestCode": false,
+            "isConditionalPath": true
+          },
+          "astEnriched": true,
+          "originalRisk": "critical",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "critical",
+            "contextEvidence": [
+              "↑ import-context: paramiko/ssh2/libssh",
+              "• ast-scope: is_available",
+              "↓ ast-scope: conditional-fallback"
+            ],
+            "signals": [
+              {
+                "type": "import-context",
+                "value": "paramiko/ssh2/libssh",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "ast-scope",
+                "value": "is_available",
+                "influence": "neutral"
+              },
+              {
+                "type": "ast-scope",
+                "value": "conditional-fallback",
+                "influence": "decreases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-x25519",
+          "file": "paramiko\\kex_curve25519.py",
+          "line": 45,
+          "matchedLine": "self.key = X25519PrivateKey.generate()",
+          "language": "python",
+          "category": "key-exchange",
+          "algorithm": "X25519",
+          "risk": "critical",
+          "reason": "X25519 key exchange is vulnerable to quantum attacks via Shor's algorithm",
+          "migration": "Migrate to ML-KEM (FIPS 203) for key exchange",
+          "confidence": "verified",
+          "scopeInfo": {
+            "functionName": "start_kex",
+            "className": "KexCurve25519",
+            "isTestCode": false,
+            "isConditionalPath": false
+          },
+          "astEnriched": true,
+          "originalRisk": "critical",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "critical",
+            "contextEvidence": [
+              "↑ nearby-code: key_exchange",
+              "↑ import-context: paramiko/ssh2/libssh",
+              "• ast-scope: start_kex"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "key_exchange",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "paramiko/ssh2/libssh",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "ast-scope",
+                "value": "start_kex",
+                "influence": "neutral"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 2,
+      "moderateCount": 0,
+      "safeCount": 0
+    },
+    {
+      "file": "paramiko\\kex_ecdh_nist.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-ec-keygen",
+          "file": "paramiko\\kex_ecdh_nist.py",
+          "line": 59,
+          "matchedLine": "self.P = ec.generate_private_key(self.curve, default_backend())",
+          "language": "python",
+          "category": "asymmetric-encryption",
+          "algorithm": "ECDSA",
+          "risk": "critical",
+          "reason": "Elliptic curve key generation is vulnerable to quantum attacks via Shor's algorithm",
+          "migration": "Migrate to ML-DSA (FIPS 204) for signatures or ML-KEM (FIPS 203) for key exchange",
+          "confidence": "verified",
+          "scopeInfo": {
+            "functionName": "_generate_key_pair",
+            "className": "KexNistp256",
+            "isTestCode": false,
+            "isConditionalPath": false
+          },
+          "astEnriched": true,
+          "originalRisk": "critical",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "critical",
+            "contextEvidence": [
+              "↑ nearby-code: key_exchange",
+              "↑ import-context: paramiko/ssh2/libssh",
+              "• ast-scope: _generate_key_pair"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "key_exchange",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "paramiko/ssh2/libssh",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "ast-scope",
+                "value": "_generate_key_pair",
+                "influence": "neutral"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-ecdh-exchange",
+          "file": "paramiko\\kex_ecdh_nist.py",
+          "line": 71,
+          "matchedLine": "K = self.P.exchange(ec.ECDH(), self.Q_C)",
+          "language": "python",
+          "category": "key-exchange",
+          "algorithm": "ECDH",
+          "risk": "critical",
+          "reason": "ECDH key exchange is vulnerable to quantum attacks via Shor's algorithm",
+          "migration": "Migrate to ML-KEM (FIPS 203) for key encapsulation",
+          "confidence": "high",
+          "originalRisk": "critical",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "critical",
+            "contextEvidence": [
+              "↑ import-context: paramiko/ssh2/libssh"
+            ],
+            "signals": [
+              {
+                "type": "import-context",
+                "value": "paramiko/ssh2/libssh",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-ecdh-exchange",
+          "file": "paramiko\\kex_ecdh_nist.py",
+          "line": 117,
+          "matchedLine": "K = self.P.exchange(ec.ECDH(), self.Q_S)",
+          "language": "python",
+          "category": "key-exchange",
+          "algorithm": "ECDH",
+          "risk": "critical",
+          "reason": "ECDH key exchange is vulnerable to quantum attacks via Shor's algorithm",
+          "migration": "Migrate to ML-KEM (FIPS 203) for key encapsulation",
+          "confidence": "high",
+          "originalRisk": "critical",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "critical",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ import-context: paramiko/ssh2/libssh"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "paramiko/ssh2/libssh",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 3,
+      "moderateCount": 0,
+      "safeCount": 0
+    },
+    {
+      "file": "paramiko\\kex_mlkem.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-x25519",
+          "file": "paramiko\\kex_mlkem.py",
+          "line": 76,
+          "matchedLine": "X25519PrivateKey.generate()",
+          "language": "python",
+          "category": "key-exchange",
+          "algorithm": "X25519",
+          "risk": "critical",
+          "reason": "X25519 key exchange is vulnerable to quantum attacks via Shor's algorithm",
+          "migration": "Migrate to ML-KEM (FIPS 203) for key exchange",
+          "confidence": "verified",
+          "scopeInfo": {
+            "functionName": "is_available",
+            "className": "KexMLKEM768X25519",
+            "isTestCode": false,
+            "isConditionalPath": true
+          },
+          "astEnriched": true,
+          "originalRisk": "critical",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "critical",
+            "contextEvidence": [
+              "↑ import-context: paramiko/ssh2/libssh",
+              "• ast-scope: is_available",
+              "↓ ast-scope: conditional-fallback"
+            ],
+            "signals": [
+              {
+                "type": "import-context",
+                "value": "paramiko/ssh2/libssh",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "ast-scope",
+                "value": "is_available",
+                "influence": "neutral"
+              },
+              {
+                "type": "ast-scope",
+                "value": "conditional-fallback",
+                "influence": "decreases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-x25519",
+          "file": "paramiko\\kex_mlkem.py",
+          "line": 84,
+          "matchedLine": "self.x25519_key = X25519PrivateKey.generate()",
+          "language": "python",
+          "category": "key-exchange",
+          "algorithm": "X25519",
+          "risk": "critical",
+          "reason": "X25519 key exchange is vulnerable to quantum attacks via Shor's algorithm",
+          "migration": "Migrate to ML-KEM (FIPS 203) for key exchange",
+          "confidence": "verified",
+          "scopeInfo": {
+            "functionName": "start_kex",
+            "className": "KexMLKEM768X25519",
+            "isTestCode": false,
+            "isConditionalPath": false
+          },
+          "astEnriched": true,
+          "originalRisk": "critical",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "critical",
+            "contextEvidence": [
+              "↑ nearby-code: key_exchange",
+              "↑ import-context: paramiko/ssh2/libssh",
+              "• ast-scope: start_kex"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "key_exchange",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "paramiko/ssh2/libssh",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "ast-scope",
+                "value": "start_kex",
+                "influence": "neutral"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 2,
+      "moderateCount": 0,
+      "safeCount": 0
+    },
+    {
+      "file": "paramiko\\packet.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "paramiko\\packet.py",
+          "line": 447,
+          "matchedLine": "out = packet[0:4] + self.__block_engine_out.encrypt(",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: encrypt",
+              "↑ import-context: paramiko/ssh2/libssh"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "encrypt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "paramiko/ssh2/libssh",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 0,
+      "moderateCount": 0,
+      "safeCount": 1
+    },
+    {
+      "file": "paramiko\\pkey.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "paramiko\\pkey.py",
+          "line": 374,
+          "matchedLine": "def can_sign(self):",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↓ nearby-code: legacy",
+              "↑ import-context: passlib/bcrypt/argon2",
+              "↑ import-context: paramiko/ssh2/libssh"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "legacy",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "passlib/bcrypt/argon2",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "paramiko/ssh2/libssh",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-aes",
+          "file": "paramiko\\pkey.py",
+          "line": 727,
+          "matchedLine": "algorithms.AES(key), mode(iv), default_backend()",
+          "language": "python",
+          "category": "weak-symmetric",
+          "algorithm": "AES",
+          "risk": "moderate",
+          "reason": "AES-128 provides reduced security against quantum attacks (Grover's algorithm)",
+          "migration": "Use AES-256 for quantum-resistant symmetric encryption",
+          "confidence": "high",
+          "originalRisk": "moderate",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "medium",
+            "contextEvidence": [
+              "↑ nearby-code: encrypt",
+              "↑ import-context: passlib/bcrypt/argon2",
+              "↑ import-context: paramiko/ssh2/libssh"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "encrypt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "passlib/bcrypt/argon2",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "paramiko/ssh2/libssh",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 0,
+      "moderateCount": 1,
+      "safeCount": 1
+    },
+    {
+      "file": "paramiko\\rsakey.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "paramiko\\rsakey.py",
+          "line": 131,
+          "matchedLine": "def can_sign(self):",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ import-context: paramiko/ssh2/libssh"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "paramiko/ssh2/libssh",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "paramiko\\rsakey.py",
+          "line": 141,
+          "matchedLine": "sig = self.key.sign(",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ import-context: paramiko/ssh2/libssh"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "paramiko/ssh2/libssh",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-rsa-keygen",
+          "file": "paramiko\\rsakey.py",
+          "line": 188,
+          "matchedLine": "key = rsa.generate_private_key(",
+          "language": "python",
+          "category": "asymmetric-encryption",
+          "algorithm": "RSA",
+          "risk": "critical",
+          "reason": "RSA key generation is vulnerable to quantum attacks via Shor's algorithm",
+          "migration": "Migrate to ML-KEM (FIPS 203) for encryption or ML-DSA (FIPS 204) for signatures",
+          "confidence": "verified",
+          "scopeInfo": {
+            "functionName": "generate",
+            "className": "RSAKey",
+            "isTestCode": false,
+            "isConditionalPath": false
+          },
+          "astEnriched": true,
+          "originalRisk": "critical",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "critical",
+            "contextEvidence": [
+              "↑ import-context: paramiko/ssh2/libssh",
+              "• ast-scope: generate"
+            ],
+            "signals": [
+              {
+                "type": "import-context",
+                "value": "paramiko/ssh2/libssh",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "ast-scope",
+                "value": "generate",
+                "influence": "neutral"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 1,
+      "moderateCount": 0,
+      "safeCount": 2
+    }
+  ],
+  "adjustedSummary": {
+    "critical": 9,
+    "high": 0,
+    "medium": 4,
+    "low": 0,
+    "informational": 9,
+    "total": 22
+  }
+}

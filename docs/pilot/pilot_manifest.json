@@ -1,0 +1,61 @@
+{
+  "generated": "2026-11-12",
+  "pilot_repositories": {
+    "paramiko": {
+      "url": "https://github.com/paramiko/paramiko",
+      "commit": "0e9ccb91e0f9a68f2587233d523ad7fe46e730fe",
+      "commit_date": "2026-10-17",
+      "tag": "5.1.0"
+    },
+    "python-jose": {
+      "url": "https://github.com/mpdavis/python-jose",
+      "commit": "018b310ddb8b50dcfd09a0c152117835a21dd656",
+      "commit_date": "2025-05-28",
+      "tag": "3.5.0"
+    }
+  },
+  "baseline_tools": {
+    "pqcheck": {
+      "url": "https://github.com/Rafael-Ryu/pqcheck",
+      "commit": "3e99c742a3e448c92fedc0e91dd578cbdbd78d83",
+      "commit_date": "2026-07-14",
+      "invocation": "pqcheck 0.1.0, policy cryptoct-default-1.0.0, run via `pqcheck scan <dir> -p cryptoct-default -f sarif`"
+    },
+    "pqc-scanner": {
+      "url": "https://github.com/rauleteee/pqc-scanner",
+      "commit": "b5ccaac159aa4f4133ff1f6aa72ec119826355f1",
+      "commit_date": "2026-10-27",
+      "invocation": "pqc-audit 0.4.1, run via `pqc-audit <dir> --json` (CycloneDX)"
+    },
+    "postquant": {
+      "url": "https://github.com/postquantdev/postquant",
+      "commit": "4dc61b7965198e460a8e01c91e04b5c503fd4a2f",
+      "commit_date": "2026-03-04",
+      "invocation": "PostQuant 0.7.0 built from source (npm ci; tsc), run via `postquant analyze <dir> -f json --show-all --verbose`"
+    },
+    "quantum-mcp": {
+      "url": "https://github.com/Miles0sage/quantum-mcp",
+      "commit": "ff4f6dc384431aabe789ffa927e8ea4e111c5a50",
+      "commit_date": "2026-03-26",
+      "invocation": "qsafe 1.1.0 (pqc_scan_cli.py), run via `python pqc_scan_cli.py <dir> --format json`"
+    },
+    "quantum-safe-auditor": {
+      "url": "https://github.com/AnimeshShaw/quantum-safe-auditor",
+      "commit": "4d695503e6aea3f33897dc60c77981f6127f1dda",
+      "commit_date": "2026-09-26",
+      "invocation": "regex stage only (CryptoScanner._regex_sweep) via experiments/pilot/qsa_regex_driver.py; LLM enrichment NOT run"
+    },
+    "mehl_esem2026": {
+      "zenodo_doi": "10.5281/zenodo.19634475",
+      "note": "Zenodo record contains scanner RESULTS (raw.zip per-repo JSON, aggregate.csv, ground_truth_curated.csv, verification_report.md), NOT scanner source code. paramiko_paramiko.json (scan_timestamp 2026-04-16) copied; no python-jose entry present in raw.zip although ground_truth_curated.csv lists mpdavis/python-jose."
+    }
+  },
+  "environment": {
+    "os": "Windows 11 Home 10.0.26300",
+    "python": "3.12.10",
+    "semgrep": "1.185.0 (pip wheel, native Windows)",
+    "node": "v24.15.0",
+    "docker": "29.5.2 installed, daemon not running (Docker Desktop stopped)",
+    "wsl": "Ubuntu 26.04.1, Python 3.14.4"
+  }
+}

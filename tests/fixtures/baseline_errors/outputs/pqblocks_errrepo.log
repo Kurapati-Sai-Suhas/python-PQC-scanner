@@ -1,0 +1,2 @@
+Scan error: errrepo\nullbyte.py: Syntax error: source code string cannot contain null bytes
+Scan error: errrepo\syntax_error.py: Syntax error: invalid syntax (<unknown>, line 6)

@@ -1,0 +1,24 @@
+warning: policy declares constraints pqcheck v0.1 does not evaluate (rules match on family/algorithm/parameter-sets/curves/modes/paddings only): hash, params
+? jose/backends/cryptography_backend.py:208 — RSA [banned/critical, confidence high] — Shor — migrate to ML-KEM-768
+? jose/backends/cryptography_backend.py:209 — RSA [banned/critical, confidence high] — Shor — migrate to ML-KEM-768
+? jose/backends/cryptography_backend.py:209 — SHA-1 [banned/critical, confidence high] — Collision-broken
+? jose/backends/cryptography_backend.py:209 — SHA-1 [banned/critical, confidence high] — Collision-broken
+? jose/backends/cryptography_backend.py:210 — RSA [banned/critical, confidence high] — Shor — migrate to ML-KEM-768
+? jose/backends/cryptography_backend.py:210 — SHA-256 [approved/info, confidence high]
+? jose/backends/cryptography_backend.py:210 — SHA-256 [approved/info, confidence high]
+? jose/backends/cryptography_backend.py:306 — RSA [banned/critical, confidence high] — Shor — migrate to ML-KEM-768
+? jose/backends/cryptography_backend.py:316 — RSA [banned/critical, confidence high] — Shor — migrate to ML-KEM-768
+? jose/backends/cryptography_backend.py:462 — AES-GCM [default/medium, confidence high]
+? jose/backends/cryptography_backend.py:467 — AES [default/medium, confidence high]
+? jose/backends/cryptography_backend.py:486 — AES-GCM [default/medium, confidence high]
+? jose/backends/cryptography_backend.py:493 — AES [default/medium, confidence high]
+? jose/backends/cryptography_backend.py:525 — SHA-256 [approved/info, confidence high]
+? jose/backends/cryptography_backend.py:525 — SHA-384 [approved/info, confidence high]
+? jose/backends/cryptography_backend.py:525 — SHA-512 [default/medium, confidence high]
+? jose/backends/native.py:59 — HMAC [approved/info, confidence high]
+? tests/algorithms/test_EC.py:111 — ECDSA [banned/critical, confidence high] — Shor — migrate to ML-DSA-65
+? tests/algorithms/test_EC.py:238 — ECDSA [banned/critical, confidence high] — Shor — migrate to ML-DSA-65
+? tests/algorithms/test_EC.py:247 — SHA-256 [approved/info, confidence high]
+dependencies: 6 parsed
+policy cryptoct-default-1.0.0: 9 fail, 5 warn, 6 allow
+gate: --fail-on policy tripped at critical

@@ -1,0 +1,37 @@
+[project]
+name = "pqscan"
+version = "0.1.0.dev0"
+description = "Post-quantum crypto scanner for Python projects: role-aware PQC migration analysis with evidence-gated abstention (research prototype)"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "Apache-2.0" }
+dependencies = [
+    "semgrep==1.185.0",
+    "cyclonedx-python-lib==11.12.0",
+    "jsonschema>=4.23",
+    "pyyaml>=6.0",
+    "typer>=0.27",
+    "pydantic>=2.13",
+]
+
+[project.optional-dependencies]
+bench = ["numpy", "scipy", "statsmodels", "matplotlib", "pandas", "tabulate"]
+dev = ["pytest>=9", "pytest-cov"]
+
+[project.scripts]
+pqscan = "pqscan.cli:app"
+
+[build-system]
+requires = ["setuptools>=70"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["pqscan*"]
+
+[tool.setuptools.package-data]
+pqscan = ["detect/rules/*.yaml", "policy/*.yaml", "export/schemas/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+norecursedirs = ["fixtures", ".venv", "*.egg-info"]
+addopts = "-q"

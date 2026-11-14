@@ -1,0 +1,27 @@
+pqscan 0.1.0.dev0 | policy 1.1 | threshold T2 | arm full
+files scanned: 38, skipped: 2, execution failures: 0, semgrep: ok
+sites: 22 (ABSTAIN=11, FLAG_NO_TARGET=1, RECOMMEND=10); excluded non-PK sites: 3; unsupported-library imports: 6 (python-ecdsa, python-rsa)
+target classes: ABSTAIN=11, INVENTORY=1, KEM_DEM=2, SIG=8
+
+jose/backends/cryptography_backend.py:72  ANY      VERIFY             T3  RECOMMEND      SIG
+jose/backends/cryptography_backend.py:74  ANY      SIGN               T3  RECOMMEND      SIG
+jose/backends/cryptography_backend.py:104  EC       SIGN               T3  RECOMMEND      SIG
+jose/backends/cryptography_backend.py:106  EC       VERIFY             T3  RECOMMEND      SIG
+jose/backends/cryptography_backend.py:139  EC       SIGN               T2  RECOMMEND      SIG
+jose/backends/cryptography_backend.py:145  EC       VERIFY             T2  RECOMMEND      SIG
+jose/backends/cryptography_backend.py:250  ANY      UNKNOWN            T2  ABSTAIN        ABSTAIN
+jose/backends/cryptography_backend.py:252  ANY      UNKNOWN            T2  ABSTAIN        ABSTAIN
+jose/backends/cryptography_backend.py:268  RSA      UNKNOWN            T2  ABSTAIN        ABSTAIN
+jose/backends/cryptography_backend.py:298  RSA      UNKNOWN            T2  ABSTAIN        ABSTAIN
+jose/backends/cryptography_backend.py:301  ANY      UNKNOWN            T2  ABSTAIN        ABSTAIN
+jose/backends/cryptography_backend.py:306  RSA      SIGN               T2  RECOMMEND      SIG
+jose/backends/cryptography_backend.py:316  RSA      VERIFY             T2  RECOMMEND      SIG
+jose/backends/cryptography_backend.py:380  RSA      PK_ENCRYPT         T2  RECOMMEND      KEM_DEM
+jose/backends/cryptography_backend.py:388  RSA      PK_DECRYPT         T2  RECOMMEND      KEM_DEM
+tests/algorithms/test_EC.py:111  EC       UNKNOWN            T1  ABSTAIN        ABSTAIN
+tests/algorithms/test_EC.py:146  ANY      SIGN               T0  ABSTAIN        ABSTAIN
+tests/algorithms/test_EC.py:198  ANY      SIGN               T0  ABSTAIN        ABSTAIN
+tests/algorithms/test_EC.py:201  ANY      VERIFY             T0  ABSTAIN        ABSTAIN
+tests/algorithms/test_EC.py:202  ANY      VERIFY             T0  ABSTAIN        ABSTAIN
+tests/algorithms/test_EC.py:238  EC       KEY_MATERIAL_ONLY  T2  FLAG_NO_TARGET INVENTORY
+tests/algorithms/test_RSA.py:226  RSA      UNKNOWN            T1  ABSTAIN        ABSTAIN

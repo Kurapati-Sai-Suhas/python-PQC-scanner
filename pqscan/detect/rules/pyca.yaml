@@ -1,0 +1,141 @@
+# Module A — PyCA `cryptography` candidate rules (api_coverage.md rows C1–C24).
+# These rules only find CANDIDATES. Roles are never assigned here; Module B/C resolve
+# receivers, arguments, provenance and consumers. Semgrep resolves `import x as y` and
+# `from a.b import c` aliases for fully qualified patterns.
+rules:
+  - id: pqscan.pyca.rsa.keygen
+    languages: [python]
+    severity: INFO
+    message: pyca RSA key generation (C1)
+    metadata: {library: pyca, algorithm: RSA, kind: keygen, api: "cryptography.hazmat.primitives.asymmetric.rsa.generate_private_key", coverage_row: C1}
+    pattern: cryptography.hazmat.primitives.asymmetric.rsa.generate_private_key(...)
+
+  - id: pqscan.pyca.rsa.construct
+    languages: [python]
+    severity: INFO
+    message: pyca RSA key reconstructed from numbers (C2)
+    metadata: {library: pyca, algorithm: RSA, kind: construct, api: "cryptography.hazmat.primitives.asymmetric.rsa.RSAPrivateNumbers/RSAPublicNumbers", coverage_row: C2}
+    pattern-either:
+      - pattern: cryptography.hazmat.primitives.asymmetric.rsa.RSAPrivateNumbers(...).private_key(...)
+      - pattern: cryptography.hazmat.primitives.asymmetric.rsa.RSAPublicNumbers(...).public_key(...)
+      - pattern: cryptography.hazmat.primitives.asymmetric.rsa.RSAPrivateNumbers(...)
+      - pattern: cryptography.hazmat.primitives.asymmetric.rsa.RSAPublicNumbers(...)
+
+  - id: pqscan.pyca.ec.keygen
+    languages: [python]
+    severity: INFO
+    message: pyca EC key generation (C7)
+    metadata: {library: pyca, algorithm: EC, kind: keygen, api: "cryptography.hazmat.primitives.asymmetric.ec.generate_private_key", coverage_row: C7}
+    pattern: cryptography.hazmat.primitives.asymmetric.ec.generate_private_key(...)
+
+  - id: pqscan.pyca.ec.derive
+    languages: [python]
+    severity: INFO
+    message: pyca EC private key derived from a scalar (C8)
+    metadata: {library: pyca, algorithm: EC, kind: construct, api: "cryptography.hazmat.primitives.asymmetric.ec.derive_private_key", coverage_row: C8}
+    pattern: cryptography.hazmat.primitives.asymmetric.ec.derive_private_key(...)
+
+  - id: pqscan.pyca.ec.construct
+    languages: [python]
+    severity: INFO
+    message: pyca EC key reconstructed from numbers or an encoded point (C9)
+    metadata: {library: pyca, algorithm: EC, kind: construct, api: "cryptography.hazmat.primitives.asymmetric.ec.EllipticCurvePublicKey.from_encoded_point/EllipticCurvePublicNumbers/EllipticCurvePrivateNumbers", coverage_row: C9}
+    pattern-either:
+      - pattern: cryptography.hazmat.primitives.asymmetric.ec.EllipticCurvePublicKey.from_encoded_point(...)
+      - pattern: cryptography.hazmat.primitives.asymmetric.ec.EllipticCurvePublicNumbers(...)
+      - pattern: cryptography.hazmat.primitives.asymmetric.ec.EllipticCurvePrivateNumbers(...)
+
+  - id: pqscan.pyca.x25519.keygen
+    languages: [python]
+    severity: INFO
+    message: pyca X25519/X448 key generation or construction (C13)
+    metadata: {library: pyca, algorithm: X25519, kind: keygen, api: "cryptography.hazmat.primitives.asymmetric.x25519/x448 PrivateKey.generate/from_private_bytes, PublicKey.from_public_bytes", coverage_row: C13}
+    pattern-either:
+      - pattern: cryptography.hazmat.primitives.asymmetric.x25519.X25519PrivateKey.generate()
+      - pattern: cryptography.hazmat.primitives.asymmetric.x25519.X25519PrivateKey.from_private_bytes(...)
+      - pattern: cryptography.hazmat.primitives.asymmetric.x25519.X25519PublicKey.from_public_bytes(...)
+      - pattern: cryptography.hazmat.primitives.asymmetric.x448.X448PrivateKey.generate()
+      - pattern: cryptography.hazmat.primitives.asymmetric.x448.X448PrivateKey.from_private_bytes(...)
+      - pattern: cryptography.hazmat.primitives.asymmetric.x448.X448PublicKey.from_public_bytes(...)
+
+  - id: pqscan.pyca.ed25519.keygen
+    languages: [python]
+    severity: INFO
+    message: pyca Ed25519/Ed448 key generation or construction (C15, extension)
+    metadata: {library: pyca, algorithm: Ed25519, kind: keygen, api: "cryptography.hazmat.primitives.asymmetric.ed25519/ed448 PrivateKey.generate/from_private_bytes, PublicKey.from_public_bytes", coverage_row: C15}
+    pattern-either:
+      - pattern: cryptography.hazmat.primitives.asymmetric.ed25519.Ed25519PrivateKey.generate()
+      - pattern: cryptography.hazmat.primitives.asymmetric.ed25519.Ed25519PrivateKey.from_private_bytes(...)
+      - pattern: cryptography.hazmat.primitives.asymmetric.ed25519.Ed25519PublicKey.from_public_bytes(...)
+      - pattern: cryptography.hazmat.primitives.asymmetric.ed448.Ed448PrivateKey.generate()
+      - pattern: cryptography.hazmat.primitives.asymmetric.ed448.Ed448PrivateKey.from_private_bytes(...)
+      - pattern: cryptography.hazmat.primitives.asymmetric.ed448.Ed448PublicKey.from_public_bytes(...)
+
+  - id: pqscan.pyca.dh.parameters
+    languages: [python]
+    severity: INFO
+    message: pyca finite-field DH parameter generation/construction (C16, extension)
+    metadata: {library: pyca, algorithm: DH, kind: parameters, api: "cryptography.hazmat.primitives.asymmetric.dh.generate_parameters/DHParameterNumbers", coverage_row: C16}
+    pattern-either:
+      - pattern: cryptography.hazmat.primitives.asymmetric.dh.generate_parameters(...)
+      - pattern: cryptography.hazmat.primitives.asymmetric.dh.DHParameterNumbers(...)
+      - pattern: cryptography.hazmat.primitives.asymmetric.dh.DHPrivateNumbers(...)
+
+  - id: pqscan.pyca.loader.pem
+    languages: [python]
+    severity: INFO
+    message: pyca PEM key loader (C17)
+    metadata: {library: pyca, algorithm: ANY, kind: loader, api: "cryptography.hazmat.primitives.serialization.load_pem_private_key/load_pem_public_key", coverage_row: C17}
+    pattern-either:
+      - pattern: cryptography.hazmat.primitives.serialization.load_pem_private_key(...)
+      - pattern: cryptography.hazmat.primitives.serialization.load_pem_public_key(...)
+
+  - id: pqscan.pyca.loader.der
+    languages: [python]
+    severity: INFO
+    message: pyca DER key loader (C18)
+    metadata: {library: pyca, algorithm: ANY, kind: loader, api: "cryptography.hazmat.primitives.serialization.load_der_private_key/load_der_public_key", coverage_row: C18}
+    pattern-either:
+      - pattern: cryptography.hazmat.primitives.serialization.load_der_private_key(...)
+      - pattern: cryptography.hazmat.primitives.serialization.load_der_public_key(...)
+
+  - id: pqscan.pyca.loader.ssh
+    languages: [python]
+    severity: INFO
+    message: pyca OpenSSH key loader (C19)
+    metadata: {library: pyca, algorithm: ANY, kind: loader, api: "cryptography.hazmat.primitives.serialization.load_ssh_private_key/load_ssh_public_key/load_ssh_public_identity", coverage_row: C19}
+    pattern-either:
+      - pattern: cryptography.hazmat.primitives.serialization.load_ssh_private_key(...)
+      - pattern: cryptography.hazmat.primitives.serialization.load_ssh_public_key(...)
+      - pattern: cryptography.hazmat.primitives.serialization.load_ssh_public_identity(...)
+
+  - id: pqscan.pyca.loader.pkcs12
+    languages: [python]
+    severity: INFO
+    message: pyca PKCS#12 loader (C20, extension)
+    metadata: {library: pyca, algorithm: ANY, kind: loader, api: "cryptography.hazmat.primitives.serialization.pkcs12.load_key_and_certificates/load_pkcs12", coverage_row: C20}
+    pattern-either:
+      - pattern: cryptography.hazmat.primitives.serialization.pkcs12.load_key_and_certificates(...)
+      - pattern: cryptography.hazmat.primitives.serialization.pkcs12.load_pkcs12(...)
+
+  - id: pqscan.pyca.loader.x509
+    languages: [python]
+    severity: INFO
+    message: pyca X.509 certificate loader (C21)
+    metadata: {library: pyca, algorithm: ANY, kind: loader, api: "cryptography.x509.load_pem_x509_certificate/load_der_x509_certificate", coverage_row: C21}
+    pattern-either:
+      - pattern: cryptography.x509.load_pem_x509_certificate(...)
+      - pattern: cryptography.x509.load_der_x509_certificate(...)
+
+  - id: pqscan.pyca.pqc.presence
+    languages: [python]
+    severity: INFO
+    message: pyca ML-KEM / ML-DSA API usage (C24; hybrid-context evidence)
+    metadata: {library: pyca, algorithm: ML-KEM, kind: pqc-presence, api: "cryptography.hazmat.primitives.asymmetric.mlkem/mldsa", coverage_row: C24}
+    pattern-either:
+      - pattern: cryptography.hazmat.primitives.asymmetric.mlkem.$C.generate(...)
+      - pattern: cryptography.hazmat.primitives.asymmetric.mlkem.$C.from_private_bytes(...)
+      - pattern: cryptography.hazmat.primitives.asymmetric.mlkem.$C.from_public_bytes(...)
+      - pattern: cryptography.hazmat.primitives.asymmetric.mldsa.$C.generate(...)
+      - pattern: cryptography.hazmat.primitives.asymmetric.mldsa.$C.from_private_bytes(...)
+      - pattern: cryptography.hazmat.primitives.asymmetric.mldsa.$C.from_public_bytes(...)

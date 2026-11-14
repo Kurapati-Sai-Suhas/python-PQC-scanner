@@ -1,0 +1,550 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:ab6ebbfd-b419-4ae8-ae24-0442505759c3",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-11-14T05:43:43Z",
+    "tools": [
+      {
+        "vendor": "PQBlocks",
+        "name": "pqblocks-scan",
+        "version": "0.1.0"
+      }
+    ],
+    "component": {
+      "type": "application",
+      "name": "scanned-application"
+    }
+  },
+  "components": [
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "urn:uuid:ab6ebbfd-b419-4ae8-ae24-0442505759c3:crypto-0",
+      "name": "SHA-256",
+      "version": "1.0",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\jose\\constants.py",
+            "line": 75
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "parameterSetIdentifier": "256",
+          "executionEnvironment": "software-plain-ram"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "urn:uuid:ab6ebbfd-b419-4ae8-ae24-0442505759c3:crypto-1",
+      "name": "SHA-256",
+      "version": "1.0",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\jose\\constants.py",
+            "line": 78
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "parameterSetIdentifier": "256",
+          "executionEnvironment": "software-plain-ram"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "urn:uuid:ab6ebbfd-b419-4ae8-ae24-0442505759c3:crypto-2",
+      "name": "SHA-256",
+      "version": "1.0",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\jose\\constants.py",
+            "line": 81
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "parameterSetIdentifier": "256",
+          "executionEnvironment": "software-plain-ram"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "urn:uuid:ab6ebbfd-b419-4ae8-ae24-0442505759c3:crypto-3",
+      "name": "SHA-256",
+      "version": "1.0",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\jose\\jwt.py",
+            "line": 448
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "parameterSetIdentifier": "256",
+          "executionEnvironment": "software-plain-ram"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "urn:uuid:ab6ebbfd-b419-4ae8-ae24-0442505759c3:crypto-4",
+      "name": "SHA-256",
+      "version": "1.0",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\jose\\utils.py",
+            "line": 50
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "parameterSetIdentifier": "256",
+          "executionEnvironment": "software-plain-ram"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "urn:uuid:ab6ebbfd-b419-4ae8-ae24-0442505759c3:crypto-5",
+      "name": "SHA-256",
+      "version": "1.0",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\jose\\utils.py",
+            "line": 56
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "parameterSetIdentifier": "256",
+          "executionEnvironment": "software-plain-ram"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "urn:uuid:ab6ebbfd-b419-4ae8-ae24-0442505759c3:crypto-6",
+      "name": "ED25519",
+      "version": "1.0",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\jose\\utils.py",
+            "line": 148
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "parameterSetIdentifier": "256",
+          "executionEnvironment": "software-plain-ram"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "urn:uuid:ab6ebbfd-b419-4ae8-ae24-0442505759c3:crypto-7",
+      "name": "ECDSA-P256",
+      "version": "1.0",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\jose\\utils.py",
+            "line": 151
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "parameterSetIdentifier": "256",
+          "executionEnvironment": "software-plain-ram"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "urn:uuid:ab6ebbfd-b419-4ae8-ae24-0442505759c3:crypto-8",
+      "name": "SHA-256",
+      "version": "1.0",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\jose\\backends\\cryptography_backend.py",
+            "line": 34
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "parameterSetIdentifier": "256",
+          "executionEnvironment": "software-plain-ram"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "urn:uuid:ab6ebbfd-b419-4ae8-ae24-0442505759c3:crypto-9",
+      "name": "SHA-256",
+      "version": "1.0",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\jose\\backends\\cryptography_backend.py",
+            "line": 43
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "parameterSetIdentifier": "256",
+          "executionEnvironment": "software-plain-ram"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "urn:uuid:ab6ebbfd-b419-4ae8-ae24-0442505759c3:crypto-10",
+      "name": "SHA-256",
+      "version": "1.0",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\jose\\backends\\cryptography_backend.py",
+            "line": 204
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "parameterSetIdentifier": "256",
+          "executionEnvironment": "software-plain-ram"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "urn:uuid:ab6ebbfd-b419-4ae8-ae24-0442505759c3:crypto-11",
+      "name": "SHA-1",
+      "version": "1.0",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\jose\\backends\\cryptography_backend.py",
+            "line": 209
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "parameterSetIdentifier": "1",
+          "executionEnvironment": "software-plain-ram"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "urn:uuid:ab6ebbfd-b419-4ae8-ae24-0442505759c3:crypto-12",
+      "name": "SHA-256",
+      "version": "1.0",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\jose\\backends\\cryptography_backend.py",
+            "line": 210
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "parameterSetIdentifier": "256",
+          "executionEnvironment": "software-plain-ram"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "urn:uuid:ab6ebbfd-b419-4ae8-ae24-0442505759c3:crypto-13",
+      "name": "SHA-256",
+      "version": "1.0",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\jose\\backends\\cryptography_backend.py",
+            "line": 217
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "parameterSetIdentifier": "256",
+          "executionEnvironment": "software-plain-ram"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "urn:uuid:ab6ebbfd-b419-4ae8-ae24-0442505759c3:crypto-14",
+      "name": "SHA-256",
+      "version": "1.0",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\jose\\backends\\cryptography_backend.py",
+            "line": 525
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "parameterSetIdentifier": "256",
+          "executionEnvironment": "software-plain-ram"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "urn:uuid:ab6ebbfd-b419-4ae8-ae24-0442505759c3:crypto-15",
+      "name": "SHA-256",
+      "version": "1.0",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\jose\\backends\\ecdsa_backend.py",
+            "line": 21
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "parameterSetIdentifier": "256",
+          "executionEnvironment": "software-plain-ram"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "urn:uuid:ab6ebbfd-b419-4ae8-ae24-0442505759c3:crypto-16",
+      "name": "SHA-256",
+      "version": "1.0",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\jose\\backends\\ecdsa_backend.py",
+            "line": 26
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "parameterSetIdentifier": "256",
+          "executionEnvironment": "software-plain-ram"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "urn:uuid:ab6ebbfd-b419-4ae8-ae24-0442505759c3:crypto-17",
+      "name": "ECDSA-P256",
+      "version": "1.0",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\jose\\backends\\ecdsa_backend.py",
+            "line": 31
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "parameterSetIdentifier": "256",
+          "executionEnvironment": "software-plain-ram"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "urn:uuid:ab6ebbfd-b419-4ae8-ae24-0442505759c3:crypto-18",
+      "name": "SHA-256",
+      "version": "1.0",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\jose\\backends\\ecdsa_backend.py",
+            "line": 41
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "parameterSetIdentifier": "256",
+          "executionEnvironment": "software-plain-ram"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "urn:uuid:ab6ebbfd-b419-4ae8-ae24-0442505759c3:crypto-19",
+      "name": "SHA-256",
+      "version": "1.0",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\jose\\backends\\native.py",
+            "line": 21
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "parameterSetIdentifier": "256",
+          "executionEnvironment": "software-plain-ram"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "urn:uuid:ab6ebbfd-b419-4ae8-ae24-0442505759c3:crypto-20",
+      "name": "SHA-256",
+      "version": "1.0",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\jose\\backends\\rsa_backend.py",
+            "line": 121
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "parameterSetIdentifier": "256",
+          "executionEnvironment": "software-plain-ram"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "urn:uuid:ab6ebbfd-b419-4ae8-ae24-0442505759c3:crypto-21",
+      "name": "SHA-256",
+      "version": "1.0",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\jose\\backends\\rsa_backend.py",
+            "line": 133
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "parameterSetIdentifier": "256",
+          "executionEnvironment": "software-plain-ram"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "urn:uuid:ab6ebbfd-b419-4ae8-ae24-0442505759c3:crypto-22",
+      "name": "SHA-256",
+      "version": "1.0",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\tests\\algorithms\\test_EC.py",
+            "line": 247
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "parameterSetIdentifier": "256",
+          "executionEnvironment": "software-plain-ram"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "urn:uuid:ab6ebbfd-b419-4ae8-ae24-0442505759c3:crypto-23",
+      "name": "RSA-2048",
+      "version": "1.0",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\tests\\algorithms\\test_RSA.py",
+            "line": 108
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "parameterSetIdentifier": "2048",
+          "executionEnvironment": "software-plain-ram"
+        }
+      }
+    }
+  ]
+}

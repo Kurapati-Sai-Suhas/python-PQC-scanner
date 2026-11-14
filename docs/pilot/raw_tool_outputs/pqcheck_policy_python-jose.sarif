@@ -1,0 +1,716 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "pqcheck",
+          "semanticVersion": "0.1.0",
+          "informationUri": "https://github.com/Rafael-Ryu/pqcheck",
+          "rules": [
+            {
+              "id": "pqcheck/banned/RSA",
+              "shortDescription": {
+                "text": "RSA is banned by policy"
+              }
+            },
+            {
+              "id": "pqcheck/banned/SHA-1",
+              "shortDescription": {
+                "text": "SHA-1 is banned by policy"
+              }
+            },
+            {
+              "id": "pqcheck/approved/SHA-256",
+              "shortDescription": {
+                "text": "SHA-256 is approved by policy"
+              }
+            },
+            {
+              "id": "pqcheck/default/AES-GCM",
+              "shortDescription": {
+                "text": "AES-GCM is default by policy"
+              }
+            },
+            {
+              "id": "pqcheck/default/AES",
+              "shortDescription": {
+                "text": "AES is default by policy"
+              }
+            },
+            {
+              "id": "pqcheck/approved/SHA-384",
+              "shortDescription": {
+                "text": "SHA-384 is approved by policy"
+              }
+            },
+            {
+              "id": "pqcheck/default/SHA-512",
+              "shortDescription": {
+                "text": "SHA-512 is default by policy"
+              }
+            },
+            {
+              "id": "pqcheck/approved/HMAC",
+              "shortDescription": {
+                "text": "HMAC is approved by policy"
+              }
+            },
+            {
+              "id": "pqcheck/banned/ECDSA",
+              "shortDescription": {
+                "text": "ECDSA is banned by policy"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "pqcheck/banned/RSA",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "RSA (asymmetric-encryption) \u2014 Shor \u2014 migrate to ML-KEM-768 \u2014 evidence: RSA1_5 = padding.PKCS1v15()"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "jose/backends/cryptography_backend.py"
+                },
+                "region": {
+                  "startLine": 208,
+                  "startColumn": 14
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "pqcheckFingerprint/v1": "26daaf0febcd0b46"
+          },
+          "properties": {
+            "confidence": 1.0,
+            "quantum_risk": "quantum-vulnerable",
+            "detector_id": "python-ast",
+            "base_severity": "critical",
+            "severity": "critical",
+            "confidence_band": "high"
+          }
+        },
+        {
+          "ruleId": "pqcheck/banned/RSA",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "RSA (asymmetric-encryption) \u2014 Shor \u2014 migrate to ML-KEM-768 \u2014 evidence: RSA_OAEP = padding.OAEP(padding.MGF1(hashes.SHA1()), hashes.SHA1(), None)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "jose/backends/cryptography_backend.py"
+                },
+                "region": {
+                  "startLine": 209,
+                  "startColumn": 16
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "pqcheckFingerprint/v1": "66a77785e9cec6c7"
+          },
+          "properties": {
+            "confidence": 1.0,
+            "quantum_risk": "quantum-vulnerable",
+            "detector_id": "python-ast",
+            "base_severity": "critical",
+            "severity": "critical",
+            "confidence_band": "high"
+          }
+        },
+        {
+          "ruleId": "pqcheck/banned/SHA-1",
+          "ruleIndex": 1,
+          "level": "error",
+          "message": {
+            "text": "SHA-1 (hash) \u2014 Collision-broken \u2014 evidence: RSA_OAEP = padding.OAEP(padding.MGF1(hashes.SHA1()), hashes.SHA1(), None)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "jose/backends/cryptography_backend.py"
+                },
+                "region": {
+                  "startLine": 209,
+                  "startColumn": 42
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "pqcheckFingerprint/v1": "6467f8614b8cf569"
+          },
+          "properties": {
+            "confidence": 1.0,
+            "quantum_risk": "broken",
+            "detector_id": "python-ast",
+            "base_severity": "critical",
+            "severity": "critical",
+            "confidence_band": "high"
+          }
+        },
+        {
+          "ruleId": "pqcheck/banned/SHA-1",
+          "ruleIndex": 1,
+          "level": "error",
+          "message": {
+            "text": "SHA-1 (hash) \u2014 Collision-broken \u2014 evidence: RSA_OAEP = padding.OAEP(padding.MGF1(hashes.SHA1()), hashes.SHA1(), None)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "jose/backends/cryptography_backend.py"
+                },
+                "region": {
+                  "startLine": 209,
+                  "startColumn": 58
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "pqcheckFingerprint/v1": "6467f8614b8cf569"
+          },
+          "properties": {
+            "confidence": 1.0,
+            "quantum_risk": "broken",
+            "detector_id": "python-ast",
+            "base_severity": "critical",
+            "severity": "critical",
+            "confidence_band": "high"
+          }
+        },
+        {
+          "ruleId": "pqcheck/banned/RSA",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "RSA (asymmetric-encryption) \u2014 Shor \u2014 migrate to ML-KEM-768 \u2014 evidence: RSA_OAEP_256 = padding.OAEP(padding.MGF1(hashes.SHA256()), hashes.SHA256(), None)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "jose/backends/cryptography_backend.py"
+                },
+                "region": {
+                  "startLine": 210,
+                  "startColumn": 20
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "pqcheckFingerprint/v1": "ac3673f18b152043"
+          },
+          "properties": {
+            "confidence": 1.0,
+            "quantum_risk": "quantum-vulnerable",
+            "detector_id": "python-ast",
+            "base_severity": "critical",
+            "severity": "critical",
+            "confidence_band": "high"
+          }
+        },
+        {
+          "ruleId": "pqcheck/approved/SHA-256",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "SHA-256 (hash) \u2014 evidence: RSA_OAEP_256 = padding.OAEP(padding.MGF1(hashes.SHA256()), hashes.SHA256(), None)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "jose/backends/cryptography_backend.py"
+                },
+                "region": {
+                  "startLine": 210,
+                  "startColumn": 46
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "pqcheckFingerprint/v1": "02375f58b5b3864a"
+          },
+          "properties": {
+            "confidence": 1.0,
+            "quantum_risk": "quantum-safe",
+            "detector_id": "python-ast",
+            "base_severity": "info",
+            "severity": "info",
+            "confidence_band": "high"
+          }
+        },
+        {
+          "ruleId": "pqcheck/approved/SHA-256",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "SHA-256 (hash) \u2014 evidence: RSA_OAEP_256 = padding.OAEP(padding.MGF1(hashes.SHA256()), hashes.SHA256(), None)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "jose/backends/cryptography_backend.py"
+                },
+                "region": {
+                  "startLine": 210,
+                  "startColumn": 64
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "pqcheckFingerprint/v1": "02375f58b5b3864a"
+          },
+          "properties": {
+            "confidence": 1.0,
+            "quantum_risk": "quantum-safe",
+            "detector_id": "python-ast",
+            "base_severity": "info",
+            "severity": "info",
+            "confidence_band": "high"
+          }
+        },
+        {
+          "ruleId": "pqcheck/banned/RSA",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "RSA (asymmetric-encryption) \u2014 Shor \u2014 migrate to ML-KEM-768 \u2014 evidence: signature = self.prepared_key.sign(msg, padding.PKCS1v15(), self.hash_alg())"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "jose/backends/cryptography_backend.py"
+                },
+                "region": {
+                  "startLine": 306,
+                  "startColumn": 53
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "pqcheckFingerprint/v1": "c8ee6f9aa9156cb8"
+          },
+          "properties": {
+            "confidence": 1.0,
+            "quantum_risk": "quantum-vulnerable",
+            "detector_id": "python-ast",
+            "base_severity": "critical",
+            "severity": "critical",
+            "confidence_band": "high"
+          }
+        },
+        {
+          "ruleId": "pqcheck/banned/RSA",
+          "ruleIndex": 0,
+          "level": "error",
+          "message": {
+            "text": "RSA (asymmetric-encryption) \u2014 Shor \u2014 migrate to ML-KEM-768 \u2014 evidence: self.public_key().prepared_key.verify(sig, msg, padding.PKCS1v15(), self.hash_alg())"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "jose/backends/cryptography_backend.py"
+                },
+                "region": {
+                  "startLine": 316,
+                  "startColumn": 61
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "pqcheckFingerprint/v1": "88ebb027ae55fdea"
+          },
+          "properties": {
+            "confidence": 1.0,
+            "quantum_risk": "quantum-vulnerable",
+            "detector_id": "python-ast",
+            "base_severity": "critical",
+            "severity": "critical",
+            "confidence_band": "high"
+          }
+        },
+        {
+          "ruleId": "pqcheck/default/AES-GCM",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "AES-GCM (authenticated-encryption) \u2014 evidence: cipher = aead.AESGCM(self._key)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "jose/backends/cryptography_backend.py"
+                },
+                "region": {
+                  "startLine": 462,
+                  "startColumn": 26
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "pqcheckFingerprint/v1": "cc8fa9733563f06f"
+          },
+          "properties": {
+            "confidence": 1.0,
+            "quantum_risk": "quantum-safe",
+            "detector_id": "python-ast",
+            "base_severity": "medium",
+            "severity": "medium",
+            "confidence_band": "high"
+          }
+        },
+        {
+          "ruleId": "pqcheck/default/AES",
+          "ruleIndex": 4,
+          "level": "warning",
+          "message": {
+            "text": "AES (symmetric-cipher) \u2014 evidence: cipher = Cipher(algorithms.AES(self._key), mode, backend=default_backend())"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "jose/backends/cryptography_backend.py"
+                },
+                "region": {
+                  "startLine": 467,
+                  "startColumn": 26
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "pqcheckFingerprint/v1": "8932ae4d66548c63"
+          },
+          "properties": {
+            "confidence": 1.0,
+            "quantum_risk": "quantum-safe",
+            "detector_id": "python-ast",
+            "base_severity": "medium",
+            "severity": "medium",
+            "confidence_band": "high"
+          }
+        },
+        {
+          "ruleId": "pqcheck/default/AES-GCM",
+          "ruleIndex": 3,
+          "level": "warning",
+          "message": {
+            "text": "AES-GCM (authenticated-encryption) \u2014 evidence: cipher = aead.AESGCM(self._key)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "jose/backends/cryptography_backend.py"
+                },
+                "region": {
+                  "startLine": 486,
+                  "startColumn": 26
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "pqcheckFingerprint/v1": "99e2a07d152d5bcc"
+          },
+          "properties": {
+            "confidence": 1.0,
+            "quantum_risk": "quantum-safe",
+            "detector_id": "python-ast",
+            "base_severity": "medium",
+            "severity": "medium",
+            "confidence_band": "high"
+          }
+        },
+        {
+          "ruleId": "pqcheck/default/AES",
+          "ruleIndex": 4,
+          "level": "warning",
+          "message": {
+            "text": "AES (symmetric-cipher) \u2014 evidence: cipher = Cipher(algorithms.AES(self._key), mode, backend=default_backend())"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "jose/backends/cryptography_backend.py"
+                },
+                "region": {
+                  "startLine": 493,
+                  "startColumn": 26
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "pqcheckFingerprint/v1": "dd60f422ebd44136"
+          },
+          "properties": {
+            "confidence": 1.0,
+            "quantum_risk": "quantum-safe",
+            "detector_id": "python-ast",
+            "base_severity": "medium",
+            "severity": "medium",
+            "confidence_band": "high"
+          }
+        },
+        {
+          "ruleId": "pqcheck/approved/SHA-256",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "SHA-256 (hash) \u2014 evidence: ALG_MAP = {ALGORITHMS.HS256: hashes.SHA256(), ALGORITHMS.HS384: hashes.SHA384(), ALGORITHMS.HS512: hashes.SHA512()}"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "jose/backends/cryptography_backend.py"
+                },
+                "region": {
+                  "startLine": 525,
+                  "startColumn": 34
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "pqcheckFingerprint/v1": "0cc6ed97b1baad70"
+          },
+          "properties": {
+            "confidence": 1.0,
+            "quantum_risk": "quantum-safe",
+            "detector_id": "python-ast",
+            "base_severity": "info",
+            "severity": "info",
+            "confidence_band": "high"
+          }
+        },
+        {
+          "ruleId": "pqcheck/approved/SHA-384",
+          "ruleIndex": 5,
+          "level": "note",
+          "message": {
+            "text": "SHA-384 (hash) \u2014 evidence: ALG_MAP = {ALGORITHMS.HS256: hashes.SHA256(), ALGORITHMS.HS384: hashes.SHA384(), ALGORITHMS.HS512: hashes.SHA512()}"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "jose/backends/cryptography_backend.py"
+                },
+                "region": {
+                  "startLine": 525,
+                  "startColumn": 69
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "pqcheckFingerprint/v1": "f42e5c751f91ecf9"
+          },
+          "properties": {
+            "confidence": 1.0,
+            "quantum_risk": "quantum-safe",
+            "detector_id": "python-ast",
+            "base_severity": "info",
+            "severity": "info",
+            "confidence_band": "high"
+          }
+        },
+        {
+          "ruleId": "pqcheck/default/SHA-512",
+          "ruleIndex": 6,
+          "level": "warning",
+          "message": {
+            "text": "SHA-512 (hash) \u2014 evidence: ALG_MAP = {ALGORITHMS.HS256: hashes.SHA256(), ALGORITHMS.HS384: hashes.SHA384(), ALGORITHMS.HS512: hashes.SHA512()}"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "jose/backends/cryptography_backend.py"
+                },
+                "region": {
+                  "startLine": 525,
+                  "startColumn": 104
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "pqcheckFingerprint/v1": "dc631bd676419270"
+          },
+          "properties": {
+            "confidence": 1.0,
+            "quantum_risk": "quantum-safe",
+            "detector_id": "python-ast",
+            "base_severity": "medium",
+            "severity": "medium",
+            "confidence_band": "high"
+          }
+        },
+        {
+          "ruleId": "pqcheck/approved/HMAC",
+          "ruleIndex": 7,
+          "level": "note",
+          "message": {
+            "text": "HMAC (message-authentication) \u2014 evidence: return hmac.new(self.prepared_key, msg, self._hash_alg).digest()"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "jose/backends/native.py"
+                },
+                "region": {
+                  "startLine": 59,
+                  "startColumn": 16
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "pqcheckFingerprint/v1": "b8b3c6f5165f9d83"
+          },
+          "properties": {
+            "confidence": 1.0,
+            "quantum_risk": "quantum-safe",
+            "detector_id": "python-ast",
+            "base_severity": "info",
+            "severity": "info",
+            "confidence_band": "high"
+          }
+        },
+        {
+          "ruleId": "pqcheck/banned/ECDSA",
+          "ruleIndex": 8,
+          "level": "error",
+          "message": {
+            "text": "ECDSA (signature) \u2014 Shor \u2014 migrate to ML-DSA-65 \u2014 evidence: CryptographyEc.generate_private_key(mapping[algorithm](), backend=CryptographyBackend()), algorithm"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/algorithms/test_EC.py"
+                },
+                "region": {
+                  "startLine": 111,
+                  "startColumn": 9
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "pqcheckFingerprint/v1": "952bfdf1a018815a"
+          },
+          "properties": {
+            "confidence": 1.0,
+            "quantum_risk": "quantum-vulnerable",
+            "detector_id": "python-ast",
+            "base_severity": "critical",
+            "severity": "critical",
+            "confidence_band": "high"
+          }
+        },
+        {
+          "ruleId": "pqcheck/banned/ECDSA",
+          "ruleIndex": 8,
+          "level": "error",
+          "message": {
+            "text": "ECDSA (signature) \u2014 Shor \u2014 migrate to ML-DSA-65 \u2014 evidence: KEY = CryptographyEc.generate_private_key(CryptographyEc.SECP256R1)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/algorithms/test_EC.py"
+                },
+                "region": {
+                  "startLine": 238,
+                  "startColumn": 11
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "pqcheckFingerprint/v1": "a6cf269331bb9738"
+          },
+          "properties": {
+            "confidence": 1.0,
+            "quantum_risk": "quantum-vulnerable",
+            "detector_id": "python-ast",
+            "base_severity": "critical",
+            "severity": "critical",
+            "confidence_band": "high"
+          }
+        },
+        {
+          "ruleId": "pqcheck/approved/SHA-256",
+          "ruleIndex": 2,
+          "level": "note",
+          "message": {
+            "text": "SHA-256 (hash) \u2014 evidence: hasher = hmac.HMAC(PUBKEY, hashes.SHA256())"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "tests/algorithms/test_EC.py"
+                },
+                "region": {
+                  "startLine": 247,
+                  "startColumn": 32
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "pqcheckFingerprint/v1": "6a8d7ea3d3a4dc11"
+          },
+          "properties": {
+            "confidence": 1.0,
+            "quantum_risk": "quantum-safe",
+            "detector_id": "python-ast",
+            "base_severity": "info",
+            "severity": "info",
+            "confidence_band": "high"
+          }
+        }
+      ],
+      "properties": {
+        "policy_id": "cryptoct-default-1.0.0"
+      }
+    }
+  ]
+}

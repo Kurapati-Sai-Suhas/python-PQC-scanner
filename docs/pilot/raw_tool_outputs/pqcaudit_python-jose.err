@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\Suhas\AppData\Local\Temp\claude\2d7fdb9b645ead63\2ab8e4cc-510b-4616-a451-4c4114aaa08e\scratchpad\baselines\pqc-scanner\.venv\Scripts\pqc-audit.exe\__main__.py", line 10, in <module>
+  File "C:\Users\Suhas\AppData\Local\Temp\claude\2d7fdb9b645ead63\2ab8e4cc-510b-4616-a451-4c4114aaa08e\scratchpad\baselines\pqc-scanner\src\pqc_scanner\interfaces\cli.py", line 130, in main
+    sys.stdout.write(to_markdown(args.path, findings))
+  File "C:\Users\Suhas\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2192' in position 420: character maps to <undefined>

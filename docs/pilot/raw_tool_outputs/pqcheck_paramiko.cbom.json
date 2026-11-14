@@ -1,0 +1,1717 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:65953256-d6d4-4a50-b7b2-369fa3ab1773",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-11-12T14:38:34+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "pqcheck",
+          "version": "0.1.0"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-0",
+      "name": "SHA-1",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/config.py",
+            "line": 449
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "broken"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-1",
+      "name": "ECDSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/ecdsakey.py",
+            "line": 268
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-vulnerable"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-2",
+      "name": "BCRYPT",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/ed25519key.py",
+            "line": 119
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "kdf"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-safe"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-3",
+      "name": "CIPHER",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/ed25519key.py",
+            "line": 128
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "block-cipher"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "0.50"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "unknown"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-4",
+      "name": "SHA-1",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/hostkeys.py",
+            "line": 294
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "broken"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-5",
+      "name": "SHA-1",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/hostkeys.py",
+            "line": 299
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "broken"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-6",
+      "name": "X25519",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/kex_curve25519.py",
+            "line": 30
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "key-agree"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-vulnerable"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-7",
+      "name": "X25519",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/kex_curve25519.py",
+            "line": 45
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "key-agree"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-vulnerable"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-8",
+      "name": "ECDSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/kex_ecdh_nist.py",
+            "line": 59
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-vulnerable"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-9",
+      "name": "ECDH",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/kex_ecdh_nist.py",
+            "line": 71
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "key-agree"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-vulnerable"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-10",
+      "name": "ECDH",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/kex_ecdh_nist.py",
+            "line": 117
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "key-agree"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-vulnerable"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-11",
+      "name": "ML-KEM",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/kex_mlkem.py",
+            "line": 75
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "kem",
+          "parameterSetIdentifier": "768"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-safe"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-12",
+      "name": "X25519",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/kex_mlkem.py",
+            "line": 76
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "key-agree"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-vulnerable"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-13",
+      "name": "X25519",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/kex_mlkem.py",
+            "line": 84
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "key-agree"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-vulnerable"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-14",
+      "name": "ML-KEM",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/kex_mlkem.py",
+            "line": 88
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "kem",
+          "parameterSetIdentifier": "768"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-safe"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-15",
+      "name": "MD5",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/pkey.py",
+            "line": 390
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "broken"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-16",
+      "name": "SHA-256",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/pkey.py",
+            "line": 401
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-safe"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-17",
+      "name": "SHA-256",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/pkey.py",
+            "line": 403
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "0.90"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-safe"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-18",
+      "name": "CIPHER",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/pkey.py",
+            "line": 654
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "block-cipher"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "0.50"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "unknown"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-19",
+      "name": "BCRYPT",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/pkey.py",
+            "line": 713
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "kdf"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-safe"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-20",
+      "name": "AES",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/pkey.py",
+            "line": 726
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "block-cipher"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-safe"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-21",
+      "name": "AES",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/pkey.py",
+            "line": 727
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "block-cipher"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-safe"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-22",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/rsakey.py",
+            "line": 143
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "padding": "pkcs1v15"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-vulnerable"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-23",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/rsakey.py",
+            "line": 171
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "padding": "pkcs1v15"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-vulnerable"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-24",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/rsakey.py",
+            "line": 188
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-vulnerable"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-25",
+      "name": "CIPHER",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/transport.py",
+            "line": 1917
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "block-cipher"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "0.50"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "unknown"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-26",
+      "name": "ECDSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/_support/ecdsa-256.key",
+            "line": 1
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "parameterSetIdentifier": "256",
+          "curve": "P-256"
+        },
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "key-material"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-vulnerable"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-27",
+      "name": "EdDSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/_support/ed448.key",
+            "line": 1
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "curve": "Ed448"
+        },
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "key-material"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-vulnerable"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-28",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/_support/rsa-lonely.key",
+            "line": 1
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "parameterSetIdentifier": "1024"
+        },
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "key-material"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-vulnerable"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-29",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/_support/rsa.key",
+            "line": 1
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "parameterSetIdentifier": "1024"
+        },
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "key-material"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-vulnerable"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-30",
+      "name": "ECDSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/test_ecdsa_384.key",
+            "line": 1
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "parameterSetIdentifier": "384",
+          "curve": "P-384"
+        },
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "key-material"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-vulnerable"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-31",
+      "name": "ECDSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/test_ecdsa_521.key",
+            "line": 1
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "parameterSetIdentifier": "521",
+          "curve": "P-521"
+        },
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "key-material"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-vulnerable"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-32",
+      "name": "ECDSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/test_ecdsa_password_256.key",
+            "line": 1
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "algorithmProperties": {
+          "primitive": "signature"
+        },
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "key-material"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "0.30"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-vulnerable"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-33",
+      "name": "ECDSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/test_ecdsa_password_384.key",
+            "line": 1
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "algorithmProperties": {
+          "primitive": "signature"
+        },
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "key-material"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "0.30"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-vulnerable"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-34",
+      "name": "ECDSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/test_ecdsa_password_521.key",
+            "line": 1
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "algorithmProperties": {
+          "primitive": "signature"
+        },
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "key-material"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "0.30"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-vulnerable"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-35",
+      "name": "AES",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/test_packetizer.py",
+            "line": 48
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "block-cipher",
+          "mode": "cbc"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-safe"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-36",
+      "name": "AES",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/test_packetizer.py",
+            "line": 49
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "block-cipher"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-safe"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-37",
+      "name": "AES",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/test_packetizer.py",
+            "line": 78
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "block-cipher",
+          "mode": "cbc"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-safe"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-38",
+      "name": "AES",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/test_packetizer.py",
+            "line": 79
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "block-cipher"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-safe"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-39",
+      "name": "AES",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/test_packetizer.py",
+            "line": 102
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "block-cipher",
+          "mode": "cbc"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-safe"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-40",
+      "name": "AES",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/test_packetizer.py",
+            "line": 103
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "block-cipher"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "python-ast"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "1.00"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-safe"
+        }
+      ]
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "finding-41",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/test_rsa_password.key",
+            "line": 1
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "algorithmProperties": {
+          "primitive": "pke"
+        },
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      },
+      "properties": [
+        {
+          "name": "pqcheck:detector_id",
+          "value": "key-material"
+        },
+        {
+          "name": "pqcheck:confidence",
+          "value": "0.30"
+        },
+        {
+          "name": "pqcheck:quantum_risk",
+          "value": "quantum-vulnerable"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "dep-0",
+      "name": "alabaster",
+      "purl": "pkg:pypi/alabaster",
+      "properties": [
+        {
+          "name": "pqcheck:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "pqcheck:declared_in",
+          "value": "pyproject.toml"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "dep-1",
+      "name": "bcrypt",
+      "purl": "pkg:pypi/bcrypt",
+      "properties": [
+        {
+          "name": "pqcheck:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "pqcheck:declared_in",
+          "value": "pyproject.toml"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "dep-2",
+      "name": "black",
+      "purl": "pkg:pypi/black",
+      "properties": [
+        {
+          "name": "pqcheck:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "pqcheck:declared_in",
+          "value": "pyproject.toml"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "dep-3",
+      "name": "codespell",
+      "purl": "pkg:pypi/codespell",
+      "properties": [
+        {
+          "name": "pqcheck:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "pqcheck:declared_in",
+          "value": "pyproject.toml"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "dep-4",
+      "name": "coverage",
+      "purl": "pkg:pypi/coverage",
+      "properties": [
+        {
+          "name": "pqcheck:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "pqcheck:declared_in",
+          "value": "pyproject.toml"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "dep-5",
+      "name": "cryptography",
+      "purl": "pkg:pypi/cryptography",
+      "properties": [
+        {
+          "name": "pqcheck:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "pqcheck:declared_in",
+          "value": "pyproject.toml"
+        },
+        {
+          "name": "pqcheck:introduces",
+          "value": "RSA,DSA,ECDSA,DH,ED25519,ED448,X25519,X448,AES,CHACHA20,3DES,RC4,MD5,SHA-1,SHA-224,SHA-256,SHA-384,SHA-512,SHA3-256,SHA3-384,SHA3-512,BLAKE2B,BLAKE2S,ML-KEM,ML-DSA"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "dep-6",
+      "name": "flake8",
+      "purl": "pkg:pypi/flake8",
+      "properties": [
+        {
+          "name": "pqcheck:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "pqcheck:declared_in",
+          "value": "pyproject.toml"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "dep-7",
+      "name": "icecream",
+      "purl": "pkg:pypi/icecream",
+      "properties": [
+        {
+          "name": "pqcheck:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "pqcheck:declared_in",
+          "value": "pyproject.toml"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "dep-8",
+      "name": "invocations",
+      "purl": "pkg:pypi/invocations",
+      "properties": [
+        {
+          "name": "pqcheck:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "pqcheck:declared_in",
+          "value": "pyproject.toml"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "dep-9",
+      "name": "invoke",
+      "purl": "pkg:pypi/invoke",
+      "properties": [
+        {
+          "name": "pqcheck:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "pqcheck:declared_in",
+          "value": "pyproject.toml"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "dep-10",
+      "name": "pynacl",
+      "purl": "pkg:pypi/pynacl",
+      "properties": [
+        {
+          "name": "pqcheck:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "pqcheck:declared_in",
+          "value": "pyproject.toml"
+        },
+        {
+          "name": "pqcheck:introduces",
+          "value": "ED25519,X25519,CHACHA20"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "dep-11",
+      "name": "pytest-relaxed",
+      "purl": "pkg:pypi/pytest-relaxed",
+      "properties": [
+        {
+          "name": "pqcheck:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "pqcheck:declared_in",
+          "value": "pyproject.toml"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "dep-12",
+      "name": "pytest-xdist",
+      "purl": "pkg:pypi/pytest-xdist",
+      "properties": [
+        {
+          "name": "pqcheck:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "pqcheck:declared_in",
+          "value": "pyproject.toml"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "dep-13",
+      "name": "releases",
+      "purl": "pkg:pypi/releases",
+      "properties": [
+        {
+          "name": "pqcheck:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "pqcheck:declared_in",
+          "value": "pyproject.toml"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "dep-14",
+      "name": "setuptools",
+      "purl": "pkg:pypi/setuptools",
+      "properties": [
+        {
+          "name": "pqcheck:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "pqcheck:declared_in",
+          "value": "pyproject.toml"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "dep-15",
+      "name": "watchdog",
+      "purl": "pkg:pypi/watchdog",
+      "properties": [
+        {
+          "name": "pqcheck:ecosystem",
+          "value": "pypi"
+        },
+        {
+          "name": "pqcheck:declared_in",
+          "value": "pyproject.toml"
+        }
+      ]
+    }
+  ]
+}

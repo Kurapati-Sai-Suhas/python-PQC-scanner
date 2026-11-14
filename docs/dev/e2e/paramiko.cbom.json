@@ -1,0 +1,3701 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:353712db-f7fe-5137-8c9e-9a71c7e5053f",
+  "version": 1,
+  "metadata": {
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "pqscan",
+          "version": "0.1.0.dev0",
+          "description": "Post-quantum crypto scanner for Python projects (research prototype)"
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "pqscan:policyVersion",
+        "value": "1.1"
+      },
+      {
+        "name": "pqscan:tierThreshold",
+        "value": "T2"
+      },
+      {
+        "name": "pqscan:arm",
+        "value": "full"
+      },
+      {
+        "name": "pqscan:filesScanned",
+        "value": "70"
+      },
+      {
+        "name": "pqscan:executionFailures",
+        "value": "0"
+      },
+      {
+        "name": "pqscan:semgrepStatus",
+        "value": "ok"
+      },
+      {
+        "name": "pqscan:unsupportedLibraryImports",
+        "value": "236"
+      },
+      {
+        "name": "pqscan:disclaimer",
+        "value": "Migration guidance only; does not establish that a migrated system is secure, compliant or quantum-safe."
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/ecdsakey.py:167:23",
+      "name": "ECDSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/ecdsakey.py",
+            "line": 167,
+            "offset": 23
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Add ML-DSA (FIPS 204) verification so that migrated signers can be accepted. NIST IR 8547 defines 'legacy use' as processing already-protected data such as verifying an existing signature; whether ECDSA/ECDH (elliptic-curve) verification of already-issued signatures keeps that status after 2035 is set by SP 800-131A (to be revised). Retain legacy verification only for already-issued signatures; do not accept new ECDSA/ECDH (elliptic-curve) signatures after the transition."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.ec.EllipticCurvePublicKey.from_encoded_point"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (EC, constructed-from-parsed-blob) reaches SIG consumers only"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "constructed-from-parsed-blob"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 167: cryptography.hazmat.primitives.asymmetric.ec.EllipticCurvePublicKey.from_encoded_point (constructed-from-parsed-blob)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 241: consumer .verify()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.ec.construct"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/ecdsakey.py:225:15",
+      "name": "ECDSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/ecdsakey.py",
+            "line": 225,
+            "offset": 15
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "ECDSA/ECDH (elliptic-curve) signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.sign"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .sign() -> SIGN; receiver resolved: multi{pyca:ANY:private:loaded-DER|pyca:EC:private:constructed-from-parsed-blob|pyca:EC:private:generated|unknown(untyped parameter)}; arguments: ECDSA; the key may also come from an untyped parameter, or its origin is consumed by another role family or has conflicting consumers, so the tier is capped at T2"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "sign"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-DER"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "constructed-from-parsed-blob"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "parameter"
+        },
+        {
+          "name": "pqscan:proximateProvenance",
+          "value": "attribute"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 225: method .sign()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 225: receiver multi{pyca:ANY:private:loaded-DER|pyca:EC:private:constructed-from-parsed-blob|pyca:EC:private:generated|unknown(untyped parameter)}"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 225: arguments ECDSA"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 268: key origin ec.generate_private_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 285: key origin serialization.load_der_private_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 305: key origin ec.derive_private_key"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "sign"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/ecdsakey.py:241:13",
+      "name": "ECDSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/ecdsakey.py",
+            "line": 241,
+            "offset": 13
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Add ML-DSA (FIPS 204) verification so that migrated signers can be accepted. NIST IR 8547 defines 'legacy use' as processing already-protected data such as verifying an existing signature; whether ECDSA/ECDH (elliptic-curve) verification of already-issued signatures keeps that status after 2035 is set by SP 800-131A (to be revised). Retain legacy verification only for already-issued signatures; do not accept new ECDSA/ECDH (elliptic-curve) signatures after the transition."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.verify"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .verify() -> VERIFY; receiver resolved: multi{pyca:ANY:public:loaded-DER|pyca:EC:public:constructed-from-parsed-blob|pyca:EC:public:generated|unknown(untyped parameter)}; arguments: ECDSA; the key may also come from an untyped parameter, or its origin is consumed by another role family or has conflicting consumers, so the tier is capped at T2"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "verify"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "constructed-from-parsed-blob"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-DER"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "parameter"
+        },
+        {
+          "name": "pqscan:proximateProvenance",
+          "value": "attribute"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 241: method .verify()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 241: receiver multi{pyca:ANY:public:loaded-DER|pyca:EC:public:constructed-from-parsed-blob|pyca:EC:public:generated|unknown(untyped parameter)}"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 241: arguments ECDSA"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 268: key origin ec.generate_private_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 269: key origin private_key.public_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 167: key origin ec.EllipticCurvePublicKey.from_encoded_point"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 285: key origin serialization.load_der_private_key"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "verify"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/ecdsakey.py:268:23",
+      "name": "ECDSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/ecdsakey.py",
+            "line": 268,
+            "offset": 23
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "ECDSA/ECDH (elliptic-curve) signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.ec.generate_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (EC, generated) reaches SIG consumers only; it also escapes the analysed scope (returned from public ECDSAKey.private_key; external callers possible)"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 268: cryptography.hazmat.primitives.asymmetric.ec.generate_private_key (generated)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 225: consumer .sign()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 241: consumer .verify()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.ec.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/ecdsakey.py:285:23",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/ecdsakey.py",
+            "line": 285,
+            "offset": 23
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "RSA/ECC signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.serialization.load_der_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (ANY, loaded-DER) reaches SIG consumers only; it also escapes the analysed scope (returned from public ECDSAKey.private_key; external callers possible)"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-DER"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 285: cryptography.hazmat.primitives.serialization.load_der_private_key (loaded-DER)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 225: consumer .sign()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 241: consumer .verify()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.loader.der"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/ecdsakey.py:305:23",
+      "name": "ECDSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/ecdsakey.py",
+            "line": 305,
+            "offset": 23
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "ECDSA/ECDH (elliptic-curve) signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.ec.derive_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (EC, constructed-from-parsed-blob) reaches SIG consumers only; it also escapes the analysed scope (returned from public ECDSAKey.private_key; external callers possible)"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "constructed-from-parsed-blob"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 305: cryptography.hazmat.primitives.asymmetric.ec.derive_private_key (constructed-from-parsed-blob)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 225: consumer .sign()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 241: consumer .verify()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.ec.derive"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/ed25519key.py:203:22",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/ed25519key.py",
+            "line": 203,
+            "offset": 22
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T0"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T0 is below the policy threshold T2: the receiver is not resolved to a key object and no algorithm-specific argument is visible. Inferred role (not acted on): SIGN."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.sign"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .sign() -> SIGN; receiver unresolved (attribute without a typed assignment); arguments: no parameters"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T0 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "sign"
+        },
+        {
+          "name": "pqscan:proximateProvenance",
+          "value": "attribute"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 203: method .sign()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "sign"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/ed25519key.py:211:13",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/ed25519key.py",
+            "line": 211,
+            "offset": 13
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T0"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T0 is below the policy threshold T2: the receiver is not resolved to a key object and no algorithm-specific argument is visible. Inferred role (not acted on): VERIFY."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.verify"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .verify() -> VERIFY; receiver unresolved (attribute without a typed assignment); arguments: no parameters"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T0 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "verify"
+        },
+        {
+          "name": "pqscan:proximateProvenance",
+          "value": "attribute"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 211: method .verify()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "verify"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/kex_curve25519.py:30:13",
+      "name": "X25519",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/kex_curve25519.py",
+            "line": 30,
+            "offset": 13
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_MATERIAL_ONLY"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "FLAG_NO_TARGET"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "INVENTORY"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No migration target at this site; inventory the key material and determine its downstream role"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "X25519 key material with no consumer found in the analysed scope. No target is recommended; determine the downstream role first."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.x25519.X25519PrivateKey.generate"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (X25519) with no consumer inside the analysed scope and no escape: inventory only"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 30: cryptography.hazmat.primitives.asymmetric.x25519.X25519PrivateKey.generate (generated)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.x25519.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/kex_curve25519.py:37:18",
+      "name": "X25519",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/kex_curve25519.py",
+            "line": 37,
+            "offset": 18
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "KEM"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-KEM-based key-establishment redesign (FIPS 203, SP 800-227); PQ/T hybrid with the existing scheme through an approved combiner is an acceptable transitional design"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "X25519 key establishment is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 4) and is exposed to harvest-now-decrypt-later. Redesign around ML-KEM (FIPS 203; ML-KEM-768 recommended by NIST IR 8547) per SP 800-227; a PQ/T hybrid with the existing scheme via an approved combiner (SP 800-227 Sec. 4.6) is an acceptable transitional design. ML-KEM uses encapsulate/decapsulate, not a symmetric exchange(peer) call."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.exchange"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .exchange() -> KEY_ESTABLISHMENT; receiver resolved: pyca:X25519:private:generated; arguments: no parameters"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-KEM-768 (NIST IR 8547 default recommendation)"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "exchange"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:proximateProvenance",
+          "value": "attribute"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 37: method .exchange()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 37: receiver pyca:X25519:private:generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 45: key origin X25519PrivateKey.generate"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "key-agree",
+          "cryptoFunctions": [
+            "other"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/kex_curve25519.py:45:20",
+      "name": "X25519",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/kex_curve25519.py",
+            "line": 45,
+            "offset": 20
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "KEM"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-KEM-based key-establishment redesign (FIPS 203, SP 800-227); PQ/T hybrid with the existing scheme through an approved combiner is an acceptable transitional design"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "X25519 key establishment is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 4) and is exposed to harvest-now-decrypt-later. Redesign around ML-KEM (FIPS 203; ML-KEM-768 recommended by NIST IR 8547) per SP 800-227; a PQ/T hybrid with the existing scheme via an approved combiner (SP 800-227 Sec. 4.6) is an acceptable transitional design. ML-KEM uses encapsulate/decapsulate, not a symmetric exchange(peer) call."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.x25519.X25519PrivateKey.generate"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (X25519, generated) reaches KE consumers only"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-KEM-768 (NIST IR 8547 default recommendation)"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 45: cryptography.hazmat.primitives.asymmetric.x25519.X25519PrivateKey.generate (generated)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 37: consumer .exchange()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.x25519.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/kex_curve25519.py:71:20",
+      "name": "X25519",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/kex_curve25519.py",
+            "line": 71,
+            "offset": 20
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "KEM"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-KEM-based key-establishment redesign (FIPS 203, SP 800-227); PQ/T hybrid with the existing scheme through an approved combiner is an acceptable transitional design"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "X25519 key establishment is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 4) and is exposed to harvest-now-decrypt-later. Redesign around ML-KEM (FIPS 203; ML-KEM-768 recommended by NIST IR 8547) per SP 800-227; a PQ/T hybrid with the existing scheme via an approved combiner (SP 800-227 Sec. 4.6) is an acceptable transitional design. ML-KEM uses encapsulate/decapsulate, not a symmetric exchange(peer) call."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.x25519.X25519PublicKey.from_public_bytes"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (X25519, constructed-from-parsed-blob) reaches KE consumers only"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-KEM-768 (NIST IR 8547 default recommendation)"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "constructed-from-parsed-blob"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 71: cryptography.hazmat.primitives.asymmetric.x25519.X25519PublicKey.from_public_bytes (constructed-from-parsed-blob)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 37: consumer peer key of .exchange()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.x25519.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/kex_curve25519.py:109:20",
+      "name": "X25519",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/kex_curve25519.py",
+            "line": 109,
+            "offset": 20
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "KEM"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-KEM-based key-establishment redesign (FIPS 203, SP 800-227); PQ/T hybrid with the existing scheme through an approved combiner is an acceptable transitional design"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "X25519 key establishment is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 4) and is exposed to harvest-now-decrypt-later. Redesign around ML-KEM (FIPS 203; ML-KEM-768 recommended by NIST IR 8547) per SP 800-227; a PQ/T hybrid with the existing scheme via an approved combiner (SP 800-227 Sec. 4.6) is an acceptable transitional design. ML-KEM uses encapsulate/decapsulate, not a symmetric exchange(peer) call."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.x25519.X25519PublicKey.from_public_bytes"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (X25519, constructed-from-parsed-blob) reaches KE consumers only"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-KEM-768 (NIST IR 8547 default recommendation)"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "constructed-from-parsed-blob"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 109: cryptography.hazmat.primitives.asymmetric.x25519.X25519PublicKey.from_public_bytes (constructed-from-parsed-blob)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 37: consumer peer key of .exchange()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.x25519.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/kex_ecdh_nist.py:59:18",
+      "name": "ECDH",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/kex_ecdh_nist.py",
+            "line": 59,
+            "offset": 18
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "KEM"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-KEM-based key-establishment redesign (FIPS 203, SP 800-227); PQ/T hybrid with the existing scheme through an approved combiner is an acceptable transitional design"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "ECDSA/ECDH (elliptic-curve) key establishment is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 4) and is exposed to harvest-now-decrypt-later. Redesign around ML-KEM (FIPS 203; ML-KEM-768 recommended by NIST IR 8547) per SP 800-227; a PQ/T hybrid with the existing scheme via an approved combiner (SP 800-227 Sec. 4.6) is an acceptable transitional design. ML-KEM uses encapsulate/decapsulate, not a symmetric exchange(peer) call."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.ec.generate_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (EC, generated) reaches KE consumers only"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-KEM-768 (NIST IR 8547 default recommendation)"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 59: cryptography.hazmat.primitives.asymmetric.ec.generate_private_key (generated)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 71: consumer peer key of .exchange()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 117: consumer peer key of .exchange()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 71: consumer .exchange()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 117: consumer .exchange()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.ec.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/kex_ecdh_nist.py:67:20",
+      "name": "ECDH",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/kex_ecdh_nist.py",
+            "line": 67,
+            "offset": 20
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "KEM"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-KEM-based key-establishment redesign (FIPS 203, SP 800-227); PQ/T hybrid with the existing scheme through an approved combiner is an acceptable transitional design"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "ECDSA/ECDH (elliptic-curve) key establishment is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 4) and is exposed to harvest-now-decrypt-later. Redesign around ML-KEM (FIPS 203; ML-KEM-768 recommended by NIST IR 8547) per SP 800-227; a PQ/T hybrid with the existing scheme via an approved combiner (SP 800-227 Sec. 4.6) is an acceptable transitional design. ML-KEM uses encapsulate/decapsulate, not a symmetric exchange(peer) call."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.ec.EllipticCurvePublicKey.from_encoded_point"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (EC, constructed-from-parsed-blob) reaches KE consumers only"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-KEM-768 (NIST IR 8547 default recommendation)"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "constructed-from-parsed-blob"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 67: cryptography.hazmat.primitives.asymmetric.ec.EllipticCurvePublicKey.from_encoded_point (constructed-from-parsed-blob)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 71: consumer peer key of .exchange()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.ec.construct"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/kex_ecdh_nist.py:71:13",
+      "name": "ECDH",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/kex_ecdh_nist.py",
+            "line": 71,
+            "offset": 13
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "KEM"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-KEM-based key-establishment redesign (FIPS 203, SP 800-227); PQ/T hybrid with the existing scheme through an approved combiner is an acceptable transitional design"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "ECDSA/ECDH (elliptic-curve) key establishment is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 4) and is exposed to harvest-now-decrypt-later. Redesign around ML-KEM (FIPS 203; ML-KEM-768 recommended by NIST IR 8547) per SP 800-227; a PQ/T hybrid with the existing scheme via an approved combiner (SP 800-227 Sec. 4.6) is an acceptable transitional design. ML-KEM uses encapsulate/decapsulate, not a symmetric exchange(peer) call."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.exchange"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .exchange() -> KEY_ESTABLISHMENT; receiver resolved: pyca:EC:private:generated; arguments: ECDH"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-KEM-768 (NIST IR 8547 default recommendation)"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "exchange"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:proximateProvenance",
+          "value": "attribute"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 71: method .exchange()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 71: receiver pyca:EC:private:generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 71: arguments ECDH"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 59: key origin ec.generate_private_key"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "key-agree",
+          "cryptoFunctions": [
+            "other"
+          ],
+          "nistQuantumSecurityLevel": 0,
+          "curve": "SECP256R1"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/kex_ecdh_nist.py:113:20",
+      "name": "ECDH",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/kex_ecdh_nist.py",
+            "line": 113,
+            "offset": 20
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "KEM"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-KEM-based key-establishment redesign (FIPS 203, SP 800-227); PQ/T hybrid with the existing scheme through an approved combiner is an acceptable transitional design"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "ECDSA/ECDH (elliptic-curve) key establishment is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 4) and is exposed to harvest-now-decrypt-later. Redesign around ML-KEM (FIPS 203; ML-KEM-768 recommended by NIST IR 8547) per SP 800-227; a PQ/T hybrid with the existing scheme via an approved combiner (SP 800-227 Sec. 4.6) is an acceptable transitional design. ML-KEM uses encapsulate/decapsulate, not a symmetric exchange(peer) call."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.ec.EllipticCurvePublicKey.from_encoded_point"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (EC, constructed-from-parsed-blob) reaches KE consumers only"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-KEM-768 (NIST IR 8547 default recommendation)"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "constructed-from-parsed-blob"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 113: cryptography.hazmat.primitives.asymmetric.ec.EllipticCurvePublicKey.from_encoded_point (constructed-from-parsed-blob)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 117: consumer peer key of .exchange()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.ec.construct"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/kex_ecdh_nist.py:117:13",
+      "name": "ECDH",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/kex_ecdh_nist.py",
+            "line": 117,
+            "offset": 13
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "KEM"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-KEM-based key-establishment redesign (FIPS 203, SP 800-227); PQ/T hybrid with the existing scheme through an approved combiner is an acceptable transitional design"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "ECDSA/ECDH (elliptic-curve) key establishment is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 4) and is exposed to harvest-now-decrypt-later. Redesign around ML-KEM (FIPS 203; ML-KEM-768 recommended by NIST IR 8547) per SP 800-227; a PQ/T hybrid with the existing scheme via an approved combiner (SP 800-227 Sec. 4.6) is an acceptable transitional design. ML-KEM uses encapsulate/decapsulate, not a symmetric exchange(peer) call."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.exchange"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .exchange() -> KEY_ESTABLISHMENT; receiver resolved: pyca:EC:private:generated; arguments: ECDH"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-KEM-768 (NIST IR 8547 default recommendation)"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "exchange"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:proximateProvenance",
+          "value": "attribute"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 117: method .exchange()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 117: receiver pyca:EC:private:generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 117: arguments ECDH"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 59: key origin ec.generate_private_key"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "key-agree",
+          "cryptoFunctions": [
+            "other"
+          ],
+          "nistQuantumSecurityLevel": 0,
+          "curve": "SECP256R1"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/kex_mlkem.py:76:13",
+      "name": "X25519",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/kex_mlkem.py",
+            "line": 76,
+            "offset": 13
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_MATERIAL_ONLY"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "FLAG_NO_TARGET"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "INVENTORY"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No migration target at this site; inventory the key material and determine its downstream role"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "X25519 key material with no consumer found in the analysed scope. No target is recommended; determine the downstream role first."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.x25519.X25519PrivateKey.generate"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (X25519) with no consumer inside the analysed scope and no escape: inventory only"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 76: cryptography.hazmat.primitives.asymmetric.x25519.X25519PrivateKey.generate (generated)"
+        },
+        {
+          "name": "pqscan:hybridWith",
+          "value": "cryptography.hazmat.primitives.asymmetric.mlkem.MLKEM768PrivateKey.generate, cryptography.hazmat.primitives.asymmetric.mlkem.MLKEM768PublicKey.from_public_bytes"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.x25519.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/kex_mlkem.py:84:27",
+      "name": "X25519",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/kex_mlkem.py",
+            "line": 84,
+            "offset": 27
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "FLAG_NO_TARGET"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "NO_ACTION_HYBRID"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No migration of this component now: it is the traditional half of a PQ/T hybrid with an approved PQ algorithm; plan a PQC-only follow-up"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Traditional component of a PQ/T hybrid with an approved PQ algorithm; no migration of this component is required now; hybrids are transitional (NIST IR 8547) - plan a PQC-only follow-up; review the combiner per SP 800-227 Sec. 4.6."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.x25519.X25519PrivateKey.generate"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (X25519, generated) reaches KE consumers only"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 84: cryptography.hazmat.primitives.asymmetric.x25519.X25519PrivateKey.generate (generated)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 112: consumer .exchange()"
+        },
+        {
+          "name": "pqscan:hybridWith",
+          "value": "cryptography.hazmat.primitives.asymmetric.mlkem.MLKEM768PrivateKey.generate, cryptography.hazmat.primitives.asymmetric.mlkem.MLKEM768PublicKey.from_public_bytes"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.x25519.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/kex_mlkem.py:111:16",
+      "name": "X25519",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/kex_mlkem.py",
+            "line": 111,
+            "offset": 16
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "FLAG_NO_TARGET"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "NO_ACTION_HYBRID"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No migration of this component now: it is the traditional half of a PQ/T hybrid with an approved PQ algorithm; plan a PQC-only follow-up"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Traditional component of a PQ/T hybrid with an approved PQ algorithm; no migration of this component is required now; hybrids are transitional (NIST IR 8547) - plan a PQC-only follow-up; review the combiner per SP 800-227 Sec. 4.6."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.x25519.X25519PublicKey.from_public_bytes"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (X25519, constructed-from-parsed-blob) reaches KE consumers only"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "constructed-from-parsed-blob"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 111: cryptography.hazmat.primitives.asymmetric.x25519.X25519PublicKey.from_public_bytes (constructed-from-parsed-blob)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 112: consumer peer key of .exchange()"
+        },
+        {
+          "name": "pqscan:hybridWith",
+          "value": "cryptography.hazmat.primitives.asymmetric.mlkem.MLKEM768PrivateKey.generate, cryptography.hazmat.primitives.asymmetric.mlkem.MLKEM768PublicKey.from_public_bytes"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.x25519.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/kex_mlkem.py:112:18",
+      "name": "X25519",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/kex_mlkem.py",
+            "line": 112,
+            "offset": 18
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "FLAG_NO_TARGET"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "NO_ACTION_HYBRID"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No migration of this component now: it is the traditional half of a PQ/T hybrid with an approved PQ algorithm; plan a PQC-only follow-up"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Traditional component of a PQ/T hybrid with an approved PQ algorithm; no migration of this component is required now; hybrids are transitional (NIST IR 8547) - plan a PQC-only follow-up; review the combiner per SP 800-227 Sec. 4.6."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.exchange"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .exchange() -> KEY_ESTABLISHMENT; receiver resolved: pyca:X25519:private:generated; arguments: no parameters"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "exchange"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:proximateProvenance",
+          "value": "attribute"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 112: method .exchange()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 112: receiver pyca:X25519:private:generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 84: key origin X25519PrivateKey.generate"
+        },
+        {
+          "name": "pqscan:hybridWith",
+          "value": "cryptography.hazmat.primitives.asymmetric.mlkem.MLKEM768PrivateKey.generate, cryptography.hazmat.primitives.asymmetric.mlkem.MLKEM768PublicKey.from_public_bytes"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "key-agree",
+          "cryptoFunctions": [
+            "other"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/pkey.py:195:22",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/pkey.py",
+            "line": 195,
+            "offset": 22
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_MATERIAL_ONLY"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "FLAG_NO_TARGET"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "INVENTORY"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No migration target at this site; inventory the key material and determine its downstream role"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "RSA/ECC key material with no consumer found in the analysed scope. No target is recommended; determine the downstream role first."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.serialization.load_ssh_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (ANY) with no consumer inside the analysed scope and no escape: inventory only"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-SSH"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 195: cryptography.hazmat.primitives.serialization.load_ssh_private_key (loaded-SSH)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.loader.ssh"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/pkey.py:200:22",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/pkey.py",
+            "line": 200,
+            "offset": 22
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_MATERIAL_ONLY"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "FLAG_NO_TARGET"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "INVENTORY"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No migration target at this site; inventory the key material and determine its downstream role"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "RSA/ECC key material with no consumer found in the analysed scope. No target is recommended; determine the downstream role first."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.serialization.load_pem_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (ANY) with no consumer inside the analysed scope and no escape: inventory only"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-PEM"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 200: cryptography.hazmat.primitives.serialization.load_pem_private_key (loaded-PEM)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.loader.pem"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/rsakey.py:78:24",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/rsakey.py",
+            "line": 78,
+            "offset": 24
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Add ML-DSA (FIPS 204) verification so that migrated signers can be accepted. NIST IR 8547 defines 'legacy use' as processing already-protected data such as verifying an existing signature; whether RSA verification of already-issued signatures keeps that status after 2035 is set by SP 800-131A (to be revised). Retain legacy verification only for already-issued signatures; do not accept new RSA signatures after the transition."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.rsa.RSAPublicNumbers.public_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (RSA, constructed-from-parsed-blob) reaches SIG consumers only"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "constructed-from-parsed-blob"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 78: cryptography.hazmat.primitives.asymmetric.rsa.RSAPublicNumbers.public_key (constructed-from-parsed-blob)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 170: consumer .verify()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.rsa.construct"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/rsakey.py:141:15",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/rsakey.py",
+            "line": 141,
+            "offset": 15
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "RSA signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.sign"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .sign() -> SIGN; receiver resolved: multi{pyca:ANY:private:loaded-DER|pyca:RSA:private:constructed-from-parsed-blob|pyca:RSA:private:generated|pyca:RSA:public:constructed-from-parsed-blob|unknown(untyped parameter)}; arguments: padding=PKCS1v15; the key may also come from an untyped parameter, or its origin is consumed by another role family or has conflicting consumers, so the tier is capped at T2"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "sign"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "constructed-from-parsed-blob"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-DER"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "parameter"
+        },
+        {
+          "name": "pqscan:proximateProvenance",
+          "value": "attribute"
+        },
+        {
+          "name": "pqscan:padding",
+          "value": "PKCS1v15"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 141: method .sign()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 141: receiver multi{pyca:ANY:private:loaded-DER|pyca:RSA:private:constructed-from-parsed-blob|pyca:RSA:private:generated|pyca:RSA:public:constructed-from-parsed-blob|unknown(untyped parameter)}"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 141: arguments padding=PKCS1v15"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 188: key origin rsa.generate_private_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 78: key origin <call>"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 207: key origin serialization.load_der_private_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 215: key origin <call>"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "sign"
+          ],
+          "nistQuantumSecurityLevel": 0,
+          "padding": "pkcs1v15"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/rsakey.py:170:13",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/rsakey.py",
+            "line": 170,
+            "offset": 13
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Add ML-DSA (FIPS 204) verification so that migrated signers can be accepted. NIST IR 8547 defines 'legacy use' as processing already-protected data such as verifying an existing signature; whether RSA verification of already-issued signatures keeps that status after 2035 is set by SP 800-131A (to be revised). Retain legacy verification only for already-issued signatures; do not accept new RSA signatures after the transition."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.verify"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .verify() -> VERIFY; receiver resolved: multi{pyca:ANY:private:loaded-DER|pyca:ANY:public:loaded-DER|pyca:RSA:private:constructed-from-parsed-blob|pyca:RSA:private:generated|pyca:RSA:public:constructed-from-parsed-blob|pyca:RSA:public:generated|unknown(untyped parameter)}; arguments: padding=PKCS1v15; the key may also come from an untyped parameter, or its origin is consumed by another role family or has conflicting consumers, so the tier is capped at T2"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "verify"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "constructed-from-parsed-blob"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-DER"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "parameter"
+        },
+        {
+          "name": "pqscan:padding",
+          "value": "PKCS1v15"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 170: method .verify()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 170: receiver multi{pyca:ANY:private:loaded-DER|pyca:ANY:public:loaded-DER|pyca:RSA:private:constructed-from-parsed-blob|pyca:RSA:private:generated|pyca:RSA:public:constructed-from-parsed-blob|pyca:RSA:public:generated|unknown(untyped parameter)}"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 170: arguments padding=PKCS1v15"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 188: key origin rsa.generate_private_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 78: key origin <call>"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 207: key origin serialization.load_der_private_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 215: key origin <call>"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "verify"
+          ],
+          "nistQuantumSecurityLevel": 0,
+          "padding": "pkcs1v15"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/rsakey.py:188:15",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/rsakey.py",
+            "line": 188,
+            "offset": 15
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "RSA signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.rsa.generate_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (RSA, generated) reaches SIG consumers only"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 188: cryptography.hazmat.primitives.asymmetric.rsa.generate_private_key (generated)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 141: consumer .sign()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 170: consumer .verify()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.rsa.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/rsakey.py:207:23",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/rsakey.py",
+            "line": 207,
+            "offset": 23
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "RSA/ECC signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.serialization.load_der_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (ANY, loaded-DER) reaches SIG consumers only; it also escapes the analysed scope (the name is rebound to an unresolved value at line 69)"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-DER"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 207: cryptography.hazmat.primitives.serialization.load_der_private_key (loaded-DER)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 141: consumer .sign()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 170: consumer .verify()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.loader.der"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:paramiko/rsakey.py:215:19",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko/rsakey.py",
+            "line": 215,
+            "offset": 19
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "RSA signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.rsa.RSAPrivateNumbers.private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (RSA, constructed-from-parsed-blob) reaches SIG consumers only; it also escapes the analysed scope (the name is rebound to an unresolved value at line 69)"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "constructed-from-parsed-blob"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 215: cryptography.hazmat.primitives.asymmetric.rsa.RSAPrivateNumbers.private_key (constructed-from-parsed-blob)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 141: consumer .sign()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 170: consumer .verify()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.rsa.construct"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:tests/test_kex.py:61:30",
+      "name": "EC",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/test_kex.py",
+            "line": 61,
+            "offset": 30
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (used in an unsupported expression). Possible roles: SIGN, VERIFY, KEY_ESTABLISHMENT. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "test"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.ec.EllipticCurvePublicKey.from_encoded_point"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material leaves the analysed scope before any consumer is seen (used in an unsupported expression)"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "constructed-from-parsed-blob"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 61: cryptography.hazmat.primitives.asymmetric.ec.EllipticCurvePublicKey.from_encoded_point (constructed-from-parsed-blob)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.ec.construct"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:tests/test_kex.py:64:13",
+      "name": "EC",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/test_kex.py",
+            "line": 64,
+            "offset": 13
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (stored in a attribute target outside the analysed scope). Possible roles: SIGN, VERIFY, KEY_ESTABLISHMENT. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "test"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.ec.EllipticCurvePrivateNumbers.private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material leaves the analysed scope before any consumer is seen (stored in a attribute target outside the analysed scope)"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "constructed-from-parsed-blob"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 64: cryptography.hazmat.primitives.asymmetric.ec.EllipticCurvePrivateNumbers.private_key (constructed-from-parsed-blob)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.ec.construct"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:tests/test_kex.py:68:19",
+      "name": "EC",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/test_kex.py",
+            "line": 68,
+            "offset": 19
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (stored in a attribute target outside the analysed scope). Possible roles: SIGN, VERIFY, KEY_ESTABLISHMENT. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "test"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.ec.EllipticCurvePublicKey.from_encoded_point"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material leaves the analysed scope before any consumer is seen (stored in a attribute target outside the analysed scope)"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "constructed-from-parsed-blob"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 68: cryptography.hazmat.primitives.asymmetric.ec.EllipticCurvePublicKey.from_encoded_point (constructed-from-parsed-blob)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.ec.construct"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:tests/test_kex.py:72:15",
+      "name": "EC",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/test_kex.py",
+            "line": 72,
+            "offset": 15
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (stored in a attribute target outside the analysed scope). Possible roles: SIGN, VERIFY, KEY_ESTABLISHMENT. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "test"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.ec.EllipticCurvePublicKey.from_encoded_point"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material leaves the analysed scope before any consumer is seen (stored in a attribute target outside the analysed scope)"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "constructed-from-parsed-blob"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 72: cryptography.hazmat.primitives.asymmetric.ec.EllipticCurvePublicKey.from_encoded_point (constructed-from-parsed-blob)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.ec.construct"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:tests/test_kex.py:142:33",
+      "name": "X25519",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/test_kex.py",
+            "line": 142,
+            "offset": 33
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "KEM"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-KEM-based key-establishment redesign (FIPS 203, SP 800-227); PQ/T hybrid with the existing scheme through an approved combiner is an acceptable transitional design"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "X25519 key establishment is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 4) and is exposed to harvest-now-decrypt-later. Redesign around ML-KEM (FIPS 203; ML-KEM-768 recommended by NIST IR 8547) per SP 800-227; a PQ/T hybrid with the existing scheme via an approved combiner (SP 800-227 Sec. 4.6) is an acceptable transitional design. ML-KEM uses encapsulate/decapsulate, not a symmetric exchange(peer) call."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "test"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.x25519.X25519PrivateKey.from_private_bytes"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "X25519 is a single-purpose algorithm (KEY_ESTABLISHMENT); consumers lie outside the analysed scope"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-KEM-768 (NIST IR 8547 default recommendation)"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "constructed-from-parsed-blob"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 142: cryptography.hazmat.primitives.asymmetric.x25519.X25519PrivateKey.from_private_bytes (constructed-from-parsed-blob)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.x25519.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pqscan:site:paramiko/ecdsakey.py:225:15",
+      "dependsOn": [
+        "pqscan:site:paramiko/ecdsakey.py:268:23",
+        "pqscan:site:paramiko/ecdsakey.py:285:23",
+        "pqscan:site:paramiko/ecdsakey.py:305:23"
+      ]
+    },
+    {
+      "ref": "pqscan:site:paramiko/ecdsakey.py:241:13",
+      "dependsOn": [
+        "pqscan:site:paramiko/ecdsakey.py:167:23",
+        "pqscan:site:paramiko/ecdsakey.py:268:23",
+        "pqscan:site:paramiko/ecdsakey.py:285:23"
+      ]
+    },
+    {
+      "ref": "pqscan:site:paramiko/kex_curve25519.py:37:18",
+      "dependsOn": [
+        "pqscan:site:paramiko/kex_curve25519.py:45:20"
+      ]
+    },
+    {
+      "ref": "pqscan:site:paramiko/kex_ecdh_nist.py:71:13",
+      "dependsOn": [
+        "pqscan:site:paramiko/kex_ecdh_nist.py:59:18"
+      ]
+    },
+    {
+      "ref": "pqscan:site:paramiko/kex_ecdh_nist.py:117:13",
+      "dependsOn": [
+        "pqscan:site:paramiko/kex_ecdh_nist.py:59:18"
+      ]
+    },
+    {
+      "ref": "pqscan:site:paramiko/kex_mlkem.py:112:18",
+      "dependsOn": [
+        "pqscan:site:paramiko/kex_mlkem.py:84:27"
+      ]
+    },
+    {
+      "ref": "pqscan:site:paramiko/rsakey.py:141:15",
+      "dependsOn": [
+        "pqscan:site:paramiko/rsakey.py:188:15",
+        "pqscan:site:paramiko/rsakey.py:207:23",
+        "pqscan:site:paramiko/rsakey.py:215:19",
+        "pqscan:site:paramiko/rsakey.py:78:24"
+      ]
+    },
+    {
+      "ref": "pqscan:site:paramiko/rsakey.py:170:13",
+      "dependsOn": [
+        "pqscan:site:paramiko/rsakey.py:188:15",
+        "pqscan:site:paramiko/rsakey.py:207:23",
+        "pqscan:site:paramiko/rsakey.py:215:19",
+        "pqscan:site:paramiko/rsakey.py:78:24"
+      ]
+    }
+  ]
+}

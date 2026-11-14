@@ -1,0 +1,46 @@
+warning: policy declares constraints pqcheck v0.1 does not evaluate (rules match on family/algorithm/parameter-sets/curves/modes/paddings only): hash, params
+? paramiko/config.py:449 — SHA-1 [banned/critical, confidence high] — Collision-broken
+? paramiko/ecdsakey.py:268 — ECDSA [banned/critical, confidence high] — Shor — migrate to ML-DSA-65
+? paramiko/ed25519key.py:119 — BCRYPT [default/medium, confidence high]
+? paramiko/ed25519key.py:128 — CIPHER [default/medium, confidence medium]
+? paramiko/hostkeys.py:294 — SHA-1 [banned/critical, confidence high] — Collision-broken
+? paramiko/hostkeys.py:299 — SHA-1 [banned/critical, confidence high] — Collision-broken
+? paramiko/kex_curve25519.py:30 — X25519 [default/medium, confidence high]
+? paramiko/kex_curve25519.py:45 — X25519 [default/medium, confidence high]
+? paramiko/kex_ecdh_nist.py:59 — ECDSA [banned/critical, confidence high] — Shor — migrate to ML-DSA-65
+? paramiko/kex_ecdh_nist.py:71 — ECDH [banned/critical, confidence high]
+? paramiko/kex_ecdh_nist.py:117 — ECDH [banned/critical, confidence high]
+? paramiko/kex_mlkem.py:75 — ML-KEM [approved/info, confidence high]
+? paramiko/kex_mlkem.py:76 — X25519 [default/medium, confidence high]
+? paramiko/kex_mlkem.py:84 — X25519 [default/medium, confidence high]
+? paramiko/kex_mlkem.py:88 — ML-KEM [approved/info, confidence high]
+? paramiko/pkey.py:390 — MD5 [banned/critical, confidence high] — Collision-broken
+? paramiko/pkey.py:401 — SHA-256 [approved/info, confidence high]
+? paramiko/pkey.py:403 — SHA-256 [approved/info, confidence high]
+? paramiko/pkey.py:654 — CIPHER [default/medium, confidence medium]
+? paramiko/pkey.py:713 — BCRYPT [default/medium, confidence high]
+? paramiko/pkey.py:726 — AES [default/medium, confidence high]
+? paramiko/pkey.py:727 — AES [default/medium, confidence high]
+? paramiko/rsakey.py:143 — RSA [banned/critical, confidence high] — Shor — migrate to ML-KEM-768
+? paramiko/rsakey.py:171 — RSA [banned/critical, confidence high] — Shor — migrate to ML-KEM-768
+? paramiko/rsakey.py:188 — RSA [banned/critical, confidence high] — Shor — migrate to ML-KEM-768
+? paramiko/transport.py:1917 — CIPHER [default/medium, confidence medium]
+? tests/_support/ecdsa-256.key:1 — ECDSA [banned/critical, confidence high] — Shor — migrate to ML-DSA-65
+? tests/_support/ed448.key:1 — EdDSA [banned/critical, confidence high]
+? tests/_support/rsa-lonely.key:1 — RSA [banned/critical, confidence high] — Shor — migrate to ML-KEM-768
+? tests/_support/rsa.key:1 — RSA [banned/critical, confidence high] — Shor — migrate to ML-KEM-768
+? tests/test_ecdsa_384.key:1 — ECDSA [banned/critical, confidence high] — Shor — migrate to ML-DSA-65
+? tests/test_ecdsa_521.key:1 — ECDSA [banned/critical, confidence high] — Shor — migrate to ML-DSA-65
+? tests/test_ecdsa_password_256.key:1 — ECDSA [banned/critical, confidence low] — Shor — migrate to ML-DSA-65
+? tests/test_ecdsa_password_384.key:1 — ECDSA [banned/critical, confidence low] — Shor — migrate to ML-DSA-65
+? tests/test_ecdsa_password_521.key:1 — ECDSA [banned/critical, confidence low] — Shor — migrate to ML-DSA-65
+? tests/test_packetizer.py:48 — AES [banned/medium, confidence high]
+? tests/test_packetizer.py:49 — AES [default/medium, confidence high]
+? tests/test_packetizer.py:78 — AES [banned/medium, confidence high]
+? tests/test_packetizer.py:79 — AES [default/medium, confidence high]
+? tests/test_packetizer.py:102 — AES [banned/medium, confidence high]
+? tests/test_packetizer.py:103 — AES [default/medium, confidence high]
+? tests/test_rsa_password.key:1 — RSA [banned/critical, confidence low] — Shor — migrate to ML-KEM-768
+dependencies: 16 parsed
+policy cryptoct-default-1.0.0: 21 fail, 17 warn, 4 allow
+gate: --fail-on policy tripped at critical

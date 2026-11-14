@@ -1,0 +1,147 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "pqblocks-scan",
+          "semanticVersion": "0.1.0",
+          "informationUri": "https://github.com/PQBlocks/cbom-scanner",
+          "rules": [
+            {
+              "id": "PQC001",
+              "name": "QuantumVulnerableAlgorithm",
+              "shortDescription": {
+                "text": "Quantum-vulnerable asymmetric algorithm detected"
+              },
+              "fullDescription": {
+                "text": "Legacy classical algorithms (RSA, ECC, ECDSA, ECDH) are vulnerable to Shor's algorithm."
+              },
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "helpUri": "https://csrc.nist.gov/pubs/ir/8547/ipd"
+            },
+            {
+              "id": "PQC002",
+              "name": "ClassicallyBrokenPrimitive",
+              "shortDescription": {
+                "text": "Classically broken or prohibited cryptographic algorithm"
+              },
+              "fullDescription": {
+                "text": "Cryptographic primitives like MD5, SHA-1, DES, and RC4 are prohibited under FIPS 140-3."
+              },
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "helpUri": "https://csrc.nist.gov/projects/cryptographic-module-validation-program"
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "PQC001",
+          "level": "warning",
+          "message": {
+            "text": "Cryptographic asset ED25519 detected at line 148. Action required by year 2031: CNSA 2.0 transition required by 2031; pair with ML-DSA-65 hybrid."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\jose\\utils.py"
+                },
+                "region": {
+                  "startLine": 148,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "PQC001",
+          "level": "warning",
+          "message": {
+            "text": "Cryptographic asset ECDSA-P256 detected at line 151. Action required by year 2031: CNSA 2.0 transition required by 2031; replace with ML-DSA-65."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\jose\\utils.py"
+                },
+                "region": {
+                  "startLine": 151,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "PQC002",
+          "level": "error",
+          "message": {
+            "text": "Cryptographic asset SHA-1 detected at line 209. Action required by year 2026: NIST SP 800-131A deprecated; replace with SHA-256 or SHA-3."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\jose\\backends\\cryptography_backend.py"
+                },
+                "region": {
+                  "startLine": 209,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "PQC001",
+          "level": "warning",
+          "message": {
+            "text": "Cryptographic asset ECDSA-P256 detected at line 31. Action required by year 2031: CNSA 2.0 transition required by 2031; replace with ML-DSA-65."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\jose\\backends\\ecdsa_backend.py"
+                },
+                "region": {
+                  "startLine": 31,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "PQC001",
+          "level": "warning",
+          "message": {
+            "text": "Cryptographic asset RSA-2048 detected at line 108. Action required by year 2031: CNSA 2.0 deprecation by 2030; transition to ML-KEM-768 / ML-DSA-65 by 2031."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "C:/Users/Suhas/AppData/Local/Temp/claude/2d7fdb9b645ead63/2ab8e4cc-510b-4616-a451-4c4114aaa08e/scratchpad/pilot_repos/python-jose\\tests\\algorithms\\test_RSA.py"
+                },
+                "region": {
+                  "startLine": 108,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

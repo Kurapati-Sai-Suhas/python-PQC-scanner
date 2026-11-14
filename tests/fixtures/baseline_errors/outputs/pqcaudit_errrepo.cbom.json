@@ -1,0 +1,70 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:e2245c06-f307-4881-a377-965c7f1354fb",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-11-14T06:41:54+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "pqc-audit",
+          "version": "0.4.1"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "crypto:cryptography:RSA-2048:key_generation",
+      "name": "RSA-2048",
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "parameterSetIdentifier": "2048",
+          "nistQuantumSecurityLevel": 0
+        }
+      },
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "errrepo\\good.py",
+            "line": 4,
+            "offset": 8,
+            "symbol": "rsa.generate_private_key"
+          },
+          {
+            "location": "errrepo\\latin1.py",
+            "line": 4,
+            "offset": 8,
+            "symbol": "rsa.generate_private_key"
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqc-audit:classification",
+          "value": "SHOR"
+        },
+        {
+          "name": "pqc-audit:severity",
+          "value": "CRITICAL"
+        },
+        {
+          "name": "pqc-audit:migrationTarget",
+          "value": "ML-KEM (key establishment) / ML-DSA (signatures)"
+        },
+        {
+          "name": "pqc-audit:compliance",
+          "value": "NIST IR 8547 / CNSA 2.0: deprecated after 2030, disallowed after 2035 \u2014 harvest-now-decrypt-later risk applies today"
+        }
+      ]
+    }
+  ]
+}

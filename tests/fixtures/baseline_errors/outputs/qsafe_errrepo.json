@@ -1,0 +1,167 @@
+{
+  "scan_path": "C:\\Users\\Suhas\\AppData\\Local\\Temp\\claude\\2d7fdb9b645ead63\\1e2a60a1-4d2d-4847-8ba1-f63702444013\\scratchpad\\errfix\\errrepo",
+  "files_scanned": 4,
+  "files_with_crypto": 4,
+  "total_findings": 4,
+  "suppressed_findings": 0,
+  "scan_time_ms": 5,
+  "risk_score": 100,
+  "risk_level": "CRITICAL",
+  "quantum_exposure": {
+    "broken": 4,
+    "weakened": 0,
+    "safe": 0
+  },
+  "by_risk": {
+    "CRITICAL": 4
+  },
+  "by_category": {
+    "key_exchange": 4
+  },
+  "by_algorithm": {
+    "RSA Key Exchange": 4
+  },
+  "crypto_libraries": [
+    "cryptography (Python)"
+  ],
+  "findings": [
+    {
+      "file": "good.py",
+      "line": 4,
+      "algorithm": "RSA Key Exchange",
+      "category": "key_exchange",
+      "risk": "CRITICAL",
+      "raw_risk": "CRITICAL",
+      "quantum_status": "BROKEN",
+      "context": "operation",
+      "usage": "k = rsa.generate_private_key(public_exponent=65537, key_size=2048)",
+      "migration": "ML-KEM 768 (CRYSTALS-Kyber) \u2014 NIST FIPS 203",
+      "nist_ref": "NIST SP 800-208, FIPS 203"
+    },
+    {
+      "file": "latin1.py",
+      "line": 4,
+      "algorithm": "RSA Key Exchange",
+      "category": "key_exchange",
+      "risk": "CRITICAL",
+      "raw_risk": "CRITICAL",
+      "quantum_status": "BROKEN",
+      "context": "operation",
+      "usage": "k = rsa.generate_private_key(public_exponent=65537, key_size=2048)",
+      "migration": "ML-KEM 768 (CRYSTALS-Kyber) \u2014 NIST FIPS 203",
+      "nist_ref": "NIST SP 800-208, FIPS 203"
+    },
+    {
+      "file": "nullbyte.py",
+      "line": 4,
+      "algorithm": "RSA Key Exchange",
+      "category": "key_exchange",
+      "risk": "CRITICAL",
+      "raw_risk": "CRITICAL",
+      "quantum_status": "BROKEN",
+      "context": "operation",
+      "usage": "k = rsa.generate_private_key(public_exponent=65537, key_size=2048)",
+      "migration": "ML-KEM 768 (CRYSTALS-Kyber) \u2014 NIST FIPS 203",
+      "nist_ref": "NIST SP 800-208, FIPS 203"
+    },
+    {
+      "file": "syntax_error.py",
+      "line": 4,
+      "algorithm": "RSA Key Exchange",
+      "category": "key_exchange",
+      "risk": "CRITICAL",
+      "raw_risk": "CRITICAL",
+      "quantum_status": "BROKEN",
+      "context": "operation",
+      "usage": "k = rsa.generate_private_key(public_exponent=65537, key_size=2048)",
+      "migration": "ML-KEM 768 (CRYSTALS-Kyber) \u2014 NIST FIPS 203",
+      "nist_ref": "NIST SP 800-208, FIPS 203"
+    }
+  ],
+  "suppressed": [],
+  "cbom": {
+    "bomFormat": "CycloneDX",
+    "specVersion": "1.6",
+    "version": 1,
+    "metadata": {
+      "timestamp": "2026-11-14T12:11:55Z",
+      "tools": [
+        {
+          "name": "PQC Posture Scanner",
+          "version": "0.2.0"
+        }
+      ],
+      "component": {
+        "name": "errrepo",
+        "type": "application"
+      }
+    },
+    "cryptoProperties": {
+      "algorithms": [
+        {
+          "name": "RSA Key Exchange",
+          "occurrences": 4,
+          "quantumSafe": false
+        }
+      ],
+      "libraries": [
+        "cryptography (Python)"
+      ]
+    }
+  },
+  "migration_priority": [
+    {
+      "file": "good.py",
+      "line": 4,
+      "algorithm": "RSA Key Exchange",
+      "category": "key_exchange",
+      "risk": "CRITICAL",
+      "raw_risk": "CRITICAL",
+      "quantum_status": "BROKEN",
+      "context": "operation",
+      "usage": "k = rsa.generate_private_key(public_exponent=65537, key_size=2048)",
+      "migration": "ML-KEM 768 (CRYSTALS-Kyber) \u2014 NIST FIPS 203",
+      "nist_ref": "NIST SP 800-208, FIPS 203"
+    },
+    {
+      "file": "latin1.py",
+      "line": 4,
+      "algorithm": "RSA Key Exchange",
+      "category": "key_exchange",
+      "risk": "CRITICAL",
+      "raw_risk": "CRITICAL",
+      "quantum_status": "BROKEN",
+      "context": "operation",
+      "usage": "k = rsa.generate_private_key(public_exponent=65537, key_size=2048)",
+      "migration": "ML-KEM 768 (CRYSTALS-Kyber) \u2014 NIST FIPS 203",
+      "nist_ref": "NIST SP 800-208, FIPS 203"
+    },
+    {
+      "file": "nullbyte.py",
+      "line": 4,
+      "algorithm": "RSA Key Exchange",
+      "category": "key_exchange",
+      "risk": "CRITICAL",
+      "raw_risk": "CRITICAL",
+      "quantum_status": "BROKEN",
+      "context": "operation",
+      "usage": "k = rsa.generate_private_key(public_exponent=65537, key_size=2048)",
+      "migration": "ML-KEM 768 (CRYSTALS-Kyber) \u2014 NIST FIPS 203",
+      "nist_ref": "NIST SP 800-208, FIPS 203"
+    },
+    {
+      "file": "syntax_error.py",
+      "line": 4,
+      "algorithm": "RSA Key Exchange",
+      "category": "key_exchange",
+      "risk": "CRITICAL",
+      "raw_risk": "CRITICAL",
+      "quantum_status": "BROKEN",
+      "context": "operation",
+      "usage": "k = rsa.generate_private_key(public_exponent=65537, key_size=2048)",
+      "migration": "ML-KEM 768 (CRYSTALS-Kyber) \u2014 NIST FIPS 203",
+      "nist_ref": "NIST SP 800-208, FIPS 203"
+    }
+  ],
+  "grade": "F"
+}

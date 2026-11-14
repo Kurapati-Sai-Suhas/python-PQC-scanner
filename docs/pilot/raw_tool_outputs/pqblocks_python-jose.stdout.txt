@@ -1,0 +1,14 @@
+CBOM written to C:/Users/Suhas/quantum computing project/docs/pilot/raw_tool_outputs/pqblocks_python-jose.cbom.json
+SARIF report written to C:/Users/Suhas/quantum computing project/docs/pilot/raw_tool_outputs/pqblocks_python-jose.sarif
+
+=== pqblocks-scan Assessment Result ===
+Total Assets Detected: 24
+CARS Readiness Score:  70.1/100.0
+Assigned Grade:        B
+
+Regulatory Sunset Deadlines (5 findings):
+  [2026] SHA-1 (prohibited): NIST SP 800-131A deprecated; replace with SHA-256 or SHA-3
+  [2031] ECDSA-P256 (migration): CNSA 2.0 transition required by 2031; replace with ML-DSA-65
+  [2031] ECDSA-P256 (migration): CNSA 2.0 transition required by 2031; replace with ML-DSA-65
+  [2031] ED25519 (migration): CNSA 2.0 transition required by 2031; pair with ML-DSA-65 hybrid
+  [2031] RSA-2048 (migration): CNSA 2.0 deprecation by 2030; transition to ML-KEM-768 / ML-DSA-65 by 2031

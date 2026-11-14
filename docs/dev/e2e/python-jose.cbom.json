@@ -1,0 +1,2531 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:0f36c6ad-083f-5c9d-b191-b2a6bbd1b1aa",
+  "version": 1,
+  "metadata": {
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "pqscan",
+          "version": "0.1.0.dev0",
+          "description": "Post-quantum crypto scanner for Python projects (research prototype)"
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "pqscan:policyVersion",
+        "value": "1.1"
+      },
+      {
+        "name": "pqscan:tierThreshold",
+        "value": "T2"
+      },
+      {
+        "name": "pqscan:arm",
+        "value": "full"
+      },
+      {
+        "name": "pqscan:filesScanned",
+        "value": "38"
+      },
+      {
+        "name": "pqscan:executionFailures",
+        "value": "0"
+      },
+      {
+        "name": "pqscan:semgrepStatus",
+        "value": "ok"
+      },
+      {
+        "name": "pqscan:unsupportedLibraryImports",
+        "value": "6"
+      },
+      {
+        "name": "pqscan:disclaimer",
+        "value": "Migration guidance only; does not establish that a migrated system is secure, compliant or quantum-safe."
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:jose/backends/cryptography_backend.py:72:27",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "jose/backends/cryptography_backend.py",
+            "line": 72,
+            "offset": 27
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Add ML-DSA (FIPS 204) verification so that migrated signers can be accepted. NIST IR 8547 defines 'legacy use' as processing already-protected data such as verifying an existing signature; whether RSA/ECC verification of already-issued signatures keeps that status after 2035 is set by SP 800-131A (to be revised). Retain legacy verification only for already-issued signatures; do not accept new RSA/ECC signatures after the transition."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.serialization.load_pem_public_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (ANY, loaded-PEM) reaches SIG consumers only"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-PEM"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 72: cryptography.hazmat.primitives.serialization.load_pem_public_key (loaded-PEM)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 145: consumer .verify()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.loader.pem"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:jose/backends/cryptography_backend.py:74:27",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "jose/backends/cryptography_backend.py",
+            "line": 74,
+            "offset": 27
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "RSA/ECC signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.serialization.load_pem_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (ANY, loaded-PEM) reaches SIG consumers only"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-PEM"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 74: cryptography.hazmat.primitives.serialization.load_pem_private_key (loaded-PEM)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 139: consumer .sign()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 145: consumer .verify()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.loader.pem"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:jose/backends/cryptography_backend.py:104:20",
+      "name": "ECDSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "jose/backends/cryptography_backend.py",
+            "line": 104,
+            "offset": 20
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "ECDSA/ECDH (elliptic-curve) signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "ec.EllipticCurvePrivateNumbers.private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (EC, loaded-JWK) reaches SIG consumers only"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-JWK"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 104: ec.EllipticCurvePrivateNumbers.private_key (loaded-JWK)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 139: consumer .sign()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 145: consumer .verify()"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:jose/backends/cryptography_backend.py:106:20",
+      "name": "ECDSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "jose/backends/cryptography_backend.py",
+            "line": 106,
+            "offset": 20
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Add ML-DSA (FIPS 204) verification so that migrated signers can be accepted. NIST IR 8547 defines 'legacy use' as processing already-protected data such as verifying an existing signature; whether ECDSA/ECDH (elliptic-curve) verification of already-issued signatures keeps that status after 2035 is set by SP 800-131A (to be revised). Retain legacy verification only for already-issued signatures; do not accept new ECDSA/ECDH (elliptic-curve) signatures after the transition."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "ec.EllipticCurvePublicNumbers.public_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (EC, loaded-JWK) reaches SIG consumers only"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-JWK"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 106: ec.EllipticCurvePublicNumbers.public_key (loaded-JWK)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 145: consumer .verify()"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:jose/backends/cryptography_backend.py:139:21",
+      "name": "ECDSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "jose/backends/cryptography_backend.py",
+            "line": 139,
+            "offset": 21
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "ECDSA/ECDH (elliptic-curve) signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.sign"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .sign() -> SIGN; receiver resolved: multi{pyca:ANY:private:loaded-PEM|pyca:ANY:public:loaded-PEM|pyca:EC:private:loaded-JWK|pyca:EC:public:loaded-JWK|unknown(untyped parameter)}; arguments: ECDSA; the key may also come from an untyped parameter, or its origin is consumed by another role family or has conflicting consumers, so the tier is capped at T2"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "sign"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-PEM"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-JWK"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "parameter"
+        },
+        {
+          "name": "pqscan:proximateProvenance",
+          "value": "attribute"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 139: method .sign()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 139: receiver multi{pyca:ANY:private:loaded-PEM|pyca:ANY:public:loaded-PEM|pyca:EC:private:loaded-JWK|pyca:EC:public:loaded-JWK|unknown(untyped parameter)}"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 139: arguments ECDSA"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 72: key origin load_pem_public_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 74: key origin load_pem_private_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 104: key origin private.private_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 106: key origin public.public_key"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "sign"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:jose/backends/cryptography_backend.py:145:13",
+      "name": "ECDSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "jose/backends/cryptography_backend.py",
+            "line": 145,
+            "offset": 13
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Add ML-DSA (FIPS 204) verification so that migrated signers can be accepted. NIST IR 8547 defines 'legacy use' as processing already-protected data such as verifying an existing signature; whether ECDSA/ECDH (elliptic-curve) verification of already-issued signatures keeps that status after 2035 is set by SP 800-131A (to be revised). Retain legacy verification only for already-issued signatures; do not accept new ECDSA/ECDH (elliptic-curve) signatures after the transition."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.verify"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .verify() -> VERIFY; receiver resolved: multi{pyca:ANY:private:loaded-PEM|pyca:ANY:public:loaded-PEM|pyca:EC:private:loaded-JWK|pyca:EC:public:loaded-JWK|unknown(untyped parameter)}; arguments: ECDSA; the key may also come from an untyped parameter, or its origin is consumed by another role family or has conflicting consumers, so the tier is capped at T2"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "verify"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-PEM"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-JWK"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "parameter"
+        },
+        {
+          "name": "pqscan:proximateProvenance",
+          "value": "attribute"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 145: method .verify()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 145: receiver multi{pyca:ANY:private:loaded-PEM|pyca:ANY:public:loaded-PEM|pyca:EC:private:loaded-JWK|pyca:EC:public:loaded-JWK|unknown(untyped parameter)}"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 145: arguments ECDSA"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 72: key origin load_pem_public_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 74: key origin load_pem_private_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 104: key origin private.private_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 106: key origin public.public_key"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "verify"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:jose/backends/cryptography_backend.py:250:41",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "jose/backends/cryptography_backend.py",
+            "line": 250,
+            "offset": 41
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material (ANY) reaches consumers of 2 families (PKE, SIG); the role depends on which path runs, so it is not statically determinable. Possible roles: PK_ENCRYPT, VERIFY. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.serialization.load_pem_public_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (ANY) reaches consumers of 2 families (PKE, SIG); the role depends on which path runs, so it is not statically determinable"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-PEM"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_ENCRYPT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 250: cryptography.hazmat.primitives.serialization.load_pem_public_key (loaded-PEM)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 316: consumer .verify()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 380: consumer .encrypt()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.loader.pem"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:jose/backends/cryptography_backend.py:252:41",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "jose/backends/cryptography_backend.py",
+            "line": 252,
+            "offset": 41
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material (ANY) reaches consumers of 2 families (PKE, SIG); the role depends on which path runs, so it is not statically determinable. Possible roles: PK_DECRYPT, SIGN, VERIFY. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.serialization.load_pem_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (ANY) reaches consumers of 2 families (PKE, SIG); the role depends on which path runs, so it is not statically determinable"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-PEM"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 252: cryptography.hazmat.primitives.serialization.load_pem_private_key (loaded-PEM)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 306: consumer .sign()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 316: consumer .verify()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 380: consumer .encrypt()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 388: consumer .decrypt()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.loader.pem"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:jose/backends/cryptography_backend.py:268:20",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "jose/backends/cryptography_backend.py",
+            "line": 268,
+            "offset": 20
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material (RSA) reaches consumers of 2 families (PKE, SIG); the role depends on which path runs, so it is not statically determinable. Possible roles: PK_ENCRYPT, VERIFY. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "rsa.RSAPublicNumbers.public_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (RSA) reaches consumers of 2 families (PKE, SIG); the role depends on which path runs, so it is not statically determinable"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-JWK"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_ENCRYPT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 268: rsa.RSAPublicNumbers.public_key (loaded-JWK)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 316: consumer .verify()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 380: consumer .encrypt()"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:jose/backends/cryptography_backend.py:298:20",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "jose/backends/cryptography_backend.py",
+            "line": 298,
+            "offset": 20
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material (RSA) reaches consumers of 2 families (PKE, SIG); the role depends on which path runs, so it is not statically determinable. Possible roles: PK_DECRYPT, SIGN, VERIFY. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "rsa.RSAPrivateNumbers.private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (RSA) reaches consumers of 2 families (PKE, SIG); the role depends on which path runs, so it is not statically determinable"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-JWK"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 298: rsa.RSAPrivateNumbers.private_key (loaded-JWK)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 306: consumer .sign()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 316: consumer .verify()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 380: consumer .encrypt()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 388: consumer .decrypt()"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:jose/backends/cryptography_backend.py:301:15",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "jose/backends/cryptography_backend.py",
+            "line": 301,
+            "offset": 15
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material (ANY) reaches consumers of 2 families (PKE, SIG); the role depends on which path runs, so it is not statically determinable. Possible roles: PK_ENCRYPT, VERIFY. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.x509.load_pem_x509_certificate"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (ANY) reaches consumers of 2 families (PKE, SIG); the role depends on which path runs, so it is not statically determinable"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-certificate"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_ENCRYPT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 301: cryptography.x509.load_pem_x509_certificate (loaded-certificate)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 316: consumer .verify()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 380: consumer .encrypt()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.loader.x509"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:jose/backends/cryptography_backend.py:306:25",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "jose/backends/cryptography_backend.py",
+            "line": 306,
+            "offset": 25
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "RSA signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.sign"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .sign() -> SIGN; receiver resolved: multi{pyca:ANY:private:loaded-PEM|pyca:ANY:public:loaded-PEM|pyca:ANY:public:loaded-certificate|pyca:RSA:private:loaded-JWK|pyca:RSA:public:loaded-JWK|unknown(untyped parameter)}; arguments: padding=PKCS1v15; the key may also come from an untyped parameter, or its origin is consumed by another role family or has conflicting consumers, so the tier is capped at T2"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "sign"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-JWK"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-PEM"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-certificate"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "parameter"
+        },
+        {
+          "name": "pqscan:proximateProvenance",
+          "value": "attribute"
+        },
+        {
+          "name": "pqscan:padding",
+          "value": "PKCS1v15"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 306: method .sign()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 306: receiver multi{pyca:ANY:private:loaded-PEM|pyca:ANY:public:loaded-PEM|pyca:ANY:public:loaded-certificate|pyca:RSA:private:loaded-JWK|pyca:RSA:public:loaded-JWK|unknown(untyped parameter)}"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 306: arguments padding=PKCS1v15"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 268: key origin public.public_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 298: key origin private.private_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 250: key origin load_pem_public_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 252: key origin load_pem_private_key"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "sign"
+          ],
+          "nistQuantumSecurityLevel": 0,
+          "padding": "pkcs1v15"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:jose/backends/cryptography_backend.py:316:13",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "jose/backends/cryptography_backend.py",
+            "line": 316,
+            "offset": 13
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Add ML-DSA (FIPS 204) verification so that migrated signers can be accepted. NIST IR 8547 defines 'legacy use' as processing already-protected data such as verifying an existing signature; whether RSA verification of already-issued signatures keeps that status after 2035 is set by SP 800-131A (to be revised). Retain legacy verification only for already-issued signatures; do not accept new RSA signatures after the transition."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.verify"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .verify() -> VERIFY; receiver resolved: multi{pyca:ANY:private:loaded-PEM|pyca:ANY:public:loaded-PEM|pyca:ANY:public:loaded-certificate|pyca:RSA:private:loaded-JWK|pyca:RSA:public:loaded-JWK|unknown(untyped parameter)}; arguments: padding=PKCS1v15; the key may also come from an untyped parameter, or its origin is consumed by another role family or has conflicting consumers, so the tier is capped at T2"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "verify"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-JWK"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-PEM"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-certificate"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "parameter"
+        },
+        {
+          "name": "pqscan:proximateProvenance",
+          "value": "attribute"
+        },
+        {
+          "name": "pqscan:padding",
+          "value": "PKCS1v15"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 316: method .verify()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 316: receiver multi{pyca:ANY:private:loaded-PEM|pyca:ANY:public:loaded-PEM|pyca:ANY:public:loaded-certificate|pyca:RSA:private:loaded-JWK|pyca:RSA:public:loaded-JWK|unknown(untyped parameter)}"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 316: arguments padding=PKCS1v15"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 268: key origin public.public_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 298: key origin private.private_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 250: key origin load_pem_public_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 252: key origin load_pem_private_key"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "verify"
+          ],
+          "nistQuantumSecurityLevel": 0,
+          "padding": "pkcs1v15"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:jose/backends/cryptography_backend.py:380:27",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "jose/backends/cryptography_backend.py",
+            "line": 380,
+            "offset": 27
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "PK_ENCRYPT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "KEM_DEM"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "Redesign as KEM + KDF + AEAD (KEM/DEM, SP 800-227 Secs. 2.1, 5.2); not a drop-in replacement for encrypt/decrypt"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "RSA public-key encryption / key transport (PKCS#1 v1.5, OAEP) has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 2.1, 5.2): the sender encapsulates to the recipient's authenticated ML-KEM key, derives the content key from the shared secret (FIPS 203 Sec. 3.3), and encrypts with an AEAD. The existing encrypt(data) call shape cannot be preserved."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.encrypt"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .encrypt() -> PK_ENCRYPT; receiver resolved: multi{pyca:ANY:private:loaded-PEM|pyca:ANY:public:loaded-PEM|pyca:ANY:public:loaded-certificate|pyca:RSA:private:loaded-JWK|pyca:RSA:public:loaded-JWK|unknown(untyped parameter)}; arguments: padding=multi{OAEP|PKCS1v15}; the key may also come from an untyped parameter, or its origin is consumed by another role family or has conflicting consumers, so the tier is capped at T2"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-KEM-768 (NIST IR 8547 default recommendation) with an approved KDF and AEAD"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "encrypt"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-JWK"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-PEM"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-certificate"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "parameter"
+        },
+        {
+          "name": "pqscan:proximateProvenance",
+          "value": "attribute"
+        },
+        {
+          "name": "pqscan:padding",
+          "value": "multi{OAEP|PKCS1v15}"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 380: method .encrypt()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 380: receiver multi{pyca:ANY:private:loaded-PEM|pyca:ANY:public:loaded-PEM|pyca:ANY:public:loaded-certificate|pyca:RSA:private:loaded-JWK|pyca:RSA:public:loaded-JWK|unknown(untyped parameter)}"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 380: arguments padding=multi{OAEP|PKCS1v15}"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 268: key origin public.public_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 298: key origin private.private_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 250: key origin load_pem_public_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 252: key origin load_pem_private_key"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "cryptoFunctions": [
+            "encrypt"
+          ],
+          "nistQuantumSecurityLevel": 0,
+          "padding": "other"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:jose/backends/cryptography_backend.py:388:29",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "jose/backends/cryptography_backend.py",
+            "line": 388,
+            "offset": 29
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "KEM_DEM"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "Redesign as KEM + KDF + AEAD (KEM/DEM, SP 800-227 Secs. 2.1, 5.2); not a drop-in replacement for encrypt/decrypt"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "RSA public-key decryption / key unwrapping has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 2.1, 5.2), decapsulation side: decapsulate with the ML-KEM decapsulation key, derive the content key from the shared secret (FIPS 203 Sec. 3.3), and decrypt with an AEAD. The existing decrypt(ciphertext) call shape cannot be preserved."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.decrypt"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .decrypt() -> PK_DECRYPT; receiver resolved: multi{pyca:ANY:private:loaded-PEM|pyca:ANY:public:loaded-PEM|pyca:ANY:public:loaded-certificate|pyca:RSA:private:loaded-JWK|pyca:RSA:public:loaded-JWK|unknown(untyped parameter)}; arguments: padding=multi{OAEP|PKCS1v15}; the key may also come from an untyped parameter, or its origin is consumed by another role family or has conflicting consumers, so the tier is capped at T2"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-KEM-768 (NIST IR 8547 default recommendation) with an approved KDF and AEAD"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "decrypt"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-JWK"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-PEM"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-certificate"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "parameter"
+        },
+        {
+          "name": "pqscan:proximateProvenance",
+          "value": "attribute"
+        },
+        {
+          "name": "pqscan:padding",
+          "value": "multi{OAEP|PKCS1v15}"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 388: method .decrypt()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 388: receiver multi{pyca:ANY:private:loaded-PEM|pyca:ANY:public:loaded-PEM|pyca:ANY:public:loaded-certificate|pyca:RSA:private:loaded-JWK|pyca:RSA:public:loaded-JWK|unknown(untyped parameter)}"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 388: arguments padding=multi{OAEP|PKCS1v15}"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 268: key origin public.public_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 298: key origin private.private_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 250: key origin load_pem_public_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 252: key origin load_pem_private_key"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "cryptoFunctions": [
+            "decrypt"
+          ],
+          "nistQuantumSecurityLevel": 0,
+          "padding": "other"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:tests/algorithms/test_EC.py:111:9",
+      "name": "EC",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/algorithms/test_EC.py",
+            "line": 111,
+            "offset": 9
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (passed to library call CryptographyECKey at line 110). Possible roles: SIGN, VERIFY, KEY_ESTABLISHMENT. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "test"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.ec.generate_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material leaves the analysed scope before any consumer is seen (passed to library call CryptographyECKey at line 110)"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 111: cryptography.hazmat.primitives.asymmetric.ec.generate_private_key (generated)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.ec.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:tests/algorithms/test_EC.py:146:13",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/algorithms/test_EC.py",
+            "line": 146,
+            "offset": 13
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T0"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T0 is below the policy threshold T2: the receiver is not resolved to a key object and no algorithm-specific argument is visible. Inferred role (not acted on): SIGN."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "test"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.sign"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .sign() -> SIGN; receiver unresolved (unresolved callee); arguments: no parameters"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T0 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "sign"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 146: method .sign()"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "sign"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:tests/algorithms/test_EC.py:198:21",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/algorithms/test_EC.py",
+            "line": 198,
+            "offset": 21
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T0"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T0 is below the policy threshold T2: the receiver is not resolved to a key object and no algorithm-specific argument is visible. Inferred role (not acted on): SIGN."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "test"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.sign"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .sign() -> SIGN; receiver unresolved (unresolved callee); arguments: no parameters"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T0 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "sign"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 198: method .sign()"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "sign"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:tests/algorithms/test_EC.py:201:21",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/algorithms/test_EC.py",
+            "line": 201,
+            "offset": 21
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T0"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T0 is below the policy threshold T2: the receiver is not resolved to a key object and no algorithm-specific argument is visible. Inferred role (not acted on): VERIFY."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "test"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.verify"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .verify() -> VERIFY; receiver unresolved (unresolved callee); arguments: no parameters"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T0 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "verify"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 201: method .verify()"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "verify"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:tests/algorithms/test_EC.py:202:25",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/algorithms/test_EC.py",
+            "line": 202,
+            "offset": 25
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T0"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T0 is below the policy threshold T2: the receiver is not resolved to a key object and no algorithm-specific argument is visible. Inferred role (not acted on): VERIFY."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "test"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.verify"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .verify() -> VERIFY; receiver unresolved (unresolved callee); arguments: no parameters"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T0 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "verify"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 202: method .verify()"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "verify"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:tests/algorithms/test_EC.py:238:11",
+      "name": "EC",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/algorithms/test_EC.py",
+            "line": 238,
+            "offset": 11
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_MATERIAL_ONLY"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "FLAG_NO_TARGET"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "INVENTORY"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No migration target at this site; inventory the key material and determine its downstream role"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "ECDSA/ECDH (elliptic-curve) key material with no consumer found in the analysed scope. No target is recommended; determine the downstream role first."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "test"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.ec.generate_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (EC) with no consumer inside the analysed scope and no escape: inventory only"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 238: cryptography.hazmat.primitives.asymmetric.ec.generate_private_key (generated)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.ec.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:tests/algorithms/test_RSA.py:226:11",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/algorithms/test_RSA.py",
+            "line": 226,
+            "offset": 11
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (passed to library call CryptographyRSAKey at line 233). Possible roles: SIGN, VERIFY, PK_ENCRYPT, PK_DECRYPT. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "test"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.rsa.RSAPublicNumbers.public_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material leaves the analysed scope before any consumer is seen (passed to library call CryptographyRSAKey at line 233)"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "constructed-from-parsed-blob"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_ENCRYPT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 226: cryptography.hazmat.primitives.asymmetric.rsa.RSAPublicNumbers.public_key (constructed-from-parsed-blob)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.rsa.construct"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key"
+        }
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pqscan:site:jose/backends/cryptography_backend.py:139:21",
+      "dependsOn": [
+        "pqscan:site:jose/backends/cryptography_backend.py:104:20",
+        "pqscan:site:jose/backends/cryptography_backend.py:106:20",
+        "pqscan:site:jose/backends/cryptography_backend.py:72:27",
+        "pqscan:site:jose/backends/cryptography_backend.py:74:27"
+      ]
+    },
+    {
+      "ref": "pqscan:site:jose/backends/cryptography_backend.py:145:13",
+      "dependsOn": [
+        "pqscan:site:jose/backends/cryptography_backend.py:104:20",
+        "pqscan:site:jose/backends/cryptography_backend.py:106:20",
+        "pqscan:site:jose/backends/cryptography_backend.py:72:27",
+        "pqscan:site:jose/backends/cryptography_backend.py:74:27"
+      ]
+    },
+    {
+      "ref": "pqscan:site:jose/backends/cryptography_backend.py:306:25",
+      "dependsOn": [
+        "pqscan:site:jose/backends/cryptography_backend.py:250:41",
+        "pqscan:site:jose/backends/cryptography_backend.py:252:41",
+        "pqscan:site:jose/backends/cryptography_backend.py:268:20",
+        "pqscan:site:jose/backends/cryptography_backend.py:298:20",
+        "pqscan:site:jose/backends/cryptography_backend.py:301:15"
+      ]
+    },
+    {
+      "ref": "pqscan:site:jose/backends/cryptography_backend.py:316:13",
+      "dependsOn": [
+        "pqscan:site:jose/backends/cryptography_backend.py:250:41",
+        "pqscan:site:jose/backends/cryptography_backend.py:252:41",
+        "pqscan:site:jose/backends/cryptography_backend.py:268:20",
+        "pqscan:site:jose/backends/cryptography_backend.py:298:20",
+        "pqscan:site:jose/backends/cryptography_backend.py:301:15"
+      ]
+    },
+    {
+      "ref": "pqscan:site:jose/backends/cryptography_backend.py:380:27",
+      "dependsOn": [
+        "pqscan:site:jose/backends/cryptography_backend.py:250:41",
+        "pqscan:site:jose/backends/cryptography_backend.py:252:41",
+        "pqscan:site:jose/backends/cryptography_backend.py:268:20",
+        "pqscan:site:jose/backends/cryptography_backend.py:298:20",
+        "pqscan:site:jose/backends/cryptography_backend.py:301:15"
+      ]
+    },
+    {
+      "ref": "pqscan:site:jose/backends/cryptography_backend.py:388:29",
+      "dependsOn": [
+        "pqscan:site:jose/backends/cryptography_backend.py:250:41",
+        "pqscan:site:jose/backends/cryptography_backend.py:252:41",
+        "pqscan:site:jose/backends/cryptography_backend.py:268:20",
+        "pqscan:site:jose/backends/cryptography_backend.py:298:20",
+        "pqscan:site:jose/backends/cryptography_backend.py:301:15"
+      ]
+    }
+  ]
+}

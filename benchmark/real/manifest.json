@@ -1,0 +1,174 @@
+{
+  "frozen": "2026-11-13",
+  "source": "docs/benchmark/candidate_verification.json (experiments/bench/verify_candidates.py)",
+  "rule": "Repositories accepted by the mechanical verification. Commit hashes are frozen here BEFORE Module C (role inference) exists. Test-split repositories must not be inspected for tuning; their labels are produced after the Phase 3 freeze.",
+  "splits": {
+    "development": [
+      {
+        "repo": "paramiko/paramiko",
+        "url": "https://github.com/paramiko/paramiko",
+        "commit": "0e9ccb91e0f9a68f2587233d523ad7fe46e730fe",
+        "commit_date": "2026-10-17",
+        "license": "LGPL-2.1",
+        "stars": 9901,
+        "py_files": 70,
+        "regex_candidates": 142,
+        "pyca_imports": 43,
+        "pycryptodome_imports": 0,
+        "in_baseline_corpus": true
+      },
+      {
+        "repo": "mpdavis/python-jose",
+        "url": "https://github.com/mpdavis/python-jose",
+        "commit": "018b310ddb8b50dcfd09a0c152117835a21dd656",
+        "commit_date": "2025-05-28",
+        "license": "MIT",
+        "stars": 1757,
+        "py_files": 38,
+        "regex_candidates": 41,
+        "pyca_imports": 17,
+        "pycryptodome_imports": 1,
+        "in_baseline_corpus": true
+      },
+      {
+        "repo": "jpadilla/pyjwt",
+        "url": "https://github.com/jpadilla/pyjwt",
+        "commit": "16231abfd1d8eab4953e8779b3017b859c88565e",
+        "commit_date": "2026-10-14",
+        "license": "MIT",
+        "stars": 5722,
+        "py_files": 26,
+        "regex_candidates": 205,
+        "pyca_imports": 40,
+        "pycryptodome_imports": 0,
+        "in_baseline_corpus": true
+      },
+      {
+        "repo": "lepture/authlib",
+        "url": "https://github.com/lepture/authlib",
+        "commit": "f817ad8a08eb6d5b105195709198d1381cfc11ea",
+        "commit_date": "2026-11-12",
+        "license": "BSD-3-Clause",
+        "stars": 5456,
+        "py_files": 389,
+        "regex_candidates": 255,
+        "pyca_imports": 85,
+        "pycryptodome_imports": 1,
+        "in_baseline_corpus": true
+      }
+    ],
+    "validation": [
+      {
+        "repo": "latchset/jwcrypto",
+        "url": "https://github.com/latchset/jwcrypto",
+        "commit": "99162f6beaa630641319c2651cb4ddc35eae3cf3",
+        "commit_date": "2026-11-11",
+        "license": "LGPL-3.0",
+        "stars": 480,
+        "py_files": 13,
+        "regex_candidates": 154,
+        "pyca_imports": 28,
+        "pycryptodome_imports": 0,
+        "in_baseline_corpus": false
+      },
+      {
+        "repo": "ronf/asyncssh",
+        "url": "https://github.com/ronf/asyncssh",
+        "commit": "f1d1c7505468e3ebfd4eda90d831934e20f69bdf",
+        "commit_date": "2026-11-07",
+        "license": "EPL-2.0",
+        "stars": 1767,
+        "py_files": 147,
+        "regex_candidates": 95,
+        "pyca_imports": 41,
+        "pycryptodome_imports": 0,
+        "in_baseline_corpus": false
+      }
+    ],
+    "test": [
+      {
+        "repo": "MatthiasValvekens/pyHanko",
+        "url": "https://github.com/MatthiasValvekens/pyHanko",
+        "commit": "0b27455d49ecde3d2853f598558f76d1af38cbf1",
+        "commit_date": "2026-11-11",
+        "license": "MIT",
+        "stars": 799,
+        "py_files": 272,
+        "regex_candidates": 298,
+        "pyca_imports": 67,
+        "pycryptodome_imports": 0,
+        "in_baseline_corpus": false
+      },
+      {
+        "repo": "keylime/keylime",
+        "url": "https://github.com/keylime/keylime",
+        "commit": "8df08745bf81884af841c5235d8194db98d5e22e",
+        "commit_date": "2026-10-06",
+        "license": "Apache-2.0",
+        "stars": 576,
+        "py_files": 309,
+        "regex_candidates": 371,
+        "pyca_imports": 138,
+        "pycryptodome_imports": 0,
+        "in_baseline_corpus": false
+      },
+      {
+        "repo": "mitmproxy/mitmproxy",
+        "url": "https://github.com/mitmproxy/mitmproxy",
+        "commit": "d05d6645e42fcc7688f174c8e64687f8a8cce72c",
+        "commit_date": "2026-11-13",
+        "license": "MIT",
+        "stars": 46879,
+        "py_files": 584,
+        "regex_candidates": 76,
+        "pyca_imports": 30,
+        "pycryptodome_imports": 0,
+        "in_baseline_corpus": false
+      },
+      {
+        "repo": "secdev/scapy",
+        "url": "https://github.com/secdev/scapy",
+        "commit": "0e2f6ba2669dc9c6487d7c0a4220b3c3dfd6d4ef",
+        "commit_date": "2026-11-13",
+        "license": "GPL-2.0",
+        "stars": 12689,
+        "py_files": 413,
+        "regex_candidates": 230,
+        "pyca_imports": 106,
+        "pycryptodome_imports": 0,
+        "in_baseline_corpus": false
+      },
+      {
+        "repo": "saltstack/salt",
+        "url": "https://github.com/saltstack/salt",
+        "commit": "390d168fac169bc3b53750815b63682b913e486d",
+        "commit_date": "2026-11-11",
+        "license": "Apache-2.0",
+        "stars": 15754,
+        "py_files": 3228,
+        "regex_candidates": 322,
+        "pyca_imports": 117,
+        "pycryptodome_imports": 14,
+        "in_baseline_corpus": false
+      },
+      {
+        "repo": "openstack/barbican",
+        "url": "https://github.com/openstack/barbican",
+        "commit": "cd590f1b71660cfcdd7712949b5a0617a31e35f2",
+        "commit_date": "2026-10-30",
+        "license": "Apache-2.0",
+        "stars": 250,
+        "py_files": 280,
+        "regex_candidates": 132,
+        "pyca_imports": 29,
+        "pycryptodome_imports": 0,
+        "in_baseline_corpus": false
+      }
+    ]
+  },
+  "open_conditions": [
+    "Only one accepted test repository (saltstack/salt) imports PyCryptodome; the protocol asks for two. A second PyCryptodome-using repository must be found and verified before test labelling, or the shortfall reported.",
+    "fortra/impacket (57 PyCryptodome imports) was rejected only because GitHub reports its licence as NOASSERTION; manual licence review could admit it.",
+    "ansible/ansible and aws/aws-encryption-sdk-python failed to clone in the verification run (see error field) and were not retried."
+  ]
+}

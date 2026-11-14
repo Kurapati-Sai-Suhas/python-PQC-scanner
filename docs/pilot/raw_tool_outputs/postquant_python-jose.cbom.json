@@ -1,0 +1,479 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "serialNumber": "urn:uuid:5ea22c89-cb4e-4ced-89a8-efd81f47e649",
+  "metadata": {
+    "timestamp": "2026-11-12T14:38:49.852Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "postquant",
+          "version": "0.7.0",
+          "description": "Quantum readiness scanner",
+          "externalReferences": [
+            {
+              "type": "website",
+              "url": "https://postquant.dev"
+            }
+          ]
+        }
+      ]
+    },
+    "component": {
+      "type": "application",
+      "name": "C:\\Users\\Suhas\\AppData\\Local\\Temp\\claude\\2d7fdb9b645ead63\\2ab8e4cc-510b-4616-a451-4c4114aaa08e\\scratchpad\\pilot_repos\\python-jose",
+      "bom-ref": "scanned-project"
+    }
+  },
+  "components": [
+    {
+      "type": "cryptographic-asset",
+      "name": "PQC (pqcrypto)",
+      "bom-ref": "a2ceb5bf-3cf3-4655-b05d-8e22b5e26d6c",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests\\test_jwk.py",
+            "line": 39,
+            "additionalContext": "key.sign(\"\")"
+          },
+          {
+            "location": "tests\\test_jws.py",
+            "line": 76,
+            "additionalContext": "jws.sign(payload, \"secret\", algorithm=\"RS256\")"
+          },
+          {
+            "location": "tests\\test_jws.py",
+            "line": 86,
+            "additionalContext": "signed_data = jws.sign({\"testkey\": \"testvalue\"}, key, algorithm=ALGORITHMS.HS256)"
+          },
+          {
+            "location": "tests\\test_jws.py",
+            "line": 97,
+            "additionalContext": "token = jws.sign(payload, key, algorithm=ALGORITHMS.HS256)"
+          },
+          {
+            "location": "tests\\test_jws.py",
+            "line": 103,
+            "additionalContext": "token = jws.sign(payload, \"secret\", algorithm=ALGORITHMS.HS256)"
+          },
+          {
+            "location": "tests\\test_jws.py",
+            "line": 107,
+            "additionalContext": "token = jws.sign(payload, \"secret\", algorithm=ALGORITHMS.HS384)"
+          },
+          {
+            "location": "tests\\test_jws.py",
+            "line": 111,
+            "additionalContext": "token = jws.sign(payload, \"secret\", algorithm=ALGORITHMS.HS512)"
+          },
+          {
+            "location": "tests\\test_jws.py",
+            "line": 115,
+            "additionalContext": "token = jws.sign(payload, \"secret\", algorithm=ALGORITHMS.HS256)"
+          },
+          {
+            "location": "tests\\test_jws.py",
+            "line": 120,
+            "additionalContext": "token = jws.sign(payload, \"secret\", algorithm=ALGORITHMS.HS256)"
+          },
+          {
+            "location": "tests\\test_jws.py",
+            "line": 126,
+            "additionalContext": "jws.sign(payload, \"secret\", algorithm=\"SOMETHING\")"
+          },
+          {
+            "location": "tests\\test_jws.py",
+            "line": 137,
+            "additionalContext": "token = jws.sign(payload, \"secret\", headers=additional_headers)"
+          },
+          {
+            "location": "tests\\test_jws.py",
+            "line": 310,
+            "additionalContext": "token = jws.sign(payload, rsa_private_key, algorithm=ALGORITHMS.RS256)"
+          },
+          {
+            "location": "tests\\test_jws.py",
+            "line": 314,
+            "additionalContext": "token = jws.sign(payload, rsa_private_key, algorithm=ALGORITHMS.RS384)"
+          },
+          {
+            "location": "tests\\test_jws.py",
+            "line": 318,
+            "additionalContext": "token = jws.sign(payload, rsa_private_key, algorithm=ALGORITHMS.RS512)"
+          },
+          {
+            "location": "tests\\test_jws.py",
+            "line": 322,
+            "additionalContext": "token = jws.sign(payload, rsa_private_key, algorithm=ALGORITHMS.RS256)"
+          },
+          {
+            "location": "tests\\test_jws.py",
+            "line": 327,
+            "additionalContext": "token = jws.sign(payload, rsa_private_key, algorithm=ALGORITHMS.RS256)"
+          },
+          {
+            "location": "tests\\test_jws.py",
+            "line": 332,
+            "additionalContext": "token = jws.sign(payload, rsa_private_key, algorithm=\"RS256\")"
+          },
+          {
+            "location": "tests\\test_jws.py",
+            "line": 364,
+            "additionalContext": "token = jws.sign(payload, ec_private_key, algorithm=ALGORITHMS.ES256)"
+          },
+          {
+            "location": "tests\\test_jws.py",
+            "line": 368,
+            "additionalContext": "token = jws.sign(payload, ec_private_key, algorithm=ALGORITHMS.ES384)"
+          },
+          {
+            "location": "tests\\test_jws.py",
+            "line": 372,
+            "additionalContext": "token = jws.sign(payload, ec_private_key, algorithm=ALGORITHMS.ES512)"
+          },
+          {
+            "location": "tests\\test_jws.py",
+            "line": 376,
+            "additionalContext": "token = jws.sign(payload, ec_private_key, algorithm=ALGORITHMS.ES256)"
+          },
+          {
+            "location": "tests\\algorithms\\test_AES_compat.py",
+            "line": 30,
+            "additionalContext": "key_encrypt = backend_encrypt(key, algorithm)"
+          },
+          {
+            "location": "tests\\algorithms\\test_AES_compat.py",
+            "line": 35,
+            "additionalContext": "iv, cipher_text, tag = key_encrypt.encrypt(plain_text, aad)"
+          },
+          {
+            "location": "tests\\algorithms\\test_base.py",
+            "line": 14,
+            "additionalContext": "alg.sign(\"msg\")"
+          },
+          {
+            "location": "tests\\algorithms\\test_base.py",
+            "line": 22,
+            "additionalContext": "alg.encrypt("
+          },
+          {
+            "location": "tests\\algorithms\\test_EC.py",
+            "line": 146,
+            "additionalContext": "key.sign(b\"foo\")"
+          },
+          {
+            "location": "tests\\algorithms\\test_EC.py",
+            "line": 198,
+            "additionalContext": "signature = key.sign(msg)"
+          },
+          {
+            "location": "tests\\algorithms\\test_EC_compat.py",
+            "line": 26,
+            "additionalContext": "sig = key_sign.sign(msg)"
+          },
+          {
+            "location": "tests\\algorithms\\test_HMAC_compat.py",
+            "line": 35,
+            "additionalContext": "key_sign = backend_sign(key, algorithm)"
+          },
+          {
+            "location": "tests\\algorithms\\test_HMAC_compat.py",
+            "line": 40,
+            "additionalContext": "digest = key_sign.sign(message)"
+          },
+          {
+            "location": "tests\\algorithms\\test_RSA_compat.py",
+            "line": 34,
+            "additionalContext": "sig = key_sign.sign(msg)"
+          },
+          {
+            "location": "jose\\jwe.py",
+            "line": 14,
+            "additionalContext": "def encrypt(plaintext, key, encryption=ALGORITHMS.A256GCM, algorithm=ALGORITHMS.DIR, zip=None, cty=None, kid=None):"
+          },
+          {
+            "location": "jose\\jwe.py",
+            "line": 395,
+            "additionalContext": "iv, ciphertext, tag = encryption_key.encrypt(plaintext, aad)"
+          },
+          {
+            "location": "jose\\jwe.py",
+            "line": 399,
+            "additionalContext": "iv, ciphertext, auth_tag = encryption_key.encrypt(plaintext, aad)"
+          },
+          {
+            "location": "jose\\jwe.py",
+            "line": 585,
+            "additionalContext": "signature = mac_key.sign(auth_tag_input)"
+          },
+          {
+            "location": "jose\\jws.py",
+            "line": 16,
+            "additionalContext": "def sign(payload, key, headers=None, algorithm=ALGORITHMS.HS256):"
+          },
+          {
+            "location": "jose\\jws.py",
+            "line": 165,
+            "additionalContext": "signature = key.sign(signing_input)"
+          },
+          {
+            "location": "jose\\jwt.py",
+            "line": 63,
+            "additionalContext": "return jws.sign(claims, key, headers=headers, algorithm=algorithm)"
+          },
+          {
+            "location": "jose\\backends\\base.py",
+            "line": 12,
+            "additionalContext": "def sign(self, msg):"
+          },
+          {
+            "location": "jose\\backends\\base.py",
+            "line": 27,
+            "additionalContext": "def encrypt(self, plain_text, aad=None):"
+          },
+          {
+            "location": "jose\\backends\\cryptography_backend.py",
+            "line": 133,
+            "additionalContext": "def sign(self, msg):"
+          },
+          {
+            "location": "jose\\backends\\cryptography_backend.py",
+            "line": 304,
+            "additionalContext": "def sign(self, msg):"
+          },
+          {
+            "location": "jose\\backends\\cryptography_backend.py",
+            "line": 380,
+            "additionalContext": "wrapped_key = self.prepared_key.encrypt(key_data, self.padding)"
+          },
+          {
+            "location": "jose\\backends\\cryptography_backend.py",
+            "line": 455,
+            "additionalContext": "def encrypt(self, plain_text, aad=None):"
+          },
+          {
+            "location": "jose\\backends\\cryptography_backend.py",
+            "line": 463,
+            "additionalContext": "cipher_text_and_tag = cipher.encrypt(iv, plain_text, aad)"
+          },
+          {
+            "location": "jose\\backends\\cryptography_backend.py",
+            "line": 569,
+            "additionalContext": "def sign(self, msg):"
+          },
+          {
+            "location": "jose\\backends\\ecdsa_backend.py",
+            "line": 98,
+            "additionalContext": "def sign(self, msg):"
+          },
+          {
+            "location": "jose\\backends\\ecdsa_backend.py",
+            "line": 99,
+            "additionalContext": "return self.prepared_key.sign("
+          },
+          {
+            "location": "jose\\backends\\native.py",
+            "line": 58,
+            "additionalContext": "def sign(self, msg):"
+          },
+          {
+            "location": "jose\\backends\\native.py",
+            "line": 62,
+            "additionalContext": "return hmac.compare_digest(sig, self.sign(msg))"
+          },
+          {
+            "location": "jose\\backends\\rsa_backend.py",
+            "line": 203,
+            "additionalContext": "def sign(self, msg):"
+          },
+          {
+            "location": "jose\\backends\\rsa_backend.py",
+            "line": 204,
+            "additionalContext": "return pyrsa.sign(msg, self._prepared_key, self.hash_alg)"
+          },
+          {
+            "location": "jose\\backends\\rsa_backend.py",
+            "line": 275,
+            "additionalContext": "wrapped_key = pyrsa.encrypt(key_data, self._prepared_key)"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "kem",
+          "parameterSetIdentifier": "",
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "classicalSecurityLevel": 0,
+          "nistQuantumSecurityLevel": 3
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "name": "SHA-256",
+      "bom-ref": "8bb0e535-3b8b-4fc1-90a4-e0d204ffd137",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests\\algorithms\\test_EC.py",
+            "line": 247,
+            "additionalContext": "hasher = hmac.HMAC(PUBKEY, hashes.SHA256())"
+          },
+          {
+            "location": "jose\\backends\\cryptography_backend.py",
+            "line": 210,
+            "additionalContext": "RSA_OAEP_256 = padding.OAEP(padding.MGF1(hashes.SHA256()), hashes.SHA256(), None)"
+          },
+          {
+            "location": "jose\\backends\\cryptography_backend.py",
+            "line": 525,
+            "additionalContext": "ALG_MAP = {ALGORITHMS.HS256: hashes.SHA256(), ALGORITHMS.HS384: hashes.SHA384(), ALGORITHMS.HS512: hashes.SHA512()}"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "parameterSetIdentifier": "256",
+          "cryptoFunctions": [
+            "digest"
+          ],
+          "classicalSecurityLevel": 128,
+          "nistQuantumSecurityLevel": 5
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "name": "ECDSA",
+      "bom-ref": "28998cdb-404b-4642-9d6b-3e41df16e984",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "jose\\backends\\cryptography_backend.py",
+            "line": 139,
+            "additionalContext": "signature = self.prepared_key.sign(msg, ec.ECDSA(self.hash_alg()))"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "parameterSetIdentifier": "",
+          "cryptoFunctions": [
+            "sign",
+            "verify"
+          ],
+          "classicalSecurityLevel": 0,
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "name": "SHA-1",
+      "bom-ref": "28693ac9-c703-421f-b543-48d657171459",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "jose\\backends\\cryptography_backend.py",
+            "line": 209,
+            "additionalContext": "RSA_OAEP = padding.OAEP(padding.MGF1(hashes.SHA1()), hashes.SHA1(), None)"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "hash",
+          "parameterSetIdentifier": "1",
+          "cryptoFunctions": [
+            "digest"
+          ],
+          "classicalSecurityLevel": 80,
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "name": "RSA",
+      "bom-ref": "8acb4a90-249b-4bae-869d-2b940d8df834",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "jose\\backends\\cryptography_backend.py",
+            "line": 306,
+            "additionalContext": "signature = self.prepared_key.sign(msg, padding.PKCS1v15(), self.hash_alg())"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "parameterSetIdentifier": "",
+          "cryptoFunctions": [
+            "sign",
+            "verify"
+          ],
+          "classicalSecurityLevel": 112,
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "name": "AES",
+      "bom-ref": "5c4eb49e-5507-4999-ab30-96ac9684068f",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "jose\\backends\\cryptography_backend.py",
+            "line": 467,
+            "additionalContext": "cipher = Cipher(algorithms.AES(self._key), mode, backend=default_backend())"
+          },
+          {
+            "location": "jose\\backends\\cryptography_backend.py",
+            "line": 493,
+            "additionalContext": "cipher = Cipher(algorithms.AES(self._key), mode, backend=default_backend())"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "ae",
+          "parameterSetIdentifier": "",
+          "cryptoFunctions": [
+            "encrypt",
+            "decrypt"
+          ],
+          "classicalSecurityLevel": 0,
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "scanned-project",
+      "dependsOn": [
+        "a2ceb5bf-3cf3-4655-b05d-8e22b5e26d6c",
+        "8bb0e535-3b8b-4fc1-90a4-e0d204ffd137",
+        "28998cdb-404b-4642-9d6b-3e41df16e984",
+        "28693ac9-c703-421f-b543-48d657171459",
+        "8acb4a90-249b-4bae-869d-2b940d8df834",
+        "5c4eb49e-5507-4999-ab30-96ac9684068f"
+      ]
+    }
+  ]
+}

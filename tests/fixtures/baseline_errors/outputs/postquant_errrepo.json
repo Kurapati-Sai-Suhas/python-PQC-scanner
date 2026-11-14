@@ -1,0 +1,613 @@
+{
+  "version": "0.7.0",
+  "timestamp": "2026-11-14T06:41:55.004Z",
+  "scanRoot": "C:\\Users\\Suhas\\AppData\\Local\\Temp\\claude\\2d7fdb9b645ead63\\1e2a60a1-4d2d-4847-8ba1-f63702444013\\scratchpad\\errfix\\errrepo",
+  "grade": "D+",
+  "baseGrade": "D",
+  "modifier": "+",
+  "pqcDetected": false,
+  "findings": [
+    {
+      "patternId": "python-rsa-keygen",
+      "file": "good.py",
+      "line": 4,
+      "matchedLine": "k = rsa.generate_private_key(public_exponent=65537, key_size=2048)",
+      "language": "python",
+      "category": "asymmetric-encryption",
+      "algorithm": "RSA",
+      "risk": "critical",
+      "reason": "RSA key generation is vulnerable to quantum attacks via Shor's algorithm",
+      "migration": "Migrate to ML-KEM (FIPS 203) for encryption or ML-DSA (FIPS 204) for signatures",
+      "confidence": "verified",
+      "scopeInfo": {
+        "functionName": "f",
+        "isTestCode": false,
+        "isConditionalPath": false
+      },
+      "astEnriched": true,
+      "originalRisk": "critical",
+      "riskContext": {
+        "usageContext": "digital-signature",
+        "adjustedRisk": "critical",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "• ast-scope: f"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "ast-scope",
+            "value": "f",
+            "influence": "neutral"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-rsa-sign",
+      "file": "good.py",
+      "line": 5,
+      "matchedLine": "return k.sign(m, padding.PKCS1v15(), hashes.SHA256())",
+      "language": "python",
+      "category": "digital-signature",
+      "algorithm": "RSA",
+      "risk": "critical",
+      "reason": "RSA digital signatures are vulnerable to quantum attacks via Shor's algorithm",
+      "migration": "Migrate to ML-DSA (FIPS 204) for digital signatures",
+      "confidence": "medium",
+      "originalRisk": "critical",
+      "riskContext": {
+        "usageContext": "digital-signature",
+        "adjustedRisk": "critical",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-rsa-keygen",
+      "file": "latin1.py",
+      "line": 4,
+      "matchedLine": "k = rsa.generate_private_key(public_exponent=65537, key_size=2048)",
+      "language": "python",
+      "category": "asymmetric-encryption",
+      "algorithm": "RSA",
+      "risk": "critical",
+      "reason": "RSA key generation is vulnerable to quantum attacks via Shor's algorithm",
+      "migration": "Migrate to ML-KEM (FIPS 203) for encryption or ML-DSA (FIPS 204) for signatures",
+      "confidence": "verified",
+      "scopeInfo": {
+        "functionName": "f",
+        "isTestCode": false,
+        "isConditionalPath": false
+      },
+      "astEnriched": true,
+      "originalRisk": "critical",
+      "riskContext": {
+        "usageContext": "digital-signature",
+        "adjustedRisk": "critical",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "• ast-scope: f"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "ast-scope",
+            "value": "f",
+            "influence": "neutral"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-rsa-sign",
+      "file": "latin1.py",
+      "line": 5,
+      "matchedLine": "return k.sign(m, padding.PKCS1v15(), hashes.SHA256())",
+      "language": "python",
+      "category": "digital-signature",
+      "algorithm": "RSA",
+      "risk": "critical",
+      "reason": "RSA digital signatures are vulnerable to quantum attacks via Shor's algorithm",
+      "migration": "Migrate to ML-DSA (FIPS 204) for digital signatures",
+      "confidence": "medium",
+      "originalRisk": "critical",
+      "riskContext": {
+        "usageContext": "digital-signature",
+        "adjustedRisk": "critical",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-rsa-keygen",
+      "file": "nullbyte.py",
+      "line": 4,
+      "matchedLine": "k = rsa.generate_private_key(public_exponent=65537, key_size=2048)",
+      "language": "python",
+      "category": "asymmetric-encryption",
+      "algorithm": "RSA",
+      "risk": "critical",
+      "reason": "RSA key generation is vulnerable to quantum attacks via Shor's algorithm",
+      "migration": "Migrate to ML-KEM (FIPS 203) for encryption or ML-DSA (FIPS 204) for signatures",
+      "confidence": "verified",
+      "scopeInfo": {
+        "functionName": "f",
+        "isTestCode": false,
+        "isConditionalPath": false
+      },
+      "astEnriched": true,
+      "originalRisk": "critical",
+      "riskContext": {
+        "usageContext": "digital-signature",
+        "adjustedRisk": "critical",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "• ast-scope: f"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "ast-scope",
+            "value": "f",
+            "influence": "neutral"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-rsa-sign",
+      "file": "nullbyte.py",
+      "line": 5,
+      "matchedLine": "return k.sign(m, padding.PKCS1v15(), hashes.SHA256())",
+      "language": "python",
+      "category": "digital-signature",
+      "algorithm": "RSA",
+      "risk": "critical",
+      "reason": "RSA digital signatures are vulnerable to quantum attacks via Shor's algorithm",
+      "migration": "Migrate to ML-DSA (FIPS 204) for digital signatures",
+      "confidence": "medium",
+      "originalRisk": "critical",
+      "riskContext": {
+        "usageContext": "digital-signature",
+        "adjustedRisk": "critical",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-rsa-keygen",
+      "file": "syntax_error.py",
+      "line": 4,
+      "matchedLine": "k = rsa.generate_private_key(public_exponent=65537, key_size=2048)",
+      "language": "python",
+      "category": "asymmetric-encryption",
+      "algorithm": "RSA",
+      "risk": "critical",
+      "reason": "RSA key generation is vulnerable to quantum attacks via Shor's algorithm",
+      "migration": "Migrate to ML-KEM (FIPS 203) for encryption or ML-DSA (FIPS 204) for signatures",
+      "confidence": "verified",
+      "scopeInfo": {
+        "functionName": "f",
+        "isTestCode": false,
+        "isConditionalPath": false
+      },
+      "astEnriched": true,
+      "originalRisk": "critical",
+      "riskContext": {
+        "usageContext": "digital-signature",
+        "adjustedRisk": "critical",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "• ast-scope: f"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "ast-scope",
+            "value": "f",
+            "influence": "neutral"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-rsa-sign",
+      "file": "syntax_error.py",
+      "line": 5,
+      "matchedLine": "return k.sign(m, padding.PKCS1v15(), hashes.SHA256())",
+      "language": "python",
+      "category": "digital-signature",
+      "algorithm": "RSA",
+      "risk": "critical",
+      "reason": "RSA digital signatures are vulnerable to quantum attacks via Shor's algorithm",
+      "migration": "Migrate to ML-DSA (FIPS 204) for digital signatures",
+      "confidence": "medium",
+      "originalRisk": "critical",
+      "riskContext": {
+        "usageContext": "digital-signature",
+        "adjustedRisk": "critical",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "critical": 8,
+    "moderate": 0,
+    "safe": 0,
+    "total": 8,
+    "filesScanned": 4,
+    "filesWithFindings": 4
+  },
+  "migrationNotes": [
+    "Migrate to ML-KEM (FIPS 203) for encryption or ML-DSA (FIPS 204) for signatures",
+    "Migrate to ML-DSA (FIPS 204) for digital signatures"
+  ],
+  "fileBreakdown": [
+    {
+      "file": "good.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-rsa-keygen",
+          "file": "good.py",
+          "line": 4,
+          "matchedLine": "k = rsa.generate_private_key(public_exponent=65537, key_size=2048)",
+          "language": "python",
+          "category": "asymmetric-encryption",
+          "algorithm": "RSA",
+          "risk": "critical",
+          "reason": "RSA key generation is vulnerable to quantum attacks via Shor's algorithm",
+          "migration": "Migrate to ML-KEM (FIPS 203) for encryption or ML-DSA (FIPS 204) for signatures",
+          "confidence": "verified",
+          "scopeInfo": {
+            "functionName": "f",
+            "isTestCode": false,
+            "isConditionalPath": false
+          },
+          "astEnriched": true,
+          "originalRisk": "critical",
+          "riskContext": {
+            "usageContext": "digital-signature",
+            "adjustedRisk": "critical",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "• ast-scope: f"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "ast-scope",
+                "value": "f",
+                "influence": "neutral"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-rsa-sign",
+          "file": "good.py",
+          "line": 5,
+          "matchedLine": "return k.sign(m, padding.PKCS1v15(), hashes.SHA256())",
+          "language": "python",
+          "category": "digital-signature",
+          "algorithm": "RSA",
+          "risk": "critical",
+          "reason": "RSA digital signatures are vulnerable to quantum attacks via Shor's algorithm",
+          "migration": "Migrate to ML-DSA (FIPS 204) for digital signatures",
+          "confidence": "medium",
+          "originalRisk": "critical",
+          "riskContext": {
+            "usageContext": "digital-signature",
+            "adjustedRisk": "critical",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 2,
+      "moderateCount": 0,
+      "safeCount": 0
+    },
+    {
+      "file": "latin1.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-rsa-keygen",
+          "file": "latin1.py",
+          "line": 4,
+          "matchedLine": "k = rsa.generate_private_key(public_exponent=65537, key_size=2048)",
+          "language": "python",
+          "category": "asymmetric-encryption",
+          "algorithm": "RSA",
+          "risk": "critical",
+          "reason": "RSA key generation is vulnerable to quantum attacks via Shor's algorithm",
+          "migration": "Migrate to ML-KEM (FIPS 203) for encryption or ML-DSA (FIPS 204) for signatures",
+          "confidence": "verified",
+          "scopeInfo": {
+            "functionName": "f",
+            "isTestCode": false,
+            "isConditionalPath": false
+          },
+          "astEnriched": true,
+          "originalRisk": "critical",
+          "riskContext": {
+            "usageContext": "digital-signature",
+            "adjustedRisk": "critical",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "• ast-scope: f"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "ast-scope",
+                "value": "f",
+                "influence": "neutral"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-rsa-sign",
+          "file": "latin1.py",
+          "line": 5,
+          "matchedLine": "return k.sign(m, padding.PKCS1v15(), hashes.SHA256())",
+          "language": "python",
+          "category": "digital-signature",
+          "algorithm": "RSA",
+          "risk": "critical",
+          "reason": "RSA digital signatures are vulnerable to quantum attacks via Shor's algorithm",
+          "migration": "Migrate to ML-DSA (FIPS 204) for digital signatures",
+          "confidence": "medium",
+          "originalRisk": "critical",
+          "riskContext": {
+            "usageContext": "digital-signature",
+            "adjustedRisk": "critical",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 2,
+      "moderateCount": 0,
+      "safeCount": 0
+    },
+    {
+      "file": "nullbyte.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-rsa-keygen",
+          "file": "nullbyte.py",
+          "line": 4,
+          "matchedLine": "k = rsa.generate_private_key(public_exponent=65537, key_size=2048)",
+          "language": "python",
+          "category": "asymmetric-encryption",
+          "algorithm": "RSA",
+          "risk": "critical",
+          "reason": "RSA key generation is vulnerable to quantum attacks via Shor's algorithm",
+          "migration": "Migrate to ML-KEM (FIPS 203) for encryption or ML-DSA (FIPS 204) for signatures",
+          "confidence": "verified",
+          "scopeInfo": {
+            "functionName": "f",
+            "isTestCode": false,
+            "isConditionalPath": false
+          },
+          "astEnriched": true,
+          "originalRisk": "critical",
+          "riskContext": {
+            "usageContext": "digital-signature",
+            "adjustedRisk": "critical",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "• ast-scope: f"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "ast-scope",
+                "value": "f",
+                "influence": "neutral"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-rsa-sign",
+          "file": "nullbyte.py",
+          "line": 5,
+          "matchedLine": "return k.sign(m, padding.PKCS1v15(), hashes.SHA256())",
+          "language": "python",
+          "category": "digital-signature",
+          "algorithm": "RSA",
+          "risk": "critical",
+          "reason": "RSA digital signatures are vulnerable to quantum attacks via Shor's algorithm",
+          "migration": "Migrate to ML-DSA (FIPS 204) for digital signatures",
+          "confidence": "medium",
+          "originalRisk": "critical",
+          "riskContext": {
+            "usageContext": "digital-signature",
+            "adjustedRisk": "critical",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 2,
+      "moderateCount": 0,
+      "safeCount": 0
+    },
+    {
+      "file": "syntax_error.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-rsa-keygen",
+          "file": "syntax_error.py",
+          "line": 4,
+          "matchedLine": "k = rsa.generate_private_key(public_exponent=65537, key_size=2048)",
+          "language": "python",
+          "category": "asymmetric-encryption",
+          "algorithm": "RSA",
+          "risk": "critical",
+          "reason": "RSA key generation is vulnerable to quantum attacks via Shor's algorithm",
+          "migration": "Migrate to ML-KEM (FIPS 203) for encryption or ML-DSA (FIPS 204) for signatures",
+          "confidence": "verified",
+          "scopeInfo": {
+            "functionName": "f",
+            "isTestCode": false,
+            "isConditionalPath": false
+          },
+          "astEnriched": true,
+          "originalRisk": "critical",
+          "riskContext": {
+            "usageContext": "digital-signature",
+            "adjustedRisk": "critical",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "• ast-scope: f"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "ast-scope",
+                "value": "f",
+                "influence": "neutral"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-rsa-sign",
+          "file": "syntax_error.py",
+          "line": 5,
+          "matchedLine": "return k.sign(m, padding.PKCS1v15(), hashes.SHA256())",
+          "language": "python",
+          "category": "digital-signature",
+          "algorithm": "RSA",
+          "risk": "critical",
+          "reason": "RSA digital signatures are vulnerable to quantum attacks via Shor's algorithm",
+          "migration": "Migrate to ML-DSA (FIPS 204) for digital signatures",
+          "confidence": "medium",
+          "originalRisk": "critical",
+          "riskContext": {
+            "usageContext": "digital-signature",
+            "adjustedRisk": "critical",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 2,
+      "moderateCount": 0,
+      "safeCount": 0
+    }
+  ],
+  "adjustedSummary": {
+    "critical": 8,
+    "high": 0,
+    "medium": 0,
+    "low": 0,
+    "informational": 0,
+    "total": 8
+  }
+}

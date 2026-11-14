@@ -1,0 +1,4752 @@
+{
+  "version": "0.7.0",
+  "timestamp": "2026-11-12T14:38:48.659Z",
+  "scanRoot": "C:\\Users\\Suhas\\AppData\\Local\\Temp\\claude\\2d7fdb9b645ead63\\2ab8e4cc-510b-4616-a451-4c4114aaa08e\\scratchpad\\pilot_repos\\python-jose",
+  "grade": "D-",
+  "baseGrade": "D",
+  "modifier": "-",
+  "pqcDetected": true,
+  "findings": [
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\test_jwk.py",
+      "line": 39,
+      "matchedLine": "key.sign(\"\")",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\test_jws.py",
+      "line": 76,
+      "matchedLine": "jws.sign(payload, \"secret\", algorithm=\"RS256\")",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: token/jwt",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "token/jwt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\test_jws.py",
+      "line": 86,
+      "matchedLine": "signed_data = jws.sign({\"testkey\": \"testvalue\"}, key, algorithm=ALGORITHMS.HS256)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↓ nearby-code: test",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "test",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\test_jws.py",
+      "line": 97,
+      "matchedLine": "token = jws.sign(payload, key, algorithm=ALGORITHMS.HS256)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: token/jwt",
+          "↓ nearby-code: test",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "token/jwt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "test",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\test_jws.py",
+      "line": 103,
+      "matchedLine": "token = jws.sign(payload, \"secret\", algorithm=ALGORITHMS.HS256)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: token/jwt",
+          "↓ nearby-code: test",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "token/jwt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "test",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\test_jws.py",
+      "line": 107,
+      "matchedLine": "token = jws.sign(payload, \"secret\", algorithm=ALGORITHMS.HS384)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: token/jwt",
+          "↓ nearby-code: test",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "token/jwt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "test",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\test_jws.py",
+      "line": 111,
+      "matchedLine": "token = jws.sign(payload, \"secret\", algorithm=ALGORITHMS.HS512)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: token/jwt",
+          "↓ nearby-code: test",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "token/jwt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "test",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\test_jws.py",
+      "line": 115,
+      "matchedLine": "token = jws.sign(payload, \"secret\", algorithm=ALGORITHMS.HS256)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: token/jwt",
+          "↓ nearby-code: test",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "token/jwt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "test",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\test_jws.py",
+      "line": 120,
+      "matchedLine": "token = jws.sign(payload, \"secret\", algorithm=ALGORITHMS.HS256)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: token/jwt",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "token/jwt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\test_jws.py",
+      "line": 126,
+      "matchedLine": "jws.sign(payload, \"secret\", algorithm=\"SOMETHING\")",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: token/jwt",
+          "↓ nearby-code: test",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "token/jwt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "test",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\test_jws.py",
+      "line": 137,
+      "matchedLine": "token = jws.sign(payload, \"secret\", headers=additional_headers)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: token/jwt",
+          "↓ nearby-code: test",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "token/jwt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "test",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\test_jws.py",
+      "line": 310,
+      "matchedLine": "token = jws.sign(payload, rsa_private_key, algorithm=ALGORITHMS.RS256)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: token/jwt",
+          "↓ nearby-code: test",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "token/jwt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "test",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\test_jws.py",
+      "line": 314,
+      "matchedLine": "token = jws.sign(payload, rsa_private_key, algorithm=ALGORITHMS.RS384)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: token/jwt",
+          "↓ nearby-code: test",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "token/jwt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "test",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\test_jws.py",
+      "line": 318,
+      "matchedLine": "token = jws.sign(payload, rsa_private_key, algorithm=ALGORITHMS.RS512)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: token/jwt",
+          "↓ nearby-code: test",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "token/jwt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "test",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\test_jws.py",
+      "line": 322,
+      "matchedLine": "token = jws.sign(payload, rsa_private_key, algorithm=ALGORITHMS.RS256)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: token/jwt",
+          "↓ nearby-code: test",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "token/jwt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "test",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\test_jws.py",
+      "line": 327,
+      "matchedLine": "token = jws.sign(payload, rsa_private_key, algorithm=ALGORITHMS.RS256)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: token/jwt",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "token/jwt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\test_jws.py",
+      "line": 332,
+      "matchedLine": "token = jws.sign(payload, rsa_private_key, algorithm=\"RS256\")",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: token/jwt",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "token/jwt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\test_jws.py",
+      "line": 364,
+      "matchedLine": "token = jws.sign(payload, ec_private_key, algorithm=ALGORITHMS.ES256)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: token/jwt",
+          "↓ nearby-code: test",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "token/jwt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "test",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\test_jws.py",
+      "line": 368,
+      "matchedLine": "token = jws.sign(payload, ec_private_key, algorithm=ALGORITHMS.ES384)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: token/jwt",
+          "↓ nearby-code: test",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "token/jwt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "test",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\test_jws.py",
+      "line": 372,
+      "matchedLine": "token = jws.sign(payload, ec_private_key, algorithm=ALGORITHMS.ES512)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: token/jwt",
+          "↓ nearby-code: test",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "token/jwt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "test",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\test_jws.py",
+      "line": 376,
+      "matchedLine": "token = jws.sign(payload, ec_private_key, algorithm=ALGORITHMS.ES256)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: token/jwt",
+          "↓ nearby-code: test",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "token/jwt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "test",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\algorithms\\test_AES_compat.py",
+      "line": 30,
+      "matchedLine": "key_encrypt = backend_encrypt(key, algorithm)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: encrypt",
+          "↓ nearby-code: test",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "encrypt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "test",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\algorithms\\test_AES_compat.py",
+      "line": 35,
+      "matchedLine": "iv, cipher_text, tag = key_encrypt.encrypt(plain_text, aad)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: encrypt",
+          "↓ nearby-code: test",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "encrypt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "test",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\algorithms\\test_base.py",
+      "line": 14,
+      "matchedLine": "alg.sign(\"msg\")",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\algorithms\\test_base.py",
+      "line": 22,
+      "matchedLine": "alg.encrypt(",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: encrypt",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "encrypt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\algorithms\\test_EC.py",
+      "line": 146,
+      "matchedLine": "key.sign(b\"foo\")",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\algorithms\\test_EC.py",
+      "line": 198,
+      "matchedLine": "signature = key.sign(msg)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↓ nearby-code: test",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "test",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-sha256",
+      "file": "tests\\algorithms\\test_EC.py",
+      "line": 247,
+      "matchedLine": "hasher = hmac.HMAC(PUBKEY, hashes.SHA256())",
+      "language": "python",
+      "category": "safe-hash",
+      "algorithm": "SHA-256",
+      "risk": "safe",
+      "reason": "SHA-256/384/512/SHA-3 are quantum-resistant hash functions",
+      "migration": "No migration needed — already quantum-safe",
+      "confidence": "high",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: hmac",
+          "↑ nearby-code: token/jwt",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "hmac",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "token/jwt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\algorithms\\test_EC_compat.py",
+      "line": 26,
+      "matchedLine": "sig = key_sign.sign(msg)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↓ nearby-code: test",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "test",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\algorithms\\test_HMAC_compat.py",
+      "line": 35,
+      "matchedLine": "key_sign = backend_sign(key, algorithm)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↓ nearby-code: checksum",
+          "↓ nearby-code: test",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "checksum",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "test",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\algorithms\\test_HMAC_compat.py",
+      "line": 40,
+      "matchedLine": "digest = key_sign.sign(message)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↓ nearby-code: checksum",
+          "↓ nearby-code: test",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "checksum",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "test",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "tests\\algorithms\\test_RSA_compat.py",
+      "line": 34,
+      "matchedLine": "sig = key_sign.sign(msg)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↓ nearby-code: test",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "test",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "jose\\jwe.py",
+      "line": 14,
+      "matchedLine": "def encrypt(plaintext, key, encryption=ALGORITHMS.A256GCM, algorithm=ALGORITHMS.DIR, zip=None, cty=None, kid=None):",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "encryption",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: encrypt"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "encrypt",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "jose\\jwe.py",
+      "line": 395,
+      "matchedLine": "iv, ciphertext, tag = encryption_key.encrypt(plaintext, aad)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "encryption",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: encrypt"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "encrypt",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "jose\\jwe.py",
+      "line": 399,
+      "matchedLine": "iv, ciphertext, auth_tag = encryption_key.encrypt(plaintext, aad)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "encryption",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: encrypt"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "encrypt",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "jose\\jwe.py",
+      "line": 585,
+      "matchedLine": "signature = mac_key.sign(auth_tag_input)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "encryption",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: encrypt"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "encrypt",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "jose\\jws.py",
+      "line": 16,
+      "matchedLine": "def sign(payload, key, headers=None, algorithm=ALGORITHMS.HS256):",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "jose\\jws.py",
+      "line": 165,
+      "matchedLine": "signature = key.sign(signing_input)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "jose\\jwt.py",
+      "line": 63,
+      "matchedLine": "return jws.sign(claims, key, headers=headers, algorithm=algorithm)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: token/jwt",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "token/jwt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "jose\\backends\\base.py",
+      "line": 12,
+      "matchedLine": "def sign(self, msg):",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "digital-signature",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "jose\\backends\\base.py",
+      "line": 27,
+      "matchedLine": "def encrypt(self, plain_text, aad=None):",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "encryption",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: encrypt"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "encrypt",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "jose\\backends\\cryptography_backend.py",
+      "line": 133,
+      "matchedLine": "def sign(self, msg):",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "digital-signature",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↓ nearby-code: checksum"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "checksum",
+            "influence": "decreases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-ecdsa-sign",
+      "file": "jose\\backends\\cryptography_backend.py",
+      "line": 139,
+      "matchedLine": "signature = self.prepared_key.sign(msg, ec.ECDSA(self.hash_alg()))",
+      "language": "python",
+      "category": "digital-signature",
+      "algorithm": "ECDSA",
+      "risk": "critical",
+      "reason": "ECDSA digital signatures are vulnerable to quantum attacks via Shor's algorithm",
+      "migration": "Migrate to ML-DSA (FIPS 204) for digital signatures",
+      "confidence": "high",
+      "originalRisk": "critical",
+      "riskContext": {
+        "usageContext": "digital-signature",
+        "adjustedRisk": "critical",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↓ nearby-code: checksum"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "checksum",
+            "influence": "decreases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-sha1",
+      "file": "jose\\backends\\cryptography_backend.py",
+      "line": 209,
+      "matchedLine": "RSA_OAEP = padding.OAEP(padding.MGF1(hashes.SHA1()), hashes.SHA1(), None)",
+      "language": "python",
+      "category": "weak-hash",
+      "algorithm": "SHA-1",
+      "risk": "critical",
+      "reason": "SHA-1 is cryptographically broken with practical collision attacks",
+      "migration": "Migrate to SHA-256 or SHA-3 for hashing",
+      "confidence": "medium",
+      "originalRisk": "critical",
+      "riskContext": {
+        "usageContext": "unknown",
+        "adjustedRisk": "high",
+        "contextEvidence": [],
+        "signals": []
+      }
+    },
+    {
+      "patternId": "python-sha256",
+      "file": "jose\\backends\\cryptography_backend.py",
+      "line": 210,
+      "matchedLine": "RSA_OAEP_256 = padding.OAEP(padding.MGF1(hashes.SHA256()), hashes.SHA256(), None)",
+      "language": "python",
+      "category": "safe-hash",
+      "algorithm": "SHA-256",
+      "risk": "safe",
+      "reason": "SHA-256/384/512/SHA-3 are quantum-resistant hash functions",
+      "migration": "No migration needed — already quantum-safe",
+      "confidence": "high",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "unknown",
+        "adjustedRisk": "informational",
+        "contextEvidence": [],
+        "signals": []
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "jose\\backends\\cryptography_backend.py",
+      "line": 304,
+      "matchedLine": "def sign(self, msg):",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "digital-signature",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-rsa-sign",
+      "file": "jose\\backends\\cryptography_backend.py",
+      "line": 306,
+      "matchedLine": "signature = self.prepared_key.sign(msg, padding.PKCS1v15(), self.hash_alg())",
+      "language": "python",
+      "category": "digital-signature",
+      "algorithm": "RSA",
+      "risk": "critical",
+      "reason": "RSA digital signatures are vulnerable to quantum attacks via Shor's algorithm",
+      "migration": "Migrate to ML-DSA (FIPS 204) for digital signatures",
+      "confidence": "medium",
+      "originalRisk": "critical",
+      "riskContext": {
+        "usageContext": "digital-signature",
+        "adjustedRisk": "critical",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "jose\\backends\\cryptography_backend.py",
+      "line": 380,
+      "matchedLine": "wrapped_key = self.prepared_key.encrypt(key_data, self.padding)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "encryption",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: encrypt"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "encrypt",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "jose\\backends\\cryptography_backend.py",
+      "line": 455,
+      "matchedLine": "def encrypt(self, plain_text, aad=None):",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "encryption",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: encrypt"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "encrypt",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "jose\\backends\\cryptography_backend.py",
+      "line": 463,
+      "matchedLine": "cipher_text_and_tag = cipher.encrypt(iv, plain_text, aad)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "encryption",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: encrypt"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "encrypt",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-aes",
+      "file": "jose\\backends\\cryptography_backend.py",
+      "line": 467,
+      "matchedLine": "cipher = Cipher(algorithms.AES(self._key), mode, backend=default_backend())",
+      "language": "python",
+      "category": "weak-symmetric",
+      "algorithm": "AES",
+      "risk": "moderate",
+      "reason": "AES-128 provides reduced security against quantum attacks (Grover's algorithm)",
+      "migration": "Use AES-256 for quantum-resistant symmetric encryption",
+      "confidence": "high",
+      "originalRisk": "moderate",
+      "riskContext": {
+        "usageContext": "encryption",
+        "adjustedRisk": "medium",
+        "contextEvidence": [
+          "↑ nearby-code: encrypt"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "encrypt",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-aes",
+      "file": "jose\\backends\\cryptography_backend.py",
+      "line": 493,
+      "matchedLine": "cipher = Cipher(algorithms.AES(self._key), mode, backend=default_backend())",
+      "language": "python",
+      "category": "weak-symmetric",
+      "algorithm": "AES",
+      "risk": "moderate",
+      "reason": "AES-128 provides reduced security against quantum attacks (Grover's algorithm)",
+      "migration": "Use AES-256 for quantum-resistant symmetric encryption",
+      "confidence": "high",
+      "originalRisk": "moderate",
+      "riskContext": {
+        "usageContext": "encryption",
+        "adjustedRisk": "medium",
+        "contextEvidence": [
+          "↑ nearby-code: encrypt"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "encrypt",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-sha256",
+      "file": "jose\\backends\\cryptography_backend.py",
+      "line": 525,
+      "matchedLine": "ALG_MAP = {ALGORITHMS.HS256: hashes.SHA256(), ALGORITHMS.HS384: hashes.SHA384(), ALGORITHMS.HS512: hashes.SHA512()}",
+      "language": "python",
+      "category": "safe-hash",
+      "algorithm": "SHA-256",
+      "risk": "safe",
+      "reason": "SHA-256/384/512/SHA-3 are quantum-resistant hash functions",
+      "migration": "No migration needed — already quantum-safe",
+      "confidence": "high",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: hmac"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "hmac",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "jose\\backends\\cryptography_backend.py",
+      "line": 569,
+      "matchedLine": "def sign(self, msg):",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: hmac"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "hmac",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "jose\\backends\\ecdsa_backend.py",
+      "line": 98,
+      "matchedLine": "def sign(self, msg):",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "jose\\backends\\ecdsa_backend.py",
+      "line": 99,
+      "matchedLine": "return self.prepared_key.sign(",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "jose\\backends\\native.py",
+      "line": 58,
+      "matchedLine": "def sign(self, msg):",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: hmac",
+          "↓ nearby-code: checksum",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "hmac",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "checksum",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "jose\\backends\\native.py",
+      "line": 62,
+      "matchedLine": "return hmac.compare_digest(sig, self.sign(msg))",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ nearby-code: hmac",
+          "↓ nearby-code: checksum",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "hmac",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "nearby-code",
+            "value": "checksum",
+            "influence": "decreases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "jose\\backends\\rsa_backend.py",
+      "line": 203,
+      "matchedLine": "def sign(self, msg):",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "jose\\backends\\rsa_backend.py",
+      "line": 204,
+      "matchedLine": "return pyrsa.sign(msg, self._prepared_key, self.hash_alg)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: sign/verify",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "sign/verify",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    },
+    {
+      "patternId": "python-pqc-pqcrypto",
+      "file": "jose\\backends\\rsa_backend.py",
+      "line": 275,
+      "matchedLine": "wrapped_key = pyrsa.encrypt(key_data, self._prepared_key)",
+      "language": "python",
+      "category": "pqc-algorithm",
+      "algorithm": "PQC (pqcrypto)",
+      "risk": "safe",
+      "reason": "pqcrypto Python bindings for PQC algorithms",
+      "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+      "confidence": "medium",
+      "originalRisk": "safe",
+      "riskContext": {
+        "usageContext": "authentication",
+        "adjustedRisk": "informational",
+        "contextEvidence": [
+          "↑ nearby-code: encrypt",
+          "↑ import-context: pyjwt/jsonwebtoken/jose"
+        ],
+        "signals": [
+          {
+            "type": "nearby-code",
+            "value": "encrypt",
+            "influence": "increases-risk"
+          },
+          {
+            "type": "import-context",
+            "value": "pyjwt/jsonwebtoken/jose",
+            "influence": "increases-risk"
+          }
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "critical": 3,
+    "moderate": 2,
+    "safe": 56,
+    "total": 61,
+    "filesScanned": 38,
+    "filesWithFindings": 16
+  },
+  "migrationNotes": [
+    "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+    "No migration needed — already quantum-safe",
+    "Migrate to ML-DSA (FIPS 204) for digital signatures",
+    "Migrate to SHA-256 or SHA-3 for hashing",
+    "Use AES-256 for quantum-resistant symmetric encryption"
+  ],
+  "fileBreakdown": [
+    {
+      "file": "tests\\test_jwk.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\test_jwk.py",
+          "line": 39,
+          "matchedLine": "key.sign(\"\")",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 0,
+      "moderateCount": 0,
+      "safeCount": 1
+    },
+    {
+      "file": "tests\\test_jws.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\test_jws.py",
+          "line": 76,
+          "matchedLine": "jws.sign(payload, \"secret\", algorithm=\"RS256\")",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: token/jwt",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "token/jwt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\test_jws.py",
+          "line": 86,
+          "matchedLine": "signed_data = jws.sign({\"testkey\": \"testvalue\"}, key, algorithm=ALGORITHMS.HS256)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↓ nearby-code: test",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "test",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\test_jws.py",
+          "line": 97,
+          "matchedLine": "token = jws.sign(payload, key, algorithm=ALGORITHMS.HS256)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: token/jwt",
+              "↓ nearby-code: test",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "token/jwt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "test",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\test_jws.py",
+          "line": 103,
+          "matchedLine": "token = jws.sign(payload, \"secret\", algorithm=ALGORITHMS.HS256)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: token/jwt",
+              "↓ nearby-code: test",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "token/jwt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "test",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\test_jws.py",
+          "line": 107,
+          "matchedLine": "token = jws.sign(payload, \"secret\", algorithm=ALGORITHMS.HS384)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: token/jwt",
+              "↓ nearby-code: test",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "token/jwt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "test",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\test_jws.py",
+          "line": 111,
+          "matchedLine": "token = jws.sign(payload, \"secret\", algorithm=ALGORITHMS.HS512)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: token/jwt",
+              "↓ nearby-code: test",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "token/jwt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "test",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\test_jws.py",
+          "line": 115,
+          "matchedLine": "token = jws.sign(payload, \"secret\", algorithm=ALGORITHMS.HS256)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: token/jwt",
+              "↓ nearby-code: test",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "token/jwt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "test",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\test_jws.py",
+          "line": 120,
+          "matchedLine": "token = jws.sign(payload, \"secret\", algorithm=ALGORITHMS.HS256)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: token/jwt",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "token/jwt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\test_jws.py",
+          "line": 126,
+          "matchedLine": "jws.sign(payload, \"secret\", algorithm=\"SOMETHING\")",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: token/jwt",
+              "↓ nearby-code: test",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "token/jwt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "test",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\test_jws.py",
+          "line": 137,
+          "matchedLine": "token = jws.sign(payload, \"secret\", headers=additional_headers)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: token/jwt",
+              "↓ nearby-code: test",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "token/jwt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "test",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\test_jws.py",
+          "line": 310,
+          "matchedLine": "token = jws.sign(payload, rsa_private_key, algorithm=ALGORITHMS.RS256)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: token/jwt",
+              "↓ nearby-code: test",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "token/jwt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "test",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\test_jws.py",
+          "line": 314,
+          "matchedLine": "token = jws.sign(payload, rsa_private_key, algorithm=ALGORITHMS.RS384)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: token/jwt",
+              "↓ nearby-code: test",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "token/jwt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "test",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\test_jws.py",
+          "line": 318,
+          "matchedLine": "token = jws.sign(payload, rsa_private_key, algorithm=ALGORITHMS.RS512)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: token/jwt",
+              "↓ nearby-code: test",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "token/jwt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "test",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\test_jws.py",
+          "line": 322,
+          "matchedLine": "token = jws.sign(payload, rsa_private_key, algorithm=ALGORITHMS.RS256)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: token/jwt",
+              "↓ nearby-code: test",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "token/jwt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "test",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\test_jws.py",
+          "line": 327,
+          "matchedLine": "token = jws.sign(payload, rsa_private_key, algorithm=ALGORITHMS.RS256)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: token/jwt",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "token/jwt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\test_jws.py",
+          "line": 332,
+          "matchedLine": "token = jws.sign(payload, rsa_private_key, algorithm=\"RS256\")",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: token/jwt",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "token/jwt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\test_jws.py",
+          "line": 364,
+          "matchedLine": "token = jws.sign(payload, ec_private_key, algorithm=ALGORITHMS.ES256)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: token/jwt",
+              "↓ nearby-code: test",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "token/jwt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "test",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\test_jws.py",
+          "line": 368,
+          "matchedLine": "token = jws.sign(payload, ec_private_key, algorithm=ALGORITHMS.ES384)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: token/jwt",
+              "↓ nearby-code: test",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "token/jwt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "test",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\test_jws.py",
+          "line": 372,
+          "matchedLine": "token = jws.sign(payload, ec_private_key, algorithm=ALGORITHMS.ES512)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: token/jwt",
+              "↓ nearby-code: test",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "token/jwt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "test",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\test_jws.py",
+          "line": 376,
+          "matchedLine": "token = jws.sign(payload, ec_private_key, algorithm=ALGORITHMS.ES256)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: token/jwt",
+              "↓ nearby-code: test",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "token/jwt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "test",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 0,
+      "moderateCount": 0,
+      "safeCount": 20
+    },
+    {
+      "file": "tests\\algorithms\\test_AES_compat.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\algorithms\\test_AES_compat.py",
+          "line": 30,
+          "matchedLine": "key_encrypt = backend_encrypt(key, algorithm)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: encrypt",
+              "↓ nearby-code: test",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "encrypt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "test",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\algorithms\\test_AES_compat.py",
+          "line": 35,
+          "matchedLine": "iv, cipher_text, tag = key_encrypt.encrypt(plain_text, aad)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: encrypt",
+              "↓ nearby-code: test",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "encrypt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "test",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 0,
+      "moderateCount": 0,
+      "safeCount": 2
+    },
+    {
+      "file": "tests\\algorithms\\test_base.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\algorithms\\test_base.py",
+          "line": 14,
+          "matchedLine": "alg.sign(\"msg\")",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\algorithms\\test_base.py",
+          "line": 22,
+          "matchedLine": "alg.encrypt(",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: encrypt",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "encrypt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 0,
+      "moderateCount": 0,
+      "safeCount": 2
+    },
+    {
+      "file": "tests\\algorithms\\test_EC.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\algorithms\\test_EC.py",
+          "line": 146,
+          "matchedLine": "key.sign(b\"foo\")",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\algorithms\\test_EC.py",
+          "line": 198,
+          "matchedLine": "signature = key.sign(msg)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↓ nearby-code: test",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "test",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-sha256",
+          "file": "tests\\algorithms\\test_EC.py",
+          "line": 247,
+          "matchedLine": "hasher = hmac.HMAC(PUBKEY, hashes.SHA256())",
+          "language": "python",
+          "category": "safe-hash",
+          "algorithm": "SHA-256",
+          "risk": "safe",
+          "reason": "SHA-256/384/512/SHA-3 are quantum-resistant hash functions",
+          "migration": "No migration needed — already quantum-safe",
+          "confidence": "high",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: hmac",
+              "↑ nearby-code: token/jwt",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "hmac",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "token/jwt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 0,
+      "moderateCount": 0,
+      "safeCount": 3
+    },
+    {
+      "file": "tests\\algorithms\\test_EC_compat.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\algorithms\\test_EC_compat.py",
+          "line": 26,
+          "matchedLine": "sig = key_sign.sign(msg)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↓ nearby-code: test",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "test",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 0,
+      "moderateCount": 0,
+      "safeCount": 1
+    },
+    {
+      "file": "tests\\algorithms\\test_HMAC_compat.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\algorithms\\test_HMAC_compat.py",
+          "line": 35,
+          "matchedLine": "key_sign = backend_sign(key, algorithm)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↓ nearby-code: checksum",
+              "↓ nearby-code: test",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "checksum",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "test",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\algorithms\\test_HMAC_compat.py",
+          "line": 40,
+          "matchedLine": "digest = key_sign.sign(message)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↓ nearby-code: checksum",
+              "↓ nearby-code: test",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "checksum",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "test",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 0,
+      "moderateCount": 0,
+      "safeCount": 2
+    },
+    {
+      "file": "tests\\algorithms\\test_RSA_compat.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "tests\\algorithms\\test_RSA_compat.py",
+          "line": 34,
+          "matchedLine": "sig = key_sign.sign(msg)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↓ nearby-code: test",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "test",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 0,
+      "moderateCount": 0,
+      "safeCount": 1
+    },
+    {
+      "file": "jose\\jwe.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "jose\\jwe.py",
+          "line": 14,
+          "matchedLine": "def encrypt(plaintext, key, encryption=ALGORITHMS.A256GCM, algorithm=ALGORITHMS.DIR, zip=None, cty=None, kid=None):",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "encryption",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: encrypt"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "encrypt",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "jose\\jwe.py",
+          "line": 395,
+          "matchedLine": "iv, ciphertext, tag = encryption_key.encrypt(plaintext, aad)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "encryption",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: encrypt"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "encrypt",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "jose\\jwe.py",
+          "line": 399,
+          "matchedLine": "iv, ciphertext, auth_tag = encryption_key.encrypt(plaintext, aad)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "encryption",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: encrypt"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "encrypt",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "jose\\jwe.py",
+          "line": 585,
+          "matchedLine": "signature = mac_key.sign(auth_tag_input)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "encryption",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: encrypt"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "encrypt",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 0,
+      "moderateCount": 0,
+      "safeCount": 4
+    },
+    {
+      "file": "jose\\jws.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "jose\\jws.py",
+          "line": 16,
+          "matchedLine": "def sign(payload, key, headers=None, algorithm=ALGORITHMS.HS256):",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "jose\\jws.py",
+          "line": 165,
+          "matchedLine": "signature = key.sign(signing_input)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 0,
+      "moderateCount": 0,
+      "safeCount": 2
+    },
+    {
+      "file": "jose\\jwt.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "jose\\jwt.py",
+          "line": 63,
+          "matchedLine": "return jws.sign(claims, key, headers=headers, algorithm=algorithm)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: token/jwt",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "token/jwt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 0,
+      "moderateCount": 0,
+      "safeCount": 1
+    },
+    {
+      "file": "jose\\backends\\base.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "jose\\backends\\base.py",
+          "line": 12,
+          "matchedLine": "def sign(self, msg):",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "digital-signature",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "jose\\backends\\base.py",
+          "line": 27,
+          "matchedLine": "def encrypt(self, plain_text, aad=None):",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "encryption",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: encrypt"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "encrypt",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 0,
+      "moderateCount": 0,
+      "safeCount": 2
+    },
+    {
+      "file": "jose\\backends\\cryptography_backend.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "jose\\backends\\cryptography_backend.py",
+          "line": 133,
+          "matchedLine": "def sign(self, msg):",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "digital-signature",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↓ nearby-code: checksum"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "checksum",
+                "influence": "decreases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-ecdsa-sign",
+          "file": "jose\\backends\\cryptography_backend.py",
+          "line": 139,
+          "matchedLine": "signature = self.prepared_key.sign(msg, ec.ECDSA(self.hash_alg()))",
+          "language": "python",
+          "category": "digital-signature",
+          "algorithm": "ECDSA",
+          "risk": "critical",
+          "reason": "ECDSA digital signatures are vulnerable to quantum attacks via Shor's algorithm",
+          "migration": "Migrate to ML-DSA (FIPS 204) for digital signatures",
+          "confidence": "high",
+          "originalRisk": "critical",
+          "riskContext": {
+            "usageContext": "digital-signature",
+            "adjustedRisk": "critical",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↓ nearby-code: checksum"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "checksum",
+                "influence": "decreases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-sha1",
+          "file": "jose\\backends\\cryptography_backend.py",
+          "line": 209,
+          "matchedLine": "RSA_OAEP = padding.OAEP(padding.MGF1(hashes.SHA1()), hashes.SHA1(), None)",
+          "language": "python",
+          "category": "weak-hash",
+          "algorithm": "SHA-1",
+          "risk": "critical",
+          "reason": "SHA-1 is cryptographically broken with practical collision attacks",
+          "migration": "Migrate to SHA-256 or SHA-3 for hashing",
+          "confidence": "medium",
+          "originalRisk": "critical",
+          "riskContext": {
+            "usageContext": "unknown",
+            "adjustedRisk": "high",
+            "contextEvidence": [],
+            "signals": []
+          }
+        },
+        {
+          "patternId": "python-sha256",
+          "file": "jose\\backends\\cryptography_backend.py",
+          "line": 210,
+          "matchedLine": "RSA_OAEP_256 = padding.OAEP(padding.MGF1(hashes.SHA256()), hashes.SHA256(), None)",
+          "language": "python",
+          "category": "safe-hash",
+          "algorithm": "SHA-256",
+          "risk": "safe",
+          "reason": "SHA-256/384/512/SHA-3 are quantum-resistant hash functions",
+          "migration": "No migration needed — already quantum-safe",
+          "confidence": "high",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "unknown",
+            "adjustedRisk": "informational",
+            "contextEvidence": [],
+            "signals": []
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "jose\\backends\\cryptography_backend.py",
+          "line": 304,
+          "matchedLine": "def sign(self, msg):",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "digital-signature",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-rsa-sign",
+          "file": "jose\\backends\\cryptography_backend.py",
+          "line": 306,
+          "matchedLine": "signature = self.prepared_key.sign(msg, padding.PKCS1v15(), self.hash_alg())",
+          "language": "python",
+          "category": "digital-signature",
+          "algorithm": "RSA",
+          "risk": "critical",
+          "reason": "RSA digital signatures are vulnerable to quantum attacks via Shor's algorithm",
+          "migration": "Migrate to ML-DSA (FIPS 204) for digital signatures",
+          "confidence": "medium",
+          "originalRisk": "critical",
+          "riskContext": {
+            "usageContext": "digital-signature",
+            "adjustedRisk": "critical",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "jose\\backends\\cryptography_backend.py",
+          "line": 380,
+          "matchedLine": "wrapped_key = self.prepared_key.encrypt(key_data, self.padding)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "encryption",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: encrypt"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "encrypt",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "jose\\backends\\cryptography_backend.py",
+          "line": 455,
+          "matchedLine": "def encrypt(self, plain_text, aad=None):",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "encryption",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: encrypt"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "encrypt",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "jose\\backends\\cryptography_backend.py",
+          "line": 463,
+          "matchedLine": "cipher_text_and_tag = cipher.encrypt(iv, plain_text, aad)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "encryption",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: encrypt"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "encrypt",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-aes",
+          "file": "jose\\backends\\cryptography_backend.py",
+          "line": 467,
+          "matchedLine": "cipher = Cipher(algorithms.AES(self._key), mode, backend=default_backend())",
+          "language": "python",
+          "category": "weak-symmetric",
+          "algorithm": "AES",
+          "risk": "moderate",
+          "reason": "AES-128 provides reduced security against quantum attacks (Grover's algorithm)",
+          "migration": "Use AES-256 for quantum-resistant symmetric encryption",
+          "confidence": "high",
+          "originalRisk": "moderate",
+          "riskContext": {
+            "usageContext": "encryption",
+            "adjustedRisk": "medium",
+            "contextEvidence": [
+              "↑ nearby-code: encrypt"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "encrypt",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-aes",
+          "file": "jose\\backends\\cryptography_backend.py",
+          "line": 493,
+          "matchedLine": "cipher = Cipher(algorithms.AES(self._key), mode, backend=default_backend())",
+          "language": "python",
+          "category": "weak-symmetric",
+          "algorithm": "AES",
+          "risk": "moderate",
+          "reason": "AES-128 provides reduced security against quantum attacks (Grover's algorithm)",
+          "migration": "Use AES-256 for quantum-resistant symmetric encryption",
+          "confidence": "high",
+          "originalRisk": "moderate",
+          "riskContext": {
+            "usageContext": "encryption",
+            "adjustedRisk": "medium",
+            "contextEvidence": [
+              "↑ nearby-code: encrypt"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "encrypt",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-sha256",
+          "file": "jose\\backends\\cryptography_backend.py",
+          "line": 525,
+          "matchedLine": "ALG_MAP = {ALGORITHMS.HS256: hashes.SHA256(), ALGORITHMS.HS384: hashes.SHA384(), ALGORITHMS.HS512: hashes.SHA512()}",
+          "language": "python",
+          "category": "safe-hash",
+          "algorithm": "SHA-256",
+          "risk": "safe",
+          "reason": "SHA-256/384/512/SHA-3 are quantum-resistant hash functions",
+          "migration": "No migration needed — already quantum-safe",
+          "confidence": "high",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: hmac"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "hmac",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "jose\\backends\\cryptography_backend.py",
+          "line": 569,
+          "matchedLine": "def sign(self, msg):",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: hmac"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "hmac",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 3,
+      "moderateCount": 2,
+      "safeCount": 8
+    },
+    {
+      "file": "jose\\backends\\ecdsa_backend.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "jose\\backends\\ecdsa_backend.py",
+          "line": 98,
+          "matchedLine": "def sign(self, msg):",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "jose\\backends\\ecdsa_backend.py",
+          "line": 99,
+          "matchedLine": "return self.prepared_key.sign(",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 0,
+      "moderateCount": 0,
+      "safeCount": 2
+    },
+    {
+      "file": "jose\\backends\\native.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "jose\\backends\\native.py",
+          "line": 58,
+          "matchedLine": "def sign(self, msg):",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: hmac",
+              "↓ nearby-code: checksum",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "hmac",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "checksum",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "jose\\backends\\native.py",
+          "line": 62,
+          "matchedLine": "return hmac.compare_digest(sig, self.sign(msg))",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ nearby-code: hmac",
+              "↓ nearby-code: checksum",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "hmac",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "nearby-code",
+                "value": "checksum",
+                "influence": "decreases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 0,
+      "moderateCount": 0,
+      "safeCount": 2
+    },
+    {
+      "file": "jose\\backends\\rsa_backend.py",
+      "language": "python",
+      "findings": [
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "jose\\backends\\rsa_backend.py",
+          "line": 203,
+          "matchedLine": "def sign(self, msg):",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "jose\\backends\\rsa_backend.py",
+          "line": 204,
+          "matchedLine": "return pyrsa.sign(msg, self._prepared_key, self.hash_alg)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: sign/verify",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "sign/verify",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        },
+        {
+          "patternId": "python-pqc-pqcrypto",
+          "file": "jose\\backends\\rsa_backend.py",
+          "line": 275,
+          "matchedLine": "wrapped_key = pyrsa.encrypt(key_data, self._prepared_key)",
+          "language": "python",
+          "category": "pqc-algorithm",
+          "algorithm": "PQC (pqcrypto)",
+          "risk": "safe",
+          "reason": "pqcrypto Python bindings for PQC algorithms",
+          "migration": "Already using PQC — verify algorithm is NIST-approved (ML-KEM, ML-DSA, SLH-DSA)",
+          "confidence": "medium",
+          "originalRisk": "safe",
+          "riskContext": {
+            "usageContext": "authentication",
+            "adjustedRisk": "informational",
+            "contextEvidence": [
+              "↑ nearby-code: encrypt",
+              "↑ import-context: pyjwt/jsonwebtoken/jose"
+            ],
+            "signals": [
+              {
+                "type": "nearby-code",
+                "value": "encrypt",
+                "influence": "increases-risk"
+              },
+              {
+                "type": "import-context",
+                "value": "pyjwt/jsonwebtoken/jose",
+                "influence": "increases-risk"
+              }
+            ]
+          }
+        }
+      ],
+      "criticalCount": 0,
+      "moderateCount": 0,
+      "safeCount": 3
+    }
+  ],
+  "adjustedSummary": {
+    "critical": 2,
+    "high": 1,
+    "medium": 2,
+    "low": 0,
+    "informational": 56,
+    "total": 61
+  }
+}

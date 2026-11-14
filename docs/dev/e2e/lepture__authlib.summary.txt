@@ -1,0 +1,48 @@
+pqscan 0.1.0.dev0 | policy 1.1 | threshold T2 | arm full
+files scanned: 389, skipped: 2, execution failures: 0, semgrep: ok
+sites: 43 (ABSTAIN=36, FLAG_NO_TARGET=1, RECOMMEND=6); excluded non-PK sites: 2; unsupported-library imports: 0 (none)
+target classes: ABSTAIN=36, INVENTORY=1, SIG=6
+
+authlib/jose/rfc7517/_cryptography_key.py:14  ANY      UNKNOWN            T1  ABSTAIN        ABSTAIN
+authlib/jose/rfc7517/_cryptography_key.py:17  ANY      UNKNOWN            T1  ABSTAIN        ABSTAIN
+authlib/jose/rfc7517/_cryptography_key.py:20  ANY      UNKNOWN            T1  ABSTAIN        ABSTAIN
+authlib/jose/rfc7517/_cryptography_key.py:23  ANY      UNKNOWN            T1  ABSTAIN        ABSTAIN
+authlib/jose/rfc7517/_cryptography_key.py:26  ANY      UNKNOWN            T1  ABSTAIN        ABSTAIN
+authlib/jose/rfc7517/_cryptography_key.py:29  ANY      UNKNOWN            T1  ABSTAIN        ABSTAIN
+authlib/jose/rfc7517/_cryptography_key.py:33  ANY      UNKNOWN            T1  ABSTAIN        ABSTAIN
+authlib/jose/rfc7517/_cryptography_key.py:35  ANY      UNKNOWN            T1  ABSTAIN        ABSTAIN
+authlib/jose/rfc7518/ec_key.py:50  EC       KEY_ESTABLISHMENT  T1  ABSTAIN        ABSTAIN
+authlib/jose/rfc7518/ec_key.py:70  EC       UNKNOWN            T1  ABSTAIN        ABSTAIN
+authlib/jose/rfc7518/ec_key.py:79  EC       UNKNOWN            T1  ABSTAIN        ABSTAIN
+authlib/jose/rfc7518/ec_key.py:102  EC       UNKNOWN            T1  ABSTAIN        ABSTAIN
+authlib/jose/rfc7518/jwe_algs.py:75  RSA      PK_ENCRYPT         T1  ABSTAIN        ABSTAIN
+authlib/jose/rfc7518/jwe_algs.py:80  RSA      PK_DECRYPT         T1  ABSTAIN        ABSTAIN
+authlib/jose/rfc7518/jws_algs.py:94  RSA      SIGN               T1  ABSTAIN        ABSTAIN
+authlib/jose/rfc7518/jws_algs.py:99  RSA      VERIFY             T1  ABSTAIN        ABSTAIN
+authlib/jose/rfc7518/jws_algs.py:133  EC       SIGN               T1  ABSTAIN        ABSTAIN
+authlib/jose/rfc7518/jws_algs.py:151  EC       VERIFY             T1  ABSTAIN        ABSTAIN
+authlib/jose/rfc7518/jws_algs.py:180  RSA      SIGN               T1  ABSTAIN        ABSTAIN
+authlib/jose/rfc7518/jws_algs.py:191  RSA      VERIFY             T1  ABSTAIN        ABSTAIN
+authlib/jose/rfc7518/oct_key.py:31  ANY      KEY_MATERIAL_ONLY  T2  FLAG_NO_TARGET INVENTORY
+authlib/jose/rfc7518/rsa_key.py:81  RSA      UNKNOWN            T1  ABSTAIN        ABSTAIN
+authlib/jose/rfc7518/rsa_key.py:87  RSA      UNKNOWN            T1  ABSTAIN        ABSTAIN
+authlib/jose/rfc7518/rsa_key.py:95  RSA      UNKNOWN            T1  ABSTAIN        ABSTAIN
+authlib/jose/rfc8037/jws_eddsa.py:16  ANY      SIGN               T0  ABSTAIN        ABSTAIN
+authlib/jose/rfc8037/jws_eddsa.py:21  ANY      VERIFY             T0  ABSTAIN        ABSTAIN
+authlib/jose/rfc8037/okp_key.py:50  ANY      KEY_ESTABLISHMENT  T0  ABSTAIN        ABSTAIN
+authlib/oauth1/rfc5849/rsa.py:12  ANY      SIGN               T3  RECOMMEND      SIG
+authlib/oauth1/rfc5849/rsa.py:15  RSA      SIGN               T3  RECOMMEND      SIG
+authlib/oauth1/rfc5849/rsa.py:19  ANY      VERIFY             T3  RECOMMEND      SIG
+authlib/oauth1/rfc5849/rsa.py:21  RSA      VERIFY             T3  RECOMMEND      SIG
+tests/jose/test_chacha20.py:63  ANY      PK_ENCRYPT         T0  ABSTAIN        ABSTAIN
+tests/jose/test_chacha20.py:72  ANY      PK_DECRYPT         T0  ABSTAIN        ABSTAIN
+tests/jose/test_ecdh_1pu.py:235  ANY      PK_ENCRYPT         T0  ABSTAIN        ABSTAIN
+tests/jose/test_ecdh_1pu.py:426  ANY      PK_DECRYPT         T0  ABSTAIN        ABSTAIN
+tests/jose/test_ecdh_1pu.py:478  ANY      PK_DECRYPT         T0  ABSTAIN        ABSTAIN
+tests/jose/test_ecdh_1pu.py:743  ANY      PK_DECRYPT         T0  ABSTAIN        ABSTAIN
+tests/jose/test_ecdh_1pu.py:759  ANY      PK_DECRYPT         T0  ABSTAIN        ABSTAIN
+tests/jose/test_jwt.py:61  Ed25519  SIGN               T2  RECOMMEND      SIG
+tests/jose/test_jwt.py:64  ANY      SIGN               T0  ABSTAIN        ABSTAIN
+tests/jose/test_jwt.py:81  RSA      UNKNOWN            T1  ABSTAIN        ABSTAIN
+tests/jose/test_jwt.py:84  EC       UNKNOWN            T1  ABSTAIN        ABSTAIN
+tests/jose/test_jwt.py:86  Ed25519  SIGN               T2  RECOMMEND      SIG

@@ -1,0 +1,130 @@
+# Module A — PyCryptodome candidate rules (api_coverage.md rows D1–D12).
+# Both import roots are covered: `Crypto` (pycryptodome) and `Cryptodome` (pycryptodomex).
+rules:
+  - id: pqscan.pcd.rsa.keygen
+    languages: [python]
+    severity: INFO
+    message: PyCryptodome RSA key generation (D1)
+    metadata: {library: pycryptodome, algorithm: RSA, kind: keygen, api: "Crypto.PublicKey.RSA.generate", coverage_row: D1}
+    pattern-either:
+      - pattern: Crypto.PublicKey.RSA.generate(...)
+      - pattern: Cryptodome.PublicKey.RSA.generate(...)
+
+  - id: pqscan.pcd.rsa.import
+    languages: [python]
+    severity: INFO
+    message: PyCryptodome RSA key import (D2)
+    metadata: {library: pycryptodome, algorithm: RSA, kind: loader, api: "Crypto.PublicKey.RSA.import_key/importKey", coverage_row: D2}
+    pattern-either:
+      - pattern: Crypto.PublicKey.RSA.import_key(...)
+      - pattern: Crypto.PublicKey.RSA.importKey(...)
+      - pattern: Cryptodome.PublicKey.RSA.import_key(...)
+      - pattern: Cryptodome.PublicKey.RSA.importKey(...)
+
+  - id: pqscan.pcd.rsa.construct
+    languages: [python]
+    severity: INFO
+    message: PyCryptodome RSA key construction from numbers (D3)
+    metadata: {library: pycryptodome, algorithm: RSA, kind: construct, api: "Crypto.PublicKey.RSA.construct", coverage_row: D3}
+    pattern-either:
+      - pattern: Crypto.PublicKey.RSA.construct(...)
+      - pattern: Cryptodome.PublicKey.RSA.construct(...)
+
+  - id: pqscan.pcd.ecc.keygen
+    languages: [python]
+    severity: INFO
+    message: PyCryptodome ECC key generation (D4)
+    metadata: {library: pycryptodome, algorithm: EC, kind: keygen, api: "Crypto.PublicKey.ECC.generate", coverage_row: D4}
+    pattern-either:
+      - pattern: Crypto.PublicKey.ECC.generate(...)
+      - pattern: Cryptodome.PublicKey.ECC.generate(...)
+
+  - id: pqscan.pcd.ecc.import
+    languages: [python]
+    severity: INFO
+    message: PyCryptodome ECC key import (D4)
+    metadata: {library: pycryptodome, algorithm: EC, kind: loader, api: "Crypto.PublicKey.ECC.import_key", coverage_row: D4}
+    pattern-either:
+      - pattern: Crypto.PublicKey.ECC.import_key(...)
+      - pattern: Cryptodome.PublicKey.ECC.import_key(...)
+
+  - id: pqscan.pcd.ecc.construct
+    languages: [python]
+    severity: INFO
+    message: PyCryptodome ECC key construction (D4)
+    metadata: {library: pycryptodome, algorithm: EC, kind: construct, api: "Crypto.PublicKey.ECC.construct", coverage_row: D4}
+    pattern-either:
+      - pattern: Crypto.PublicKey.ECC.construct(...)
+      - pattern: Cryptodome.PublicKey.ECC.construct(...)
+
+  - id: pqscan.pcd.dsa.keygen
+    languages: [python]
+    severity: INFO
+    message: PyCryptodome DSA key generation/import (D12, extension)
+    metadata: {library: pycryptodome, algorithm: DSA, kind: keygen, api: "Crypto.PublicKey.DSA.generate/import_key", coverage_row: D12}
+    pattern-either:
+      - pattern: Crypto.PublicKey.DSA.generate(...)
+      - pattern: Crypto.PublicKey.DSA.import_key(...)
+      - pattern: Cryptodome.PublicKey.DSA.generate(...)
+      - pattern: Cryptodome.PublicKey.DSA.import_key(...)
+
+  - id: pqscan.pcd.signer.new
+    languages: [python]
+    severity: INFO
+    message: PyCryptodome signature object (pkcs1_15 / pss / DSS / eddsa) (D5–D8)
+    metadata: {library: pycryptodome, algorithm: ANY, kind: signer-object, api: "Crypto.Signature.{pkcs1_15,pss,DSS,eddsa}.new", coverage_row: D5}
+    pattern-either:
+      - pattern: Crypto.Signature.pkcs1_15.new(...)
+      - pattern: Crypto.Signature.pss.new(...)
+      - pattern: Crypto.Signature.DSS.new(...)
+      - pattern: Crypto.Signature.eddsa.new(...)
+      - pattern: Crypto.Signature.PKCS1_v1_5.new(...)
+      - pattern: Crypto.Signature.PKCS1_PSS.new(...)
+      - pattern: Cryptodome.Signature.pkcs1_15.new(...)
+      - pattern: Cryptodome.Signature.pss.new(...)
+      - pattern: Cryptodome.Signature.DSS.new(...)
+      - pattern: Cryptodome.Signature.eddsa.new(...)
+      - pattern: Cryptodome.Signature.PKCS1_v1_5.new(...)
+      - pattern: Cryptodome.Signature.PKCS1_PSS.new(...)
+
+  - id: pqscan.pcd.signer.sign
+    languages: [python]
+    severity: INFO
+    message: PyCryptodome chained signature operation (D5–D8)
+    metadata: {library: pycryptodome, algorithm: ANY, kind: operation, api: "Crypto.Signature.*.new(key).sign/verify", coverage_row: D5}
+    pattern-either:
+      - pattern: Crypto.Signature.$M.new(...).sign(...)
+      - pattern: Crypto.Signature.$M.new(...).verify(...)
+      - pattern: Cryptodome.Signature.$M.new(...).sign(...)
+      - pattern: Cryptodome.Signature.$M.new(...).verify(...)
+
+  - id: pqscan.pcd.cipher.new
+    languages: [python]
+    severity: INFO
+    message: PyCryptodome RSA cipher object (PKCS1_OAEP / PKCS1_v1_5) (D9–D10)
+    metadata: {library: pycryptodome, algorithm: RSA, kind: cipher-object, api: "Crypto.Cipher.{PKCS1_OAEP,PKCS1_v1_5}.new", coverage_row: D9}
+    pattern-either:
+      - pattern: Crypto.Cipher.PKCS1_OAEP.new(...)
+      - pattern: Crypto.Cipher.PKCS1_v1_5.new(...)
+      - pattern: Cryptodome.Cipher.PKCS1_OAEP.new(...)
+      - pattern: Cryptodome.Cipher.PKCS1_v1_5.new(...)
+
+  - id: pqscan.pcd.cipher.op
+    languages: [python]
+    severity: INFO
+    message: PyCryptodome chained RSA encrypt/decrypt (D9–D10)
+    metadata: {library: pycryptodome, algorithm: RSA, kind: operation, api: "Crypto.Cipher.PKCS1_*.new(key).encrypt/decrypt", coverage_row: D9}
+    pattern-either:
+      - pattern: Crypto.Cipher.$M.new(...).encrypt(...)
+      - pattern: Crypto.Cipher.$M.new(...).decrypt(...)
+      - pattern: Cryptodome.Cipher.$M.new(...).encrypt(...)
+      - pattern: Cryptodome.Cipher.$M.new(...).decrypt(...)
+
+  - id: pqscan.pcd.dh.key_agreement
+    languages: [python]
+    severity: INFO
+    message: PyCryptodome DH key agreement (D11, extension)
+    metadata: {library: pycryptodome, algorithm: DH, kind: operation, api: "Crypto.Protocol.DH.key_agreement", coverage_row: D11}
+    pattern-either:
+      - pattern: Crypto.Protocol.DH.key_agreement(...)
+      - pattern: Cryptodome.Protocol.DH.key_agreement(...)

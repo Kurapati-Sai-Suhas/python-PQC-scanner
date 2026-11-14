@@ -1,0 +1,4400 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:acf37a93-0b39-54c7-bcda-a736a3c4fd87",
+  "version": 1,
+  "metadata": {
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "pqscan",
+          "version": "0.1.0.dev0",
+          "description": "Post-quantum crypto scanner for Python projects (research prototype)"
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "pqscan:policyVersion",
+        "value": "1.1"
+      },
+      {
+        "name": "pqscan:tierThreshold",
+        "value": "T2"
+      },
+      {
+        "name": "pqscan:arm",
+        "value": "full"
+      },
+      {
+        "name": "pqscan:filesScanned",
+        "value": "389"
+      },
+      {
+        "name": "pqscan:executionFailures",
+        "value": "0"
+      },
+      {
+        "name": "pqscan:semgrepStatus",
+        "value": "ok"
+      },
+      {
+        "name": "pqscan:unsupportedLibraryImports",
+        "value": "0"
+      },
+      {
+        "name": "pqscan:disclaimer",
+        "value": "Migration guidance only; does not establish that a migrated system is secure, compliant or quantum-safe."
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc7517/_cryptography_key.py:14:16",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc7517/_cryptography_key.py",
+            "line": 14,
+            "offset": 16
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (returned from public load_pem_key; external callers possible). Possible roles: SIGN, VERIFY, KEY_ESTABLISHMENT, PK_ENCRYPT, PK_DECRYPT. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.serialization.load_ssh_public_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material leaves the analysed scope before any consumer is seen (returned from public load_pem_key; external callers possible)"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-SSH"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_ENCRYPT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 14: cryptography.hazmat.primitives.serialization.load_ssh_public_key (loaded-SSH)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.loader.ssh"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc7517/_cryptography_key.py:17:16",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc7517/_cryptography_key.py",
+            "line": 17,
+            "offset": 16
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (returned from public load_pem_key; external callers possible). Possible roles: SIGN, VERIFY, KEY_ESTABLISHMENT, PK_ENCRYPT, PK_DECRYPT. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.serialization.load_pem_public_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material leaves the analysed scope before any consumer is seen (returned from public load_pem_key; external callers possible)"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-PEM"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_ENCRYPT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 17: cryptography.hazmat.primitives.serialization.load_pem_public_key (loaded-PEM)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.loader.pem"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc7517/_cryptography_key.py:20:16",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc7517/_cryptography_key.py",
+            "line": 20,
+            "offset": 16
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (returned from public load_pem_key; external callers possible). Possible roles: SIGN, VERIFY, KEY_ESTABLISHMENT, PK_ENCRYPT, PK_DECRYPT. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.serialization.load_pem_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material leaves the analysed scope before any consumer is seen (returned from public load_pem_key; external callers possible)"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-PEM"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_ENCRYPT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 20: cryptography.hazmat.primitives.serialization.load_pem_private_key (loaded-PEM)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.loader.pem"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc7517/_cryptography_key.py:23:16",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc7517/_cryptography_key.py",
+            "line": 23,
+            "offset": 16
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (returned from public load_pem_key; external callers possible). Possible roles: SIGN, VERIFY, KEY_ESTABLISHMENT, PK_ENCRYPT, PK_DECRYPT. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.serialization.load_pem_public_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material leaves the analysed scope before any consumer is seen (returned from public load_pem_key; external callers possible)"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-PEM"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_ENCRYPT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 23: cryptography.hazmat.primitives.serialization.load_pem_public_key (loaded-PEM)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.loader.pem"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc7517/_cryptography_key.py:26:16",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc7517/_cryptography_key.py",
+            "line": 26,
+            "offset": 16
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (returned from public load_pem_key; external callers possible). Possible roles: SIGN, VERIFY, KEY_ESTABLISHMENT, PK_ENCRYPT, PK_DECRYPT. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.serialization.load_pem_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material leaves the analysed scope before any consumer is seen (returned from public load_pem_key; external callers possible)"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-PEM"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_ENCRYPT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 26: cryptography.hazmat.primitives.serialization.load_pem_private_key (loaded-PEM)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.loader.pem"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc7517/_cryptography_key.py:29:16",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc7517/_cryptography_key.py",
+            "line": 29,
+            "offset": 16
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (returned from public load_pem_key; external callers possible). Possible roles: SIGN, VERIFY, KEY_ESTABLISHMENT, PK_ENCRYPT, PK_DECRYPT. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.x509.load_pem_x509_certificate"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material leaves the analysed scope before any consumer is seen (returned from public load_pem_key; external callers possible)"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-certificate"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_ENCRYPT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 29: cryptography.x509.load_pem_x509_certificate (loaded-certificate)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.loader.x509"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc7517/_cryptography_key.py:33:16",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc7517/_cryptography_key.py",
+            "line": 33,
+            "offset": 16
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (returned from public load_pem_key; external callers possible). Possible roles: SIGN, VERIFY, KEY_ESTABLISHMENT, PK_ENCRYPT, PK_DECRYPT. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.serialization.load_pem_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material leaves the analysed scope before any consumer is seen (returned from public load_pem_key; external callers possible)"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-PEM"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_ENCRYPT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 33: cryptography.hazmat.primitives.serialization.load_pem_private_key (loaded-PEM)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.loader.pem"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc7517/_cryptography_key.py:35:16",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc7517/_cryptography_key.py",
+            "line": 35,
+            "offset": 16
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (returned from public load_pem_key; external callers possible). Possible roles: SIGN, VERIFY, KEY_ESTABLISHMENT, PK_ENCRYPT, PK_DECRYPT. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.serialization.load_pem_public_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material leaves the analysed scope before any consumer is seen (returned from public load_pem_key; external callers possible)"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-PEM"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_ENCRYPT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 35: cryptography.hazmat.primitives.serialization.load_pem_public_key (loaded-PEM)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.loader.pem"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc7518/ec_key.py:50:20",
+      "name": "ECDH",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc7518/ec_key.py",
+            "line": 50,
+            "offset": 20
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T1 is below the policy threshold T2: only one of receiver typing or algorithm-specific arguments is available (or evidence conflicts). Inferred role (not acted on): KEY_ESTABLISHMENT."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.exchange"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .exchange() -> KEY_ESTABLISHMENT; receiver unresolved (unresolved callee); arguments: ECDH"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T1 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "exchange"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 50: method .exchange()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 50: arguments ECDH"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "key-agree",
+          "cryptoFunctions": [
+            "other"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc7518/ec_key.py:70:16",
+      "name": "EC",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc7518/ec_key.py",
+            "line": 70,
+            "offset": 16
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (returned from public ECKey.load_private_key; external callers possible). Possible roles: SIGN, VERIFY, KEY_ESTABLISHMENT. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "EllipticCurvePrivateNumbers.private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material leaves the analysed scope before any consumer is seen (returned from public ECKey.load_private_key; external callers possible)"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "constructed-from-parsed-blob"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 70: EllipticCurvePrivateNumbers.private_key (constructed-from-parsed-blob)"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc7518/ec_key.py:79:16",
+      "name": "EC",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc7518/ec_key.py",
+            "line": 79,
+            "offset": 16
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (returned from public ECKey.load_public_key; external callers possible). Possible roles: SIGN, VERIFY, KEY_ESTABLISHMENT. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "EllipticCurvePublicNumbers.public_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material leaves the analysed scope before any consumer is seen (returned from public ECKey.load_public_key; external callers possible)"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "constructed-from-parsed-blob"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 79: EllipticCurvePublicNumbers.public_key (constructed-from-parsed-blob)"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc7518/ec_key.py:102:19",
+      "name": "EC",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc7518/ec_key.py",
+            "line": 102,
+            "offset": 19
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (passed to unresolved callee cls.import_key at line 108). Possible roles: SIGN, VERIFY, KEY_ESTABLISHMENT. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.ec.generate_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material leaves the analysed scope before any consumer is seen (passed to unresolved callee cls.import_key at line 108)"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 102: cryptography.hazmat.primitives.asymmetric.ec.generate_private_key (generated)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.ec.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc7518/jwe_algs.py:75:14",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc7518/jwe_algs.py",
+            "line": 75,
+            "offset": 14
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "PK_ENCRYPT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T1 is below the policy threshold T2: only one of receiver typing or algorithm-specific arguments is available (or evidence conflicts). Inferred role (not acted on): PK_ENCRYPT."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.encrypt"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .encrypt() -> PK_ENCRYPT; receiver unresolved (unresolved callee); arguments: padding=multi{OAEP|PKCS1v15}"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T1 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "encrypt"
+        },
+        {
+          "name": "pqscan:padding",
+          "value": "multi{OAEP|PKCS1v15}"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 75: method .encrypt()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 75: arguments padding=multi{OAEP|PKCS1v15}"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "cryptoFunctions": [
+            "encrypt"
+          ],
+          "nistQuantumSecurityLevel": 0,
+          "padding": "other"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc7518/jwe_algs.py:80:15",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc7518/jwe_algs.py",
+            "line": 80,
+            "offset": 15
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T1 is below the policy threshold T2: only one of receiver typing or algorithm-specific arguments is available (or evidence conflicts). Inferred role (not acted on): PK_DECRYPT."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.decrypt"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .decrypt() -> PK_DECRYPT; receiver unresolved (unresolved callee); arguments: padding=multi{OAEP|PKCS1v15}"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T1 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "decrypt"
+        },
+        {
+          "name": "pqscan:padding",
+          "value": "multi{OAEP|PKCS1v15}"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 80: method .decrypt()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 80: arguments padding=multi{OAEP|PKCS1v15}"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "cryptoFunctions": [
+            "decrypt"
+          ],
+          "nistQuantumSecurityLevel": 0,
+          "padding": "other"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc7518/jws_algs.py:94:16",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc7518/jws_algs.py",
+            "line": 94,
+            "offset": 16
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T1 is below the policy threshold T2: only one of receiver typing or algorithm-specific arguments is available (or evidence conflicts). Inferred role (not acted on): SIGN."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.sign"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .sign() -> SIGN; receiver unresolved (unresolved callee); arguments: padding=PKCS1v15"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T1 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "sign"
+        },
+        {
+          "name": "pqscan:padding",
+          "value": "PKCS1v15"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 94: method .sign()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 94: arguments padding=PKCS1v15"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "sign"
+          ],
+          "nistQuantumSecurityLevel": 0,
+          "padding": "pkcs1v15"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc7518/jws_algs.py:99:13",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc7518/jws_algs.py",
+            "line": 99,
+            "offset": 13
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T1 is below the policy threshold T2: only one of receiver typing or algorithm-specific arguments is available (or evidence conflicts). Inferred role (not acted on): VERIFY."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.verify"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .verify() -> VERIFY; receiver unresolved (unresolved callee); arguments: padding=PKCS1v15"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T1 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "verify"
+        },
+        {
+          "name": "pqscan:padding",
+          "value": "PKCS1v15"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 99: method .verify()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 99: arguments padding=PKCS1v15"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "verify"
+          ],
+          "nistQuantumSecurityLevel": 0,
+          "padding": "pkcs1v15"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc7518/jws_algs.py:133:19",
+      "name": "ECDSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc7518/jws_algs.py",
+            "line": 133,
+            "offset": 19
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T1 is below the policy threshold T2: only one of receiver typing or algorithm-specific arguments is available (or evidence conflicts). Inferred role (not acted on): SIGN."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.sign"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .sign() -> SIGN; receiver unresolved (unresolved callee); arguments: ECDSA"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T1 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "sign"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 133: method .sign()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 133: arguments ECDSA"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "sign"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc7518/jws_algs.py:151:13",
+      "name": "ECDSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc7518/jws_algs.py",
+            "line": 151,
+            "offset": 13
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T1 is below the policy threshold T2: only one of receiver typing or algorithm-specific arguments is available (or evidence conflicts). Inferred role (not acted on): VERIFY."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.verify"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .verify() -> VERIFY; receiver unresolved (unresolved callee); arguments: ECDSA"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T1 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "verify"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 151: method .verify()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 151: arguments ECDSA"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "verify"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc7518/jws_algs.py:180:16",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc7518/jws_algs.py",
+            "line": 180,
+            "offset": 16
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T1 is below the policy threshold T2: only one of receiver typing or algorithm-specific arguments is available (or evidence conflicts). Inferred role (not acted on): SIGN."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.sign"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .sign() -> SIGN; receiver unresolved (unresolved callee); arguments: padding=PSS"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T1 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "sign"
+        },
+        {
+          "name": "pqscan:padding",
+          "value": "PSS"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 180: method .sign()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 180: arguments padding=PSS"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "sign"
+          ],
+          "nistQuantumSecurityLevel": 0,
+          "padding": "other"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc7518/jws_algs.py:191:13",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc7518/jws_algs.py",
+            "line": 191,
+            "offset": 13
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T1 is below the policy threshold T2: only one of receiver typing or algorithm-specific arguments is available (or evidence conflicts). Inferred role (not acted on): VERIFY."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.verify"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .verify() -> VERIFY; receiver unresolved (unresolved callee); arguments: padding=PSS"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T1 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "verify"
+        },
+        {
+          "name": "pqscan:padding",
+          "value": "PSS"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 191: method .verify()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 191: arguments padding=PSS"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "verify"
+          ],
+          "nistQuantumSecurityLevel": 0,
+          "padding": "other"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc7518/oct_key.py:31:9",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc7518/oct_key.py",
+            "line": 31,
+            "offset": 9
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_MATERIAL_ONLY"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "FLAG_NO_TARGET"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "INVENTORY"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No migration target at this site; inventory the key material and determine its downstream role"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "RSA/ECC key material with no consumer found in the analysed scope. No target is recommended; determine the downstream role first."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.serialization.load_ssh_public_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (ANY) with no consumer inside the analysed scope and no escape: inventory only"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-SSH"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 31: cryptography.hazmat.primitives.serialization.load_ssh_public_key (loaded-SSH)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.loader.ssh"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc7518/rsa_key.py:81:16",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc7518/rsa_key.py",
+            "line": 81,
+            "offset": 16
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (returned from public RSAKey.load_private_key; external callers possible). Possible roles: SIGN, VERIFY, PK_ENCRYPT, PK_DECRYPT. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "RSAPrivateNumbers.private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material leaves the analysed scope before any consumer is seen (returned from public RSAKey.load_private_key; external callers possible)"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "constructed-from-parsed-blob"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_ENCRYPT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 81: RSAPrivateNumbers.private_key (constructed-from-parsed-blob)"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc7518/rsa_key.py:87:16",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc7518/rsa_key.py",
+            "line": 87,
+            "offset": 16
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (returned from public RSAKey.load_public_key; external callers possible). Possible roles: SIGN, VERIFY, PK_ENCRYPT, PK_DECRYPT. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "RSAPublicNumbers.public_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material leaves the analysed scope before any consumer is seen (returned from public RSAKey.load_public_key; external callers possible)"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "constructed-from-parsed-blob"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_ENCRYPT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 87: RSAPublicNumbers.public_key (constructed-from-parsed-blob)"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc7518/rsa_key.py:95:19",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc7518/rsa_key.py",
+            "line": 95,
+            "offset": 19
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (passed to unresolved callee cls.import_key at line 102). Possible roles: SIGN, VERIFY, PK_ENCRYPT, PK_DECRYPT. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.rsa.generate_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material leaves the analysed scope before any consumer is seen (passed to unresolved callee cls.import_key at line 102)"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_ENCRYPT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 95: cryptography.hazmat.primitives.asymmetric.rsa.generate_private_key (generated)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.rsa.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc8037/jws_eddsa.py:16:16",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc8037/jws_eddsa.py",
+            "line": 16,
+            "offset": 16
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T0"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T0 is below the policy threshold T2: the receiver is not resolved to a key object and no algorithm-specific argument is visible. Inferred role (not acted on): SIGN."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.sign"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .sign() -> SIGN; receiver unresolved (unresolved callee); arguments: no parameters"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T0 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "sign"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 16: method .sign()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "sign"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc8037/jws_eddsa.py:21:13",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc8037/jws_eddsa.py",
+            "line": 21,
+            "offset": 13
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T0"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T0 is below the policy threshold T2: the receiver is not resolved to a key object and no algorithm-specific argument is visible. Inferred role (not acted on): VERIFY."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.verify"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .verify() -> VERIFY; receiver unresolved (unresolved callee); arguments: no parameters"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T0 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "verify"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 21: method .verify()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "verify"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/jose/rfc8037/okp_key.py:50:20",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/jose/rfc8037/okp_key.py",
+            "line": 50,
+            "offset": 20
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T0"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T0 is below the policy threshold T2: the receiver is not resolved to a key object and no algorithm-specific argument is visible. Inferred role (not acted on): KEY_ESTABLISHMENT."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.exchange"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .exchange() -> KEY_ESTABLISHMENT; receiver unresolved (unresolved callee); arguments: no parameters"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T0 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "exchange"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 50: method .exchange()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "key-agree",
+          "cryptoFunctions": [
+            "other"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/oauth1/rfc5849/rsa.py:12:11",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/oauth1/rfc5849/rsa.py",
+            "line": 12,
+            "offset": 11
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "RSA/ECC signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.serialization.load_pem_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (ANY, loaded-PEM) reaches SIG consumers only"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-PEM"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 12: cryptography.hazmat.primitives.serialization.load_pem_private_key (loaded-PEM)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 15: consumer .sign()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.loader.pem"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/oauth1/rfc5849/rsa.py:15:12",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/oauth1/rfc5849/rsa.py",
+            "line": 15,
+            "offset": 12
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "RSA signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.sign"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .sign() -> SIGN; receiver resolved: pyca:ANY:private:loaded-PEM; arguments: padding=PKCS1v15, hash=SHA1"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "sign"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-PEM"
+        },
+        {
+          "name": "pqscan:padding",
+          "value": "PKCS1v15"
+        },
+        {
+          "name": "pqscan:hash",
+          "value": "SHA1"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 15: method .sign()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 15: receiver pyca:ANY:private:loaded-PEM"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 15: arguments padding=PKCS1v15, hash=SHA1"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 12: key origin load_pem_private_key"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "sign"
+          ],
+          "nistQuantumSecurityLevel": 0,
+          "padding": "pkcs1v15"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/oauth1/rfc5849/rsa.py:19:11",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/oauth1/rfc5849/rsa.py",
+            "line": 19,
+            "offset": 11
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Add ML-DSA (FIPS 204) verification so that migrated signers can be accepted. NIST IR 8547 defines 'legacy use' as processing already-protected data such as verifying an existing signature; whether RSA/ECC verification of already-issued signatures keeps that status after 2035 is set by SP 800-131A (to be revised). Retain legacy verification only for already-issued signatures; do not accept new RSA/ECC signatures after the transition."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.serialization.load_pem_public_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (ANY, loaded-PEM) reaches SIG consumers only"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-PEM"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 19: cryptography.hazmat.primitives.serialization.load_pem_public_key (loaded-PEM)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 21: consumer .verify()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.loader.pem"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "public-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:authlib/oauth1/rfc5849/rsa.py:21:9",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "authlib/oauth1/rfc5849/rsa.py",
+            "line": 21,
+            "offset": 9
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Add ML-DSA (FIPS 204) verification so that migrated signers can be accepted. NIST IR 8547 defines 'legacy use' as processing already-protected data such as verifying an existing signature; whether RSA verification of already-issued signatures keeps that status after 2035 is set by SP 800-131A (to be revised). Retain legacy verification only for already-issued signatures; do not accept new RSA signatures after the transition."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.verify"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .verify() -> VERIFY; receiver resolved: pyca:ANY:public:loaded-PEM; arguments: padding=PKCS1v15, hash=SHA1"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "verify"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "loaded-PEM"
+        },
+        {
+          "name": "pqscan:padding",
+          "value": "PKCS1v15"
+        },
+        {
+          "name": "pqscan:hash",
+          "value": "SHA1"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 21: method .verify()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 21: receiver pyca:ANY:public:loaded-PEM"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 21: arguments padding=PKCS1v15, hash=SHA1"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 19: key origin load_pem_public_key"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "verify"
+          ],
+          "nistQuantumSecurityLevel": 0,
+          "padding": "pkcs1v15"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:tests/jose/test_chacha20.py:63:23",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/jose/test_chacha20.py",
+            "line": 63,
+            "offset": 23
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "PK_ENCRYPT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T0"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T0 is below the policy threshold T2: the receiver is not resolved to a key object and no algorithm-specific argument is visible. Inferred role (not acted on): PK_ENCRYPT."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "test"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.encrypt"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .encrypt() -> PK_ENCRYPT; receiver unresolved (unsupported expression); arguments: no parameters"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T0 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "encrypt"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 63: method .encrypt()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "cryptoFunctions": [
+            "encrypt"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:tests/jose/test_chacha20.py:72:27",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/jose/test_chacha20.py",
+            "line": 72,
+            "offset": 27
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T0"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T0 is below the policy threshold T2: the receiver is not resolved to a key object and no algorithm-specific argument is visible. Inferred role (not acted on): PK_DECRYPT."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "test"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.decrypt"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .decrypt() -> PK_DECRYPT; receiver unresolved (unsupported expression); arguments: no parameters"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T0 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "decrypt"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 72: method .decrypt()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "cryptoFunctions": [
+            "decrypt"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:tests/jose/test_ecdh_1pu.py:235:23",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/jose/test_ecdh_1pu.py",
+            "line": 235,
+            "offset": 23
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "PK_ENCRYPT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T0"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T0 is below the policy threshold T2: the receiver is not resolved to a key object and no algorithm-specific argument is visible. Inferred role (not acted on): PK_ENCRYPT."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "test"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.encrypt"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .encrypt() -> PK_ENCRYPT; receiver unresolved (unsupported expression); arguments: no parameters"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T0 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "encrypt"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 235: method .encrypt()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "cryptoFunctions": [
+            "encrypt"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:tests/jose/test_ecdh_1pu.py:426:32",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/jose/test_ecdh_1pu.py",
+            "line": 426,
+            "offset": 32
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T0"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T0 is below the policy threshold T2: the receiver is not resolved to a key object and no algorithm-specific argument is visible. Inferred role (not acted on): PK_DECRYPT."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "test"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.decrypt"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .decrypt() -> PK_DECRYPT; receiver unresolved (unsupported expression); arguments: no parameters"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T0 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "decrypt"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 426: method .decrypt()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "cryptoFunctions": [
+            "decrypt"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:tests/jose/test_ecdh_1pu.py:478:36",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/jose/test_ecdh_1pu.py",
+            "line": 478,
+            "offset": 36
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T0"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T0 is below the policy threshold T2: the receiver is not resolved to a key object and no algorithm-specific argument is visible. Inferred role (not acted on): PK_DECRYPT."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "test"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.decrypt"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .decrypt() -> PK_DECRYPT; receiver unresolved (unsupported expression); arguments: no parameters"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T0 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "decrypt"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 478: method .decrypt()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "cryptoFunctions": [
+            "decrypt"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:tests/jose/test_ecdh_1pu.py:743:22",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/jose/test_ecdh_1pu.py",
+            "line": 743,
+            "offset": 22
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T0"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T0 is below the policy threshold T2: the receiver is not resolved to a key object and no algorithm-specific argument is visible. Inferred role (not acted on): PK_DECRYPT."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "test"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.decrypt"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .decrypt() -> PK_DECRYPT; receiver unresolved (unsupported expression); arguments: no parameters"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T0 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "decrypt"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 743: method .decrypt()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "cryptoFunctions": [
+            "decrypt"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:tests/jose/test_ecdh_1pu.py:759:26",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/jose/test_ecdh_1pu.py",
+            "line": 759,
+            "offset": 26
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T0"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T0 is below the policy threshold T2: the receiver is not resolved to a key object and no algorithm-specific argument is visible. Inferred role (not acted on): PK_DECRYPT."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "test"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.decrypt"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .decrypt() -> PK_DECRYPT; receiver unresolved (unsupported expression); arguments: no parameters"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T0 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "decrypt"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 759: method .decrypt()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "cryptoFunctions": [
+            "decrypt"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:tests/jose/test_jwt.py:61:10",
+      "name": "Ed25519",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/jose/test_jwt.py",
+            "line": 61,
+            "offset": 10
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Ed25519 signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "test"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.ed25519.Ed25519PrivateKey.generate"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "Ed25519 is a single-purpose algorithm (SIGN); consumers lie outside the analysed scope"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 61: cryptography.hazmat.primitives.asymmetric.ed25519.Ed25519PrivateKey.generate (generated)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.ed25519.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:tests/jose/test_jwt.py:64:9",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/jose/test_jwt.py",
+            "line": 64,
+            "offset": 9
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T0"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T0 is below the policy threshold T2: the receiver is not resolved to a key object and no algorithm-specific argument is visible. Inferred role (not acted on): SIGN."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "test"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.sign"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .sign() -> SIGN; receiver unresolved (unresolved callee); arguments: no parameters"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T0 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "sign"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 64: method .sign()"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "sign"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:tests/jose/test_jwt.py:81:16",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/jose/test_jwt.py",
+            "line": 81,
+            "offset": 16
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (used in an unsupported expression). Possible roles: SIGN, VERIFY, PK_ENCRYPT, PK_DECRYPT. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "test"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.rsa.generate_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material leaves the analysed scope before any consumer is seen (used in an unsupported expression)"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_ENCRYPT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 81: cryptography.hazmat.primitives.asymmetric.rsa.generate_private_key (generated)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.rsa.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key",
+          "size": 2048
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:tests/jose/test_jwt.py:84:16",
+      "name": "EC",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/jose/test_jwt.py",
+            "line": 84,
+            "offset": 16
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T1"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (used in an unsupported expression). Possible roles: SIGN, VERIFY, KEY_ESTABLISHMENT. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "test"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.ec.generate_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material leaves the analysed scope before any consumer is seen (used in an unsupported expression)"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 84: cryptography.hazmat.primitives.asymmetric.ec.generate_private_key (generated)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.ec.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:tests/jose/test_jwt.py:86:12",
+      "name": "Ed25519",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests/jose/test_jwt.py",
+            "line": 86,
+            "offset": 12
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Ed25519 signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "test"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.ed25519.Ed25519PrivateKey.generate"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "Ed25519 is a single-purpose algorithm (SIGN); consumers lie outside the analysed scope"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 86: cryptography.hazmat.primitives.asymmetric.ed25519.Ed25519PrivateKey.generate (generated)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.ed25519.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pqscan:site:authlib/oauth1/rfc5849/rsa.py:15:12",
+      "dependsOn": [
+        "pqscan:site:authlib/oauth1/rfc5849/rsa.py:12:11"
+      ]
+    },
+    {
+      "ref": "pqscan:site:authlib/oauth1/rfc5849/rsa.py:21:9",
+      "dependsOn": [
+        "pqscan:site:authlib/oauth1/rfc5849/rsa.py:19:11"
+      ]
+    }
+  ]
+}

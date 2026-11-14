@@ -1,0 +1,104 @@
+{
+ "n_files": 3,
+ "findings": [
+  {
+   "algorithm": "RSA",
+   "severity": "CRITICAL",
+   "line_number": 1,
+   "code_snippet": "from cryptography.hazmat.primitives.asymmetric import rsa, padding",
+   "pqc_replacement": "ML-KEM (CRYSTALS-Kyber, FIPS 203) for encryption; ML-DSA (CRYSTALS-Dilithium, FIPS 204) for signatures",
+   "nist_standard": "FIPS 203 / FIPS 204",
+   "quantum_threat": "Shor's algorithm factors RSA moduli in polynomial time. RSA-2048 requires ~4,096 logical qubits.",
+   "qubit_key": "RSA-2048",
+   "file": "good.py"
+  },
+  {
+   "algorithm": "RSA",
+   "severity": "CRITICAL",
+   "line_number": 4,
+   "code_snippet": "k = rsa.generate_private_key(public_exponent=65537, key_size=2048)",
+   "pqc_replacement": "ML-KEM (CRYSTALS-Kyber, FIPS 203) for encryption; ML-DSA (CRYSTALS-Dilithium, FIPS 204) for signatures",
+   "nist_standard": "FIPS 203 / FIPS 204",
+   "quantum_threat": "Shor's algorithm factors RSA moduli in polynomial time. RSA-2048 requires ~4,096 logical qubits.",
+   "qubit_key": "RSA-2048",
+   "file": "good.py"
+  },
+  {
+   "algorithm": "PKCS1v15",
+   "severity": "HIGH",
+   "line_number": 5,
+   "code_snippet": "return k.sign(m, padding.PKCS1v15(), hashes.SHA256())",
+   "pqc_replacement": "ML-KEM (FIPS 203) replaces RSA key transport entirely; upgrade to OAEP if RSA is required.",
+   "nist_standard": "FIPS 203",
+   "quantum_threat": "PKCS#1 v1.5 is classically weak (ROBOT/Bleichenbacher attacks) and inherits RSA's quantum vulnerability.",
+   "qubit_key": "RSA-2048",
+   "file": "good.py"
+  },
+  {
+   "algorithm": "RSA",
+   "severity": "CRITICAL",
+   "line_number": 1,
+   "code_snippet": "from cryptography.hazmat.primitives.asymmetric import rsa, padding",
+   "pqc_replacement": "ML-KEM (CRYSTALS-Kyber, FIPS 203) for encryption; ML-DSA (CRYSTALS-Dilithium, FIPS 204) for signatures",
+   "nist_standard": "FIPS 203 / FIPS 204",
+   "quantum_threat": "Shor's algorithm factors RSA moduli in polynomial time. RSA-2048 requires ~4,096 logical qubits.",
+   "qubit_key": "RSA-2048",
+   "file": "latin1.py"
+  },
+  {
+   "algorithm": "RSA",
+   "severity": "CRITICAL",
+   "line_number": 4,
+   "code_snippet": "k = rsa.generate_private_key(public_exponent=65537, key_size=2048)",
+   "pqc_replacement": "ML-KEM (CRYSTALS-Kyber, FIPS 203) for encryption; ML-DSA (CRYSTALS-Dilithium, FIPS 204) for signatures",
+   "nist_standard": "FIPS 203 / FIPS 204",
+   "quantum_threat": "Shor's algorithm factors RSA moduli in polynomial time. RSA-2048 requires ~4,096 logical qubits.",
+   "qubit_key": "RSA-2048",
+   "file": "latin1.py"
+  },
+  {
+   "algorithm": "PKCS1v15",
+   "severity": "HIGH",
+   "line_number": 5,
+   "code_snippet": "return k.sign(m, padding.PKCS1v15(), hashes.SHA256())",
+   "pqc_replacement": "ML-KEM (FIPS 203) replaces RSA key transport entirely; upgrade to OAEP if RSA is required.",
+   "nist_standard": "FIPS 203",
+   "quantum_threat": "PKCS#1 v1.5 is classically weak (ROBOT/Bleichenbacher attacks) and inherits RSA's quantum vulnerability.",
+   "qubit_key": "RSA-2048",
+   "file": "latin1.py"
+  },
+  {
+   "algorithm": "RSA",
+   "severity": "CRITICAL",
+   "line_number": 1,
+   "code_snippet": "from cryptography.hazmat.primitives.asymmetric import rsa, padding",
+   "pqc_replacement": "ML-KEM (CRYSTALS-Kyber, FIPS 203) for encryption; ML-DSA (CRYSTALS-Dilithium, FIPS 204) for signatures",
+   "nist_standard": "FIPS 203 / FIPS 204",
+   "quantum_threat": "Shor's algorithm factors RSA moduli in polynomial time. RSA-2048 requires ~4,096 logical qubits.",
+   "qubit_key": "RSA-2048",
+   "file": "syntax_error.py"
+  },
+  {
+   "algorithm": "RSA",
+   "severity": "CRITICAL",
+   "line_number": 4,
+   "code_snippet": "k = rsa.generate_private_key(public_exponent=65537, key_size=2048)",
+   "pqc_replacement": "ML-KEM (CRYSTALS-Kyber, FIPS 203) for encryption; ML-DSA (CRYSTALS-Dilithium, FIPS 204) for signatures",
+   "nist_standard": "FIPS 203 / FIPS 204",
+   "quantum_threat": "Shor's algorithm factors RSA moduli in polynomial time. RSA-2048 requires ~4,096 logical qubits.",
+   "qubit_key": "RSA-2048",
+   "file": "syntax_error.py"
+  },
+  {
+   "algorithm": "PKCS1v15",
+   "severity": "HIGH",
+   "line_number": 5,
+   "code_snippet": "return k.sign(m, padding.PKCS1v15(), hashes.SHA256())",
+   "pqc_replacement": "ML-KEM (FIPS 203) replaces RSA key transport entirely; upgrade to OAEP if RSA is required.",
+   "nist_standard": "FIPS 203",
+   "quantum_threat": "PKCS#1 v1.5 is classically weak (ROBOT/Bleichenbacher attacks) and inherits RSA's quantum vulnerability.",
+   "qubit_key": "RSA-2048",
+   "file": "syntax_error.py"
+  }
+ ]
+}

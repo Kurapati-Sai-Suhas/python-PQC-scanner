@@ -1,0 +1,72 @@
+# Module A — library-independent candidate rules.
+# `method-candidate` finds operation-shaped calls on untyped receivers in files that import a
+# supported library. Semgrep CE cannot type `self.key` or a parameter, so the receiver is
+# resolved by Module B; until then the candidate is tier T1 at most. Third-party PQC libraries
+# are recorded as hybrid-context evidence only.
+rules:
+  - id: pqscan.common.method.candidate
+    languages: [python]
+    severity: INFO
+    message: operation-shaped method call on an untyped receiver (sign/verify/exchange/encrypt/decrypt)
+    metadata: {library: unknown, algorithm: ANY, kind: method-candidate, api: "<receiver>.sign/verify/exchange/encrypt/decrypt", coverage_row: "C3-C6,C10-C12,C14"}
+    patterns:
+      - pattern-either:
+          - pattern: $RECV.sign(...)
+          - pattern: $RECV.verify(...)
+          - pattern: $RECV.exchange(...)
+          - pattern: $RECV.encrypt(...)
+          - pattern: $RECV.decrypt(...)
+      # chained PyCryptodome forms are reported by the pcd.* rules instead
+      - pattern-not: Crypto.Signature.$M.new(...).sign(...)
+      - pattern-not: Crypto.Signature.$M.new(...).verify(...)
+      - pattern-not: Crypto.Cipher.$M.new(...).encrypt(...)
+      - pattern-not: Crypto.Cipher.$M.new(...).decrypt(...)
+      - pattern-not: Cryptodome.Signature.$M.new(...).sign(...)
+      - pattern-not: Cryptodome.Signature.$M.new(...).verify(...)
+      - pattern-not: Cryptodome.Cipher.$M.new(...).encrypt(...)
+      - pattern-not: Cryptodome.Cipher.$M.new(...).decrypt(...)
+      - pattern-either:
+          - pattern-inside: |
+              from cryptography.$X import $Y
+              ...
+          - pattern-inside: |
+              from cryptography.$X.$Z import $Y
+              ...
+          - pattern-inside: |
+              import cryptography.$X
+              ...
+          - pattern-inside: |
+              import cryptography
+              ...
+          - pattern-inside: |
+              from Crypto.$X import $Y
+              ...
+          - pattern-inside: |
+              from Crypto.$X.$Z import $Y
+              ...
+          - pattern-inside: |
+              import Crypto.$X
+              ...
+          - pattern-inside: |
+              from Cryptodome.$X import $Y
+              ...
+          - pattern-inside: |
+              from Cryptodome.$X.$Z import $Y
+              ...
+          - pattern-inside: |
+              import Cryptodome.$X
+              ...
+
+  - id: pqscan.common.pqc.thirdparty
+    languages: [python]
+    severity: INFO
+    message: third-party PQC library usage (liboqs-python / pqcrypto) — hybrid-context evidence only
+    metadata: {library: unknown, algorithm: ML-KEM, kind: pqc-presence, api: "oqs.KeyEncapsulation/oqs.Signature/pqcrypto.*", coverage_row: "-"}
+    pattern-either:
+      - pattern: oqs.KeyEncapsulation(...)
+      - pattern: oqs.Signature(...)
+      - pattern: pqcrypto.$A.$B.generate_keypair(...)
+      - pattern: pqcrypto.$A.$B.encrypt(...)
+      - pattern: pqcrypto.$A.$B.decrypt(...)
+      - pattern: pqcrypto.$A.$B.sign(...)
+      - pattern: pqcrypto.$A.$B.verify(...)

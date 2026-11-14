@@ -1,0 +1,65 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-11-12T20:08:47Z",
+    "tools": [
+      {
+        "name": "PQC Posture Scanner",
+        "version": "0.2.0"
+      }
+    ],
+    "component": {
+      "name": "python-jose",
+      "type": "application"
+    }
+  },
+  "cryptoProperties": {
+    "algorithms": [
+      {
+        "name": "Crypto Dependencies",
+        "occurrences": 17,
+        "quantumSafe": false
+      },
+      {
+        "name": "JWT with RSA/ECDSA",
+        "occurrences": 113,
+        "quantumSafe": false
+      },
+      {
+        "name": "ECDH",
+        "occurrences": 5,
+        "quantumSafe": false
+      },
+      {
+        "name": "AES-128",
+        "occurrences": 4,
+        "quantumSafe": false
+      },
+      {
+        "name": "AES-256",
+        "occurrences": 4,
+        "quantumSafe": true
+      },
+      {
+        "name": "SSH RSA/ECDSA Keys",
+        "occurrences": 5,
+        "quantumSafe": false
+      },
+      {
+        "name": "ECDSA",
+        "occurrences": 28,
+        "quantumSafe": false
+      },
+      {
+        "name": "RSA Key Exchange",
+        "occurrences": 2,
+        "quantumSafe": false
+      }
+    ],
+    "libraries": [
+      "cryptography (Python)"
+    ]
+  }
+}

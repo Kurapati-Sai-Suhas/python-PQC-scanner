@@ -1,0 +1,282 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "serialNumber": "urn:uuid:7a8a668e-578b-4463-b828-6366cc9a94be",
+  "metadata": {
+    "timestamp": "2026-11-12T14:38:42.615Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "postquant",
+          "version": "0.7.0",
+          "description": "Quantum readiness scanner",
+          "externalReferences": [
+            {
+              "type": "website",
+              "url": "https://postquant.dev"
+            }
+          ]
+        }
+      ]
+    },
+    "component": {
+      "type": "application",
+      "name": "C:\\Users\\Suhas\\AppData\\Local\\Temp\\claude\\2d7fdb9b645ead63\\2ab8e4cc-510b-4616-a451-4c4114aaa08e\\scratchpad\\pilot_repos\\paramiko",
+      "bom-ref": "scanned-project"
+    }
+  },
+  "components": [
+    {
+      "type": "cryptographic-asset",
+      "name": "AES",
+      "bom-ref": "1566d776-4621-411e-b66f-92a59178da17",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "tests\\test_packetizer.py",
+            "line": 49,
+            "additionalContext": "algorithms.AES(zero_byte * 16),"
+          },
+          {
+            "location": "tests\\test_packetizer.py",
+            "line": 79,
+            "additionalContext": "algorithms.AES(zero_byte * 16),"
+          },
+          {
+            "location": "tests\\test_packetizer.py",
+            "line": 103,
+            "additionalContext": "algorithms.AES(zero_byte * 16),"
+          },
+          {
+            "location": "paramiko\\pkey.py",
+            "line": 727,
+            "additionalContext": "algorithms.AES(key), mode(iv), default_backend()"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "ae",
+          "parameterSetIdentifier": "",
+          "cryptoFunctions": [
+            "encrypt",
+            "decrypt"
+          ],
+          "classicalSecurityLevel": 0,
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "name": "PQC (pqcrypto)",
+      "bom-ref": "468784d9-42c4-4749-b77b-3f7c397885f1",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko\\ecdsakey.py",
+            "line": 220,
+            "additionalContext": "def can_sign(self):"
+          },
+          {
+            "location": "paramiko\\ecdsakey.py",
+            "line": 225,
+            "additionalContext": "sig = self.signing_key.sign(data, ecdsa)"
+          },
+          {
+            "location": "paramiko\\ed25519key.py",
+            "line": 186,
+            "additionalContext": "def can_sign(self):"
+          },
+          {
+            "location": "paramiko\\ed25519key.py",
+            "line": 194,
+            "additionalContext": "if self.can_sign():"
+          },
+          {
+            "location": "paramiko\\ed25519key.py",
+            "line": 203,
+            "additionalContext": "m.add_string(self._signing_key.sign(data).signature)"
+          },
+          {
+            "location": "paramiko\\packet.py",
+            "line": 447,
+            "additionalContext": "out = packet[0:4] + self.__block_engine_out.encrypt("
+          },
+          {
+            "location": "paramiko\\pkey.py",
+            "line": 374,
+            "additionalContext": "def can_sign(self):"
+          },
+          {
+            "location": "paramiko\\rsakey.py",
+            "line": 131,
+            "additionalContext": "def can_sign(self):"
+          },
+          {
+            "location": "paramiko\\rsakey.py",
+            "line": 141,
+            "additionalContext": "sig = self.key.sign("
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "kem",
+          "parameterSetIdentifier": "",
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "classicalSecurityLevel": 0,
+          "nistQuantumSecurityLevel": 3
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "name": "ECDSA",
+      "bom-ref": "4ddf06ae-4f88-475c-b76d-aefcc114f371",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko\\ecdsakey.py",
+            "line": 268,
+            "additionalContext": "private_key = ec.generate_private_key(curve, backend=default_backend())"
+          },
+          {
+            "location": "paramiko\\kex_ecdh_nist.py",
+            "line": 59,
+            "additionalContext": "self.P = ec.generate_private_key(self.curve, default_backend())"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "parameterSetIdentifier": "",
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "classicalSecurityLevel": 0,
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "name": "X25519",
+      "bom-ref": "c99acb68-e8e1-4445-824a-54b63bd185a7",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko\\kex_curve25519.py",
+            "line": 30,
+            "additionalContext": "X25519PrivateKey.generate()"
+          },
+          {
+            "location": "paramiko\\kex_curve25519.py",
+            "line": 45,
+            "additionalContext": "self.key = X25519PrivateKey.generate()"
+          },
+          {
+            "location": "paramiko\\kex_mlkem.py",
+            "line": 76,
+            "additionalContext": "X25519PrivateKey.generate()"
+          },
+          {
+            "location": "paramiko\\kex_mlkem.py",
+            "line": 84,
+            "additionalContext": "self.x25519_key = X25519PrivateKey.generate()"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "kex",
+          "parameterSetIdentifier": "25519",
+          "cryptoFunctions": [
+            "keyexchange"
+          ],
+          "classicalSecurityLevel": 128,
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "name": "ECDH",
+      "bom-ref": "8237e397-8300-4498-9ca7-a05635607284",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko\\kex_ecdh_nist.py",
+            "line": 71,
+            "additionalContext": "K = self.P.exchange(ec.ECDH(), self.Q_C)"
+          },
+          {
+            "location": "paramiko\\kex_ecdh_nist.py",
+            "line": 117,
+            "additionalContext": "K = self.P.exchange(ec.ECDH(), self.Q_S)"
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "kex",
+          "parameterSetIdentifier": "",
+          "cryptoFunctions": [
+            "keyexchange"
+          ],
+          "classicalSecurityLevel": 0,
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "name": "RSA",
+      "bom-ref": "1df24d52-db74-4755-a5ea-95f8ae558c27",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "paramiko\\rsakey.py",
+            "line": 188,
+            "additionalContext": "key = rsa.generate_private_key("
+          }
+        ]
+      },
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "parameterSetIdentifier": "",
+          "cryptoFunctions": [
+            "keygen"
+          ],
+          "classicalSecurityLevel": 112,
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "scanned-project",
+      "dependsOn": [
+        "1566d776-4621-411e-b66f-92a59178da17",
+        "468784d9-42c4-4749-b77b-3f7c397885f1",
+        "4ddf06ae-4f88-475c-b76d-aefcc114f371",
+        "c99acb68-e8e1-4445-824a-54b63bd185a7",
+        "8237e397-8300-4498-9ca7-a05635607284",
+        "1df24d52-db74-4755-a5ea-95f8ae558c27"
+      ]
+    }
+  ]
+}

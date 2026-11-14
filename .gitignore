@@ -1,0 +1,44 @@
+# Python environments and build artefacts
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Test and coverage artefacts (the committed test log lives in docs/implementation/test_logs/)
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# Downloaded third-party sources and tools (re-created by scripts/fetch_pinned.py)
+.cache/
+node_modules/
+
+# Phase 3 run outputs: committed only deliberately, after the relevant freeze
+results/
+runs/
+
+# Held-out test split: raw or adjudicated labels and copied source must never be committed before the
+# label freeze (docs/specification/evaluation_protocol.md, two-stage freeze)
+benchmark/labels/test/
+benchmark/labels/*test*
+
+# Secrets and local configuration
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
