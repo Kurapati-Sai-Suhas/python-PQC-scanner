@@ -64,6 +64,7 @@ Readiness is tracked item by item in `docs/implementation/phase3_readiness_check
 | FZ | Two-stage freeze design (F1 pre-test, F2 test-label, E) | IMPLEMENTED (documented) | `evaluation_protocol.md` v1.0.1 Sec. 6; checklist Sec. E |
 | C5 | Baseline batch runner (logs, exit status, timing, per-file status, pinned-commit check) | TESTED (stub tools; real-tool run pending) | `pqscan/bench/batch.py`; `tests/test_batch.py` 13; suite 298 passed / 1 skipped, 90% |
 | B3 | Synthetic benchmark generator and Dataset A (61 base cases, 388 instances, split by base case, blind validation subset) | TESTED (external validation pending) | `pqscan/bench/synth.py`; `tests/test_synth.py` 13; `benchmark/synthetic/`; suite 311 passed / 1 skipped, 90% |
+| C3 | CBOMkit execution route | BLOCKED (user decision; investigated) | `docs/implementation/cbomkit_route.md` |
 | HR | Human review and annotation kit (procedures, blind pilot form, review forms, adjudication log, register) | IMPLEMENTED; no review performed | `docs/review/` |
 | S3 | Code fingerprint without git | TESTED | `scripts/tree_hash.py`; Phase 2 closure fingerprint `5cbe7392…f437` (92 files) |
 | H | External annotator, adjudicator, human review of taxonomy/policy/labels | BLOCKED | needs people outside the build team |
