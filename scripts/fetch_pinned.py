@@ -60,7 +60,7 @@ def fetch_baselines(dest: Path) -> None:
         if t["kind"] == "python":
             if not uv:
                 raise SystemExit("uv is required to build baseline environments")
-            run([uv, "venv", "-q", "--python", "3.12", str(d / ".venv")])
+            run([uv, "venv", "-q", "--clear", "--python", "3.12", str(d / ".venv")])
             py = d / ".venv" / ("Scripts/python.exe" if os.name == "nt" else "bin/python")
             if t.get("install"):
                 run([uv, "pip", "install", "-q", "--python", str(py), *t["install"]], d)
@@ -82,6 +82,7 @@ def main() -> int:
     ap.add_argument("dest", type=Path)
     ap.add_argument("--include-test", action="store_true")
     a = ap.parse_args()
+    a.dest = a.dest.resolve()          # tool installs run with cwd=<tool dir>; relative venv paths would break
     a.dest.mkdir(parents=True, exist_ok=True)
     fetch_repos(a.dest, a.include_test) if a.what == "repos" else fetch_baselines(a.dest)
     return 0
