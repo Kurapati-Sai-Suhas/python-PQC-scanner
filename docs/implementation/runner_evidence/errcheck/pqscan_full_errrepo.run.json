@@ -1,0 +1,52 @@
+{
+ "command": [
+  "C:\\Users\\Suhas\\quantum computing project\\.venv\\Scripts\\python.exe",
+  "-m",
+  "pqscan.cli",
+  "scan",
+  "C:\\Users\\Suhas\\quantum computing project\\tests\\fixtures\\baseline_errors\\repos\\errrepo",
+  "--format",
+  "json",
+  "--arm",
+  "full",
+  "-o",
+  "C:\\Users\\Suhas\\quantum computing project\\runs\\errcheck\\out\\pqscan_full_errrepo.json"
+ ],
+ "elapsed_s": 4.156,
+ "ended_utc": "2026-11-14T09:20:01+00:00",
+ "error": "",
+ "exit_code": 0,
+ "file_status_counts": {
+  "logged-failure": 2,
+  "processed": 2
+ },
+ "files": {
+  "good.py": {
+   "condition": "ok",
+   "status": "processed"
+  },
+  "latin1.py": {
+   "condition": "non-utf8",
+   "status": "processed"
+  },
+  "nullbyte.py": {
+   "condition": "null-byte",
+   "status": "logged-failure"
+  },
+  "syntax_error.py": {
+   "condition": "syntax-error",
+   "status": "logged-failure"
+  }
+ },
+ "files_total": 4,
+ "log_file": "pqscan_full_errrepo.log",
+ "log_sha256": "f04f4b8597a53b6fa14c6e9fb07846c2c1b733186503aec2e55f3414046f3d2d",
+ "method": "pqscan:full",
+ "output_file": "pqscan_full_errrepo.json",
+ "output_sha256": "a2f4556fc2c9836de9a71d30346a2b2b2e880a4b7f877150abab50b971fa172e",
+ "repo": "errrepo",
+ "repo_commit": null,
+ "run_status": "ok",
+ "started_utc": "2026-11-14T09:19:57+00:00",
+ "timed_out": false
+}

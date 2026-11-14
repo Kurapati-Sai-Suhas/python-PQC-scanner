@@ -53,6 +53,29 @@ Tests cover each of the following with stub tools on the four-file failure fixtu
 - an unknown tool name;
 - the file inventory.
 
+## First real run (14 Nov 2026, development repositories, real pinned tools)
+
+Evidence: `docs/implementation/runner_evidence/`. The 5.9 MB of raw reports per run stay in the git-ignored `runs/` folder, because the pinned rebuild reproduces them.
+
+1. **Rebuild.** `scripts/fetch_pinned.py` rebuilt all six tools at their pinned commits and the development and validation repositories. The 7 test-split repositories were skipped, because `--include-test` was not given. Two bugs were found and fixed:
+   - a relative destination produced a relative virtualenv path that broke `uv pip install` run inside the tool directory (the destination is now resolved to an absolute path);
+   - a re-run failed on an existing virtualenv (`uv venv --clear`).
+2. **Two full batch runs.** Each covers 6 tools and 4 pqscan arms on 4 repositories: 40 runs, all with a report.
+   - pqcheck and PostQuant exit with 1 when they find something, and a report is present, so they are correctly recorded as `ok`.
+   - Times range from 0.2 s to 18.7 s per run, apart from one QSA-regex run of 78.8 s (PyJWT, run 1; 2.7 s in run 2).
+3. **Reconciliation with the published pilot.** The new outputs were judged with the packaged judge on the 31 pilot sites, which are at the same paramiko and python-jose commits.
+   - pqcheck, pqc-audit, PostQuant, qsafe and QSA-regex: **155 of 155 judgments identical** to `docs/pilot/h1_pilot_joined.csv`, in both runs.
+   - pqblocks-scan: 31 of 31 identical to the Phase 2 pilot harness.
+   - No execution failures on these repositories.
+4. **Real-tool failure check.** All six tools were run on the four-file failure fixture. For every tool, the sites judged EXECUTION_FAILURE are exactly the files its measured profile predicts, and **no failed file was judged MISSED**. pqblocks-scan aborted its whole run (exit 2, no report), and all four files were recorded as `run-failed`. pqscan listed the syntax-error and null-byte files in its own `execution_failures`.
+5. **Reproducibility.**
+   - 28 of 40 raw reports are byte-identical between the two runs, including every pqscan arm, pqcheck, QSA-regex and pqblocks-scan.
+   - The other 12 (PostQuant, pqc-audit and qsafe on each repository) differ only in timestamps, scan durations and CBOM serial-number UUIDs.
+   - Their parsed findings are identical, giving **40 of 40 equal findings digests**.
+
+   As a result, the runner now records `findings_sha256`, and protocol v1.0.2 makes it the determinism criterion.
+
 ## Not yet done
 
-The runner has not been run on the real development repositories with the real pinned tools in this session, because the tools are not installed in `.cache/`. This is the next step before F1, and it confirms the measured profiles still hold.
+- The validation split has not been run through the batch runner. It was fetched, but has no labels yet; it is run when its labels exist.
+- CBOMkit is not run (checklist C3).

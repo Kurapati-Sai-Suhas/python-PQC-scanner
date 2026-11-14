@@ -1,0 +1,7 @@
+# command: .cache\baselines\pqc-audit\.venv\Scripts\pqc-audit.exe C:\Users\Suhas\quantum computing project\tests\fixtures\baseline_errors\repos\errrepo --json
+# started: 2026-11-14T09:19:54+00:00  ended: 2026-11-14T09:19:54+00:00
+# exit_code: 0  timed_out: False  elapsed_s: 0.265
+# --- stdout ---
+<2020 bytes written to pqcaudit_errrepo.cbom.json>
+# --- stderr ---
+

@@ -1,0 +1,46 @@
+{
+ "command": [
+  ".cache\\baselines\\pqc-audit\\.venv\\Scripts\\pqc-audit.exe",
+  "C:\\Users\\Suhas\\quantum computing project\\tests\\fixtures\\baseline_errors\\repos\\errrepo",
+  "--json"
+ ],
+ "elapsed_s": 0.265,
+ "ended_utc": "2026-11-14T09:19:54+00:00",
+ "error": "",
+ "exit_code": 0,
+ "file_status_counts": {
+  "processed": 2,
+  "skipped-by-profile": 2
+ },
+ "files": {
+  "good.py": {
+   "condition": "ok",
+   "status": "processed"
+  },
+  "latin1.py": {
+   "condition": "non-utf8",
+   "status": "processed"
+  },
+  "nullbyte.py": {
+   "condition": "null-byte",
+   "status": "skipped-by-profile"
+  },
+  "syntax_error.py": {
+   "condition": "syntax-error",
+   "status": "skipped-by-profile"
+  }
+ },
+ "files_total": 4,
+ "log_file": "pqcaudit_errrepo.log",
+ "log_sha256": "3a9b932fe761e3a98bb3d8e56c5e44e84a6c56ee1b9d3703679193382dc66d15",
+ "method": "pqc-audit",
+ "output_file": "pqcaudit_errrepo.cbom.json",
+ "output_sha256": "f14c50725b9becde9fd23a64c8874ac153319cf34fcdca2d8320a262a8177b3d",
+ "repo": "errrepo",
+ "repo_commit": null,
+ "run_status": "ok",
+ "started_utc": "2026-11-14T09:19:54+00:00",
+ "timed_out": false,
+ "tool_commit_checked_out": "b5ccaac159aa4f4133ff1f6aa72ec119826355f1",
+ "tool_commit_pinned": "b5ccaac159aa4f4133ff1f6aa72ec119826355f1"
+}

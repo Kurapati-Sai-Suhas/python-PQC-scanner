@@ -1,0 +1,47 @@
+{
+ "command": [
+  ".cache\\baselines\\qsafe\\.venv\\Scripts\\python.exe",
+  "pqc_scan_cli.py",
+  "C:\\Users\\Suhas\\quantum computing project\\tests\\fixtures\\baseline_errors\\repos\\errrepo",
+  "--format",
+  "json"
+ ],
+ "elapsed_s": 0.156,
+ "ended_utc": "2026-11-14T09:19:54+00:00",
+ "error": "",
+ "exit_code": 0,
+ "file_status_counts": {
+  "processed": 4
+ },
+ "files": {
+  "good.py": {
+   "condition": "ok",
+   "status": "processed"
+  },
+  "latin1.py": {
+   "condition": "non-utf8",
+   "status": "processed"
+  },
+  "nullbyte.py": {
+   "condition": "null-byte",
+   "status": "processed"
+  },
+  "syntax_error.py": {
+   "condition": "syntax-error",
+   "status": "processed"
+  }
+ },
+ "files_total": 4,
+ "log_file": "qsafe_errrepo.log",
+ "log_sha256": "24336d18d195380b7543d2a35f8145659c583888030c91f33bf59d75e695a3ba",
+ "method": "qsafe",
+ "output_file": "qsafe_errrepo.json",
+ "output_sha256": "033fe2f1d7332502d3109bdb3fb89f79f40050bd54df4a1a9973fc464205fd94",
+ "repo": "errrepo",
+ "repo_commit": null,
+ "run_status": "ok",
+ "started_utc": "2026-11-14T09:19:54+00:00",
+ "timed_out": false,
+ "tool_commit_checked_out": "ff4f6dc384431aabe789ffa927e8ea4e111c5a50",
+ "tool_commit_pinned": "ff4f6dc384431aabe789ffa927e8ea4e111c5a50"
+}

@@ -1,0 +1,52 @@
+{
+ "command": [
+  ".cache\\baselines\\pqcheck\\.venv\\Scripts\\pqcheck.exe",
+  "scan",
+  "C:\\Users\\Suhas\\quantum computing project\\tests\\fixtures\\baseline_errors\\repos\\errrepo",
+  "-p",
+  "cryptoct-default",
+  "-f",
+  "sarif",
+  "-o",
+  "C:\\Users\\Suhas\\quantum computing project\\runs\\errcheck\\out/pqcheck_policy_errrepo.sarif"
+ ],
+ "elapsed_s": 0.797,
+ "ended_utc": "2026-11-14T09:19:54+00:00",
+ "error": "",
+ "exit_code": 1,
+ "file_status_counts": {
+  "processed": 2,
+  "skipped-by-profile": 2
+ },
+ "files": {
+  "good.py": {
+   "condition": "ok",
+   "status": "processed"
+  },
+  "latin1.py": {
+   "condition": "non-utf8",
+   "status": "processed"
+  },
+  "nullbyte.py": {
+   "condition": "null-byte",
+   "status": "skipped-by-profile"
+  },
+  "syntax_error.py": {
+   "condition": "syntax-error",
+   "status": "skipped-by-profile"
+  }
+ },
+ "files_total": 4,
+ "log_file": "pqcheck_policy_errrepo.log",
+ "log_sha256": "968a0a8021e16639700051369ac1474bfb4cffa49610c515b62d3413b371aeb2",
+ "method": "pqcheck",
+ "output_file": "pqcheck_policy_errrepo.sarif",
+ "output_sha256": "616dd1def2ba4d248cefdb7a8567749c49e9e27d2a4d4a9a43f1114ba10449b3",
+ "repo": "errrepo",
+ "repo_commit": null,
+ "run_status": "ok",
+ "started_utc": "2026-11-14T09:19:53+00:00",
+ "timed_out": false,
+ "tool_commit_checked_out": "3e99c742a3e448c92fedc0e91dd578cbdbd78d83",
+ "tool_commit_pinned": "3e99c742a3e448c92fedc0e91dd578cbdbd78d83"
+}

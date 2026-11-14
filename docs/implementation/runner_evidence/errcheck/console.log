@@ -1,0 +1,10 @@
+pqcheck                errrepo                      ok      exit=1      0.8s {'processed': 2, 'skipped-by-profile': 2}
+pqc-audit              errrepo                      ok      exit=0      0.3s {'processed': 2, 'skipped-by-profile': 2}
+PostQuant              errrepo                      ok      exit=1      0.2s {'processed': 4}
+qsafe                  errrepo                      ok      exit=0      0.2s {'processed': 4}
+QSA-regex              errrepo                      ok      exit=0      2.4s {'processed': 3, 'skipped-by-profile': 1}
+pqblocks-scan          errrepo                      failed  exit=2      0.2s {'run-failed': 4}
+pqscan:full            errrepo                      ok      exit=0      4.2s {'logged-failure': 2, 'processed': 2}
+not run: CBOMkit (sonar-cryptography): not run: Docker Desktop engine stopped on the build machine. cbomkit-action v2.3.0 (pyca only, no PyCryptodome) could run via the pinned container image, a local Maven build or GitHub Actions; each needs a user decision (docs/implementation/cbomkit_route.md). Reported as not run until then.
+not run: Mehl ESEM 2026 scanner: Zenodo record 10.5281/zenodo.19634475 contains results only, no scanner source; repository-level comparison only
+exit 1

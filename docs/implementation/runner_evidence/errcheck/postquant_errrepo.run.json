@@ -1,0 +1,50 @@
+{
+ "command": [
+  "C:\\Program Files\\nodejs\\node.EXE",
+  "dist/index.js",
+  "analyze",
+  "C:\\Users\\Suhas\\quantum computing project\\tests\\fixtures\\baseline_errors\\repos\\errrepo",
+  "-f",
+  "json",
+  "--show-all",
+  "--verbose"
+ ],
+ "elapsed_s": 0.25,
+ "ended_utc": "2026-11-14T09:19:54+00:00",
+ "error": "",
+ "exit_code": 1,
+ "file_status_counts": {
+  "processed": 4
+ },
+ "files": {
+  "good.py": {
+   "condition": "ok",
+   "status": "processed"
+  },
+  "latin1.py": {
+   "condition": "non-utf8",
+   "status": "processed"
+  },
+  "nullbyte.py": {
+   "condition": "null-byte",
+   "status": "processed"
+  },
+  "syntax_error.py": {
+   "condition": "syntax-error",
+   "status": "processed"
+  }
+ },
+ "files_total": 4,
+ "log_file": "postquant_errrepo.log",
+ "log_sha256": "a43926e03ee8c95241d76777c07ec771c193b0e69058ecc3294a7485a860a642",
+ "method": "PostQuant",
+ "output_file": "postquant_errrepo.json",
+ "output_sha256": "a7522ae3e7a65307e41b6ed34448751aac7a6ee8a46ea6afdcdf746ee3228c79",
+ "repo": "errrepo",
+ "repo_commit": null,
+ "run_status": "ok",
+ "started_utc": "2026-11-14T09:19:54+00:00",
+ "timed_out": false,
+ "tool_commit_checked_out": "4dc61b7965198e460a8e01c91e04b5c503fd4a2f",
+ "tool_commit_pinned": "4dc61b7965198e460a8e01c91e04b5c503fd4a2f"
+}

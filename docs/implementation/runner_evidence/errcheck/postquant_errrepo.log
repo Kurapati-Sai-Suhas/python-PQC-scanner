@@ -1,0 +1,7 @@
+# command: C:\Program Files\nodejs\node.EXE dist/index.js analyze C:\Users\Suhas\quantum computing project\tests\fixtures\baseline_errors\repos\errrepo -f json --show-all --verbose
+# started: 2026-11-14T09:19:54+00:00  ended: 2026-11-14T09:19:54+00:00
+# exit_code: 1  timed_out: False  elapsed_s: 0.25
+# --- stdout ---
+<19493 bytes written to postquant_errrepo.json>
+# --- stderr ---
+

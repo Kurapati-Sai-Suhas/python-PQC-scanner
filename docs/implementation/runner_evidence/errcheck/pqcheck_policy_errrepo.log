@@ -1,0 +1,9 @@
+# command: .cache\baselines\pqcheck\.venv\Scripts\pqcheck.exe scan C:\Users\Suhas\quantum computing project\tests\fixtures\baseline_errors\repos\errrepo -p cryptoct-default -f sarif -o C:\Users\Suhas\quantum computing project\runs\errcheck\out/pqcheck_policy_errrepo.sarif
+# started: 2026-11-14T09:19:53+00:00  ended: 2026-11-14T09:19:54+00:00
+# exit_code: 1  timed_out: False  elapsed_s: 0.797
+# --- stdout ---
+
+# --- stderr ---
+warning: policy declares constraints pqcheck v0.1 does not evaluate (rules match on family/algorithm/parameter-sets/curves/modes/paddings only): hash, params
+gate: --fail-on policy tripped at critical
+

@@ -10,7 +10,7 @@ Last updated: 2026-11-14 (Phase 2 closed; gate PASS, see Phase 2 report Sec. 12;
 | Bucket | Items |
 |---|---|
 | Completed | Phase 1 artefacts; Modules A–G, CLI, security requirements, pinned rebuild (TESTED: 286 collected, 285 passed, 1 skipped, 89% coverage, 2026-11-14T07:05:11Z); four independent review rounds; Phase 2 gate PASS; Phase 2 report and PDF; frozen scoring policy; baseline failure handling; Phase 3 readiness checklist |
-| In progress | Phase 3 preparation on branch `phase3-preparation`: done: GitHub publication, two-stage freeze design, review kit, batch runner (C5), synthetic Dataset A (B3), second PyCryptodome repository (B2), CBOMkit investigation (C3); next: first real batch-runner run on development repositories |
+| In progress | Phase 3 preparation on branch `phase3-preparation`: done: GitHub publication, two-stage freeze design, review kit, batch runner (C5), synthetic Dataset A (B3), second PyCryptodome repository (B2), CBOMkit investigation (C3); next: human reviews and annotation (owner action package) |
 | Pending | annotation (B1), pre-test freeze F1, test-label freeze F2, experiments |
 | Blocked | CBOMkit baseline (Docker daemon stopped); human review and human annotation (need people outside the build team) |
 | Failed validation | none open (the 5 Module B failures of 13 Nov were fixed on 13 Nov) |
@@ -62,7 +62,7 @@ Readiness is tracked item by item in `docs/implementation/phase3_readiness_check
 | S2 | Baseline execution-failure handling | TESTED | measured failure profiles in `benchmark/baselines_manifest.json`; `tests/fixtures/baseline_errors/`; `tests/test_bench.py` |
 | V | Version control and publication | TESTED | git `main` + tag `phase2-complete` (`81f561e3`) on `Kurapati-Sai-Suhas/python-PQC-scanner`; fresh clone 285 passed / 1 skipped; `docs/implementation/github_release_record.md` |
 | FZ | Two-stage freeze design (F1 pre-test, F2 test-label, E) | IMPLEMENTED (documented) | `evaluation_protocol.md` v1.0.1 Sec. 6; checklist Sec. E |
-| C5 | Baseline batch runner (logs, exit status, timing, per-file status, pinned-commit check) | TESTED (stub tools; real-tool run pending) | `pqscan/bench/batch.py`; `tests/test_batch.py` 13; suite 298 passed / 1 skipped, 90% |
+| C5 | Baseline batch runner (logs, exit status, timing, per-file status, pinned-commit check, findings digest) | VALIDATED on real pinned tools (development repositories, 2 runs): pilot judgments reproduced 155 of 155 and pqblocks 31 of 31; failure fixture matches profiles, no failure scored as MISSED; findings digests 40 of 40 equal | `docs/implementation/baseline_runner.md`; `docs/implementation/runner_evidence/`; `tests/test_batch.py` 14 |
 | B3 | Synthetic benchmark generator and Dataset A (61 base cases, 388 instances, split by base case, blind validation subset) | TESTED (external validation pending) | `pqscan/bench/synth.py`; `tests/test_synth.py` 13; `benchmark/synthetic/`; suite 311 passed / 1 skipped, 90% |
 | C3 | CBOMkit execution route | BLOCKED (user decision; investigated) | `docs/implementation/cbomkit_route.md` |
 | HR | Human review and annotation kit (procedures, blind pilot form, review forms, adjudication log, register) | IMPLEMENTED; no review performed | `docs/review/` |

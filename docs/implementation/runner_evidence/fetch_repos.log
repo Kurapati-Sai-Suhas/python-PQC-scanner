@@ -1,0 +1,42 @@
++ git init -q
++ git remote add origin https://github.com/paramiko/paramiko
++ git fetch -q --depth 1 origin 0e9ccb91e0f9a68f2587233d523ad7fe46e730fe
++ git checkout -q --detach FETCH_HEAD
+   paramiko @ 0e9ccb91e0f9
++ git init -q
++ git remote add origin https://github.com/mpdavis/python-jose
++ git fetch -q --depth 1 origin 018b310ddb8b50dcfd09a0c152117835a21dd656
++ git checkout -q --detach FETCH_HEAD
+   python-jose @ 018b310ddb8b
++ git init -q
++ git remote add origin https://github.com/paramiko/paramiko
++ git fetch -q --depth 1 origin 0e9ccb91e0f9a68f2587233d523ad7fe46e730fe
++ git checkout -q --detach FETCH_HEAD
+   paramiko__paramiko @ 0e9ccb91e0f9
++ git init -q
++ git remote add origin https://github.com/mpdavis/python-jose
++ git fetch -q --depth 1 origin 018b310ddb8b50dcfd09a0c152117835a21dd656
++ git checkout -q --detach FETCH_HEAD
+   mpdavis__python-jose @ 018b310ddb8b
++ git init -q
++ git remote add origin https://github.com/jpadilla/pyjwt
++ git fetch -q --depth 1 origin 16231abfd1d8eab4953e8779b3017b859c88565e
++ git checkout -q --detach FETCH_HEAD
+   jpadilla__pyjwt @ 16231abfd1d8
++ git init -q
++ git remote add origin https://github.com/lepture/authlib
++ git fetch -q --depth 1 origin f817ad8a08eb6d5b105195709198d1381cfc11ea
++ git checkout -q --detach FETCH_HEAD
+   lepture__authlib @ f817ad8a08eb
++ git init -q
++ git remote add origin https://github.com/latchset/jwcrypto
++ git fetch -q --depth 1 origin 99162f6beaa630641319c2651cb4ddc35eae3cf3
++ git checkout -q --detach FETCH_HEAD
+   latchset__jwcrypto @ 99162f6beaa6
++ git init -q
++ git remote add origin https://github.com/ronf/asyncssh
++ git fetch -q --depth 1 origin f1d1c7505468e3ebfd4eda90d831934e20f69bdf
++ git checkout -q --detach FETCH_HEAD
+   ronf__asyncssh @ f1d1c7505468
+skipping 7 test-split repositories (use --include-test after the Phase 3 freeze)
+repos exit 0

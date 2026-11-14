@@ -1,0 +1,9 @@
+# command: .cache\baselines\pqblocks-scan\.venv\Scripts\pqblocks-scan.exe C:\Users\Suhas\quantum computing project\tests\fixtures\baseline_errors\repos\errrepo --sarif C:\Users\Suhas\quantum computing project\runs\errcheck\out/pqblocks_errrepo.sarif
+# started: 2026-11-14T09:19:57+00:00  ended: 2026-11-14T09:19:57+00:00
+# exit_code: 2  timed_out: False  elapsed_s: 0.156
+# --- stdout ---
+Scan error: C:\Users\Suhas\quantum computing project\tests\fixtures\baseline_errors\repos\errrepo\nullbyte.py: Syntax error: source code string cannot contain null bytes
+Scan error: C:\Users\Suhas\quantum computing project\tests\fixtures\baseline_errors\repos\errrepo\syntax_error.py: Syntax error: invalid syntax (<unknown>, line 6)
+
+# --- stderr ---
+

@@ -1,0 +1,7 @@
+# command: .cache\baselines\qsafe\.venv\Scripts\python.exe pqc_scan_cli.py C:\Users\Suhas\quantum computing project\tests\fixtures\baseline_errors\repos\errrepo --format json
+# started: 2026-11-14T09:19:54+00:00  ended: 2026-11-14T09:19:54+00:00
+# exit_code: 0  timed_out: False  elapsed_s: 0.156
+# --- stdout ---
+<5038 bytes written to qsafe_errrepo.json>
+# --- stderr ---
+

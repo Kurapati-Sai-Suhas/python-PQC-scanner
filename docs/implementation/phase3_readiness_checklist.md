@@ -7,6 +7,8 @@ Updated 14 Nov 2026 (branch `phase3-preparation`): two-stage freeze, per `evalua
 
 **Rule:** the held-out test split (`benchmark/real/manifest.json` → `test`) is not fetched, opened, scanned or labelled until every item in Sections A–D needed before F1 is READY and the pre-test freeze record (E1) is committed and tagged. `scripts/fetch_pinned.py` withholds it unless `--include-test` is passed. Test labels are produced after F1 and frozen at F2 (E2). Only then may Experiment E run (E3).
 
+Owner and lecturer action package (people, workload, decisions D1–D6, sequence, research-complete definition): `docs/review/owner_action_package.md`.
+
 ## A. People and human review
 
 | # | Item | Status | Evidence / what is missing |
@@ -34,7 +36,7 @@ Updated 14 Nov 2026 (branch `phase3-preparation`): two-stage freeze, per `evalua
 | C2 | Baseline execution-failure handling | READY | Measured failure profiles in the manifest; `judge_external` turns silence on known-dropped files and logged failures into EXECUTION_FAILURE; rates use n_exec; regression tests in `tests/test_bench.py`. |
 | C3 | CBOMkit | BLOCKED (user decision) | Investigated 2026-11-14 (`docs/implementation/cbomkit_route.md`): cbomkit-action v2.3.0 covers pyca but not PyCryptodome. Docker Desktop is installed but stopped; OpenJDK 21 is present; Maven is absent. Three routes, each needing approval: start Docker and pull the pinned image (recommended), a local Maven build, or GitHub Actions (development and validation only). Proposed pre-registered in-scope sub-analysis to decide before F1. Otherwise it is reported as not run. |
 | C4 | Mehl ESEM 2026 scanner | READY (limited) | Results-only artefact; repository-level comparison only, stated in every table. |
-| C5 | Run logs captured for every tool run | READY (implemented and tested; first real run pending) | `pqscan/bench/batch.py`, `tests/test_batch.py` (13), `docs/implementation/baseline_runner.md`. It still has to be run once on the development repositories with the real pinned tools. |
+| C5 | Run logs captured for every tool run | READY | Real pinned tools on the 4 development repositories, two runs (2026-11-14): 40 of 40 runs with a report; 155 of 155 pilot judgments reproduced, plus pqblocks-scan 31 of 31; real-tool failure fixture: failures match the measured profiles and none is MISSED; 40 of 40 findings digests equal across runs (protocol v1.0.2). Evidence: `docs/implementation/runner_evidence/`, `baseline_runner.md`. |
 
 ## D. Frozen analysis rules
 
@@ -70,4 +72,4 @@ Run the third command only after E1 is committed and tagged. Batch runner (C5): 
 
 ## Summary
 
-Ready now: split safeguards, comparator pins, execution-failure handling, all frozen scoring and statistical rules, version control (E0). Blocked on people: external annotator, adjudicator, human review of taxonomy, policy, scoring and pilot labels. Engineering still to do: first real run of the batch runner (C5). External validation of the synthetic subset waits for the annotator (A1). Decision needed before F1: the per-repository site cap and sampling seed.
+Ready now: split safeguards, comparator pins, execution-failure handling, all frozen scoring and statistical rules, version control (E0). Blocked on people: external annotator, adjudicator, human review of taxonomy, policy, scoring and pilot labels. Engineering still to do: none blocking. CBOMkit depends on decision D4. External validation of the synthetic subset waits for the annotator (A1). Decision needed before F1: the per-repository site cap and sampling seed.

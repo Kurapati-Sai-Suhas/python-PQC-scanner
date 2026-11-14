@@ -1,0 +1,43 @@
+pqcheck                jpadilla__pyjwt              ok      exit=1      1.0s {'processed': 26}
+pqc-audit              jpadilla__pyjwt              ok      exit=0      0.3s {'processed': 26}
+PostQuant              jpadilla__pyjwt              ok      exit=1      1.0s {'processed': 26}
+qsafe                  jpadilla__pyjwt              ok      exit=0      0.5s {'processed': 26}
+QSA-regex              jpadilla__pyjwt              ok      exit=0      2.7s {'processed': 26}
+pqblocks-scan          jpadilla__pyjwt              ok      exit=0      0.3s {'processed': 26}
+pqscan:full            jpadilla__pyjwt              ok      exit=0      4.5s {'processed': 26}
+pqscan:method+args+recv jpadilla__pyjwt              ok      exit=0      4.6s {'processed': 26}
+pqscan:method+args     jpadilla__pyjwt              ok      exit=0      4.4s {'processed': 26}
+pqscan:method-only     jpadilla__pyjwt              ok      exit=0      4.4s {'processed': 26}
+pqcheck                lepture__authlib             ok      exit=1      1.9s {'processed': 389}
+pqc-audit              lepture__authlib             ok      exit=0      0.7s {'processed': 389}
+PostQuant              lepture__authlib             ok      exit=1     10.9s {'processed': 389}
+qsafe                  lepture__authlib             ok      exit=0      2.8s {'processed': 389}
+QSA-regex              lepture__authlib             ok      exit=0      4.8s {'processed': 389}
+pqblocks-scan          lepture__authlib             ok      exit=0      0.9s {'processed': 389}
+pqscan:full            lepture__authlib             ok      exit=0     12.5s {'processed': 389}
+pqscan:method+args+recv lepture__authlib             ok      exit=0     12.6s {'processed': 389}
+pqscan:method+args     lepture__authlib             ok      exit=0     12.7s {'processed': 389}
+pqscan:method-only     lepture__authlib             ok      exit=0     12.6s {'processed': 389}
+pqcheck                mpdavis__python-jose         ok      exit=1      0.9s {'processed': 38}
+pqc-audit              mpdavis__python-jose         ok      exit=0      0.3s {'processed': 38}
+PostQuant              mpdavis__python-jose         ok      exit=1      1.2s {'processed': 38}
+qsafe                  mpdavis__python-jose         ok      exit=0      0.4s {'processed': 38}
+QSA-regex              mpdavis__python-jose         ok      exit=0      2.5s {'processed': 38}
+pqblocks-scan          mpdavis__python-jose         ok      exit=0      0.2s {'processed': 38}
+pqscan:full            mpdavis__python-jose         ok      exit=0      4.5s {'processed': 38}
+pqscan:method+args+recv mpdavis__python-jose         ok      exit=0      4.6s {'processed': 38}
+pqscan:method+args     mpdavis__python-jose         ok      exit=0      4.5s {'processed': 38}
+pqscan:method-only     mpdavis__python-jose         ok      exit=0      4.4s {'processed': 38}
+pqcheck                paramiko__paramiko           ok      exit=1      1.2s {'processed': 70}
+pqc-audit              paramiko__paramiko           ok      exit=0      0.4s {'processed': 70}
+PostQuant              paramiko__paramiko           ok      exit=1      2.3s {'processed': 70}
+qsafe                  paramiko__paramiko           ok      exit=0      1.1s {'processed': 70}
+QSA-regex              paramiko__paramiko           ok      exit=0      3.4s {'processed': 70}
+pqblocks-scan          paramiko__paramiko           ok      exit=0      0.4s {'processed': 70}
+pqscan:full            paramiko__paramiko           ok      exit=0      4.8s {'processed': 70}
+pqscan:method+args+recv paramiko__paramiko           ok      exit=0      4.8s {'processed': 70}
+pqscan:method+args     paramiko__paramiko           ok      exit=0      4.8s {'processed': 70}
+pqscan:method-only     paramiko__paramiko           ok      exit=0      4.7s {'processed': 70}
+not run: CBOMkit (sonar-cryptography): not run: Docker Desktop engine stopped on the build machine. cbomkit-action v2.3.0 (pyca only, no PyCryptodome) could run via the pinned container image, a local Maven build or GitHub Actions; each needs a user decision (docs/implementation/cbomkit_route.md). Reported as not run until then.
+not run: Mehl ESEM 2026 scanner: Zenodo record 10.5281/zenodo.19634475 contains results only, no scanner source; repository-level comparison only
+exit 0

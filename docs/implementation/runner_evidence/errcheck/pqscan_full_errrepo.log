@@ -1,0 +1,7 @@
+# command: C:\Users\Suhas\quantum computing project\.venv\Scripts\python.exe -m pqscan.cli scan C:\Users\Suhas\quantum computing project\tests\fixtures\baseline_errors\repos\errrepo --format json --arm full -o C:\Users\Suhas\quantum computing project\runs\errcheck\out\pqscan_full_errrepo.json
+# started: 2026-11-14T09:19:57+00:00  ended: 2026-11-14T09:20:01+00:00
+# exit_code: 0  timed_out: False  elapsed_s: 4.156
+# --- stdout ---
+
+# --- stderr ---
+

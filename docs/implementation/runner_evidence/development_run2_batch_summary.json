@@ -1,0 +1,534 @@
+{
+ "created_utc": "2026-11-14T09:21:57+00:00",
+ "python": "3.12.10",
+ "platform": "Windows-11-10.0.26300-SP0",
+ "manifest": "C:\\Users\\Suhas\\quantum computing project\\benchmark\\baselines_manifest.json",
+ "manifest_sha256": "d6605d82f0a3385348b9c18877183ec526c3a3118056aa37f433cde0a5fc6170",
+ "timeout_s": 1800.0,
+ "not_run": {
+  "CBOMkit (sonar-cryptography)": "not run: Docker Desktop engine stopped on the build machine. cbomkit-action v2.3.0 (pyca only, no PyCryptodome) could run via the pinned container image, a local Maven build or GitHub Actions; each needs a user decision (docs/implementation/cbomkit_route.md). Reported as not run until then.",
+  "Mehl ESEM 2026 scanner": "Zenodo record 10.5281/zenodo.19634475 contains results only, no scanner source; repository-level comparison only"
+ },
+ "runs": [
+  {
+   "method": "pqcheck",
+   "repo": "jpadilla__pyjwt",
+   "run_status": "ok",
+   "exit_code": 1,
+   "timed_out": false,
+   "elapsed_s": 0.954,
+   "error": "",
+   "output_sha256": "3f7a87ab9508cfab0bf9462f7f4c01a20ac164765228f735ca167aebf0864482",
+   "file_status_counts": {
+    "processed": 26
+   }
+  },
+  {
+   "method": "pqc-audit",
+   "repo": "jpadilla__pyjwt",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 0.312,
+   "error": "",
+   "output_sha256": "c4b84e59d0fd170cc4dc37ba38dd4f02c172de0effd6e42db70441e58840ec6b",
+   "file_status_counts": {
+    "processed": 26
+   }
+  },
+  {
+   "method": "PostQuant",
+   "repo": "jpadilla__pyjwt",
+   "run_status": "ok",
+   "exit_code": 1,
+   "timed_out": false,
+   "elapsed_s": 0.953,
+   "error": "",
+   "output_sha256": "eb3da1b494473773f582907ab75fd27247fae0b9999f40cc277cbad20ce501b8",
+   "file_status_counts": {
+    "processed": 26
+   }
+  },
+  {
+   "method": "qsafe",
+   "repo": "jpadilla__pyjwt",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 0.531,
+   "error": "",
+   "output_sha256": "c644b487d63ed10f5af4aaaa6151db46f6685ad00487911490ce4944232cf402",
+   "file_status_counts": {
+    "processed": 26
+   }
+  },
+  {
+   "method": "QSA-regex",
+   "repo": "jpadilla__pyjwt",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 2.688,
+   "error": "",
+   "output_sha256": "12f3a66181c942793b81aafeb065ab80a5c02cdac310569faa5b4ecf82521b98",
+   "file_status_counts": {
+    "processed": 26
+   }
+  },
+  {
+   "method": "pqblocks-scan",
+   "repo": "jpadilla__pyjwt",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 0.265,
+   "error": "",
+   "output_sha256": "cb16827a244ee3f8e00a35390a7a2a18476b4af50a2fca63c6caedac314a69b9",
+   "file_status_counts": {
+    "processed": 26
+   }
+  },
+  {
+   "method": "pqscan:full",
+   "repo": "jpadilla__pyjwt",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 4.516,
+   "error": "",
+   "output_sha256": "cb9e85e7b9b4795133301b76dfe0ca96d62de161aa4a9f2875346967e5e846ea",
+   "file_status_counts": {
+    "processed": 26
+   }
+  },
+  {
+   "method": "pqscan:method+args+recv",
+   "repo": "jpadilla__pyjwt",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 4.563,
+   "error": "",
+   "output_sha256": "e595f80dd9b58b7a35d768614e30d9a2580a3bd40cd5016d816ec7e14cfaaf60",
+   "file_status_counts": {
+    "processed": 26
+   }
+  },
+  {
+   "method": "pqscan:method+args",
+   "repo": "jpadilla__pyjwt",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 4.391,
+   "error": "",
+   "output_sha256": "6e65d226bed455df660c71e83b667fa704b462360318fe972f559030b29fcc84",
+   "file_status_counts": {
+    "processed": 26
+   }
+  },
+  {
+   "method": "pqscan:method-only",
+   "repo": "jpadilla__pyjwt",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 4.422,
+   "error": "",
+   "output_sha256": "d33006636f3370eeaa5074c95a7b07526a41f9f95aa3952362ec92751943b22a",
+   "file_status_counts": {
+    "processed": 26
+   }
+  },
+  {
+   "method": "pqcheck",
+   "repo": "lepture__authlib",
+   "run_status": "ok",
+   "exit_code": 1,
+   "timed_out": false,
+   "elapsed_s": 1.875,
+   "error": "",
+   "output_sha256": "471845e9a321e882a3a347a14ba2957896a067838cfc547c3507ab79a11582d1",
+   "file_status_counts": {
+    "processed": 389
+   }
+  },
+  {
+   "method": "pqc-audit",
+   "repo": "lepture__authlib",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 0.719,
+   "error": "",
+   "output_sha256": "f88a0a2ecbb1c3ec194ae8bdf80840126ae44120d6db66c0ce8aa4993725637f",
+   "file_status_counts": {
+    "processed": 389
+   }
+  },
+  {
+   "method": "PostQuant",
+   "repo": "lepture__authlib",
+   "run_status": "ok",
+   "exit_code": 1,
+   "timed_out": false,
+   "elapsed_s": 10.938,
+   "error": "",
+   "output_sha256": "9413e7319a241d140a2deb2fe17330726d8dd43cb73e16ce34b38e197dba2195",
+   "file_status_counts": {
+    "processed": 389
+   }
+  },
+  {
+   "method": "qsafe",
+   "repo": "lepture__authlib",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 2.843,
+   "error": "",
+   "output_sha256": "d3b3cd3ec281a50a5bdc47b68f4ea3120487de9a4d9c5edc336b16e669e9dd25",
+   "file_status_counts": {
+    "processed": 389
+   }
+  },
+  {
+   "method": "QSA-regex",
+   "repo": "lepture__authlib",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 4.765,
+   "error": "",
+   "output_sha256": "85a3f61d2a2efccfe21fef4e54f360a61c21dd481097419c3536d5e52cbd67cd",
+   "file_status_counts": {
+    "processed": 389
+   }
+  },
+  {
+   "method": "pqblocks-scan",
+   "repo": "lepture__authlib",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 0.86,
+   "error": "",
+   "output_sha256": "9109546b500a9c7668b2a9aa3b20d14784f12353339ac9f56b787e9be3024f81",
+   "file_status_counts": {
+    "processed": 389
+   }
+  },
+  {
+   "method": "pqscan:full",
+   "repo": "lepture__authlib",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 12.516,
+   "error": "",
+   "output_sha256": "2a2d1c3b2d396055b517ed3aa5f2254c0e0240510f5eeb2b4181d03937556346",
+   "file_status_counts": {
+    "processed": 389
+   }
+  },
+  {
+   "method": "pqscan:method+args+recv",
+   "repo": "lepture__authlib",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 12.578,
+   "error": "",
+   "output_sha256": "9d666b2f29d223019069a511fa951a36c7805acfb5340eacd6a10b246e349640",
+   "file_status_counts": {
+    "processed": 389
+   }
+  },
+  {
+   "method": "pqscan:method+args",
+   "repo": "lepture__authlib",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 12.656,
+   "error": "",
+   "output_sha256": "9b949040fd27b4caee4a0da24645d7a7dd177fce55ed82f381142e3131099d0b",
+   "file_status_counts": {
+    "processed": 389
+   }
+  },
+  {
+   "method": "pqscan:method-only",
+   "repo": "lepture__authlib",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 12.563,
+   "error": "",
+   "output_sha256": "ab5c45b3f383194e1c2c949e41fe5e9b9013344bcf94629e3a7afebf79fc9f06",
+   "file_status_counts": {
+    "processed": 389
+   }
+  },
+  {
+   "method": "pqcheck",
+   "repo": "mpdavis__python-jose",
+   "run_status": "ok",
+   "exit_code": 1,
+   "timed_out": false,
+   "elapsed_s": 0.891,
+   "error": "",
+   "output_sha256": "72178cfbd6f7d1920f85ff6244fa8c335c9d56f744da0dda83e8dc516f98a313",
+   "file_status_counts": {
+    "processed": 38
+   }
+  },
+  {
+   "method": "pqc-audit",
+   "repo": "mpdavis__python-jose",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 0.313,
+   "error": "",
+   "output_sha256": "c6145473873a8333953597a75772f3d77ebfa434fc8962304945ee5cdb4db30c",
+   "file_status_counts": {
+    "processed": 38
+   }
+  },
+  {
+   "method": "PostQuant",
+   "repo": "mpdavis__python-jose",
+   "run_status": "ok",
+   "exit_code": 1,
+   "timed_out": false,
+   "elapsed_s": 1.156,
+   "error": "",
+   "output_sha256": "8b78ff9c403344b9e173af7b912069bfdf7f43a6aeb934ffb261e8917d94d397",
+   "file_status_counts": {
+    "processed": 38
+   }
+  },
+  {
+   "method": "qsafe",
+   "repo": "mpdavis__python-jose",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 0.407,
+   "error": "",
+   "output_sha256": "a66ddbd9d3ab0198cef0cd4d6f2ab59e63f031afbe38c0533e4b8b3418afed49",
+   "file_status_counts": {
+    "processed": 38
+   }
+  },
+  {
+   "method": "QSA-regex",
+   "repo": "mpdavis__python-jose",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 2.547,
+   "error": "",
+   "output_sha256": "1d52a08b89bbfc6dcf217a91f8d2ea54107699e89b9eb41a036a4939e244c138",
+   "file_status_counts": {
+    "processed": 38
+   }
+  },
+  {
+   "method": "pqblocks-scan",
+   "repo": "mpdavis__python-jose",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 0.218,
+   "error": "",
+   "output_sha256": "56683103fe6c2cbc1d904943972a25e719b57f3a907ed8b312d174f662bd6be0",
+   "file_status_counts": {
+    "processed": 38
+   }
+  },
+  {
+   "method": "pqscan:full",
+   "repo": "mpdavis__python-jose",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 4.516,
+   "error": "",
+   "output_sha256": "adb3154282c4fb4de86db58adaa20fd9a8ce1bc382c6a8bdc28f69f598e5e284",
+   "file_status_counts": {
+    "processed": 38
+   }
+  },
+  {
+   "method": "pqscan:method+args+recv",
+   "repo": "mpdavis__python-jose",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 4.563,
+   "error": "",
+   "output_sha256": "9a7433ef29a2e512eb31f0df684e93494fe131f9d6cee88714d5916083a0f926",
+   "file_status_counts": {
+    "processed": 38
+   }
+  },
+  {
+   "method": "pqscan:method+args",
+   "repo": "mpdavis__python-jose",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 4.468,
+   "error": "",
+   "output_sha256": "52e333233147f380db26f600116bf0e4335bb416f580676dc785ba681c7181d3",
+   "file_status_counts": {
+    "processed": 38
+   }
+  },
+  {
+   "method": "pqscan:method-only",
+   "repo": "mpdavis__python-jose",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 4.438,
+   "error": "",
+   "output_sha256": "1c5b3385a1e21ed185013bae8ffe96c69e507b2879a1c2cf7f9dde3ae8c855d0",
+   "file_status_counts": {
+    "processed": 38
+   }
+  },
+  {
+   "method": "pqcheck",
+   "repo": "paramiko__paramiko",
+   "run_status": "ok",
+   "exit_code": 1,
+   "timed_out": false,
+   "elapsed_s": 1.188,
+   "error": "",
+   "output_sha256": "62634a4d21d6d5792f8f20db5b484b334f826494884a18282e8cf06bd2b274f9",
+   "file_status_counts": {
+    "processed": 70
+   }
+  },
+  {
+   "method": "pqc-audit",
+   "repo": "paramiko__paramiko",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 0.422,
+   "error": "",
+   "output_sha256": "ec4dbf83a0ff35076c1bc995f09b0294313db3abdb84f4df0f0ce5250a40d9fd",
+   "file_status_counts": {
+    "processed": 70
+   }
+  },
+  {
+   "method": "PostQuant",
+   "repo": "paramiko__paramiko",
+   "run_status": "ok",
+   "exit_code": 1,
+   "timed_out": false,
+   "elapsed_s": 2.266,
+   "error": "",
+   "output_sha256": "391b006c0f134047cc142b8e6e389f474517f338445f48133c21e61de7f380d6",
+   "file_status_counts": {
+    "processed": 70
+   }
+  },
+  {
+   "method": "qsafe",
+   "repo": "paramiko__paramiko",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 1.125,
+   "error": "",
+   "output_sha256": "7b7fee143edc378dad8ed549ff4da4d19609b95aa00bbd0c97670f5ebf09e144",
+   "file_status_counts": {
+    "processed": 70
+   }
+  },
+  {
+   "method": "QSA-regex",
+   "repo": "paramiko__paramiko",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 3.422,
+   "error": "",
+   "output_sha256": "917c6cb95ff4d6c55277fe6aaa4ad1024e03b66a455ab469690cc66801d50639",
+   "file_status_counts": {
+    "processed": 70
+   }
+  },
+  {
+   "method": "pqblocks-scan",
+   "repo": "paramiko__paramiko",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 0.422,
+   "error": "",
+   "output_sha256": "4f1c4d2ec8a2a4b48799dc89808d239ae87f05d544d6ea96cdfb0bd000a7c1da",
+   "file_status_counts": {
+    "processed": 70
+   }
+  },
+  {
+   "method": "pqscan:full",
+   "repo": "paramiko__paramiko",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 4.765,
+   "error": "",
+   "output_sha256": "ef96ee22d6db6f256b3ce27aaa32b4d53d17e9d040014786940081897e42f811",
+   "file_status_counts": {
+    "processed": 70
+   }
+  },
+  {
+   "method": "pqscan:method+args+recv",
+   "repo": "paramiko__paramiko",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 4.781,
+   "error": "",
+   "output_sha256": "5564d55d24e5bd95de21a01c052ac27a6c813ac1f11920d6063d6b94af43b6aa",
+   "file_status_counts": {
+    "processed": 70
+   }
+  },
+  {
+   "method": "pqscan:method+args",
+   "repo": "paramiko__paramiko",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 4.781,
+   "error": "",
+   "output_sha256": "e8d7dafdd0342d09ff099eab9f4967840aaade3adfe126248fe2e060d9e29586",
+   "file_status_counts": {
+    "processed": 70
+   }
+  },
+  {
+   "method": "pqscan:method-only",
+   "repo": "paramiko__paramiko",
+   "run_status": "ok",
+   "exit_code": 0,
+   "timed_out": false,
+   "elapsed_s": 4.703,
+   "error": "",
+   "output_sha256": "716d473fb9c58a84c56b2eb4838a62a73b273808eccbe8103889885cd0bf4b32",
+   "file_status_counts": {
+    "processed": 70
+   }
+  }
+ ]
+}

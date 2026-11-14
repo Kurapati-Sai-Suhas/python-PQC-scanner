@@ -1,0 +1,46 @@
+{
+ "command": [
+  ".cache\\baselines\\pqblocks-scan\\.venv\\Scripts\\pqblocks-scan.exe",
+  "C:\\Users\\Suhas\\quantum computing project\\tests\\fixtures\\baseline_errors\\repos\\errrepo",
+  "--sarif",
+  "C:\\Users\\Suhas\\quantum computing project\\runs\\errcheck\\out/pqblocks_errrepo.sarif"
+ ],
+ "elapsed_s": 0.156,
+ "ended_utc": "2026-11-14T09:19:57+00:00",
+ "error": "",
+ "exit_code": 2,
+ "file_status_counts": {
+  "run-failed": 4
+ },
+ "files": {
+  "good.py": {
+   "condition": "ok",
+   "status": "run-failed"
+  },
+  "latin1.py": {
+   "condition": "non-utf8",
+   "status": "run-failed"
+  },
+  "nullbyte.py": {
+   "condition": "null-byte",
+   "status": "run-failed"
+  },
+  "syntax_error.py": {
+   "condition": "syntax-error",
+   "status": "run-failed"
+  }
+ },
+ "files_total": 4,
+ "log_file": "pqblocks_errrepo.log",
+ "log_sha256": "5a4b552db8061813796bb10382b9df5ab904088b7c75298f8d8d442205e0b90e",
+ "method": "pqblocks-scan",
+ "output_file": "pqblocks_errrepo.sarif",
+ "output_sha256": null,
+ "repo": "errrepo",
+ "repo_commit": null,
+ "run_status": "failed",
+ "started_utc": "2026-11-14T09:19:57+00:00",
+ "timed_out": false,
+ "tool_commit_checked_out": "3d1eccfdfc7c283b5c5efe496ca1f0c08219d545",
+ "tool_commit_pinned": "3d1eccfdfc7c283b5c5efe496ca1f0c08219d545"
+}

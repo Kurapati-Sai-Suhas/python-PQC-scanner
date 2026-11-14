@@ -1,0 +1,59 @@
++ git fetch -q --depth 1 origin 3e99c742a3e448c92fedc0e91dd578cbdbd78d83
++ git checkout -q --detach FETCH_HEAD
+   pqcheck @ 3e99c742a3e4
++ C:\Users\Suhas\.local\bin\uv.EXE venv -q --clear --python 3.12 C:\Users\Suhas\quantum computing project\.cache\baselines\pqcheck\.venv
++ C:\Users\Suhas\.local\bin\uv.EXE pip install -q --python C:\Users\Suhas\quantum computing project\.cache\baselines\pqcheck\.venv\Scripts\python.exe -e .
++ git init -q
++ git remote add origin https://github.com/rauleteee/pqc-scanner
++ git fetch -q --depth 1 origin b5ccaac159aa4f4133ff1f6aa72ec119826355f1
++ git checkout -q --detach FETCH_HEAD
+   pqc-audit @ b5ccaac159aa
++ C:\Users\Suhas\.local\bin\uv.EXE venv -q --clear --python 3.12 C:\Users\Suhas\quantum computing project\.cache\baselines\pqc-audit\.venv
++ C:\Users\Suhas\.local\bin\uv.EXE pip install -q --python C:\Users\Suhas\quantum computing project\.cache\baselines\pqc-audit\.venv\Scripts\python.exe -e .
++ git init -q
++ git remote add origin https://github.com/postquantdev/postquant
++ git fetch -q --depth 1 origin 4dc61b7965198e460a8e01c91e04b5c503fd4a2f
++ git checkout -q --detach FETCH_HEAD
+   PostQuant @ 4dc61b796519
++ C:\Program Files\nodejs\npm.CMD ci --ignore-scripts
+
+added 50 packages, and audited 51 packages in 3s
+
+17 packages are looking for funding
+  run `npm fund` for details
+
+8 vulnerabilities (1 low, 1 moderate, 5 high, 1 critical)
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
++ C:\Program Files\nodejs\npm.CMD run build
+
+> postquant@0.7.0 build
+> tsc && chmod +x dist/index.js
+
++ git init -q
++ git remote add origin https://github.com/Miles0sage/quantum-mcp
++ git fetch -q --depth 1 origin ff4f6dc384431aabe789ffa927e8ea4e111c5a50
++ git checkout -q --detach FETCH_HEAD
+   qsafe @ ff4f6dc38443
++ C:\Users\Suhas\.local\bin\uv.EXE venv -q --clear --python 3.12 C:\Users\Suhas\quantum computing project\.cache\baselines\qsafe\.venv
++ C:\Users\Suhas\.local\bin\uv.EXE pip install -q --python C:\Users\Suhas\quantum computing project\.cache\baselines\qsafe\.venv\Scripts\python.exe -r requirements.txt
++ git init -q
++ git remote add origin https://github.com/AnimeshShaw/quantum-safe-auditor
++ git fetch -q --depth 1 origin 4d695503e6aea3f33897dc60c77981f6127f1dda
++ git checkout -q --detach FETCH_HEAD
+   QSA-regex @ 4d695503e6ae
++ C:\Users\Suhas\.local\bin\uv.EXE venv -q --clear --python 3.12 C:\Users\Suhas\quantum computing project\.cache\baselines\QSA-regex\.venv
++ C:\Users\Suhas\.local\bin\uv.EXE pip install -q --python C:\Users\Suhas\quantum computing project\.cache\baselines\QSA-regex\.venv\Scripts\python.exe anthropic json_repair python-dotenv
++ git init -q
++ git remote add origin https://github.com/PQBlocks/cbom-scanner
++ git fetch -q --depth 1 origin 3d1eccfdfc7c283b5c5efe496ca1f0c08219d545
++ git checkout -q --detach FETCH_HEAD
+   pqblocks-scan @ 3d1eccfdfc7c
++ C:\Users\Suhas\.local\bin\uv.EXE venv -q --clear --python 3.12 C:\Users\Suhas\quantum computing project\.cache\baselines\pqblocks-scan\.venv
++ C:\Users\Suhas\.local\bin\uv.EXE pip install -q --python C:\Users\Suhas\quantum computing project\.cache\baselines\pqblocks-scan\.venv\Scripts\python.exe -e .
+not runnable: CBOMkit (sonar-cryptography): not run: Docker Desktop engine stopped on the build machine. cbomkit-action v2.3.0 (pyca only, no PyCryptodome) could run via the pinned container image, a local Maven build or GitHub Actions; each needs a user decision (docs/implementation/cbomkit_route.md). Reported as not run until then.
+not runnable: Mehl ESEM 2026 scanner: Zenodo record 10.5281/zenodo.19634475 contains results only, no scanner source; repository-level comparison only
+baselines exit 0

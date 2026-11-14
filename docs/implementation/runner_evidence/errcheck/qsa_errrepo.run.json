@@ -1,0 +1,48 @@
+{
+ "command": [
+  ".cache\\baselines\\QSA-regex\\.venv\\Scripts\\python.exe",
+  "C:\\Users\\Suhas\\quantum computing project/experiments/pilot/qsa_regex_driver.py",
+  ".",
+  "C:\\Users\\Suhas\\quantum computing project\\tests\\fixtures\\baseline_errors\\repos\\errrepo",
+  "C:\\Users\\Suhas\\quantum computing project\\runs\\errcheck\\out/qsa_errrepo.json"
+ ],
+ "elapsed_s": 2.406,
+ "ended_utc": "2026-11-14T09:19:57+00:00",
+ "error": "",
+ "exit_code": 0,
+ "file_status_counts": {
+  "processed": 3,
+  "skipped-by-profile": 1
+ },
+ "files": {
+  "good.py": {
+   "condition": "ok",
+   "status": "processed"
+  },
+  "latin1.py": {
+   "condition": "non-utf8",
+   "status": "processed"
+  },
+  "nullbyte.py": {
+   "condition": "null-byte",
+   "status": "skipped-by-profile"
+  },
+  "syntax_error.py": {
+   "condition": "syntax-error",
+   "status": "processed"
+  }
+ },
+ "files_total": 4,
+ "log_file": "qsa_errrepo.log",
+ "log_sha256": "64b9586d458e98db6c513f12fe4126435b2ac8ce9f43e10900a0534b1e270260",
+ "method": "QSA-regex",
+ "output_file": "qsa_errrepo.json",
+ "output_sha256": "4c335a54b6686c5eb196a6685bda7d6c4aeb2067c59e525aacbe7c141ffba812",
+ "repo": "errrepo",
+ "repo_commit": null,
+ "run_status": "ok",
+ "started_utc": "2026-11-14T09:19:54+00:00",
+ "timed_out": false,
+ "tool_commit_checked_out": "4d695503e6aea3f33897dc60c77981f6127f1dda",
+ "tool_commit_pinned": "4d695503e6aea3f33897dc60c77981f6127f1dda"
+}
