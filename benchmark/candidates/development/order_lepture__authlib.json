@@ -1,0 +1,4794 @@
+{
+ "repo": "lepture__authlib",
+ "commit": "f817ad8a08eb6d5b105195709198d1381cfc11ea",
+ "seed": 20261113,
+ "strata": {
+  "S1-app": [
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0001",
+    "file": "authlib/jose/rfc7518/ec_key.py",
+    "line": 44
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0002",
+    "file": "authlib/jose/rfc7518/rsa_key.py",
+    "line": 95
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0003",
+    "file": "authlib/jose/rfc7518/rsa_key.py",
+    "line": 4
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0004",
+    "file": "authlib/jose/rfc7518/rsa_key.py",
+    "line": 10
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0005",
+    "file": "authlib/jose/rfc7518/ec_key.py",
+    "line": 108
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0006",
+    "file": "authlib/jose/drafts/_jwe_enc_cryptodome.py",
+    "line": 24
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0007",
+    "file": "authlib/jose/rfc7518/ec_key.py",
+    "line": 24
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0008",
+    "file": "authlib/jose/rfc7518/jwe_encs.py",
+    "line": 44
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0009",
+    "file": "authlib/jose/rfc7518/ec_key.py",
+    "line": 99
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0010",
+    "file": "authlib/oauth1/rfc5849/rsa.py",
+    "line": 18
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0011",
+    "file": "authlib/jose/drafts/_jwe_algorithms.py",
+    "line": 26
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0012",
+    "file": "authlib/jose/rfc7517/_cryptography_key.py",
+    "line": 20
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0013",
+    "file": "authlib/jose/rfc8037/jws_eddsa.py",
+    "line": 16
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0014",
+    "file": "authlib/jose/rfc8037/okp_key.py",
+    "line": 49
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0015",
+    "file": "authlib/jose/rfc7518/jwe_algs.py",
+    "line": 30
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0016",
+    "file": "authlib/jose/rfc7517/_cryptography_key.py",
+    "line": 29
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0017",
+    "file": "authlib/jose/rfc7518/jwe_encs.py",
+    "line": 63
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0018",
+    "file": "authlib/jose/rfc7518/rsa_key.py",
+    "line": 9
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0019",
+    "file": "authlib/oauth1/rfc5849/rsa.py",
+    "line": 5
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0020",
+    "file": "authlib/jose/rfc7518/jws_algs.py",
+    "line": 94
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0021",
+    "file": "authlib/jose/rfc7517/_cryptography_key.py",
+    "line": 23
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0022",
+    "file": "authlib/jose/rfc7518/jws_algs.py",
+    "line": 67
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0023",
+    "file": "authlib/jose/rfc7518/rsa_key.py",
+    "line": 102
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0024",
+    "file": "authlib/jose/rfc7518/jwe_algs.py",
+    "line": 93
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0025",
+    "file": "authlib/jose/rfc8037/okp_key.py",
+    "line": 59
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0026",
+    "file": "authlib/jose/drafts/_jwe_algorithms.py",
+    "line": 127
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0027",
+    "file": "authlib/jose/rfc7518/jwe_algs.py",
+    "line": 184
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0028",
+    "file": "authlib/jose/rfc7518/jws_algs.py",
+    "line": 180
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0029",
+    "file": "authlib/jose/rfc7518/jwe_algs.py",
+    "line": 134
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0030",
+    "file": "authlib/jose/rfc7517/_cryptography_key.py",
+    "line": 4
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0031",
+    "file": "authlib/jose/rfc7518/jws_algs.py",
+    "line": 158
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0032",
+    "file": "authlib/jose/drafts/_jwe_algorithms.py",
+    "line": 206
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0033",
+    "file": "authlib/jose/rfc7518/jws_algs.py",
+    "line": 33
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0034",
+    "file": "authlib/jose/rfc7518/rsa_key.py",
+    "line": 71
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0035",
+    "file": "authlib/jose/rfc7518/jws_algs.py",
+    "line": 178
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0036",
+    "file": "authlib/jose/rfc8037/jws_eddsa.py",
+    "line": 21
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0037",
+    "file": "authlib/jose/rfc7518/jwe_encs.py",
+    "line": 105
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0038",
+    "file": "authlib/jose/rfc7518/oct_key.py",
+    "line": 31
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0039",
+    "file": "authlib/jose/rfc7518/ec_key.py",
+    "line": 42
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0040",
+    "file": "authlib/jose/drafts/_jwe_enc_cryptography.py",
+    "line": 50
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0041",
+    "file": "authlib/jose/rfc8037/okp_key.py",
+    "line": 4
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0042",
+    "file": "authlib/jose/rfc7518/rsa_key.py",
+    "line": 23
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0043",
+    "file": "authlib/jose/rfc8037/jws_eddsa.py",
+    "line": 8
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0044",
+    "file": "authlib/jose/rfc8037/okp_key.py",
+    "line": 46
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0045",
+    "file": "authlib/jose/rfc8037/okp_key.py",
+    "line": 8
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0046",
+    "file": "authlib/jose/rfc7518/jws_algs.py",
+    "line": 92
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0047",
+    "file": "authlib/jose/rfc7517/_cryptography_key.py",
+    "line": 35
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0048",
+    "file": "authlib/oauth1/rfc5849/rsa.py",
+    "line": 11
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0049",
+    "file": "authlib/jose/rfc7518/jwe_algs.py",
+    "line": 302
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0050",
+    "file": "authlib/jose/rfc7517/_cryptography_key.py",
+    "line": 14
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0051",
+    "file": "authlib/jose/rfc7518/ec_key.py",
+    "line": 74
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0052",
+    "file": "authlib/oauth1/rfc5849/rsa.py",
+    "line": 15
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0053",
+    "file": "authlib/jose/rfc7518/jws_algs.py",
+    "line": 63
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0054",
+    "file": "authlib/jose/rfc7518/ec_key.py",
+    "line": 50
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0055",
+    "file": "authlib/jose/rfc7518/ec_key.py",
+    "line": 11
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0056",
+    "file": "authlib/jose/drafts/_jwe_algorithms.py",
+    "line": 20
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0057",
+    "file": "authlib/jose/rfc7518/ec_key.py",
+    "line": 12
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0058",
+    "file": "authlib/jose/rfc7518/ec_key.py",
+    "line": 31
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0059",
+    "file": "authlib/jose/rfc7518/jwe_encs.py",
+    "line": 132
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0060",
+    "file": "authlib/jose/rfc7518/rsa_key.py",
+    "line": 3
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0061",
+    "file": "authlib/jose/drafts/_jwe_algorithms.py",
+    "line": 74
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0062",
+    "file": "authlib/jose/rfc7518/oct_key.py",
+    "line": 126
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0063",
+    "file": "authlib/jose/rfc7518/ec_key.py",
+    "line": 79
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0064",
+    "file": "authlib/jose/drafts/_jwe_algorithms.py",
+    "line": 36
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0065",
+    "file": "authlib/jose/rfc7518/ec_key.py",
+    "line": 102
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0066",
+    "file": "authlib/oauth1/rfc5849/rsa.py",
+    "line": 19
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0067",
+    "file": "authlib/jose/rfc7518/rsa_key.py",
+    "line": 81
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0068",
+    "file": "authlib/jose/rfc7518/jws_algs.py",
+    "line": 87
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0069",
+    "file": "authlib/jose/rfc7518/ec_key.py",
+    "line": 67
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0070",
+    "file": "authlib/jose/rfc7518/ec_key.py",
+    "line": 43
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0071",
+    "file": "authlib/jose/rfc7518/jwe_algs.py",
+    "line": 242
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0072",
+    "file": "authlib/jose/rfc7518/jwe_algs.py",
+    "line": 200
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0073",
+    "file": "authlib/jose/rfc7518/rsa_key.py",
+    "line": 21
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0074",
+    "file": "authlib/jose/rfc7518/rsa_key.py",
+    "line": 22
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0075",
+    "file": "authlib/jose/rfc7518/ec_key.py",
+    "line": 62
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0076",
+    "file": "authlib/jose/rfc7518/jws_algs.py",
+    "line": 60
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0077",
+    "file": "authlib/jose/drafts/_jwe_enc_cryptography.py",
+    "line": 34
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0078",
+    "file": "authlib/jose/rfc7518/ec_key.py",
+    "line": 46
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0079",
+    "file": "authlib/jose/rfc8037/okp_key.py",
+    "line": 44
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0080",
+    "file": "authlib/jose/rfc7518/rsa_key.py",
+    "line": 6
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0081",
+    "file": "authlib/jose/rfc7518/rsa_key.py",
+    "line": 5
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0082",
+    "file": "authlib/jose/rfc7518/jwe_algs.py",
+    "line": 82
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0083",
+    "file": "authlib/oauth1/rfc5849/rsa.py",
+    "line": 6
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0084",
+    "file": "authlib/jose/rfc7518/rsa_key.py",
+    "line": 19
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0085",
+    "file": "authlib/jose/rfc8037/okp_key.py",
+    "line": 7
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0086",
+    "file": "authlib/oauth1/rfc5849/rsa.py",
+    "line": 21
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0087",
+    "file": "authlib/jose/rfc7518/rsa_key.py",
+    "line": 87
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0088",
+    "file": "authlib/jose/rfc7517/_cryptography_key.py",
+    "line": 2
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0089",
+    "file": "authlib/jose/rfc8037/okp_key.py",
+    "line": 92
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0090",
+    "file": "authlib/jose/rfc7518/jws_algs.py",
+    "line": 124
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0091",
+    "file": "authlib/jose/rfc7518/jwe_encs.py",
+    "line": 115
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0092",
+    "file": "authlib/jose/rfc7518/ec_key.py",
+    "line": 7
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0093",
+    "file": "authlib/jose/drafts/_jwe_algorithms.py",
+    "line": 7
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0094",
+    "file": "authlib/jose/rfc7518/jwe_algs.py",
+    "line": 121
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0095",
+    "file": "authlib/jose/rfc7518/jwe_algs.py",
+    "line": 44
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0096",
+    "file": "authlib/jose/rfc7518/rsa_key.py",
+    "line": 59
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0097",
+    "file": "authlib/jose/rfc7518/rsa_key.py",
+    "line": 54
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0098",
+    "file": "authlib/jose/rfc7517/asymmetric_key.py",
+    "line": 179
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0099",
+    "file": "authlib/jose/rfc7518/jws_algs.py",
+    "line": 90
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0100",
+    "file": "authlib/jose/rfc7518/jwe_algs.py",
+    "line": 203
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0101",
+    "file": "authlib/jose/rfc7517/_cryptography_key.py",
+    "line": 5
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0102",
+    "file": "authlib/jose/rfc7518/ec_key.py",
+    "line": 10
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0103",
+    "file": "authlib/jose/rfc8037/okp_key.py",
+    "line": 3
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0104",
+    "file": "authlib/jose/rfc7518/jws_algs.py",
+    "line": 205
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0105",
+    "file": "authlib/jose/rfc8037/jws_eddsa.py",
+    "line": 12
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0106",
+    "file": "authlib/jose/rfc7518/jwe_algs.py",
+    "line": 60
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0107",
+    "file": "authlib/jose/rfc8037/okp_key.py",
+    "line": 58
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0108",
+    "file": "authlib/jose/rfc7518/oct_key.py",
+    "line": 22
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0109",
+    "file": "authlib/jose/rfc7518/ec_key.py",
+    "line": 3
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0110",
+    "file": "authlib/jose/rfc8037/okp_key.py",
+    "line": 5
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0111",
+    "file": "authlib/jose/rfc8037/okp_key.py",
+    "line": 1
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0112",
+    "file": "authlib/jose/rfc8037/okp_key.py",
+    "line": 99
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0113",
+    "file": "authlib/jose/rfc7518/jws_algs.py",
+    "line": 151
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0114",
+    "file": "authlib/jose/rfc7518/jws_algs.py",
+    "line": 191
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0115",
+    "file": "authlib/jose/rfc7518/rsa_key.py",
+    "line": 7
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0116",
+    "file": "authlib/jose/rfc7518/jws_algs.py",
+    "line": 131
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0117",
+    "file": "authlib/jose/drafts/_jwe_algorithms.py",
+    "line": 24
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0118",
+    "file": "authlib/jose/rfc8037/okp_key.py",
+    "line": 6
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0119",
+    "file": "authlib/jose/drafts/_jwe_algorithms.py",
+    "line": 23
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0120",
+    "file": "authlib/jose/drafts/_jwe_enc_cryptography.py",
+    "line": 35
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0121",
+    "file": "authlib/jose/rfc7518/jwe_algs.py",
+    "line": 188
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0122",
+    "file": "authlib/jose/rfc7518/jws_algs.py",
+    "line": 99
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0123",
+    "file": "authlib/jose/drafts/_jwe_enc_cryptography.py",
+    "line": 24
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0124",
+    "file": "authlib/jose/rfc7517/_cryptography_key.py",
+    "line": 33
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0125",
+    "file": "authlib/jose/rfc7517/_cryptography_key.py",
+    "line": 26
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0126",
+    "file": "authlib/jose/rfc8037/jws_eddsa.py",
+    "line": 14
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0127",
+    "file": "authlib/jose/rfc7518/rsa_key.py",
+    "line": 123
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0128",
+    "file": "authlib/jose/rfc7518/oct_key.py",
+    "line": 4
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0129",
+    "file": "authlib/jose/rfc7518/jwe_algs.py",
+    "line": 323
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0130",
+    "file": "authlib/jose/rfc8037/okp_key.py",
+    "line": 62
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0131",
+    "file": "authlib/jose/rfc7517/asymmetric_key.py",
+    "line": 9
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0132",
+    "file": "authlib/jose/drafts/_jwe_algorithms.py",
+    "line": 27
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0133",
+    "file": "authlib/jose/rfc7518/jws_algs.py",
+    "line": 176
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0134",
+    "file": "authlib/jose/rfc7518/jwe_algs.py",
+    "line": 212
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0135",
+    "file": "authlib/jose/rfc7518/ec_key.py",
+    "line": 70
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0136",
+    "file": "authlib/jose/rfc7518/jwe_encs.py",
+    "line": 87
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0137",
+    "file": "authlib/jose/rfc7517/_cryptography_key.py",
+    "line": 10
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0138",
+    "file": "authlib/jose/rfc7518/jws_algs.py",
+    "line": 133
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0139",
+    "file": "authlib/jose/rfc7518/jws_algs.py",
+    "line": 106
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0140",
+    "file": "authlib/jose/rfc7518/jwe_algs.py",
+    "line": 192
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0141",
+    "file": "authlib/jose/rfc7518/rsa_key.py",
+    "line": 2
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0142",
+    "file": "authlib/jose/rfc7518/jwe_algs.py",
+    "line": 199
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0143",
+    "file": "authlib/jose/drafts/_jwe_algorithms.py",
+    "line": 16
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0144",
+    "file": "authlib/jose/rfc7518/jwe_encs.py",
+    "line": 47
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0145",
+    "file": "authlib/jose/rfc7518/rsa_key.py",
+    "line": 84
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0146",
+    "file": "authlib/jose/rfc7518/ec_key.py",
+    "line": 5
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0147",
+    "file": "authlib/jose/rfc8037/okp_key.py",
+    "line": 50
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0148",
+    "file": "authlib/jose/drafts/_jwe_enc_cryptography.py",
+    "line": 49
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0149",
+    "file": "authlib/jose/rfc7518/jwe_algs.py",
+    "line": 157
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0150",
+    "file": "authlib/jose/rfc7517/_cryptography_key.py",
+    "line": 17
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0151",
+    "file": "authlib/jose/rfc7518/rsa_key.py",
+    "line": 28
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0152",
+    "file": "authlib/jose/rfc7518/jwe_algs.py",
+    "line": 80
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0153",
+    "file": "authlib/jose/rfc7518/jwe_algs.py",
+    "line": 75
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0154",
+    "file": "authlib/jose/rfc7518/jwe_algs.py",
+    "line": 48
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0155",
+    "file": "authlib/jose/rfc7518/jwe_algs.py",
+    "line": 202
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0156",
+    "file": "authlib/jose/drafts/_jwe_algorithms.py",
+    "line": 193
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0157",
+    "file": "authlib/jose/rfc8037/okp_key.py",
+    "line": 27
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0158",
+    "file": "authlib/jose/rfc7518/jwe_algs.py",
+    "line": 159
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0159",
+    "file": "authlib/jose/rfc7518/rsa_key.py",
+    "line": 8
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0160",
+    "file": "authlib/jose/rfc8037/okp_key.py",
+    "line": 60
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0161",
+    "file": "authlib/jose/rfc8037/okp_key.py",
+    "line": 2
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0162",
+    "file": "authlib/jose/rfc8037/okp_key.py",
+    "line": 21
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0163",
+    "file": "authlib/jose/rfc7518/oct_key.py",
+    "line": 13
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0164",
+    "file": "authlib/oauth1/rfc5849/rsa.py",
+    "line": 12
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0165",
+    "file": "authlib/jose/rfc7518/jws_algs.py",
+    "line": 58
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0166",
+    "file": "authlib/jose/rfc7518/jws_algs.py",
+    "line": 13
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0167",
+    "file": "authlib/jose/rfc7517/_cryptography_key.py",
+    "line": 3
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0168",
+    "file": "authlib/jose/rfc8037/okp_key.py",
+    "line": 56
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0169",
+    "file": "authlib/jose/rfc8037/okp_key.py",
+    "line": 55
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0170",
+    "file": "authlib/jose/rfc7518/jws_algs.py",
+    "line": 72
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-app-0171",
+    "file": "authlib/jose/rfc7518/jws_algs.py",
+    "line": 120
+   }
+  ],
+  "S1-test": [
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0001",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 517
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0002",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 223
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0003",
+    "file": "tests/jose/test_jwe.py",
+    "line": 794
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0004",
+    "file": "tests/jose/test_jwe.py",
+    "line": 688
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0005",
+    "file": "tests/jose/test_jwt.py",
+    "line": 148
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0006",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1137
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0007",
+    "file": "tests/jose/test_jwe.py",
+    "line": 362
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0008",
+    "file": "tests/jose/test_jwt.py",
+    "line": 61
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0009",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 853
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0010",
+    "file": "tests/jose/test_jwt.py",
+    "line": 77
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0011",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1584
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0012",
+    "file": "tests/jose/test_jwe.py",
+    "line": 379
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0013",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1257
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0014",
+    "file": "tests/jose/test_jwt.py",
+    "line": 9
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0015",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 16
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0016",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1583
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0017",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1273
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0018",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1047
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0019",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1504
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0020",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1307
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0021",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1406
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0022",
+    "file": "tests/jose/test_jwt.py",
+    "line": 410
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0023",
+    "file": "tests/jose/test_jwe.py",
+    "line": 100
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0024",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1085
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0025",
+    "file": "tests/jose/test_jwt.py",
+    "line": 29
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0026",
+    "file": "tests/jose/test_jwe.py",
+    "line": 457
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0027",
+    "file": "tests/jose/test_jwe.py",
+    "line": 540
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0028",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 173
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0029",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 653
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0030",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 971
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0031",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1343
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0032",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1204
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0033",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1005
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0034",
+    "file": "tests/jose/test_jwe.py",
+    "line": 263
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0035",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 661
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0036",
+    "file": "tests/jose/test_jwe.py",
+    "line": 314
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0037",
+    "file": "tests/jose/test_jwe.py",
+    "line": 472
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0038",
+    "file": "tests/jose/test_jwe.py",
+    "line": 337
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0039",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 574
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0040",
+    "file": "tests/jose/test_jwe.py",
+    "line": 393
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0041",
+    "file": "tests/jose/test_jwe.py",
+    "line": 802
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0042",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1045
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0043",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1549
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0044",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1154
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0045",
+    "file": "tests/jose/test_jwe.py",
+    "line": 133
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0046",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 185
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0047",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1502
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0048",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1182
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0049",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1163
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0050",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1317
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0051",
+    "file": "tests/jose/test_jwe.py",
+    "line": 991
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0052",
+    "file": "tests/jose/test_jwe.py",
+    "line": 256
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0053",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1527
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0054",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 645
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0055",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1261
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0056",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 888
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0057",
+    "file": "tests/jose/test_jwe.py",
+    "line": 160
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0058",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1367
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0059",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1503
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0060",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 38
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0061",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 493
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0062",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 225
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0063",
+    "file": "tests/jose/test_jwe.py",
+    "line": 293
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0064",
+    "file": "tests/jose/test_jwe.py",
+    "line": 712
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0065",
+    "file": "tests/jose/test_jwt.py",
+    "line": 123
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0066",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 46
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0067",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1520
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0068",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1586
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0069",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 31
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0070",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 621
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0071",
+    "file": "tests/jose/test_jwe.py",
+    "line": 772
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0072",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1419
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0073",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1020
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0074",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1350
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0075",
+    "file": "tests/jose/test_jwe.py",
+    "line": 92
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0076",
+    "file": "tests/jose/test_jwe.py",
+    "line": 409
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0077",
+    "file": "tests/jose/test_jwt.py",
+    "line": 147
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0078",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 776
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0079",
+    "file": "tests/jose/test_jwe.py",
+    "line": 284
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0080",
+    "file": "tests/jose/test_jwt.py",
+    "line": 63
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0081",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1305
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0082",
+    "file": "tests/jose/test_jwt.py",
+    "line": 176
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0083",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1396
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0084",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1411
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0085",
+    "file": "tests/jose/test_jwe.py",
+    "line": 351
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0086",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1615
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0087",
+    "file": "tests/jose/test_jwe.py",
+    "line": 427
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0088",
+    "file": "tests/jose/test_jwt.py",
+    "line": 25
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0089",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1374
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0090",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1352
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0091",
+    "file": "tests/jose/test_jwe.py",
+    "line": 339
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0092",
+    "file": "tests/jose/test_jwe.py",
+    "line": 470
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0093",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 624
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0094",
+    "file": "tests/jose/test_jwe.py",
+    "line": 704
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0095",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1443
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0096",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 613
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0097",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1265
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0098",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1598
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0099",
+    "file": "tests/jose/test_jwt.py",
+    "line": 376
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0100",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1484
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0101",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 426
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0102",
+    "file": "tests/jose/test_jwt.py",
+    "line": 364
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0103",
+    "file": "tests/jose/test_jwe.py",
+    "line": 186
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0104",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 822
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0105",
+    "file": "tests/jose/test_jwe.py",
+    "line": 395
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0106",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1069
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0107",
+    "file": "tests/jose/test_jwt.py",
+    "line": 84
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0108",
+    "file": "tests/jose/test_jwe.py",
+    "line": 51
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0109",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 962
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0110",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1003
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0111",
+    "file": "tests/jose/test_jwe.py",
+    "line": 875
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0112",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 582
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0113",
+    "file": "tests/jose/test_jwe.py",
+    "line": 561
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0114",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1079
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0115",
+    "file": "tests/jose/test_jwe.py",
+    "line": 353
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0116",
+    "file": "tests/jose/test_jwt.py",
+    "line": 80
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0117",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 529
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0118",
+    "file": "tests/jose/test_jwe.py",
+    "line": 121
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0119",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 486
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0120",
+    "file": "tests/jose/test_jwe.py",
+    "line": 364
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0121",
+    "file": "tests/jose/test_jwt.py",
+    "line": 149
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0122",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1617
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0123",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1435
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0124",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1146
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0125",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 179
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0126",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1358
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0127",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1462
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0128",
+    "file": "tests/jose/test_jwe.py",
+    "line": 548
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0129",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 235
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0130",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1485
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0131",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 518
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0132",
+    "file": "tests/jose/test_jwe.py",
+    "line": 152
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0133",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1308
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0134",
+    "file": "tests/jose/test_jwe.py",
+    "line": 315
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0135",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1499
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0136",
+    "file": "tests/jose/test_jwe.py",
+    "line": 723
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0137",
+    "file": "tests/jose/test_jwe.py",
+    "line": 988
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0138",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1601
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0139",
+    "file": "tests/jose/test_jwe.py",
+    "line": 503
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0140",
+    "file": "tests/jose/test_jwe.py",
+    "line": 259
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0141",
+    "file": "tests/jose/test_jwe.py",
+    "line": 129
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0142",
+    "file": "tests/jose/test_jwe.py",
+    "line": 377
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0143",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1202
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0144",
+    "file": "tests/jose/test_jwe.py",
+    "line": 762
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0145",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1076
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0146",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1206
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0147",
+    "file": "tests/jose/test_jwt.py",
+    "line": 39
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0148",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 219
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0149",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 59
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0150",
+    "file": "tests/jose/test_jwe.py",
+    "line": 75
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0151",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1173
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0152",
+    "file": "tests/jose/test_jwe.py",
+    "line": 165
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0153",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1219
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0154",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 536
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0155",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 544
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0156",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1332
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0157",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 565
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0158",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 167
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0159",
+    "file": "tests/jose/test_jwe.py",
+    "line": 949
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0160",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1233
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0161",
+    "file": "tests/jose/test_jwe.py",
+    "line": 714
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0162",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1366
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0163",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1333
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0164",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 24
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0165",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 520
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0166",
+    "file": "tests/jose/test_jwe.py",
+    "line": 731
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0167",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1486
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0168",
+    "file": "tests/jose/test_jwe.py",
+    "line": 269
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0169",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 670
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0170",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 224
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0171",
+    "file": "tests/jose/test_jwt.py",
+    "line": 81
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0172",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1576
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0173",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1036
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0174",
+    "file": "tests/jose/test_jwt.py",
+    "line": 150
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0175",
+    "file": "tests/jose/test_jwe.py",
+    "line": 485
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0176",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1584
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0177",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 980
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0178",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1342
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0179",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1203
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0180",
+    "file": "tests/jose/test_jwe.py",
+    "line": 94
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0181",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1464
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0182",
+    "file": "tests/jose/test_jwt.py",
+    "line": 375
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0183",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1353
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0184",
+    "file": "tests/jose/test_jwe.py",
+    "line": 69
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0185",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1557
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0186",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1599
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0187",
+    "file": "tests/jose/test_jwt.py",
+    "line": 116
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0188",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1285
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0189",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 743
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0190",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1058
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0191",
+    "file": "tests/jose/test_jwe.py",
+    "line": 752
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0192",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1164
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0193",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1244
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0194",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1094
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0195",
+    "file": "tests/jose/test_jwt.py",
+    "line": 384
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0196",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 602
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0197",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1592
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0198",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1365
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0199",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1614
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0200",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1389
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0201",
+    "file": "tests/jose/test_jwt.py",
+    "line": 8
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0202",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1292
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0203",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 768
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0204",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1481
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0205",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1238
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0206",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1317
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0207",
+    "file": "tests/jose/test_jwe.py",
+    "line": 45
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0208",
+    "file": "tests/jose/test_jwe.py",
+    "line": 292
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0209",
+    "file": "tests/jose/test_jwe.py",
+    "line": 438
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0210",
+    "file": "tests/jose/test_jwt.py",
+    "line": 396
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0211",
+    "file": "tests/jose/test_jwt.py",
+    "line": 46
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0212",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1554
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0213",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1601
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0214",
+    "file": "tests/jose/test_jwe.py",
+    "line": 940
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0215",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 880
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0216",
+    "file": "tests/jose/test_jwe.py",
+    "line": 501
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0217",
+    "file": "tests/jose/test_jwe.py",
+    "line": 173
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0218",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1437
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0219",
+    "file": "tests/jose/test_jwe.py",
+    "line": 517
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0220",
+    "file": "tests/jose/test_jwe.py",
+    "line": 519
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0221",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 478
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0222",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 22
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0223",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1283
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0224",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 990
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0225",
+    "file": "tests/jose/test_chacha20.py",
+    "line": 63
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0226",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 784
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0227",
+    "file": "tests/jose/test_jwt.py",
+    "line": 53
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0228",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1517
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0229",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 896
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0230",
+    "file": "tests/jose/test_jwt.py",
+    "line": 86
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0231",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1259
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0232",
+    "file": "tests/jose/test_jwe.py",
+    "line": 885
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0233",
+    "file": "tests/jose/test_jwe.py",
+    "line": 487
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0234",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1541
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0235",
+    "file": "tests/jose/test_jwe.py",
+    "line": 114
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0236",
+    "file": "tests/jose/test_jwe.py",
+    "line": 989
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0237",
+    "file": "tests/jose/test_jwe.py",
+    "line": 533
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0238",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 509
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0239",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1330
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0240",
+    "file": "tests/jose/test_jwe.py",
+    "line": 411
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0241",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1467
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0242",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 603
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0243",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1018
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0244",
+    "file": "tests/jose/test_jwe.py",
+    "line": 866
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0245",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 759
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0246",
+    "file": "tests/jose/test_jwe.py",
+    "line": 285
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0247",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1226
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0248",
+    "file": "tests/jose/test_jwe.py",
+    "line": 455
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0249",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 222
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0250",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1264
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0251",
+    "file": "tests/jose/test_jwe.py",
+    "line": 181
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0252",
+    "file": "tests/jose/test_chacha20.py",
+    "line": 72
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0253",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1318
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0254",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1250
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0255",
+    "file": "tests/jose/test_jwe.py",
+    "line": 440
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0256",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 192
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0257",
+    "file": "tests/jose/test_jwe.py",
+    "line": 194
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0258",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1533
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0259",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 905
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0260",
+    "file": "tests/jose/test_jwe.py",
+    "line": 1028
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0261",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1551
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0262",
+    "file": "tests/jose/test_jwe.py",
+    "line": 57
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0263",
+    "file": "tests/jose/test_jwe.py",
+    "line": 770
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0264",
+    "file": "tests/jose/test_jwe.py",
+    "line": 145
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0265",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 1560
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0266",
+    "file": "tests/jose/test_jwt.py",
+    "line": 166
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0267",
+    "file": "tests/jose/test_jwe.py",
+    "line": 811
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0268",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 622
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0269",
+    "file": "tests/jose/test_ecdh_1pu.py",
+    "line": 165
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S1-test-0270",
+    "file": "tests/jose/test_jwe.py",
+    "line": 429
+   }
+  ],
+  "S2": [
+   {
+    "candidate_id": "C-lepture__authlib-S2-0001",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 197
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0002",
+    "file": "tests/flask/test_oauth2/test_end_session.py",
+    "line": 571
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0003",
+    "file": "tests/flask/test_oauth2/test_jwt_bearer_grant.py",
+    "line": 402
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0004",
+    "file": "authlib/oidc/discovery/models.py",
+    "line": 118
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0005",
+    "file": "tests/flask/test_oauth1/test_token_credentials.py",
+    "line": 155
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0006",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 306
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0007",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 276
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0008",
+    "file": "tests/core/test_oauth2/test_rfc8414.py",
+    "line": 432
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0009",
+    "file": "tests/flask/test_oauth1/test_temporary_credentials.py",
+    "line": 251
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0010",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 168
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0011",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 521
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0012",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 574
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0013",
+    "file": "tests/flask/test_oauth2/test_jwt_bearer_client_auth.py",
+    "line": 100
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0014",
+    "file": "authlib/oidc/core/userinfo.py",
+    "line": 155
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0015",
+    "file": "tests/flask/test_oauth2/test_jwt_bearer_client_auth.py",
+    "line": 167
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0016",
+    "file": "authlib/integrations/requests_client/__init__.py",
+    "line": 3
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0017",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 333
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0018",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 489
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0019",
+    "file": "authlib/oidc/registration/claims.py",
+    "line": 120
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0020",
+    "file": "tests/clients/test_flask/test_user_mixin.py",
+    "line": 245
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0021",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 265
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0022",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 134
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0023",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 356
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0024",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 25
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0025",
+    "file": "authlib/integrations/requests_client/__init__.py",
+    "line": 1
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0026",
+    "file": "tests/core/test_oidc/test_utils.py",
+    "line": 30
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0027",
+    "file": "tests/core/test_oidc/test_rpinitiated.py",
+    "line": 11
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0028",
+    "file": "authlib/oauth1/rfc5849/signature.py",
+    "line": 290
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0029",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 342
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0030",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 131
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0031",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 140
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0032",
+    "file": "tests/flask/test_oauth2/rfc9068/test_userinfo.py",
+    "line": 96
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0033",
+    "file": "tests/flask/test_oauth2/rfc9068/test_token_introspection.py",
+    "line": 117
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0034",
+    "file": "tests/jose/test_jwk.py",
+    "line": 238
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0035",
+    "file": "tests/core/test_oauth2/test_rfc9728.py",
+    "line": 581
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0036",
+    "file": "tests/core/test_oauth2/test_rfc9728.py",
+    "line": 547
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0037",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 130
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0038",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 67
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0039",
+    "file": "tests/flask/test_oauth2/test_jwt_authorization_request.py",
+    "line": 191
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0040",
+    "file": "tests/core/test_oidc/test_backchannel.py",
+    "line": 290
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0041",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 276
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0042",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 266
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0043",
+    "file": "tests/flask/test_oauth2/test_jwt_bearer_client_auth.py",
+    "line": 513
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0044",
+    "file": "tests/jose/test_jwk.py",
+    "line": 240
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0045",
+    "file": "tests/flask/test_oauth2/test_userinfo.py",
+    "line": 417
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0046",
+    "file": "authlib/oauth1/rfc5849/__init__.py",
+    "line": 16
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0047",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oauth2.py",
+    "line": 444
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0048",
+    "file": "tests/flask/test_oauth1/test_token_credentials.py",
+    "line": 189
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0049",
+    "file": "tests/core/test_oauth2/test_rfc8414.py",
+    "line": 367
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0050",
+    "file": "authlib/jose/rfc7518/__init__.py",
+    "line": 4
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0051",
+    "file": "tests/flask/test_oauth2/test_end_session.py",
+    "line": 18
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0052",
+    "file": "authlib/jose/rfc7516/models.py",
+    "line": 76
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0053",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 407
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0054",
+    "file": "authlib/oauth2/drafts/id_jag.py",
+    "line": 139
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0055",
+    "file": "authlib/oauth2/rfc7523/token.py",
+    "line": 37
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0056",
+    "file": "authlib/oauth1/rfc5849/signature.py",
+    "line": 286
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0057",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 345
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0058",
+    "file": "tests/flask/test_oauth2/test_jwt_authorization_request.py",
+    "line": 839
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0059",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 352
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0060",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 311
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0061",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 273
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0062",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 400
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0063",
+    "file": "authlib/oidc/registration/claims.py",
+    "line": 170
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0064",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 681
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0065",
+    "file": "authlib/oauth2/rfc9101/authorization_server.py",
+    "line": 351
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0066",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 138
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0067",
+    "file": "tests/flask/test_oauth2/test_jwt_bearer_grant.py",
+    "line": 70
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0068",
+    "file": "authlib/oauth1/__init__.py",
+    "line": 1
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0069",
+    "file": "tests/flask/test_oauth1/test_resource_protector.py",
+    "line": 163
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0070",
+    "file": "tests/core/test_oauth2/test_rfc9728.py",
+    "line": 552
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0071",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 63
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0072",
+    "file": "tests/flask/test_oauth1/test_token_credentials.py",
+    "line": 170
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0073",
+    "file": "tests/core/test_oauth2/test_rfc9728.py",
+    "line": 266
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0074",
+    "file": "authlib/jose/rfc7519/jwt.py",
+    "line": 157
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0075",
+    "file": "tests/flask/test_oauth2/test_jwt_authorization_request.py",
+    "line": 939
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0076",
+    "file": "tests/django/test_oauth1/test_resource_protector.py",
+    "line": 170
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0077",
+    "file": "tests/flask/test_oauth1/test_temporary_credentials.py",
+    "line": 247
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0078",
+    "file": "tests/flask/test_oauth2/test_jwt_bearer_client_auth.py",
+    "line": 128
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0079",
+    "file": "authlib/oauth2/rfc7636/challenge.py",
+    "line": 20
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0080",
+    "file": "authlib/oauth1/client.py",
+    "line": 7
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0081",
+    "file": "tests/core/test_oauth2/test_rfc9068_token_validator.py",
+    "line": 75
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0082",
+    "file": "tests/flask/test_oauth2/test_jwt_bearer_grant.py",
+    "line": 86
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0083",
+    "file": "tests/core/test_oidc/test_discovery.py",
+    "line": 90
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0084",
+    "file": "tests/clients/test_starlette/test_user_mixin.py",
+    "line": 344
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0085",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 105
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0086",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 122
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0087",
+    "file": "tests/flask/test_oauth2/test_jwt_bearer_grant.py",
+    "line": 259
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0088",
+    "file": "tests/core/test_oauth2/test_rfc9728.py",
+    "line": 542
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0089",
+    "file": "tests/core/test_oauth2/test_rfc9728.py",
+    "line": 551
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0090",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oauth2.py",
+    "line": 177
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0091",
+    "file": "tests/flask/test_oauth2/test_jwt_bearer_grant.py",
+    "line": 279
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0092",
+    "file": "authlib/oauth1/rfc5849/signature.py",
+    "line": 354
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0093",
+    "file": "tests/django/test_oauth1/test_token_credentials.py",
+    "line": 168
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0094",
+    "file": "tests/clients/test_flask/test_user_mixin.py",
+    "line": 651
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0095",
+    "file": "tests/jose/test_jws.py",
+    "line": 294
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0096",
+    "file": "authlib/oauth1/rfc5849/signature.py",
+    "line": 256
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0097",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 236
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0098",
+    "file": "authlib/oauth1/rfc5849/client_auth.py",
+    "line": 123
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0099",
+    "file": "tests/flask/test_oauth2/rfc9068/test_token_revocation.py",
+    "line": 236
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0100",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 190
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0101",
+    "file": "authlib/oauth1/rfc5849/client_auth.py",
+    "line": 14
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0102",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 283
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0103",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oauth2.py",
+    "line": 461
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0104",
+    "file": "tests/jose/test_jws.py",
+    "line": 94
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0105",
+    "file": "tests/jose/test_jws.py",
+    "line": 292
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0106",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 281
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0107",
+    "file": "tests/flask/test_oauth2/test_userinfo.py",
+    "line": 452
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0108",
+    "file": "authlib/oauth1/client.py",
+    "line": 15
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0109",
+    "file": "tests/core/test_oidc/test_backchannel.py",
+    "line": 276
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0110",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oauth2.py",
+    "line": 317
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0111",
+    "file": "authlib/oauth1/rfc5849/signature.py",
+    "line": 28
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0112",
+    "file": "authlib/oauth2/drafts/id_jag.py",
+    "line": 127
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0113",
+    "file": "tests/flask/test_oauth2/test_jwt_authorization_request.py",
+    "line": 161
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0114",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 250
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0115",
+    "file": "authlib/oauth1/rfc5849/client_auth.py",
+    "line": 28
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0116",
+    "file": "authlib/jose/rfc7517/jwk.py",
+    "line": 12
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0117",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 179
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0118",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 174
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0119",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 211
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0120",
+    "file": "tests/django/test_oauth1/test_resource_protector.py",
+    "line": 125
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0121",
+    "file": "tests/core/test_oauth2/test_rfc9728.py",
+    "line": 578
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0122",
+    "file": "tests/core/test_oidc/test_discovery.py",
+    "line": 78
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0123",
+    "file": "authlib/oauth1/rfc5849/client_auth.py",
+    "line": 188
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0124",
+    "file": "tests/django/test_oauth1/test_resource_protector.py",
+    "line": 149
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0125",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 123
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0126",
+    "file": "tests/jose/test_jwk.py",
+    "line": 309
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0127",
+    "file": "authlib/oauth2/rfc7523/auth.py",
+    "line": 54
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0128",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oauth2.py",
+    "line": 484
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0129",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 271
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0130",
+    "file": "authlib/jose/rfc7515/jws.py",
+    "line": 166
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0131",
+    "file": "tests/flask/test_oauth2/test_openid_code_grant.py",
+    "line": 832
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0132",
+    "file": "tests/flask/test_oauth2/test_jwt_authorization_request.py",
+    "line": 442
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0133",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 207
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0134",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oauth2.py",
+    "line": 509
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0135",
+    "file": "tests/core/test_oidc/test_utils.py",
+    "line": 41
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0136",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 161
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0137",
+    "file": "tests/core/test_oauth2/test_rfc9728.py",
+    "line": 561
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0138",
+    "file": "tests/clients/test_requests/test_oauth1_session.py",
+    "line": 11
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0139",
+    "file": "tests/flask/test_oauth2/test_end_session.py",
+    "line": 518
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0140",
+    "file": "tests/flask/test_oauth2/test_jwt_bearer_client_auth.py",
+    "line": 481
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0141",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 254
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0142",
+    "file": "authlib/oauth1/rfc5849/signature.py",
+    "line": 355
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0143",
+    "file": "authlib/oauth1/rfc5849/client_auth.py",
+    "line": 52
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0144",
+    "file": "tests/jose/test_jwk.py",
+    "line": 170
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0145",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 166
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0146",
+    "file": "authlib/integrations/httpx_client/__init__.py",
+    "line": 19
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0147",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 226
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0148",
+    "file": "tests/core/test_oauth2/test_rfc8414.py",
+    "line": 438
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0149",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 320
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0150",
+    "file": "tests/core/test_oidc/test_backchannel.py",
+    "line": 277
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0151",
+    "file": "tests/jose/test_rfc8037.py",
+    "line": 9
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0152",
+    "file": "tests/jose/test_jwk.py",
+    "line": 200
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0153",
+    "file": "authlib/oauth1/rfc5849/client_auth.py",
+    "line": 182
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0154",
+    "file": "tests/jose/test_jws.py",
+    "line": 53
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0155",
+    "file": "tests/jose/test_jwk.py",
+    "line": 129
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0156",
+    "file": "tests/jose/test_jws.py",
+    "line": 98
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0157",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 379
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0158",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 349
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0159",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 40
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0160",
+    "file": "authlib/oauth1/rfc5849/signature.py",
+    "line": 337
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0161",
+    "file": "authlib/oauth1/rfc5849/base_server.py",
+    "line": 22
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0162",
+    "file": "authlib/oauth2/rfc7523/auth.py",
+    "line": 129
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0163",
+    "file": "tests/flask/test_oauth2/test_jwt_authorization_request.py",
+    "line": 553
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0164",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 368
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0165",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 19
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0166",
+    "file": "tests/core/test_oauth2/test_rfc9728.py",
+    "line": 572
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0167",
+    "file": "authlib/oidc/backchannel/logout_token.py",
+    "line": 16
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0168",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 26
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0169",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 457
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0170",
+    "file": "tests/flask/test_oauth2/test_openid_code_grant.py",
+    "line": 740
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0171",
+    "file": "authlib/oauth1/rfc5849/base_server.py",
+    "line": 10
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0172",
+    "file": "authlib/oauth1/rfc5849/client_auth.py",
+    "line": 20
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0173",
+    "file": "authlib/oauth1/rfc5849/signature.py",
+    "line": 279
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0174",
+    "file": "tests/flask/test_oauth2/test_jwt_bearer_grant.py",
+    "line": 301
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0175",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 54
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0176",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 213
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0177",
+    "file": "tests/clients/test_starlette/test_user_mixin.py",
+    "line": 549
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0178",
+    "file": "tests/django/test_oauth1/conftest.py",
+    "line": 37
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0179",
+    "file": "authlib/jose/rfc7515/jws.py",
+    "line": 162
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0180",
+    "file": "tests/jose/test_jwk.py",
+    "line": 106
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0181",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 389
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0182",
+    "file": "tests/clients/test_httpx/test_oauth1_client.py",
+    "line": 10
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0183",
+    "file": "authlib/integrations/requests_client/oauth1_session.py",
+    "line": 5
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0184",
+    "file": "tests/jose/test_jws.py",
+    "line": 295
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0185",
+    "file": "tests/jose/test_rfc8037.py",
+    "line": 7
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0186",
+    "file": "authlib/oidc/core/grants/_legacy.py",
+    "line": 25
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0187",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 424
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0188",
+    "file": "tests/django/test_oauth1/test_token_credentials.py",
+    "line": 106
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0189",
+    "file": "authlib/oauth2/rfc9068/token.py",
+    "line": 38
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0190",
+    "file": "tests/flask/test_oauth1/test_temporary_credentials.py",
+    "line": 261
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0191",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oauth2.py",
+    "line": 355
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0192",
+    "file": "tests/django/test_oauth1/test_token_credentials.py",
+    "line": 145
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0193",
+    "file": "authlib/oauth1/rfc5849/signature.py",
+    "line": 249
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0194",
+    "file": "authlib/oauth1/rfc5849/__init__.py",
+    "line": 18
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0195",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 531
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0196",
+    "file": "authlib/oauth2/rfc7523/assertion.py",
+    "line": 71
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0197",
+    "file": "authlib/oauth1/rfc5849/client_auth.py",
+    "line": 185
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0198",
+    "file": "tests/clients/test_flask/test_user_mixin.py",
+    "line": 115
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0199",
+    "file": "authlib/oidc/discovery/models.py",
+    "line": 159
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0200",
+    "file": "tests/django_settings.py",
+    "line": 40
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0201",
+    "file": "tests/clients/test_starlette/test_user_mixin.py",
+    "line": 74
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0202",
+    "file": "authlib/oidc/core/grants/_legacy.py",
+    "line": 37
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0203",
+    "file": "tests/jose/test_jwk.py",
+    "line": 237
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0204",
+    "file": "tests/flask/test_oauth1/test_resource_protector.py",
+    "line": 131
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0205",
+    "file": "tests/flask/test_oauth2/rfc9068/test_token_introspection.py",
+    "line": 295
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0206",
+    "file": "tests/flask/test_oauth2/test_jwt_bearer_client_auth.py",
+    "line": 81
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0207",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 339
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0208",
+    "file": "tests/clients/test_flask/test_user_mixin.py",
+    "line": 176
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0209",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oauth2.py",
+    "line": 21
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0210",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 330
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0211",
+    "file": "tests/flask/test_oauth2/test_jwt_authorization_request.py",
+    "line": 211
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0212",
+    "file": "tests/flask/test_oauth2/test_jwt_bearer_grant.py",
+    "line": 156
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0213",
+    "file": "authlib/oauth1/rfc5849/client_auth.py",
+    "line": 18
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0214",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 282
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0215",
+    "file": "tests/flask/test_oauth2/test_jwt_authorization_request.py",
+    "line": 577
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0216",
+    "file": "authlib/integrations/httpx_client/__init__.py",
+    "line": 3
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0217",
+    "file": "tests/flask/test_oauth1/conftest.py",
+    "line": 20
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0218",
+    "file": "authlib/oauth2/rfc7523/auth.py",
+    "line": 117
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0219",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 323
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0220",
+    "file": "authlib/jose/rfc7516/models.py",
+    "line": 37
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0221",
+    "file": "authlib/oauth1/rfc5849/signature.py",
+    "line": 19
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0222",
+    "file": "tests/django/test_oauth1/test_token_credentials.py",
+    "line": 109
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0223",
+    "file": "tests/jose/test_jwk.py",
+    "line": 104
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0224",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 45
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0225",
+    "file": "tests/flask/test_oauth2/test_jwt_authorization_request.py",
+    "line": 458
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0226",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 522
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0227",
+    "file": "tests/flask/test_oauth1/test_resource_protector.py",
+    "line": 121
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0228",
+    "file": "tests/flask/test_oauth1/test_token_credentials.py",
+    "line": 216
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0229",
+    "file": "tests/flask/test_oauth2/test_jwt_bearer_grant.py",
+    "line": 112
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0230",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 288
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0231",
+    "file": "tests/core/test_oauth2/test_rfc9728.py",
+    "line": 571
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0232",
+    "file": "authlib/oauth1/rfc5849/signature.py",
+    "line": 303
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0233",
+    "file": "authlib/jose/rfc7519/jwt.py",
+    "line": 144
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0234",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 466
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0235",
+    "file": "tests/core/test_oidc/test_utils.py",
+    "line": 34
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0236",
+    "file": "tests/flask/test_oauth2/test_jwt_authorization_request.py",
+    "line": 476
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0237",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 171
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0238",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 177
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0239",
+    "file": "authlib/jose/__init__.py",
+    "line": 22
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0240",
+    "file": "tests/jose/test_jwk.py",
+    "line": 185
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0241",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 577
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0242",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 182
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0243",
+    "file": "authlib/jose/rfc7515/models.py",
+    "line": 16
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0244",
+    "file": "authlib/oauth1/rfc5849/signature.py",
+    "line": 18
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0245",
+    "file": "tests/clients/test_requests/test_oauth1_session.py",
+    "line": 120
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0246",
+    "file": "authlib/oauth1/rfc5849/base_server.py",
+    "line": 11
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0247",
+    "file": "tests/clients/test_requests/test_oauth1_session.py",
+    "line": 93
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0248",
+    "file": "authlib/oauth2/rfc7523/assertion.py",
+    "line": 59
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0249",
+    "file": "authlib/oauth1/__init__.py",
+    "line": 16
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0250",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 36
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0251",
+    "file": "authlib/oauth1/rfc5849/__init__.py",
+    "line": 24
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0252",
+    "file": "tests/core/test_oidc/test_backchannel.py",
+    "line": 327
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0253",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 559
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0254",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 320
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0255",
+    "file": "authlib/oauth2/rfc7523/auth.py",
+    "line": 86
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0256",
+    "file": "tests/jose/test_jwk.py",
+    "line": 121
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0257",
+    "file": "authlib/oauth1/rfc5849/client_auth.py",
+    "line": 12
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0258",
+    "file": "tests/clients/test_httpx/test_async_oauth1_client.py",
+    "line": 29
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0259",
+    "file": "tests/core/test_oauth2/test_rfc9728.py",
+    "line": 573
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0260",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 293
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0261",
+    "file": "tests/flask/test_oauth2/test_jwt_authorization_request.py",
+    "line": 176
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0262",
+    "file": "tests/django/test_oauth1/test_token_credentials.py",
+    "line": 120
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0263",
+    "file": "tests/flask/test_oauth2/test_jwt_bearer_grant.py",
+    "line": 131
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0264",
+    "file": "tests/clients/test_httpx/test_oauth1_client.py",
+    "line": 27
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0265",
+    "file": "tests/clients/test_requests/test_oauth1_session.py",
+    "line": 291
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0266",
+    "file": "tests/clients/test_flask/test_user_mixin.py",
+    "line": 256
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0267",
+    "file": "tests/core/test_oauth2/test_rfc9728.py",
+    "line": 580
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0268",
+    "file": "tests/jose/test_jwk.py",
+    "line": 164
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0269",
+    "file": "authlib/common/security.py",
+    "line": 11
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0270",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 198
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0271",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 78
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0272",
+    "file": "authlib/oauth2/rfc7523/jwt_bearer.py",
+    "line": 41
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0273",
+    "file": "authlib/oauth2/rfc9101/authorization_server.py",
+    "line": 391
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0274",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 445
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0275",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 352
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0276",
+    "file": "tests/clients/test_flask/test_user_mixin.py",
+    "line": 277
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0277",
+    "file": "authlib/oauth1/rfc5849/authorization_server.py",
+    "line": 71
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0278",
+    "file": "tests/core/test_oidc/test_utils.py",
+    "line": 33
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0279",
+    "file": "authlib/jose/rfc7516/jwe.py",
+    "line": 384
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0280",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 355
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0281",
+    "file": "tests/core/test_oauth2/test_rfc9728.py",
+    "line": 587
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0282",
+    "file": "tests/flask/test_oauth2/rfc9068/test_resource_server.py",
+    "line": 239
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0283",
+    "file": "authlib/oauth1/rfc5849/signature.py",
+    "line": 367
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0284",
+    "file": "tests/flask/test_oauth2/test_jwt_authorization_request.py",
+    "line": 596
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0285",
+    "file": "tests/jose/test_jwk.py",
+    "line": 123
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0286",
+    "file": "tests/clients/test_starlette/test_user_mixin.py",
+    "line": 215
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0287",
+    "file": "authlib/oauth2/rfc7523/auth.py",
+    "line": 74
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0288",
+    "file": "tests/django/test_oauth1/test_token_credentials.py",
+    "line": 156
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0289",
+    "file": "authlib/oauth1/rfc5849/base_server.py",
+    "line": 13
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0290",
+    "file": "authlib/oauth1/rfc5849/authorization_server.py",
+    "line": 202
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0291",
+    "file": "authlib/oidc/core/grants/util.py",
+    "line": 263
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0292",
+    "file": "tests/flask/test_oauth2/test_jwt_authorization_request.py",
+    "line": 766
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0293",
+    "file": "tests/clients/test_starlette/test_user_mixin.py",
+    "line": 119
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0294",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oauth2.py",
+    "line": 195
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0295",
+    "file": "tests/flask/test_oauth1/test_token_credentials.py",
+    "line": 205
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0296",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 295
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0297",
+    "file": "tests/flask/test_oauth1/test_temporary_credentials.py",
+    "line": 303
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0298",
+    "file": "tests/flask/test_oauth2/test_jwt_authorization_request.py",
+    "line": 648
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0299",
+    "file": "authlib/oauth1/rfc5849/models.py",
+    "line": 28
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0300",
+    "file": "authlib/oauth2/rfc9728/models.py",
+    "line": 231
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0301",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oauth2.py",
+    "line": 352
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0302",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 189
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0303",
+    "file": "tests/jose/test_rfc8037.py",
+    "line": 8
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0304",
+    "file": "authlib/oauth2/rfc7523/assertion.py",
+    "line": 68
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0305",
+    "file": "tests/flask/test_oauth2/test_jwt_bearer_client_auth.py",
+    "line": 146
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0306",
+    "file": "tests/core/test_oidc/test_utils.py",
+    "line": 38
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0307",
+    "file": "tests/core/test_oauth2/test_rfc8414.py",
+    "line": 229
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0308",
+    "file": "tests/core/test_oidc/test_discovery.py",
+    "line": 57
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0309",
+    "file": "authlib/oidc/core/util.py",
+    "line": 8
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0310",
+    "file": "authlib/integrations/requests_client/oauth1_session.py",
+    "line": 30
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0311",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oauth2.py",
+    "line": 514
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0312",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 119
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0313",
+    "file": "tests/jose/test_jws.py",
+    "line": 293
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0314",
+    "file": "authlib/oauth1/rfc5849/client_auth.py",
+    "line": 91
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0315",
+    "file": "authlib/oauth2/rfc7523/assertion.py",
+    "line": 65
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0316",
+    "file": "tests/flask/test_oauth2/test_openid_code_grant.py",
+    "line": 802
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0317",
+    "file": "authlib/oauth2/rfc8414/models.py",
+    "line": 175
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0318",
+    "file": "tests/clients/test_httpx/test_async_oauth1_client.py",
+    "line": 11
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0319",
+    "file": "authlib/jose/rfc7515/jws.py",
+    "line": 151
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0320",
+    "file": "authlib/jose/rfc7515/jws.py",
+    "line": 79
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0321",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 299
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0322",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 151
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0323",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 242
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0324",
+    "file": "authlib/oauth1/__init__.py",
+    "line": 3
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0325",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 94
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0326",
+    "file": "tests/flask/test_oauth2/test_openid_code_grant.py",
+    "line": 725
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0327",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 542
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0328",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 106
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0329",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 224
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0330",
+    "file": "tests/jose/test_rfc8037.py",
+    "line": 13
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0331",
+    "file": "tests/clients/test_flask/test_user_mixin.py",
+    "line": 68
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0332",
+    "file": "authlib/jose/rfc7516/jwe.py",
+    "line": 175
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0333",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 291
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0334",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oauth2.py",
+    "line": 147
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0335",
+    "file": "tests/jose/test_jws.py",
+    "line": 296
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0336",
+    "file": "tests/core/test_oidc/test_utils.py",
+    "line": 32
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0337",
+    "file": "authlib/integrations/httpx_client/oauth1_client.py",
+    "line": 37
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0338",
+    "file": "tests/core/test_oidc/test_utils.py",
+    "line": 31
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0339",
+    "file": "authlib/oauth1/rfc5849/signature.py",
+    "line": 154
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0340",
+    "file": "tests/flask/test_oauth1/test_temporary_credentials.py",
+    "line": 283
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0341",
+    "file": "authlib/integrations/httpx_client/oauth1_client.py",
+    "line": 4
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0342",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 312
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0343",
+    "file": "tests/core/test_oauth2/test_rfc7523_client_secret.py",
+    "line": 92
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0344",
+    "file": "authlib/oauth1/rfc5849/signature.py",
+    "line": 300
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0345",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 557
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0346",
+    "file": "tests/flask/test_oauth2/test_jwt_bearer_client_auth.py",
+    "line": 186
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0347",
+    "file": "tests/flask/test_oauth1/test_token_credentials.py",
+    "line": 194
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0348",
+    "file": "tests/core/test_oidc/test_utils.py",
+    "line": 13
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0349",
+    "file": "tests/core/test_oidc/test_utils.py",
+    "line": 44
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0350",
+    "file": "tests/core/test_oidc/test_utils.py",
+    "line": 14
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0351",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 434
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0352",
+    "file": "tests/flask/test_oauth2/test_jwt_authorization_request.py",
+    "line": 355
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0353",
+    "file": "tests/flask/test_oauth1/test_resource_protector.py",
+    "line": 153
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0354",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 454
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0355",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 388
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0356",
+    "file": "authlib/oidc/backchannel/sender.py",
+    "line": 10
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0357",
+    "file": "authlib/oauth1/rfc5849/signature.py",
+    "line": 346
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0358",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 547
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0359",
+    "file": "tests/jose/test_jwk.py",
+    "line": 177
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0360",
+    "file": "tests/core/test_oidc/test_discovery.py",
+    "line": 65
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0361",
+    "file": "tests/flask/test_oauth1/test_resource_protector.py",
+    "line": 173
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0362",
+    "file": "authlib/oidc/core/claims.py",
+    "line": 140
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0363",
+    "file": "tests/jose/test_jwk.py",
+    "line": 196
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0364",
+    "file": "tests/jose/test_jwk.py",
+    "line": 53
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0365",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 503
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0366",
+    "file": "tests/flask/test_oauth1/test_resource_protector.py",
+    "line": 149
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0367",
+    "file": "tests/django/test_oauth1/conftest.py",
+    "line": 36
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0368",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 519
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0369",
+    "file": "tests/jose/test_jwk.py",
+    "line": 234
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0370",
+    "file": "tests/django/test_oauth1/test_resource_protector.py",
+    "line": 115
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0371",
+    "file": "authlib/integrations/httpx_client/oauth1_client.py",
+    "line": 105
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0372",
+    "file": "tests/clients/test_requests/test_oauth1_session.py",
+    "line": 85
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0373",
+    "file": "tests/jose/test_jwk.py",
+    "line": 82
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0374",
+    "file": "tests/core/test_oidc/test_utils.py",
+    "line": 12
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0375",
+    "file": "tests/clients/test_requests/test_oauth1_session.py",
+    "line": 61
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0376",
+    "file": "authlib/oauth2/rfc6749/grants/base.py",
+    "line": 250
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0377",
+    "file": "authlib/jose/errors.py",
+    "line": 52
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0378",
+    "file": "tests/flask/test_oauth2/test_end_session.py",
+    "line": 529
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0379",
+    "file": "tests/flask/test_oauth2/rfc9068/test_userinfo.py",
+    "line": 114
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0380",
+    "file": "tests/flask/test_oauth2/test_jwt_bearer_grant.py",
+    "line": 216
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0381",
+    "file": "tests/django/test_oauth1/test_resource_protector.py",
+    "line": 144
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0382",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 494
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0383",
+    "file": "tests/flask/test_oauth2/test_jwt_bearer_client_auth.py",
+    "line": 204
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0384",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 397
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0385",
+    "file": "authlib/oauth1/rfc5849/client_auth.py",
+    "line": 148
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0386",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oauth2.py",
+    "line": 429
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0387",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 492
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0388",
+    "file": "authlib/oauth1/rfc5849/signature.py",
+    "line": 361
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0389",
+    "file": "tests/flask/test_oauth1/test_token_credentials.py",
+    "line": 159
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0390",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 255
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0391",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 317
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0392",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 219
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0393",
+    "file": "docs/conftest.py",
+    "line": 378
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0394",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 256
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0395",
+    "file": "authlib/oauth2/rfc7523/auth.py",
+    "line": 119
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0396",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 256
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0397",
+    "file": "authlib/jose/rfc7518/__init__.py",
+    "line": 29
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0398",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 96
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0399",
+    "file": "authlib/oauth2/rfc9101/authorization_server.py",
+    "line": 82
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0400",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 479
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0401",
+    "file": "authlib/oauth2/rfc7523/assertion.py",
+    "line": 62
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0402",
+    "file": "tests/jose/test_jwk.py",
+    "line": 249
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0403",
+    "file": "tests/core/test_oauth2/test_rfc7523_assertion.py",
+    "line": 90
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0404",
+    "file": "authlib/jose/errors.py",
+    "line": 53
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0405",
+    "file": "authlib/integrations/requests_client/__init__.py",
+    "line": 15
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0406",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 476
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0407",
+    "file": "tests/django/test_oauth1/test_token_credentials.py",
+    "line": 140
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0408",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 430
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0409",
+    "file": "authlib/jose/rfc7516/jwe.py",
+    "line": 149
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0410",
+    "file": "authlib/oidc/backchannel/sender.py",
+    "line": 193
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0411",
+    "file": "authlib/oauth1/rfc5849/signature.py",
+    "line": 340
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0412",
+    "file": "tests/core/test_oidc/test_backchannel.py",
+    "line": 281
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0413",
+    "file": "tests/jose/test_jwk.py",
+    "line": 166
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0414",
+    "file": "tests/core/test_oidc/test_prompt_create.py",
+    "line": 12
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0415",
+    "file": "tests/jose/test_jwk.py",
+    "line": 224
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0416",
+    "file": "tests/django/test_oauth1/test_resource_protector.py",
+    "line": 143
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0417",
+    "file": "tests/clients/test_starlette/test_user_mixin.py",
+    "line": 183
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0418",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 109
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0419",
+    "file": "authlib/jose/__init__.py",
+    "line": 45
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0420",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 300
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0421",
+    "file": "tests/jose/test_jws.py",
+    "line": 79
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0422",
+    "file": "tests/core/test_oauth2/test_rfc9728.py",
+    "line": 412
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0423",
+    "file": "authlib/oidc/discovery/models.py",
+    "line": 119
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0424",
+    "file": "tests/flask/test_oauth1/test_temporary_credentials.py",
+    "line": 293
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0425",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 455
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0426",
+    "file": "tests/django/test_oauth1/test_resource_protector.py",
+    "line": 159
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0427",
+    "file": "tests/clients/test_starlette/test_user_mixin.py",
+    "line": 210
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0428",
+    "file": "tests/jose/test_jwk.py",
+    "line": 220
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0429",
+    "file": "docs/conftest.py",
+    "line": 79
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0430",
+    "file": "tests/jose/test_jwk.py",
+    "line": 125
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0431",
+    "file": "tests/jose/test_jws.py",
+    "line": 75
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0432",
+    "file": "authlib/oauth2/rfc7523/auth.py",
+    "line": 59
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0433",
+    "file": "tests/jose/test_jwk.py",
+    "line": 218
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0434",
+    "file": "tests/flask/test_oauth2/rfc9068/test_token_revocation.py",
+    "line": 113
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0435",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 294
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0436",
+    "file": "authlib/oauth2/auth.py",
+    "line": 104
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0437",
+    "file": "tests/clients/test_flask/test_user_mixin.py",
+    "line": 186
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0438",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 149
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0439",
+    "file": "tests/core/test_oauth2/test_rfc9728.py",
+    "line": 582
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0440",
+    "file": "authlib/jose/errors.py",
+    "line": 56
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0441",
+    "file": "tests/clients/test_requests/test_oauth1_session.py",
+    "line": 292
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0442",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 202
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0443",
+    "file": "tests/flask/test_oauth2/rfc9068/test_resource_server.py",
+    "line": 151
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0444",
+    "file": "tests/flask/test_oauth2/test_jwt_authorization_request.py",
+    "line": 374
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0445",
+    "file": "tests/flask/test_oauth2/test_jwt_authorization_request.py",
+    "line": 68
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0446",
+    "file": "authlib/oidc/registration/claims.py",
+    "line": 291
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0447",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 288
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0448",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 121
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0449",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 101
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0450",
+    "file": "tests/flask/test_oauth2/test_jwt_authorization_request.py",
+    "line": 715
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0451",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 259
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0452",
+    "file": "tests/jose/test_rfc8037.py",
+    "line": 6
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0453",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 485
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0454",
+    "file": "authlib/oauth1/rfc5849/signature.py",
+    "line": 291
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0455",
+    "file": "authlib/integrations/base_client/sync_openid.py",
+    "line": 43
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0456",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 318
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0457",
+    "file": "authlib/jose/rfc7517/base_key.py",
+    "line": 109
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0458",
+    "file": "tests/django/test_oauth1/test_resource_protector.py",
+    "line": 111
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0459",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 231
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0460",
+    "file": "authlib/oidc/backchannel/sender.py",
+    "line": 206
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0461",
+    "file": "authlib/jose/rfc7515/jws.py",
+    "line": 140
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0462",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 511
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0463",
+    "file": "docs/_oauth_provider.py",
+    "line": 379
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0464",
+    "file": "authlib/oidc/discovery/models.py",
+    "line": 98
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0465",
+    "file": "tests/core/test_oidc/test_backchannel.py",
+    "line": 321
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0466",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 543
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0467",
+    "file": "authlib/oauth1/rfc5849/signature.py",
+    "line": 338
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0468",
+    "file": "authlib/oauth1/rfc5849/base_server.py",
+    "line": 8
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0469",
+    "file": "authlib/oauth1/rfc5849/signature.py",
+    "line": 357
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0470",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 569
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0471",
+    "file": "tests/clients/test_flask/test_user_mixin.py",
+    "line": 691
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0472",
+    "file": "tests/flask/test_oauth2/test_openid_code_grant.py",
+    "line": 837
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0473",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 228
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0474",
+    "file": "tests/jose/test_jwk.py",
+    "line": 181
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0475",
+    "file": "tests/flask/test_oauth2/test_openid_code_grant.py",
+    "line": 730
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0476",
+    "file": "authlib/integrations/httpx_client/__init__.py",
+    "line": 1
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0477",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 399
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0478",
+    "file": "tests/flask/test_oauth2/test_client_configuration_endpoint.py",
+    "line": 15
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0479",
+    "file": "tests/core/test_oauth2/test_id_jag.py",
+    "line": 328
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0480",
+    "file": "tests/core/test_oidc/test_backchannel.py",
+    "line": 267
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0481",
+    "file": "tests/flask/test_oauth2/test_jwt_bearer_grant.py",
+    "line": 189
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0482",
+    "file": "authlib/oauth2/rfc9728/models.py",
+    "line": 16
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0483",
+    "file": "tests/clients/test_flask/test_user_mixin.py",
+    "line": 773
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0484",
+    "file": "tests/core/test_oauth2/test_rfc9728.py",
+    "line": 556
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0485",
+    "file": "authlib/oauth1/rfc5849/signature.py",
+    "line": 343
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0486",
+    "file": "tests/clients/test_starlette/test_user_mixin.py",
+    "line": 528
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0487",
+    "file": "authlib/oauth1/rfc5849/base_server.py",
+    "line": 17
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0488",
+    "file": "tests/flask/test_oauth2/test_jwt_authorization_request.py",
+    "line": 500
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0489",
+    "file": "tests/jose/test_jwk.py",
+    "line": 205
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0490",
+    "file": "tests/core/test_oauth2/test_rfc8414.py",
+    "line": 235
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0491",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 258
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0492",
+    "file": "authlib/oauth2/rfc7523/token.py",
+    "line": 10
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0493",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 464
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0494",
+    "file": "authlib/jose/__init__.py",
+    "line": 55
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0495",
+    "file": "tests/core/test_oauth2/test_rfc8414.py",
+    "line": 373
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0496",
+    "file": "tests/jose/test_jws.py",
+    "line": 284
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0497",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 378
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0498",
+    "file": "tests/flask/test_oauth1/test_temporary_credentials.py",
+    "line": 279
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0499",
+    "file": "tests/clients/test_starlette/test_user_mixin.py",
+    "line": 173
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0500",
+    "file": "tests/clients/test_flask/test_user_mixin.py",
+    "line": 680
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0501",
+    "file": "tests/core/test_oauth2/test_rfc7523_assertion.py",
+    "line": 79
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0502",
+    "file": "tests/core/test_oidc/test_backchannel.py",
+    "line": 608
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0503",
+    "file": "tests/jose/test_jws.py",
+    "line": 300
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0504",
+    "file": "tests/flask/test_oauth2/test_id_jag_grant.py",
+    "line": 269
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0505",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 192
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0506",
+    "file": "authlib/oauth1/rfc5849/signature.py",
+    "line": 248
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0507",
+    "file": "tests/flask/test_oauth2/test_client_registration_endpoint_oidc.py",
+    "line": 467
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0508",
+    "file": "authlib/oauth2/rfc7523/auth.py",
+    "line": 125
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0509",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 152
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0510",
+    "file": "tests/flask/test_oauth1/test_resource_protector.py",
+    "line": 117
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0511",
+    "file": "authlib/oauth1/rfc5849/parameters.py",
+    "line": 15
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0512",
+    "file": "authlib/oidc/registration/claims.py",
+    "line": 186
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0513",
+    "file": "authlib/oauth1/rfc5849/signature.py",
+    "line": 363
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0514",
+    "file": "tests/core/test_oauth2/test_rfc7523_private_key.py",
+    "line": 272
+   },
+   {
+    "candidate_id": "C-lepture__authlib-S2-0515",
+    "file": "tests/flask/test_oauth2/test_jwt_authorization_request.py",
+    "line": 584
+   }
+  ]
+ },
+ "pool_sha256": "f01a19113309d952e56249a76a8cc05b5d6079a46ef6c88f59a9b74474468c08"
+}

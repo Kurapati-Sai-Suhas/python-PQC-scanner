@@ -65,6 +65,8 @@ Readiness is tracked item by item in `docs/implementation/phase3_readiness_check
 | C5 | Baseline batch runner (logs, exit status, timing, per-file status, pinned-commit check, findings digest) | VALIDATED on real pinned tools (development repositories, 2 runs): pilot judgments reproduced 155 of 155 and pqblocks 31 of 31; failure fixture matches profiles, no failure scored as MISSED; findings digests 40 of 40 equal | `docs/implementation/baseline_runner.md`; `docs/implementation/runner_evidence/`; `tests/test_batch.py` 14 |
 | B3 | Synthetic benchmark generator and Dataset A (61 base cases, 388 instances, split by base case, blind validation subset) | TESTED (external validation pending) | `pqscan/bench/synth.py`; `tests/test_synth.py` 13; `benchmark/synthetic/`; suite 311 passed / 1 skipped, 90% |
 | C3 | CBOMkit execution route | BLOCKED (user decision; investigated) | `docs/implementation/cbomkit_route.md` |
+| SMP | Annotation sampling rule (D2 = O2, D3) and candidate-pool builder | TESTED; development and validation orders built (seed 20261113) | `pqscan/bench/candidates.py`; `tests/test_candidates.py` 12; `benchmark/candidates/`; protocol v1.0.3 |
+| VAL | Validation batch run (6 tools + 4 pqscan arms, 2 repositories) | TESTED: 20 of 20 runs with a report | `runs/validation/run1` (git-ignored; reproducible) |
 | HR | Human review and annotation kit (procedures, blind pilot form, review forms, adjudication log, register) | IMPLEMENTED; no review performed | `docs/review/` |
 | S3 | Code fingerprint without git | TESTED | `scripts/tree_hash.py`; Phase 2 closure fingerprint `5cbe7392…f437` (92 files) |
 | H | External annotator, adjudicator, human review of taxonomy/policy/labels | BLOCKED | needs people outside the build team |
@@ -78,5 +80,5 @@ Readiness is tracked item by item in `docs/implementation/phase3_readiness_check
 - Who acts as the human reviewer and the external annotator.
 - Git: RESOLVED 2026-11-14 — repository initialised and published (`github_release_record.md`).
 - Licence for the public repository (none chosen; default all rights reserved).
-- Per-repository site cap and sampling seed for the test split (needed before F1).
+- RESOLVED 2026-11-14 by the owner: D2 = O2 (30 per test repository, 25 per development or validation repository, seed 20261113), D3 (test-path cap of one third; held-out separation), D4 = A (CBOMkit not run), D5 not adopted.
 - Rotate the Consensus API key pasted in chat earlier.

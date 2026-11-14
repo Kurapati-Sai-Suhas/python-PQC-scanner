@@ -42,3 +42,6 @@ id_ed25519*
 *.swp
 .DS_Store
 Thumbs.db
+
+# Which tools reported each annotation candidate: hidden from annotators (protocol v1.0.3)
+benchmark/candidates/**/pool_sources_*.json
