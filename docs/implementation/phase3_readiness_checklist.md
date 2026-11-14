@@ -34,7 +34,7 @@ Updated 14 Nov 2026 (branch `phase3-preparation`): two-stage freeze, per `evalua
 | C2 | Baseline execution-failure handling | READY | Measured failure profiles in the manifest; `judge_external` turns silence on known-dropped files and logged failures into EXECUTION_FAILURE; rates use n_exec; regression tests in `tests/test_bench.py`. |
 | C3 | CBOMkit | BLOCKED | Needs Docker Desktop running (or a SonarQube/JVM route). Otherwise reported as not run. |
 | C4 | Mehl ESEM 2026 scanner | READY (limited) | Results-only artefact; repository-level comparison only, stated in every table. |
-| C5 | Run logs captured for every tool run | NOT READY | A batch runner must save `<prefix>_<repo>.log` next to each output so error logs can be parsed (required for pqblocks-scan). |
+| C5 | Run logs captured for every tool run | READY (implemented and tested; first real run pending) | `pqscan/bench/batch.py`, `tests/test_batch.py` (13), `docs/implementation/baseline_runner.md`. It still has to be run once on the development repositories with the real pinned tools. |
 
 ## D. Frozen analysis rules
 
@@ -66,8 +66,8 @@ Updated 14 Nov 2026 (branch `phase3-preparation`): two-stage freeze, per `evalua
 .venv/Scripts/python -m pqscan.bench.run --sites benchmark/labels/adjudicated_test.csv --tool-outputs .cache/outputs --repos .cache/repos/test --out results/test
 ```
 
-Run the third command only after E1 is committed and tagged. The baseline batch runner that produces `.cache/outputs` with logs (item C5) and the synthetic generator (B3) are still to be written; their commands will be added here when they exist.
+Run the third command only after E1 is committed and tagged. Batch runner (C5): `.venv/Scripts/python -m pqscan.bench.batch --tools-dir .cache/baselines --repos-dir <split dir> --out runs/<split>`. The synthetic generator (B3) is still to be written.
 
 ## Summary
 
-Ready now: split safeguards, comparator pins, execution-failure handling, all frozen scoring and statistical rules, version control (E0). Blocked on people: external annotator, adjudicator, human review of taxonomy, policy, scoring and pilot labels. Engineering still to do: synthetic generator (B3), baseline batch runner with logs (C5), second PyCryptodome test repository (B2). Decision needed before F1: the per-repository site cap and sampling seed.
+Ready now: split safeguards, comparator pins, execution-failure handling, all frozen scoring and statistical rules, version control (E0). Blocked on people: external annotator, adjudicator, human review of taxonomy, policy, scoring and pilot labels. Engineering still to do: synthetic generator (B3), first real run of the batch runner (C5), second PyCryptodome test repository (B2). Decision needed before F1: the per-repository site cap and sampling seed.

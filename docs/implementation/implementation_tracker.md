@@ -62,10 +62,11 @@ Readiness is tracked item by item in `docs/implementation/phase3_readiness_check
 | S2 | Baseline execution-failure handling | TESTED | measured failure profiles in `benchmark/baselines_manifest.json`; `tests/fixtures/baseline_errors/`; `tests/test_bench.py` |
 | V | Version control and publication | TESTED | git `main` + tag `phase2-complete` (`81f561e3`) on `Kurapati-Sai-Suhas/python-PQC-scanner`; fresh clone 285 passed / 1 skipped; `docs/implementation/github_release_record.md` |
 | FZ | Two-stage freeze design (F1 pre-test, F2 test-label, E) | IMPLEMENTED (documented) | `evaluation_protocol.md` v1.0.1 Sec. 6; checklist Sec. E |
+| C5 | Baseline batch runner (logs, exit status, timing, per-file status, pinned-commit check) | TESTED (stub tools; real-tool run pending) | `pqscan/bench/batch.py`; `tests/test_batch.py` 13; suite 298 passed / 1 skipped, 90% |
 | HR | Human review and annotation kit (procedures, blind pilot form, review forms, adjudication log, register) | IMPLEMENTED; no review performed | `docs/review/` |
 | S3 | Code fingerprint without git | TESTED | `scripts/tree_hash.py`; Phase 2 closure fingerprint `5cbe7392…f437` (92 files) |
 | H | External annotator, adjudicator, human review of taxonomy/policy/labels | BLOCKED | needs people outside the build team |
-| B | ≥ 300 real sites, synthetic generator, baseline batch runner with logs, second PyCryptodome test repo | NOT_STARTED | checklist B1–B3, C5 |
+| B | ≥ 300 real sites, synthetic generator, second PyCryptodome test repo | NOT_STARTED | checklist B1–B3 |
 | E | Freeze record and held-out evaluation | NOT_STARTED (must not start before A–D are READY) | checklist E |
 
 ## Open decisions for the user
