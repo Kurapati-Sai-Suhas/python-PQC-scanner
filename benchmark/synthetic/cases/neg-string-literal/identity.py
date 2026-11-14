@@ -1,0 +1,6 @@
+"""Synthetic case neg-string-literal / identity (pqscan synthetic generator 1.0). Never executed."""
+
+
+def run(data, sig, ct, peer_public, alg):
+    r0 = "rsa.generate_private_key(public_exponent=65537, key_size=2048)"
+    return r0

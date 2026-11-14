@@ -1,0 +1,11 @@
+"""Synthetic case pyca-x25519-op-exchange / class-method (pqscan synthetic generator 1.0). Never executed."""
+from cryptography.hazmat.primitives.asymmetric import x25519
+
+
+class Service:
+    def __init__(self):
+        self._material = x25519.X25519PrivateKey.generate()
+
+    def act(self, data, sig, ct, peer_public, alg):
+        r0 = self._material.exchange(peer_public)
+        return (r0,)

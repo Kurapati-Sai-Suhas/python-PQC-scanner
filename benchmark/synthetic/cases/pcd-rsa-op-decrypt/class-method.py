@@ -1,0 +1,12 @@
+"""Synthetic case pcd-rsa-op-decrypt / class-method (pqscan synthetic generator 1.0). Never executed."""
+from Crypto.Cipher import PKCS1_OAEP
+from Crypto.PublicKey import RSA
+
+
+class Service:
+    def __init__(self):
+        self.private_key = RSA.generate(3072)
+
+    def act(self, data, sig, ct, peer_public, alg):
+        r0 = PKCS1_OAEP.new(self.private_key).decrypt(ct)
+        return (r0,)
