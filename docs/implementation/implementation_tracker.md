@@ -60,6 +60,9 @@ Readiness is tracked item by item in `docs/implementation/phase3_readiness_check
 |---|---|---|---|
 | S1 | Scoring rules frozen (primary + strict UNSUPPORTED_DROP_IN sensitivity) | TESTED (implemented, tested, frozen before any test-split action; human review pending, checklist A4) | `docs/specification/scoring_policy.md` v1.0; `tests/test_bench.py` |
 | S2 | Baseline execution-failure handling | TESTED | measured failure profiles in `benchmark/baselines_manifest.json`; `tests/fixtures/baseline_errors/`; `tests/test_bench.py` |
+| V | Version control and publication | TESTED | git `main` + tag `phase2-complete` (`81f561e3`) on `Kurapati-Sai-Suhas/python-PQC-scanner`; fresh clone 285 passed / 1 skipped; `docs/implementation/github_release_record.md` |
+| FZ | Two-stage freeze design (F1 pre-test, F2 test-label, E) | IMPLEMENTED (documented) | `evaluation_protocol.md` v1.0.1 Sec. 6; checklist Sec. E |
+| HR | Human review and annotation kit (procedures, blind pilot form, review forms, adjudication log, register) | IMPLEMENTED; no review performed | `docs/review/` |
 | S3 | Code fingerprint without git | TESTED | `scripts/tree_hash.py`; Phase 2 closure fingerprint `5cbe7392…f437` (92 files) |
 | H | External annotator, adjudicator, human review of taxonomy/policy/labels | BLOCKED | needs people outside the build team |
 | B | ≥ 300 real sites, synthetic generator, baseline batch runner with logs, second PyCryptodome test repo | NOT_STARTED | checklist B1–B3, C5 |
@@ -69,5 +72,7 @@ Readiness is tracked item by item in `docs/implementation/phase3_readiness_check
 
 - C2: RESOLVED 2026-11-14 — strict scoring adopted as a pre-registered sensitivity analysis (`scoring_policy.md` Sec. 3); primary scoring unchanged.
 - Who acts as the human reviewer and the external annotator.
-- Whether to initialise a git repository (needed for a clean Phase 3 code freeze).
+- Git: RESOLVED 2026-11-14 — repository initialised and published (`github_release_record.md`).
+- Licence for the public repository (none chosen; default all rights reserved).
+- Per-repository site cap and sampling seed for the test split (needed before F1).
 - Rotate the Consensus API key pasted in chat earlier.
