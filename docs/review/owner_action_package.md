@@ -2,6 +2,8 @@
 
 Project: Post-quantum crypto scanner for Python projects (base paper DOI 10.1145/3774748.3795653). Prepared 14 Nov 2026 on branch `phase3-preparation`.
 
+**Decisions are in `docs/review/owner_decision_package.md` (D1–D6 analysis, sampling options, F1 checklist).**
+
 The project cannot reach its pre-test freeze (F1) without the people and decisions below. Nothing here has been done yet. No reviewer, annotator or approval exists, and none may be recorded by the build team on anyone's behalf.
 
 ## 1. People needed
