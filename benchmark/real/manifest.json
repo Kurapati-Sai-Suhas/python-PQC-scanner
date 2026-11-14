@@ -163,12 +163,34 @@
         "pyca_imports": 29,
         "pycryptodome_imports": 0,
         "in_baseline_corpus": false
+      },
+      {
+        "repo": "hclivess/bismuth",
+        "url": "https://github.com/hclivess/bismuth",
+        "commit": "328a6b9d61337b19d9b4635fd889535d540bde45",
+        "commit_date": "2026-10-18",
+        "license": "GPL-3.0",
+        "stars": 177,
+        "py_files": 207,
+        "regex_candidates": 55,
+        "pyca_imports": 3,
+        "pycryptodome_imports": 34,
+        "pycryptodome_pk_imports": 19,
+        "in_baseline_corpus": false,
+        "added": "2026-11-14, qualification round 3 (docs/benchmark/candidate_verification_round3.md), before the pre-test freeze F1; selected by the pre-stated rule: accepted candidate with the most PyCryptodome public-key imports"
       }
     ]
   },
   "open_conditions": [
-    "Only one accepted test repository (saltstack/salt) imports PyCryptodome; the protocol asks for two. A second PyCryptodome-using repository must be found and verified before test labelling, or the shortfall reported.",
+    "RESOLVED 2026-11-14: Only one accepted test repository (saltstack/salt) imports PyCryptodome; the protocol asks for two. A second PyCryptodome-using repository must be found and verified before test labelling, or the shortfall reported. Second PyCryptodome repository: hclivess/bismuth (19 PyCryptodome public-key imports), added before F1.",
     "fortra/impacket (57 PyCryptodome imports) was rejected only because GitHub reports its licence as NOASSERTION; manual licence review could admit it.",
     "ansible/ansible and aws/aws-encryption-sdk-python failed to clone in the verification run (see error field) and were not retried."
+  ],
+  "amendments": [
+    {
+      "date": "2026-11-14",
+      "change": "added hclivess/bismuth to the test split (open condition 1)",
+      "basis": "repository-level mechanical qualification only (metadata, licence, import and regex counts); no site read, labelled or scanned; clone deleted after counting"
+    }
   ]
 }

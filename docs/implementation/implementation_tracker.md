@@ -67,7 +67,8 @@ Readiness is tracked item by item in `docs/implementation/phase3_readiness_check
 | HR | Human review and annotation kit (procedures, blind pilot form, review forms, adjudication log, register) | IMPLEMENTED; no review performed | `docs/review/` |
 | S3 | Code fingerprint without git | TESTED | `scripts/tree_hash.py`; Phase 2 closure fingerprint `5cbe7392…f437` (92 files) |
 | H | External annotator, adjudicator, human review of taxonomy/policy/labels | BLOCKED | needs people outside the build team |
-| B | ≥ 300 real sites, second PyCryptodome test repo | NOT_STARTED | checklist B1–B2 |
+| B2 | Second PyCryptodome test repository | TESTED (mechanical qualification) | `hclivess/bismuth` @ `328a6b9d61`; `docs/benchmark/qualification_round3.md` |
+| B1 | ≥ 300 double-annotated real sites | BLOCKED (annotators) | checklist B1 |
 | E | Freeze record and held-out evaluation | NOT_STARTED (must not start before A–D are READY) | checklist E |
 
 ## Open decisions for the user
