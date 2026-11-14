@@ -1,4 +1,4 @@
-# Evaluation protocol (v1.0, pre-registered)
+# Evaluation protocol (v1.0.1, pre-registered)
 
 Project: Post-quantum crypto scanner for Python projects. Written 12 Nov 2026 after the H1 pilot and before any benchmark construction or analyzer code.
 
@@ -37,10 +37,47 @@ Two annotators per site, at least one outside the build team; annotation guide `
 
 Wilson intervals for proportions; cluster bootstrap (1,000 resamples) by repo or base_case for differences and AURC; McNemar exact test for paired binary outcomes on the same sites; Holm correction within each family of comparisons; Cohen's κ for agreement; effect sizes (risk differences) with CIs always reported; p-values secondary. When a comparison involves different site sets (e.g. a tool that crashed on some files), the paired test is not applied and the reason is stated.
 
-## 6. Freeze procedure (Stage 3.1)
+## 6. Freeze procedure: two stages (revised in v1.0.1, before any test-split access)
 
-Before Experiment E: tag code version (hash of the tree, or git tag), freeze taxonomy v1.0, policy v1.0, τ, split manifest with commit hashes, baseline versions/commits, adjudicated labels; record hypotheses above. Any later change is logged and evaluated only on a new partition or labelled exploratory.
+Version 1.0 listed "adjudicated labels" inside the single freeze that also had to precede any contact with the test split. Test labels can only be produced after test access, so that order was impossible. Version 1.0.1 splits the freeze into two stages. The hypotheses, metrics, statistics, τ and decision rules in Sections 1–5 are unchanged.
+
+**Stage F1: pre-test methodological and code freeze.** It must be complete before any test-split repository is fetched. The freeze record `docs/freeze/pretest_freeze.json` is committed and the commit is tagged `phase3-pretest-freeze`. It contains:
+1. the git commit SHA and the source-tree fingerprint (`scripts/tree_hash.py`);
+2. SHA-256 of role taxonomy, recommendation policy (YAML and text), scoring policy, this protocol, the data dictionary, the annotation guide and the benchmark schema;
+3. τ and every threshold and decision rule (Sections 1, 4 and 5; `scoring_policy.md`);
+4. the baseline manifest, with tool versions, commit SHAs and measured failure profiles;
+5. the sampling frame: the test entries of `benchmark/real/manifest.json` (repositories and commits), the candidate-pool procedure (Stage F1→F2 below) and the per-repository site sampling rule (all candidates, or a stratified random sample with a recorded seed if a repository yields more than its cap);
+6. hashes of the frozen development and validation labels and of the synthetic dataset (Dataset A);
+7. the hypotheses and the planned comparisons with their correction families (Sections 1 and 5);
+8. the experiment commands for Stages F1→F2 and E.
+
+After F1, no change to code, policy, scoring, τ, the baseline set or the analysis plan may influence Experiment E. Any later change is logged, and its effect is evaluated only on a new partition or reported as exploratory.
+
+**Between F1 and F2: candidate extraction and annotation.**
+- After F1, the test repositories are fetched at their frozen commits (`scripts/fetch_pinned.py repos --include-test`).
+- The frozen batch runner executes every method once on them. Raw outputs and logs are written to a sealed directory, and their SHA-256 values are appended to `docs/freeze/test_run_seal.json` before anyone reads them.
+- A mechanical step extracts only locations (file, line range, API call) from the union of the regex over-approximation, every baseline's findings and pqscan Module A detections. It produces a candidate list with no tool attribution and no recommendation text. Annotators label from source with tool outputs hidden (annotation guide Sec. 1 and 4).
+- The two annotators label independently, and each one's raw file is hashed when they submit it.
+- Nobody may change the system in this window. The frozen code cannot be tuned on test material, and any change voids F1 for the affected comparisons.
+
+**Stage F2: test-label freeze.** It must be complete before any judgment or statistic is computed on the test split. The addendum `docs/freeze/label_freeze.json` is committed and the commit is tagged `phase3-label-freeze`. It records:
+- the SHA-256 of both annotators' raw label files and of the initial disagreement table;
+- the adjudication log and the adjudicated label file;
+- κ and raw agreement per field;
+- the annotators' and adjudicator's identities (or pseudonymous IDs held by the supervisor) and dates.
+
+Label files are immutable after F2. A correction is a new, dated file with a reason, reported next to the original.
+
+**Stage E: held-out evaluation.** Only once F1 and F2 are both valid:
+- The sealed outputs are judged against the frozen labels with the frozen judge and statistics, in one pre-registered evaluation.
+- A determinism check re-runs the frozen batch runner and compares output hashes with the seal.
+- The command, environment, outputs and every failure and exclusion are recorded.
+- No threshold, policy, scoring or code change follows from test outcomes.
 
 ## 7. Threats to validity (to be revisited)
 
 Construct: role labels are themselves a judgement; mitigated by the guide, κ and adjudication. Internal: leakage from development to test; mitigated by the frozen split and the no-fix rule. External: two libraries, Python only, crypto-dense repositories over-represented. Conclusion: small n for some roles (PK_ENCRYPT/PK_DECRYPT were 2 of 29 in the pilot); report per-role n and avoid claims for roles with n < 20.
+
+## Changelog
+
+- v1.0.1 (2026-11-14, before any test-split access): Section 6 split into two freeze stages (F1 pre-test, F2 test-label) plus the sealed candidate-extraction run. This resolves the contradiction in which adjudicated test labels were required to precede test access. No hypothesis, metric, threshold or statistic changed.
