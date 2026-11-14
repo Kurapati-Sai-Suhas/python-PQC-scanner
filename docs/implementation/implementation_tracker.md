@@ -10,8 +10,8 @@ Last updated: 2026-11-14 (Phase 2 closed; gate PASS, see Phase 2 report Sec. 12;
 | Bucket | Items |
 |---|---|
 | Completed | Phase 1 artefacts; Modules A–G, CLI, security requirements, pinned rebuild (TESTED: 286 collected, 285 passed, 1 skipped, 89% coverage, 2026-11-14T07:05:11Z); four independent review rounds; Phase 2 gate PASS; Phase 2 report and PDF; frozen scoring policy; baseline failure handling; Phase 3 readiness checklist |
-| In progress | nothing |
-| Pending | all of Phase 3 (synthetic generator, annotation, freeze, experiments) |
+| In progress | Phase 3 preparation on branch `phase3-preparation`: done: GitHub publication, two-stage freeze design, review kit, batch runner (C5), synthetic Dataset A (B3), second PyCryptodome repository (B2), CBOMkit investigation (C3); next: first real batch-runner run on development repositories |
+| Pending | annotation (B1), pre-test freeze F1, test-label freeze F2, experiments |
 | Blocked | CBOMkit baseline (Docker daemon stopped); human review and human annotation (need people outside the build team) |
 | Failed validation | none open (the 5 Module B failures of 13 Nov were fixed on 13 Nov) |
 
