@@ -89,6 +89,23 @@ def test_successful_run_writes_report_log_and_run_record(tmp_path):
     assert rec["elapsed_s"] >= 0
     rows = judge_external(_sites(), out, "qsafe", repo.parent)
     assert {r["judgment"] for r in rows} == {"CORRECT"}
+    assert len(rec["findings_sha256"]) == 64
+
+
+def test_findings_digest_ignores_volatile_report_fields(tmp_path):
+    """Two reports that differ only in a timestamp give the same findings digest but different raw hashes."""
+    from pqscan.bench.batch import findings_digest, _sha256
+    repo = _repo(tmp_path)
+    base = {"findings": [{"file": "good.py", "line": 4, "migration": "ML-DSA", "algorithm": "RSA", "context": "sign"}]}
+    a, b = tmp_path / "a.json", tmp_path / "b.json"
+    a.write_text(json.dumps({**base, "scan_time_ms": 343}))
+    b.write_text(json.dumps({**base, "scan_time_ms": 255}))
+    assert _sha256(a) != _sha256(b)
+    assert findings_digest("qsafe", a, repo) == findings_digest("qsafe", b, repo)
+    c = tmp_path / "c.json"
+    c.write_text(json.dumps({"findings": [{**base["findings"][0], "line": 5}]}))
+    assert findings_digest("qsafe", c, repo) != findings_digest("qsafe", a, repo)
+    assert findings_digest("not-a-tool", a, repo) is None
 
 
 # ------------------------------------------------------------------ failures are never misses

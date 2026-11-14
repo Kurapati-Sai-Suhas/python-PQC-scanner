@@ -78,6 +78,23 @@ def python_files(repo: Path) -> list[str]:
     return out
 
 
+def findings_digest(tool_name: str, out_file: Path, repo: Path) -> str | None:
+    """SHA-256 of the tool's findings as parsed by its adapter (file relative to the repository, line,
+    rule, text), sorted. Three pinned tools embed timestamps, durations or random serial numbers in their
+    reports, so raw report hashes differ between identical runs; this digest is the determinism check."""
+    from ..baselines.adapters import ADAPTERS
+    if tool_name not in ADAPTERS or not out_file.exists():
+        return None
+    root = repo.resolve().as_posix().rstrip("/") + "/"
+    rows = []
+    for f in ADAPTERS[tool_name](out_file):
+        path = f.file.replace("\\", "/")
+        if path.startswith(root):
+            path = path[len(root):]
+        rows.append([path, f.line, f.rule, f.text])
+    return hashlib.sha256(json.dumps(sorted(rows), ensure_ascii=False).encode("utf-8")).hexdigest()
+
+
 def logged_failed_files(log_text: str, pattern: str | None) -> set[str]:
     if not pattern:
         return set()
@@ -204,7 +221,9 @@ def run_external(tool_name: str, tool: dict, tool_dir: Path, repo: Path, name: s
     statuses = file_statuses(repo, files, tool.get("file_failure_profile") or {}, exists, failed)
     record.update({k: rec[k] for k in ("started_utc", "ended_utc", "elapsed_s", "exit_code", "timed_out", "error")})
     record.update({"command": cmd, "run_status": "ok" if exists else "failed",
-                   "output_sha256": _sha256(out_file) if exists else None, "log_sha256": _sha256(log_path),
+                   "output_sha256": _sha256(out_file) if exists else None,
+                   "findings_sha256": findings_digest(tool_name, out_file, repo) if exists else None,
+                   "log_sha256": _sha256(log_path),
                    "files_total": len(files), "file_status_counts": _counts(statuses), "files": statuses})
     (out / f"{prefix}{name}.run.json").write_text(json.dumps(record, indent=1, sort_keys=True), encoding="utf-8")
     return record
@@ -232,7 +251,8 @@ def run_pqscan(arm: str, repo: Path, name: str, out: Path, timeout: float, extra
     statuses = file_statuses(repo, files, {}, exists, failures)
     record = {"method": f"pqscan:{arm}", "repo": name, "repo_commit": git_head(repo), "command": cmd,
               "output_file": out_file.name, "log_file": log_path.name, "run_status": "ok" if exists else "failed",
-              "output_sha256": _sha256(out_file) if exists else None, "log_sha256": _sha256(log_path),
+              "output_sha256": _sha256(out_file) if exists else None,
+              "findings_sha256": _sha256(out_file) if exists else None, "log_sha256": _sha256(log_path),
               "files_total": len(files), "file_status_counts": _counts(statuses), "files": statuses,
               **{k: rec[k] for k in ("started_utc", "ended_utc", "elapsed_s", "exit_code", "timed_out", "error")}}
     out_file.with_suffix(".run.json").write_text(json.dumps(record, indent=1, sort_keys=True), encoding="utf-8")
@@ -262,7 +282,7 @@ def run_batch(tools_dir: Path, repos: dict[str, Path], out: Path, tools: list[st
                "manifest": str(manifest_path), "manifest_sha256": _sha256(manifest_path), "timeout_s": timeout,
                "not_run": manifest.get("not_runnable", {}),
                "runs": [{k: r[k] for k in ("method", "repo", "run_status", "exit_code", "timed_out", "elapsed_s",
-                                           "error", "output_sha256", "file_status_counts")} for r in runs]}
+                                           "error", "output_sha256", "findings_sha256", "file_status_counts")} for r in runs]}
     (out / "batch_summary.json").write_text(json.dumps(summary, indent=1), encoding="utf-8")
     return summary
 

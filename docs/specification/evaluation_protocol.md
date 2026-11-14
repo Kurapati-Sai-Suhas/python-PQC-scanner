@@ -1,4 +1,4 @@
-# Evaluation protocol (v1.0.1, pre-registered)
+# Evaluation protocol (v1.0.2, pre-registered)
 
 Project: Post-quantum crypto scanner for Python projects. Written 12 Nov 2026 after the H1 pilot and before any benchmark construction or analyzer code.
 
@@ -55,7 +55,7 @@ After F1, no change to code, policy, scoring, τ, the baseline set or the analys
 
 **Between F1 and F2: candidate extraction and annotation.**
 - After F1, the test repositories are fetched at their frozen commits (`scripts/fetch_pinned.py repos --include-test`).
-- The frozen batch runner executes every method once on them. Raw outputs and logs are written to a sealed directory, and their SHA-256 values are appended to `docs/freeze/test_run_seal.json` before anyone reads them.
+- The frozen batch runner executes every method once on them. Raw outputs and logs are written to a sealed directory. Before anyone reads them, `docs/freeze/test_run_seal.json` records for every run the SHA-256 of the raw report, of the log and of the parsed findings (`findings_sha256`; v1.0.2).
 - A mechanical step extracts only locations (file, line range, API call) from the union of the regex over-approximation, every baseline's findings and pqscan Module A detections. It produces a candidate list with no tool attribution and no recommendation text. Annotators label from source with tool outputs hidden (annotation guide Sec. 1 and 4).
 - The two annotators label independently, and each one's raw file is hashed when they submit it.
 - Nobody may change the system in this window. The frozen code cannot be tuned on test material, and any change voids F1 for the affected comparisons.
@@ -70,7 +70,7 @@ Label files are immutable after F2. A correction is a new, dated file with a rea
 
 **Stage E: held-out evaluation.** Only once F1 and F2 are both valid:
 - The sealed outputs are judged against the frozen labels with the frozen judge and statistics, in one pre-registered evaluation.
-- A determinism check re-runs the frozen batch runner and compares output hashes with the seal.
+- A determinism check re-runs the frozen batch runner and compares the parsed-findings hashes with the seal (v1.0.2: three pinned tools embed timestamps, durations or random serial numbers, so raw report hashes are compared and reported but are not the criterion).
 - The command, environment, outputs and every failure and exclusion are recorded.
 - No threshold, policy, scoring or code change follows from test outcomes.
 
@@ -81,3 +81,4 @@ Construct: role labels are themselves a judgement; mitigated by the guide, κ an
 ## Changelog
 
 - v1.0.1 (2026-11-14, before any test-split access): Section 6 split into two freeze stages (F1 pre-test, F2 test-label) plus the sealed candidate-extraction run. This resolves the contradiction in which adjudicated test labels were required to precede test access. No hypothesis, metric, threshold or statistic changed.
+- v1.0.2 (2026-11-14, before any test-split access): the determinism check compares parsed-findings hashes rather than raw report hashes. Two identical development runs showed that PostQuant, pqc-audit and qsafe embed volatile fields (timestamps, scan durations, CBOM serial-number UUIDs) while their parsed findings were identical in 12 of 12 cases (`docs/implementation/runner_evidence/`). No hypothesis, metric, threshold or statistic changed.
