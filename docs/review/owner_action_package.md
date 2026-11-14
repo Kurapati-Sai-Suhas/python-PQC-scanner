@@ -58,7 +58,7 @@ The targets are unchanged and are not weakened here: at least 300 eligible, inde
 | Item | Status |
 |---|---|
 | Code, specifications, scoring and statistics frozen in documents | READY |
-| Pinned baselines rebuilt and run on development repositories | see `docs/implementation/baseline_runner.md`, "First real run" |
+| Pinned baselines rebuilt and run on development repositories (two runs; pilot judgments reproduced 155 of 155; no failure scored as MISSED) | READY |
 | Synthetic Dataset A (regenerates byte-identically; schema-valid; holdout unscanned) | READY |
 | Second PyCryptodome test repository (bismuth pin verified on GitHub) | READY |
 | Human specification review | BLOCKED (people) |
