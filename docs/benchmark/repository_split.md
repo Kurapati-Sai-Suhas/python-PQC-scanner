@@ -22,7 +22,8 @@ Rules: at least two test repositories must use PyCryptodome; if the candidates a
 
 ## 3. Ground-truth process
 
-1. Candidate discovery per repository = union of: regex over-approximation (`experiments/bench/regex_candidates.py`, pattern list published), every baseline's findings (adapters), our Module A. Deduplicate by (file, line window).
+1. Candidate discovery per repository = union of: regex over-approximation (pattern list in `pqscan/bench/candidates.py`, identical to the qualification regex in `experiments/bench/verify_candidates.py`), every baseline's findings (adapters), our Module A. Deduplicate by enclosing statement (the "line window"). Earlier drafts named `experiments/bench/regex_candidates.py`, a script that was never created; the pool builder replaces it (2026-11-14).
+1a. Sampling (protocol v1.0.3 Sec. 2; owner decisions D2 = O2, D3): seeded (20261113), stratified (S1-app, S1-test, S2), quota-based sequential batches. Eligible quota: 30 per test repository, 25 per development or validation repository. Test-path sites count up to one third of a quota; 10 fixed S2 candidates per repository; candidate cap 4 × quota; shortfalls reported. Annotators receive location-only lists (`pqscan.bench.candidates annotator_list`).
 2. Two annotators label from source per `annotation_guide.md`; tool outputs hidden.
 3. κ per field; adjudication; publication of all labels.
 4. Test-split labels are produced **after** the Phase 3 freeze by annotators who have not seen the analyzer's output on those repositories, and are never used to repair the system.

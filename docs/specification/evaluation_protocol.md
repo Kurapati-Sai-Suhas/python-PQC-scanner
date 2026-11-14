@@ -1,4 +1,4 @@
-# Evaluation protocol (v1.0.2, pre-registered)
+# Evaluation protocol (v1.0.3, pre-registered)
 
 Project: Post-quantum crypto scanner for Python projects. Written 12 Nov 2026 after the H1 pilot and before any benchmark construction or analyzer code.
 
@@ -21,13 +21,31 @@ A negative result on any hypothesis is reported as such.
 
 Candidate discovery for ground truth = union of (regex over-approximation, every baseline's findings, our Module A) followed by manual source reading. The scanner's own output is never the sole source.
 
+**Targets (clarified in v1.0.3; unchanged in meaning).** "≥ 300 eligible, double-annotated sites" counts Dataset B across all splits. The test split must also contain ≥ 150 eligible sites (`docs/benchmark/repository_split.md` Sec. 2). Development and validation sites count toward the 300 but are never pooled with test sites in any reported metric. Experiment E uses only test-split sites.
+
+**Sampling rule (v1.0.3; owner decisions D2 = O2 and D3, 14 Nov 2026; implemented in `pqscan/bench/candidates.py`).**
+- **Pool.** Per repository, the union above, deduplicated by enclosing statement.
+- **Strata.** These do not depend on any tool:
+  - S1-app: files importing pyca or PyCryptodome, outside test paths;
+  - S1-test: the same, in test paths;
+  - S2: all other candidates.
+- **Order.** Each stratum is put in a seeded random order (seed 20261113, recorded in F1).
+- **Eligible quota.** 30 sites per test repository (7 × 30 = 210) and 25 per development or validation repository (6 × 25 = 150).
+- **Batches.** Annotation proceeds in batches of 10: 7 S1-app and 3 S1-test, with empty slots filled from the other S1 list.
+- **Test-path cap.** Test-path sites count toward a quota up to one third of it (10 of 30, 8 of 25). Once the cap is reached, no further test-path candidates are drawn.
+- **S2.** The first 10 S2 candidates of each repository are annotated once.
+- **Stopping.** Annotation stops when the counted eligible sites reach the quota, when 4 × quota S1 candidates have been issued, or when S1 is exhausted. The last two are reported as shortfalls; quotas are never moved between repositories.
+- **Stopping depends only on adjudicated eligibility.** It never depends on any tool's output or correctness.
+- **Annotator-added sites.** Eligible RSA/EC sites an annotator notices in the same function, but which are not in the candidate list, are recorded as `annotator_added` and reported separately.
+- **Reporting.** Results are reported pooled (primary) and per scope (app vs. test path).
+
 ## 3. Annotation
 
 Two annotators per site, at least one outside the build team; annotation guide `docs/benchmark/annotation_guide.md`; Cohen's κ reported for role, assessability and provenance (target ≥ 0.70); disagreements adjudicated by a third person; all labels and adjudication notes published. A 20% sample of synthetic cases is validated by an external annotator.
 
 ## 4. Experiments
 
-- **A. Baseline recommendation correctness** — Simple algorithm-name mapping, method/argument-only mapping, pqcheck 0.1.0, pqc-audit 0.4.1, PostQuant 0.7.0, qsafe 1.1.0 (pqc-posture), Quantum-Safe Auditor regex stage, CBOMkit (if runnable), Mehl's scanner (results-only artefact; repository-level, reported separately), ours. Outcome classes per site; harmful/undecided/unjustified/missed rates; detection precision/recall.
+- **A. Baseline recommendation correctness** — Simple algorithm-name mapping, method/argument-only mapping, pqcheck 0.1.0, pqc-audit 0.4.1, PostQuant 0.7.0, qsafe 1.1.0 (pqc-posture), Quantum-Safe Auditor regex stage, pqblocks-scan 0.1.0, CBOMkit (not run: owner decision D4 = A; it is an inventory tool without migration advice and is never scored on recommendations; reported as not run in every table), Mehl's scanner (results-only artefact; repository-level, reported separately), ours. Outcome classes per site; harmful/undecided/unjustified/missed rates; detection precision/recall.
 - **B. Provenance ablation** — method-only → +arguments → +receiver → +provenance → +downstream usage. Same sites; McNemar; which evidence resolves which sites.
 - **C. Abstention** — always-recommend; tier gate τ ∈ {T1, T2, T3}; random withholding at matched coverage (100 seeds). Risk–coverage, AURC.
 - **D. Robustness** — Dataset A operators; invariance per operator per tool; failure taxonomy.
@@ -82,3 +100,4 @@ Construct: role labels are themselves a judgement; mitigated by the guide, κ an
 
 - v1.0.1 (2026-11-14, before any test-split access): Section 6 split into two freeze stages (F1 pre-test, F2 test-label) plus the sealed candidate-extraction run. This resolves the contradiction in which adjudicated test labels were required to precede test access. No hypothesis, metric, threshold or statistic changed.
 - v1.0.2 (2026-11-14, before any test-split access): the determinism check compares parsed-findings hashes rather than raw report hashes. Two identical development runs showed that PostQuant, pqc-audit and qsafe embed volatile fields (timestamps, scan durations, CBOM serial-number UUIDs) while their parsed findings were identical in 12 of 12 cases (`docs/implementation/runner_evidence/`). No hypothesis, metric, threshold or statistic changed.
+- v1.0.3 (2026-11-14, before any test-split access; owner decisions D2–D5): clarified the meaning of the 300 / 150 targets; added the seeded, stratified, quota-based sampling rule with a one-third test-path cap; CBOMkit not run and never scored on recommendations (D4 = A). No hypothesis, metric, threshold or statistic changed.
