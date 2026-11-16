@@ -1,2369 +1,2847 @@
 {
+ "format": "pqscan-order/2",
+ "protocol": "1.0.4",
  "repo": "jpadilla__pyjwt",
  "commit": "16231abfd1d8eab4953e8779b3017b859c88565e",
  "seed": 20261113,
  "strata": {
   "S1-app": [
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0001",
+    "candidate_id": "C-06e32e38e764",
     "file": "jwt/utils.py",
-    "line": 74
+    "line": 74,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0002",
+    "candidate_id": "C-d6bececcb1cf",
     "file": "jwt/algorithms.py",
-    "line": 986
+    "line": 986,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0003",
+    "candidate_id": "C-9b888037e7e4",
     "file": "jwt/algorithms.py",
-    "line": 1111
+    "line": 1111,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0004",
+    "candidate_id": "C-60f241be126d",
     "file": "jwt/algorithms.py",
-    "line": 858
+    "line": 858,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0005",
+    "candidate_id": "C-2982ed735a33",
     "file": "jwt/algorithms.py",
-    "line": 792
+    "line": 792,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0006",
+    "candidate_id": "C-e17cda60f6ad",
     "file": "jwt/algorithms.py",
-    "line": 1018
+    "line": 1018,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0007",
+    "candidate_id": "C-af7d779e1522",
     "file": "jwt/algorithms.py",
-    "line": 883
+    "line": 883,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0008",
+    "candidate_id": "C-2a6db7c10d05",
     "file": "jwt/algorithms.py",
-    "line": 675
+    "line": 675,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0009",
+    "candidate_id": "C-672c505620ac",
     "file": "jwt/algorithms.py",
-    "line": 154
+    "line": 154,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0010",
+    "candidate_id": "C-0445a7da5d32",
     "file": "jwt/algorithms.py",
-    "line": 946
+    "line": 946,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0011",
+    "candidate_id": "C-d57c61baec93",
     "file": "jwt/algorithms.py",
-    "line": 914
+    "line": 914,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0012",
+    "candidate_id": "C-f651a0f83fbe",
     "file": "jwt/algorithms.py",
-    "line": 881
+    "line": 881,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0013",
+    "candidate_id": "C-010beafd129d",
     "file": "jwt/algorithms.py",
-    "line": 708
+    "line": 708,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0014",
+    "candidate_id": "C-10491b042cc1",
     "file": "jwt/algorithms.py",
-    "line": 761
+    "line": 761,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0015",
+    "candidate_id": "C-8210e664bdca",
     "file": "jwt/utils.py",
-    "line": 97
+    "line": 97,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0016",
+    "candidate_id": "C-7b25be38711b",
     "file": "jwt/algorithms.py",
-    "line": 552
+    "line": 552,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0017",
+    "candidate_id": "C-73f98b1c6909",
     "file": "jwt/algorithms.py",
-    "line": 493
+    "line": 493,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0018",
+    "candidate_id": "C-bc25cebf9e74",
     "file": "jwt/algorithms.py",
-    "line": 91
+    "line": 91,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0019",
+    "candidate_id": "C-bea88902286c",
     "file": "jwt/algorithms.py",
-    "line": 760
+    "line": 760,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0020",
+    "candidate_id": "C-6b5db2c0acc1",
     "file": "jwt/algorithms.py",
-    "line": 497
+    "line": 497,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0021",
+    "candidate_id": "C-0a019b80e98a",
     "file": "jwt/algorithms.py",
-    "line": 126
+    "line": 126,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0022",
+    "candidate_id": "C-1ff00814d2f7",
     "file": "jwt/algorithms.py",
-    "line": 340
+    "line": 340,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0023",
+    "candidate_id": "C-0cf46deb6c36",
     "file": "jwt/algorithms.py",
-    "line": 801
+    "line": 801,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0024",
+    "candidate_id": "C-eebb7fadf60e",
     "file": "jwt/algorithms.py",
-    "line": 647
+    "line": 647,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0025",
+    "candidate_id": "C-c55fec20d4ef",
     "file": "jwt/algorithms.py",
-    "line": 867
+    "line": 867,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0026",
+    "candidate_id": "C-b6a7535fcc47",
     "file": "jwt/algorithms.py",
-    "line": 512
+    "line": 512,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0027",
+    "candidate_id": "C-f3642e315836",
     "file": "jwt/algorithms.py",
-    "line": 1105
+    "line": 1105,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0028",
+    "candidate_id": "C-e73fa1bffa33",
     "file": "jwt/algorithms.py",
-    "line": 1000
+    "line": 1000,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0029",
+    "candidate_id": "C-c3a026758ac3",
     "file": "jwt/algorithms.py",
-    "line": 794
+    "line": 794,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0030",
+    "candidate_id": "C-fd378599dd7d",
     "file": "jwt/algorithms.py",
-    "line": 1109
+    "line": 1109,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0031",
+    "candidate_id": "C-2d50661adcf4",
     "file": "jwt/algorithms.py",
-    "line": 1033
+    "line": 1033,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0032",
+    "candidate_id": "C-0be4ad4d81a7",
     "file": "jwt/algorithms.py",
-    "line": 1103
+    "line": 1103,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0033",
+    "candidate_id": "C-e47c6b148844",
     "file": "jwt/algorithms.py",
-    "line": 41
+    "line": 41,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0034",
+    "candidate_id": "C-f730e05bdf59",
     "file": "jwt/algorithms.py",
-    "line": 862
+    "line": 862,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0035",
+    "candidate_id": "C-094601793213",
     "file": "jwt/algorithms.py",
-    "line": 641
+    "line": 641,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0036",
+    "candidate_id": "C-323a71b3d69a",
     "file": "jwt/algorithms.py",
-    "line": 804
+    "line": 804,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0037",
+    "candidate_id": "C-f76a8f97cc36",
     "file": "jwt/algorithms.py",
-    "line": 973
+    "line": 973,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0038",
+    "candidate_id": "C-b78d640538dc",
     "file": "jwt/algorithms.py",
-    "line": 548
+    "line": 548,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0039",
+    "candidate_id": "C-d46e803f90e0",
     "file": "jwt/algorithms.py",
-    "line": 71
+    "line": 71,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0040",
+    "candidate_id": "C-a26be3702de1",
     "file": "jwt/algorithms.py",
-    "line": 622
+    "line": 622,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0041",
+    "candidate_id": "C-16691d8ab530",
     "file": "jwt/algorithms.py",
-    "line": 57
+    "line": 57,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0042",
+    "candidate_id": "C-8da1edffc92e",
     "file": "jwt/algorithms.py",
-    "line": 688
+    "line": 688,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0043",
+    "candidate_id": "C-39a1fdfcbc29",
     "file": "jwt/algorithms.py",
-    "line": 904
+    "line": 904,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0044",
+    "candidate_id": "C-aa475fbab9c9",
     "file": "jwt/algorithms.py",
-    "line": 865
+    "line": 865,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0045",
+    "candidate_id": "C-896acb8dcd69",
     "file": "jwt/algorithms.py",
-    "line": 579
+    "line": 579,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0046",
+    "candidate_id": "C-d1747a493efb",
     "file": "jwt/algorithms.py",
-    "line": 53
+    "line": 53,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0047",
+    "candidate_id": "C-55d77d2a7aa3",
     "file": "jwt/algorithms.py",
-    "line": 805
+    "line": 805,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0048",
+    "candidate_id": "C-9b391cd28856",
     "file": "jwt/algorithms.py",
-    "line": 683
+    "line": 683,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0049",
+    "candidate_id": "C-3e99eb831190",
     "file": "jwt/algorithms.py",
-    "line": 628
+    "line": 628,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0050",
+    "candidate_id": "C-219a84110f03",
     "file": "jwt/algorithms.py",
-    "line": 823
+    "line": 823,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0051",
+    "candidate_id": "C-a9f438d21094",
     "file": "jwt/algorithms.py",
-    "line": 879
+    "line": 879,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0052",
+    "candidate_id": "C-c6f69f45e0d9",
     "file": "jwt/algorithms.py",
-    "line": 971
+    "line": 971,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0053",
+    "candidate_id": "C-1e0ba9f428bd",
     "file": "jwt/algorithms.py",
-    "line": 686
+    "line": 686,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0054",
+    "candidate_id": "C-e6c634852d1f",
     "file": "jwt/algorithms.py",
-    "line": 544
+    "line": 544,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0055",
+    "candidate_id": "C-ea72dee06c04",
     "file": "jwt/algorithms.py",
-    "line": 983
+    "line": 983,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0056",
+    "candidate_id": "C-15403231cf4a",
     "file": "jwt/algorithms.py",
-    "line": 1038
+    "line": 1038,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0057",
+    "candidate_id": "C-d6e36954b446",
     "file": "jwt/algorithms.py",
-    "line": 896
+    "line": 896,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0058",
+    "candidate_id": "C-07dc74444a27",
     "file": "jwt/algorithms.py",
-    "line": 743
+    "line": 743,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0059",
+    "candidate_id": "C-e004aec90b36",
     "file": "jwt/algorithms.py",
-    "line": 1013
+    "line": 1013,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0060",
+    "candidate_id": "C-2a8207eb5e2e",
     "file": "jwt/algorithms.py",
-    "line": 333
+    "line": 333,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0061",
+    "candidate_id": "C-e3ec044c0424",
     "file": "jwt/algorithms.py",
-    "line": 1104
+    "line": 1104,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0062",
+    "candidate_id": "C-dfb4c220c26f",
     "file": "jwt/algorithms.py",
-    "line": 662
+    "line": 662,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0063",
+    "candidate_id": "C-f0031423bd7e",
     "file": "jwt/algorithms.py",
-    "line": 672
+    "line": 672,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0064",
+    "candidate_id": "C-0557fadfcff6",
     "file": "jwt/algorithms.py",
-    "line": 523
+    "line": 523,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0065",
+    "candidate_id": "C-b86d9eaa289a",
     "file": "jwt/algorithms.py",
-    "line": 994
+    "line": 994,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0066",
+    "candidate_id": "C-57d98e30b6ca",
     "file": "jwt/algorithms.py",
-    "line": 744
+    "line": 744,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0067",
+    "candidate_id": "C-72998df30fd8",
     "file": "jwt/algorithms.py",
-    "line": 924
+    "line": 924,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0068",
+    "candidate_id": "C-aed82ed3d4c5",
     "file": "jwt/algorithms.py",
-    "line": 89
+    "line": 89,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0069",
+    "candidate_id": "C-df2c77973c09",
     "file": "jwt/algorithms.py",
-    "line": 750
+    "line": 750,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0070",
+    "candidate_id": "C-7fbcceb27785",
     "file": "jwt/utils.py",
-    "line": 135
+    "line": 135,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0071",
+    "candidate_id": "C-af0fecaf9bf8",
     "file": "jwt/algorithms.py",
-    "line": 746
+    "line": 746,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0072",
+    "candidate_id": "C-4fc9f19dfba6",
     "file": "jwt/utils.py",
-    "line": 83
+    "line": 83,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0073",
+    "candidate_id": "C-f98cf499fb62",
     "file": "jwt/algorithms.py",
-    "line": 703
+    "line": 703,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0074",
+    "candidate_id": "C-b342e6ece2dc",
     "file": "jwt/algorithms.py",
-    "line": 800
+    "line": 800,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0075",
+    "candidate_id": "C-e013693a682e",
     "file": "jwt/algorithms.py",
-    "line": 637
+    "line": 637,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0076",
+    "candidate_id": "C-5934332e9554",
     "file": "jwt/algorithms.py",
-    "line": 889
+    "line": 889,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0077",
+    "candidate_id": "C-98b6267b811d",
     "file": "jwt/algorithms.py",
-    "line": 754
+    "line": 754,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0078",
+    "candidate_id": "C-f390fec713d7",
     "file": "jwt/algorithms.py",
-    "line": 682
+    "line": 682,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0079",
+    "candidate_id": "C-e073fa49fb20",
     "file": "jwt/algorithms.py",
-    "line": 777
+    "line": 777,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0080",
+    "candidate_id": "C-6df527c0dce9",
     "file": "jwt/algorithms.py",
-    "line": 975
+    "line": 975,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0081",
+    "candidate_id": "C-5a599b6ec094",
     "file": "jwt/algorithms.py",
-    "line": 543
+    "line": 543,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0082",
+    "candidate_id": "C-f5c5c94837db",
     "file": "jwt/algorithms.py",
-    "line": 926
+    "line": 926,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0083",
+    "candidate_id": "C-48712041dfec",
     "file": "jwt/utils.py",
-    "line": 7
+    "line": 7,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0084",
+    "candidate_id": "C-76ca2c467d34",
     "file": "jwt/algorithms.py",
-    "line": 806
+    "line": 806,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0085",
+    "candidate_id": "C-6a7faa580e37",
     "file": "jwt/algorithms.py",
-    "line": 546
+    "line": 546,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0086",
+    "candidate_id": "C-fefdd86628d4",
     "file": "jwt/algorithms.py",
-    "line": 869
+    "line": 869,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0087",
+    "candidate_id": "C-8ed6f4bf12be",
     "file": "jwt/algorithms.py",
-    "line": 1108
+    "line": 1108,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0088",
+    "candidate_id": "C-ffa81a480ec3",
     "file": "jwt/algorithms.py",
-    "line": 61
+    "line": 61,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0089",
+    "candidate_id": "C-0515b6f7ecf0",
     "file": "jwt/algorithms.py",
-    "line": 876
+    "line": 876,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0090",
+    "candidate_id": "C-a201692ffef2",
     "file": "jwt/algorithms.py",
-    "line": 237
+    "line": 237,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0091",
+    "candidate_id": "C-7b192a45c303",
     "file": "jwt/algorithms.py",
-    "line": 756
+    "line": 756,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0092",
+    "candidate_id": "C-98f21e21b0d6",
     "file": "jwt/algorithms.py",
-    "line": 802
+    "line": 802,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0093",
+    "candidate_id": "C-58e3b19b0c51",
     "file": "jwt/algorithms.py",
-    "line": 1094
+    "line": 1094,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0094",
+    "candidate_id": "C-269ecb069cd9",
     "file": "jwt/algorithms.py",
-    "line": 772
+    "line": 772,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0095",
+    "candidate_id": "C-eab39845edb2",
     "file": "jwt/algorithms.py",
-    "line": 494
+    "line": 494,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0096",
+    "candidate_id": "C-487a85ae17f3",
     "file": "jwt/algorithms.py",
-    "line": 557
+    "line": 557,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0097",
+    "candidate_id": "C-836fa2df64fe",
     "file": "jwt/algorithms.py",
-    "line": 100
+    "line": 100,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0098",
+    "candidate_id": "C-140a6696aa8a",
     "file": "jwt/algorithms.py",
-    "line": 623
+    "line": 623,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0099",
+    "candidate_id": "C-cd26d3a37fa2",
     "file": "jwt/algorithms.py",
-    "line": 940
+    "line": 940,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0100",
+    "candidate_id": "C-ef5c08b0e2b8",
     "file": "jwt/algorithms.py",
-    "line": 90
+    "line": 90,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0101",
+    "candidate_id": "C-8db91eb8b582",
     "file": "jwt/algorithms.py",
-    "line": 856
+    "line": 856,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0102",
+    "candidate_id": "C-c7bfe9f21017",
     "file": "jwt/algorithms.py",
-    "line": 299
+    "line": 299,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0103",
+    "candidate_id": "C-cf04adc30311",
     "file": "jwt/algorithms.py",
-    "line": 555
+    "line": 555,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0104",
+    "candidate_id": "C-e03e6913f9c4",
     "file": "jwt/algorithms.py",
-    "line": 596
+    "line": 596,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0105",
+    "candidate_id": "C-1ab85db1dca2",
     "file": "jwt/algorithms.py",
-    "line": 1063
+    "line": 1063,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0106",
+    "candidate_id": "C-16de8406573a",
     "file": "jwt/algorithms.py",
-    "line": 913
+    "line": 913,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0107",
+    "candidate_id": "C-a43a62a78ba7",
     "file": "jwt/algorithms.py",
-    "line": 1107
+    "line": 1107,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0108",
+    "candidate_id": "C-20cc579e676c",
     "file": "jwt/algorithms.py",
-    "line": 1051
+    "line": 1051,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0109",
+    "candidate_id": "C-35f667281a44",
     "file": "jwt/algorithms.py",
-    "line": 694
+    "line": 694,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0110",
+    "candidate_id": "C-b6092cb97ae8",
     "file": "jwt/algorithms.py",
-    "line": 872
+    "line": 872,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-app-0111",
+    "candidate_id": "C-6bf07430c15f",
     "file": "jwt/algorithms.py",
-    "line": 96
+    "line": 96,
+    "scope": "app"
    }
   ],
-  "S1-test": [
+  "S1-nonapp": [
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0001",
+    "candidate_id": "C-ebf4a983bea8",
     "file": "tests/test_algorithms.py",
-    "line": 431
+    "line": 1239,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0002",
+    "candidate_id": "C-fc616262f975",
+    "file": "tests/test_algorithms.py",
+    "line": 1603,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-6dac3d08d4f8",
+    "file": "tests/test_algorithms.py",
+    "line": 1188,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-bcc883c9791f",
     "file": "tests/test_api_jws.py",
-    "line": 864
+    "line": 1123,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0003",
+    "candidate_id": "C-4ed00551c6af",
     "file": "tests/test_api_jws.py",
-    "line": 223
+    "line": 22,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0004",
+    "candidate_id": "C-a53b9036b35a",
     "file": "tests/test_algorithms.py",
-    "line": 1239
+    "line": 1788,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0005",
+    "candidate_id": "C-26b2528d97a1",
     "file": "tests/test_algorithms.py",
-    "line": 770
+    "line": 650,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0006",
-    "file": "tests/test_algorithms.py",
-    "line": 84
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0007",
-    "file": "tests/test_algorithms.py",
-    "line": 1780
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0008",
+    "candidate_id": "C-c550a5299106",
     "file": "tests/test_api_jws.py",
-    "line": 833
+    "line": 237,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0009",
+    "candidate_id": "C-b0f3723282e2",
     "file": "tests/test_algorithms.py",
-    "line": 516
+    "line": 1385,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0010",
+    "candidate_id": "C-bca9582e1493",
+    "file": "tests/test_algorithms.py",
+    "line": 998,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-4bdb859554b1",
+    "file": "tests/test_algorithms.py",
+    "line": 1693,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-5fecb830445c",
+    "file": "tests/test_algorithms.py",
+    "line": 1517,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-673fb3bcb968",
+    "file": "tests/test_algorithms.py",
+    "line": 1433,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-86a19ac74012",
+    "file": "tests/test_algorithms.py",
+    "line": 1627,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-e88614c929e9",
+    "file": "tests/test_algorithms.py",
+    "line": 518,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-9fb9181cb9b0",
+    "file": "tests/test_algorithms.py",
+    "line": 552,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-26bd4fc55863",
     "file": "tests/test_api_jws.py",
-    "line": 1123
+    "line": 835,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0011",
+    "candidate_id": "C-1ec444fbfd47",
+    "file": "tests/test_algorithms.py",
+    "line": 1299,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-6e8124ddfcb2",
+    "file": "tests/test_algorithms.py",
+    "line": 1541,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-0f62dc370111",
+    "file": "tests/test_algorithms.py",
+    "line": 637,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-05f3734abfdd",
+    "file": "tests/test_algorithms.py",
+    "line": 1331,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-6c3c6effdee7",
     "file": "tests/test_api_jws.py",
-    "line": 828
+    "line": 243,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0012",
+    "candidate_id": "C-f32bcb92aa54",
     "file": "tests/test_algorithms.py",
-    "line": 1499
+    "line": 1105,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0013",
+    "candidate_id": "C-a0f642c5ad00",
     "file": "tests/test_algorithms.py",
-    "line": 1604
+    "line": 1610,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0014",
+    "candidate_id": "C-0aa1c59c66ba",
     "file": "tests/test_algorithms.py",
-    "line": 1526
+    "line": 1489,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0015",
+    "candidate_id": "C-3306a4ea0dc6",
     "file": "tests/test_algorithms.py",
-    "line": 1310
+    "line": 911,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0016",
+    "candidate_id": "C-1638a3047805",
     "file": "tests/test_algorithms.py",
-    "line": 237
+    "line": 1604,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0017",
+    "candidate_id": "C-58d91d5ab7e6",
+    "file": "tests/test_algorithms.py",
+    "line": 1567,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-a12808fe6463",
+    "file": "tests/test_algorithms.py",
+    "line": 874,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-9bc9d7cb6b25",
+    "file": "tests/test_algorithms.py",
+    "line": 1551,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-bb1b1a45d4ef",
+    "file": "tests/test_algorithms.py",
+    "line": 1137,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-24319452c46b",
+    "file": "tests/test_algorithms.py",
+    "line": 16,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-62b39c82131f",
+    "file": "tests/test_algorithms.py",
+    "line": 871,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-5f591a8be2ba",
+    "file": "tests/test_algorithms.py",
+    "line": 974,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-e30fbe155258",
+    "file": "tests/test_algorithms.py",
+    "line": 1780,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-64ed7a1948e5",
+    "file": "tests/test_algorithms.py",
+    "line": 910,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-af085e3c4c7b",
+    "file": "tests/test_algorithms.py",
+    "line": 1514,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-3cc28cd16f2e",
+    "file": "tests/test_algorithms.py",
+    "line": 1207,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-573628fd31a5",
+    "file": "tests/test_algorithms.py",
+    "line": 1071,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-2ef9966397c6",
+    "file": "tests/test_algorithms.py",
+    "line": 515,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-76faaae1a24e",
+    "file": "tests/test_algorithms.py",
+    "line": 1114,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-6df76c429cc5",
     "file": "tests/test_api_jws.py",
-    "line": 804
+    "line": 226,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0018",
+    "candidate_id": "C-767db76d0b75",
     "file": "tests/test_algorithms.py",
-    "line": 87
+    "line": 639,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0019",
+    "candidate_id": "C-9cf8f0b0f31f",
     "file": "tests/test_algorithms.py",
-    "line": 1295
+    "line": 1227,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0020",
+    "candidate_id": "C-245bda519c89",
     "file": "tests/test_algorithms.py",
-    "line": 20
+    "line": 1778,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0021",
+    "candidate_id": "C-eeeb07394afa",
+    "file": "tests/test_algorithms.py",
+    "line": 914,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-a88c2994e38c",
+    "file": "tests/test_algorithms.py",
+    "line": 1606,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-32356b97eb4b",
+    "file": "tests/test_algorithms.py",
+    "line": 1169,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-6a27a0f97e31",
+    "file": "tests/test_algorithms.py",
+    "line": 732,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-882beecc2c32",
     "file": "tests/test_api_jws.py",
-    "line": 238
+    "line": 229,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0022",
+    "candidate_id": "C-09320ab384c4",
     "file": "tests/test_algorithms.py",
-    "line": 351
+    "line": 428,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0023",
+    "candidate_id": "C-87c26188e913",
     "file": "tests/test_api_jws.py",
-    "line": 237
+    "line": 798,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0024",
-    "file": "tests/test_algorithms.py",
-    "line": 502
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0025",
+    "candidate_id": "C-dda909fcc9f7",
     "file": "tests/test_api_jws.py",
-    "line": 442
+    "line": 793,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0026",
-    "file": "tests/test_algorithms.py",
-    "line": 1805
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0027",
-    "file": "tests/test_algorithms.py",
-    "line": 1485
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0028",
-    "file": "tests/test_algorithms.py",
-    "line": 418
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0029",
-    "file": "tests/test_algorithms.py",
-    "line": 630
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0030",
-    "file": "tests/test_algorithms.py",
-    "line": 936
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0031",
-    "file": "tests/test_algorithms.py",
-    "line": 1242
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0032",
+    "candidate_id": "C-937b75313d6a",
     "file": "tests/test_api_jws.py",
-    "line": 800
+    "line": 833,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0033",
-    "file": "tests/test_algorithms.py",
-    "line": 1504
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0034",
-    "file": "tests/test_algorithms.py",
-    "line": 1647
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0035",
-    "file": "tests/test_algorithms.py",
-    "line": 1631
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0036",
-    "file": "tests/test_algorithms.py",
-    "line": 1588
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0037",
-    "file": "tests/test_algorithms.py",
-    "line": 639
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0038",
-    "file": "tests/test_algorithms.py",
-    "line": 1431
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0039",
-    "file": "tests/test_algorithms.py",
-    "line": 1269
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0040",
-    "file": "tests/test_algorithms.py",
-    "line": 1753
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0041",
-    "file": "tests/test_algorithms.py",
-    "line": 536
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0042",
-    "file": "tests/test_algorithms.py",
-    "line": 1354
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0043",
-    "file": "tests/test_algorithms.py",
-    "line": 1668
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0044",
+    "candidate_id": "C-715c853ffab9",
     "file": "tests/test_api_jws.py",
-    "line": 835
+    "line": 800,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0045",
+    "candidate_id": "C-4b4ce11661dd",
+    "file": "tests/test_algorithms.py",
+    "line": 1387,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-336f877eab4f",
+    "file": "tests/test_algorithms.py",
+    "line": 1184,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-f6405e4abab9",
+    "file": "tests/test_algorithms.py",
+    "line": 1565,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-bced42188042",
     "file": "tests/test_api_jws.py",
-    "line": 807
+    "line": 826,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0046",
+    "candidate_id": "C-be2a8942a5e5",
     "file": "tests/test_algorithms.py",
-    "line": 1474
+    "line": 376,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0047",
+    "candidate_id": "C-c9f95ceef974",
+    "file": "tests/test_algorithms.py",
+    "line": 1685,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-bab2a7ec0c7d",
+    "file": "tests/test_algorithms.py",
+    "line": 1474,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-9aadb988d4a2",
+    "file": "tests/test_algorithms.py",
+    "line": 411,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-17e82ac8cadb",
+    "file": "tests/test_algorithms.py",
+    "line": 1529,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-c9d470269d08",
     "file": "tests/test_api_jws.py",
-    "line": 816
+    "line": 880,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0048",
+    "candidate_id": "C-62883c0db238",
     "file": "tests/test_algorithms.py",
-    "line": 1225
+    "line": 1648,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0049",
+    "candidate_id": "C-64b7d44a933d",
     "file": "tests/test_algorithms.py",
-    "line": 1540
+    "line": 939,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0050",
+    "candidate_id": "C-ab05af03e750",
     "file": "tests/test_algorithms.py",
-    "line": 974
+    "line": 123,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0051",
-    "file": "tests/test_algorithms.py",
-    "line": 1517
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0052",
+    "candidate_id": "C-fa73894ba74c",
     "file": "tests/test_api_jws.py",
-    "line": 220
+    "line": 882,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0053",
+    "candidate_id": "C-04cd90972f44",
     "file": "tests/test_algorithms.py",
-    "line": 1234
+    "line": 1031,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0054",
+    "candidate_id": "C-aa70a6511d2e",
+    "file": "tests/test_algorithms.py",
+    "line": 651,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-3cd548ffe959",
+    "file": "tests/test_algorithms.py",
+    "line": 484,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-cd1f63b5aa03",
+    "file": "tests/test_algorithms.py",
+    "line": 1431,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-fd16a39f487a",
     "file": "tests/test_api_jws.py",
-    "line": 226
+    "line": 27,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0055",
+    "candidate_id": "C-997cf9b4b96a",
     "file": "tests/test_algorithms.py",
-    "line": 434
+    "line": 1224,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0056",
+    "candidate_id": "C-68dd694780b8",
+    "file": "tests/test_algorithms.py",
+    "line": 1059,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-54bf5d8df111",
+    "file": "tests/test_algorithms.py",
+    "line": 1484,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-b6e50f39b36b",
+    "file": "tests/test_algorithms.py",
+    "line": 1381,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-318d66851993",
     "file": "tests/test_api_jws.py",
-    "line": 826
+    "line": 1146,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0057",
-    "file": "tests/test_algorithms.py",
-    "line": 1381
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0058",
+    "candidate_id": "C-07ef3ae6d741",
     "file": "tests/test_api_jws.py",
-    "line": 880
+    "line": 788,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0059",
+    "candidate_id": "C-5cbfba94ad36",
     "file": "tests/test_algorithms.py",
-    "line": 998
+    "line": 1515,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0060",
+    "candidate_id": "C-f10040c59f94",
     "file": "tests/test_algorithms.py",
-    "line": 762
+    "line": 1315,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0061",
+    "candidate_id": "C-70f622292e9e",
     "file": "tests/test_algorithms.py",
-    "line": 1563
+    "line": 504,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0062",
+    "candidate_id": "C-50435dad216f",
     "file": "tests/test_api_jws.py",
-    "line": 789
+    "line": 236,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0063",
+    "candidate_id": "C-e1697a2d7722",
     "file": "tests/test_algorithms.py",
-    "line": 650
+    "line": 1147,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0064",
-    "file": "tests/test_algorithms.py",
-    "line": 515
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0065",
+    "candidate_id": "C-465ee02e935e",
     "file": "tests/test_api_jws.py",
-    "line": 887
+    "line": 834,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0066",
+    "candidate_id": "C-852c43481dcb",
     "file": "tests/test_algorithms.py",
-    "line": 1778
+    "line": 1121,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0067",
+    "candidate_id": "C-cd9596a3207c",
     "file": "tests/test_algorithms.py",
-    "line": 146
+    "line": 1485,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0068",
+    "candidate_id": "C-88c35b19f057",
+    "file": "tests/test_algorithms.py",
+    "line": 1562,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-20e8a863fd33",
+    "file": "tests/test_algorithms.py",
+    "line": 1480,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-1251039ac947",
+    "file": "tests/test_algorithms.py",
+    "line": 1298,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-6b48a739cd40",
+    "file": "tests/test_algorithms.py",
+    "line": 1379,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-c08df9e8e000",
+    "file": "tests/test_algorithms.py",
+    "line": 1496,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-c39dfd47e112",
     "file": "tests/test_api_jws.py",
-    "line": 244
+    "line": 221,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0069",
+    "candidate_id": "C-23775ac22109",
     "file": "tests/test_algorithms.py",
-    "line": 651
+    "line": 1755,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0070",
+    "candidate_id": "C-ec016abf6de0",
     "file": "tests/test_algorithms.py",
-    "line": 16
+    "line": 1269,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0071",
+    "candidate_id": "C-aeadf6a09046",
     "file": "tests/test_algorithms.py",
-    "line": 1314
+    "line": 1647,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0072",
+    "candidate_id": "C-6bde91e3dd23",
     "file": "tests/test_algorithms.py",
-    "line": 1210
+    "line": 1111,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0073",
+    "candidate_id": "C-d0eb79ca644b",
+    "file": "tests/test_algorithms.py",
+    "line": 653,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-4ff512f542bf",
+    "file": "tests/test_algorithms.py",
+    "line": 501,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-30e8601bb13a",
     "file": "tests/test_api_jws.py",
-    "line": 22
+    "line": 468,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0074",
+    "candidate_id": "C-9086c1420149",
+    "file": "tests/test_algorithms.py",
+    "line": 1342,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-8b80f5f08e05",
     "file": "tests/test_api_jws.py",
-    "line": 793
+    "line": 241,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0075",
+    "candidate_id": "C-300b330570df",
     "file": "tests/test_algorithms.py",
-    "line": 1693
+    "line": 1519,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0076",
+    "candidate_id": "C-bbdfebeaccce",
     "file": "tests/test_algorithms.py",
-    "line": 86
+    "line": 383,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0077",
+    "candidate_id": "C-d26d84610720",
     "file": "tests/test_algorithms.py",
-    "line": 1529
+    "line": 1088,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0078",
+    "candidate_id": "C-bc63287b019b",
     "file": "tests/test_algorithms.py",
-    "line": 1515
+    "line": 1005,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0079",
+    "candidate_id": "C-c1d87a0609bc",
+    "file": "tests/test_algorithms.py",
+    "line": 1487,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-7cd405a4ae7e",
+    "file": "tests/test_algorithms.py",
+    "line": 630,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-57c84923b0d5",
+    "file": "tests/test_algorithms.py",
+    "line": 1664,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-f8606d6707f0",
+    "file": "tests/test_algorithms.py",
+    "line": 1267,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-39a47c0c02e8",
+    "file": "tests/test_algorithms.py",
+    "line": 465,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-832485b7f0f3",
+    "file": "tests/test_algorithms.py",
+    "line": 636,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-4d867eb36e58",
     "file": "tests/test_api_jws.py",
-    "line": 240
+    "line": 844,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0080",
-    "file": "tests/test_algorithms.py",
-    "line": 1573
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0081",
-    "file": "tests/test_algorithms.py",
-    "line": 885
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0082",
-    "file": "tests/test_algorithms.py",
-    "line": 846
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0083",
-    "file": "tests/test_algorithms.py",
-    "line": 684
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0084",
-    "file": "tests/test_algorithms.py",
-    "line": 1489
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0085",
-    "file": "tests/test_algorithms.py",
-    "line": 1487
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0086",
+    "candidate_id": "C-51a60a8e87c8",
     "file": "tests/test_api_jws.py",
-    "line": 243
+    "line": 827,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0087",
+    "candidate_id": "C-c323eb2e60f8",
     "file": "tests/test_algorithms.py",
-    "line": 1299
+    "line": 1466,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0088",
+    "candidate_id": "C-7d662eb49cf5",
     "file": "tests/test_algorithms.py",
-    "line": 109
+    "line": 1676,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0089",
+    "candidate_id": "C-0fb2d3dc7f93",
     "file": "tests/test_algorithms.py",
-    "line": 1606
+    "line": 434,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0090",
-    "file": "tests/test_algorithms.py",
-    "line": 1786
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0091",
-    "file": "tests/test_algorithms.py",
-    "line": 1088
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0092",
+    "candidate_id": "C-53eea4638b95",
     "file": "tests/test_api_jws.py",
-    "line": 236
+    "line": 805,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0093",
+    "candidate_id": "C-8604be7ffbac",
     "file": "tests/test_algorithms.py",
-    "line": 1648
+    "line": 502,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0094",
-    "file": "tests/test_algorithms.py",
-    "line": 1625
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0095",
-    "file": "tests/test_algorithms.py",
-    "line": 1432
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0096",
-    "file": "tests/test_algorithms.py",
-    "line": 1071
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0097",
+    "candidate_id": "C-a6e0ec16d934",
     "file": "tests/test_api_jws.py",
-    "line": 845
+    "line": 845,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0098",
+    "candidate_id": "C-03a9c6f52bad",
     "file": "tests/test_algorithms.py",
-    "line": 227
+    "line": 1631,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0099",
+    "candidate_id": "C-86ed4db0ed35",
     "file": "tests/test_algorithms.py",
-    "line": 1237
+    "line": 723,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0100",
+    "candidate_id": "C-f87283123b11",
     "file": "tests/test_algorithms.py",
-    "line": 518
+    "line": 913,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0101",
+    "candidate_id": "C-4213f026ab43",
     "file": "tests/test_algorithms.py",
-    "line": 1296
+    "line": 1629,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0102",
+    "candidate_id": "C-952a3a1d6054",
+    "file": "tests/test_api_jws.py",
+    "line": 864,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-da61543d85b6",
     "file": "tests/test_algorithms.py",
-    "line": 913
+    "line": 916,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0103",
+    "candidate_id": "C-76d5682f235a",
+    "file": "tests/test_algorithms.py",
+    "line": 413,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-eabe6e977df3",
+    "file": "tests/test_algorithms.py",
+    "line": 762,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-849bea10be8e",
+    "file": "tests/test_algorithms.py",
+    "line": 24,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-abf0de733284",
+    "file": "tests/test_algorithms.py",
+    "line": 1526,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-459bc2dcab49",
+    "file": "tests/test_api_jws.py",
+    "line": 825,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-1fb824736e54",
+    "file": "tests/test_api_jws.py",
+    "line": 235,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-3dadf3752dd7",
+    "file": "tests/test_algorithms.py",
+    "line": 1313,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-5498c6304685",
+    "file": "tests/test_algorithms.py",
+    "line": 885,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-5f35e1daa3d5",
+    "file": "tests/test_algorithms.py",
+    "line": 1211,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-0c9c590e2c7f",
+    "file": "tests/test_algorithms.py",
+    "line": 1310,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-4c9a8df01168",
+    "file": "tests/test_algorithms.py",
+    "line": 84,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-09a5b13143fd",
+    "file": "tests/test_algorithms.py",
+    "line": 896,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-b3267c96e77a",
+    "file": "tests/test_algorithms.py",
+    "line": 888,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-104ea0f9d6f6",
+    "file": "tests/test_algorithms.py",
+    "line": 1190,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-2ca2ba896930",
+    "file": "tests/test_algorithms.py",
+    "line": 1140,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-3e3cb480d714",
+    "file": "tests/test_algorithms.py",
+    "line": 969,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-28defcaabf31",
+    "file": "tests/test_algorithms.py",
+    "line": 1146,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-27515061f54b",
+    "file": "tests/test_algorithms.py",
+    "line": 351,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-d21f7fad878b",
+    "file": "tests/test_algorithms.py",
+    "line": 1504,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-53bcbde6084f",
+    "file": "tests/test_algorithms.py",
+    "line": 1605,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-91a71768ff96",
+    "file": "tests/test_algorithms.py",
+    "line": 1163,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-9ce90cf7fb98",
+    "file": "tests/test_api_jws.py",
+    "line": 887,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-7d0957db7db4",
+    "file": "tests/test_algorithms.py",
+    "line": 1263,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-3b75c82ed294",
+    "file": "tests/test_algorithms.py",
+    "line": 1432,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-c7e048355d6c",
+    "file": "tests/test_api_jws.py",
+    "line": 454,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-98139d49bb5a",
+    "file": "tests/test_algorithms.py",
+    "line": 1621,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-91629809b036",
+    "file": "tests/test_api_jws.py",
+    "line": 569,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-aac3947798a1",
+    "file": "tests/test_algorithms.py",
+    "line": 909,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-a202976dd549",
+    "file": "tests/test_algorithms.py",
+    "line": 936,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-19d1fbf0cfa5",
+    "file": "tests/test_api_jws.py",
+    "line": 220,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-c9c5ce893ae1",
+    "file": "tests/test_algorithms.py",
+    "line": 1134,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-d4b2361fe387",
+    "file": "tests/test_algorithms.py",
+    "line": 1231,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-4f67108aebd9",
+    "file": "tests/test_algorithms.py",
+    "line": 352,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-887a741cc15d",
+    "file": "tests/test_algorithms.py",
+    "line": 516,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-e873509a59e9",
+    "file": "tests/test_algorithms.py",
+    "line": 1786,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-e0c37b43f216",
+    "file": "tests/test_api_jws.py",
+    "line": 816,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-f40f6a91417b",
+    "file": "tests/test_algorithms.py",
+    "line": 582,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-5d7a0bdd1c8a",
+    "file": "tests/test_algorithms.py",
+    "line": 846,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-eb46d3a208b6",
+    "file": "tests/test_algorithms.py",
+    "line": 1295,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-d6ad69436701",
+    "file": "tests/test_algorithms.py",
+    "line": 770,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-fbe596736fe1",
+    "file": "tests/test_algorithms.py",
+    "line": 1066,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-08c93260559e",
+    "file": "tests/test_api_jws.py",
+    "line": 836,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-17776e8c77da",
+    "file": "tests/test_algorithms.py",
+    "line": 192,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-58458900250b",
+    "file": "tests/test_algorithms.py",
+    "line": 1242,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-bcec90c885b6",
+    "file": "tests/test_api_jws.py",
+    "line": 31,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-deca1a8cf43a",
+    "file": "tests/test_algorithms.py",
+    "line": 433,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-7bd56727c746",
+    "file": "tests/test_algorithms.py",
+    "line": 109,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-e9ba4b3fa5af",
+    "file": "tests/test_algorithms.py",
+    "line": 1749,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-72a0a3cbb214",
+    "file": "tests/test_algorithms.py",
+    "line": 1036,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-ef6d26810d81",
+    "file": "tests/test_api_jws.py",
+    "line": 843,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-dd0a215941d1",
+    "file": "tests/test_algorithms.py",
+    "line": 1222,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-a220306b5542",
+    "file": "tests/test_algorithms.py",
+    "line": 410,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-6ccb11f33760",
+    "file": "tests/test_api_jws.py",
+    "line": 797,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-a900cd219836",
+    "file": "tests/test_api_jws.py",
+    "line": 442,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-d445eef9dc12",
+    "file": "tests/test_api_jws.py",
+    "line": 238,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-b77fd3047876",
+    "file": "tests/test_algorithms.py",
+    "line": 740,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-1e0346817319",
+    "file": "tests/test_algorithms.py",
+    "line": 1332,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-5b3904359b06",
+    "file": "tests/test_algorithms.py",
+    "line": 1173,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-b47e76834dbf",
+    "file": "tests/test_algorithms.py",
+    "line": 431,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-8bde5a5a9931",
+    "file": "tests/test_algorithms.py",
+    "line": 900,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-c25b08cd7d82",
+    "file": "tests/test_algorithms.py",
+    "line": 86,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-14565e814626",
+    "file": "tests/test_algorithms.py",
+    "line": 340,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-bc80d5a592d4",
+    "file": "tests/test_api_jws.py",
+    "line": 807,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-c82220cf1d0c",
+    "file": "tests/test_algorithms.py",
+    "line": 1593,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-a0d0fd47ff11",
+    "file": "tests/test_algorithms.py",
+    "line": 1753,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-ec719ecca009",
+    "file": "tests/test_api_jws.py",
+    "line": 885,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-cb0e6f9dda18",
+    "file": "tests/test_api_jws.py",
+    "line": 447,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-d9bd6fb28aff",
+    "file": "tests/test_algorithms.py",
+    "line": 1670,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-85838ae42c28",
+    "file": "tests/test_algorithms.py",
+    "line": 1201,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-41af193f3c60",
+    "file": "tests/test_algorithms.py",
+    "line": 1233,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-33648cb4c3f1",
+    "file": "tests/test_algorithms.py",
+    "line": 1540,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-f35a43eb95cc",
+    "file": "tests/test_algorithms.py",
+    "line": 1120,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-05ceab7d0caa",
+    "file": "tests/test_algorithms.py",
+    "line": 1573,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-8cbcd5ea6645",
     "file": "tests/keys/__init__.py",
-    "line": 31
+    "line": 35,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0104",
-    "file": "tests/test_algorithms.py",
-    "line": 1120
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0105",
-    "file": "tests/test_algorithms.py",
-    "line": 1598
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0106",
+    "candidate_id": "C-cf21a1131053",
     "file": "tests/test_api_jws.py",
-    "line": 241
+    "line": 225,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0107",
+    "candidate_id": "C-a947a6a06305",
     "file": "tests/test_algorithms.py",
-    "line": 1496
+    "line": 1543,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0108",
+    "candidate_id": "C-408c285dcf9c",
+    "file": "tests/test_algorithms.py",
+    "line": 1236,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-e5459c93d6f6",
+    "file": "tests/test_algorithms.py",
+    "line": 1682,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-bd2af419cf41",
+    "file": "tests/test_algorithms.py",
+    "line": 1798,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-0eaa304b3cfc",
     "file": "tests/test_api_jws.py",
-    "line": 843
+    "line": 228,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0109",
+    "candidate_id": "C-3e016e9a0ad0",
     "file": "tests/test_algorithms.py",
-    "line": 1798
+    "line": 1312,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0110",
+    "candidate_id": "C-e078fad0f229",
+    "file": "tests/test_algorithms.py",
+    "line": 145,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-7b0d0061efb2",
+    "file": "tests/test_algorithms.py",
+    "line": 1563,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-f2a1b1756148",
+    "file": "tests/test_algorithms.py",
+    "line": 298,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-26a40c587766",
+    "file": "tests/test_algorithms.py",
+    "line": 684,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-e663de1df99f",
+    "file": "tests/test_algorithms.py",
+    "line": 1343,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-55d1f5f2073e",
+    "file": "tests/test_algorithms.py",
+    "line": 237,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-5f8cb6becf93",
+    "file": "tests/test_algorithms.py",
+    "line": 1244,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-1fcb039259c8",
+    "file": "tests/test_algorithms.py",
+    "line": 1588,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-9fa9fc7be444",
+    "file": "tests/test_algorithms.py",
+    "line": 691,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-513d8c44b2d5",
+    "file": "tests/test_algorithms.py",
+    "line": 1805,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-5001809e59c0",
+    "file": "tests/test_algorithms.py",
+    "line": 1668,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-471ddff0ff04",
+    "file": "tests/test_algorithms.py",
+    "line": 1314,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-e705ff6192fe",
+    "file": "tests/test_algorithms.py",
+    "line": 1210,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-299b3e1ad6ba",
     "file": "tests/test_api_jws.py",
-    "line": 788
+    "line": 881,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0111",
-    "file": "tests/test_algorithms.py",
-    "line": 624
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0112",
-    "file": "tests/test_algorithms.py",
-    "line": 1788
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0113",
-    "file": "tests/test_algorithms.py",
-    "line": 298
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0114",
-    "file": "tests/test_algorithms.py",
-    "line": 413
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0115",
-    "file": "tests/test_algorithms.py",
-    "line": 133
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0116",
-    "file": "tests/test_algorithms.py",
-    "line": 909
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0117",
+    "candidate_id": "C-6983f8b91547",
     "file": "tests/test_api_jws.py",
-    "line": 31
+    "line": 223,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0118",
+    "candidate_id": "C-99ec36fd1076",
     "file": "tests/test_algorithms.py",
-    "line": 1379
+    "line": 1660,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0119",
+    "candidate_id": "C-140aa419148e",
     "file": "tests/test_algorithms.py",
-    "line": 1000
+    "line": 1150,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0120",
+    "candidate_id": "C-20b6f2ab9280",
+    "file": "tests/test_algorithms.py",
+    "line": 1674,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-6d491d95680d",
+    "file": "tests/test_algorithms.py",
+    "line": 28,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-9353772d8c98",
+    "file": "tests/test_algorithms.py",
+    "line": 1499,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-e09d043a1be4",
     "file": "tests/test_api_jws.py",
-    "line": 229
+    "line": 789,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0121",
+    "candidate_id": "C-cc53016027a5",
     "file": "tests/test_algorithms.py",
-    "line": 1184
+    "line": 1767,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0122",
+    "candidate_id": "C-8153abace684",
     "file": "tests/test_algorithms.py",
-    "line": 1627
+    "line": 87,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0123",
-    "file": "tests/test_algorithms.py",
-    "line": 440
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0124",
-    "file": "tests/test_algorithms.py",
-    "line": 1207
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0125",
-    "file": "tests/test_algorithms.py",
-    "line": 1342
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0126",
-    "file": "tests/test_algorithms.py",
-    "line": 636
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0127",
+    "candidate_id": "C-bad87ee96914",
     "file": "tests/test_api_jws.py",
-    "line": 798
+    "line": 886,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0128",
+    "candidate_id": "C-3ac0db25eca8",
     "file": "tests/test_algorithms.py",
-    "line": 1170
+    "line": 1296,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0129",
+    "candidate_id": "C-4b876e1760e0",
+    "file": "tests/test_api_jws.py",
+    "line": 240,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-18ad9a1e121a",
     "file": "tests/test_algorithms.py",
-    "line": 1355
+    "line": 146,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0130",
+    "candidate_id": "C-4d609db6beae",
     "file": "tests/test_algorithms.py",
-    "line": 1480
+    "line": 133,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0131",
+    "candidate_id": "C-8a6505b0c728",
+    "file": "tests/test_algorithms.py",
+    "line": 20,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-f789da51c78a",
+    "file": "tests/test_api_jws.py",
+    "line": 828,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-4615ea50ae0a",
+    "file": "tests/test_algorithms.py",
+    "line": 1355,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-77ee0ff1c1ac",
+    "file": "tests/test_algorithms.py",
+    "line": 440,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-fc2aa53f6452",
+    "file": "tests/test_algorithms.py",
+    "line": 1354,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-b7ea8b82eaf0",
+    "file": "tests/test_algorithms.py",
+    "line": 1139,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-f36309612edc",
+    "file": "tests/test_algorithms.py",
+    "line": 1230,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-1c2341d0dbc2",
+    "file": "tests/test_api_jws.py",
+    "line": 787,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-3e6587630a1b",
+    "file": "tests/test_algorithms.py",
+    "line": 1029,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-78527d85621f",
+    "file": "tests/test_api_jws.py",
+    "line": 222,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-a298f31e44b2",
+    "file": "tests/test_algorithms.py",
+    "line": 1213,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-515db76fbafe",
+    "file": "tests/test_algorithms.py",
+    "line": 1598,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-14b46d531df8",
+    "file": "tests/test_algorithms.py",
+    "line": 1469,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-f41a3ab49ec6",
+    "file": "tests/test_algorithms.py",
+    "line": 1691,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-73a43c60d77e",
+    "file": "tests/test_algorithms.py",
+    "line": 1170,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-6014e1ea7268",
+    "file": "tests/test_algorithms.py",
+    "line": 83,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-38f03df38718",
+    "file": "tests/test_algorithms.py",
+    "line": 1292,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-f4ded7f81aef",
+    "file": "tests/test_algorithms.py",
+    "line": 1124,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-0b7cfdcc4d6d",
+    "file": "tests/test_algorithms.py",
+    "line": 418,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-d9ee189a466c",
+    "file": "tests/test_algorithms.py",
+    "line": 1214,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-31440d4c9f6c",
+    "file": "tests/test_algorithms.py",
+    "line": 624,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-e26ad35a7877",
+    "file": "tests/test_algorithms.py",
+    "line": 1769,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-cb538dd833e1",
+    "file": "tests/test_api_jws.py",
+    "line": 871,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-0a412a3102a4",
+    "file": "tests/test_algorithms.py",
+    "line": 1625,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-9dd3bbdf4026",
+    "file": "tests/test_algorithms.py",
+    "line": 1221,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-022e0e6b412e",
+    "file": "tests/test_api_jws.py",
+    "line": 244,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-8eab1be52ee5",
+    "file": "tests/test_algorithms.py",
+    "line": 320,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-cf6b0d2f394b",
+    "file": "tests/test_algorithms.py",
+    "line": 528,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-5a1e7bede463",
+    "file": "tests/test_algorithms.py",
+    "line": 560,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-ac939126a7bd",
+    "file": "tests/test_api_jws.py",
+    "line": 435,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-17b6c57dd3bb",
+    "file": "tests/test_algorithms.py",
+    "line": 937,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-75d9f896704e",
     "file": "tests/keys/__init__.py",
-    "line": 35
+    "line": 31,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0132",
+    "candidate_id": "C-b3c355fe7275",
     "file": "tests/test_algorithms.py",
-    "line": 83
+    "line": 369,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0133",
+    "candidate_id": "C-01670edc7d5e",
     "file": "tests/test_algorithms.py",
-    "line": 1163
+    "line": 1225,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0134",
+    "candidate_id": "C-699617915444",
     "file": "tests/test_algorithms.py",
-    "line": 376
+    "line": 1234,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0135",
+    "candidate_id": "C-f811ef757a14",
     "file": "tests/test_algorithms.py",
-    "line": 28
+    "line": 1000,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0136",
+    "candidate_id": "C-a234bed9d35b",
     "file": "tests/test_algorithms.py",
-    "line": 1261
+    "line": 1237,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0137",
+    "candidate_id": "C-e1f3167eff56",
     "file": "tests/test_algorithms.py",
-    "line": 552
+    "line": 1430,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0138",
+    "candidate_id": "C-712102087734",
+    "file": "tests/test_algorithms.py",
+    "line": 536,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-1349b4ae92d8",
     "file": "tests/test_api_jws.py",
-    "line": 787
+    "line": 812,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0139",
+    "candidate_id": "C-e078c128aed4",
     "file": "tests/test_algorithms.py",
-    "line": 1137
+    "line": 227,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0140",
+    "candidate_id": "C-820cf7dc2d36",
     "file": "tests/test_api_jws.py",
-    "line": 1146
+    "line": 804,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0141",
+    "candidate_id": "C-24f540e8e1cd",
     "file": "tests/test_algorithms.py",
-    "line": 1387
+    "line": 629,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0142",
+    "candidate_id": "C-2cc6bcab2851",
     "file": "tests/test_algorithms.py",
-    "line": 1188
+    "line": 627,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0143",
+    "candidate_id": "C-1f6a7e577eb4",
     "file": "tests/test_algorithms.py",
-    "line": 1134
+    "line": 1261,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0144",
+    "candidate_id": "C-e861a90e410f",
     "file": "tests/test_algorithms.py",
-    "line": 874
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0145",
-    "file": "tests/test_algorithms.py",
-    "line": 1059
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0146",
-    "file": "tests/test_algorithms.py",
-    "line": 1567
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0147",
-    "file": "tests/test_algorithms.py",
-    "line": 1685
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0148",
-    "file": "tests/test_algorithms.py",
-    "line": 1298
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0149",
-    "file": "tests/test_algorithms.py",
-    "line": 916
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0150",
-    "file": "tests/test_algorithms.py",
-    "line": 560
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0151",
-    "file": "tests/test_algorithms.py",
-    "line": 1629
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0152",
-    "file": "tests/test_algorithms.py",
-    "line": 1519
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0153",
-    "file": "tests/test_algorithms.py",
-    "line": 1216
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0154",
-    "file": "tests/test_api_jws.py",
-    "line": 435
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0155",
-    "file": "tests/test_algorithms.py",
-    "line": 1292
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0156",
-    "file": "tests/test_algorithms.py",
-    "line": 1211
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0157",
-    "file": "tests/test_algorithms.py",
-    "line": 410
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0158",
-    "file": "tests/test_algorithms.py",
-    "line": 1190
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0159",
-    "file": "tests/test_algorithms.py",
-    "line": 911
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0160",
-    "file": "tests/test_api_jws.py",
-    "line": 886
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0161",
-    "file": "tests/test_algorithms.py",
-    "line": 1433
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0162",
-    "file": "tests/test_algorithms.py",
-    "line": 1593
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0163",
-    "file": "tests/test_algorithms.py",
-    "line": 428
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0164",
-    "file": "tests/test_algorithms.py",
-    "line": 1222
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0165",
-    "file": "tests/test_algorithms.py",
-    "line": 24
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0166",
-    "file": "tests/test_api_jws.py",
-    "line": 825
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0167",
-    "file": "tests/test_algorithms.py",
-    "line": 732
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0168",
-    "file": "tests/test_algorithms.py",
-    "line": 1267
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0169",
-    "file": "tests/test_algorithms.py",
-    "line": 1169
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0170",
-    "file": "tests/test_api_jws.py",
-    "line": 805
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0171",
-    "file": "tests/test_algorithms.py",
-    "line": 433
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0172",
-    "file": "tests/test_api_jws.py",
-    "line": 225
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0173",
-    "file": "tests/test_algorithms.py",
-    "line": 1173
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0174",
-    "file": "tests/test_algorithms.py",
-    "line": 1005
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0175",
-    "file": "tests/test_algorithms.py",
-    "line": 1244
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0176",
-    "file": "tests/test_algorithms.py",
-    "line": 1749
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0177",
-    "file": "tests/test_algorithms.py",
-    "line": 1541
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0178",
-    "file": "tests/test_api_jws.py",
-    "line": 569
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0179",
-    "file": "tests/test_algorithms.py",
-    "line": 1114
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0180",
-    "file": "tests/test_algorithms.py",
-    "line": 1605
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0181",
-    "file": "tests/test_algorithms.py",
-    "line": 1484
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0182",
-    "file": "tests/test_algorithms.py",
-    "line": 1231
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0183",
-    "file": "tests/test_algorithms.py",
-    "line": 501
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0184",
-    "file": "tests/test_api_jws.py",
-    "line": 27
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0185",
-    "file": "tests/test_algorithms.py",
-    "line": 123
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0186",
-    "file": "tests/test_algorithms.py",
-    "line": 871
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0187",
-    "file": "tests/test_api_jws.py",
-    "line": 222
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0188",
-    "file": "tests/test_api_jws.py",
-    "line": 228
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0189",
-    "file": "tests/test_algorithms.py",
-    "line": 1769
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0190",
-    "file": "tests/test_algorithms.py",
-    "line": 1031
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0191",
-    "file": "tests/test_algorithms.py",
-    "line": 1105
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0192",
-    "file": "tests/test_algorithms.py",
-    "line": 484
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0193",
-    "file": "tests/test_algorithms.py",
-    "line": 1230
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0194",
-    "file": "tests/test_algorithms.py",
-    "line": 1111
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0195",
-    "file": "tests/test_algorithms.py",
-    "line": 1263
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0196",
-    "file": "tests/test_algorithms.py",
-    "line": 1315
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0197",
-    "file": "tests/test_algorithms.py",
-    "line": 1332
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0198",
-    "file": "tests/test_algorithms.py",
-    "line": 1124
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0199",
-    "file": "tests/test_algorithms.py",
-    "line": 1146
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0200",
-    "file": "tests/test_algorithms.py",
-    "line": 528
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0201",
-    "file": "tests/test_algorithms.py",
-    "line": 1670
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0202",
-    "file": "tests/test_algorithms.py",
-    "line": 1036
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0203",
-    "file": "tests/test_algorithms.py",
-    "line": 352
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0204",
-    "file": "tests/test_algorithms.py",
-    "line": 582
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0205",
-    "file": "tests/test_algorithms.py",
-    "line": 1213
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0206",
-    "file": "tests/test_algorithms.py",
-    "line": 1312
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0207",
-    "file": "tests/test_algorithms.py",
-    "line": 914
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0208",
-    "file": "tests/test_algorithms.py",
-    "line": 969
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0209",
-    "file": "tests/test_algorithms.py",
-    "line": 1466
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0210",
-    "file": "tests/test_algorithms.py",
-    "line": 637
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0211",
-    "file": "tests/test_algorithms.py",
-    "line": 411
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0212",
-    "file": "tests/test_algorithms.py",
-    "line": 1150
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0213",
-    "file": "tests/test_algorithms.py",
-    "line": 1682
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0214",
-    "file": "tests/test_algorithms.py",
-    "line": 1385
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0215",
-    "file": "tests/test_algorithms.py",
-    "line": 320
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0216",
-    "file": "tests/test_api_jws.py",
-    "line": 454
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0217",
-    "file": "tests/test_algorithms.py",
-    "line": 740
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0218",
-    "file": "tests/test_algorithms.py",
-    "line": 1562
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0219",
-    "file": "tests/test_algorithms.py",
-    "line": 1140
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0220",
-    "file": "tests/test_algorithms.py",
-    "line": 1121
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0221",
-    "file": "tests/test_algorithms.py",
-    "line": 1603
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0222",
-    "file": "tests/test_algorithms.py",
-    "line": 1343
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0223",
-    "file": "tests/test_algorithms.py",
-    "line": 1066
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0224",
-    "file": "tests/test_algorithms.py",
-    "line": 192
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0225",
-    "file": "tests/test_algorithms.py",
-    "line": 653
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0226",
-    "file": "tests/test_algorithms.py",
-    "line": 896
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0227",
-    "file": "tests/test_algorithms.py",
-    "line": 1313
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0228",
-    "file": "tests/test_algorithms.py",
-    "line": 723
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0229",
-    "file": "tests/test_algorithms.py",
-    "line": 1565
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0230",
-    "file": "tests/test_algorithms.py",
-    "line": 1660
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0231",
-    "file": "tests/test_api_jws.py",
-    "line": 221
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0232",
-    "file": "tests/test_algorithms.py",
-    "line": 1514
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0233",
-    "file": "tests/test_algorithms.py",
-    "line": 1551
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0234",
-    "file": "tests/test_api_jws.py",
-    "line": 812
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0235",
-    "file": "tests/test_algorithms.py",
-    "line": 465
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0236",
-    "file": "tests/test_algorithms.py",
-    "line": 1201
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0237",
-    "file": "tests/test_algorithms.py",
-    "line": 1139
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0238",
-    "file": "tests/test_algorithms.py",
-    "line": 1331
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0239",
-    "file": "tests/test_api_jws.py",
-    "line": 834
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0240",
-    "file": "tests/test_api_jws.py",
-    "line": 468
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0241",
-    "file": "tests/test_algorithms.py",
-    "line": 1147
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0242",
-    "file": "tests/test_algorithms.py",
-    "line": 1029
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0243",
-    "file": "tests/test_api_jws.py",
-    "line": 836
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0244",
-    "file": "tests/test_algorithms.py",
-    "line": 1621
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0245",
-    "file": "tests/test_algorithms.py",
-    "line": 1691
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0246",
-    "file": "tests/test_algorithms.py",
-    "line": 888
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0247",
-    "file": "tests/test_algorithms.py",
-    "line": 1664
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0248",
-    "file": "tests/test_algorithms.py",
-    "line": 1214
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0249",
-    "file": "tests/test_api_jws.py",
-    "line": 235
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0250",
-    "file": "tests/test_api_jws.py",
-    "line": 885
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0251",
-    "file": "tests/test_algorithms.py",
-    "line": 369
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0252",
-    "file": "tests/test_algorithms.py",
-    "line": 504
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0253",
-    "file": "tests/test_algorithms.py",
-    "line": 937
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0254",
-    "file": "tests/test_algorithms.py",
-    "line": 1221
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0255",
-    "file": "tests/test_algorithms.py",
-    "line": 629
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0256",
-    "file": "tests/test_algorithms.py",
-    "line": 910
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0257",
-    "file": "tests/test_algorithms.py",
-    "line": 1767
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0258",
-    "file": "tests/test_algorithms.py",
-    "line": 145
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0259",
-    "file": "tests/test_api_jws.py",
-    "line": 447
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0260",
-    "file": "tests/test_algorithms.py",
-    "line": 1676
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0261",
-    "file": "tests/test_algorithms.py",
-    "line": 340
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0262",
-    "file": "tests/test_algorithms.py",
-    "line": 1430
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0263",
-    "file": "tests/test_algorithms.py",
-    "line": 383
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0264",
-    "file": "tests/test_algorithms.py",
-    "line": 1224
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0265",
-    "file": "tests/test_api_jws.py",
-    "line": 827
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0266",
-    "file": "tests/test_algorithms.py",
-    "line": 900
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0267",
-    "file": "tests/test_api_jws.py",
-    "line": 797
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0268",
-    "file": "tests/test_algorithms.py",
-    "line": 1674
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0269",
-    "file": "tests/test_api_jws.py",
-    "line": 882
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0270",
-    "file": "tests/test_algorithms.py",
-    "line": 1469
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0271",
-    "file": "tests/test_api_jws.py",
-    "line": 871
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0272",
-    "file": "tests/test_algorithms.py",
-    "line": 1543
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0273",
-    "file": "tests/test_algorithms.py",
-    "line": 1236
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0274",
-    "file": "tests/test_algorithms.py",
-    "line": 1227
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0275",
-    "file": "tests/test_algorithms.py",
-    "line": 1610
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0276",
-    "file": "tests/test_api_jws.py",
-    "line": 881
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0277",
-    "file": "tests/test_algorithms.py",
-    "line": 939
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0278",
-    "file": "tests/test_algorithms.py",
-    "line": 691
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0279",
-    "file": "tests/test_algorithms.py",
-    "line": 1755
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0280",
-    "file": "tests/test_api_jws.py",
-    "line": 844
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0281",
-    "file": "tests/test_algorithms.py",
-    "line": 627
-   },
-   {
-    "candidate_id": "C-jpadilla__pyjwt-S1-test-0282",
-    "file": "tests/test_algorithms.py",
-    "line": 1233
+    "line": 1216,
+    "scope": "test"
    }
   ],
   "S2": [
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0001",
+    "candidate_id": "C-0648695505d8",
     "file": "jwt/api_jwk.py",
-    "line": 46
+    "line": 46,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0002",
+    "candidate_id": "C-8acb8d69171c",
     "file": "tests/test_api_jwk.py",
-    "line": 255
+    "line": 255,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0003",
+    "candidate_id": "C-51c2bfdda49d",
     "file": "tests/test_api_jwk.py",
-    "line": 277
+    "line": 277,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0004",
+    "candidate_id": "C-81357c0f0acf",
     "file": "tests/test_advisory.py",
-    "line": 93
+    "line": 93,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0005",
+    "candidate_id": "C-84e700e96ad3",
     "file": "tests/test_jwks_client.py",
-    "line": 32
+    "line": 32,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0006",
+    "candidate_id": "C-31c65e7a9ec0",
     "file": "jwt/api_jwk.py",
-    "line": 62
+    "line": 62,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0007",
+    "candidate_id": "C-d5beff10e2b7",
     "file": "tests/test_api_jwt.py",
-    "line": 465
+    "line": 465,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0008",
+    "candidate_id": "C-164c7484cfcd",
     "file": "tests/test_advisory.py",
-    "line": 17
+    "line": 17,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0009",
+    "candidate_id": "C-fed7deca7e54",
     "file": "tests/test_api_jwk.py",
-    "line": 284
+    "line": 284,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0010",
+    "candidate_id": "C-48a2338a47ad",
     "file": "tests/test_api_jwk.py",
-    "line": 124
+    "line": 124,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0011",
+    "candidate_id": "C-a31541f12aea",
     "file": "tests/test_api_jwk.py",
-    "line": 80
+    "line": 80,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0012",
+    "candidate_id": "C-ed5b4e280a4e",
     "file": "tests/test_advisory.py",
-    "line": 28
+    "line": 28,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0013",
+    "candidate_id": "C-e9c27d1f6347",
     "file": "tests/test_advisory.py",
-    "line": 70
+    "line": 70,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0014",
+    "candidate_id": "C-4d615f2c30ec",
     "file": "tests/test_jwks_client.py",
-    "line": 311
+    "line": 311,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0015",
+    "candidate_id": "C-a4ab996a7877",
     "file": "tests/test_advisory.py",
-    "line": 23
+    "line": 23,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0016",
+    "candidate_id": "C-3afb4b03c0d0",
     "file": "tests/test_api_jwk.py",
-    "line": 32
+    "line": 32,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0017",
+    "candidate_id": "C-d6b4437d1a54",
     "file": "tests/test_api_jwt.py",
-    "line": 464
+    "line": 464,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0018",
+    "candidate_id": "C-6fe45bdbbdcc",
     "file": "tests/test_api_jwk.py",
-    "line": 82
+    "line": 82,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0019",
+    "candidate_id": "C-f3ecd7c8e445",
     "file": "tests/test_utils.py",
-    "line": 57
+    "line": 57,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0020",
+    "candidate_id": "C-56653f1dc1eb",
     "file": "jwt/api_jwk.py",
-    "line": 61
+    "line": 61,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0021",
+    "candidate_id": "C-fd7d5078aadd",
     "file": "tests/test_api_jwk.py",
-    "line": 85
+    "line": 85,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0022",
+    "candidate_id": "C-c5302829612b",
     "file": "jwt/api_jwk.py",
-    "line": 45
+    "line": 45,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0023",
+    "candidate_id": "C-72de27200219",
     "file": "jwt/api_jwt.py",
-    "line": 195
+    "line": 195,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0024",
+    "candidate_id": "C-2624efff5cec",
     "file": "tests/test_jwks_client.py",
-    "line": 49
+    "line": 49,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0025",
+    "candidate_id": "C-b646cf53e689",
     "file": "tests/test_api_jwk.py",
-    "line": 133
+    "line": 133,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0026",
+    "candidate_id": "C-b27aa19ac6f4",
     "file": "tests/test_advisory.py",
-    "line": 94
+    "line": 94,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0027",
+    "candidate_id": "C-ee0d4ca086fa",
     "file": "tests/test_advisory.py",
-    "line": 78
+    "line": 78,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0028",
+    "candidate_id": "C-3260e5e780fc",
     "file": "tests/test_api_jwk.py",
-    "line": 223
+    "line": 223,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0029",
+    "candidate_id": "C-c0db5a9e66fc",
     "file": "jwt/api_jws.py",
-    "line": 103
+    "line": 103,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0030",
+    "candidate_id": "C-3bc7d480b51b",
     "file": "tests/test_api_jwk.py",
-    "line": 334
+    "line": 334,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0031",
+    "candidate_id": "C-89a1ee214ebb",
     "file": "jwt/api_jwk.py",
-    "line": 47
+    "line": 47,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0032",
+    "candidate_id": "C-3f5f59af5d07",
     "file": "tests/test_api_jwk.py",
-    "line": 177
+    "line": 177,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0033",
+    "candidate_id": "C-996dae00eeae",
     "file": "jwt/api_jwt.py",
-    "line": 324
+    "line": 324,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0034",
+    "candidate_id": "C-9139c67bd5da",
     "file": "tests/test_api_jwk.py",
-    "line": 169
+    "line": 169,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0035",
+    "candidate_id": "C-dc6ac1c1e5dc",
     "file": "tests/test_api_jwk.py",
-    "line": 59
+    "line": 59,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0036",
+    "candidate_id": "C-964af1f4b86c",
     "file": "tests/test_api_jwk.py",
-    "line": 73
+    "line": 73,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0037",
+    "candidate_id": "C-b0c2a357c100",
     "file": "jwt/api_jwk.py",
-    "line": 54
+    "line": 54,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0038",
+    "candidate_id": "C-d632b0ee3ea4",
     "file": "tests/test_api_jwk.py",
-    "line": 109
+    "line": 109,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0039",
+    "candidate_id": "C-ac84608e9947",
     "file": "tests/test_advisory.py",
-    "line": 9
+    "line": 9,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0040",
+    "candidate_id": "C-c46f0633568a",
     "file": "tests/test_utils.py",
-    "line": 56
+    "line": 56,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0041",
+    "candidate_id": "C-eaf7d82e18fe",
     "file": "tests/test_advisory.py",
-    "line": 13
+    "line": 13,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0042",
+    "candidate_id": "C-72611b3d5c58",
     "file": "tests/test_api_jwk.py",
-    "line": 299
+    "line": 299,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0043",
+    "candidate_id": "C-9b2e9e00d139",
     "file": "tests/test_api_jwk.py",
-    "line": 347
+    "line": 347,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0044",
+    "candidate_id": "C-84ba75b4ff0a",
     "file": "tests/test_api_jwk.py",
-    "line": 125
+    "line": 125,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0045",
+    "candidate_id": "C-4fc5d0324953",
     "file": "tests/test_api_jwt.py",
-    "line": 483
+    "line": 483,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0046",
+    "candidate_id": "C-a2a413e31ffb",
     "file": "tests/test_api_jwt.py",
-    "line": 472
+    "line": 472,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0047",
+    "candidate_id": "C-a60711c62663",
     "file": "tests/test_api_jwt.py",
-    "line": 489
+    "line": 489,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0048",
+    "candidate_id": "C-41d0d04e5e41",
     "file": "tests/test_jwks_client.py",
-    "line": 267
+    "line": 267,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0049",
+    "candidate_id": "C-81a5cb65b740",
     "file": "tests/test_api_jwt.py",
-    "line": 451
+    "line": 451,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0050",
+    "candidate_id": "C-7612d9c5295e",
     "file": "tests/test_jwks_client.py",
-    "line": 334
+    "line": 334,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0051",
+    "candidate_id": "C-78ced192f96d",
     "file": "jwt/api_jwk.py",
-    "line": 44
+    "line": 44,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0052",
+    "candidate_id": "C-f01ba003ea31",
     "file": "tests/test_advisory.py",
-    "line": 82
+    "line": 82,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0053",
+    "candidate_id": "C-ebefd00049a5",
     "file": "tests/test_api_jwk.py",
-    "line": 53
+    "line": 53,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0054",
+    "candidate_id": "C-e47ade637a44",
     "file": "tests/test_api_jwk.py",
-    "line": 391
+    "line": 391,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0055",
+    "candidate_id": "C-939d7985f5b5",
     "file": "jwt/api_jwt.py",
-    "line": 101
+    "line": 101,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0056",
+    "candidate_id": "C-871d393201e9",
     "file": "tests/test_api_jwt.py",
-    "line": 495
+    "line": 495,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0057",
+    "candidate_id": "C-bb5fbf6e3fe9",
     "file": "jwt/api_jwk.py",
-    "line": 51
+    "line": 51,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0058",
+    "candidate_id": "C-cf815eae838d",
     "file": "tests/test_api_jwk.py",
-    "line": 162
+    "line": 162,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0059",
+    "candidate_id": "C-30f236b69ee7",
     "file": "tests/test_utils.py",
-    "line": 52
+    "line": 52,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0060",
+    "candidate_id": "C-3e319e3efd3a",
     "file": "jwt/api_jws.py",
-    "line": 211
+    "line": 211,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0061",
+    "candidate_id": "C-41e71b733093",
     "file": "tests/test_utils.py",
-    "line": 55
+    "line": 55,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0062",
+    "candidate_id": "C-e955888a5182",
     "file": "tests/test_api_jwt.py",
-    "line": 440
+    "line": 440,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0063",
+    "candidate_id": "C-4cec8913a7db",
     "file": "tests/test_jwks_client.py",
-    "line": 474
+    "line": 474,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0064",
+    "candidate_id": "C-1b5eefdc5488",
     "file": "jwt/api_jwk.py",
-    "line": 55
+    "line": 55,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0065",
+    "candidate_id": "C-a55f689f24cf",
     "file": "jwt/api_jwk.py",
-    "line": 48
+    "line": 48,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0066",
+    "candidate_id": "C-a281f547d565",
     "file": "tests/test_advisory.py",
-    "line": 71
+    "line": 71,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0067",
+    "candidate_id": "C-0720ed31cf6a",
     "file": "tests/test_api_jwk.py",
-    "line": 242
+    "line": 242,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0068",
+    "candidate_id": "C-4cb8d2d1e55e",
     "file": "tests/test_advisory.py",
-    "line": 79
+    "line": 79,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0069",
+    "candidate_id": "C-fd7d875f59fa",
     "file": "tests/test_api_jwt.py",
-    "line": 516
+    "line": 516,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0070",
+    "candidate_id": "C-a887c93f237d",
     "file": "tests/test_api_jwk.py",
-    "line": 356
+    "line": 356,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0071",
+    "candidate_id": "C-0efeac47ce27",
     "file": "tests/test_utils.py",
-    "line": 53
+    "line": 53,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0072",
+    "candidate_id": "C-12c7474e97ad",
     "file": "tests/test_api_jwk.py",
-    "line": 38
+    "line": 38,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0073",
+    "candidate_id": "C-e4829030ea2c",
     "file": "jwt/api_jwk.py",
-    "line": 50
+    "line": 50,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0074",
+    "candidate_id": "C-d6828c789dd6",
     "file": "tests/test_api_jwk.py",
-    "line": 217
+    "line": 217,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0075",
+    "candidate_id": "C-d79fc430b44e",
     "file": "tests/test_api_jwk.py",
-    "line": 97
+    "line": 97,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0076",
+    "candidate_id": "C-9099607185a5",
     "file": "tests/test_api_jwk.py",
-    "line": 351
+    "line": 351,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0077",
+    "candidate_id": "C-c9db1c563218",
     "file": "tests/test_api_jwk.py",
-    "line": 70
+    "line": 70,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-jpadilla__pyjwt-S2-0078",
+    "candidate_id": "C-3e79c32cad85",
     "file": "tests/test_api_jwk.py",
-    "line": 262
+    "line": 262,
+    "scope": "test"
    }
   ]
  },
- "pool_sha256": "04540f640a41904d8acc1def239687d459a63510497a8a1e13b81171bcc4cad2"
+ "counts": {
+  "S1-app": 111,
+  "S1-nonapp": 282,
+  "S2": 78
+ },
+ "pool_sha256": "2907fcd4d9a69f0c821402c2b6cc0d03d89c0ae35963727890bb18fadf00c306"
 }

@@ -1,3939 +1,4731 @@
 {
+ "format": "pqscan-order/2",
+ "protocol": "1.0.4",
  "repo": "ronf__asyncssh",
  "commit": "f1d1c7505468e3ebfd4eda90d831934e20f69bdf",
  "seed": 20261113,
  "strata": {
   "S1-app": [
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0001",
+    "candidate_id": "C-5d38d0778c7b",
     "file": "asyncssh/crypto/ec.py",
-    "line": 157
+    "line": 157,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0002",
+    "candidate_id": "C-4e8bd6bb10d2",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 156
+    "line": 156,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0003",
+    "candidate_id": "C-dddbccb5980f",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 127
+    "line": 127,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0004",
+    "candidate_id": "C-dcff208f191a",
     "file": "asyncssh/crypto/dsa.py",
-    "line": 73
+    "line": 73,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0005",
+    "candidate_id": "C-99d61cc5bf69",
     "file": "asyncssh/crypto/ed.py",
-    "line": 177
+    "line": 177,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0006",
+    "candidate_id": "C-6cfaa28a9e8f",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 61
+    "line": 61,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0007",
+    "candidate_id": "C-eac9b7b5d514",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 73
+    "line": 73,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0008",
+    "candidate_id": "C-c0a12c57d51c",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 96
+    "line": 96,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0009",
+    "candidate_id": "C-888bc608ed61",
     "file": "asyncssh/crypto/x509.py",
-    "line": 285
+    "line": 285,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0010",
+    "candidate_id": "C-6d9782357286",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 143
+    "line": 143,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0011",
+    "candidate_id": "C-f9e7133c8b92",
     "file": "asyncssh/crypto/dsa.py",
-    "line": 108
+    "line": 108,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0012",
+    "candidate_id": "C-84aa836ebd9b",
     "file": "asyncssh/crypto/cipher.py",
-    "line": 68
+    "line": 68,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0013",
+    "candidate_id": "C-07ba26ead77f",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 38
+    "line": 38,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0014",
+    "candidate_id": "C-c135ab7345d7",
     "file": "asyncssh/crypto/ed.py",
-    "line": 79
+    "line": 79,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0015",
+    "candidate_id": "C-b9d16fcb297e",
     "file": "asyncssh/crypto/ec.py",
-    "line": 108
+    "line": 108,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0016",
+    "candidate_id": "C-c457e485d685",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 166
+    "line": 166,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0017",
+    "candidate_id": "C-4ba494ccc7f5",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 106
+    "line": 106,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0018",
+    "candidate_id": "C-2ad541cf7162",
     "file": "asyncssh/crypto/ed.py",
-    "line": 154
+    "line": 154,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0019",
+    "candidate_id": "C-5d346bf4e476",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 55
+    "line": 55,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0020",
+    "candidate_id": "C-cea16f89bf6e",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 139
+    "line": 139,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0021",
+    "candidate_id": "C-af9f4744bf01",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 151
+    "line": 151,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0022",
+    "candidate_id": "C-c585f802f190",
     "file": "asyncssh/crypto/ec.py",
-    "line": 153
+    "line": 153,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0023",
+    "candidate_id": "C-401996784bb0",
     "file": "asyncssh/crypto/dh.py",
-    "line": 39
+    "line": 39,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0024",
+    "candidate_id": "C-d1a0b739f026",
     "file": "asyncssh/crypto/dsa.py",
-    "line": 118
+    "line": 118,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0025",
+    "candidate_id": "C-db238ea4a6f0",
     "file": "asyncssh/crypto/ed.py",
-    "line": 120
+    "line": 120,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0026",
+    "candidate_id": "C-b87ab20503a2",
     "file": "asyncssh/crypto/ed.py",
-    "line": 39
+    "line": 39,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0027",
+    "candidate_id": "C-46b30d86ae21",
     "file": "asyncssh/crypto/ec.py",
-    "line": 47
+    "line": 47,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0028",
+    "candidate_id": "C-d0e57ee49448",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 132
+    "line": 132,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0029",
+    "candidate_id": "C-3248d8321d56",
     "file": "asyncssh/crypto/cipher.py",
-    "line": 114
+    "line": 114,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0030",
+    "candidate_id": "C-4e9ab496f83c",
     "file": "asyncssh/crypto/ec.py",
-    "line": 168
+    "line": 168,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0031",
+    "candidate_id": "C-5163970b9522",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 97
+    "line": 97,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0032",
+    "candidate_id": "C-76e6f946aa8b",
     "file": "asyncssh/crypto/dh.py",
-    "line": 51
+    "line": 51,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0033",
+    "candidate_id": "C-56b3f36b5cb1",
     "file": "asyncssh/crypto/ec.py",
-    "line": 144
+    "line": 144,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0034",
+    "candidate_id": "C-9858be491873",
     "file": "asyncssh/crypto/dsa.py",
-    "line": 104
+    "line": 104,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0035",
+    "candidate_id": "C-39decf341a8e",
     "file": "asyncssh/crypto/ed.py",
-    "line": 67
+    "line": 67,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0036",
+    "candidate_id": "C-fcc4394e6633",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 40
+    "line": 40,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0037",
+    "candidate_id": "C-1869c78483f2",
     "file": "asyncssh/crypto/ec.py",
-    "line": 196
+    "line": 196,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0038",
+    "candidate_id": "C-439500a9e1a5",
     "file": "asyncssh/crypto/cipher.py",
-    "line": 63
+    "line": 63,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0039",
+    "candidate_id": "C-dbd3a2f629a4",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 100
+    "line": 100,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0040",
+    "candidate_id": "C-88d286229620",
     "file": "asyncssh/crypto/ed.py",
-    "line": 178
+    "line": 178,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0041",
+    "candidate_id": "C-b49a0ea590aa",
     "file": "asyncssh/crypto/ed.py",
-    "line": 111
+    "line": 111,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0042",
+    "candidate_id": "C-634491e1e0a6",
     "file": "asyncssh/crypto/ed.py",
-    "line": 167
+    "line": 167,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0043",
+    "candidate_id": "C-becd26e75cf8",
     "file": "asyncssh/crypto/ed.py",
-    "line": 141
+    "line": 141,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0044",
+    "candidate_id": "C-9f124166b994",
     "file": "asyncssh/crypto/ec.py",
-    "line": 107
+    "line": 107,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0045",
+    "candidate_id": "C-e0f16aa69461",
     "file": "asyncssh/crypto/ed.py",
-    "line": 155
+    "line": 155,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0046",
+    "candidate_id": "C-d91a8a1d4dc8",
     "file": "asyncssh/crypto/ed.py",
-    "line": 44
+    "line": 44,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0047",
+    "candidate_id": "C-1d863818d892",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 135
+    "line": 135,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0048",
+    "candidate_id": "C-f26f99326e2d",
     "file": "asyncssh/crypto/dsa.py",
-    "line": 87
+    "line": 87,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0049",
+    "candidate_id": "C-398a03427ef9",
     "file": "asyncssh/crypto/misc.py",
-    "line": 32
+    "line": 32,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0050",
+    "candidate_id": "C-5eefa0877eb5",
     "file": "asyncssh/crypto/dsa.py",
-    "line": 26
+    "line": 26,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0051",
+    "candidate_id": "C-8f4416dd45cc",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 116
+    "line": 116,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0052",
+    "candidate_id": "C-122c31465f0f",
     "file": "asyncssh/crypto/ec.py",
-    "line": 117
+    "line": 117,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0053",
+    "candidate_id": "C-675835a877f2",
     "file": "asyncssh/crypto/ed.py",
-    "line": 33
+    "line": 33,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0054",
+    "candidate_id": "C-4cf80afe8ad4",
     "file": "asyncssh/crypto/misc.py",
-    "line": 36
+    "line": 36,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0055",
+    "candidate_id": "C-44ecd6407730",
     "file": "asyncssh/crypto/dsa.py",
-    "line": 129
+    "line": 129,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0056",
+    "candidate_id": "C-3ce92485d899",
     "file": "asyncssh/crypto/ec.py",
-    "line": 199
+    "line": 199,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0057",
+    "candidate_id": "C-7461636d62bc",
     "file": "asyncssh/crypto/ec.py",
-    "line": 175
+    "line": 175,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0058",
+    "candidate_id": "C-559202f94da0",
     "file": "asyncssh/crypto/ed.py",
-    "line": 144
+    "line": 144,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0059",
+    "candidate_id": "C-cac5823a2b42",
     "file": "asyncssh/crypto/x509.py",
-    "line": 318
+    "line": 318,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0060",
+    "candidate_id": "C-318a44360342",
     "file": "asyncssh/crypto/dsa.py",
-    "line": 88
+    "line": 88,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0061",
+    "candidate_id": "C-a4f48cff30ba",
     "file": "asyncssh/crypto/dsa.py",
-    "line": 119
+    "line": 119,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0062",
+    "candidate_id": "C-00696a889819",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 21
+    "line": 21,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0063",
+    "candidate_id": "C-12d5a92a7d8e",
     "file": "asyncssh/crypto/ec.py",
-    "line": 143
+    "line": 143,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0064",
+    "candidate_id": "C-ec48b48cb4c2",
     "file": "asyncssh/crypto/ed.py",
-    "line": 37
+    "line": 37,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0065",
+    "candidate_id": "C-90a867f535ec",
     "file": "asyncssh/crypto/dsa.py",
-    "line": 107
+    "line": 107,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0066",
+    "candidate_id": "C-f306602c31e8",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 114
+    "line": 114,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0067",
+    "candidate_id": "C-f81b24c36d04",
     "file": "asyncssh/crypto/ed.py",
-    "line": 28
+    "line": 28,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0068",
+    "candidate_id": "C-78da64002cfb",
     "file": "asyncssh/crypto/x509.py",
-    "line": 418
+    "line": 418,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0069",
+    "candidate_id": "C-e57612eb58d7",
     "file": "asyncssh/crypto/dsa.py",
-    "line": 67
+    "line": 67,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0070",
+    "candidate_id": "C-b04548e254e3",
     "file": "asyncssh/crypto/x509.py",
-    "line": 422
+    "line": 422,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0071",
+    "candidate_id": "C-445d063d7f0d",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 113
+    "line": 113,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0072",
+    "candidate_id": "C-17662f934083",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 165
+    "line": 165,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0073",
+    "candidate_id": "C-81b7cadb920e",
     "file": "asyncssh/crypto/misc.py",
-    "line": 26
+    "line": 26,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0074",
+    "candidate_id": "C-5b9b669dc79e",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 103
+    "line": 103,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0075",
+    "candidate_id": "C-9512d170d4a7",
     "file": "asyncssh/crypto/cipher.py",
-    "line": 125
+    "line": 125,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0076",
+    "candidate_id": "C-c28eb49d57a2",
     "file": "asyncssh/crypto/ed.py",
-    "line": 71
+    "line": 71,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0077",
+    "candidate_id": "C-46ce411f0ba8",
     "file": "asyncssh/crypto/misc.py",
-    "line": 28
+    "line": 28,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0078",
+    "candidate_id": "C-a2b684d7a465",
     "file": "asyncssh/crypto/ec.py",
-    "line": 36
+    "line": 36,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0079",
+    "candidate_id": "C-c59b2a95854d",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 128
+    "line": 128,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0080",
+    "candidate_id": "C-8eea9649b2ef",
     "file": "asyncssh/crypto/kdf.py",
-    "line": 32
+    "line": 32,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0081",
+    "candidate_id": "C-e15448f8ea60",
     "file": "asyncssh/crypto/ec.py",
-    "line": 151
+    "line": 151,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0082",
+    "candidate_id": "C-eaecb9b406c2",
     "file": "asyncssh/crypto/ec.py",
-    "line": 111
+    "line": 111,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0083",
+    "candidate_id": "C-739d8c20e4e0",
     "file": "asyncssh/crypto/ec.py",
-    "line": 113
+    "line": 113,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0084",
+    "candidate_id": "C-d77603907790",
     "file": "asyncssh/crypto/ec.py",
-    "line": 58
+    "line": 58,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0085",
+    "candidate_id": "C-7aaba054f3d4",
     "file": "asyncssh/crypto/ec.py",
-    "line": 147
+    "line": 147,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0086",
+    "candidate_id": "C-edbd3f905d2c",
     "file": "asyncssh/crypto/dsa.py",
-    "line": 36
+    "line": 36,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0087",
+    "candidate_id": "C-4fd04940090f",
     "file": "asyncssh/crypto/ec.py",
-    "line": 167
+    "line": 167,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0088",
+    "candidate_id": "C-192c54f8b79a",
     "file": "asyncssh/crypto/dh.py",
-    "line": 38
+    "line": 38,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0089",
+    "candidate_id": "C-abb245859bcc",
     "file": "asyncssh/crypto/dsa.py",
-    "line": 38
+    "line": 38,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0090",
+    "candidate_id": "C-0846ddf0c8b5",
     "file": "asyncssh/crypto/chacha.py",
-    "line": 45
+    "line": 45,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0091",
+    "candidate_id": "C-e084fd0bd423",
     "file": "asyncssh/crypto/dh.py",
-    "line": 52
+    "line": 52,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0092",
+    "candidate_id": "C-ecf8588ff935",
     "file": "asyncssh/crypto/dh.py",
-    "line": 29
+    "line": 29,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0093",
+    "candidate_id": "C-ae289a7be6ed",
     "file": "asyncssh/crypto/ed.py",
-    "line": 107
+    "line": 107,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0094",
+    "candidate_id": "C-f66fc3b6df7f",
     "file": "asyncssh/crypto/dsa.py",
-    "line": 55
+    "line": 55,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0095",
+    "candidate_id": "C-22855b60f809",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 136
+    "line": 136,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0096",
+    "candidate_id": "C-96545281e7e3",
     "file": "asyncssh/crypto/misc.py",
-    "line": 43
+    "line": 43,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0097",
+    "candidate_id": "C-ae1865f507c0",
     "file": "asyncssh/crypto/ec.py",
-    "line": 140
+    "line": 140,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0098",
+    "candidate_id": "C-e89fbeba28d4",
     "file": "asyncssh/crypto/cipher.py",
-    "line": 148
+    "line": 148,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0099",
+    "candidate_id": "C-8ec0a376964a",
     "file": "asyncssh/crypto/ec.py",
-    "line": 125
+    "line": 125,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0100",
+    "candidate_id": "C-c7f3b28554df",
     "file": "asyncssh/crypto/dsa.py",
-    "line": 79
+    "line": 79,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0101",
+    "candidate_id": "C-0db2d46c0749",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 146
+    "line": 146,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0102",
+    "candidate_id": "C-ce3d481cdd6b",
     "file": "asyncssh/crypto/dsa.py",
-    "line": 95
+    "line": 95,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0103",
+    "candidate_id": "C-f48ff0d3b4a5",
     "file": "asyncssh/crypto/dsa.py",
-    "line": 86
+    "line": 86,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0104",
+    "candidate_id": "C-8dadfaba84ac",
     "file": "asyncssh/crypto/ed.py",
-    "line": 134
+    "line": 134,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0105",
+    "candidate_id": "C-c040f7666877",
     "file": "asyncssh/crypto/cipher.py",
-    "line": 110
+    "line": 110,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0106",
+    "candidate_id": "C-8459bfdf14bc",
     "file": "asyncssh/crypto/x509.py",
-    "line": 232
+    "line": 232,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0107",
+    "candidate_id": "C-24c39ad74ad4",
     "file": "asyncssh/crypto/ec.py",
-    "line": 129
+    "line": 129,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0108",
+    "candidate_id": "C-749da8584860",
     "file": "asyncssh/crypto/ed.py",
-    "line": 34
+    "line": 34,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0109",
+    "candidate_id": "C-59fd634b6df1",
     "file": "asyncssh/crypto/ec.py",
-    "line": 183
+    "line": 183,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0110",
+    "candidate_id": "C-7b7225ca6aa5",
     "file": "asyncssh/crypto/ed.py",
-    "line": 101
+    "line": 101,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0111",
+    "candidate_id": "C-511aae38eb52",
     "file": "asyncssh/crypto/ed.py",
-    "line": 72
+    "line": 72,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0112",
+    "candidate_id": "C-50cd7ee06632",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 49
+    "line": 49,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0113",
+    "candidate_id": "C-f70f694f9a22",
     "file": "asyncssh/crypto/dsa.py",
-    "line": 61
+    "line": 61,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0114",
+    "candidate_id": "C-c2533e9c23c7",
     "file": "asyncssh/crypto/ec.py",
-    "line": 174
+    "line": 174,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0115",
+    "candidate_id": "C-de46f23858d3",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 105
+    "line": 105,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0116",
+    "candidate_id": "C-4389d7e505da",
     "file": "asyncssh/crypto/ed.py",
-    "line": 113
+    "line": 113,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0117",
+    "candidate_id": "C-7d97b277abd3",
     "file": "asyncssh/crypto/dsa.py",
-    "line": 97
+    "line": 97,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0118",
+    "candidate_id": "C-6fe8c16db3c7",
     "file": "asyncssh/crypto/x509.py",
-    "line": 277
+    "line": 277,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0119",
+    "candidate_id": "C-af4b7d2b5668",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 157
+    "line": 157,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0120",
+    "candidate_id": "C-6433b1566b64",
     "file": "asyncssh/crypto/ed.py",
-    "line": 90
+    "line": 90,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0121",
+    "candidate_id": "C-be7683289c26",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 67
+    "line": 67,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0122",
+    "candidate_id": "C-873c90554d86",
     "file": "asyncssh/crypto/ec.py",
-    "line": 124
+    "line": 124,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0123",
+    "candidate_id": "C-0ee0980c69df",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 107
+    "line": 107,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0124",
+    "candidate_id": "C-992e3bc787e8",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 140
+    "line": 140,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0125",
+    "candidate_id": "C-42201af4633c",
     "file": "asyncssh/crypto/x509.py",
-    "line": 421
+    "line": 421,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0126",
+    "candidate_id": "C-ad46566f8b2c",
     "file": "asyncssh/crypto/ed.py",
-    "line": 75
+    "line": 75,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0127",
+    "candidate_id": "C-801e2200777f",
     "file": "asyncssh/crypto/misc.py",
-    "line": 25
+    "line": 25,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0128",
+    "candidate_id": "C-1acf37a41153",
     "file": "asyncssh/crypto/x509.py",
-    "line": 415
+    "line": 415,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0129",
+    "candidate_id": "C-ea3f4763cde0",
     "file": "asyncssh/crypto/ed.py",
-    "line": 27
+    "line": 27,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0130",
+    "candidate_id": "C-28aeb1729699",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 28
+    "line": 28,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0131",
+    "candidate_id": "C-643895c0abb9",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 147
+    "line": 147,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0132",
+    "candidate_id": "C-62b6116a4926",
     "file": "asyncssh/crypto/dsa.py",
-    "line": 21
+    "line": 21,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0133",
+    "candidate_id": "C-2793d755fabe",
     "file": "asyncssh/crypto/misc.py",
-    "line": 60
+    "line": 60,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0134",
+    "candidate_id": "C-63e2a6e82dfd",
     "file": "asyncssh/crypto/ec.py",
-    "line": 148
+    "line": 148,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0135",
+    "candidate_id": "C-ec3f7a792c2b",
     "file": "asyncssh/crypto/dsa.py",
-    "line": 128
+    "line": 128,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0136",
+    "candidate_id": "C-3d8e33af2811",
     "file": "asyncssh/crypto/x509.py",
-    "line": 411
+    "line": 411,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0137",
+    "candidate_id": "C-cf326a824aab",
     "file": "asyncssh/crypto/dsa.py",
-    "line": 49
+    "line": 49,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0138",
+    "candidate_id": "C-aab48b00095a",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 27
+    "line": 27,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0139",
+    "candidate_id": "C-d351a63bd9be",
     "file": "asyncssh/crypto/dsa.py",
-    "line": 116
+    "line": 116,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0140",
+    "candidate_id": "C-5196fdd13493",
     "file": "asyncssh/crypto/rsa.py",
-    "line": 144
+    "line": 144,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0141",
+    "candidate_id": "C-4fd2a8023472",
     "file": "asyncssh/crypto/dsa.py",
-    "line": 112
+    "line": 112,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0142",
+    "candidate_id": "C-7c979f911ca7",
     "file": "asyncssh/crypto/chacha.py",
-    "line": 77
+    "line": 77,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-app-0143",
+    "candidate_id": "C-966e09d16488",
     "file": "asyncssh/crypto/dsa.py",
-    "line": 84
+    "line": 84,
+    "scope": "app"
    }
   ],
-  "S1-test": [
+  "S1-nonapp": [
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0001",
+    "candidate_id": "C-9b57c34601ce",
+    "file": "tests/test_public_key.py",
+    "line": 1326,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-96dac1498165",
+    "file": "tests/test_public_key.py",
+    "line": 2221,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-82b6c59ffb0f",
+    "file": "tests/test_public_key.py",
+    "line": 886,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-1936dda076f8",
+    "file": "tests/test_public_key.py",
+    "line": 2145,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-d0577cda91c1",
     "file": "tests/test_connection_auth.py",
-    "line": 1023
+    "line": 562,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0002",
+    "candidate_id": "C-a999c0b27af4",
+    "file": "tests/test_public_key.py",
+    "line": 167,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-92ed6d822c42",
+    "file": "tests/test_public_key.py",
+    "line": 2228,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-764d13144d3e",
+    "file": "tests/test_public_key.py",
+    "line": 2355,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-cf5bf52a00d2",
     "file": "tests/test_connection_auth.py",
-    "line": 1003
+    "line": 1649,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0003",
+    "candidate_id": "C-590bdb1aadfd",
     "file": "tests/test_public_key.py",
-    "line": 2173
+    "line": 1313,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0004",
+    "candidate_id": "C-77dd5701a575",
     "file": "tests/test_public_key.py",
-    "line": 2224
+    "line": 1540,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0005",
+    "candidate_id": "C-7c09ca6f235a",
     "file": "tests/test_public_key.py",
-    "line": 2345
+    "line": 1296,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0006",
+    "candidate_id": "C-3ddd716cc317",
+    "file": "tests/test_public_key.py",
+    "line": 396,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-e12f498b5485",
+    "file": "tests/test_public_key.py",
+    "line": 2138,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-eaadb339408c",
     "file": "tests/test_connection_auth.py",
-    "line": 1046
+    "line": 1658,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0007",
+    "candidate_id": "C-99f0e6ee9971",
     "file": "tests/test_connection_auth.py",
-    "line": 1069
+    "line": 1560,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0008",
+    "candidate_id": "C-f60495b23585",
     "file": "tests/test_public_key.py",
-    "line": 2228
+    "line": 546,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0009",
+    "candidate_id": "C-7de95ae38ccc",
+    "file": "tests/test_connection_auth.py",
+    "line": 795,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-fe637062c372",
     "file": "tests/test_public_key.py",
-    "line": 1308
+    "line": 102,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0010",
+    "candidate_id": "C-81944f0c583b",
     "file": "tests/test_public_key.py",
-    "line": 1326
+    "line": 1280,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0011",
+    "candidate_id": "C-f63cd647b113",
+    "file": "tests/test_connection_auth.py",
+    "line": 1516,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-5c8fa3841d68",
+    "file": "tests/test_connection_auth.py",
+    "line": 1083,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-cf1655fa197c",
+    "file": "tests/test_connection_auth.py",
+    "line": 890,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-ccc5c28f94c7",
+    "file": "tests/test_connection_auth.py",
+    "line": 1076,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-b3afcc84635d",
+    "file": "tests/test_connection_auth.py",
+    "line": 1385,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-a76817f584d6",
     "file": "tests/test_public_key.py",
-    "line": 2355
+    "line": 2233,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0012",
+    "candidate_id": "C-b3dbe7177672",
+    "file": "tests/test_connection_auth.py",
+    "line": 782,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-77027893a98b",
     "file": "tests/test_public_key.py",
-    "line": 2363
+    "line": 2189,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0013",
+    "candidate_id": "C-907ac9ccab33",
+    "file": "tests/test_connection_auth.py",
+    "line": 1030,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-f39d03d8d65f",
+    "file": "tests/test_connection_auth.py",
+    "line": 509,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-ef60487bfa1a",
     "file": "tests/test_public_key.py",
-    "line": 2202
+    "line": 2132,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0014",
+    "candidate_id": "C-f90a05e1f862",
+    "file": "tests/test_connection_auth.py",
+    "line": 1054,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-e493f1820b4d",
     "file": "tests/test_public_key.py",
-    "line": 1300
+    "line": 2172,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0015",
+    "candidate_id": "C-99d8901dc1a9",
+    "file": "tests/test_public_key.py",
+    "line": 66,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-ac9e70026658",
+    "file": "tests/test_public_key.py",
+    "line": 1991,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-6a3c285e1b61",
+    "file": "tests/test_public_key.py",
+    "line": 144,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-a493a4963e81",
+    "file": "tests/test_public_key.py",
+    "line": 1305,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-ce3c7511900b",
+    "file": "tests/test_public_key.py",
+    "line": 2009,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-6cbede5eab8f",
+    "file": "tests/test_public_key.py",
+    "line": 2167,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-8a05b56fd367",
+    "file": "tests/test_public_key.py",
+    "line": 2353,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-dd4ff2c8e1f4",
+    "file": "tests/test_connection_auth.py",
+    "line": 904,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-6bdb21bda1df",
+    "file": "tests/test_connection_auth.py",
+    "line": 1531,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-f2c8d5417695",
+    "file": "tests/test_connection_auth.py",
+    "line": 1133,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-0fa174d3b8d7",
+    "file": "tests/test_public_key.py",
+    "line": 2345,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-c69cf68ce182",
+    "file": "tests/test_public_key.py",
+    "line": 2350,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-8826f64db343",
+    "file": "tests/test_public_key.py",
+    "line": 45,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-f7aa887e4ff6",
+    "file": "tests/test_public_key.py",
+    "line": 2347,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-1a41f1cbcc76",
+    "file": "tests/test_public_key.py",
+    "line": 1300,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-9e2fe2d08e5a",
+    "file": "tests/test_connection_auth.py",
+    "line": 1836,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-64dd4c53141d",
+    "file": "tests/test_public_key.py",
+    "line": 538,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-bca28ca05090",
+    "file": "tests/test_public_key.py",
+    "line": 2229,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-bcfd7e1cb629",
+    "file": "tests/test_public_key.py",
+    "line": 1270,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-53b2ef53c5ab",
+    "file": "tests/test_connection_auth.py",
+    "line": 1062,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-8a021c0c742f",
+    "file": "tests/test_connection_auth.py",
+    "line": 1003,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-c697d455129b",
+    "file": "tests/test_public_key.py",
+    "line": 2119,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-f34a278684fb",
+    "file": "tests/test_public_key.py",
+    "line": 2202,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-a3b31edd7287",
+    "file": "tests/test_public_key.py",
+    "line": 2165,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-b0d050b28aa9",
+    "file": "tests/test_public_key.py",
+    "line": 84,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-680dee472f20",
+    "file": "tests/test_public_key.py",
+    "line": 994,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-957b6f399505",
+    "file": "tests/test_public_key.py",
+    "line": 2255,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-2b71a3105d9d",
+    "file": "tests/test_public_key.py",
+    "line": 2195,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-fd10b31ef42d",
+    "file": "tests/test_public_key.py",
+    "line": 2117,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-e20a3dc8eec3",
+    "file": "tests/test_public_key.py",
+    "line": 2311,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-ca275aaff7a8",
+    "file": "tests/test_public_key.py",
+    "line": 50,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-f67edce3f09d",
+    "file": "tests/test_public_key.py",
+    "line": 2152,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-1f7fd2a0e3cb",
+    "file": "tests/test_public_key.py",
+    "line": 557,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-fb05ddd5f54d",
+    "file": "tests/test_public_key.py",
+    "line": 328,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-6076d2d04a56",
+    "file": "tests/test_public_key.py",
+    "line": 223,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-59601e95c675",
+    "file": "tests/test_public_key.py",
+    "line": 2224,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-38856818588d",
+    "file": "tests/test_public_key.py",
+    "line": 2181,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-daff31c008d6",
+    "file": "tests/test_connection_auth.py",
+    "line": 1320,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-3e9edd3e2d01",
+    "file": "tests/test_public_key.py",
+    "line": 2309,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-6d91be806e86",
+    "file": "tests/test_public_key.py",
+    "line": 2163,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-8364d6ecd2a5",
+    "file": "tests/test_connection_auth.py",
+    "line": 1027,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-c8a95c35188b",
+    "file": "tests/test_public_key.py",
+    "line": 2198,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-3a421ffee7bf",
+    "file": "tests/test_connection_auth.py",
+    "line": 501,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-99f74fa7e813",
+    "file": "tests/test_public_key.py",
+    "line": 2188,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-9b273e37acdd",
+    "file": "tests/test_public_key.py",
+    "line": 2196,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-81372a2c07a2",
+    "file": "tests/test_connection_auth.py",
+    "line": 1546,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-a04656b7ff19",
+    "file": "tests/test_public_key.py",
+    "line": 2277,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-a8216f97e49e",
+    "file": "tests/test_public_key.py",
+    "line": 2130,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-ca79890cf0c6",
+    "file": "tests/test_public_key.py",
+    "line": 2363,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-6fc1b1f21d93",
+    "file": "tests/test_public_key.py",
+    "line": 2206,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-642ae64d327e",
+    "file": "tests/test_public_key.py",
+    "line": 108,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-3d1a6ea82ed4",
+    "file": "tests/test_public_key.py",
+    "line": 2136,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-188a313306ad",
+    "file": "tests/test_public_key.py",
+    "line": 901,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-cb2da583b9c4",
+    "file": "tests/test_connection_auth.py",
+    "line": 1023,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-90da20741636",
+    "file": "tests/test_public_key.py",
+    "line": 2222,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-cd5abb9d8404",
+    "file": "tests/test_public_key.py",
+    "line": 2179,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-d2e17f2c3df8",
+    "file": "tests/test_connection_auth.py",
+    "line": 1046,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-ae961f0d8520",
+    "file": "tests/test_public_key.py",
+    "line": 2299,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-72c706ac3f84",
+    "file": "tests/test_public_key.py",
+    "line": 2307,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-2a05d70635a1",
+    "file": "tests/test_public_key.py",
+    "line": 2220,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-4a4e68c78d51",
+    "file": "tests/test_connection_auth.py",
+    "line": 1115,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-2a2c4a5a3760",
+    "file": "tests/test_connection_auth.py",
+    "line": 1574,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-d8f9c131a9d6",
+    "file": "tests/test_connection_auth.py",
+    "line": 1689,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-506a16bc0194",
+    "file": "tests/test_connection_auth.py",
+    "line": 492,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-739521fccb7b",
+    "file": "tests/test_public_key.py",
+    "line": 1290,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-660f321c7a68",
     "file": "tests/test_x509.py",
-    "line": 44
+    "line": 44,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0016",
+    "candidate_id": "C-2dbd559a89ed",
     "file": "tests/test_public_key.py",
-    "line": 2130
+    "line": 2164,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0017",
+    "candidate_id": "C-220e9b699838",
     "file": "tests/test_public_key.py",
-    "line": 2119
+    "line": 2357,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0018",
+    "candidate_id": "C-9e106243cdaa",
+    "file": "tests/test_public_key.py",
+    "line": 2007,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-759335052404",
+    "file": "tests/test_public_key.py",
+    "line": 1135,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-3289080527df",
+    "file": "tests/test_public_key.py",
+    "line": 2144,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-fbfd0bff59ed",
+    "file": "tests/test_public_key.py",
+    "line": 2271,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-b0924a832252",
+    "file": "tests/test_public_key.py",
+    "line": 2183,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-3716c3db5e34",
+    "file": "tests/test_public_key.py",
+    "line": 62,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-fe1131cb0422",
     "file": "tests/test_connection_auth.py",
-    "line": 1054
+    "line": 1124,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0019",
+    "candidate_id": "C-f65094ac6168",
     "file": "tests/test_public_key.py",
-    "line": 2357
+    "line": 564,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0020",
+    "candidate_id": "C-958f6330ac94",
     "file": "tests/test_connection_auth.py",
-    "line": 501
+    "line": 1037,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0021",
-    "file": "tests/test_public_key.py",
-    "line": 50
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0022",
-    "file": "tests/test_public_key.py",
-    "line": 546
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0023",
+    "candidate_id": "C-9038459ca91b",
     "file": "tests/test_connection_auth.py",
-    "line": 1037
+    "line": 1855,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0024",
+    "candidate_id": "C-91734da65f46",
     "file": "tests/test_public_key.py",
-    "line": 2277
+    "line": 2173,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0025",
-    "file": "tests/test_public_key.py",
-    "line": 2172
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0026",
-    "file": "tests/test_public_key.py",
-    "line": 2007
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0027",
-    "file": "tests/test_public_key.py",
-    "line": 2350
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0028",
+    "candidate_id": "C-64f3384a784a",
     "file": "tests/test_connection_auth.py",
-    "line": 1020
+    "line": 1373,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0029",
-    "file": "tests/test_public_key.py",
-    "line": 564
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0030",
-    "file": "tests/test_public_key.py",
-    "line": 2167
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0031",
-    "file": "tests/test_public_key.py",
-    "line": 2307
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0032",
+    "candidate_id": "C-3fa046467f27",
     "file": "tests/test_connection_auth.py",
-    "line": 1083
+    "line": 1020,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0033",
+    "candidate_id": "C-d23361ecc4eb",
     "file": "tests/test_connection_auth.py",
-    "line": 1385
+    "line": 1069,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0034",
-    "file": "tests/test_connection_auth.py",
-    "line": 795
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0035",
+    "candidate_id": "C-b26377905859",
     "file": "tests/test_public_key.py",
-    "line": 1290
+    "line": 1308,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0036",
-    "file": "tests/test_connection_auth.py",
-    "line": 1124
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0037",
-    "file": "tests/test_connection_auth.py",
-    "line": 1320
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0038",
+    "candidate_id": "C-eced6325f082",
     "file": "tests/test_public_key.py",
-    "line": 2163
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0039",
-    "file": "tests/test_public_key.py",
-    "line": 84
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0040",
-    "file": "tests/test_public_key.py",
-    "line": 2117
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0041",
-    "file": "tests/test_public_key.py",
-    "line": 62
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0042",
-    "file": "tests/test_public_key.py",
-    "line": 2145
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0043",
-    "file": "tests/test_public_key.py",
-    "line": 2152
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0044",
-    "file": "tests/test_connection_auth.py",
-    "line": 1516
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0045",
-    "file": "tests/test_connection_auth.py",
-    "line": 562
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0046",
-    "file": "tests/test_connection_auth.py",
-    "line": 1836
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0047",
-    "file": "tests/test_public_key.py",
-    "line": 328
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0048",
-    "file": "tests/test_public_key.py",
-    "line": 2189
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0049",
-    "file": "tests/test_public_key.py",
-    "line": 2188
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0050",
-    "file": "tests/test_connection_auth.py",
-    "line": 1560
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0051",
-    "file": "tests/test_connection_auth.py",
-    "line": 1546
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0052",
-    "file": "tests/test_connection_auth.py",
-    "line": 1855
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0053",
-    "file": "tests/test_public_key.py",
-    "line": 538
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0054",
-    "file": "tests/test_public_key.py",
-    "line": 66
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0055",
-    "file": "tests/test_public_key.py",
-    "line": 1991
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0056",
-    "file": "tests/test_public_key.py",
-    "line": 2222
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0057",
-    "file": "tests/test_public_key.py",
-    "line": 2009
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0058",
-    "file": "tests/test_connection_auth.py",
-    "line": 1658
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0059",
-    "file": "tests/test_public_key.py",
-    "line": 167
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0060",
-    "file": "tests/test_public_key.py",
-    "line": 2196
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0061",
-    "file": "tests/test_public_key.py",
-    "line": 2179
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0062",
-    "file": "tests/test_public_key.py",
-    "line": 1305
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0063",
-    "file": "tests/test_public_key.py",
-    "line": 2181
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0064",
-    "file": "tests/test_public_key.py",
-    "line": 2353
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0065",
-    "file": "tests/test_public_key.py",
-    "line": 2255
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0066",
-    "file": "tests/test_public_key.py",
-    "line": 2138
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0067",
-    "file": "tests/test_connection_auth.py",
-    "line": 1373
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0068",
-    "file": "tests/test_public_key.py",
-    "line": 1313
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0069",
-    "file": "tests/test_public_key.py",
-    "line": 108
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0070",
-    "file": "tests/test_public_key.py",
-    "line": 2229
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0071",
-    "file": "tests/test_public_key.py",
-    "line": 396
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0072",
-    "file": "tests/test_public_key.py",
-    "line": 2220
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0073",
-    "file": "tests/test_connection_auth.py",
-    "line": 1574
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0074",
-    "file": "tests/test_connection_auth.py",
-    "line": 1062
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0075",
-    "file": "tests/test_connection_auth.py",
-    "line": 492
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0076",
-    "file": "tests/test_public_key.py",
-    "line": 144
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0077",
-    "file": "tests/test_public_key.py",
-    "line": 557
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0078",
-    "file": "tests/test_public_key.py",
-    "line": 1296
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0079",
-    "file": "tests/test_public_key.py",
-    "line": 2144
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0080",
-    "file": "tests/test_connection_auth.py",
-    "line": 1030
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0081",
-    "file": "tests/test_connection_auth.py",
-    "line": 1649
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0082",
-    "file": "tests/test_public_key.py",
-    "line": 2198
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0083",
-    "file": "tests/test_connection_auth.py",
-    "line": 1076
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0084",
-    "file": "tests/test_connection_auth.py",
-    "line": 1531
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0085",
-    "file": "tests/test_public_key.py",
-    "line": 886
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0086",
-    "file": "tests/test_public_key.py",
-    "line": 901
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0087",
-    "file": "tests/test_connection_auth.py",
-    "line": 1689
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0088",
-    "file": "tests/test_connection_auth.py",
-    "line": 890
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0089",
-    "file": "tests/test_public_key.py",
-    "line": 2164
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0090",
-    "file": "tests/test_public_key.py",
-    "line": 1135
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0091",
-    "file": "tests/test_public_key.py",
-    "line": 994
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0092",
-    "file": "tests/test_public_key.py",
-    "line": 2136
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0093",
-    "file": "tests/test_public_key.py",
-    "line": 2132
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0094",
-    "file": "tests/test_public_key.py",
-    "line": 1540
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0095",
-    "file": "tests/test_public_key.py",
-    "line": 2221
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0096",
-    "file": "tests/test_public_key.py",
-    "line": 2206
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0097",
-    "file": "tests/test_public_key.py",
-    "line": 1273
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0098",
-    "file": "tests/test_public_key.py",
-    "line": 2311
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0099",
-    "file": "tests/test_public_key.py",
-    "line": 102
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0100",
-    "file": "tests/test_public_key.py",
-    "line": 2183
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0101",
-    "file": "tests/test_connection_auth.py",
-    "line": 1027
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0102",
-    "file": "tests/test_connection_auth.py",
-    "line": 782
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0103",
-    "file": "tests/test_public_key.py",
-    "line": 2233
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0104",
-    "file": "tests/test_public_key.py",
-    "line": 2299
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0105",
-    "file": "tests/test_public_key.py",
-    "line": 2309
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0106",
-    "file": "tests/test_public_key.py",
-    "line": 1280
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0107",
-    "file": "tests/test_connection_auth.py",
-    "line": 904
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0108",
-    "file": "tests/test_public_key.py",
-    "line": 1270
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0109",
-    "file": "tests/test_connection_auth.py",
-    "line": 1115
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0110",
-    "file": "tests/test_connection_auth.py",
-    "line": 509
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0111",
-    "file": "tests/test_public_key.py",
-    "line": 223
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0112",
-    "file": "tests/test_public_key.py",
-    "line": 2271
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0113",
-    "file": "tests/test_public_key.py",
-    "line": 2195
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0114",
-    "file": "tests/test_connection_auth.py",
-    "line": 1133
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0115",
-    "file": "tests/test_public_key.py",
-    "line": 2347
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0116",
-    "file": "tests/test_public_key.py",
-    "line": 45
-   },
-   {
-    "candidate_id": "C-ronf__asyncssh-S1-test-0117",
-    "file": "tests/test_public_key.py",
-    "line": 2165
+    "line": 1273,
+    "scope": "test"
    }
   ],
   "S2": [
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0001",
+    "candidate_id": "C-884b4e2488ef",
     "file": "asyncssh/eddsa.py",
-    "line": 183
+    "line": 183,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0002",
+    "candidate_id": "C-274385173bc0",
     "file": "asyncssh/public_key.py",
-    "line": 1899
+    "line": 1899,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0003",
+    "candidate_id": "C-e186b134b3be",
     "file": "tests/test_auth_keys.py",
-    "line": 162
+    "line": 162,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0004",
+    "candidate_id": "C-43d475a34deb",
     "file": "asyncssh/ecdsa.py",
-    "line": 126
+    "line": 126,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0005",
+    "candidate_id": "C-6d33f5682dfd",
     "file": "asyncssh/rsa.py",
-    "line": 229
+    "line": 229,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0006",
+    "candidate_id": "C-f7861557b703",
     "file": "tests/sk_stub.py",
-    "line": 28
+    "line": 28,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0007",
+    "candidate_id": "C-75d34948f520",
     "file": "asyncssh/public_key.py",
-    "line": 1880
+    "line": 1880,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0008",
+    "candidate_id": "C-4531ef7bd505",
     "file": "asyncssh/eddsa.py",
-    "line": 40
+    "line": 40,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0009",
+    "candidate_id": "C-7fe0c27a8ecc",
     "file": "asyncssh/public_key.py",
-    "line": 1152
+    "line": 1152,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0010",
+    "candidate_id": "C-604a0dbe3b0a",
     "file": "asyncssh/public_key.py",
-    "line": 236
+    "line": 236,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0011",
+    "candidate_id": "C-2b43ff6a75b6",
     "file": "asyncssh/sk_ecdsa.py",
-    "line": 86
+    "line": 86,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0012",
+    "candidate_id": "C-fca476432e06",
     "file": "asyncssh/kex_dh.py",
-    "line": 471
+    "line": 471,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0013",
+    "candidate_id": "C-1b64b74181f2",
     "file": "tests/test_known_hosts.py",
-    "line": 62
+    "line": 62,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0014",
+    "candidate_id": "C-bac315dc1461",
     "file": "asyncssh/kex_dh.py",
-    "line": 757
+    "line": 757,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0015",
+    "candidate_id": "C-ed17b1662466",
     "file": "asyncssh/mac.py",
-    "line": 99
+    "line": 99,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0016",
+    "candidate_id": "C-43d2360365c9",
     "file": "asyncssh/dsa.py",
-    "line": 162
+    "line": 162,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0017",
+    "candidate_id": "C-0b15d615cd82",
     "file": "asyncssh/known_hosts.py",
-    "line": 42
+    "line": 42,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0018",
+    "candidate_id": "C-8f1ce7f5dd04",
     "file": "tests/test_connection.py",
-    "line": 990
+    "line": 990,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0019",
+    "candidate_id": "C-31e0e552395b",
     "file": "asyncssh/sk_ecdsa.py",
-    "line": 152
+    "line": 152,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0020",
+    "candidate_id": "C-196146d1d04e",
     "file": "asyncssh/dsa.py",
-    "line": 194
+    "line": 194,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0021",
+    "candidate_id": "C-dea4e4287b4c",
     "file": "asyncssh/encryption.py",
-    "line": 107
+    "line": 107,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0022",
+    "candidate_id": "C-cc6627aeb908",
     "file": "tests/server.py",
-    "line": 114
+    "line": 114,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0023",
+    "candidate_id": "C-dc094a44452e",
     "file": "asyncssh/kex_dh.py",
-    "line": 774
+    "line": 774,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0024",
+    "candidate_id": "C-c700d234c091",
     "file": "asyncssh/dsa.py",
-    "line": 104
+    "line": 104,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0025",
+    "candidate_id": "C-8539fd044ef8",
     "file": "asyncssh/kex_dh.py",
-    "line": 795
+    "line": 795,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0026",
+    "candidate_id": "C-5b02c8a48366",
     "file": "asyncssh/sk_ecdsa.py",
-    "line": 21
+    "line": 21,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0027",
+    "candidate_id": "C-ad7ddc12ce42",
     "file": "asyncssh/rsa.py",
-    "line": 305
+    "line": 305,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0028",
+    "candidate_id": "C-fb53089785e9",
     "file": "asyncssh/connection.py",
-    "line": 6159
+    "line": 6159,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0029",
+    "candidate_id": "C-05d66630f861",
     "file": "asyncssh/sk_ecdsa.py",
-    "line": 235
+    "line": 235,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0030",
+    "candidate_id": "C-02933d60a330",
     "file": "asyncssh/pbe.py",
-    "line": 448
+    "line": 448,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0031",
+    "candidate_id": "C-eaa80fcde99a",
     "file": "asyncssh/public_key.py",
-    "line": 905
+    "line": 905,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0032",
+    "candidate_id": "C-657dd8adab7c",
     "file": "asyncssh/public_key.py",
-    "line": 567
+    "line": 567,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0033",
+    "candidate_id": "C-12c012d3f1f0",
     "file": "examples/simple_server.py",
-    "line": 63
+    "line": 63,
+    "scope": "example"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0034",
+    "candidate_id": "C-3fcabde77e2b",
     "file": "tests/test_agent.py",
-    "line": 335
+    "line": 335,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0035",
+    "candidate_id": "C-00a88d071dd4",
     "file": "tests/test_kex.py",
-    "line": 307
+    "line": 307,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0036",
+    "candidate_id": "C-817b3969e82d",
     "file": "asyncssh/sk_ecdsa.py",
-    "line": 32
+    "line": 32,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0037",
+    "candidate_id": "C-780427c3ab3e",
     "file": "asyncssh/known_hosts.py",
-    "line": 100
+    "line": 100,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0038",
+    "candidate_id": "C-7c936c6af16a",
     "file": "asyncssh/mac.py",
-    "line": 23
+    "line": 23,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0039",
+    "candidate_id": "C-d2b73bfc204a",
     "file": "tests/test_connection.py",
-    "line": 658
+    "line": 658,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0040",
+    "candidate_id": "C-99a3a06a94a1",
     "file": "asyncssh/public_key.py",
-    "line": 35
+    "line": 35,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0041",
+    "candidate_id": "C-efb0b407ebd2",
     "file": "asyncssh/sk.py",
-    "line": 149
+    "line": 149,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0042",
+    "candidate_id": "C-42aa463b712d",
     "file": "tests/test_kex.py",
-    "line": 313
+    "line": 313,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0043",
+    "candidate_id": "C-9853acc16ea2",
     "file": "tests/test_connection.py",
-    "line": 1090
+    "line": 1090,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0044",
+    "candidate_id": "C-9aa1a75bdcf5",
     "file": "asyncssh/gss_unix.py",
-    "line": 125
+    "line": 125,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0045",
+    "candidate_id": "C-e74ac71a1d61",
     "file": "asyncssh/pbe.py",
-    "line": 438
+    "line": 438,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0046",
+    "candidate_id": "C-734b397fb286",
     "file": "asyncssh/eddsa.py",
-    "line": 80
+    "line": 80,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0047",
+    "candidate_id": "C-af84f7797f95",
     "file": "asyncssh/eddsa.py",
-    "line": 206
+    "line": 206,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0048",
+    "candidate_id": "C-be15f7fcf16d",
     "file": "asyncssh/kex_dh.py",
-    "line": 415
+    "line": 415,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0049",
+    "candidate_id": "C-ea91d26e4a1b",
     "file": "asyncssh/pkcs11.py",
-    "line": 30
+    "line": 30,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0050",
+    "candidate_id": "C-86fc1de66c69",
     "file": "asyncssh/known_hosts.py",
-    "line": 224
+    "line": 224,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0051",
+    "candidate_id": "C-e1f58bb4f323",
     "file": "asyncssh/agent.py",
-    "line": 167
+    "line": 167,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0052",
+    "candidate_id": "C-676579884c74",
     "file": "asyncssh/kex_dh.py",
-    "line": 760
+    "line": 760,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0053",
+    "candidate_id": "C-a8a34390beb1",
     "file": "asyncssh/rsa.py",
-    "line": 208
+    "line": 208,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0054",
+    "candidate_id": "C-8c71d881ca58",
     "file": "asyncssh/sk.py",
-    "line": 44
+    "line": 44,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0055",
+    "candidate_id": "C-000a25789087",
     "file": "asyncssh/public_key.py",
-    "line": 3067
+    "line": 3067,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0056",
+    "candidate_id": "C-4e32cbef3f21",
     "file": "tests/test_agent.py",
-    "line": 397
+    "line": 397,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0057",
+    "candidate_id": "C-24690d150d4b",
     "file": "asyncssh/auth_keys.py",
-    "line": 240
+    "line": 240,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0058",
+    "candidate_id": "C-d186fe2c273d",
     "file": "asyncssh/public_key.py",
-    "line": 1865
+    "line": 1865,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0059",
+    "candidate_id": "C-792f2cae45d6",
     "file": "tests/test_agent.py",
-    "line": 179
+    "line": 179,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0060",
+    "candidate_id": "C-2c9d4a84858a",
     "file": "asyncssh/sk.py",
-    "line": 190
+    "line": 190,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0061",
+    "candidate_id": "C-9d68336d3509",
     "file": "asyncssh/kex_dh.py",
-    "line": 776
+    "line": 776,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0062",
+    "candidate_id": "C-f7fd7278af79",
     "file": "asyncssh/public_key.py",
-    "line": 554
+    "line": 554,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0063",
+    "candidate_id": "C-2400f6070e44",
     "file": "asyncssh/sk_eddsa.py",
-    "line": 54
+    "line": 54,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0064",
+    "candidate_id": "C-a86bc263575d",
     "file": "asyncssh/sk_ecdsa.py",
-    "line": 141
+    "line": 141,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0065",
+    "candidate_id": "C-cf226129e1ad",
     "file": "asyncssh/known_hosts.py",
-    "line": 108
+    "line": 108,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0066",
+    "candidate_id": "C-1260097ecf44",
     "file": "asyncssh/eddsa.py",
-    "line": 68
+    "line": 68,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0067",
+    "candidate_id": "C-72854a445062",
     "file": "asyncssh/sk_eddsa.py",
-    "line": 43
+    "line": 43,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0068",
+    "candidate_id": "C-61d86fbee8be",
     "file": "asyncssh/kex_dh.py",
-    "line": 414
+    "line": 414,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0069",
+    "candidate_id": "C-da90bf8ce74f",
     "file": "tests/test_kex.py",
-    "line": 450
+    "line": 450,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0070",
+    "candidate_id": "C-b677cd9068ef",
     "file": "asyncssh/kex_rsa.py",
-    "line": 23
+    "line": 23,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0071",
+    "candidate_id": "C-f480c46cac17",
     "file": "asyncssh/sk.py",
-    "line": 88
+    "line": 88,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0072",
+    "candidate_id": "C-29b3fb44928c",
     "file": "tests/test_connection.py",
-    "line": 652
+    "line": 652,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0073",
+    "candidate_id": "C-42d2af115132",
     "file": "asyncssh/sk_eddsa.py",
-    "line": 85
+    "line": 85,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0074",
+    "candidate_id": "C-ccc7b8263d36",
     "file": "asyncssh/public_key.py",
-    "line": 3168
+    "line": 3168,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0075",
+    "candidate_id": "C-b9cc12e2df44",
     "file": "asyncssh/mac.py",
-    "line": 93
+    "line": 93,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0076",
+    "candidate_id": "C-951c6314ecc2",
     "file": "asyncssh/ecdsa.py",
-    "line": 64
+    "line": 64,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0077",
+    "candidate_id": "C-03b5d10483f8",
     "file": "tests/test_pkcs11.py",
-    "line": 169
+    "line": 169,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0078",
+    "candidate_id": "C-babce2a59d84",
     "file": "asyncssh/agent.py",
-    "line": 169
+    "line": 169,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0079",
+    "candidate_id": "C-374b32813c64",
     "file": "asyncssh/agent.py",
-    "line": 175
+    "line": 175,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0080",
+    "candidate_id": "C-ee10da390329",
     "file": "tests/test_kex.py",
-    "line": 466
+    "line": 466,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0081",
+    "candidate_id": "C-c98df3efe331",
     "file": "tests/test_forward.py",
-    "line": 573
+    "line": 573,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0082",
+    "candidate_id": "C-720afe37e5b4",
     "file": "asyncssh/connection.py",
-    "line": 3833
+    "line": 3833,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0083",
+    "candidate_id": "C-c0070954a60f",
     "file": "asyncssh/sk_eddsa.py",
-    "line": 75
+    "line": 75,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0084",
+    "candidate_id": "C-a4528a0a12b7",
     "file": "asyncssh/sk.py",
-    "line": 167
+    "line": 167,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0085",
+    "candidate_id": "C-747f9934a758",
     "file": "asyncssh/connection.py",
-    "line": 7545
+    "line": 7545,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0086",
+    "candidate_id": "C-62354cf15465",
     "file": "tests/test_agent.py",
-    "line": 288
+    "line": 288,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0087",
+    "candidate_id": "C-9df5e5afa4fc",
     "file": "asyncssh/rsa.py",
-    "line": 98
+    "line": 98,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0088",
+    "candidate_id": "C-f0ba6299f9c2",
     "file": "asyncssh/sk_eddsa.py",
-    "line": 92
+    "line": 92,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0089",
+    "candidate_id": "C-9408b00025e1",
     "file": "asyncssh/sk_eddsa.py",
-    "line": 51
+    "line": 51,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0090",
+    "candidate_id": "C-21270d1c932f",
     "file": "asyncssh/rsa.py",
-    "line": 127
+    "line": 127,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0091",
+    "candidate_id": "C-266e7ae37077",
     "file": "asyncssh/dsa.py",
-    "line": 21
+    "line": 21,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0092",
+    "candidate_id": "C-80af1a1efe87",
     "file": "asyncssh/known_hosts.py",
-    "line": 89
+    "line": 89,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0093",
+    "candidate_id": "C-ba4d3eb1c28d",
     "file": "asyncssh/crypto/__init__.py",
-    "line": 56
+    "line": 56,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0094",
+    "candidate_id": "C-97d071f13487",
     "file": "tests/server.py",
-    "line": 131
+    "line": 131,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0095",
+    "candidate_id": "C-e5c45be786d6",
     "file": "asyncssh/kex_dh.py",
-    "line": 445
+    "line": 445,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0096",
+    "candidate_id": "C-3275dafa91e9",
     "file": "asyncssh/kex_dh.py",
-    "line": 58
+    "line": 58,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0097",
+    "candidate_id": "C-099b90a1ad48",
     "file": "asyncssh/sk_ecdsa.py",
-    "line": 119
+    "line": 119,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0098",
+    "candidate_id": "C-9ce1fb3adef3",
     "file": "asyncssh/kex_dh.py",
-    "line": 21
+    "line": 21,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0099",
+    "candidate_id": "C-2a899842de06",
     "file": "asyncssh/public_key.py",
-    "line": 1952
+    "line": 1952,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0100",
+    "candidate_id": "C-128d5f0c5b9d",
     "file": "asyncssh/crypto/__init__.py",
-    "line": 31
+    "line": 31,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0101",
+    "candidate_id": "C-e505b15dcbe8",
     "file": "asyncssh/known_hosts.py",
-    "line": 49
+    "line": 49,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0102",
+    "candidate_id": "C-94481b242eed",
     "file": "tests/test_kex.py",
-    "line": 161
+    "line": 161,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0103",
+    "candidate_id": "C-67872867e330",
     "file": "asyncssh/sk.py",
-    "line": 273
+    "line": 273,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0104",
+    "candidate_id": "C-ab78db5adc9a",
     "file": "asyncssh/public_key.py",
-    "line": 2986
+    "line": 2986,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0105",
+    "candidate_id": "C-7c668e40d2b9",
     "file": "tests/test_kex.py",
-    "line": 156
+    "line": 156,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0106",
+    "candidate_id": "C-dcd5c8d07345",
     "file": "asyncssh/kex_rsa.py",
-    "line": 21
+    "line": 21,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0107",
+    "candidate_id": "C-1c9cec0d4e56",
     "file": "asyncssh/connection.py",
-    "line": 7613
+    "line": 7613,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0108",
+    "candidate_id": "C-e9655e8e2d1f",
     "file": "tests/test_kex.py",
-    "line": 441
+    "line": 441,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0109",
+    "candidate_id": "C-7659003a008b",
     "file": "asyncssh/kex_dh.py",
-    "line": 742
+    "line": 742,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0110",
+    "candidate_id": "C-fe59bb507abc",
     "file": "tests/sk_stub.py",
-    "line": 202
+    "line": 202,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0111",
+    "candidate_id": "C-568fc2876d48",
     "file": "asyncssh/kex_dh.py",
-    "line": 504
+    "line": 504,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0112",
+    "candidate_id": "C-c2857fc71f38",
     "file": "asyncssh/sk_eddsa.py",
-    "line": 139
+    "line": 139,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0113",
+    "candidate_id": "C-608aca83d67c",
     "file": "tests/test_pkcs11.py",
-    "line": 39
+    "line": 39,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0114",
+    "candidate_id": "C-edb26a3705b6",
     "file": "asyncssh/sk.py",
-    "line": 53
+    "line": 53,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0115",
+    "candidate_id": "C-9966cbb4804e",
     "file": "tests/test_connection.py",
-    "line": 989
+    "line": 989,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0116",
+    "candidate_id": "C-4dfcffdd811c",
     "file": "tests/test_kex.py",
-    "line": 461
+    "line": 461,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0117",
+    "candidate_id": "C-174ece4c0b60",
     "file": "tests/test_kex.py",
-    "line": 284
+    "line": 284,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0118",
+    "candidate_id": "C-a84da51c0b0a",
     "file": "tests/test_kex.py",
-    "line": 296
+    "line": 296,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0119",
+    "candidate_id": "C-02c073db5093",
     "file": "asyncssh/public_key.py",
-    "line": 2606
+    "line": 2606,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0120",
+    "candidate_id": "C-19f5fa68fc3f",
     "file": "tests/sk_stub.py",
-    "line": 172
+    "line": 172,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0121",
+    "candidate_id": "C-61f517728351",
     "file": "asyncssh/sk_ecdsa.py",
-    "line": 159
+    "line": 159,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0122",
+    "candidate_id": "C-d5c8410f8909",
     "file": "asyncssh/eddsa.py",
-    "line": 21
+    "line": 21,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0123",
+    "candidate_id": "C-02c65ea234ab",
     "file": "asyncssh/dsa.py",
-    "line": 93
+    "line": 93,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0124",
+    "candidate_id": "C-c0c05673b88e",
     "file": "asyncssh/rsa.py",
-    "line": 105
+    "line": 105,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0125",
+    "candidate_id": "C-7dba2feb5be5",
     "file": "tests/test_known_hosts.py",
-    "line": 80
+    "line": 80,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0126",
+    "candidate_id": "C-d657b89d0c51",
     "file": "tests/test_kex.py",
-    "line": 166
+    "line": 166,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0127",
+    "candidate_id": "C-0bf5430e8681",
     "file": "asyncssh/pbe.py",
-    "line": 115
+    "line": 115,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0128",
+    "candidate_id": "C-0cf749cdb76e",
     "file": "asyncssh/kex_dh.py",
-    "line": 772
+    "line": 772,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0129",
+    "candidate_id": "C-7ea36c123b5f",
     "file": "asyncssh/sk.py",
-    "line": 248
+    "line": 248,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0130",
+    "candidate_id": "C-2288b8ef9829",
     "file": "asyncssh/rsa.py",
-    "line": 194
+    "line": 194,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0131",
+    "candidate_id": "C-8f4d06d1945f",
     "file": "asyncssh/connection.py",
-    "line": 3830
+    "line": 3830,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0132",
+    "candidate_id": "C-e9e9eeb0c49d",
     "file": "asyncssh/rsa.py",
-    "line": 34
+    "line": 34,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0133",
+    "candidate_id": "C-8bceeb266923",
     "file": "tests/test_kex.py",
-    "line": 681
+    "line": 681,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0134",
+    "candidate_id": "C-916b3cf5094f",
     "file": "asyncssh/public_key.py",
-    "line": 3268
+    "line": 3268,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0135",
+    "candidate_id": "C-e0e2a381a3b1",
     "file": "asyncssh/rsa.py",
-    "line": 272
+    "line": 272,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0136",
+    "candidate_id": "C-b668971218f8",
     "file": "asyncssh/sk_eddsa.py",
-    "line": 129
+    "line": 129,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0137",
+    "candidate_id": "C-4d4844bf5616",
     "file": "asyncssh/ecdsa.py",
-    "line": 147
+    "line": 147,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0138",
+    "candidate_id": "C-81a898562d05",
     "file": "asyncssh/kex_dh.py",
-    "line": 463
+    "line": 463,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0139",
+    "candidate_id": "C-64d3dbaddcf0",
     "file": "asyncssh/mac.py",
-    "line": 117
+    "line": 117,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0140",
+    "candidate_id": "C-d63c26c814b3",
     "file": "asyncssh/dsa.py",
-    "line": 84
+    "line": 84,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0141",
+    "candidate_id": "C-e7761bcea9cc",
     "file": "asyncssh/sk_ecdsa.py",
-    "line": 111
+    "line": 111,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0142",
+    "candidate_id": "C-46bc398c564f",
     "file": "tests/sk_stub.py",
-    "line": 150
+    "line": 150,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0143",
+    "candidate_id": "C-be7bca24be8a",
     "file": "asyncssh/kex_dh.py",
-    "line": 741
+    "line": 741,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0144",
+    "candidate_id": "C-2a19d6006480",
     "file": "tests/server.py",
-    "line": 127
+    "line": 127,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0145",
+    "candidate_id": "C-d4241673df9b",
     "file": "asyncssh/kex_dh.py",
-    "line": 769
+    "line": 769,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0146",
+    "candidate_id": "C-9fa876c3b1f0",
     "file": "asyncssh/pbe.py",
-    "line": 446
+    "line": 446,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0147",
+    "candidate_id": "C-8e8ed07f907b",
     "file": "asyncssh/public_key.py",
-    "line": 2007
+    "line": 2007,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0148",
+    "candidate_id": "C-38726b1ab0ac",
     "file": "tests/test_sk.py",
-    "line": 313
+    "line": 313,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0149",
+    "candidate_id": "C-d1b33be04be0",
     "file": "asyncssh/public_key.py",
-    "line": 120
+    "line": 120,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0150",
+    "candidate_id": "C-8e040b6e7bc9",
     "file": "asyncssh/kex_dh.py",
-    "line": 74
+    "line": 74,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0151",
+    "candidate_id": "C-496a03c17e56",
     "file": "asyncssh/connection.py",
-    "line": 6204
+    "line": 6204,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0152",
+    "candidate_id": "C-32ecd390baf1",
     "file": "asyncssh/public_key.py",
-    "line": 2437
+    "line": 2437,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0153",
+    "candidate_id": "C-b7c70fbc721d",
     "file": "asyncssh/pbe.py",
-    "line": 133
+    "line": 133,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0154",
+    "candidate_id": "C-b4da9f528332",
     "file": "tests/test_forward.py",
-    "line": 1310
+    "line": 1310,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0155",
+    "candidate_id": "C-fdd113cd9d0f",
     "file": "asyncssh/known_hosts.py",
-    "line": 223
+    "line": 223,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0156",
+    "candidate_id": "C-218d2b80a184",
     "file": "tests/sk_stub.py",
-    "line": 260
+    "line": 260,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0157",
+    "candidate_id": "C-c3f7de789ac0",
     "file": "asyncssh/encryption.py",
-    "line": 231
+    "line": 231,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0158",
+    "candidate_id": "C-6d224cf5c83a",
     "file": "tests/test_kex.py",
-    "line": 230
+    "line": 230,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0159",
+    "candidate_id": "C-b4186912fbf5",
     "file": "asyncssh/agent.py",
-    "line": 126
+    "line": 126,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0160",
+    "candidate_id": "C-3cdf6f88454b",
     "file": "tests/test_kex.py",
-    "line": 179
+    "line": 179,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0161",
+    "candidate_id": "C-02c98a218697",
     "file": "tests/test_kex.py",
-    "line": 510
+    "line": 510,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0162",
+    "candidate_id": "C-d5c68137244a",
     "file": "asyncssh/rsa.py",
-    "line": 102
+    "line": 102,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0163",
+    "candidate_id": "C-13aa771fec90",
     "file": "tests/pkcs11_stub.py",
-    "line": 37
+    "line": 37,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0164",
+    "candidate_id": "C-b2b01469fd4b",
     "file": "tests/sk_stub.py",
-    "line": 306
+    "line": 306,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0165",
+    "candidate_id": "C-ecf9700413e7",
     "file": "tests/test_sk.py",
-    "line": 201
+    "line": 201,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0166",
+    "candidate_id": "C-ae6ca2644fc1",
     "file": "asyncssh/rsa.py",
-    "line": 248
+    "line": 248,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0167",
+    "candidate_id": "C-2ba8608eae23",
     "file": "asyncssh/ecdsa.py",
-    "line": 55
+    "line": 55,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0168",
+    "candidate_id": "C-2c522dd732c1",
     "file": "tests/server.py",
-    "line": 176
+    "line": 176,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0169",
+    "candidate_id": "C-2f4bb387a97c",
     "file": "asyncssh/public_key.py",
-    "line": 3449
+    "line": 3449,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0170",
+    "candidate_id": "C-e20fee5f07e5",
     "file": "asyncssh/public_key.py",
-    "line": 1932
+    "line": 1932,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0171",
+    "candidate_id": "C-8154f848c109",
     "file": "asyncssh/public_key.py",
-    "line": 2568
+    "line": 2568,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0172",
+    "candidate_id": "C-bd55f8a9bfd3",
     "file": "tests/test_kex.py",
-    "line": 321
+    "line": 321,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0173",
+    "candidate_id": "C-8c5e967426c2",
     "file": "asyncssh/kex_dh.py",
-    "line": 455
+    "line": 455,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0174",
+    "candidate_id": "C-13ba552cf32c",
     "file": "asyncssh/pbe.py",
-    "line": 564
+    "line": 564,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0175",
+    "candidate_id": "C-386d6d54fbb9",
     "file": "asyncssh/public_key.py",
-    "line": 1048
+    "line": 1048,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0176",
+    "candidate_id": "C-af0af6e87f85",
     "file": "tests/test_agent.py",
-    "line": 483
+    "line": 483,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0177",
+    "candidate_id": "C-4b48134a35ce",
     "file": "asyncssh/pbe.py",
-    "line": 23
+    "line": 23,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0178",
+    "candidate_id": "C-d4735c9dd1eb",
     "file": "asyncssh/connection.py",
-    "line": 138
+    "line": 138,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0179",
+    "candidate_id": "C-bee1fd4eb73e",
     "file": "asyncssh/rsa.py",
-    "line": 301
+    "line": 301,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0180",
+    "candidate_id": "C-f149b4b98b7c",
     "file": "tests/test_sk.py",
-    "line": 168
+    "line": 168,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0181",
+    "candidate_id": "C-9fc3d2c2968c",
     "file": "asyncssh/kex_dh.py",
-    "line": 522
+    "line": 522,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0182",
+    "candidate_id": "C-d82dcb44dbe4",
     "file": "tests/test_kex.py",
-    "line": 482
+    "line": 482,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0183",
+    "candidate_id": "C-3893a3c1b267",
     "file": "tests/test_agent.py",
-    "line": 459
+    "line": 459,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0184",
+    "candidate_id": "C-783431d8604d",
     "file": "asyncssh/public_key.py",
-    "line": 1131
+    "line": 1131,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0185",
+    "candidate_id": "C-9f9a068a4da6",
     "file": "tests/test_agent.py",
-    "line": 176
+    "line": 176,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0186",
+    "candidate_id": "C-3dd3e75c1483",
     "file": "asyncssh/kex_dh.py",
-    "line": 435
+    "line": 435,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0187",
+    "candidate_id": "C-43841cf6371d",
     "file": "asyncssh/__init__.py",
-    "line": 126
+    "line": 126,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0188",
+    "candidate_id": "C-d9981ba19e7f",
     "file": "asyncssh/eddsa.py",
-    "line": 152
+    "line": 152,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0189",
+    "candidate_id": "C-00fd4bcf82be",
     "file": "asyncssh/sk_eddsa.py",
-    "line": 176
+    "line": 176,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0190",
+    "candidate_id": "C-06ec7661891a",
     "file": "tests/test_channel.py",
-    "line": 1145
+    "line": 1145,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0191",
+    "candidate_id": "C-0e18d030d0bd",
     "file": "tests/test_sshsig.py",
-    "line": 42
+    "line": 42,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0192",
+    "candidate_id": "C-9020c53f4091",
     "file": "asyncssh/sk_eddsa.py",
-    "line": 31
+    "line": 31,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0193",
+    "candidate_id": "C-10995c3051f1",
     "file": "asyncssh/public_key.py",
-    "line": 975
+    "line": 975,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0194",
+    "candidate_id": "C-89a13670c04b",
     "file": "asyncssh/crypto/__init__.py",
-    "line": 61
+    "line": 61,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0195",
+    "candidate_id": "C-d4b3dea039bd",
     "file": "tests/test_connection.py",
-    "line": 2462
+    "line": 2462,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0196",
+    "candidate_id": "C-79e6c7200dfc",
     "file": "tests/test_kex.py",
-    "line": 413
+    "line": 413,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0197",
+    "candidate_id": "C-879d01b2ecc8",
     "file": "asyncssh/kex_dh.py",
-    "line": 440
+    "line": 440,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0198",
+    "candidate_id": "C-5d76344dd945",
     "file": "asyncssh/ecdsa.py",
-    "line": 330
+    "line": 330,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0199",
+    "candidate_id": "C-a54c6b1af947",
     "file": "asyncssh/gss_win32.py",
-    "line": 132
+    "line": 132,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0200",
+    "candidate_id": "C-a658be1fdb99",
     "file": "asyncssh/public_key.py",
-    "line": 3260
+    "line": 3260,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0201",
+    "candidate_id": "C-e577d31369bb",
     "file": "tests/test_kex.py",
-    "line": 154
+    "line": 154,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0202",
+    "candidate_id": "C-9edf42f967a1",
     "file": "asyncssh/sk_eddsa.py",
-    "line": 39
+    "line": 39,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0203",
+    "candidate_id": "C-62b6aa5f867f",
     "file": "asyncssh/kex_dh.py",
-    "line": 780
+    "line": 780,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0204",
+    "candidate_id": "C-b8159c67b365",
     "file": "tests/test_agent.py",
-    "line": 313
+    "line": 313,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0205",
+    "candidate_id": "C-0be85de1fe82",
     "file": "asyncssh/sk_ecdsa.py",
-    "line": 230
+    "line": 230,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0206",
+    "candidate_id": "C-964dd97f6744",
     "file": "asyncssh/dsa.py",
-    "line": 249
+    "line": 249,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0207",
+    "candidate_id": "C-9078dd82870e",
     "file": "tests/test_kex.py",
-    "line": 363
+    "line": 363,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0208",
+    "candidate_id": "C-5a9603fdafa6",
     "file": "asyncssh/eddsa.py",
-    "line": 204
+    "line": 204,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0209",
+    "candidate_id": "C-2e7f95b70302",
     "file": "asyncssh/eddsa.py",
-    "line": 122
+    "line": 122,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0210",
+    "candidate_id": "C-62a19b74f3e6",
     "file": "asyncssh/eddsa.py",
-    "line": 59
+    "line": 59,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0211",
+    "candidate_id": "C-7e0cf7a9cf5c",
     "file": "asyncssh/kex_dh.py",
-    "line": 75
+    "line": 75,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0212",
+    "candidate_id": "C-8a0ba2ed1a84",
     "file": "tests/test_connection.py",
-    "line": 1106
+    "line": 1106,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0213",
+    "candidate_id": "C-ba9ee46bf79a",
     "file": "tests/test_sk.py",
-    "line": 99
+    "line": 99,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0214",
+    "candidate_id": "C-807a658d9471",
     "file": "asyncssh/kex_dh.py",
-    "line": 412
+    "line": 412,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0215",
+    "candidate_id": "C-e2d746a83799",
     "file": "tests/test_forward.py",
-    "line": 1108
+    "line": 1108,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0216",
+    "candidate_id": "C-b5bd9cf63a1e",
     "file": "asyncssh/rsa.py",
-    "line": 148
+    "line": 148,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0217",
+    "candidate_id": "C-203afa34824a",
     "file": "asyncssh/kex_dh.py",
-    "line": 477
+    "line": 477,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0218",
+    "candidate_id": "C-da054ab60bc6",
     "file": "asyncssh/config.py",
-    "line": 621
+    "line": 621,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0219",
+    "candidate_id": "C-00c3805a4b5a",
     "file": "asyncssh/eddsa.py",
-    "line": 129
+    "line": 129,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0220",
+    "candidate_id": "C-36c81a3302f3",
     "file": "tests/test_kex.py",
-    "line": 309
+    "line": 309,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0221",
+    "candidate_id": "C-b0fcbca585e9",
     "file": "asyncssh/__init__.py",
-    "line": 90
+    "line": 90,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0222",
+    "candidate_id": "C-c44eeb8566d2",
     "file": "tests/test_connection.py",
-    "line": 1540
+    "line": 1540,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0223",
+    "candidate_id": "C-8f0f39851539",
     "file": "asyncssh/rsa.py",
-    "line": 90
+    "line": 90,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0224",
+    "candidate_id": "C-60e6712917ae",
     "file": "tests/server.py",
-    "line": 168
+    "line": 168,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0225",
+    "candidate_id": "C-03997bdbcffc",
     "file": "asyncssh/kex_dh.py",
-    "line": 230
+    "line": 230,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0226",
+    "candidate_id": "C-c0c77b1dfde9",
     "file": "asyncssh/public_key.py",
-    "line": 1891
+    "line": 1891,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0227",
+    "candidate_id": "C-de2c23481754",
     "file": "asyncssh/public_key.py",
-    "line": 102
+    "line": 102,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0228",
+    "candidate_id": "C-5082825bb783",
     "file": "tests/test_sk.py",
-    "line": 113
+    "line": 113,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0229",
+    "candidate_id": "C-bac08ab2834d",
     "file": "tests/test_sk.py",
-    "line": 121
+    "line": 121,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0230",
+    "candidate_id": "C-3ea483a0d7cb",
     "file": "asyncssh/kex_dh.py",
-    "line": 808
+    "line": 808,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0231",
+    "candidate_id": "C-a06a7a2b0b49",
     "file": "asyncssh/sk.py",
-    "line": 255
+    "line": 255,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0232",
+    "candidate_id": "C-66aff37ada15",
     "file": "asyncssh/sk.py",
-    "line": 260
+    "line": 260,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0233",
+    "candidate_id": "C-750758fc25ec",
     "file": "asyncssh/pbe.py",
-    "line": 540
+    "line": 540,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0234",
+    "candidate_id": "C-6f4b38fdb227",
     "file": "asyncssh/rsa.py",
-    "line": 94
+    "line": 94,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0235",
+    "candidate_id": "C-cdb48a52336c",
     "file": "asyncssh/public_key.py",
-    "line": 536
+    "line": 536,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0236",
+    "candidate_id": "C-d3493d6dc3c6",
     "file": "asyncssh/sk_eddsa.py",
-    "line": 157
+    "line": 157,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0237",
+    "candidate_id": "C-3dbbbdce1142",
     "file": "asyncssh/eddsa.py",
-    "line": 196
+    "line": 196,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0238",
+    "candidate_id": "C-75474c4bc592",
     "file": "tests/test_sk.py",
-    "line": 36
+    "line": 36,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0239",
+    "candidate_id": "C-264d5c943ac8",
     "file": "asyncssh/sk_ecdsa.py",
-    "line": 222
+    "line": 222,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0240",
+    "candidate_id": "C-139f927f0f70",
     "file": "asyncssh/eddsa.py",
-    "line": 142
+    "line": 142,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0241",
+    "candidate_id": "C-16bc537abb39",
     "file": "tests/sk_stub.py",
-    "line": 269
+    "line": 269,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0242",
+    "candidate_id": "C-89d94e4cab3a",
     "file": "tests/test_kex.py",
-    "line": 297
+    "line": 297,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0243",
+    "candidate_id": "C-f3abd51c8b1a",
     "file": "asyncssh/sk_eddsa.py",
-    "line": 79
+    "line": 79,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0244",
+    "candidate_id": "C-680f08d4fd40",
     "file": "tests/test_kex.py",
-    "line": 37
+    "line": 37,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0245",
+    "candidate_id": "C-e01c97e9ffd0",
     "file": "asyncssh/rsa.py",
-    "line": 179
+    "line": 179,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0246",
+    "candidate_id": "C-105094e74e71",
     "file": "examples/simple_server.py",
-    "line": 30
+    "line": 30,
+    "scope": "example"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0247",
+    "candidate_id": "C-8df690575535",
     "file": "asyncssh/sk_eddsa.py",
-    "line": 21
+    "line": 21,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0248",
+    "candidate_id": "C-2c45f9374b0e",
     "file": "asyncssh/dsa.py",
-    "line": 45
+    "line": 45,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0249",
+    "candidate_id": "C-1c8b1951054a",
     "file": "asyncssh/kex_rsa.py",
-    "line": 173
+    "line": 173,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0250",
+    "candidate_id": "C-41c864b64660",
     "file": "tests/sk_stub.py",
-    "line": 162
+    "line": 162,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0251",
+    "candidate_id": "C-8075b5817a28",
     "file": "tests/test_auth_keys.py",
-    "line": 200
+    "line": 200,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0252",
+    "candidate_id": "C-0acd1c7b182a",
     "file": "tests/pkcs11_stub.py",
-    "line": 40
+    "line": 40,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0253",
+    "candidate_id": "C-bb248aed1752",
     "file": "asyncssh/sk_ecdsa.py",
-    "line": 82
+    "line": 82,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0254",
+    "candidate_id": "C-27311e4b5577",
     "file": "asyncssh/pbe.py",
-    "line": 484
+    "line": 484,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0255",
+    "candidate_id": "C-f69a39b8e83b",
     "file": "asyncssh/kex.py",
-    "line": 137
+    "line": 137,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0256",
+    "candidate_id": "C-05e875cd6565",
     "file": "asyncssh/sk_eddsa.py",
-    "line": 101
+    "line": 101,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0257",
+    "candidate_id": "C-1c44c1c85b5d",
     "file": "asyncssh/ecdsa.py",
-    "line": 290
+    "line": 290,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0258",
+    "candidate_id": "C-12a13b94e2e5",
     "file": "asyncssh/known_hosts.py",
-    "line": 172
+    "line": 172,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0259",
+    "candidate_id": "C-22422de1b984",
     "file": "asyncssh/public_key.py",
-    "line": 3643
+    "line": 3643,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0260",
+    "candidate_id": "C-b6ecea8e304e",
     "file": "tests/test_kex.py",
-    "line": 33
+    "line": 33,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0261",
+    "candidate_id": "C-2a442db99c16",
     "file": "tests/test_kex.py",
-    "line": 471
+    "line": 471,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0262",
+    "candidate_id": "C-014ae5f99cb3",
     "file": "asyncssh/encryption.py",
-    "line": 105
+    "line": 105,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0263",
+    "candidate_id": "C-f1bfa2e0b71c",
     "file": "asyncssh/public_key.py",
-    "line": 2269
+    "line": 2269,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0264",
+    "candidate_id": "C-c494b3627458",
     "file": "tests/test_sk.py",
-    "line": 316
+    "line": 316,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0265",
+    "candidate_id": "C-65400240dae8",
     "file": "tests/test_connection.py",
-    "line": 775
+    "line": 775,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0266",
+    "candidate_id": "C-e09dae75954d",
     "file": "tests/sk_stub.py",
-    "line": 163
+    "line": 163,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0267",
+    "candidate_id": "C-69cb37088762",
     "file": "asyncssh/pkcs11.py",
-    "line": 83
+    "line": 83,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0268",
+    "candidate_id": "C-b94144ddc300",
     "file": "asyncssh/sk_eddsa.py",
-    "line": 181
+    "line": 181,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0269",
+    "candidate_id": "C-42a5e691ffae",
     "file": "tests/test_channel.py",
-    "line": 659
+    "line": 659,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0270",
+    "candidate_id": "C-9426b78bf017",
     "file": "asyncssh/eddsa.py",
-    "line": 113
+    "line": 113,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0271",
+    "candidate_id": "C-cd7476ebbd69",
     "file": "asyncssh/rsa.py",
-    "line": 135
+    "line": 135,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0272",
+    "candidate_id": "C-eadb970f59db",
     "file": "tests/test_mac.py",
-    "line": 48
+    "line": 48,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0273",
+    "candidate_id": "C-15fa5fb0c1bc",
     "file": "asyncssh/pbe.py",
-    "line": 110
+    "line": 110,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0274",
+    "candidate_id": "C-0572ee71f420",
     "file": "asyncssh/eddsa.py",
-    "line": 137
+    "line": 137,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0275",
+    "candidate_id": "C-32172d0180a0",
     "file": "asyncssh/config.py",
-    "line": 29
+    "line": 29,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0276",
+    "candidate_id": "C-303e43ff0575",
     "file": "tests/pkcs11_stub.py",
-    "line": 45
+    "line": 45,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0277",
+    "candidate_id": "C-7dc8c6dcb5b3",
     "file": "asyncssh/sshsig.py",
-    "line": 288
+    "line": 288,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0278",
+    "candidate_id": "C-b3814fc68325",
     "file": "asyncssh/sshsig.py",
-    "line": 284
+    "line": 284,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0279",
+    "candidate_id": "C-a421e1068051",
     "file": "tests/test_agent.py",
-    "line": 35
+    "line": 35,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0280",
+    "candidate_id": "C-2383dce7b18f",
     "file": "tests/test_connection.py",
-    "line": 1027
+    "line": 1027,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0281",
+    "candidate_id": "C-8cd3e4eb694e",
     "file": "tests/test_known_hosts.py",
-    "line": 40
+    "line": 40,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0282",
+    "candidate_id": "C-4526b6d2ef09",
     "file": "asyncssh/agent.py",
-    "line": 302
+    "line": 302,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0283",
+    "candidate_id": "C-06cc3f133764",
     "file": "asyncssh/dsa.py",
-    "line": 230
+    "line": 230,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0284",
+    "candidate_id": "C-bd0985351260",
     "file": "asyncssh/sk_ecdsa.py",
-    "line": 175
+    "line": 175,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0285",
+    "candidate_id": "C-1dacf731ad1b",
     "file": "asyncssh/encryption.py",
-    "line": 136
+    "line": 136,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0286",
+    "candidate_id": "C-0e404b5b5193",
     "file": "tests/test_kex.py",
-    "line": 522
+    "line": 522,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0287",
+    "candidate_id": "C-9e599b754a1e",
     "file": "asyncssh/eddsa.py",
-    "line": 203
+    "line": 203,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0288",
+    "candidate_id": "C-666b8ae4f838",
     "file": "tests/sk_stub.py",
-    "line": 66
+    "line": 66,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0289",
+    "candidate_id": "C-6e64deeacba6",
     "file": "tests/test_kex.py",
-    "line": 640
+    "line": 640,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0290",
+    "candidate_id": "C-6dc6b97bced6",
     "file": "asyncssh/mac.py",
-    "line": 179
+    "line": 179,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0291",
+    "candidate_id": "C-d6a7ea49ed36",
     "file": "asyncssh/crypto/__init__.py",
-    "line": 25
+    "line": 25,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0292",
+    "candidate_id": "C-1259b5486b28",
     "file": "asyncssh/dsa.py",
-    "line": 209
+    "line": 209,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0293",
+    "candidate_id": "C-626b48730b39",
     "file": "tests/sk_stub.py",
-    "line": 309
+    "line": 309,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0294",
+    "candidate_id": "C-ffe94a069a62",
     "file": "asyncssh/rsa.py",
-    "line": 314
+    "line": 314,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0295",
+    "candidate_id": "C-f70760071d4d",
     "file": "tests/test_agent.py",
-    "line": 203
+    "line": 203,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0296",
+    "candidate_id": "C-3e7ec7ac02a1",
     "file": "asyncssh/public_key.py",
-    "line": 2278
+    "line": 2278,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0297",
+    "candidate_id": "C-484f1137ab14",
     "file": "asyncssh/pbe.py",
-    "line": 420
+    "line": 420,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0298",
+    "candidate_id": "C-9cff38f3c63b",
     "file": "asyncssh/public_key.py",
-    "line": 1987
+    "line": 1987,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0299",
+    "candidate_id": "C-68a209bb4e9d",
     "file": "asyncssh/mac.py",
-    "line": 89
+    "line": 89,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0300",
+    "candidate_id": "C-07e54e9f5cdb",
     "file": "asyncssh/agent.py",
-    "line": 125
+    "line": 125,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0301",
+    "candidate_id": "C-114cda29910f",
     "file": "asyncssh/kex_rsa.py",
-    "line": 68
+    "line": 68,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0302",
+    "candidate_id": "C-84889756c8b3",
     "file": "tests/test_channel.py",
-    "line": 1009
+    "line": 1009,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0303",
+    "candidate_id": "C-3cced6cf00f3",
     "file": "asyncssh/public_key.py",
-    "line": 3647
+    "line": 3647,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0304",
+    "candidate_id": "C-b038c9a6849b",
     "file": "asyncssh/sk_eddsa.py",
-    "line": 59
+    "line": 59,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0305",
+    "candidate_id": "C-498abbde7aa0",
     "file": "asyncssh/public_key.py",
-    "line": 3295
+    "line": 3295,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0306",
+    "candidate_id": "C-234e0988e0f4",
     "file": "asyncssh/public_key.py",
-    "line": 409
+    "line": 409,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0307",
+    "candidate_id": "C-4868ee950ff4",
     "file": "tests/keysign_stub.py",
-    "line": 52
+    "line": 52,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0308",
+    "candidate_id": "C-0a81cadbf86a",
     "file": "asyncssh/public_key.py",
-    "line": 1920
+    "line": 1920,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0309",
+    "candidate_id": "C-f1c660f295ee",
     "file": "asyncssh/rsa.py",
-    "line": 253
+    "line": 253,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0310",
+    "candidate_id": "C-c870ea34f1e8",
     "file": "asyncssh/pbe.py",
-    "line": 402
+    "line": 402,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0311",
+    "candidate_id": "C-396ca5c2d62e",
     "file": "asyncssh/kex_dh.py",
-    "line": 480
+    "line": 480,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0312",
+    "candidate_id": "C-a672bdfb658f",
     "file": "tests/test_agent.py",
-    "line": 226
+    "line": 226,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0313",
+    "candidate_id": "C-1e92d8975191",
     "file": "asyncssh/kex_dh.py",
-    "line": 782
+    "line": 782,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0314",
+    "candidate_id": "C-37cefca064c1",
     "file": "asyncssh/ecdsa.py",
-    "line": 138
+    "line": 138,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0315",
+    "candidate_id": "C-3e24f9a772d3",
     "file": "tests/test_agent.py",
-    "line": 178
+    "line": 178,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0316",
+    "candidate_id": "C-5a12b7b5f8e0",
     "file": "asyncssh/eddsa.py",
-    "line": 88
+    "line": 88,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0317",
+    "candidate_id": "C-626a2efda2bb",
     "file": "asyncssh/sk_eddsa.py",
-    "line": 185
+    "line": 185,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0318",
+    "candidate_id": "C-8409179729b2",
     "file": "asyncssh/public_key.py",
-    "line": 1193
+    "line": 1193,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0319",
+    "candidate_id": "C-50b8a9ca09e0",
     "file": "asyncssh/agent.py",
-    "line": 323
+    "line": 323,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0320",
+    "candidate_id": "C-52b13cffa7fc",
     "file": "tests/test_auth.py",
-    "line": 607
+    "line": 607,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0321",
+    "candidate_id": "C-e96d3341c652",
     "file": "asyncssh/connection.py",
-    "line": 3828
+    "line": 3828,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0322",
+    "candidate_id": "C-c6549f9fbfd7",
     "file": "tests/test_sshsig.py",
-    "line": 44
+    "line": 44,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0323",
+    "candidate_id": "C-49403d13f7ab",
     "file": "asyncssh/sk_eddsa.py",
-    "line": 109
+    "line": 109,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0324",
+    "candidate_id": "C-6dd1979ecfce",
     "file": "asyncssh/encryption.py",
-    "line": 137
+    "line": 137,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0325",
+    "candidate_id": "C-4ce9ba1468b4",
     "file": "asyncssh/sk.py",
-    "line": 85
+    "line": 85,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0326",
+    "candidate_id": "C-dc4622b39dbc",
     "file": "asyncssh/rsa.py",
-    "line": 96
+    "line": 96,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0327",
+    "candidate_id": "C-bec73a4f587b",
     "file": "asyncssh/kex_dh.py",
-    "line": 76
+    "line": 76,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0328",
+    "candidate_id": "C-52411188300d",
     "file": "asyncssh/pbe.py",
-    "line": 58
+    "line": 58,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0329",
+    "candidate_id": "C-c733322ae81b",
     "file": "asyncssh/public_key.py",
-    "line": 2020
+    "line": 2020,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0330",
+    "candidate_id": "C-af1d2716a7f3",
     "file": "tests/util.py",
-    "line": 259
+    "line": 259,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0331",
+    "candidate_id": "C-23a4d33c2fd1",
     "file": "asyncssh/eddsa.py",
-    "line": 76
+    "line": 76,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0332",
+    "candidate_id": "C-2cf534637455",
     "file": "tests/test_auth_keys.py",
-    "line": 193
+    "line": 193,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0333",
+    "candidate_id": "C-7a57f89baa5a",
     "file": "tests/test_kex.py",
-    "line": 301
+    "line": 301,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0334",
+    "candidate_id": "C-48f9482f6d52",
     "file": "asyncssh/mac.py",
-    "line": 57
+    "line": 57,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0335",
+    "candidate_id": "C-d3a37459df6e",
     "file": "asyncssh/sk_eddsa.py",
-    "line": 183
+    "line": 183,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0336",
+    "candidate_id": "C-0abf22b1ec3e",
     "file": "asyncssh/sk_eddsa.py",
-    "line": 145
+    "line": 145,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0337",
+    "candidate_id": "C-87581c56117a",
     "file": "tests/test_sk.py",
-    "line": 91
+    "line": 91,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0338",
+    "candidate_id": "C-d7473ae8ebe1",
     "file": "tests/test_connection.py",
-    "line": 47
+    "line": 47,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0339",
+    "candidate_id": "C-00528677e492",
     "file": "asyncssh/mac.py",
-    "line": 194
+    "line": 194,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0340",
+    "candidate_id": "C-3fc46ced0788",
     "file": "asyncssh/kex_dh.py",
-    "line": 45
+    "line": 45,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0341",
+    "candidate_id": "C-6fdee39fd1ee",
     "file": "asyncssh/public_key.py",
-    "line": 1965
+    "line": 1965,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0342",
+    "candidate_id": "C-b3d234779bb2",
     "file": "asyncssh/kex_rsa.py",
-    "line": 32
+    "line": 32,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0343",
+    "candidate_id": "C-e8f7ce51db4b",
     "file": "asyncssh/misc.py",
-    "line": 145
+    "line": 145,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0344",
+    "candidate_id": "C-682a842572e3",
     "file": "asyncssh/rsa.py",
-    "line": 267
+    "line": 267,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0345",
+    "candidate_id": "C-676186d3b15c",
     "file": "tests/test_kex.py",
-    "line": 446
+    "line": 446,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0346",
+    "candidate_id": "C-0e038e72858f",
     "file": "asyncssh/sk.py",
-    "line": 155
+    "line": 155,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0347",
+    "candidate_id": "C-180043149996",
     "file": "asyncssh/crypto/__init__.py",
-    "line": 41
+    "line": 41,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0348",
+    "candidate_id": "C-98753f7f0b8f",
     "file": "tests/sk_stub.py",
-    "line": 216
+    "line": 216,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0349",
+    "candidate_id": "C-b4ae9297abc9",
     "file": "tests/test_kex.py",
-    "line": 654
+    "line": 654,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0350",
+    "candidate_id": "C-31085380f54c",
     "file": "asyncssh/pbe.py",
-    "line": 532
+    "line": 532,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0351",
+    "candidate_id": "C-ef8b6cea210e",
     "file": "asyncssh/kex_dh.py",
-    "line": 23
+    "line": 23,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0352",
+    "candidate_id": "C-c26bca970f68",
     "file": "asyncssh/sk_ecdsa.py",
-    "line": 41
+    "line": 41,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0353",
+    "candidate_id": "C-1cd406f32f41",
     "file": "asyncssh/public_key.py",
-    "line": 1853
+    "line": 1853,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0354",
+    "candidate_id": "C-9fe7cbf32691",
     "file": "asyncssh/dsa.py",
-    "line": 199
+    "line": 199,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0355",
+    "candidate_id": "C-717005765093",
     "file": "asyncssh/pbe.py",
-    "line": 45
+    "line": 45,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0356",
+    "candidate_id": "C-acb5af7b1ab7",
     "file": "asyncssh/rsa.py",
-    "line": 157
+    "line": 157,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0357",
+    "candidate_id": "C-aa5b650d125d",
     "file": "asyncssh/sk_ecdsa.py",
-    "line": 92
+    "line": 92,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0358",
+    "candidate_id": "C-4c50f99f041b",
     "file": "asyncssh/pbe.py",
-    "line": 496
+    "line": 496,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0359",
+    "candidate_id": "C-bf5e771ac5d2",
     "file": "asyncssh/kex_rsa.py",
-    "line": 76
+    "line": 76,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0360",
+    "candidate_id": "C-50d74c13d80a",
     "file": "asyncssh/sk_ecdsa.py",
-    "line": 132
+    "line": 132,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0361",
+    "candidate_id": "C-04fb256f11ab",
     "file": "asyncssh/auth_keys.py",
-    "line": 52
+    "line": 52,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0362",
+    "candidate_id": "C-9f2057b2ebc4",
     "file": "asyncssh/connection.py",
-    "line": 1327
+    "line": 1327,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0363",
+    "candidate_id": "C-03c076fbae61",
     "file": "asyncssh/sshsig.py",
-    "line": 283
+    "line": 283,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0364",
+    "candidate_id": "C-5644713b94d7",
     "file": "asyncssh/sk_ecdsa.py",
-    "line": 227
+    "line": 227,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0365",
+    "candidate_id": "C-ce70f0a8c7ca",
     "file": "asyncssh/sk.py",
-    "line": 45
+    "line": 45,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0366",
+    "candidate_id": "C-71291c28561d",
     "file": "tests/test_kex.py",
-    "line": 605
+    "line": 605,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0367",
+    "candidate_id": "C-7223f86fb35c",
     "file": "tests/test_forward.py",
-    "line": 934
+    "line": 934,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0368",
+    "candidate_id": "C-eafbaed098ec",
     "file": "asyncssh/dsa.py",
-    "line": 134
+    "line": 134,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0369",
+    "candidate_id": "C-1b7fad3e37ad",
     "file": "tests/sk_stub.py",
-    "line": 148
+    "line": 148,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0370",
+    "candidate_id": "C-02a433e6a84b",
     "file": "tests/test_kex.py",
-    "line": 517
+    "line": 517,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0371",
+    "candidate_id": "C-e8cae5428eda",
     "file": "asyncssh/dsa.py",
-    "line": 181
+    "line": 181,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0372",
+    "candidate_id": "C-f8a20e10880b",
     "file": "asyncssh/connection.py",
-    "line": 2100
+    "line": 2100,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0373",
+    "candidate_id": "C-288052f8b654",
     "file": "asyncssh/eddsa.py",
-    "line": 186
+    "line": 186,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0374",
+    "candidate_id": "C-9e53794c6c0a",
     "file": "tests/test_agent.py",
-    "line": 200
+    "line": 200,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0375",
+    "candidate_id": "C-efcdc6d71e03",
     "file": "tests/test_kex.py",
-    "line": 629
+    "line": 629,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0376",
+    "candidate_id": "C-c62004e71373",
     "file": "tests/test_known_hosts.py",
-    "line": 70
+    "line": 70,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0377",
+    "candidate_id": "C-946b050df1fe",
     "file": "asyncssh/auth_keys.py",
-    "line": 73
+    "line": 73,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0378",
+    "candidate_id": "C-5a32aa44bfaf",
     "file": "asyncssh/pbe.py",
-    "line": 550
+    "line": 550,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0379",
+    "candidate_id": "C-a08f04254a72",
     "file": "asyncssh/sk_ecdsa.py",
-    "line": 59
+    "line": 59,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0380",
+    "candidate_id": "C-7ab1603c9760",
     "file": "asyncssh/dsa.py",
-    "line": 76
+    "line": 76,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0381",
+    "candidate_id": "C-cc4cf5e95d39",
     "file": "asyncssh/kex_dh.py",
-    "line": 762
+    "line": 762,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0382",
+    "candidate_id": "C-72ab47ee9d75",
     "file": "asyncssh/kex_dh.py",
-    "line": 409
+    "line": 409,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0383",
+    "candidate_id": "C-ebefe38cbfe8",
     "file": "asyncssh/auth_keys.py",
-    "line": 37
+    "line": 37,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0384",
+    "candidate_id": "C-3798df22687c",
     "file": "tests/test_kex.py",
-    "line": 287
+    "line": 287,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0385",
+    "candidate_id": "C-38d75f137b5f",
     "file": "asyncssh/sk.py",
-    "line": 290
+    "line": 290,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0386",
+    "candidate_id": "C-26ff43003164",
     "file": "asyncssh/connection.py",
-    "line": 947
+    "line": 947,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0387",
+    "candidate_id": "C-26678e18b590",
     "file": "asyncssh/connection.py",
-    "line": 3840
+    "line": 3840,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0388",
+    "candidate_id": "C-288138a2f098",
     "file": "asyncssh/public_key.py",
-    "line": 2217
+    "line": 2217,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0389",
+    "candidate_id": "C-05685310a62b",
     "file": "asyncssh/eddsa.py",
-    "line": 157
+    "line": 157,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0390",
+    "candidate_id": "C-1e43c8e76b1f",
     "file": "asyncssh/kex_rsa.py",
-    "line": 48
+    "line": 48,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0391",
+    "candidate_id": "C-7f2ae9fc7dca",
     "file": "asyncssh/pbe.py",
-    "line": 314
+    "line": 314,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0392",
+    "candidate_id": "C-8f0f79ac7941",
     "file": "asyncssh/eddsa.py",
-    "line": 93
+    "line": 93,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0393",
+    "candidate_id": "C-9e2fb9119574",
     "file": "asyncssh/public_key.py",
-    "line": 1848
+    "line": 1848,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0394",
+    "candidate_id": "C-f57b9ad8708e",
     "file": "asyncssh/eddsa.py",
-    "line": 214
+    "line": 214,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0395",
+    "candidate_id": "C-07abcdbc3594",
     "file": "asyncssh/dsa.py",
-    "line": 39
+    "line": 39,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0396",
+    "candidate_id": "C-cac5f204d40f",
     "file": "tests/test_kex.py",
-    "line": 622
+    "line": 622,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0397",
+    "candidate_id": "C-f1a4403d4959",
     "file": "asyncssh/sk_ecdsa.py",
-    "line": 232
+    "line": 232,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0398",
+    "candidate_id": "C-39813b8ddb4d",
     "file": "tests/test_kex.py",
-    "line": 27
+    "line": 27,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0399",
+    "candidate_id": "C-2327a7776df2",
     "file": "tests/test_agent.py",
-    "line": 245
+    "line": 245,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0400",
+    "candidate_id": "C-90c45d362bc8",
     "file": "asyncssh/pbe.py",
-    "line": 64
+    "line": 64,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0401",
+    "candidate_id": "C-45d535696dee",
     "file": "asyncssh/sk.py",
-    "line": 113
+    "line": 113,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0402",
+    "candidate_id": "C-ac4ef503ead8",
     "file": "asyncssh/rsa.py",
-    "line": 221
+    "line": 221,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0403",
+    "candidate_id": "C-d4a31e883ccb",
     "file": "asyncssh/kex_dh.py",
-    "line": 417
+    "line": 417,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0404",
+    "candidate_id": "C-fc1f7b46b929",
     "file": "asyncssh/kex_dh.py",
-    "line": 792
+    "line": 792,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0405",
+    "candidate_id": "C-d30d3d2d0d21",
     "file": "tests/sk_stub.py",
-    "line": 33
+    "line": 33,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0406",
+    "candidate_id": "C-e578f9adb59b",
     "file": "asyncssh/ecdsa.py",
-    "line": 305
+    "line": 305,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0407",
+    "candidate_id": "C-d2696185b4aa",
     "file": "asyncssh/mac.py",
-    "line": 71
+    "line": 71,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0408",
+    "candidate_id": "C-9b28e8083ee4",
     "file": "asyncssh/rsa.py",
-    "line": 238
+    "line": 238,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0409",
+    "candidate_id": "C-42d30f5bec31",
     "file": "asyncssh/public_key.py",
-    "line": 30
+    "line": 30,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0410",
+    "candidate_id": "C-7af72dcb507c",
     "file": "asyncssh/encryption.py",
-    "line": 186
+    "line": 186,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0411",
+    "candidate_id": "C-03d871cbbb24",
     "file": "asyncssh/dsa.py",
-    "line": 68
+    "line": 68,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0412",
+    "candidate_id": "C-848086f5a0f1",
     "file": "asyncssh/pkcs11.py",
-    "line": 48
+    "line": 48,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0413",
+    "candidate_id": "C-8232563229e4",
     "file": "asyncssh/eddsa.py",
-    "line": 27
+    "line": 27,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0414",
+    "candidate_id": "C-752b5d8c3c62",
     "file": "asyncssh/sk.py",
-    "line": 264
+    "line": 264,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0415",
+    "candidate_id": "C-1f5228a3e856",
     "file": "asyncssh/dsa.py",
-    "line": 172
+    "line": 172,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0416",
+    "candidate_id": "C-ce0196ac89dd",
     "file": "asyncssh/connection.py",
-    "line": 7389
+    "line": 7389,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0417",
+    "candidate_id": "C-96691d8b2b57",
     "file": "asyncssh/public_key.py",
-    "line": 2214
+    "line": 2214,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0418",
+    "candidate_id": "C-f52b56fc4568",
     "file": "asyncssh/rsa.py",
-    "line": 21
+    "line": 21,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0419",
+    "candidate_id": "C-af885fabaedc",
     "file": "asyncssh/public_key.py",
-    "line": 3265
+    "line": 3265,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0420",
+    "candidate_id": "C-be5fff73d82c",
     "file": "tests/sk_stub.py",
-    "line": 147
+    "line": 147,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0421",
+    "candidate_id": "C-682f195f94fc",
     "file": "asyncssh/public_key.py",
-    "line": 3369
+    "line": 3369,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0422",
+    "candidate_id": "C-d438f56c007d",
     "file": "tests/test_auth.py",
-    "line": 583
+    "line": 583,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0423",
+    "candidate_id": "C-b55287f5ea03",
     "file": "asyncssh/auth.py",
-    "line": 203
+    "line": 203,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0424",
+    "candidate_id": "C-d46437990994",
     "file": "asyncssh/sk_eddsa.py",
-    "line": 121
+    "line": 121,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0425",
+    "candidate_id": "C-db6a75f53824",
     "file": "tests/test_sk.py",
-    "line": 158
+    "line": 158,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0426",
+    "candidate_id": "C-8e39d7bf0b2a",
     "file": "asyncssh/ecdsa.py",
-    "line": 21
+    "line": 21,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0427",
+    "candidate_id": "C-24e9c7b31399",
     "file": "tests/test_kex.py",
-    "line": 315
+    "line": 315,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0428",
+    "candidate_id": "C-cd0986c10c0b",
     "file": "asyncssh/rsa.py",
-    "line": 243
+    "line": 243,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0429",
+    "candidate_id": "C-5cf62f6f5737",
     "file": "asyncssh/kex.py",
-    "line": 24
+    "line": 24,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0430",
+    "candidate_id": "C-0f160b1fdbc0",
     "file": "asyncssh/rsa.py",
-    "line": 290
+    "line": 290,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0431",
+    "candidate_id": "C-a889c2c128d6",
     "file": "tests/test_kex.py",
-    "line": 327
+    "line": 327,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0432",
+    "candidate_id": "C-e8b76e090fab",
     "file": "tests/test_connection.py",
-    "line": 636
+    "line": 636,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0433",
+    "candidate_id": "C-e715e071a9fb",
     "file": "tests/test_connection.py",
-    "line": 655
+    "line": 655,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0434",
+    "candidate_id": "C-62038fd2ca48",
     "file": "tests/pkcs11_stub.py",
-    "line": 80
+    "line": 80,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0435",
+    "candidate_id": "C-ed2bf4b26400",
     "file": "tests/test_kex.py",
-    "line": 159
+    "line": 159,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0436",
+    "candidate_id": "C-b30ef5b7691b",
     "file": "tests/test_kex.py",
-    "line": 281
+    "line": 281,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0437",
+    "candidate_id": "C-bf21148c9d2f",
     "file": "asyncssh/pkcs11.py",
-    "line": 51
+    "line": 51,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0438",
+    "candidate_id": "C-e1e09e3a6acb",
     "file": "asyncssh/connection.py",
-    "line": 6764
+    "line": 6764,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0439",
+    "candidate_id": "C-a213c585c9f9",
     "file": "asyncssh/pbe.py",
-    "line": 60
+    "line": 60,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0440",
+    "candidate_id": "C-0f729dc2f255",
     "file": "asyncssh/keysign.py",
-    "line": 93
+    "line": 93,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0441",
+    "candidate_id": "C-3c9ac3e1679e",
     "file": "tests/test_pkcs11.py",
-    "line": 168
+    "line": 168,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0442",
+    "candidate_id": "C-c377aa2ef917",
     "file": "asyncssh/public_key.py",
-    "line": 513
+    "line": 513,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0443",
+    "candidate_id": "C-f047913c13aa",
     "file": "tests/test_kex.py",
-    "line": 398
+    "line": 398,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0444",
+    "candidate_id": "C-b8a04ec4f69f",
     "file": "asyncssh/connection.py",
-    "line": 8336
+    "line": 8336,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0445",
+    "candidate_id": "C-665846b1733f",
     "file": "asyncssh/kex_dh.py",
-    "line": 466
+    "line": 466,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0446",
+    "candidate_id": "C-105363752817",
     "file": "tests/test_kex.py",
-    "line": 594
+    "line": 594,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0447",
+    "candidate_id": "C-2ebdebfe9eec",
     "file": "asyncssh/dsa.py",
-    "line": 116
+    "line": 116,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0448",
+    "candidate_id": "C-76f5dcdd0521",
     "file": "tests/test_agent.py",
-    "line": 173
+    "line": 173,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0449",
+    "candidate_id": "C-0304012072a0",
     "file": "asyncssh/dsa.py",
-    "line": 186
+    "line": 186,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0450",
+    "candidate_id": "C-a64da19de5bf",
     "file": "tests/test_connection.py",
-    "line": 1020
+    "line": 1020,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0451",
+    "candidate_id": "C-1ad3f93cd987",
     "file": "tests/test_sk.py",
-    "line": 185
+    "line": 185,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0452",
+    "candidate_id": "C-0401bd5c2c82",
     "file": "asyncssh/pbe.py",
-    "line": 417
+    "line": 417,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0453",
+    "candidate_id": "C-1da20e675658",
     "file": "asyncssh/dsa.py",
-    "line": 215
+    "line": 215,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0454",
+    "candidate_id": "C-7e75b23073fc",
     "file": "asyncssh/mac.py",
-    "line": 109
+    "line": 109,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0455",
+    "candidate_id": "C-789e85f2858b",
     "file": "tests/sk_stub.py",
-    "line": 157
+    "line": 157,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0456",
+    "candidate_id": "C-fe4f2bb68913",
     "file": "tests/sk_stub.py",
-    "line": 311
+    "line": 311,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0457",
+    "candidate_id": "C-adc0205f6f2b",
     "file": "tests/test_sshsig.py",
-    "line": 43
+    "line": 43,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0458",
+    "candidate_id": "C-bc57823b6d5f",
     "file": "asyncssh/encryption.py",
-    "line": 306
+    "line": 306,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0459",
+    "candidate_id": "C-e98b1db8b003",
     "file": "asyncssh/ecdsa.py",
-    "line": 125
+    "line": 125,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0460",
+    "candidate_id": "C-55aead7f79f9",
     "file": "asyncssh/known_hosts.py",
-    "line": 28
+    "line": 28,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0461",
+    "candidate_id": "C-1fbeccfcfff1",
     "file": "asyncssh/sk_ecdsa.py",
-    "line": 101
+    "line": 101,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0462",
+    "candidate_id": "C-95be97cb2b3f",
     "file": "asyncssh/sk_ecdsa.py",
-    "line": 228
+    "line": 228,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0463",
+    "candidate_id": "C-8b62138bad01",
     "file": "asyncssh/public_key.py",
-    "line": 116
+    "line": 116,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0464",
+    "candidate_id": "C-3ec1cf8c5083",
     "file": "asyncssh/public_key.py",
-    "line": 1604
+    "line": 1604,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0465",
+    "candidate_id": "C-703842f72111",
     "file": "asyncssh/pkcs11.py",
-    "line": 91
+    "line": 91,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0466",
+    "candidate_id": "C-7dd5d3ec375a",
     "file": "asyncssh/rsa.py",
-    "line": 168
+    "line": 168,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0467",
+    "candidate_id": "C-7428429e67b5",
     "file": "asyncssh/sk_ecdsa.py",
-    "line": 50
+    "line": 50,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0468",
+    "candidate_id": "C-1ba68c94fce5",
     "file": "tests/test_agent.py",
-    "line": 274
+    "line": 274,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0469",
+    "candidate_id": "C-3746e748d881",
     "file": "asyncssh/kex_rsa.py",
-    "line": 141
+    "line": 141,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0470",
+    "candidate_id": "C-fd52cdb6e99b",
     "file": "tests/server.py",
-    "line": 119
+    "line": 119,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0471",
+    "candidate_id": "C-ec366ac4af0a",
     "file": "asyncssh/dsa.py",
-    "line": 72
+    "line": 72,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0472",
+    "candidate_id": "C-b140db66abcf",
     "file": "asyncssh/sk_ecdsa.py",
-    "line": 27
+    "line": 27,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0473",
+    "candidate_id": "C-f9a6013f7a99",
     "file": "asyncssh/public_key.py",
-    "line": 834
+    "line": 834,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0474",
+    "candidate_id": "C-172750ad1b1a",
     "file": "asyncssh/public_key.py",
-    "line": 371
+    "line": 371,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0475",
+    "candidate_id": "C-50d0f82e1d57",
     "file": "asyncssh/dsa.py",
-    "line": 150
+    "line": 150,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0476",
+    "candidate_id": "C-a6784e30df0e",
     "file": "asyncssh/public_key.py",
-    "line": 2698
+    "line": 2698,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0477",
+    "candidate_id": "C-e701af88b439",
     "file": "tests/test_auth_keys.py",
-    "line": 46
+    "line": 46,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0478",
+    "candidate_id": "C-48d542625fc2",
     "file": "asyncssh/kex_dh.py",
-    "line": 28
+    "line": 28,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0479",
+    "candidate_id": "C-41b94139c9e4",
     "file": "asyncssh/public_key.py",
-    "line": 2784
+    "line": 2784,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0480",
+    "candidate_id": "C-b600650ef165",
     "file": "asyncssh/public_key.py",
-    "line": 41
+    "line": 41,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0481",
+    "candidate_id": "C-5167d8aaeba7",
     "file": "tests/test_kex.py",
-    "line": 455
+    "line": 455,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0482",
+    "candidate_id": "C-47e28f4d9a63",
     "file": "asyncssh/kex_dh.py",
-    "line": 430
+    "line": 430,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0483",
+    "candidate_id": "C-e4acc8737319",
     "file": "asyncssh/gss_win32.py",
-    "line": 138
+    "line": 138,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0484",
+    "candidate_id": "C-5a24ec54155a",
     "file": "asyncssh/known_hosts.py",
-    "line": 53
+    "line": 53,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0485",
+    "candidate_id": "C-5f1ec0c9a37d",
     "file": "asyncssh/eddsa.py",
-    "line": 216
+    "line": 216,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0486",
+    "candidate_id": "C-54d86a57a994",
     "file": "tests/test_kex.py",
-    "line": 475
+    "line": 475,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0487",
+    "candidate_id": "C-a3a8894b2e6d",
     "file": "tests/test_kex.py",
-    "line": 311
+    "line": 311,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0488",
+    "candidate_id": "C-b77ad5f03f96",
     "file": "asyncssh/sk_ecdsa.py",
-    "line": 43
+    "line": 43,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0489",
+    "candidate_id": "C-8b03d9ef190c",
     "file": "tests/test_agent.py",
-    "line": 375
+    "line": 375,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0490",
+    "candidate_id": "C-6c547723c3d1",
     "file": "asyncssh/eddsa.py",
-    "line": 210
+    "line": 210,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0491",
+    "candidate_id": "C-2e4fb6e9d65b",
     "file": "tests/test_connection.py",
-    "line": 1830
+    "line": 1830,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0492",
+    "candidate_id": "C-1c647f8911f7",
     "file": "tests/test_kex.py",
-    "line": 480
+    "line": 480,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0493",
+    "candidate_id": "C-a0f21e245201",
     "file": "tests/sk_stub.py",
-    "line": 167
+    "line": 167,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0494",
+    "candidate_id": "C-7692ac57e220",
     "file": "tests/test_kex.py",
-    "line": 290
+    "line": 290,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0495",
+    "candidate_id": "C-54f890c6eb99",
     "file": "asyncssh/sk_ecdsa.py",
-    "line": 52
+    "line": 52,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0496",
+    "candidate_id": "C-d716015074df",
     "file": "tests/test_kex.py",
-    "line": 652
+    "line": 652,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0497",
+    "candidate_id": "C-90e3cadcc759",
     "file": "asyncssh/ecdsa.py",
-    "line": 27
+    "line": 27,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0498",
+    "candidate_id": "C-ee1a5dfe9931",
     "file": "tests/test_agent.py",
-    "line": 475
+    "line": 475,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0499",
+    "candidate_id": "C-2697b70b20e6",
     "file": "tests/test_sshsig.py",
-    "line": 118
+    "line": 118,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0500",
+    "candidate_id": "C-7bfb12e62ebe",
     "file": "asyncssh/pbe.py",
-    "line": 400
+    "line": 400,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0501",
+    "candidate_id": "C-49f0da69b2b8",
     "file": "asyncssh/crypto/__init__.py",
-    "line": 29
+    "line": 29,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0502",
+    "candidate_id": "C-1438ea36dde7",
     "file": "asyncssh/eddsa.py",
-    "line": 105
+    "line": 105,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0503",
+    "candidate_id": "C-ecd384fa5fad",
     "file": "tests/test_kex.py",
-    "line": 173
+    "line": 173,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0504",
+    "candidate_id": "C-6c2e215f6e16",
     "file": "tests/test_kex.py",
-    "line": 587
+    "line": 587,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0505",
+    "candidate_id": "C-a50e191ed47c",
     "file": "asyncssh/eddsa.py",
-    "line": 169
+    "line": 169,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0506",
+    "candidate_id": "C-35887154365d",
     "file": "asyncssh/connection.py",
-    "line": 3832
+    "line": 3832,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0507",
+    "candidate_id": "C-2a097b9d5310",
     "file": "tests/test_sshsig.py",
-    "line": 45
+    "line": 45,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0508",
+    "candidate_id": "C-5e43776ad811",
     "file": "tests/test_agent.py",
-    "line": 462
+    "line": 462,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0509",
+    "candidate_id": "C-464f196f7260",
     "file": "asyncssh/connection.py",
-    "line": 3850
+    "line": 3850,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0510",
+    "candidate_id": "C-29e89f95cdbe",
     "file": "asyncssh/sk_eddsa.py",
-    "line": 38
+    "line": 38,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0511",
+    "candidate_id": "C-628690a9ecc1",
     "file": "asyncssh/eddsa.py",
-    "line": 184
+    "line": 184,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0512",
+    "candidate_id": "C-9a9d561e276b",
     "file": "asyncssh/connection.py",
-    "line": 3761
+    "line": 3761,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0513",
+    "candidate_id": "C-89f794dceace",
     "file": "asyncssh/sk_ecdsa.py",
-    "line": 40
+    "line": 40,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0514",
+    "candidate_id": "C-682860144033",
     "file": "tests/test_sk.py",
-    "line": 194
+    "line": 194,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0515",
+    "candidate_id": "C-2ee6acbcf3d5",
     "file": "asyncssh/sk_eddsa.py",
-    "line": 26
+    "line": 26,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0516",
+    "candidate_id": "C-8edaa0bf627c",
     "file": "tests/test_auth.py",
-    "line": 187
+    "line": 187,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0517",
+    "candidate_id": "C-1333a98ae5e2",
     "file": "tests/test_sk.py",
-    "line": 150
+    "line": 150,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0518",
+    "candidate_id": "C-81fb1a23e58e",
     "file": "asyncssh/rsa.py",
-    "line": 54
+    "line": 54,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0519",
+    "candidate_id": "C-ce73dd4f5ce1",
     "file": "asyncssh/kex_dh.py",
-    "line": 790
+    "line": 790,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0520",
+    "candidate_id": "C-0da3a1e7c206",
     "file": "asyncssh/kex_rsa.py",
-    "line": 112
+    "line": 112,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0521",
+    "candidate_id": "C-ef58aaf6254b",
     "file": "asyncssh/kex_dh.py",
-    "line": 767
+    "line": 767,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0522",
+    "candidate_id": "C-ac70f5eecd03",
     "file": "asyncssh/sk_eddsa.py",
-    "line": 180
+    "line": 180,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0523",
+    "candidate_id": "C-94edeebca13f",
     "file": "asyncssh/connection.py",
-    "line": 1367
+    "line": 1367,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0524",
+    "candidate_id": "C-a691e26d5f66",
     "file": "tests/sspi_stub.py",
-    "line": 121
+    "line": 121,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-ronf__asyncssh-S2-0525",
+    "candidate_id": "C-150c56612496",
     "file": "asyncssh/connection.py",
-    "line": 3834
+    "line": 3834,
+    "scope": "app"
    }
   ]
  },
- "pool_sha256": "c5b6dd1401d245643d4fa7e2185653a9cbed827c1ee88571474d3de263abeacf"
+ "counts": {
+  "S1-app": 143,
+  "S1-nonapp": 117,
+  "S2": 525
+ },
+ "pool_sha256": "fcf3c44afe9a57689a187bb96bdba9e4b99d3ff30144684459af3fae9f1138c5"
 }

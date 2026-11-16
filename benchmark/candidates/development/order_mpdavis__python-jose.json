@@ -1,1514 +1,1821 @@
 {
+ "format": "pqscan-order/2",
+ "protocol": "1.0.4",
  "repo": "mpdavis__python-jose",
  "commit": "018b310ddb8b50dcfd09a0c152117835a21dd656",
  "seed": 20261113,
  "strata": {
   "S1-app": [
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0001",
+    "candidate_id": "C-2a18777d76a7",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 12
+    "line": 12,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0002",
+    "candidate_id": "C-2932900f91a8",
     "file": "jose/utils.py",
-    "line": 44
+    "line": 44,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0003",
+    "candidate_id": "C-27a61617b0c5",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 265
+    "line": 265,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0004",
+    "candidate_id": "C-31636d2b79e0",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 525
+    "line": 525,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0005",
+    "candidate_id": "C-078275629260",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 407
+    "line": 407,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0006",
+    "candidate_id": "C-467cd53972e7",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 489
+    "line": 489,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0007",
+    "candidate_id": "C-4333b99135dd",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 316
+    "line": 316,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0008",
+    "candidate_id": "C-fc50641d2ee6",
     "file": "jose/utils.py",
-    "line": 115
+    "line": 115,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0009",
+    "candidate_id": "C-adf38d866aed",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 208
+    "line": 208,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0010",
+    "candidate_id": "C-6f5080070ee7",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 582
+    "line": 582,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0011",
+    "candidate_id": "C-38e8e96882e8",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 72
+    "line": 72,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0012",
+    "candidate_id": "C-8ff8a569c1aa",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 252
+    "line": 252,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0013",
+    "candidate_id": "C-bdeecdef7dfa",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 380
+    "line": 380,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0014",
+    "candidate_id": "C-460aa298f47c",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 493
+    "line": 493,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0015",
+    "candidate_id": "C-20eb49769b9f",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 14
+    "line": 14,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0016",
+    "candidate_id": "C-bfa8298468f5",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 467
+    "line": 467,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0017",
+    "candidate_id": "C-937ef661e0b7",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 462
+    "line": 462,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0018",
+    "candidate_id": "C-50ae99a826e5",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 306
+    "line": 306,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0019",
+    "candidate_id": "C-dfca1c126a84",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 296
+    "line": 296,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0020",
+    "candidate_id": "C-efa3156e72c6",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 388
+    "line": 388,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0021",
+    "candidate_id": "C-80b1b7066607",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 261
+    "line": 261,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0022",
+    "candidate_id": "C-6612103ce7e3",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 569
+    "line": 569,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0023",
+    "candidate_id": "C-77d13034cd57",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 292
+    "line": 292,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0024",
+    "candidate_id": "C-0a306bfa1e8b",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 268
+    "line": 268,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0025",
+    "candidate_id": "C-8cdf7ddf4d10",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 98
+    "line": 98,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0026",
+    "candidate_id": "C-28af37f37846",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 293
+    "line": 293,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0027",
+    "candidate_id": "C-0b6e4032ece7",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 92
+    "line": 92,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0028",
+    "candidate_id": "C-18d454d29e96",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 357
+    "line": 357,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0029",
+    "candidate_id": "C-dd9ed68aefc9",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 145
+    "line": 145,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0030",
+    "candidate_id": "C-30fcecc49a6a",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 260
+    "line": 260,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0031",
+    "candidate_id": "C-facb50891928",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 7
+    "line": 7,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0032",
+    "candidate_id": "C-2afe6205b540",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 104
+    "line": 104,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0033",
+    "candidate_id": "C-ad156f7fa857",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 250
+    "line": 250,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0034",
+    "candidate_id": "C-cf7a5cc7e856",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 177
+    "line": 177,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0035",
+    "candidate_id": "C-554cb947aa97",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 301
+    "line": 301,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0036",
+    "candidate_id": "C-6e906155b180",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 294
+    "line": 294,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0037",
+    "candidate_id": "C-c8e6733a3ecb",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 209
+    "line": 209,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0038",
+    "candidate_id": "C-4d67e7912544",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 304
+    "line": 304,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0039",
+    "candidate_id": "C-5e5a0d9336e5",
     "file": "jose/utils.py",
-    "line": 14
+    "line": 14,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0040",
+    "candidate_id": "C-97310b16dd46",
     "file": "jose/utils.py",
-    "line": 147
+    "line": 147,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0041",
+    "candidate_id": "C-6f7c6ffaae7e",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 486
+    "line": 486,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0042",
+    "candidate_id": "C-775124928b05",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 213
+    "line": 213,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0043",
+    "candidate_id": "C-da2d25b2aca0",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 139
+    "line": 139,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0044",
+    "candidate_id": "C-c5e92fa16a44",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 455
+    "line": 455,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0045",
+    "candidate_id": "C-aae5e59b8f4d",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 210
+    "line": 210,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0046",
+    "candidate_id": "C-9256d6769629",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 298
+    "line": 298,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0047",
+    "candidate_id": "C-91a89d9645ec",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 102
+    "line": 102,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0048",
+    "candidate_id": "C-e0c03db1b8ed",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 291
+    "line": 291,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0049",
+    "candidate_id": "C-6f4c350a932e",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 463
+    "line": 463,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0050",
+    "candidate_id": "C-5590d8b9eed4",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 106
+    "line": 106,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0051",
+    "candidate_id": "C-beec83a22527",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 74
+    "line": 74,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0052",
+    "candidate_id": "C-9af86af0156a",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 133
+    "line": 133,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0053",
+    "candidate_id": "C-22db7d4627e9",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 42
+    "line": 42,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0054",
+    "candidate_id": "C-4238accb179e",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 216
+    "line": 216,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-app-0055",
+    "candidate_id": "C-7d18ecc33f4b",
     "file": "jose/backends/cryptography_backend.py",
-    "line": 231
+    "line": 231,
+    "scope": "app"
    }
   ],
-  "S1-test": [
+  "S1-nonapp": [
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0001",
+    "candidate_id": "C-bd563699acd2",
     "file": "tests/algorithms/test_RSA.py",
-    "line": 268
+    "line": 279,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0002",
+    "candidate_id": "C-8ce57329faca",
     "file": "tests/algorithms/test_EC.py",
-    "line": 202
+    "line": 105,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0003",
-    "file": "tests/algorithms/test_EC.py",
-    "line": 110
-   },
-   {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0004",
+    "candidate_id": "C-24207060fa67",
     "file": "tests/algorithms/test_RSA.py",
-    "line": 258
+    "line": 275,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0005",
+    "candidate_id": "C-d3c5f7eee1a6",
+    "file": "tests/algorithms/test_EC.py",
+    "line": 101,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-63355ae756fd",
+    "file": "tests/algorithms/test_EC.py",
+    "line": 146,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-4ae1162eb7e5",
     "file": "tests/algorithms/test_RSA.py",
-    "line": 332
+    "line": 282,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0006",
+    "candidate_id": "C-1ffa7afb652c",
+    "file": "tests/algorithms/test_EC.py",
+    "line": 135,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-45ff9b4560e0",
     "file": "tests/algorithms/test_RSA.py",
-    "line": 107
+    "line": 268,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0007",
-    "file": "tests/algorithms/test_EC.py",
-    "line": 105
-   },
-   {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0008",
-    "file": "tests/algorithms/test_EC.py",
-    "line": 227
-   },
-   {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0009",
+    "candidate_id": "C-48a2f1e5b9d6",
     "file": "tests/algorithms/test_RSA.py",
-    "line": 373
+    "line": 292,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0010",
+    "candidate_id": "C-eb2ac2abb979",
+    "file": "tests/algorithms/test_EC.py",
+    "line": 126,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-3d57424ce4da",
     "file": "tests/algorithms/test_RSA.py",
-    "line": 285
+    "line": 319,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0011",
+    "candidate_id": "C-953625bc9911",
     "file": "tests/algorithms/test_EC.py",
-    "line": 11
+    "line": 119,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0012",
+    "candidate_id": "C-ffa4526beb2e",
     "file": "tests/algorithms/test_EC.py",
-    "line": 157
+    "line": 172,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0013",
+    "candidate_id": "C-9e27a31e8f02",
+    "file": "tests/algorithms/test_EC.py",
+    "line": 92,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-bf1cb26d4068",
     "file": "tests/algorithms/test_RSA.py",
-    "line": 17
+    "line": 305,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0014",
-    "file": "tests/algorithms/test_EC.py",
-    "line": 135
-   },
-   {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0015",
+    "candidate_id": "C-3666741356d8",
     "file": "tests/algorithms/test_RSA.py",
-    "line": 323
+    "line": 107,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0016",
-    "file": "tests/algorithms/test_EC.py",
-    "line": 29
-   },
-   {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0017",
+    "candidate_id": "C-d1418981f4d3",
     "file": "tests/algorithms/test_RSA.py",
-    "line": 233
+    "line": 323,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0018",
-    "file": "tests/algorithms/test_EC.py",
-    "line": 196
-   },
-   {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0019",
+    "candidate_id": "C-5cbb83c59119",
     "file": "tests/algorithms/test_RSA.py",
-    "line": 338
+    "line": 80,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0020",
+    "candidate_id": "C-7467630caa1b",
     "file": "tests/algorithms/test_EC.py",
-    "line": 94
+    "line": 15,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0021",
+    "candidate_id": "C-5481c6a81fc8",
+    "file": "tests/algorithms/test_EC.py",
+    "line": 13,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-1e3c6b42d0aa",
     "file": "tests/algorithms/test_RSA.py",
-    "line": 80
+    "line": 263,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0022",
+    "candidate_id": "C-7aea27829633",
+    "file": "tests/algorithms/test_EC.py",
+    "line": 84,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-f9333d075025",
+    "file": "tests/algorithms/test_EC.py",
+    "line": 198,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-b433cbc4586e",
+    "file": "tests/algorithms/test_EC.py",
+    "line": 95,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-fdaa08705757",
     "file": "tests/algorithms/test_RSA.py",
-    "line": 275
+    "line": 258,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0023",
-    "file": "tests/algorithms/test_EC.py",
-    "line": 92
-   },
-   {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0024",
+    "candidate_id": "C-964d3e3d7e5e",
     "file": "tests/algorithms/test_RSA.py",
-    "line": 112
+    "line": 311,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0025",
+    "candidate_id": "C-3bee27802203",
     "file": "tests/algorithms/test_EC.py",
-    "line": 119
+    "line": 201,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0026",
-    "file": "tests/algorithms/test_EC.py",
-    "line": 198
-   },
-   {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0027",
-    "file": "tests/algorithms/test_EC.py",
-    "line": 238
-   },
-   {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0028",
+    "candidate_id": "C-19d6d1caf548",
     "file": "tests/algorithms/test_RSA.py",
-    "line": 11
+    "line": 202,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0029",
+    "candidate_id": "C-9a895a9dec05",
+    "file": "tests/algorithms/test_EC.py",
+    "line": 36,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-6102c545c198",
     "file": "tests/algorithms/test_RSA.py",
-    "line": 319
+    "line": 29,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0030",
+    "candidate_id": "C-2c201a6740c7",
     "file": "tests/algorithms/test_EC.py",
-    "line": 126
+    "line": 169,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0031",
+    "candidate_id": "C-45513fa3dcb5",
     "file": "tests/algorithms/test_RSA.py",
-    "line": 311
+    "line": 187,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0032",
-    "file": "tests/algorithms/test_EC.py",
-    "line": 95
-   },
-   {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0033",
+    "candidate_id": "C-a538ad0a7af9",
     "file": "tests/algorithms/test_RSA.py",
-    "line": 226
+    "line": 285,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0034",
+    "candidate_id": "C-7aa10e5411d4",
     "file": "tests/algorithms/test_EC.py",
-    "line": 140
+    "line": 202,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0035",
-    "file": "tests/algorithms/test_EC.py",
-    "line": 172
-   },
-   {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0036",
-    "file": "tests/algorithms/test_EC.py",
-    "line": 36
-   },
-   {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0037",
-    "file": "tests/algorithms/test_EC.py",
-    "line": 84
-   },
-   {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0038",
+    "candidate_id": "C-5d073a9c3012",
     "file": "tests/algorithms/test_RSA.py",
-    "line": 279
+    "line": 332,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0039",
-    "file": "tests/algorithms/test_RSA.py",
-    "line": 187
-   },
-   {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0040",
-    "file": "tests/algorithms/test_RSA.py",
-    "line": 369
-   },
-   {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0041",
-    "file": "tests/algorithms/test_RSA.py",
-    "line": 193
-   },
-   {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0042",
-    "file": "tests/algorithms/test_RSA.py",
-    "line": 282
-   },
-   {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0043",
+    "candidate_id": "C-b5c49564063f",
     "file": "tests/algorithms/test_EC.py",
-    "line": 15
+    "line": 91,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0044",
+    "candidate_id": "C-4c5f09e25b1e",
     "file": "tests/algorithms/test_RSA.py",
-    "line": 202
+    "line": 226,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0045",
+    "candidate_id": "C-a857f49d7ac7",
+    "file": "tests/algorithms/test_EC.py",
+    "line": 238,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-63a2ea43c644",
     "file": "tests/algorithms/test_RSA.py",
-    "line": 290
+    "line": 112,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0046",
-    "file": "tests/algorithms/test_EC.py",
-    "line": 146
-   },
-   {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0047",
+    "candidate_id": "C-31c5d02dcf05",
     "file": "tests/algorithms/test_RSA.py",
-    "line": 29
+    "line": 11,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0048",
-    "file": "tests/algorithms/test_EC.py",
-    "line": 132
-   },
-   {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0049",
+    "candidate_id": "C-f25289bc8ae2",
     "file": "tests/algorithms/test_RSA.py",
-    "line": 255
+    "line": 17,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0050",
-    "file": "tests/algorithms/test_EC.py",
-    "line": 162
-   },
-   {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0051",
-    "file": "tests/algorithms/test_EC.py",
-    "line": 149
-   },
-   {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0052",
-    "file": "tests/algorithms/test_EC.py",
-    "line": 13
-   },
-   {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0053",
-    "file": "tests/algorithms/test_EC.py",
-    "line": 247
-   },
-   {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0054",
+    "candidate_id": "C-ad52a7310d75",
     "file": "tests/algorithms/test_RSA.py",
-    "line": 292
+    "line": 290,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0055",
+    "candidate_id": "C-ef1d8231ee06",
     "file": "tests/algorithms/test_RSA.py",
-    "line": 196
+    "line": 196,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0056",
+    "candidate_id": "C-5da4e1487aef",
     "file": "tests/algorithms/test_EC.py",
-    "line": 169
+    "line": 196,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0057",
+    "candidate_id": "C-66e7c38f6ec6",
     "file": "tests/algorithms/test_EC.py",
-    "line": 101
+    "line": 149,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0058",
+    "candidate_id": "C-2127ba15f7c8",
     "file": "tests/algorithms/test_EC.py",
-    "line": 85
+    "line": 132,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0059",
+    "candidate_id": "C-40e23e41929d",
     "file": "tests/algorithms/test_EC.py",
-    "line": 201
+    "line": 110,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0060",
+    "candidate_id": "C-f18b329b12fa",
     "file": "tests/algorithms/test_RSA.py",
-    "line": 263
+    "line": 233,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0061",
+    "candidate_id": "C-47c09320968d",
     "file": "tests/algorithms/test_RSA.py",
-    "line": 305
+    "line": 338,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S1-test-0062",
+    "candidate_id": "C-7fe4e76d7e8e",
     "file": "tests/algorithms/test_EC.py",
-    "line": 91
+    "line": 162,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-e9330e479a51",
+    "file": "tests/algorithms/test_EC.py",
+    "line": 157,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-fd44beb8e92c",
+    "file": "tests/algorithms/test_EC.py",
+    "line": 85,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-2522e07a86dc",
+    "file": "tests/algorithms/test_EC.py",
+    "line": 227,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-60e6530a20fd",
+    "file": "tests/algorithms/test_RSA.py",
+    "line": 373,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-caef9c5f605d",
+    "file": "tests/algorithms/test_RSA.py",
+    "line": 369,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-516479a2eaf8",
+    "file": "tests/algorithms/test_EC.py",
+    "line": 140,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-81933af4942b",
+    "file": "tests/algorithms/test_EC.py",
+    "line": 29,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-ba020cf9286e",
+    "file": "tests/algorithms/test_RSA.py",
+    "line": 193,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-21bb0a64d82c",
+    "file": "tests/algorithms/test_RSA.py",
+    "line": 255,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-d091b7df555b",
+    "file": "tests/algorithms/test_EC.py",
+    "line": 247,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-13076e9d88ff",
+    "file": "tests/algorithms/test_EC.py",
+    "line": 94,
+    "scope": "test"
+   },
+   {
+    "candidate_id": "C-495259a44c4a",
+    "file": "tests/algorithms/test_EC.py",
+    "line": 11,
+    "scope": "test"
    }
   ],
   "S2": [
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0001",
+    "candidate_id": "C-87993e33a65d",
     "file": "jose/constants.py",
-    "line": 56
+    "line": 56,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0002",
+    "candidate_id": "C-1dc5fb15e1bc",
     "file": "tests/test_jws.py",
-    "line": 378
+    "line": 378,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0003",
+    "candidate_id": "C-d3c76c59c85c",
     "file": "tests/test_jwk.py",
-    "line": 88
+    "line": 88,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0004",
+    "candidate_id": "C-4135eafad8da",
     "file": "jose/constants.py",
-    "line": 34
+    "line": 34,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0005",
+    "candidate_id": "C-e90d46ae3021",
     "file": "tests/test_jws.py",
-    "line": 103
+    "line": 103,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0006",
+    "candidate_id": "C-8585ef99822a",
     "file": "jose/backends/rsa_backend.py",
-    "line": 132
+    "line": 132,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0007",
+    "candidate_id": "C-a9cb76f6f773",
     "file": "tests/algorithms/test_EC_compat.py",
-    "line": 7
+    "line": 7,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0008",
+    "candidate_id": "C-b06fe76b7467",
     "file": "jose/jws.py",
-    "line": 165
+    "line": 165,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0009",
+    "candidate_id": "C-caa89fd1dced",
     "file": "tests/test_jws.py",
-    "line": 372
+    "line": 372,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0010",
+    "candidate_id": "C-90d1ad916199",
     "file": "tests/test_jws.py",
-    "line": 295
+    "line": 295,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0011",
+    "candidate_id": "C-e1b1bdb83d8d",
     "file": "jose/backends/ecdsa_backend.py",
-    "line": 96
+    "line": 96,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0012",
+    "candidate_id": "C-e5dfcd5a6e0f",
     "file": "tests/test_jws.py",
-    "line": 111
+    "line": 111,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0013",
+    "candidate_id": "C-dd8a5dd12529",
     "file": "tests/test_jwe.py",
-    "line": 139
+    "line": 139,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0014",
+    "candidate_id": "C-01cbb8225c8f",
     "file": "tests/algorithms/test_RSA_compat.py",
-    "line": 47
+    "line": 47,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0015",
+    "candidate_id": "C-6396c12a77c4",
     "file": "tests/test_jwk.py",
-    "line": 47
+    "line": 47,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0016",
+    "candidate_id": "C-b4715d6703b5",
     "file": "tests/test_asn1.py",
-    "line": 12
+    "line": 12,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0017",
+    "candidate_id": "C-7570fb5c1897",
     "file": "tests/rfc/test_rfc7520.py",
-    "line": 45
+    "line": 45,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0018",
+    "candidate_id": "C-348e6e025940",
     "file": "tests/test_jws.py",
-    "line": 376
+    "line": 376,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0019",
+    "candidate_id": "C-87c57611d27a",
     "file": "jose/backends/ecdsa_backend.py",
-    "line": 92
+    "line": 92,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0020",
+    "candidate_id": "C-ec3c74cf6114",
     "file": "tests/algorithms/test_base.py",
-    "line": 22
+    "line": 22,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0021",
+    "candidate_id": "C-b89603df227e",
     "file": "jose/backends/_asn1.py",
-    "line": 13
+    "line": 13,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0022",
+    "candidate_id": "C-7cba0a426aa6",
     "file": "tests/algorithms/test_EC_compat.py",
-    "line": 35
+    "line": 35,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0023",
+    "candidate_id": "C-663724a5b230",
     "file": "tests/test_jws.py",
-    "line": 76
+    "line": 76,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0024",
+    "candidate_id": "C-872b00f79ed3",
     "file": "tests/algorithms/test_EC_compat.py",
-    "line": 43
+    "line": 43,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0025",
+    "candidate_id": "C-16ed9e13dacd",
     "file": "jose/constants.py",
-    "line": 57
+    "line": 57,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0026",
+    "candidate_id": "C-bef238e3e486",
     "file": "jose/backends/ecdsa_backend.py",
-    "line": 40
+    "line": 40,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0027",
+    "candidate_id": "C-f42c7dcca16d",
     "file": "jose/jwt.py",
-    "line": 63
+    "line": 63,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0028",
+    "candidate_id": "C-972706929b49",
     "file": "jose/constants.py",
-    "line": 39
+    "line": 39,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0029",
+    "candidate_id": "C-7e15176dcc56",
     "file": "tests/test_jws.py",
-    "line": 314
+    "line": 314,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0030",
+    "candidate_id": "C-f4c2cf419196",
     "file": "tests/algorithms/test_base.py",
-    "line": 14
+    "line": 14,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0031",
+    "candidate_id": "C-b87e36f31166",
     "file": "jose/backends/ecdsa_backend.py",
-    "line": 99
+    "line": 99,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0032",
+    "candidate_id": "C-a16c08d81279",
     "file": "tests/test_jws.py",
-    "line": 299
+    "line": 299,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0033",
+    "candidate_id": "C-339c6cb454ca",
     "file": "tests/algorithms/test_HMAC.py",
-    "line": 20
+    "line": 20,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0034",
+    "candidate_id": "C-c9a61d8903b5",
     "file": "jose/backends/ecdsa_backend.py",
-    "line": 65
+    "line": 65,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0035",
+    "candidate_id": "C-888747972765",
     "file": "tests/algorithms/test_EC_compat.py",
-    "line": 22
+    "line": 22,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0036",
+    "candidate_id": "C-1431c6a9df6d",
     "file": "jose/backends/ecdsa_backend.py",
-    "line": 11
+    "line": 11,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0037",
+    "candidate_id": "C-cf4e75e4f154",
     "file": "tests/test_jwk.py",
-    "line": 125
+    "line": 125,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0038",
+    "candidate_id": "C-e1c41b867222",
     "file": "tests/test_jws.py",
-    "line": 327
+    "line": 327,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0039",
+    "candidate_id": "C-e19f61ebac0e",
     "file": "tests/test_jwk.py",
-    "line": 68
+    "line": 68,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0040",
+    "candidate_id": "C-0bd37f640f51",
     "file": "jose/constants.py",
-    "line": 62
+    "line": 62,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0041",
+    "candidate_id": "C-ef04fcba6ca2",
     "file": "tests/algorithms/test_EC_compat.py",
-    "line": 65
+    "line": 65,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0042",
+    "candidate_id": "C-53ae00022658",
     "file": "tests/rfc/test_rfc7520.py",
-    "line": 12
+    "line": 12,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0043",
+    "candidate_id": "C-475438437f84",
     "file": "tests/algorithms/test_EC_compat.py",
-    "line": 63
+    "line": 63,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0044",
+    "candidate_id": "C-c9fb4fef8e94",
     "file": "tests/algorithms/test_EC_compat.py",
-    "line": 15
+    "line": 15,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0045",
+    "candidate_id": "C-cd7dcfc8192b",
     "file": "jose/backends/_asn1.py",
-    "line": 64
+    "line": 64,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0046",
+    "candidate_id": "C-d5626259b5de",
     "file": "jose/backends/rsa_backend.py",
-    "line": 34
+    "line": 34,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0047",
+    "candidate_id": "C-ce5ba4b2b4d9",
     "file": "tests/test_jwk.py",
-    "line": 126
+    "line": 126,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0048",
+    "candidate_id": "C-0bd6698911ef",
     "file": "jose/jwe.py",
-    "line": 585
+    "line": 585,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0049",
+    "candidate_id": "C-124ef9943e4c",
     "file": "jose/constants.py",
-    "line": 40
+    "line": 40,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0050",
+    "candidate_id": "C-d9119cf602d2",
     "file": "tests/algorithms/test_EC_compat.py",
-    "line": 53
+    "line": 53,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0051",
+    "candidate_id": "C-236f7649aef7",
     "file": "tests/algorithms/test_RSA_compat.py",
-    "line": 30
+    "line": 30,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0052",
+    "candidate_id": "C-d39c940a007d",
     "file": "jose/backends/ecdsa_backend.py",
-    "line": 95
+    "line": 95,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0053",
+    "candidate_id": "C-7e0c557bd7e7",
     "file": "tests/test_jws.py",
-    "line": 369
+    "line": 369,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0054",
+    "candidate_id": "C-fffb0e624872",
     "file": "tests/test_jwk.py",
-    "line": 44
+    "line": 44,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0055",
+    "candidate_id": "C-81c7ad085e7a",
     "file": "jose/backends/rsa_backend.py",
-    "line": 7
+    "line": 7,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0056",
+    "candidate_id": "C-60d1c699c516",
     "file": "tests/algorithms/test_EC_compat.py",
-    "line": 51
+    "line": 51,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0057",
+    "candidate_id": "C-b5ba1f749c46",
     "file": "tests/algorithms/test_EC_compat.py",
-    "line": 37
+    "line": 37,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0058",
+    "candidate_id": "C-6e049c7a3b12",
     "file": "tests/algorithms/test_HMAC_compat.py",
-    "line": 40
+    "line": 40,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0059",
+    "candidate_id": "C-d6dedc13208f",
     "file": "tests/algorithms/test_EC_compat.py",
-    "line": 69
+    "line": 69,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0060",
+    "candidate_id": "C-b318ba1535f9",
     "file": "tests/test_jws.py",
-    "line": 97
+    "line": 97,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0061",
+    "candidate_id": "C-47a72baa17d9",
     "file": "tests/test_jws.py",
-    "line": 324
+    "line": 324,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0062",
+    "candidate_id": "C-1963e5de7c97",
     "file": "tests/algorithms/test_EC_compat.py",
-    "line": 26
+    "line": 26,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0063",
+    "candidate_id": "C-7492a14399b7",
     "file": "tests/test_jws.py",
-    "line": 86
+    "line": 86,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0064",
+    "candidate_id": "C-14b1a02bfc52",
     "file": "jose/backends/ecdsa_backend.py",
-    "line": 67
+    "line": 67,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0065",
+    "candidate_id": "C-4c246ed83e01",
     "file": "jose/backends/rsa_backend.py",
-    "line": 275
+    "line": 275,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0066",
+    "candidate_id": "C-6d1eb9290494",
     "file": "tests/test_jwk.py",
-    "line": 66
+    "line": 66,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0067",
+    "candidate_id": "C-c54bec8b2904",
     "file": "jose/backends/base.py",
-    "line": 12
+    "line": 12,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0068",
+    "candidate_id": "C-8a813fe87085",
     "file": "jose/constants.py",
-    "line": 11
+    "line": 11,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0069",
+    "candidate_id": "C-e28db4dab4b4",
     "file": "tests/test_jws.py",
-    "line": 335
+    "line": 335,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0070",
+    "candidate_id": "C-ea74fb30cd21",
     "file": "tests/test_jwk.py",
-    "line": 39
+    "line": 39,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0071",
+    "candidate_id": "C-b4b0d17de909",
     "file": "tests/algorithms/test_RSA_compat.py",
-    "line": 60
+    "line": 60,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0072",
+    "candidate_id": "C-2386d9cba2df",
     "file": "tests/algorithms/test_EC_compat.py",
-    "line": 50
+    "line": 50,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0073",
+    "candidate_id": "C-a3d8a6813d9e",
     "file": "tests/test_jws.py",
-    "line": 311
+    "line": 311,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0074",
+    "candidate_id": "C-61c3235f9831",
     "file": "jose/backends/rsa_backend.py",
-    "line": 5
+    "line": 5,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0075",
+    "candidate_id": "C-2ee3adc38af8",
     "file": "jose/backends/ecdsa_backend.py",
-    "line": 98
+    "line": 98,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0076",
+    "candidate_id": "C-0e7b5af81580",
     "file": "jose/backends/ecdsa_backend.py",
-    "line": 66
+    "line": 66,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0077",
+    "candidate_id": "C-26cafd9e661a",
     "file": "tests/algorithms/test_RSA_compat.py",
-    "line": 84
+    "line": 84,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0078",
+    "candidate_id": "C-47ba7b0a58b1",
     "file": "tests/algorithms/test_EC_compat.py",
-    "line": 46
+    "line": 46,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0079",
+    "candidate_id": "C-c83c6326e9b9",
     "file": "tests/test_jws.py",
-    "line": 212
+    "line": 212,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0080",
+    "candidate_id": "C-16eb56760675",
     "file": "tests/test_jwk.py",
-    "line": 53
+    "line": 53,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0081",
+    "candidate_id": "C-3ec1b3d2004d",
     "file": "tests/test_jws.py",
-    "line": 318
+    "line": 318,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0082",
+    "candidate_id": "C-e3a129866034",
     "file": "jose/backends/ecdsa_backend.py",
-    "line": 12
+    "line": 12,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0083",
+    "candidate_id": "C-782f0ad41b29",
     "file": "tests/test_jws.py",
-    "line": 120
+    "line": 120,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0084",
+    "candidate_id": "C-9ffadd53f440",
     "file": "tests/test_backends.py",
-    "line": 12
+    "line": 12,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0085",
+    "candidate_id": "C-8fb7334d87c1",
     "file": "jose/constants.py",
-    "line": 33
+    "line": 33,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0086",
+    "candidate_id": "C-15cb43ab743d",
     "file": "jose/backends/rsa_backend.py",
-    "line": 176
+    "line": 176,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0087",
+    "candidate_id": "C-e6898846ca47",
     "file": "tests/algorithms/test_HMAC_compat.py",
-    "line": 35
+    "line": 35,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0088",
+    "candidate_id": "C-6aba5a2702c0",
     "file": "tests/algorithms/test_HMAC.py",
-    "line": 28
+    "line": 28,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0089",
+    "candidate_id": "C-b27a8bc0dfc8",
     "file": "tests/test_jws.py",
-    "line": 126
+    "line": 126,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0090",
+    "candidate_id": "C-e3f28682ecca",
     "file": "tests/test_jws.py",
-    "line": 365
+    "line": 365,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0091",
+    "candidate_id": "C-c7af4138bb9c",
     "file": "tests/test_jwk.py",
-    "line": 24
+    "line": 24,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0092",
+    "candidate_id": "C-94f3bb5d491c",
     "file": "jose/backends/rsa_backend.py",
-    "line": 230
+    "line": 230,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0093",
+    "candidate_id": "C-1bf46ebc6dac",
     "file": "jose/backends/rsa_backend.py",
-    "line": 104
+    "line": 104,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0094",
+    "candidate_id": "C-9ae67a2c43e8",
     "file": "tests/algorithms/test_EC_compat.py",
-    "line": 58
+    "line": 58,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0095",
+    "candidate_id": "C-6e38c14f060a",
     "file": "jose/backends/_asn1.py",
-    "line": 39
+    "line": 39,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0096",
+    "candidate_id": "C-e386d0c9d6f0",
     "file": "jose/backends/native.py",
-    "line": 58
+    "line": 58,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0097",
+    "candidate_id": "C-17cf04200157",
     "file": "tests/algorithms/test_AES_compat.py",
-    "line": 30
+    "line": 30,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0098",
+    "candidate_id": "C-c9836b4c18e8",
     "file": "jose/backends/rsa_backend.py",
-    "line": 4
+    "line": 4,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0099",
+    "candidate_id": "C-ab2c258b70a4",
     "file": "tests/test_jws.py",
-    "line": 368
+    "line": 368,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0100",
+    "candidate_id": "C-2761e257a17d",
     "file": "jose/jwk.py",
-    "line": 36
+    "line": 36,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0101",
+    "candidate_id": "C-151299e72751",
     "file": "jose/constants.py",
-    "line": 14
+    "line": 14,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0102",
+    "candidate_id": "C-eaeb45ca6bd6",
     "file": "jose/backends/ecdsa_backend.py",
-    "line": 87
+    "line": 87,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0103",
+    "candidate_id": "C-538787070fc2",
     "file": "tests/test_jws.py",
-    "line": 142
+    "line": 142,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0104",
+    "candidate_id": "C-994a83cbfa11",
     "file": "jose/backends/_asn1.py",
-    "line": 76
+    "line": 76,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0105",
+    "candidate_id": "C-21af7ce8eccf",
     "file": "jose/constants.py",
-    "line": 55
+    "line": 55,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0106",
+    "candidate_id": "C-aa16c5d33934",
     "file": "jose/constants.py",
-    "line": 41
+    "line": 41,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0107",
+    "candidate_id": "C-8fe10ad2977f",
     "file": "tests/algorithms/test_RSA_compat.py",
-    "line": 112
+    "line": 112,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0108",
+    "candidate_id": "C-e9027fcac96c",
     "file": "tests/test_backends.py",
-    "line": 38
+    "line": 38,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0109",
+    "candidate_id": "C-12bb625163b0",
     "file": "jose/backends/ecdsa_backend.py",
-    "line": 105
+    "line": 105,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0110",
+    "candidate_id": "C-6557441d20ca",
     "file": "tests/algorithms/test_RSA_compat.py",
-    "line": 79
+    "line": 79,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0111",
+    "candidate_id": "C-4ee653f32bb2",
     "file": "jose/backends/_asn1.py",
-    "line": 51
+    "line": 51,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0112",
+    "candidate_id": "C-c7fd4cafcd69",
     "file": "tests/test_jws.py",
-    "line": 339
+    "line": 339,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0113",
+    "candidate_id": "C-8954ee41ed05",
     "file": "tests/rfc/test_rfc7520.py",
-    "line": 43
+    "line": 43,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0114",
+    "candidate_id": "C-c3390999df8e",
     "file": "tests/test_jws.py",
-    "line": 346
+    "line": 346,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0115",
+    "candidate_id": "C-4da5378c1e9e",
     "file": "tests/algorithms/test_EC_compat.py",
-    "line": 18
+    "line": 18,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0116",
+    "candidate_id": "C-35515bead2cf",
     "file": "tests/algorithms/test_RSA_compat.py",
-    "line": 99
+    "line": 99,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0117",
+    "candidate_id": "C-cf9c32bed631",
     "file": "jose/jws.py",
-    "line": 16
+    "line": 16,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0118",
+    "candidate_id": "C-959e12504c1b",
     "file": "jose/backends/rsa_backend.py",
-    "line": 177
+    "line": 177,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0119",
+    "candidate_id": "C-f95d9b8bd30e",
     "file": "jose/jwe.py",
-    "line": 399
+    "line": 399,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0120",
+    "candidate_id": "C-d097c7d0dff7",
     "file": "tests/algorithms/test_AES_compat.py",
-    "line": 35
+    "line": 35,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0121",
+    "candidate_id": "C-f897cec37638",
     "file": "tests/test_jws.py",
-    "line": 107
+    "line": 107,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0122",
+    "candidate_id": "C-5341322df428",
     "file": "tests/algorithms/test_RSA_compat.py",
-    "line": 94
+    "line": 94,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0123",
+    "candidate_id": "C-037029fd5e42",
     "file": "jose/backends/__init__.py",
-    "line": 14
+    "line": 14,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0124",
+    "candidate_id": "C-c9b648bc9513",
     "file": "tests/test_jwe.py",
-    "line": 29
+    "line": 29,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0125",
+    "candidate_id": "C-757058703766",
     "file": "tests/algorithms/test_EC_compat.py",
-    "line": 5
+    "line": 5,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0126",
+    "candidate_id": "C-f2f7ebdccf87",
     "file": "tests/algorithms/test_EC_compat.py",
-    "line": 34
+    "line": 34,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0127",
+    "candidate_id": "C-24070a6eb21f",
     "file": "tests/test_jws.py",
-    "line": 307
+    "line": 307,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0128",
+    "candidate_id": "C-c423b51d7bfc",
     "file": "jose/jwt.py",
-    "line": 441
+    "line": 441,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0129",
+    "candidate_id": "C-7b665411b068",
     "file": "tests/test_firebase.py",
-    "line": 24
+    "line": 24,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0130",
+    "candidate_id": "C-06fc5f884d50",
     "file": "jose/backends/ecdsa_backend.py",
-    "line": 112
+    "line": 112,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0131",
+    "candidate_id": "C-5c549e3324fd",
     "file": "tests/test_jwk.py",
-    "line": 64
+    "line": 64,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0132",
+    "candidate_id": "C-06ce51a1380f",
     "file": "tests/test_jws.py",
-    "line": 115
+    "line": 115,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0133",
+    "candidate_id": "C-9552d139fa8a",
     "file": "tests/test_jwk.py",
-    "line": 16
+    "line": 16,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0134",
+    "candidate_id": "C-c7682ab04ce0",
     "file": "tests/test_jws.py",
-    "line": 322
+    "line": 322,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0135",
+    "candidate_id": "C-1d13868f3b05",
     "file": "jose/backends/native.py",
-    "line": 62
+    "line": 62,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0136",
+    "candidate_id": "C-db8168cf8a2b",
     "file": "jose/jwe.py",
-    "line": 528
+    "line": 528,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0137",
+    "candidate_id": "C-dacd1d9f7687",
     "file": "jose/constants.py",
-    "line": 74
+    "line": 74,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0138",
+    "candidate_id": "C-f6e818d67cf4",
     "file": "jose/backends/rsa_backend.py",
-    "line": 99
+    "line": 99,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0139",
+    "candidate_id": "C-d7b67d943eeb",
     "file": "tests/algorithms/test_RSA_compat.py",
-    "line": 59
+    "line": 59,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0140",
+    "candidate_id": "C-f8951a1bc8fa",
     "file": "tests/algorithms/test_EC_compat.py",
-    "line": 23
+    "line": 23,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0141",
+    "candidate_id": "C-28a2b83930cf",
     "file": "tests/test_jws.py",
-    "line": 310
+    "line": 310,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0142",
+    "candidate_id": "C-1da942b69813",
     "file": "tests/test_firebase.py",
-    "line": 27
+    "line": 27,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0143",
+    "candidate_id": "C-8d64ca3d5c52",
     "file": "jose/backends/ecdsa_backend.py",
-    "line": 3
+    "line": 3,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0144",
+    "candidate_id": "C-6337f34ca39b",
     "file": "tests/test_jws.py",
-    "line": 332
+    "line": 332,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0145",
+    "candidate_id": "C-aa652fa380b8",
     "file": "jose/constants.py",
-    "line": 38
+    "line": 38,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0146",
+    "candidate_id": "C-eea334bbf41e",
     "file": "jose/backends/ecdsa_backend.py",
-    "line": 25
+    "line": 25,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0147",
+    "candidate_id": "C-92d7483322b4",
     "file": "tests/algorithms/test_EC_compat.py",
-    "line": 62
+    "line": 62,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0148",
+    "candidate_id": "C-193cef1aca16",
     "file": "jose/jwe.py",
-    "line": 14
+    "line": 14,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0149",
+    "candidate_id": "C-96586db601ba",
     "file": "jose/constants.py",
-    "line": 53
+    "line": 53,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0150",
+    "candidate_id": "C-96708b6a5a39",
     "file": "tests/test_jwk.py",
-    "line": 55
+    "line": 55,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0151",
+    "candidate_id": "C-2c42dfd8ec6e",
     "file": "tests/test_jws.py",
-    "line": 319
+    "line": 319,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0152",
+    "candidate_id": "C-2074f62b03be",
     "file": "tests/algorithms/test_EC_compat.py",
-    "line": 38
+    "line": 38,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0153",
+    "candidate_id": "C-9c28b5a1894b",
     "file": "jose/backends/base.py",
-    "line": 27
+    "line": 27,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0154",
+    "candidate_id": "C-058aec472902",
     "file": "jose/constants.py",
-    "line": 10
+    "line": 10,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0155",
+    "candidate_id": "C-464477b668d5",
     "file": "jose/backends/rsa_backend.py",
-    "line": 203
+    "line": 203,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0156",
+    "candidate_id": "C-990bc76d9f97",
     "file": "tests/test_jws.py",
-    "line": 137
+    "line": 137,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0157",
+    "candidate_id": "C-9f0290829e6a",
     "file": "tests/test_firebase.py",
-    "line": 35
+    "line": 35,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0158",
+    "candidate_id": "C-be735fc4aa78",
     "file": "jose/constants.py",
-    "line": 13
+    "line": 13,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0159",
+    "candidate_id": "C-b0fc09a6a741",
     "file": "jose/backends/rsa_backend.py",
-    "line": 251
+    "line": 251,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0160",
+    "candidate_id": "C-53e7d745d8d8",
     "file": "jose/backends/rsa_backend.py",
-    "line": 130
+    "line": 130,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0161",
+    "candidate_id": "C-ad0d455e565d",
     "file": "tests/algorithms/test_EC_compat.py",
-    "line": 42
+    "line": 42,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0162",
+    "candidate_id": "C-0d8b132443dd",
     "file": "jose/backends/rsa_backend.py",
-    "line": 240
+    "line": 240,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0163",
+    "candidate_id": "C-cc6689df585a",
     "file": "jose/constants.py",
-    "line": 59
+    "line": 59,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0164",
+    "candidate_id": "C-2eec42ca35fd",
     "file": "jose/backends/rsa_backend.py",
-    "line": 204
+    "line": 204,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0165",
+    "candidate_id": "C-e65d47af3dbb",
     "file": "tests/algorithms/test_RSA_compat.py",
-    "line": 48
+    "line": 48,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0166",
+    "candidate_id": "C-25362c9d7c14",
     "file": "tests/test_jws.py",
-    "line": 315
+    "line": 315,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0167",
+    "candidate_id": "C-65b7468b5df3",
     "file": "tests/rfc/test_rfc7520.py",
-    "line": 22
+    "line": 22,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0168",
+    "candidate_id": "C-e7980f707e1f",
     "file": "jose/backends/rsa_backend.py",
-    "line": 126
+    "line": 126,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0169",
+    "candidate_id": "C-5890cbebd9d2",
     "file": "jose/backends/ecdsa_backend.py",
-    "line": 83
+    "line": 83,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0170",
+    "candidate_id": "C-7059a7e4a06e",
     "file": "jose/constants.py",
-    "line": 12
+    "line": 12,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0171",
+    "candidate_id": "C-acaafbf2f211",
     "file": "jose/backends/ecdsa_backend.py",
-    "line": 49
+    "line": 49,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0172",
+    "candidate_id": "C-01ebf33de2b8",
     "file": "jose/backends/native.py",
-    "line": 59
+    "line": 59,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0173",
+    "candidate_id": "C-4138de383d88",
     "file": "tests/test_jwk.py",
-    "line": 61
+    "line": 61,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0174",
+    "candidate_id": "C-7ed5b9864895",
     "file": "tests/algorithms/test_RSA_compat.py",
-    "line": 34
+    "line": 34,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0175",
+    "candidate_id": "C-16ed539d355e",
     "file": "jose/jwe.py",
-    "line": 395
+    "line": 395,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0176",
+    "candidate_id": "C-37897968f37b",
     "file": "tests/algorithms/test_EC_compat.py",
-    "line": 45
+    "line": 45,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0177",
+    "candidate_id": "C-13497f30cf18",
     "file": "jose/constants.py",
-    "line": 60
+    "line": 60,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0178",
+    "candidate_id": "C-5a730b2404dd",
     "file": "jose/backends/ecdsa_backend.py",
-    "line": 30
+    "line": 30,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0179",
+    "candidate_id": "C-201b9d9d3a00",
     "file": "jose/backends/rsa_backend.py",
-    "line": 19
+    "line": 19,
+    "scope": "app"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0180",
+    "candidate_id": "C-46478fde3d14",
     "file": "tests/test_jwe.py",
-    "line": 137
+    "line": 137,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0181",
+    "candidate_id": "C-f8238d7f542c",
     "file": "tests/algorithms/test_RSA_compat.py",
-    "line": 31
+    "line": 31,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0182",
+    "candidate_id": "C-e0dbaf4ec27a",
     "file": "tests/test_firebase.py",
-    "line": 41
+    "line": 41,
+    "scope": "test"
    },
    {
-    "candidate_id": "C-mpdavis__python-jose-S2-0183",
+    "candidate_id": "C-cf5cc450752d",
     "file": "tests/test_jws.py",
-    "line": 364
+    "line": 364,
+    "scope": "test"
    }
   ]
  },
- "pool_sha256": "59606fbdf95926a901352b52d5dc1ff5a1ef262918260edc3a9ac65434ffa0db"
+ "counts": {
+  "S1-app": 55,
+  "S1-nonapp": 62,
+  "S2": 183
+ },
+ "pool_sha256": "46f826156923116a345aa20b5b70773d961dbfa54a286f05cf392983565f9e79"
 }

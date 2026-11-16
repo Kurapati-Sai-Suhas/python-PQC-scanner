@@ -1,0 +1,2093 @@
+{
+ "repo": "latchset__jwcrypto",
+ "commit": "99162f6beaa630641319c2651cb4ddc35eae3cf3",
+ "seed": 20261113,
+ "strata": {
+  "S1-app": [
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0001",
+    "file": "jwcrypto/tests.py",
+    "line": 469
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0002",
+    "file": "jwcrypto/tests.py",
+    "line": 630
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0003",
+    "file": "jwcrypto/jwk.py",
+    "line": 71
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0004",
+    "file": "jwcrypto/tests.py",
+    "line": 1819
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0005",
+    "file": "jwcrypto/jwa.py",
+    "line": 964
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0006",
+    "file": "jwcrypto/jwk.py",
+    "line": 1110
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0007",
+    "file": "jwcrypto/tests.py",
+    "line": 1446
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0008",
+    "file": "jwcrypto/jwa.py",
+    "line": 920
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0009",
+    "file": "jwcrypto/jwa.py",
+    "line": 609
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0010",
+    "file": "jwcrypto/tests.py",
+    "line": 1046
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0011",
+    "file": "jwcrypto/jwk.py",
+    "line": 1044
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0012",
+    "file": "jwcrypto/tests.py",
+    "line": 1037
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0013",
+    "file": "jwcrypto/tests.py",
+    "line": 2612
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0014",
+    "file": "jwcrypto/jwa.py",
+    "line": 288
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0015",
+    "file": "jwcrypto/jwa.py",
+    "line": 385
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0016",
+    "file": "jwcrypto/jwa.py",
+    "line": 1169
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0017",
+    "file": "jwcrypto/tests.py",
+    "line": 2980
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0018",
+    "file": "jwcrypto/jws.py",
+    "line": 46
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0019",
+    "file": "jwcrypto/jwa.py",
+    "line": 325
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0020",
+    "file": "jwcrypto/tests.py",
+    "line": 381
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0021",
+    "file": "jwcrypto/jwa.py",
+    "line": 922
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0022",
+    "file": "jwcrypto/tests.py",
+    "line": 983
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0023",
+    "file": "jwcrypto/tests.py",
+    "line": 2979
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0024",
+    "file": "jwcrypto/jwa.py",
+    "line": 182
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0025",
+    "file": "jwcrypto/jwa.py",
+    "line": 298
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0026",
+    "file": "jwcrypto/jwk.py",
+    "line": 535
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0027",
+    "file": "jwcrypto/tests.py",
+    "line": 54
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0028",
+    "file": "jwcrypto/jwk.py",
+    "line": 57
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0029",
+    "file": "jwcrypto/tests.py",
+    "line": 1768
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0030",
+    "file": "jwcrypto/jwa.py",
+    "line": 143
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0031",
+    "file": "jwcrypto/jwa.py",
+    "line": 925
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0032",
+    "file": "jwcrypto/tests.py",
+    "line": 2439
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0033",
+    "file": "jwcrypto/jwa.py",
+    "line": 203
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0034",
+    "file": "jwcrypto/jwk.py",
+    "line": 46
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0035",
+    "file": "jwcrypto/jwa.py",
+    "line": 166
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0036",
+    "file": "jwcrypto/jwk.py",
+    "line": 892
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0037",
+    "file": "jwcrypto/tests.py",
+    "line": 685
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0038",
+    "file": "jwcrypto/jwk.py",
+    "line": 529
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0039",
+    "file": "jwcrypto/jwa.py",
+    "line": 301
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0040",
+    "file": "jwcrypto/tests.py",
+    "line": 563
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0041",
+    "file": "jwcrypto/jwk.py",
+    "line": 554
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0042",
+    "file": "jwcrypto/tests.py",
+    "line": 626
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0043",
+    "file": "jwcrypto/tests.py",
+    "line": 921
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0044",
+    "file": "jwcrypto/tests.py",
+    "line": 186
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0045",
+    "file": "jwcrypto/tests.py",
+    "line": 2784
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0046",
+    "file": "jwcrypto/jwa.py",
+    "line": 1287
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0047",
+    "file": "jwcrypto/jwa.py",
+    "line": 313
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0048",
+    "file": "jwcrypto/jwa.py",
+    "line": 1027
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0049",
+    "file": "jwcrypto/jwa.py",
+    "line": 271
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0050",
+    "file": "jwcrypto/jwk.py",
+    "line": 931
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0051",
+    "file": "jwcrypto/jwk.py",
+    "line": 531
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0052",
+    "file": "jwcrypto/jwk.py",
+    "line": 953
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0053",
+    "file": "jwcrypto/jwa.py",
+    "line": 904
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0054",
+    "file": "jwcrypto/jws.py",
+    "line": 280
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0055",
+    "file": "jwcrypto/tests.py",
+    "line": 495
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0056",
+    "file": "jwcrypto/jwk.py",
+    "line": 47
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0057",
+    "file": "jwcrypto/jwa.py",
+    "line": 235
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0058",
+    "file": "jwcrypto/jws.py",
+    "line": 37
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0059",
+    "file": "jwcrypto/tests.py",
+    "line": 2548
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0060",
+    "file": "jwcrypto/jwa.py",
+    "line": 950
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0061",
+    "file": "jwcrypto/jwa.py",
+    "line": 667
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0062",
+    "file": "jwcrypto/jwa.py",
+    "line": 1151
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0063",
+    "file": "jwcrypto/jwa.py",
+    "line": 931
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0064",
+    "file": "jwcrypto/jwk.py",
+    "line": 158
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0065",
+    "file": "jwcrypto/jwa.py",
+    "line": 310
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0066",
+    "file": "jwcrypto/jwa.py",
+    "line": 1011
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0067",
+    "file": "jwcrypto/jwa.py",
+    "line": 312
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0068",
+    "file": "jwcrypto/jwk.py",
+    "line": 60
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0069",
+    "file": "jwcrypto/jwa.py",
+    "line": 661
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0070",
+    "file": "jwcrypto/tests.py",
+    "line": 1048
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0071",
+    "file": "jwcrypto/jwa.py",
+    "line": 383
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0072",
+    "file": "jwcrypto/jwa.py",
+    "line": 1031
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0073",
+    "file": "jwcrypto/jwk.py",
+    "line": 77
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0074",
+    "file": "jwcrypto/tests.py",
+    "line": 712
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0075",
+    "file": "jwcrypto/jwa.py",
+    "line": 1227
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0076",
+    "file": "jwcrypto/jws.py",
+    "line": 160
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0077",
+    "file": "jwcrypto/tests.py",
+    "line": 288
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0078",
+    "file": "jwcrypto/jwa.py",
+    "line": 947
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0079",
+    "file": "jwcrypto/jwa.py",
+    "line": 968
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0080",
+    "file": "jwcrypto/tests.py",
+    "line": 1482
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0081",
+    "file": "jwcrypto/tests.py",
+    "line": 782
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0082",
+    "file": "jwcrypto/jwa.py",
+    "line": 487
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0083",
+    "file": "jwcrypto/jwa.py",
+    "line": 821
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0084",
+    "file": "jwcrypto/tests.py",
+    "line": 529
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0085",
+    "file": "jwcrypto/jwa.py",
+    "line": 923
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0086",
+    "file": "jwcrypto/tests.py",
+    "line": 519
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0087",
+    "file": "jwcrypto/tests.py",
+    "line": 443
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0088",
+    "file": "jwcrypto/jwa.py",
+    "line": 57
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0089",
+    "file": "jwcrypto/jwa.py",
+    "line": 1007
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0090",
+    "file": "jwcrypto/jwa.py",
+    "line": 346
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0091",
+    "file": "jwcrypto/tests.py",
+    "line": 761
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0092",
+    "file": "jwcrypto/jwk.py",
+    "line": 131
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0093",
+    "file": "jwcrypto/jwa.py",
+    "line": 355
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0094",
+    "file": "jwcrypto/jwa.py",
+    "line": 259
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0095",
+    "file": "jwcrypto/tests.py",
+    "line": 2201
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0096",
+    "file": "jwcrypto/jws.py",
+    "line": 297
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0097",
+    "file": "jwcrypto/tests.py",
+    "line": 810
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0098",
+    "file": "jwcrypto/jwk.py",
+    "line": 81
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0099",
+    "file": "jwcrypto/tests.py",
+    "line": 1145
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0100",
+    "file": "jwcrypto/jwa.py",
+    "line": 791
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0101",
+    "file": "jwcrypto/tests.py",
+    "line": 480
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0102",
+    "file": "jwcrypto/tests.py",
+    "line": 2993
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0103",
+    "file": "jwcrypto/jwk.py",
+    "line": 44
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0104",
+    "file": "jwcrypto/jwa.py",
+    "line": 937
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0105",
+    "file": "jwcrypto/jwk.py",
+    "line": 567
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0106",
+    "file": "jwcrypto/jwa.py",
+    "line": 1236
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0107",
+    "file": "jwcrypto/jws.py",
+    "line": 182
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0108",
+    "file": "jwcrypto/jwk.py",
+    "line": 80
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0109",
+    "file": "jwcrypto/tests.py",
+    "line": 2608
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0110",
+    "file": "jwcrypto/jwa.py",
+    "line": 276
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0111",
+    "file": "jwcrypto/jwk.py",
+    "line": 527
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0112",
+    "file": "jwcrypto/jwa.py",
+    "line": 1017
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0113",
+    "file": "jwcrypto/tests.py",
+    "line": 1041
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0114",
+    "file": "jwcrypto/jwk.py",
+    "line": 117
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0115",
+    "file": "jwcrypto/jwk.py",
+    "line": 1100
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0116",
+    "file": "jwcrypto/jwk.py",
+    "line": 477
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0117",
+    "file": "jwcrypto/tests.py",
+    "line": 2995
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0118",
+    "file": "jwcrypto/jwa.py",
+    "line": 1016
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0119",
+    "file": "jwcrypto/jwa.py",
+    "line": 577
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0120",
+    "file": "jwcrypto/jwa.py",
+    "line": 1133
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0121",
+    "file": "jwcrypto/tests.py",
+    "line": 439
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0122",
+    "file": "jwcrypto/jwa.py",
+    "line": 835
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0123",
+    "file": "jwcrypto/tests.py",
+    "line": 32
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0124",
+    "file": "jwcrypto/tests.py",
+    "line": 2994
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0125",
+    "file": "jwcrypto/tests.py",
+    "line": 1470
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0126",
+    "file": "jwcrypto/jws.py",
+    "line": 467
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0127",
+    "file": "jwcrypto/tests.py",
+    "line": 740
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0128",
+    "file": "jwcrypto/tests.py",
+    "line": 750
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0129",
+    "file": "jwcrypto/jwk.py",
+    "line": 212
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0130",
+    "file": "jwcrypto/tests.py",
+    "line": 1813
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0131",
+    "file": "jwcrypto/jwk.py",
+    "line": 1102
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0132",
+    "file": "jwcrypto/jwa.py",
+    "line": 264
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0133",
+    "file": "jwcrypto/jwk.py",
+    "line": 537
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0134",
+    "file": "jwcrypto/jwa.py",
+    "line": 1157
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0135",
+    "file": "jwcrypto/tests.py",
+    "line": 400
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0136",
+    "file": "jwcrypto/jwa.py",
+    "line": 885
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0137",
+    "file": "jwcrypto/jwk.py",
+    "line": 533
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0138",
+    "file": "jwcrypto/jwa.py",
+    "line": 905
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0139",
+    "file": "jwcrypto/tests.py",
+    "line": 2601
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0140",
+    "file": "jwcrypto/jwa.py",
+    "line": 274
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0141",
+    "file": "jwcrypto/jwa.py",
+    "line": 1145
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0142",
+    "file": "jwcrypto/jwa.py",
+    "line": 530
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0143",
+    "file": "jwcrypto/tests.py",
+    "line": 474
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0144",
+    "file": "jwcrypto/jwa.py",
+    "line": 1199
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0145",
+    "file": "jwcrypto/jwa.py",
+    "line": 200
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0146",
+    "file": "jwcrypto/jwa.py",
+    "line": 944
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0147",
+    "file": "jwcrypto/tests.py",
+    "line": 785
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0148",
+    "file": "jwcrypto/tests.py",
+    "line": 547
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0149",
+    "file": "jwcrypto/tests.py",
+    "line": 3012
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0150",
+    "file": "jwcrypto/tests.py",
+    "line": 1605
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0151",
+    "file": "jwcrypto/jwa.py",
+    "line": 1268
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0152",
+    "file": "jwcrypto/jwk.py",
+    "line": 125
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0153",
+    "file": "jwcrypto/jwa.py",
+    "line": 466
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0154",
+    "file": "jwcrypto/jwa.py",
+    "line": 1026
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0155",
+    "file": "jwcrypto/jwk.py",
+    "line": 1221
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0156",
+    "file": "jwcrypto/tests.py",
+    "line": 376
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0157",
+    "file": "jwcrypto/tests.py",
+    "line": 1077
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0158",
+    "file": "jwcrypto/jwk.py",
+    "line": 497
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0159",
+    "file": "jwcrypto/jwa.py",
+    "line": 915
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0160",
+    "file": "jwcrypto/tests.py",
+    "line": 483
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0161",
+    "file": "jwcrypto/jwa.py",
+    "line": 818
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0162",
+    "file": "jwcrypto/tests.py",
+    "line": 438
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0163",
+    "file": "jwcrypto/tests.py",
+    "line": 2562
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0164",
+    "file": "jwcrypto/jwk.py",
+    "line": 1029
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0165",
+    "file": "jwcrypto/tests.py",
+    "line": 716
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0166",
+    "file": "jwcrypto/jwa.py",
+    "line": 1209
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0167",
+    "file": "jwcrypto/tests.py",
+    "line": 2975
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0168",
+    "file": "jwcrypto/tests.py",
+    "line": 1123
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0169",
+    "file": "jwcrypto/jwa.py",
+    "line": 824
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0170",
+    "file": "jwcrypto/jwa.py",
+    "line": 819
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0171",
+    "file": "jwcrypto/jwa.py",
+    "line": 300
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0172",
+    "file": "jwcrypto/tests.py",
+    "line": 1612
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0173",
+    "file": "jwcrypto/tests.py",
+    "line": 1618
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0174",
+    "file": "jwcrypto/jwk.py",
+    "line": 530
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0175",
+    "file": "jwcrypto/tests.py",
+    "line": 392
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0176",
+    "file": "jwcrypto/tests.py",
+    "line": 2437
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0177",
+    "file": "jwcrypto/jwa.py",
+    "line": 414
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0178",
+    "file": "jwcrypto/jwa.py",
+    "line": 295
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0179",
+    "file": "jwcrypto/jws.py",
+    "line": 532
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0180",
+    "file": "jwcrypto/jwk.py",
+    "line": 1402
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0181",
+    "file": "jwcrypto/jwk.py",
+    "line": 957
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0182",
+    "file": "jwcrypto/jwa.py",
+    "line": 371
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0183",
+    "file": "jwcrypto/tests.py",
+    "line": 744
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0184",
+    "file": "jwcrypto/jwa.py",
+    "line": 972
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0185",
+    "file": "jwcrypto/tests.py",
+    "line": 1727
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0186",
+    "file": "jwcrypto/tests.py",
+    "line": 1149
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0187",
+    "file": "jwcrypto/jwk.py",
+    "line": 472
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0188",
+    "file": "jwcrypto/jwa.py",
+    "line": 247
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0189",
+    "file": "jwcrypto/jwa.py",
+    "line": 444
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0190",
+    "file": "jwcrypto/jwa.py",
+    "line": 1127
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0191",
+    "file": "jwcrypto/tests.py",
+    "line": 1617
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0192",
+    "file": "jwcrypto/tests.py",
+    "line": 1284
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0193",
+    "file": "jwcrypto/jwk.py",
+    "line": 528
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0194",
+    "file": "jwcrypto/jwk.py",
+    "line": 526
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0195",
+    "file": "jwcrypto/jwk.py",
+    "line": 1056
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0196",
+    "file": "jwcrypto/tests.py",
+    "line": 783
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0197",
+    "file": "jwcrypto/jwa.py",
+    "line": 966
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0198",
+    "file": "jwcrypto/tests.py",
+    "line": 112
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0199",
+    "file": "jwcrypto/jwk.py",
+    "line": 488
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0200",
+    "file": "jwcrypto/jwk.py",
+    "line": 546
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0201",
+    "file": "jwcrypto/jwa.py",
+    "line": 951
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0202",
+    "file": "jwcrypto/tests.py",
+    "line": 366
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0203",
+    "file": "jwcrypto/tests.py",
+    "line": 2742
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0204",
+    "file": "jwcrypto/jwk.py",
+    "line": 453
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0205",
+    "file": "jwcrypto/jwa.py",
+    "line": 971
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0206",
+    "file": "jwcrypto/tests.py",
+    "line": 491
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0207",
+    "file": "jwcrypto/jwa.py",
+    "line": 1082
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0208",
+    "file": "jwcrypto/tests.py",
+    "line": 1334
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0209",
+    "file": "jwcrypto/jwk.py",
+    "line": 539
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0210",
+    "file": "jwcrypto/jwa.py",
+    "line": 1021
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0211",
+    "file": "jwcrypto/jwa.py",
+    "line": 627
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0212",
+    "file": "jwcrypto/jwa.py",
+    "line": 965
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0213",
+    "file": "jwcrypto/tests.py",
+    "line": 887
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0214",
+    "file": "jwcrypto/tests.py",
+    "line": 10
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0215",
+    "file": "jwcrypto/tests.py",
+    "line": 471
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0216",
+    "file": "jwcrypto/tests.py",
+    "line": 1932
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0217",
+    "file": "jwcrypto/tests.py",
+    "line": 477
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0218",
+    "file": "jwcrypto/tests.py",
+    "line": 1078
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0219",
+    "file": "jwcrypto/jwk.py",
+    "line": 605
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0220",
+    "file": "jwcrypto/tests.py",
+    "line": 434
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0221",
+    "file": "jwcrypto/jwa.py",
+    "line": 935
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0222",
+    "file": "jwcrypto/tests.py",
+    "line": 433
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0223",
+    "file": "jwcrypto/jwa.py",
+    "line": 1006
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0224",
+    "file": "jwcrypto/jwa.py",
+    "line": 322
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0225",
+    "file": "jwcrypto/jwa.py",
+    "line": 945
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0226",
+    "file": "jwcrypto/jwa.py",
+    "line": 775
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0227",
+    "file": "jwcrypto/tests.py",
+    "line": 497
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0228",
+    "file": "jwcrypto/jwa.py",
+    "line": 929
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0229",
+    "file": "jwcrypto/jwa.py",
+    "line": 993
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0230",
+    "file": "jwcrypto/jwa.py",
+    "line": 938
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0231",
+    "file": "jwcrypto/jwk.py",
+    "line": 516
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0232",
+    "file": "jwcrypto/tests.py",
+    "line": 3016
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0233",
+    "file": "jwcrypto/jwa.py",
+    "line": 1001
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0234",
+    "file": "jwcrypto/jwa.py",
+    "line": 597
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0235",
+    "file": "jwcrypto/jwk.py",
+    "line": 49
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0236",
+    "file": "jwcrypto/jwa.py",
+    "line": 822
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0237",
+    "file": "jwcrypto/tests.py",
+    "line": 631
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0238",
+    "file": "jwcrypto/jwk.py",
+    "line": 504
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0239",
+    "file": "jwcrypto/jwa.py",
+    "line": 987
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0240",
+    "file": "jwcrypto/tests.py",
+    "line": 711
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0241",
+    "file": "jwcrypto/tests.py",
+    "line": 717
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0242",
+    "file": "jwcrypto/jwa.py",
+    "line": 188
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0243",
+    "file": "jwcrypto/jwa.py",
+    "line": 218
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0244",
+    "file": "jwcrypto/jwa.py",
+    "line": 1116
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0245",
+    "file": "jwcrypto/jwk.py",
+    "line": 651
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0246",
+    "file": "jwcrypto/jwa.py",
+    "line": 262
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0247",
+    "file": "jwcrypto/jwa.py",
+    "line": 331
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0248",
+    "file": "jwcrypto/jwk.py",
+    "line": 260
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0249",
+    "file": "jwcrypto/jwk.py",
+    "line": 68
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0250",
+    "file": "jwcrypto/jwa.py",
+    "line": 480
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0251",
+    "file": "jwcrypto/tests.py",
+    "line": 429
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0252",
+    "file": "jwcrypto/jwa.py",
+    "line": 548
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0253",
+    "file": "jwcrypto/jws.py",
+    "line": 166
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0254",
+    "file": "jwcrypto/jwa.py",
+    "line": 792
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0255",
+    "file": "jwcrypto/tests.py",
+    "line": 625
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0256",
+    "file": "jwcrypto/jwa.py",
+    "line": 369
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0257",
+    "file": "jwcrypto/jwa.py",
+    "line": 357
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0258",
+    "file": "jwcrypto/tests.py",
+    "line": 2658
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0259",
+    "file": "jwcrypto/tests.py",
+    "line": 1122
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0260",
+    "file": "jwcrypto/jwa.py",
+    "line": 884
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0261",
+    "file": "jwcrypto/tests.py",
+    "line": 1142
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0262",
+    "file": "jwcrypto/jwa.py",
+    "line": 1064
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0263",
+    "file": "jwcrypto/tests.py",
+    "line": 2978
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0264",
+    "file": "jwcrypto/tests.py",
+    "line": 501
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0265",
+    "file": "jwcrypto/jwa.py",
+    "line": 283
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0266",
+    "file": "jwcrypto/jwk.py",
+    "line": 492
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0267",
+    "file": "jwcrypto/tests.py",
+    "line": 1789
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0268",
+    "file": "jwcrypto/jwa.py",
+    "line": 307
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0269",
+    "file": "jwcrypto/jwk.py",
+    "line": 63
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0270",
+    "file": "jwcrypto/tests.py",
+    "line": 1568
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0271",
+    "file": "jwcrypto/tests.py",
+    "line": 3027
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0272",
+    "file": "jwcrypto/jwk.py",
+    "line": 268
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0273",
+    "file": "jwcrypto/jwa.py",
+    "line": 663
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0274",
+    "file": "jwcrypto/tests.py",
+    "line": 1607
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0275",
+    "file": "jwcrypto/jwa.py",
+    "line": 429
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0276",
+    "file": "jwcrypto/jwa.py",
+    "line": 415
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0277",
+    "file": "jwcrypto/tests.py",
+    "line": 472
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0278",
+    "file": "jwcrypto/tests.py",
+    "line": 1939
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0279",
+    "file": "jwcrypto/tests.py",
+    "line": 1092
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0280",
+    "file": "jwcrypto/tests.py",
+    "line": 2992
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0281",
+    "file": "jwcrypto/jwa.py",
+    "line": 213
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0282",
+    "file": "jwcrypto/jwa.py",
+    "line": 184
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0283",
+    "file": "jwcrypto/tests.py",
+    "line": 249
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0284",
+    "file": "jwcrypto/jwa.py",
+    "line": 174
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0285",
+    "file": "jwcrypto/jwk.py",
+    "line": 1151
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0286",
+    "file": "jwcrypto/jwa.py",
+    "line": 659
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0287",
+    "file": "jwcrypto/tests.py",
+    "line": 1603
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0288",
+    "file": "jwcrypto/tests.py",
+    "line": 1745
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0289",
+    "file": "jwcrypto/jwk.py",
+    "line": 532
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0290",
+    "file": "jwcrypto/tests.py",
+    "line": 746
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0291",
+    "file": "jwcrypto/tests.py",
+    "line": 793
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0292",
+    "file": "jwcrypto/jwa.py",
+    "line": 43
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0293",
+    "file": "jwcrypto/tests.py",
+    "line": 478
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0294",
+    "file": "jwcrypto/jwa.py",
+    "line": 902
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0295",
+    "file": "jwcrypto/tests.py",
+    "line": 527
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0296",
+    "file": "jwcrypto/jwa.py",
+    "line": 894
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0297",
+    "file": "jwcrypto/jwa.py",
+    "line": 1246
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0298",
+    "file": "jwcrypto/jwa.py",
+    "line": 892
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0299",
+    "file": "jwcrypto/jwk.py",
+    "line": 751
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0300",
+    "file": "jwcrypto/jwk.py",
+    "line": 12
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0301",
+    "file": "jwcrypto/tests.py",
+    "line": 1039
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0302",
+    "file": "jwcrypto/tests.py",
+    "line": 1779
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0303",
+    "file": "jwcrypto/jwa.py",
+    "line": 319
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0304",
+    "file": "jwcrypto/jwk.py",
+    "line": 507
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0305",
+    "file": "jwcrypto/tests.py",
+    "line": 628
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0306",
+    "file": "jwcrypto/jwk.py",
+    "line": 1147
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0307",
+    "file": "jwcrypto/jwa.py",
+    "line": 337
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0308",
+    "file": "jwcrypto/tests.py",
+    "line": 897
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0309",
+    "file": "jwcrypto/tests.py",
+    "line": 739
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0310",
+    "file": "jwcrypto/tests.py",
+    "line": 3015
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0311",
+    "file": "jwcrypto/jwk.py",
+    "line": 643
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0312",
+    "file": "jwcrypto/jwa.py",
+    "line": 481
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0313",
+    "file": "jwcrypto/tests.py",
+    "line": 2617
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0314",
+    "file": "jwcrypto/jwk.py",
+    "line": 578
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0315",
+    "file": "jwcrypto/tests.py",
+    "line": 145
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0316",
+    "file": "jwcrypto/jwa.py",
+    "line": 1278
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0317",
+    "file": "jwcrypto/jwk.py",
+    "line": 139
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0318",
+    "file": "jwcrypto/jwk.py",
+    "line": 66
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0319",
+    "file": "jwcrypto/tests.py",
+    "line": 910
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0320",
+    "file": "jwcrypto/tests.py",
+    "line": 786
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0321",
+    "file": "jwcrypto/jwk.py",
+    "line": 78
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0322",
+    "file": "jwcrypto/tests.py",
+    "line": 2977
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0323",
+    "file": "jwcrypto/jwa.py",
+    "line": 959
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0324",
+    "file": "jwcrypto/jwa.py",
+    "line": 1036
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0325",
+    "file": "jwcrypto/jwa.py",
+    "line": 772
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0326",
+    "file": "jwcrypto/jwa.py",
+    "line": 882
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0327",
+    "file": "jwcrypto/jwa.py",
+    "line": 1180
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0328",
+    "file": "jwcrypto/jwk.py",
+    "line": 41
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0329",
+    "file": "jwcrypto/tests.py",
+    "line": 2624
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0330",
+    "file": "jwcrypto/jws.py",
+    "line": 12
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0331",
+    "file": "jwcrypto/jwa.py",
+    "line": 343
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0332",
+    "file": "jwcrypto/jwa.py",
+    "line": 1262
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0333",
+    "file": "jwcrypto/tests.py",
+    "line": 468
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0334",
+    "file": "jwcrypto/tests.py",
+    "line": 1190
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0335",
+    "file": "jwcrypto/tests.py",
+    "line": 1173
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0336",
+    "file": "jwcrypto/tests.py",
+    "line": 1609
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0337",
+    "file": "jwcrypto/jwk.py",
+    "line": 79
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0338",
+    "file": "jwcrypto/tests.py",
+    "line": 486
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0339",
+    "file": "jwcrypto/jwa.py",
+    "line": 348
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0340",
+    "file": "jwcrypto/tests.py",
+    "line": 1040
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0341",
+    "file": "jwcrypto/jwk.py",
+    "line": 615
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0342",
+    "file": "jwcrypto/jwk.py",
+    "line": 372
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0343",
+    "file": "jwcrypto/jwk.py",
+    "line": 109
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0344",
+    "file": "jwcrypto/jwa.py",
+    "line": 324
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0345",
+    "file": "jwcrypto/jwk.py",
+    "line": 1140
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0346",
+    "file": "jwcrypto/tests.py",
+    "line": 1141
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0347",
+    "file": "jwcrypto/tests.py",
+    "line": 475
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0348",
+    "file": "jwcrypto/tests.py",
+    "line": 1606
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0349",
+    "file": "jwcrypto/jwa.py",
+    "line": 286
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0350",
+    "file": "jwcrypto/jwa.py",
+    "line": 473
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0351",
+    "file": "jwcrypto/tests.py",
+    "line": 566
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0352",
+    "file": "jwcrypto/jwa.py",
+    "line": 423
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0353",
+    "file": "jwcrypto/jwk.py",
+    "line": 1104
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0354",
+    "file": "jwcrypto/jws.py",
+    "line": 48
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0355",
+    "file": "jwcrypto/jwk.py",
+    "line": 65
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0356",
+    "file": "jwcrypto/jwa.py",
+    "line": 958
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0357",
+    "file": "jwcrypto/jwa.py",
+    "line": 943
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0358",
+    "file": "jwcrypto/tests.py",
+    "line": 629
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0359",
+    "file": "jwcrypto/tests.py",
+    "line": 1137
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0360",
+    "file": "jwcrypto/jwa.py",
+    "line": 974
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0361",
+    "file": "jwcrypto/tests.py",
+    "line": 2506
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0362",
+    "file": "jwcrypto/tests.py",
+    "line": 1460
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0363",
+    "file": "jwcrypto/jwa.py",
+    "line": 953
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0364",
+    "file": "jwcrypto/tests.py",
+    "line": 526
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0365",
+    "file": "jwcrypto/jwa.py",
+    "line": 895
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0366",
+    "file": "jwcrypto/jwk.py",
+    "line": 52
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0367",
+    "file": "jwcrypto/jwk.py",
+    "line": 195
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0368",
+    "file": "jwcrypto/jwk.py",
+    "line": 922
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0369",
+    "file": "jwcrypto/jwk.py",
+    "line": 1098
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0370",
+    "file": "jwcrypto/jwk.py",
+    "line": 411
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0371",
+    "file": "jwcrypto/tests.py",
+    "line": 838
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0372",
+    "file": "jwcrypto/tests.py",
+    "line": 789
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0373",
+    "file": "jwcrypto/jwa.py",
+    "line": 774
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0374",
+    "file": "jwcrypto/tests.py",
+    "line": 271
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0375",
+    "file": "jwcrypto/jwa.py",
+    "line": 1252
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0376",
+    "file": "jwcrypto/tests.py",
+    "line": 261
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0377",
+    "file": "jwcrypto/jwk.py",
+    "line": 1106
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0378",
+    "file": "jwcrypto/jwa.py",
+    "line": 914
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S1-app-0379",
+    "file": "jwcrypto/tests.py",
+    "line": 371
+   }
+  ],
+  "S1-test": [],
+  "S2": [
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0001",
+    "file": "jwcrypto/tests-cookbook.py",
+    "line": 756
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0002",
+    "file": "jwcrypto/tests_mldsa.py",
+    "line": 615
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0003",
+    "file": "jwcrypto/tests-cookbook.py",
+    "line": 403
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0004",
+    "file": "jwcrypto/jwe.py",
+    "line": 244
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0005",
+    "file": "jwcrypto/tests-cookbook.py",
+    "line": 35
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0006",
+    "file": "jwcrypto/tests_mldsa.py",
+    "line": 515
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0007",
+    "file": "jwcrypto/jwe.py",
+    "line": 314
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0008",
+    "file": "jwcrypto/tests_mldsa.py",
+    "line": 630
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0009",
+    "file": "jwcrypto/tests-cookbook.py",
+    "line": 513
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0010",
+    "file": "jwcrypto/tests_mldsa.py",
+    "line": 469
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0011",
+    "file": "jwcrypto/tests_mldsa.py",
+    "line": 536
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0012",
+    "file": "jwcrypto/tests_mldsa.py",
+    "line": 611
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0013",
+    "file": "jwcrypto/tests-cookbook.py",
+    "line": 696
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0014",
+    "file": "jwcrypto/tests-cookbook.py",
+    "line": 425
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0015",
+    "file": "jwcrypto/tests_mldsa.py",
+    "line": 14
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0016",
+    "file": "jwcrypto/tests-cookbook.py",
+    "line": 23
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0017",
+    "file": "jwcrypto/tests_mldsa.py",
+    "line": 563
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0018",
+    "file": "jwcrypto/tests_mldsa.py",
+    "line": 566
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0019",
+    "file": "jwcrypto/tests-cookbook.py",
+    "line": 332
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0020",
+    "file": "jwcrypto/tests-cookbook.py",
+    "line": 13
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0021",
+    "file": "jwcrypto/tests-cookbook.py",
+    "line": 48
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0022",
+    "file": "jwcrypto/tests_mldsa.py",
+    "line": 506
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0023",
+    "file": "jwcrypto/tests_mldsa.py",
+    "line": 581
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0024",
+    "file": "jwcrypto/tests-cookbook.py",
+    "line": 710
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0025",
+    "file": "jwcrypto/jwe.py",
+    "line": 186
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0026",
+    "file": "jwcrypto/tests_mldsa.py",
+    "line": 609
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0027",
+    "file": "jwcrypto/tests_mldsa.py",
+    "line": 28
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0028",
+    "file": "jwcrypto/tests_mldsa.py",
+    "line": 13
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0029",
+    "file": "jwcrypto/tests_mldsa.py",
+    "line": 547
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0030",
+    "file": "jwcrypto/jwe.py",
+    "line": 200
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0031",
+    "file": "jwcrypto/tests_mldsa.py",
+    "line": 602
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0032",
+    "file": "jwcrypto/tests_mldsa.py",
+    "line": 526
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0033",
+    "file": "jwcrypto/tests-cookbook.py",
+    "line": 767
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0034",
+    "file": "jwcrypto/jwe.py",
+    "line": 24
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0035",
+    "file": "jwcrypto/tests_mldsa.py",
+    "line": 494
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0036",
+    "file": "jwcrypto/tests_mldsa.py",
+    "line": 618
+   },
+   {
+    "candidate_id": "C-latchset__jwcrypto-S2-0037",
+    "file": "jwcrypto/jwe.py",
+    "line": 43
+   }
+  ]
+ },
+ "pool_sha256": "e6c26b358bb4e9f8cb5c2b72557baf6e439bf5033fc4da97bfaefa4b248c2a4a"
+}

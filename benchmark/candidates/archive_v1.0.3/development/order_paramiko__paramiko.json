@@ -1,0 +1,2889 @@
+{
+ "repo": "paramiko__paramiko",
+ "commit": "0e9ccb91e0f9a68f2587233d523ad7fe46e730fe",
+ "seed": 20261113,
+ "strata": {
+  "S1-app": [
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0001",
+    "file": "paramiko/kex_ecdh_nist.py",
+    "line": 1
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0002",
+    "file": "paramiko/rsakey.py",
+    "line": 214
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0003",
+    "file": "paramiko/transport.py",
+    "line": 98
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0004",
+    "file": "paramiko/pkey.py",
+    "line": 545
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0005",
+    "file": "paramiko/pkey.py",
+    "line": 653
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0006",
+    "file": "paramiko/kex_curve25519.py",
+    "line": 51
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0007",
+    "file": "paramiko/transport.py",
+    "line": 97
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0008",
+    "file": "paramiko/kex_mlkem.py",
+    "line": 111
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0009",
+    "file": "paramiko/ecdsakey.py",
+    "line": 176
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0010",
+    "file": "paramiko/kex_curve25519.py",
+    "line": 37
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0011",
+    "file": "paramiko/kex_ecdh_nist.py",
+    "line": 149
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0012",
+    "file": "paramiko/ed25519key.py",
+    "line": 93
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0013",
+    "file": "paramiko/pkey.py",
+    "line": 59
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0014",
+    "file": "paramiko/pkey.py",
+    "line": 928
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0015",
+    "file": "paramiko/pkey.py",
+    "line": 212
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0016",
+    "file": "paramiko/kex_curve25519.py",
+    "line": 58
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0017",
+    "file": "paramiko/transport.py",
+    "line": 1892
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0018",
+    "file": "paramiko/rsakey.py",
+    "line": 170
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0019",
+    "file": "paramiko/rsakey.py",
+    "line": 36
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0020",
+    "file": "paramiko/pkey.py",
+    "line": 37
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0021",
+    "file": "paramiko/pkey.py",
+    "line": 357
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0022",
+    "file": "paramiko/rsakey.py",
+    "line": 215
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0023",
+    "file": "paramiko/ecdsakey.py",
+    "line": 241
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0024",
+    "file": "paramiko/kex_ecdh_nist.py",
+    "line": 15
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0025",
+    "file": "paramiko/transport.py",
+    "line": 326
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0026",
+    "file": "paramiko/kex_ecdh_nist.py",
+    "line": 23
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0027",
+    "file": "paramiko/rsakey.py",
+    "line": 132
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0028",
+    "file": "paramiko/pkey.py",
+    "line": 40
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0029",
+    "file": "paramiko/kex_mlkem.py",
+    "line": 196
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0030",
+    "file": "paramiko/ed25519key.py",
+    "line": 193
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0031",
+    "file": "paramiko/ed25519key.py",
+    "line": 128
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0032",
+    "file": "paramiko/transport.py",
+    "line": 337
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0033",
+    "file": "paramiko/kex_curve25519.py",
+    "line": 109
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0034",
+    "file": "paramiko/rsakey.py",
+    "line": 159
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0035",
+    "file": "paramiko/transport.py",
+    "line": 126
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0036",
+    "file": "paramiko/kex_mlkem.py",
+    "line": 116
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0037",
+    "file": "paramiko/kex_ecdh_nist.py",
+    "line": 113
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0038",
+    "file": "paramiko/kex_mlkem.py",
+    "line": 68
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0039",
+    "file": "paramiko/pkey.py",
+    "line": 150
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0040",
+    "file": "paramiko/rsakey.py",
+    "line": 83
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0041",
+    "file": "paramiko/kex_mlkem.py",
+    "line": 143
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0042",
+    "file": "paramiko/transport.py",
+    "line": 137
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0043",
+    "file": "paramiko/kex_ecdh_nist.py",
+    "line": 38
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0044",
+    "file": "paramiko/ecdsakey.py",
+    "line": 254
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0045",
+    "file": "paramiko/transport.py",
+    "line": 1858
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0046",
+    "file": "paramiko/transport.py",
+    "line": 288
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0047",
+    "file": "paramiko/pkey.py",
+    "line": 844
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0048",
+    "file": "paramiko/pkey.py",
+    "line": 41
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0049",
+    "file": "paramiko/transport.py",
+    "line": 1884
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0050",
+    "file": "paramiko/rsakey.py",
+    "line": 180
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0051",
+    "file": "paramiko/ecdsakey.py",
+    "line": 302
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0052",
+    "file": "paramiko/ed25519key.py",
+    "line": 20
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0053",
+    "file": "paramiko/kex_mlkem.py",
+    "line": 56
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0054",
+    "file": "paramiko/ecdsakey.py",
+    "line": 305
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0055",
+    "file": "paramiko/ecdsakey.py",
+    "line": 167
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0056",
+    "file": "paramiko/ecdsakey.py",
+    "line": 149
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0057",
+    "file": "paramiko/ecdsakey.py",
+    "line": 268
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0058",
+    "file": "paramiko/ecdsakey.py",
+    "line": 98
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0059",
+    "file": "paramiko/rsakey.py",
+    "line": 71
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0060",
+    "file": "paramiko/ed25519key.py",
+    "line": 212
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0061",
+    "file": "paramiko/rsakey.py",
+    "line": 196
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0062",
+    "file": "paramiko/kex_ecdh_nist.py",
+    "line": 151
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0063",
+    "file": "paramiko/kex_mlkem.py",
+    "line": 193
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0064",
+    "file": "paramiko/ed25519key.py",
+    "line": 31
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0065",
+    "file": "paramiko/ecdsakey.py",
+    "line": 103
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0066",
+    "file": "paramiko/ecdsakey.py",
+    "line": 152
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0067",
+    "file": "paramiko/ed25519key.py",
+    "line": 119
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0068",
+    "file": "paramiko/ed25519key.py",
+    "line": 74
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0069",
+    "file": "paramiko/rsakey.py",
+    "line": 141
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0070",
+    "file": "paramiko/kex_curve25519.py",
+    "line": 16
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0071",
+    "file": "paramiko/transport.py",
+    "line": 30
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0072",
+    "file": "paramiko/kex_curve25519.py",
+    "line": 45
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0073",
+    "file": "paramiko/kex_curve25519.py",
+    "line": 97
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0074",
+    "file": "paramiko/kex_mlkem.py",
+    "line": 45
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0075",
+    "file": "paramiko/kex_curve25519.py",
+    "line": 71
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0076",
+    "file": "paramiko/kex_mlkem.py",
+    "line": 61
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0077",
+    "file": "paramiko/kex_mlkem.py",
+    "line": 84
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0078",
+    "file": "paramiko/ecdsakey.py",
+    "line": 41
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0079",
+    "file": "paramiko/kex_curve25519.py",
+    "line": 39
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0080",
+    "file": "paramiko/transport.py",
+    "line": 1868
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0081",
+    "file": "paramiko/pkey.py",
+    "line": 214
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0082",
+    "file": "paramiko/pkey.py",
+    "line": 149
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0083",
+    "file": "paramiko/kex_ecdh_nist.py",
+    "line": 98
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0084",
+    "file": "paramiko/kex_ecdh_nist.py",
+    "line": 35
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0085",
+    "file": "paramiko/kex_ecdh_nist.py",
+    "line": 67
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0086",
+    "file": "paramiko/kex_curve25519.py",
+    "line": 47
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0087",
+    "file": "paramiko/transport.py",
+    "line": 1891
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0088",
+    "file": "paramiko/ed25519key.py",
+    "line": 194
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0089",
+    "file": "paramiko/ecdsakey.py",
+    "line": 69
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0090",
+    "file": "paramiko/kex_mlkem.py",
+    "line": 20
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0091",
+    "file": "paramiko/kex_mlkem.py",
+    "line": 110
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0092",
+    "file": "paramiko/kex_curve25519.py",
+    "line": 63
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0093",
+    "file": "paramiko/transport.py",
+    "line": 229
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0094",
+    "file": "paramiko/kex_ecdh_nist.py",
+    "line": 71
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0095",
+    "file": "paramiko/rsakey.py",
+    "line": 103
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0096",
+    "file": "paramiko/ecdsakey.py",
+    "line": 55
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0097",
+    "file": "paramiko/ed25519key.py",
+    "line": 52
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0098",
+    "file": "paramiko/kex_mlkem.py",
+    "line": 112
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0099",
+    "file": "paramiko/ecdsakey.py",
+    "line": 255
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0100",
+    "file": "paramiko/pkey.py",
+    "line": 390
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0101",
+    "file": "paramiko/kex_mlkem.py",
+    "line": 138
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0102",
+    "file": "paramiko/kex_mlkem.py",
+    "line": 46
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0103",
+    "file": "paramiko/rsakey.py",
+    "line": 98
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0104",
+    "file": "paramiko/kex_curve25519.py",
+    "line": 17
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0105",
+    "file": "paramiko/pkey.py",
+    "line": 216
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0106",
+    "file": "paramiko/kex_mlkem.py",
+    "line": 75
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0107",
+    "file": "paramiko/ecdsakey.py",
+    "line": 318
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0108",
+    "file": "paramiko/pkey.py",
+    "line": 401
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0109",
+    "file": "paramiko/transport.py",
+    "line": 336
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0110",
+    "file": "paramiko/kex_ecdh_nist.py",
+    "line": 52
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0111",
+    "file": "paramiko/kex_mlkem.py",
+    "line": 89
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0112",
+    "file": "paramiko/ecdsakey.py",
+    "line": 137
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0113",
+    "file": "paramiko/pkey.py",
+    "line": 690
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0114",
+    "file": "paramiko/kex_curve25519.py",
+    "line": 30
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0115",
+    "file": "paramiko/transport.py",
+    "line": 198
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0116",
+    "file": "paramiko/kex_ecdh_nist.py",
+    "line": 16
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0117",
+    "file": "paramiko/pkey.py",
+    "line": 333
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0118",
+    "file": "paramiko/kex_mlkem.py",
+    "line": 67
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0119",
+    "file": "paramiko/kex_ecdh_nist.py",
+    "line": 59
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0120",
+    "file": "paramiko/pkey.py",
+    "line": 654
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0121",
+    "file": "paramiko/transport.py",
+    "line": 1321
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0122",
+    "file": "paramiko/pkey.py",
+    "line": 127
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0123",
+    "file": "paramiko/kex_ecdh_nist.py",
+    "line": 47
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0124",
+    "file": "paramiko/ecdsakey.py",
+    "line": 225
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0125",
+    "file": "paramiko/ecdsakey.py",
+    "line": 68
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0126",
+    "file": "paramiko/ed25519key.py",
+    "line": 203
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0127",
+    "file": "paramiko/transport.py",
+    "line": 187
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0128",
+    "file": "paramiko/pkey.py",
+    "line": 382
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0129",
+    "file": "paramiko/pkey.py",
+    "line": 855
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0130",
+    "file": "paramiko/rsakey.py",
+    "line": 28
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0131",
+    "file": "paramiko/ecdsakey.py",
+    "line": 301
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0132",
+    "file": "paramiko/transport.py",
+    "line": 104
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0133",
+    "file": "paramiko/kex_mlkem.py",
+    "line": 88
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0134",
+    "file": "paramiko/rsakey.py",
+    "line": 41
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0135",
+    "file": "paramiko/kex_mlkem.py",
+    "line": 76
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0136",
+    "file": "paramiko/pkey.py",
+    "line": 215
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0137",
+    "file": "paramiko/rsakey.py",
+    "line": 140
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0138",
+    "file": "paramiko/ecdsakey.py",
+    "line": 220
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0139",
+    "file": "paramiko/kex_ecdh_nist.py",
+    "line": 21
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0140",
+    "file": "paramiko/kex_mlkem.py",
+    "line": 139
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0141",
+    "file": "paramiko/ed25519key.py",
+    "line": 211
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0142",
+    "file": "paramiko/rsakey.py",
+    "line": 207
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0143",
+    "file": "paramiko/ecdsakey.py",
+    "line": 42
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0144",
+    "file": "paramiko/pkey.py",
+    "line": 726
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0145",
+    "file": "paramiko/pkey.py",
+    "line": 29
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0146",
+    "file": "paramiko/transport.py",
+    "line": 135
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0147",
+    "file": "paramiko/kex_mlkem.py",
+    "line": 54
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0148",
+    "file": "paramiko/pkey.py",
+    "line": 200
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0149",
+    "file": "paramiko/transport.py",
+    "line": 224
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0150",
+    "file": "paramiko/kex_curve25519.py",
+    "line": 61
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0151",
+    "file": "paramiko/rsakey.py",
+    "line": 99
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0152",
+    "file": "paramiko/transport.py",
+    "line": 791
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0153",
+    "file": "paramiko/kex_mlkem.py",
+    "line": 60
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0154",
+    "file": "paramiko/transport.py",
+    "line": 225
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0155",
+    "file": "paramiko/transport.py",
+    "line": 215
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0156",
+    "file": "paramiko/kex_ecdh_nist.py",
+    "line": 145
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0157",
+    "file": "paramiko/ed25519key.py",
+    "line": 42
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0158",
+    "file": "paramiko/transport.py",
+    "line": 335
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0159",
+    "file": "paramiko/rsakey.py",
+    "line": 131
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0160",
+    "file": "paramiko/rsakey.py",
+    "line": 188
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0161",
+    "file": "paramiko/kex_curve25519.py",
+    "line": 6
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0162",
+    "file": "paramiko/kex_ecdh_nist.py",
+    "line": 54
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0163",
+    "file": "paramiko/pkey.py",
+    "line": 374
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0164",
+    "file": "paramiko/pkey.py",
+    "line": 173
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0165",
+    "file": "paramiko/ed25519key.py",
+    "line": 57
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0166",
+    "file": "paramiko/pkey.py",
+    "line": 103
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0167",
+    "file": "paramiko/rsakey.py",
+    "line": 78
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0168",
+    "file": "paramiko/transport.py",
+    "line": 226
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0169",
+    "file": "paramiko/transport.py",
+    "line": 796
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0170",
+    "file": "paramiko/pkey.py",
+    "line": 217
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0171",
+    "file": "paramiko/rsakey.py",
+    "line": 19
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0172",
+    "file": "paramiko/ecdsakey.py",
+    "line": 19
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0173",
+    "file": "paramiko/pkey.py",
+    "line": 264
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0174",
+    "file": "paramiko/transport.py",
+    "line": 207
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0175",
+    "file": "paramiko/ecdsakey.py",
+    "line": 269
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0176",
+    "file": "paramiko/pkey.py",
+    "line": 403
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0177",
+    "file": "paramiko/kex_mlkem.py",
+    "line": 59
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0178",
+    "file": "paramiko/ecdsakey.py",
+    "line": 285
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0179",
+    "file": "paramiko/rsakey.py",
+    "line": 226
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0180",
+    "file": "paramiko/rsakey.py",
+    "line": 162
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0181",
+    "file": "paramiko/ecdsakey.py",
+    "line": 250
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0182",
+    "file": "paramiko/kex_mlkem.py",
+    "line": 1
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0183",
+    "file": "paramiko/pkey.py",
+    "line": 195
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0184",
+    "file": "paramiko/transport.py",
+    "line": 1917
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0185",
+    "file": "paramiko/pkey.py",
+    "line": 61
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0186",
+    "file": "paramiko/ecdsakey.py",
+    "line": 224
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0187",
+    "file": "paramiko/pkey.py",
+    "line": 231
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0188",
+    "file": "paramiko/transport.py",
+    "line": 176
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0189",
+    "file": "paramiko/ed25519key.py",
+    "line": 186
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0190",
+    "file": "paramiko/rsakey.py",
+    "line": 42
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0191",
+    "file": "paramiko/pkey.py",
+    "line": 945
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0192",
+    "file": "paramiko/pkey.py",
+    "line": 50
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0193",
+    "file": "paramiko/kex_ecdh_nist.py",
+    "line": 50
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0194",
+    "file": "paramiko/kex_ecdh_nist.py",
+    "line": 143
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0195",
+    "file": "paramiko/ed25519key.py",
+    "line": 150
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0196",
+    "file": "paramiko/rsakey.py",
+    "line": 200
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0197",
+    "file": "paramiko/ecdsakey.py",
+    "line": 97
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0198",
+    "file": "paramiko/kex_ecdh_nist.py",
+    "line": 117
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0199",
+    "file": "paramiko/rsakey.py",
+    "line": 88
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0200",
+    "file": "paramiko/pkey.py",
+    "line": 713
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0201",
+    "file": "paramiko/transport.py",
+    "line": 795
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0202",
+    "file": "paramiko/ed25519key.py",
+    "line": 30
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0203",
+    "file": "paramiko/ecdsakey.py",
+    "line": 263
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-app-0204",
+    "file": "paramiko/transport.py",
+    "line": 299
+   }
+  ],
+  "S1-test": [
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0001",
+    "file": "tests/test_pkey.py",
+    "line": 262
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0002",
+    "file": "tests/test_pkey.py",
+    "line": 338
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0003",
+    "file": "tests/pkey.py",
+    "line": 12
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0004",
+    "file": "tests/test_pkey.py",
+    "line": 530
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0005",
+    "file": "tests/pkey.py",
+    "line": 107
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0006",
+    "file": "tests/test_pkey.py",
+    "line": 243
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0007",
+    "file": "tests/test_pkey.py",
+    "line": 208
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0008",
+    "file": "tests/test_kex.py",
+    "line": 159
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0009",
+    "file": "tests/test_pkey.py",
+    "line": 53
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0010",
+    "file": "tests/test_pkey.py",
+    "line": 442
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0011",
+    "file": "tests/pkey.py",
+    "line": 76
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0012",
+    "file": "tests/test_pkey.py",
+    "line": 531
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0013",
+    "file": "tests/pkey.py",
+    "line": 192
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0014",
+    "file": "tests/test_pkey.py",
+    "line": 54
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0015",
+    "file": "tests/test_packetizer.py",
+    "line": 48
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0016",
+    "file": "tests/pkey.py",
+    "line": 173
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0017",
+    "file": "tests/test_pkey.py",
+    "line": 483
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0018",
+    "file": "tests/test_pkey.py",
+    "line": 499
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0019",
+    "file": "tests/test_pkey.py",
+    "line": 51
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0020",
+    "file": "tests/test_pkey.py",
+    "line": 171
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0021",
+    "file": "tests/test_pkey.py",
+    "line": 231
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0022",
+    "file": "tests/pkey.py",
+    "line": 167
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0023",
+    "file": "tests/pkey.py",
+    "line": 187
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0024",
+    "file": "tests/test_pkey.py",
+    "line": 361
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0025",
+    "file": "tests/test_pkey.py",
+    "line": 246
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0026",
+    "file": "tests/test_pkey.py",
+    "line": 343
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0027",
+    "file": "tests/test_kex.py",
+    "line": 64
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0028",
+    "file": "tests/pkey.py",
+    "line": 308
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0029",
+    "file": "tests/pkey.py",
+    "line": 97
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0030",
+    "file": "tests/test_pkey.py",
+    "line": 160
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0031",
+    "file": "tests/test_pkey.py",
+    "line": 345
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0032",
+    "file": "tests/test_pkey.py",
+    "line": 202
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0033",
+    "file": "tests/test_pkey.py",
+    "line": 60
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0034",
+    "file": "tests/pkey.py",
+    "line": 174
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0035",
+    "file": "tests/pkey.py",
+    "line": 140
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0036",
+    "file": "tests/pkey.py",
+    "line": 138
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0037",
+    "file": "tests/test_pkey.py",
+    "line": 359
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0038",
+    "file": "tests/test_pkey.py",
+    "line": 287
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0039",
+    "file": "tests/test_pkey.py",
+    "line": 495
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0040",
+    "file": "tests/test_pkey.py",
+    "line": 258
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0041",
+    "file": "tests/test_kex.py",
+    "line": 544
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0042",
+    "file": "tests/test_pkey.py",
+    "line": 61
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0043",
+    "file": "tests/test_pkey.py",
+    "line": 293
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0044",
+    "file": "tests/test_kex.py",
+    "line": 47
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0045",
+    "file": "tests/test_kex.py",
+    "line": 315
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0046",
+    "file": "tests/test_pkey.py",
+    "line": 283
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0047",
+    "file": "tests/test_pkey.py",
+    "line": 302
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0048",
+    "file": "tests/test_pkey.py",
+    "line": 309
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0049",
+    "file": "tests/test_pkey.py",
+    "line": 382
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0050",
+    "file": "tests/pkey.py",
+    "line": 186
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0051",
+    "file": "tests/test_kex.py",
+    "line": 302
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0052",
+    "file": "tests/test_pkey.py",
+    "line": 266
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0053",
+    "file": "tests/test_kex.py",
+    "line": 68
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0054",
+    "file": "tests/pkey.py",
+    "line": 185
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0055",
+    "file": "tests/test_pkey.py",
+    "line": 364
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0056",
+    "file": "tests/test_pkey.py",
+    "line": 247
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0057",
+    "file": "tests/test_pkey.py",
+    "line": 299
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0058",
+    "file": "tests/test_pkey.py",
+    "line": 381
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0059",
+    "file": "tests/test_kex.py",
+    "line": 148
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0060",
+    "file": "tests/test_pkey.py",
+    "line": 378
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0061",
+    "file": "tests/test_pkey.py",
+    "line": 374
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0062",
+    "file": "tests/test_pkey.py",
+    "line": 297
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0063",
+    "file": "tests/test_pkey.py",
+    "line": 269
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0064",
+    "file": "tests/test_kex.py",
+    "line": 142
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0065",
+    "file": "tests/test_kex.py",
+    "line": 149
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0066",
+    "file": "tests/test_pkey.py",
+    "line": 320
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0067",
+    "file": "tests/test_kex.py",
+    "line": 158
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0068",
+    "file": "tests/test_kex.py",
+    "line": 482
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0069",
+    "file": "tests/test_pkey.py",
+    "line": 409
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0070",
+    "file": "tests/pkey.py",
+    "line": 146
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0071",
+    "file": "tests/test_kex.py",
+    "line": 339
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0072",
+    "file": "tests/test_pkey.py",
+    "line": 180
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0073",
+    "file": "tests/pkey.py",
+    "line": 302
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0074",
+    "file": "tests/pkey.py",
+    "line": 9
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0075",
+    "file": "tests/pkey.py",
+    "line": 127
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0076",
+    "file": "tests/test_pkey.py",
+    "line": 188
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0077",
+    "file": "tests/test_kex.py",
+    "line": 572
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0078",
+    "file": "tests/test_pkey.py",
+    "line": 28
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0079",
+    "file": "tests/pkey.py",
+    "line": 220
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0080",
+    "file": "tests/pkey.py",
+    "line": 189
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0081",
+    "file": "tests/test_pkey.py",
+    "line": 521
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0082",
+    "file": "tests/test_pkey.py",
+    "line": 529
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0083",
+    "file": "tests/test_pkey.py",
+    "line": 519
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0084",
+    "file": "tests/test_pkey.py",
+    "line": 360
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0085",
+    "file": "tests/test_kex.py",
+    "line": 464
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0086",
+    "file": "tests/test_kex.py",
+    "line": 327
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0087",
+    "file": "tests/test_pkey.py",
+    "line": 598
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0088",
+    "file": "tests/test_pkey.py",
+    "line": 317
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0089",
+    "file": "tests/test_kex.py",
+    "line": 36
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0090",
+    "file": "tests/pkey.py",
+    "line": 261
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0091",
+    "file": "tests/pkey.py",
+    "line": 290
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0092",
+    "file": "tests/test_pkey.py",
+    "line": 87
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0093",
+    "file": "tests/test_packetizer.py",
+    "line": 25
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0094",
+    "file": "tests/test_pkey.py",
+    "line": 214
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0095",
+    "file": "tests/test_pkey.py",
+    "line": 132
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0096",
+    "file": "tests/test_pkey.py",
+    "line": 511
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0097",
+    "file": "tests/test_kex.py",
+    "line": 34
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0098",
+    "file": "tests/test_packetizer.py",
+    "line": 78
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0099",
+    "file": "tests/test_pkey.py",
+    "line": 355
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0100",
+    "file": "tests/test_pkey.py",
+    "line": 489
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0101",
+    "file": "tests/test_pkey.py",
+    "line": 116
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0102",
+    "file": "tests/test_pkey.py",
+    "line": 477
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0103",
+    "file": "tests/test_pkey.py",
+    "line": 591
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0104",
+    "file": "tests/test_kex.py",
+    "line": 493
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0105",
+    "file": "tests/test_pkey.py",
+    "line": 95
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0106",
+    "file": "tests/test_kex.py",
+    "line": 153
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0107",
+    "file": "tests/test_pkey.py",
+    "line": 224
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0108",
+    "file": "tests/test_pkey.py",
+    "line": 390
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0109",
+    "file": "tests/test_packetizer.py",
+    "line": 107
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0110",
+    "file": "tests/test_pkey.py",
+    "line": 281
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0111",
+    "file": "tests/test_pkey.py",
+    "line": 399
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0112",
+    "file": "tests/pkey.py",
+    "line": 235
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0113",
+    "file": "tests/test_pkey.py",
+    "line": 57
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0114",
+    "file": "tests/test_pkey.py",
+    "line": 485
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0115",
+    "file": "tests/test_kex.py",
+    "line": 451
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0116",
+    "file": "tests/pkey.py",
+    "line": 256
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0117",
+    "file": "tests/pkey.py",
+    "line": 72
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0118",
+    "file": "tests/test_pkey.py",
+    "line": 205
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0119",
+    "file": "tests/pkey.py",
+    "line": 241
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0120",
+    "file": "tests/test_pkey.py",
+    "line": 298
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0121",
+    "file": "tests/test_pkey.py",
+    "line": 316
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0122",
+    "file": "tests/test_kex.py",
+    "line": 551
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0123",
+    "file": "tests/test_pkey.py",
+    "line": 397
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0124",
+    "file": "tests/test_kex.py",
+    "line": 483
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0125",
+    "file": "tests/test_pkey.py",
+    "line": 416
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0126",
+    "file": "tests/pkey.py",
+    "line": 260
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0127",
+    "file": "tests/test_pkey.py",
+    "line": 50
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0128",
+    "file": "tests/pkey.py",
+    "line": 8
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0129",
+    "file": "tests/test_pkey.py",
+    "line": 125
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0130",
+    "file": "tests/test_packetizer.py",
+    "line": 102
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0131",
+    "file": "tests/test_pkey.py",
+    "line": 229
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0132",
+    "file": "tests/pkey.py",
+    "line": 135
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0133",
+    "file": "tests/test_pkey.py",
+    "line": 251
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0134",
+    "file": "tests/test_pkey.py",
+    "line": 36
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0135",
+    "file": "tests/test_pkey.py",
+    "line": 236
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0136",
+    "file": "tests/pkey.py",
+    "line": 5
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0137",
+    "file": "tests/test_kex.py",
+    "line": 484
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0138",
+    "file": "tests/test_pkey.py",
+    "line": 514
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0139",
+    "file": "tests/test_pkey.py",
+    "line": 276
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0140",
+    "file": "tests/test_pkey.py",
+    "line": 313
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0141",
+    "file": "tests/test_pkey.py",
+    "line": 69
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0142",
+    "file": "tests/test_pkey.py",
+    "line": 439
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0143",
+    "file": "tests/pkey.py",
+    "line": 60
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0144",
+    "file": "tests/test_pkey.py",
+    "line": 137
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0145",
+    "file": "tests/pkey.py",
+    "line": 90
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0146",
+    "file": "tests/test_pkey.py",
+    "line": 274
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0147",
+    "file": "tests/test_kex.py",
+    "line": 476
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0148",
+    "file": "tests/test_pkey.py",
+    "line": 59
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0149",
+    "file": "tests/test_pkey.py",
+    "line": 34
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0150",
+    "file": "tests/pkey.py",
+    "line": 147
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0151",
+    "file": "tests/test_pkey.py",
+    "line": 385
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0152",
+    "file": "tests/pkey.py",
+    "line": 188
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0153",
+    "file": "tests/test_pkey.py",
+    "line": 62
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0154",
+    "file": "tests/test_pkey.py",
+    "line": 138
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0155",
+    "file": "tests/test_pkey.py",
+    "line": 476
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0156",
+    "file": "tests/test_pkey.py",
+    "line": 491
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0157",
+    "file": "tests/test_kex.py",
+    "line": 539
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0158",
+    "file": "tests/test_pkey.py",
+    "line": 403
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0159",
+    "file": "tests/test_pkey.py",
+    "line": 349
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0160",
+    "file": "tests/test_pkey.py",
+    "line": 217
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0161",
+    "file": "tests/test_pkey.py",
+    "line": 332
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0162",
+    "file": "tests/pkey.py",
+    "line": 231
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0163",
+    "file": "tests/pkey.py",
+    "line": 150
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0164",
+    "file": "tests/test_pkey.py",
+    "line": 52
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0165",
+    "file": "tests/test_kex.py",
+    "line": 72
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0166",
+    "file": "tests/pkey.py",
+    "line": 54
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0167",
+    "file": "tests/test_kex.py",
+    "line": 61
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0168",
+    "file": "tests/test_pkey.py",
+    "line": 350
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0169",
+    "file": "tests/test_pkey.py",
+    "line": 288
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0170",
+    "file": "tests/test_kex.py",
+    "line": 147
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0171",
+    "file": "tests/pkey.py",
+    "line": 102
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0172",
+    "file": "tests/pkey.py",
+    "line": 121
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0173",
+    "file": "tests/test_pkey.py",
+    "line": 478
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0174",
+    "file": "tests/pkey.py",
+    "line": 176
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0175",
+    "file": "tests/test_pkey.py",
+    "line": 248
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0176",
+    "file": "tests/test_pkey.py",
+    "line": 336
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0177",
+    "file": "tests/test_kex.py",
+    "line": 489
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0178",
+    "file": "tests/test_packetizer.py",
+    "line": 53
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0179",
+    "file": "tests/pkey.py",
+    "line": 165
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0180",
+    "file": "tests/test_pkey.py",
+    "line": 307
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0181",
+    "file": "tests/pkey.py",
+    "line": 128
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0182",
+    "file": "tests/test_packetizer.py",
+    "line": 83
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0183",
+    "file": "tests/test_pkey.py",
+    "line": 104
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0184",
+    "file": "tests/pkey.py",
+    "line": 111
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0185",
+    "file": "tests/test_pkey.py",
+    "line": 508
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0186",
+    "file": "tests/test_pkey.py",
+    "line": 256
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0187",
+    "file": "tests/test_pkey.py",
+    "line": 155
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0188",
+    "file": "tests/test_pkey.py",
+    "line": 324
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0189",
+    "file": "tests/pkey.py",
+    "line": 144
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0190",
+    "file": "tests/pkey.py",
+    "line": 288
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0191",
+    "file": "tests/test_pkey.py",
+    "line": 238
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0192",
+    "file": "tests/test_pkey.py",
+    "line": 222
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0193",
+    "file": "tests/pkey.py",
+    "line": 118
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0194",
+    "file": "tests/pkey.py",
+    "line": 232
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0195",
+    "file": "tests/test_pkey.py",
+    "line": 165
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0196",
+    "file": "tests/test_pkey.py",
+    "line": 472
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0197",
+    "file": "tests/test_kex.py",
+    "line": 438
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0198",
+    "file": "tests/test_pkey.py",
+    "line": 404
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0199",
+    "file": "tests/test_pkey.py",
+    "line": 425
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0200",
+    "file": "tests/pkey.py",
+    "line": 93
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0201",
+    "file": "tests/test_kex.py",
+    "line": 503
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0202",
+    "file": "tests/test_pkey.py",
+    "line": 327
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0203",
+    "file": "tests/test_pkey.py",
+    "line": 392
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0204",
+    "file": "tests/test_pkey.py",
+    "line": 564
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0205",
+    "file": "tests/test_pkey.py",
+    "line": 265
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S1-test-0206",
+    "file": "tests/test_pkey.py",
+    "line": 497
+   }
+  ],
+  "S2": [
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0001",
+    "file": "tests/auth.py",
+    "line": 206
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0002",
+    "file": "tests/test_client.py",
+    "line": 41
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0003",
+    "file": "tests/conftest.py",
+    "line": 86
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0004",
+    "file": "tests/test_transport.py",
+    "line": 232
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0005",
+    "file": "tests/test_client.py",
+    "line": 283
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0006",
+    "file": "tests/test_client.py",
+    "line": 386
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0007",
+    "file": "tests/test_transport.py",
+    "line": 1227
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0008",
+    "file": "tests/_util.py",
+    "line": 81
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0009",
+    "file": "paramiko/client.py",
+    "line": 690
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0010",
+    "file": "tests/test_client.py",
+    "line": 492
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0011",
+    "file": "tests/test_hostkeys.py",
+    "line": 113
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0012",
+    "file": "tests/test_client.py",
+    "line": 258
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0013",
+    "file": "tests/agent.py",
+    "line": 113
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0014",
+    "file": "tests/agent.py",
+    "line": 109
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0015",
+    "file": "tests/test_client.py",
+    "line": 399
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0016",
+    "file": "paramiko/packet.py",
+    "line": 447
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0017",
+    "file": "tests/test_client.py",
+    "line": 261
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0018",
+    "file": "tests/auth.py",
+    "line": 166
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0019",
+    "file": "tests/test_transport.py",
+    "line": 1233
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0020",
+    "file": "paramiko/__init__.py",
+    "line": 71
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0021",
+    "file": "paramiko/config.py",
+    "line": 446
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0022",
+    "file": "paramiko/client.py",
+    "line": 455
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0023",
+    "file": "paramiko/hostkeys.py",
+    "line": 294
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0024",
+    "file": "tests/test_client.py",
+    "line": 608
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0025",
+    "file": "tests/test_transport.py",
+    "line": 1243
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0026",
+    "file": "tests/test_hostkeys.py",
+    "line": 89
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0027",
+    "file": "paramiko/auth_handler.py",
+    "line": 279
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0028",
+    "file": "tests/test_client.py",
+    "line": 397
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0029",
+    "file": "tests/test_hostkeys.py",
+    "line": 93
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0030",
+    "file": "tests/test_client.py",
+    "line": 329
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0031",
+    "file": "tests/test_transport.py",
+    "line": 1126
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0032",
+    "file": "tests/test_client.py",
+    "line": 129
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0033",
+    "file": "tests/test_transport.py",
+    "line": 1176
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0034",
+    "file": "paramiko/auth_handler.py",
+    "line": 261
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0035",
+    "file": "paramiko/auth_handler.py",
+    "line": 282
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0036",
+    "file": "tests/auth.py",
+    "line": 295
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0037",
+    "file": "tests/test_transport.py",
+    "line": 1210
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0038",
+    "file": "tests/test_client.py",
+    "line": 613
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0039",
+    "file": "paramiko/agent.py",
+    "line": 490
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0040",
+    "file": "tests/test_client.py",
+    "line": 336
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0041",
+    "file": "tests/auth.py",
+    "line": 209
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0042",
+    "file": "tests/auth.py",
+    "line": 83
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0043",
+    "file": "tests/auth.py",
+    "line": 216
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0044",
+    "file": "tests/test_client.py",
+    "line": 712
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0045",
+    "file": "tests/test_sftp.py",
+    "line": 613
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0046",
+    "file": "tests/auth.py",
+    "line": 304
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0047",
+    "file": "paramiko/config.py",
+    "line": 31
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0048",
+    "file": "paramiko/agent.py",
+    "line": 460
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0049",
+    "file": "tests/test_config.py",
+    "line": 420
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0050",
+    "file": "paramiko/auth_handler.py",
+    "line": 284
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0051",
+    "file": "tests/test_transport.py",
+    "line": 1121
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0052",
+    "file": "tests/test_transport.py",
+    "line": 1118
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0053",
+    "file": "paramiko/hostkeys.py",
+    "line": 25
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0054",
+    "file": "tests/test_transport.py",
+    "line": 183
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0055",
+    "file": "paramiko/hostkeys.py",
+    "line": 300
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0056",
+    "file": "tests/test_ssh_exception.py",
+    "line": 61
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0057",
+    "file": "tests/conftest.py",
+    "line": 122
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0058",
+    "file": "paramiko/__init__.py",
+    "line": 70
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0059",
+    "file": "tests/test_hostkeys.py",
+    "line": 90
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0060",
+    "file": "tests/test_client.py",
+    "line": 177
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0061",
+    "file": "tests/test_client.py",
+    "line": 255
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0062",
+    "file": "tests/test_transport.py",
+    "line": 1165
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0063",
+    "file": "paramiko/auth_handler.py",
+    "line": 474
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0064",
+    "file": "paramiko/client.py",
+    "line": 35
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0065",
+    "file": "tests/test_transport.py",
+    "line": 1311
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0066",
+    "file": "paramiko/agent.py",
+    "line": 52
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0067",
+    "file": "paramiko/client.py",
+    "line": 432
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0068",
+    "file": "paramiko/__init__.py",
+    "line": 115
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0069",
+    "file": "paramiko/client.py",
+    "line": 419
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0070",
+    "file": "tests/test_client.py",
+    "line": 274
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0071",
+    "file": "tests/test_hostkeys.py",
+    "line": 131
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0072",
+    "file": "tests/test_client.py",
+    "line": 717
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0073",
+    "file": "paramiko/hostkeys.py",
+    "line": 299
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0074",
+    "file": "tests/test_client.py",
+    "line": 267
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0075",
+    "file": "tests/test_transport.py",
+    "line": 1105
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0076",
+    "file": "tests/test_transport.py",
+    "line": 209
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0077",
+    "file": "tests/_util.py",
+    "line": 91
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0078",
+    "file": "tests/test_util.py",
+    "line": 34
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0079",
+    "file": "paramiko/auth_handler.py",
+    "line": 713
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0080",
+    "file": "tests/test_client.py",
+    "line": 264
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0081",
+    "file": "tests/test_transport.py",
+    "line": 1183
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0082",
+    "file": "paramiko/client.py",
+    "line": 34
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0083",
+    "file": "paramiko/auth_handler.py",
+    "line": 478
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0084",
+    "file": "tests/test_client.py",
+    "line": 684
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0085",
+    "file": "tests/agent.py",
+    "line": 143
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0086",
+    "file": "tests/agent.py",
+    "line": 140
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0087",
+    "file": "tests/test_client.py",
+    "line": 617
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0088",
+    "file": "tests/test_client.py",
+    "line": 343
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0089",
+    "file": "tests/test_transport.py",
+    "line": 1159
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0090",
+    "file": "tests/test_hostkeys.py",
+    "line": 121
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0091",
+    "file": "tests/test_util.py",
+    "line": 119
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0092",
+    "file": "tests/test_hostkeys.py",
+    "line": 81
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0093",
+    "file": "tests/test_sftp.py",
+    "line": 608
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0094",
+    "file": "tests/test_hostkeys.py",
+    "line": 127
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0095",
+    "file": "paramiko/sftp_file.py",
+    "line": 359
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0096",
+    "file": "tests/test_transport.py",
+    "line": 1215
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0097",
+    "file": "tests/test_client.py",
+    "line": 363
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0098",
+    "file": "tests/auth.py",
+    "line": 200
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0099",
+    "file": "tests/test_client.py",
+    "line": 362
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0100",
+    "file": "tests/test_client.py",
+    "line": 47
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0101",
+    "file": "tests/test_client.py",
+    "line": 173
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0102",
+    "file": "tests/test_transport.py",
+    "line": 1180
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0103",
+    "file": "tests/test_transport.py",
+    "line": 1119
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0104",
+    "file": "tests/test_util.py",
+    "line": 49
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0105",
+    "file": "tests/test_hostkeys.py",
+    "line": 116
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0106",
+    "file": "tests/test_util.py",
+    "line": 25
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0107",
+    "file": "tests/test_client.py",
+    "line": 488
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0108",
+    "file": "tests/test_client.py",
+    "line": 200
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0109",
+    "file": "tests/agent.py",
+    "line": 103
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0110",
+    "file": "tests/auth.py",
+    "line": 154
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0111",
+    "file": "tests/test_transport.py",
+    "line": 1116
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0112",
+    "file": "tests/test_hostkeys.py",
+    "line": 48
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0113",
+    "file": "tests/test_client.py",
+    "line": 317
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0114",
+    "file": "paramiko/auth_handler.py",
+    "line": 473
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0115",
+    "file": "tests/auth.py",
+    "line": 301
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0116",
+    "file": "tests/test_client.py",
+    "line": 176
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0117",
+    "file": "paramiko/client.py",
+    "line": 728
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0118",
+    "file": "tests/test_config.py",
+    "line": 407
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0119",
+    "file": "tests/auth.py",
+    "line": 293
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0120",
+    "file": "paramiko/auth_handler.py",
+    "line": 280
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0121",
+    "file": "paramiko/client.py",
+    "line": 430
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0122",
+    "file": "tests/agent.py",
+    "line": 149
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0123",
+    "file": "paramiko/auth_handler.py",
+    "line": 475
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0124",
+    "file": "tests/auth.py",
+    "line": 196
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0125",
+    "file": "tests/test_hostkeys.py",
+    "line": 33
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0126",
+    "file": "paramiko/client.py",
+    "line": 453
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0127",
+    "file": "paramiko/sftp_server.py",
+    "line": 26
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0128",
+    "file": "tests/test_client.py",
+    "line": 174
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0129",
+    "file": "tests/auth.py",
+    "line": 210
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0130",
+    "file": "tests/_util.py",
+    "line": 287
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0131",
+    "file": "paramiko/auth_handler.py",
+    "line": 270
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0132",
+    "file": "tests/test_transport.py",
+    "line": 1160
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0133",
+    "file": "tests/test_client.py",
+    "line": 385
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0134",
+    "file": "tests/test_client.py",
+    "line": 687
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0135",
+    "file": "tests/test_client.py",
+    "line": 489
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0136",
+    "file": "tests/auth.py",
+    "line": 12
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0137",
+    "file": "tests/auth.py",
+    "line": 199
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0138",
+    "file": "paramiko/sftp_server.py",
+    "line": 83
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0139",
+    "file": "paramiko/client.py",
+    "line": 434
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0140",
+    "file": "paramiko/auth_handler.py",
+    "line": 318
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0141",
+    "file": "tests/_util.py",
+    "line": 229
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0142",
+    "file": "tests/test_sftp.py",
+    "line": 618
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0143",
+    "file": "paramiko/auth_handler.py",
+    "line": 269
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0144",
+    "file": "tests/test_client.py",
+    "line": 266
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0145",
+    "file": "tests/test_client.py",
+    "line": 620
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0146",
+    "file": "tests/auth.py",
+    "line": 169
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0147",
+    "file": "tests/conftest.py",
+    "line": 12
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0148",
+    "file": "tests/auth.py",
+    "line": 170
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0149",
+    "file": "tests/_util.py",
+    "line": 13
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0150",
+    "file": "tests/test_client.py",
+    "line": 128
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0151",
+    "file": "paramiko/sftp_server.py",
+    "line": 305
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0152",
+    "file": "tests/test_ssh_exception.py",
+    "line": 60
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0153",
+    "file": "tests/test_transport.py",
+    "line": 117
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0154",
+    "file": "tests/test_util.py",
+    "line": 104
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0155",
+    "file": "tests/test_hostkeys.py",
+    "line": 112
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0156",
+    "file": "tests/auth.py",
+    "line": 155
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0157",
+    "file": "tests/test_hostkeys.py",
+    "line": 105
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0158",
+    "file": "paramiko/client.py",
+    "line": 431
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0159",
+    "file": "tests/conftest.py",
+    "line": 157
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0160",
+    "file": "tests/test_transport.py",
+    "line": 860
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0161",
+    "file": "tests/agent.py",
+    "line": 104
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0162",
+    "file": "paramiko/sftp.py",
+    "line": 161
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0163",
+    "file": "tests/test_transport.py",
+    "line": 1117
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0164",
+    "file": "paramiko/client.py",
+    "line": 433
+   },
+   {
+    "candidate_id": "C-paramiko__paramiko-S2-0165",
+    "file": "tests/test_transport.py",
+    "line": 1232
+   }
+  ]
+ },
+ "pool_sha256": "7edeeabe0f5acbae5325b7764bc8c521f13bba4eb0ab0aa2a12ed1eac0a84b78"
+}
