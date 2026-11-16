@@ -1,0 +1,5 @@
+id,description,reps,mean_within_dataset_tie_sd,sd_of_tie_averaged_estimate,share_datasets_point_estimate_sign_changes_across_100_seeds
+S01,"base: F cov 0.69, M cov 0.40, rho 0.5, 15% indeterminate",1000,0.010215587451139924,0.033056979270232434,0.555
+S08,flat tiers: all F recommendations T2 (withdrawal is pure tie-break),1000,0.01637403713429533,0.029642946048956495,0.807
+S09,"steep tiers: F T0-T3 equally likely, strong tier gradient, F's indeterminate recs at T0",1000,0.006407726259496434,0.03527659486285357,0.325
+S15,"heterogeneous coverage across repositories (F 0.5-0.95, M 0.2-0.8 on T)",1000,0.008526714755687096,0.03308666258123617,0.45

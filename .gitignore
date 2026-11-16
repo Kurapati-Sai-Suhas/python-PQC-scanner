@@ -45,3 +45,6 @@ Thumbs.db
 
 # Which tools reported each annotation candidate: hidden from annotators (protocol v1.0.3)
 benchmark/candidates/**/pool_sources_*.json
+
+# Exception: proposal simulation evidence (planning figures, no labels) is versioned with its proposal
+!docs/proposals/**/results/
