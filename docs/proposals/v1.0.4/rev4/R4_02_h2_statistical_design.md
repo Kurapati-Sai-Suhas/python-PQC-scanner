@@ -1,5 +1,22 @@
 # R4-02 H2 statistical design — PROPOSED, NOT ADOPTED (revision 4)
 
+> **ADOPTION NOTICE (2026-11-16).** Superseded for use by `docs/specification/evaluation_protocol.md` v1.0.4 Sec. 1.1, 5 and `docs/specification/phase3_analysis_plan.md`. Required edits (R4-16, R4-21), applied in the adopted texts:
+> - **Sec. 2:**
+>   - the estimand is the **design mixture** (C2; plan Sec. 2);
+>   - repository-balanced and site-weighted coincide only when every *common evaluable* n_r is equal;
+>   - the point estimate is the exact tie-average δ̃.
+> - **Sec. 3:** IDs B1/B2/B3/B4 → H2-1/H2-2/H2-3/H2-4 (V23); the margin's recommendation part is bounded by the matched coverage.
+> - **Sec. 4:** the categories are replaced by two separate statements, H2a (confirmatory) and H2b (exploratory). **"H2 supported" is never used** (C4). "Not assessable" covers K_e < 7 and a failed gate (plan Sec. 7.4, 8).
+> - **Sec. 5:**
+>   - the test is the re-matching percentile bootstrap with random tie keys per resample (V13);
+>   - the calibration evidence is R4-13, which replaces the single 0.0145 figure;
+>   - the coverage-gap guard applies, also to H2b (V20, C5);
+>   - the Monte Carlo rule applies;
+>   - the two-stratum acceptance criterion is added (C1).
+> - **Sec. 6:** Holm runs over the guarded p-values; F-A assumptions and reporting per C6 (plan Sec. 9).
+> The body below is unchanged history.
+
+
 Evidence comes from scripts in `scripts/`, with outputs in `results/`: 27 unit and cross-check tests pass (`results/unit_tests.txt`); the Type I and power grids are in `results/h2_type1.csv` and `results/h2_power.csv`; family-wise error is in `results/fwer.md`; coverage-matching validity is in `results/matching.md`. **All figures are simulated planning figures under stated assumptions, not results.**
 
 ## 1. Why revision 3 is not adopted as written

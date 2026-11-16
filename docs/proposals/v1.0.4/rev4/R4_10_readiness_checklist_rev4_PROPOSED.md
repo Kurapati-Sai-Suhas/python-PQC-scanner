@@ -1,5 +1,8 @@
 # Phase 3 readiness checklist, revision 4 — PROPOSED, NOT ADOPTED
 
+> **ADOPTION NOTICE (2026-11-16).** Superseded by `R4_20_readiness_checklist_final.md` and the live tracker `docs/implementation/phase3_tracker.md`. The body below is unchanged history.
+
+
 No human task below is done. Status: READY / NOT READY / BLOCKED (owner decision).
 
 | # | Item | Status |

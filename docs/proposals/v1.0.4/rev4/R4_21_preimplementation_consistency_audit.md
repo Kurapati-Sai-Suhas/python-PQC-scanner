@@ -1,5 +1,8 @@
 # R4-21 Pre-implementation consistency audit — PROPOSED, NOT ADOPTED
 
+> **ADOPTION NOTICE (2026-11-16).** **ADOPTED** (C1–C6 approved by the owner). Incorporated into protocol v1.0.4, `phase3_analysis_plan.md` and `phase3_decisions.md`. The body below is unchanged history.
+
+
 Prepared 16 Nov 2026. This addendum answers four specific questions about R4-17 to R4-20. **It is not a methodology revision.**
 - The procedures, tests, thresholds and calibration are unchanged, except for one consistency fix (Sec. 3.3: the coverage-gap guard also applies to the H2b bound).
 - Every other correction is wording or an explicit edge-case rule.

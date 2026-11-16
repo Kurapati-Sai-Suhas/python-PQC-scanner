@@ -1,5 +1,8 @@
 # R4-06 Owner decisions — PROPOSED, NOT ADOPTED (revision 4)
 
+> **ADOPTION NOTICE (2026-11-16).** Superseded by the adopted decision record `docs/specification/phase3_decisions.md`: R4-18 as amended by R4-21 Sec. 6. Rows V10a‴, V10b″, V12′, V13′ and V18 below are replaced by V10a, V10b, V12, V13 and V18 there. V20–V24 are added. The body below is unchanged history.
+
+
 Nothing takes effect until the owner approves it. Approved items are committed one by one on `phase3-preparation`; earlier revisions stay in `docs/proposals/`.
 
 | # | Decision | Recommendation | Owner alternative |

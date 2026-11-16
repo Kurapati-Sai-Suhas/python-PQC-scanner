@@ -1,0 +1,21 @@
+{
+  "record": "Phase 3 protocol adoption (R4-19 item 16)",
+  "protocol_version": "1.0.4",
+  "annotation_guide_version": "1.1",
+  "analysis_plan_version": "1.0",
+  "adopted_utc_date": "2026-11-16",
+  "basis": "owner approval of R4-18 as amended by R4-21 Sec. 6 (C1-C6) and edge-case rules A-D, before any test-split access",
+  "documents": {
+    "docs/specification/evaluation_protocol.md": "8acc0579cc15e192fa86f60adfa2e67c7855ca4cdf48de8619fdc88f8bb8f7fc",
+    "docs/specification/phase3_analysis_plan.md": "b6efff819038761ea92d25884b9a01f1efa4b1fd8eeac5a294154999af83dfd7",
+    "docs/specification/phase3_decisions.md": "d0f37c137b1d9b47502a3e71f8ce3881bf9efbca1d317ec231ae520f0c029b93",
+    "docs/benchmark/annotation_guide.md": "de81abd6d4ca0e755fd5535628b780a55181a016690bb473c7f87adfc682075f",
+    "docs/specification/scoring_policy.md": "a748a0af75375bdb8a4822234e871a4bdaefd83d48fe60e1d575c7343a10f7d4",
+    "docs/specification/data_dictionary.md": "cbde290f6f86b6c4cae2048c983e57007c00dc3637c45959ada2d1bb02e8a797",
+    "docs/specification/role_taxonomy.md": "a2bff302495f0a59c1f5d47c914903f898e1ea9880f3d995dbb3db51ba3e8247",
+    "docs/specification/recommendation_policy.md": "4e89ac6cdbce6e0dc5bace2b58e3651240d09e2778f9759d11658d87b57d67ce",
+    "docs/benchmark/benchmark_schema.json": "8204226495ca24404539b6f1ac3efb49b32e0f016423e03e3c09083145b31291",
+    "docs/specification/evaluation_protocol_v1.0.3.md": "0bca5103293afeef8705b03cc1e6231ecbcf9b3e7a4aabe4b2a4d257a9e3edcc",
+    "docs/benchmark/annotation_guide_v1.0.md": "b5ee8145fd42e1c3f153df76ec4d956f0b148ddd980d3d4073b8e329c6e072cf"
+  }
+}

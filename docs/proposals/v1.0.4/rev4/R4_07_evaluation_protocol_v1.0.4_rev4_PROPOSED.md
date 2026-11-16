@@ -1,5 +1,8 @@
 # Evaluation protocol v1.0.4, revision 4 — PROPOSED, NOT ADOPTED (protocol v1.0.3 remains in force)
 
+> **ADOPTION NOTICE (2026-11-16).** Superseded by the adopted `docs/specification/evaluation_protocol.md` v1.0.4, which incorporates this draft together with R4-11 to R4-21 (H2a/H2b, design mixture, K/K_e, guard on H2b, F-A assumptions, execution failures). The body below is unchanged history.
+
+
 Project: Post-quantum crypto scanner for Python projects. Revisions 1–4 were all prepared on 14 Nov 2026, in that order, before any annotation or test-split access. Supporting analyses: `R4_01`–`R4_06`; change log `R4_09`. Marked items await owner decisions (V#).
 
 ## 1. Research questions and hypotheses

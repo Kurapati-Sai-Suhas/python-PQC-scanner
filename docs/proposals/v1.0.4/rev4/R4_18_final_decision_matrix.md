@@ -1,5 +1,8 @@
 # R4-18 Final consolidated decision matrix — PROPOSED, NOT ADOPTED
 
+> **ADOPTION NOTICE (2026-11-16).** **ADOPTED** by the owner as amended by R4-21 Sec. 6 (C1–C6), plus edge-case rules A–D. The adopted record is `docs/specification/phase3_decisions.md`. The body below is unchanged history.
+
+
 **This is the only list to approve.** It replaces the decision tables of R3-10, R4-06 and R4-15, which stay unchanged as records.
 
 **Rules of the matrix:**

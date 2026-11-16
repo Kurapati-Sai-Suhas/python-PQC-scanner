@@ -1,5 +1,8 @@
 # Methodology change log, revision 3 → 4 — PROPOSED, NOT ADOPTED
 
+> **ADOPTION NOTICE (2026-11-16).** The adopted changelog is the v1.0.4 entry of `docs/specification/evaluation_protocol.md`. The later revision-4 history (R4-11 to R4-21) is in this folder's README. The body below is unchanged history.
+
+
 Revisions 1–3 are preserved unchanged. Protocol v1.0.3 and guide v1.0 remain in force.
 
 | Area | Revision 3 | Revision 4 | Basis | Decision |

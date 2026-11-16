@@ -1,5 +1,11 @@
 # R4-05 Study population, analysis sets, reliability, frame audit and context — PROPOSED, NOT ADOPTED (revision 4)
 
+> **ADOPTION NOTICE (2026-11-16).** Superseded for use by protocol v1.0.4 Sec. 2–3 and `phase3_analysis_plan.md` Sec. 2 and 6. Required edits, applied in the adopted texts:
+> - **Sec. 1:** add the design-mixture statement (stratified simple random sample with outcome-independent allocation; all primary-set metrics are design-mixture quantities; stratum allocation reported) (C2).
+> - **Sec. 2:** the H2 and F-A paired denominator is the **common evaluable set** (both ran), per comparison; failure sensitivities S-F1 and S-F2 are added (V22).
+> The body below is unchanged history.
+
+
 ## 1. Primary study population (V14′)
 
 **Definition.** Primary-set eligible sites are call sites that meet both conditions:
