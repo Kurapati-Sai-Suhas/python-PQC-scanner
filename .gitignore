@@ -48,3 +48,6 @@ benchmark/candidates/**/pool_sources_*.json
 
 # Exception: proposal simulation evidence (planning figures, no labels) is versioned with its proposal
 !docs/proposals/**/results/
+
+# Annotation work files (labels, packets, prompts, AI exports): never committed; only the hash-only ledger is
+benchmark/annotation/

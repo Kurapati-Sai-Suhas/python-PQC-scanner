@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/pypqc-rolebench/meta.schema.json",
+  "title": "PyPQC-RoleBench label meta record (v1.1, annotation guide v1.1 Sec. 5)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["candidate_id", "annotator", "label_kind", "submitted_utc", "rationale", "evidence_lines", "ambiguity"],
+  "properties": {
+    "candidate_id": {"type": "string", "pattern": "^([CA]-[0-9a-f]{12}|[PJ][0-9]{2}[a-z]?|S-[A-Za-z0-9_.-]+)$"},
+    "annotator": {"enum": ["owner", "ai_review"]},
+    "label_kind": {"enum": ["primary", "packet_first", "relabel", "ai_review", "final"]},
+    "submitted_utc": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}(:[0-9]{2})?Z$"},
+    "evidence_lines": {"type": "array", "items": {"type": "string", "pattern": "^[^:]+:[0-9]+(-[0-9]+)?$"}},
+    "rationale": {"type": "string", "minLength": 1},
+    "confidence": {"type": "integer", "minimum": 1, "maximum": 5},
+    "ambiguity": {"enum": ["none", "guide_unclear", "context_insufficient", "unresolved"]},
+    "hard": {"type": "boolean"},
+    "time_seconds": {"type": "integer", "minimum": 0},
+    "context_used": {"enum": ["packet_sufficient", "extended"]},
+    "context_extra": {"type": "array", "items": {"type": "string", "pattern": "^[^:]+:[0-9]+(-[0-9]+)?$"}},
+    "unresolved": {"type": "array", "uniqueItems": true,
+                   "items": {"enum": ["eligible", "gt_role", "assessability", "possible_roles", "hybrid_component",
+                                      "obvious_from_name", "evidence_needed", "key_provenance"]}},
+    "unresolved_reason": {"type": "string", "minLength": 1},
+    "annotator_added": {"type": "boolean"},
+    "ai": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["interface_or_api", "model", "datetime_utc", "prompt_sha256", "packet_sha256", "status"],
+      "properties": {
+        "interface_or_api": {"type": "string", "minLength": 1},
+        "model": {"type": "string", "minLength": 1},
+        "datetime_utc": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}(:[0-9]{2})?Z$"},
+        "prompt_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "packet_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "status": {"enum": ["ok", "insufficient_context"]}
+      }
+    }
+  },
+  "allOf": [
+    {"if": {"properties": {"annotator": {"const": "ai_review"}}, "required": ["annotator"]},
+     "then": {"required": ["ai"], "properties": {"label_kind": {"const": "ai_review"}}},
+     "else": {"not": {"required": ["ai"]}}},
+    {"if": {"properties": {"label_kind": {"enum": ["primary", "packet_first"]}}, "required": ["label_kind"]},
+     "then": {"required": ["context_used", "time_seconds"], "properties": {"annotator": {"const": "owner"}}}},
+    {"if": {"properties": {"context_used": {"const": "extended"}}, "required": ["context_used"]},
+     "then": {"required": ["context_extra"], "properties": {"context_extra": {"minItems": 1}}}},
+    {"if": {"required": ["unresolved"], "properties": {"unresolved": {"minItems": 1}}},
+     "then": {"required": ["unresolved_reason"]}},
+    {"if": {"properties": {"annotator_added": {"const": true}}, "required": ["annotator_added"]},
+     "then": {"properties": {"candidate_id": {"pattern": "^A-[0-9a-f]{12}$"}}}}
+  ]
+}
