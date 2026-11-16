@@ -9,7 +9,13 @@ B1-dual        : algorithm mapping that refuses to choose for multi-purpose algo
 B2-method-args : Module C arm `method+args`, always recommend (tier threshold T0).
 B3-full-noabst : Module C arm `full`, always recommend (T0) — provenance without abstention.
 B4-full-T2     : Module C arm `full` with the pre-registered threshold T2 — the proposed system.
-UNKNOWN roles always abstain (a single target is never invented for them by the B2–B4 arms).
+method-args-recv-T0 : Module C arm `method+args+recv`, threshold T0 (H2-3 comparator; protocol v1.0.4, V18).
+method-only-T0      : Module C arm `method-only`, threshold T0 (H2-4 comparator; protocol v1.0.4, V18).
+UNKNOWN roles always abstain (a single target is never invented for them by the B2–B4 and T0 arms).
+
+The B-names are code baseline variants only; hypotheses use H-numbers (V23). H2_COMPARISONS maps each H2 comparison
+to its (provenance-aware arm, comparator arm). All arms of a comparison are derived from the same per-file evidence
+(`pqscan.bench.run.judge_ours` parses each file once).
 """
 from __future__ import annotations
 from ..policy import load_policy
@@ -20,6 +26,13 @@ ALG_RULE = {"RSA": "KEM", "EC": "SIG", "X25519": "KEM", "X448": "KEM", "XDH": "K
             "Ed25519": "SIG", "Ed448": "SIG", "EdDSA": "SIG", "DSA": "SIG"}
 SINGLE = {"X25519": "KEM", "X448": "KEM", "XDH": "KEM", "DH": "KEM", "Ed25519": "SIG", "Ed448": "SIG", "EdDSA": "SIG", "DSA": "SIG"}
 ARMS = ("B1-algorithm", "B1-dual", "B2-method-args", "B3-full-noabst", "B4-full-T2")
+H2_ARMS = ("B3-full-noabst", "B2-method-args", "method-args-recv-T0", "method-only-T0", "B4-full-T2")
+H2_COMPARISONS = {"H2-1": ("B3-full-noabst", "B2-method-args"),
+                  "H2-3": ("B3-full-noabst", "method-args-recv-T0"),
+                  "H2-4": ("B3-full-noabst", "method-only-T0"),
+                  "H2-S": ("B4-full-T2", "B2-method-args")}
+_MODULE_C = {"B2-method-args": ("method+args", "T0"), "B3-full-noabst": ("full", "T0"), "B4-full-T2": ("full", "T2"),
+             "method-args-recv-T0": ("method+args+recv", "T0"), "method-only-T0": ("method-only", "T0")}
 
 
 def _algorithm(ev: SiteEvidence) -> str:
@@ -33,7 +46,7 @@ def decide(ev: SiteEvidence, arm: str) -> tuple[str, str, str, str]:
         return "RECOMMEND", ALG_RULE.get(_algorithm(ev), "DUAL"), "-", ""
     if arm == "B1-dual":
         return "RECOMMEND", SINGLE.get(_algorithm(ev), "DUAL"), "-", ""
-    cls_arm, thr = {"B2-method-args": ("method+args", "T0"), "B3-full-noabst": ("full", "T0"), "B4-full-T2": ("full", "T2")}[arm]
+    cls_arm, thr = _MODULE_C[arm]
     d = classify(ev, cls_arm)
     if d.role is None:
         return "NO_FINDING", "NONE", d.tier.value, ""
