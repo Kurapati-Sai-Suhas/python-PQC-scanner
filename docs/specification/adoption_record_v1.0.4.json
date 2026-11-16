@@ -16,6 +16,9 @@
     "docs/specification/recommendation_policy.md": "4e89ac6cdbce6e0dc5bace2b58e3651240d09e2778f9759d11658d87b57d67ce",
     "docs/benchmark/benchmark_schema.json": "8204226495ca24404539b6f1ac3efb49b32e0f016423e03e3c09083145b31291",
     "docs/specification/evaluation_protocol_v1.0.3.md": "0bca5103293afeef8705b03cc1e6231ecbcf9b3e7a4aabe4b2a4d257a9e3edcc",
-    "docs/benchmark/annotation_guide_v1.0.md": "b5ee8145fd42e1c3f153df76ec4d956f0b148ddd980d3d4073b8e329c6e072cf"
+    "docs/benchmark/annotation_guide_v1.0.md": "b5ee8145fd42e1c3f153df76ec4d956f0b148ddd980d3d4073b8e329c6e072cf",
+    "docs/benchmark/meta_schema.json": "71b36e5e347386dc7bfb6eeef76e012fff0b3bb05e54784f23a1fb62b8681f58",
+    "docs/benchmark/ai_review_prompt_v1.md": "cdd20fa67c700ea9a69ef98851f7fc93e4995b847c01ca18324c1d3702eafd76",
+    "pqscan/bench/packets.py": "636b4b8f68fc315dc5d2c504b566452c1a89f477e0567116a6bdb89a6f493925"
   }
 }

@@ -29,6 +29,10 @@ DOCS = [
     "docs/benchmark/benchmark_schema.json",
     "docs/specification/evaluation_protocol_v1.0.3.md",
     "docs/benchmark/annotation_guide_v1.0.md",
+    # implementation artefacts fixed during R4-19 (normative for annotation; hashed again at F1)
+    "docs/benchmark/meta_schema.json",
+    "docs/benchmark/ai_review_prompt_v1.md",
+    "pqscan/bench/packets.py",
 ]
 
 
