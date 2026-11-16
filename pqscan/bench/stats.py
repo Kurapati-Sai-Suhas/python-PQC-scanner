@@ -25,6 +25,15 @@ def mcnemar_exact(b: int, c: int) -> float:
     return float(min(1.0, 2 * sps.binom.cdf(min(b, c), n, 0.5)))
 
 
+def mcnemar_exact_one_sided(b: int, c: int) -> float:
+    """One-sided exact McNemar p-value for 'A better than B': P(X >= b), X ~ Binomial(b + c, 1/2), where b counts
+    sites A got right and B wrong, c the reverse (protocol v1.0.4 Sec. 5.4, F-A)."""
+    n = b + c
+    if n == 0:
+        return 1.0
+    return float(sps.binom.sf(b - 1, n, 0.5))
+
+
 def holm(pvalues: Sequence[float]) -> list[float]:
     """Holm step-down adjusted p-values (same order as input)."""
     m = len(pvalues)
