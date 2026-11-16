@@ -1,0 +1,28 @@
+pqscan 0.1.0.dev0 | policy 1.1 | threshold T2 | arm method-only
+files scanned: 7, skipped: 0, execution failures: 0, semgrep: ok
+sites: 23 (ABSTAIN=23); excluded non-PK sites: 2; unsupported-library imports: 0 (none)
+target classes: ABSTAIN=23
+
+ambiguous.py:15  ANY      SIGN               T0  ABSTAIN        ABSTAIN
+ambiguous.py:19  RSA      UNKNOWN            T1  ABSTAIN        ABSTAIN
+ambiguous.py:21  ANY      SIGN               T0  ABSTAIN        ABSTAIN
+ambiguous.py:22  ANY      PK_DECRYPT         T0  ABSTAIN        ABSTAIN
+ecdsa_tokens.py:9  EC       UNKNOWN            T1  ABSTAIN        ABSTAIN
+ecdsa_tokens.py:10  ANY      SIGN               T0  ABSTAIN        ABSTAIN
+envelope.py:9  RSA      UNKNOWN            T1  ABSTAIN        ABSTAIN
+envelope.py:11  ANY      PK_ENCRYPT         T0  ABSTAIN        ABSTAIN
+envelope.py:12  ANY      PK_DECRYPT         T0  ABSTAIN        ABSTAIN
+key_agreement.py:8  X25519   KEY_ESTABLISHMENT  T1  ABSTAIN        ABSTAIN
+key_agreement.py:9  X25519   KEY_ESTABLISHMENT  T1  ABSTAIN        ABSTAIN
+key_agreement.py:10  ANY      KEY_ESTABLISHMENT  T0  ABSTAIN        ABSTAIN
+key_agreement.py:14  EC       UNKNOWN            T1  ABSTAIN        ABSTAIN
+key_agreement.py:15  EC       UNKNOWN            T1  ABSTAIN        ABSTAIN
+key_agreement.py:16  ANY      KEY_ESTABLISHMENT  T0  ABSTAIN        ABSTAIN
+key_inventory.py:10  RSA      UNKNOWN            T1  ABSTAIN        ABSTAIN
+legacy_pycryptodome.py:11  RSA      UNKNOWN            T1  ABSTAIN        ABSTAIN
+legacy_pycryptodome.py:13  ANY      SIGN               T0  ABSTAIN        ABSTAIN
+legacy_pycryptodome.py:17  RSA      UNKNOWN            T1  ABSTAIN        ABSTAIN
+legacy_pycryptodome.py:19  ANY      PK_ENCRYPT         T0  ABSTAIN        ABSTAIN
+signing_service.py:9  RSA      UNKNOWN            T1  ABSTAIN        ABSTAIN
+signing_service.py:11  ANY      SIGN               T0  ABSTAIN        ABSTAIN
+signing_service.py:13  ANY      VERIFY             T0  ABSTAIN        ABSTAIN

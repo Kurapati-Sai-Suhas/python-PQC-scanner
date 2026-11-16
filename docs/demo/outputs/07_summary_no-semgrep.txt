@@ -1,0 +1,28 @@
+pqscan 0.1.0.dev0 | policy 1.1 | threshold T2 | arm full
+files scanned: 7, skipped: 0, execution failures: 0, semgrep: not-run
+sites: 23 (ABSTAIN=2, FLAG_NO_TARGET=1, RECOMMEND=20); excluded non-PK sites: 2; unsupported-library imports: 0 (none)
+target classes: ABSTAIN=2, INVENTORY=1, KEM=6, KEM_DEM=6, SIG=8
+
+ambiguous.py:15  ANY      SIGN               T0  ABSTAIN        ABSTAIN
+ambiguous.py:19  RSA      UNKNOWN            T2  ABSTAIN        ABSTAIN
+ambiguous.py:21  RSA      SIGN               T2  RECOMMEND      SIG
+ambiguous.py:22  RSA      PK_DECRYPT         T2  RECOMMEND      KEM_DEM
+ecdsa_tokens.py:9  EC       SIGN               T3  RECOMMEND      SIG
+ecdsa_tokens.py:10  EC       SIGN               T3  RECOMMEND      SIG
+envelope.py:9  RSA      PK_DECRYPT         T3  RECOMMEND      KEM_DEM
+envelope.py:11  RSA      PK_ENCRYPT         T3  RECOMMEND      KEM_DEM
+envelope.py:12  RSA      PK_DECRYPT         T3  RECOMMEND      KEM_DEM
+key_agreement.py:8  X25519   KEY_ESTABLISHMENT  T3  RECOMMEND      KEM
+key_agreement.py:9  X25519   KEY_ESTABLISHMENT  T3  RECOMMEND      KEM
+key_agreement.py:10  X25519   KEY_ESTABLISHMENT  T3  RECOMMEND      KEM
+key_agreement.py:14  EC       KEY_ESTABLISHMENT  T3  RECOMMEND      KEM
+key_agreement.py:15  EC       KEY_ESTABLISHMENT  T3  RECOMMEND      KEM
+key_agreement.py:16  EC       KEY_ESTABLISHMENT  T3  RECOMMEND      KEM
+key_inventory.py:10  RSA      KEY_MATERIAL_ONLY  T2  FLAG_NO_TARGET INVENTORY
+legacy_pycryptodome.py:11  RSA      SIGN               T3  RECOMMEND      SIG
+legacy_pycryptodome.py:13  RSA      SIGN               T3  RECOMMEND      SIG
+legacy_pycryptodome.py:17  RSA      PK_DECRYPT         T3  RECOMMEND      KEM_DEM
+legacy_pycryptodome.py:19  RSA      PK_ENCRYPT         T3  RECOMMEND      KEM_DEM
+signing_service.py:9  RSA      SIGN               T3  RECOMMEND      SIG
+signing_service.py:11  RSA      SIGN               T3  RECOMMEND      SIG
+signing_service.py:13  RSA      VERIFY             T3  RECOMMEND      SIG

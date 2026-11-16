@@ -1,0 +1,60 @@
+### 2026-11-16T05:55:58Z  $ <SCRATCH>/demo-venv/Scripts/python.exe --version
+Python 3.12.10
+### exit code 0, wall time 0 s
+
+### 2026-11-16T05:55:58Z  $ <SCRATCH>/demo-venv/Scripts/pqscan.exe --version
+pqscan 0.1.0.dev0
+### exit code 0, wall time 0 s
+
+### 2026-11-16T05:55:58Z  $ <SCRATCH>/demo-venv/Scripts/semgrep.exe --version
+1.185.0
+### exit code 0, wall time 3 s
+
+### 2026-11-16T05:56:01Z  $ <SCRATCH>/demo-venv/Scripts/python.exe -I -c import pqscan, pqscan.detect.runner as r; print(pqscan.__file__); print(r.RULES_DIR)
+<SCRATCH>\pqscan-phase2\pqscan\__init__.py
+<SCRATCH>\pqscan-phase2\pqscan\detect\rules
+### exit code 0, wall time 0 s
+
+### 2026-11-16T05:56:01Z  $ <SCRATCH>/demo-venv/Scripts/python.exe -I -c import importlib.metadata as m; [print(p, m.version(p)) for p in ('pqscan','semgrep','cyclonedx-python-lib','jsonschema','PyYAML','typer','pydantic')]
+pqscan 0.1.0.dev0
+semgrep 1.185.0
+cyclonedx-python-lib 11.12.0
+jsonschema 4.25.1
+PyYAML 6.0.3
+typer 0.29.1
+pydantic 2.14.3
+### exit code 0, wall time 1 s
+
+### 2026-11-16T05:56:02Z  $ <SCRATCH>/demo-venv/Scripts/pqscan.exe scan docs/demo/demo_repo
+(stdout -> docs/demo/outputs/01_summary.txt; stderr -> docs/demo/outputs/01_summary.txt.stderr, 0 bytes)
+### exit code 0, wall time 4 s
+
+### 2026-11-16T05:56:06Z  $ <SCRATCH>/demo-venv/Scripts/pqscan.exe scan docs/demo/demo_repo --format json -o docs/demo/outputs/02_scan.json
+(stdout -> docs/demo/outputs/02_scan.json.stdout; stderr -> docs/demo/outputs/02_scan.json.stdout.stderr, 0 bytes)
+### exit code 0, wall time 3 s
+
+### 2026-11-16T05:56:09Z  $ <SCRATCH>/demo-venv/Scripts/pqscan.exe scan docs/demo/demo_repo --format cbom -o docs/demo/outputs/03_cbom.json
+(stdout -> docs/demo/outputs/03_cbom.json.stdout; stderr -> docs/demo/outputs/03_cbom.json.stdout.stderr, 0 bytes)
+### exit code 0, wall time 4 s
+
+### 2026-11-16T05:56:13Z  $ <SCRATCH>/demo-venv/Scripts/pqscan.exe scan docs/demo/demo_repo --format sarif -o docs/demo/outputs/04_scan.sarif
+(stdout -> docs/demo/outputs/04_scan.sarif.stdout; stderr -> docs/demo/outputs/04_scan.sarif.stdout.stderr, 0 bytes)
+### exit code 0, wall time 4 s
+
+### 2026-11-16T05:56:17Z  $ <SCRATCH>/demo-venv/Scripts/pqscan.exe scan docs/demo/demo_repo --tier-threshold T3
+(stdout -> docs/demo/outputs/05_summary_threshold_T3.txt; stderr -> docs/demo/outputs/05_summary_threshold_T3.txt.stderr, 0 bytes)
+### exit code 0, wall time 4 s
+
+### 2026-11-16T05:56:21Z  $ <SCRATCH>/demo-venv/Scripts/pqscan.exe scan docs/demo/demo_repo --arm method-only
+(stdout -> docs/demo/outputs/06_summary_arm_method-only.txt; stderr -> docs/demo/outputs/06_summary_arm_method-only.txt.stderr, 0 bytes)
+### exit code 0, wall time 5 s
+
+### 2026-11-16T05:56:26Z  $ <SCRATCH>/demo-venv/Scripts/pqscan.exe scan docs/demo/demo_repo --no-semgrep
+(stdout -> docs/demo/outputs/07_summary_no-semgrep.txt; stderr -> docs/demo/outputs/07_summary_no-semgrep.txt.stderr, 0 bytes)
+### exit code 0, wall time 0 s
+
+rules dir: <SCRATCH>\pqscan-phase2\pqscan\detect\rules
+### 2026-11-16T05:56:26Z  $ bash -c cd 'docs/demo/demo_repo' && '<SCRATCH>/demo-venv/Scripts/semgrep.exe' --config '<SCRATCH>\pqscan-phase2\pqscan\detect\rules' --json --quiet --metrics=off --no-git-ignore --max-target-bytes 2000000 --timeout 30 --disable-version-check ambiguous.py ecdsa_tokens.py envelope.py key_agreement.py key_inventory.py legacy_pycryptodome.py signing_service.py
+(stdout -> docs/demo/outputs/08_semgrep_raw.json; stderr -> docs/demo/outputs/08_semgrep_raw.json.stderr, 0 bytes)
+### exit code 0, wall time 4 s
+
