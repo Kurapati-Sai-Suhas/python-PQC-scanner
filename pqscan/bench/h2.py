@@ -166,8 +166,10 @@ def holm_thresholds(pvals: dict[str, float]) -> dict[str, float]:
 
 
 def run_family(results_by_comparison: dict[str, Sequence[dict]], *, B: int = B_PRIMARY, seed: int = SEED,
-               variant: str = BOOTSTRAP_VARIANT) -> dict:
-    """Steps 3-10 of plan Sec. 7.5 for H2-1, H2-3, H2-4 (H2-S analysed alongside, outside the family)."""
+               variant: str = BOOTSTRAP_VARIANT, mc_rule: bool = True) -> dict:
+    """Steps 3-10 of plan Sec. 7.5 for H2-1, H2-3, H2-4 (H2-S analysed alongside, outside the family).
+    `mc_rule=False` is used only by the pre-F1 calibration, which measures the procedure at a fixed B (the rule only
+    reduces the Monte Carlo error of p); the real analysis always applies it."""
     res = {c: analyse_comparison(c, results_by_comparison[c], B=B, seed=seed, variant=variant)
            for c in results_by_comparison}
     # Monte Carlo rule: re-run a comparison with B = 100,000 if its guarded p is within 3 MC-SE of its threshold
@@ -175,7 +177,7 @@ def run_family(results_by_comparison: dict[str, Sequence[dict]], *, B: int = B_P
         r = res[c]
         return r["p_guarded"] if r["assessability"] == "assessable" else 1.0
     fam = [c for c in CONFIRMATORY if c in res]
-    for _ in range(2):
+    for _ in range(2 if mc_rule else 0):
         thr = holm_thresholds({c: guarded_or_one(c) for c in fam})
         rerun = [c for c in fam if res[c]["assessability"] == "assessable" and res[c]["B"] < B_RERUN
                  and mc_rerun_needed(res[c]["p"], thr[c] / (2 if res[c]["guard"] else 1), res[c]["B"])]
