@@ -1,0 +1,527 @@
+% references.bib -- verified bibliography for the provisional IEEE manuscript (docs/paper/ieee_manuscript_draft.md)
+% Verified 17 Nov 2026:
+%   - Crossref REST API (api.crossref.org/works/<doi>) for every DOI marked "Crossref";
+%   - DataCite REST API (api.datacite.org/dois/<doi>) for arXiv, LIPIcs, Zenodo and GI DOIs;
+%   - official PDFs (NIST) read and text-extracted locally;
+%   - authoritative landing pages for ECMA-424, OASIS SARIF and JSTOR (Holm).
+% Author names, titles, venues, years, volumes and pages are copied from those records. Where Crossref omits
+% diacritics, the record's spelling is kept and noted. The "contribution" notes are content claims from the
+% project's novelty audit (docs/research/02_hostile_novelty_audit.md, 12 Nov 2026); their verification level is in
+% docs/paper/related_work_matrix.md. Nothing here was produced from memory.
+
+% ---------------------------------------------------------------- base paper
+@inproceedings{zhang2026qsse,
+  author    = {Lei Zhang},
+  title     = {Toward Quantum-Safe Software Engineering: A Vision for Post-Quantum Cryptography Migration},
+  booktitle = {Proceedings of the 2026 IEEE/ACM 48th International Conference on Software Engineering: Companion Proceedings (ICSE-Companion '26)},
+  publisher = {ACM},
+  address   = {New York, NY, USA},
+  pages     = {402--403},
+  year      = {2026},
+  doi       = {10.1145/3774748.3795653},
+  note      = {Verified: Crossref. Open-access copy arXiv:2602.05759 (DataCite).}
+}
+
+% ---------------------------------------------------------------- standards
+@techreport{nist2024fips203,
+  author      = {{National Institute of Standards and Technology}},
+  title       = {Module-Lattice-Based Key-Encapsulation Mechanism Standard},
+  institution = {National Institute of Standards and Technology},
+  type        = {Federal Information Processing Standards Publication},
+  number      = {FIPS 203},
+  month       = aug,
+  year        = {2024},
+  doi         = {10.6028/NIST.FIPS.203},
+  note        = {Verified: Crossref (issued 2024-08-13); PDF read (Sec. 3.3).}
+}
+@techreport{nist2024fips204,
+  author      = {{National Institute of Standards and Technology}},
+  title       = {Module-Lattice-Based Digital Signature Standard},
+  institution = {National Institute of Standards and Technology},
+  type        = {Federal Information Processing Standards Publication},
+  number      = {FIPS 204},
+  month       = aug,
+  year        = {2024},
+  doi         = {10.6028/NIST.FIPS.204},
+  note        = {Verified: Crossref (issued 2024-08-13); PDF read (Sec. 3.6.1).}
+}
+@techreport{nist2024fips205,
+  author      = {{National Institute of Standards and Technology}},
+  title       = {Stateless Hash-Based Digital Signature Standard},
+  institution = {National Institute of Standards and Technology},
+  type        = {Federal Information Processing Standards Publication},
+  number      = {FIPS 205},
+  month       = aug,
+  year        = {2024},
+  doi         = {10.6028/NIST.FIPS.205},
+  note        = {Verified: Crossref (issued 2024-08-13). Cited only as an alternative signature family named by policy v1.1.}
+}
+@techreport{nist2025sp800227,
+  author      = {Gorjan Alagic and Elaine Barker and Lily Chen and Dustin Moody and Angela Robinson and Hamilton Silberg and Noah Waller},
+  title       = {Recommendations for Key-Encapsulation Mechanisms},
+  institution = {National Institute of Standards and Technology},
+  type        = {NIST Special Publication},
+  number      = {800-227},
+  month       = sep,
+  year        = {2025},
+  doi         = {10.6028/NIST.SP.800-227},
+  note        = {Verified: Crossref (issued 2025-09-18); PDF read (Secs. 4.3, 4.6, 4.6.2, 5.2.1).}
+}
+@techreport{nist2026ir8547,
+  author      = {Dustin Moody and Ray Perlner and Andrew Regenscheid and Angela Robinson and David Cooper},
+  title       = {Transition to Post-Quantum Cryptography Standards},
+  institution = {National Institute of Standards and Technology},
+  type        = {NIST Internal Report},
+  number      = {8547},
+  month       = oct,
+  year        = {2026},
+  doi         = {10.6028/NIST.IR.8547},
+  note        = {Final. Verified: Crossref DOI (Crossref lists only A. Regenscheid; full author list from the PDF title page); CSRC page lists Final 10/27/2026; PDF read (Secs. 3.2, 4, 4.1.1, 4.1.2; Tables 2--5).}
+}
+@techreport{ecma2024ecma424,
+  author      = {{Ecma International}},
+  title       = {{ECMA-424}: {CycloneDX} Bill of Materials Specification, 1st edition},
+  institution = {Ecma International},
+  month       = jun,
+  year        = {2024},
+  url         = {https://ecma-international.org/publications-and-standards/standards/ecma-424/},
+  note        = {Corresponds to CycloneDX v1.6. Verified: Ecma catalogue and Ecma TC54 mapping (1st edition = v1.6). pqscan validates against the bundled bom-1.6 schema (tag 1.6.1).}
+}
+@techreport{oasis2023sarif,
+  author      = {Michael C. Fanning and Laurence J. Golding},
+  title       = {Static Analysis Results Interchange Format ({SARIF}) Version 2.1.0, Errata 01},
+  institution = {OASIS},
+  type        = {OASIS Approved Errata},
+  month       = aug,
+  year        = {2023},
+  url         = {https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/sarif-v2.1.0-errata01.html},
+  note        = {Errata to the 2020 OASIS Standard SARIF v2.1.0. Verified: docs.oasis-open.org. The JSON schema id bundled in pqscan is errata01/os.}
+}
+
+% ---------------------------------------------------------------- PQC migration and readiness
+@inproceedings{mehl2026esem,
+  author    = {Lukas Mehl},
+  title     = {{PQC}-Readiness of Open-Source Software: An Empirical Study},
+  booktitle = {ESEM 2026},
+  series    = {Leibniz International Proceedings in Informatics (LIPIcs)},
+  volume    = {394},
+  pages     = {53:1--53:14},
+  publisher = {Schloss Dagstuhl -- Leibniz-Zentrum f{\"u}r Informatik},
+  year      = {2026},
+  doi       = {10.4230/LIPIcs.ESEM.2026.53},
+  note      = {Verified: DataCite (title, author, LIPIcs vol. 394). Article number 53 and page range from the DOI suffix and the project's full-text reading (12 Nov 2026).}
+}
+@misc{mehl2026zenodo,
+  author    = {Lukas Mehl},
+  title     = {{PQC} Scanner Results: Aggregated and Per-Repository Cryptographic Primitive Findings (Python, Java, Go)},
+  publisher = {Zenodo},
+  year      = {2026},
+  doi       = {10.5281/zenodo.19634475},
+  note      = {Dataset. Verified: DataCite. Contains results only, no scanner source.}
+}
+@inproceedings{yuan2026pqcwild,
+  author    = {Tongxin Yuan and Zhanpeng Liu and Jiashuo Liang and Zhuosheng Zhang and Gongshen Liu and Yang Yu and Guancheng Li},
+  title     = {Post-quantum Cryptography in the Wild: Assessing the Readiness of Open-Source Ecosystems},
+  booktitle = {Proceedings of the 41st IEEE/ACM International Conference on Automated Software Engineering},
+  pages     = {2089--2100},
+  year      = {2026},
+  doi       = {10.1145/3832783.3837461},
+  note      = {Verified: Crossref.}
+}
+@inproceedings{mallick2026classifying,
+  author    = {Tushin Mallick and Ashish Kundu and Ramana Kompella and Cristina Nita-Rotaru},
+  title     = {Classifying Implementations of Cryptographic Primitives and Protocols that Use Post-Quantum Algorithms},
+  booktitle = {Proceedings of the 31st ACM Symposium on Access Control Models and Technologies},
+  pages     = {137--148},
+  year      = {2026},
+  doi       = {10.1145/3750555.3811889},
+  note      = {Verified: Crossref.}
+}
+@article{nather2024slr,
+  author  = {Christian N{\"a}ther and Daniel Herzinger and Stefan-Lukas Gazdag and Jan-Philipp Stegh{\"o}fer and Simon Daum and Daniel Loebenberger},
+  title   = {Migrating Software Systems Toward Post-Quantum Cryptography---A Systematic Literature Review},
+  journal = {IEEE Access},
+  volume  = {12},
+  pages   = {132107--132126},
+  year    = {2024},
+  doi     = {10.1109/access.2024.3450306},
+  note    = {Verified: Crossref.}
+}
+@article{nather2026agility,
+  author  = {Christian N{\"a}ther and Daniel Herzinger and Jan-Philipp Stegh{\"o}fer and Stefan-Lukas Gazdag and Eduard Hirsch and Daniel Loebenberger},
+  title   = {Toward a Common Understanding of Cryptographic Agility: A Systematic Review},
+  journal = {IEEE Access},
+  volume  = {14},
+  pages   = {133743--133763},
+  year    = {2026},
+  doi     = {10.1109/access.2026.3728196},
+  note    = {Verified: Crossref (record spells Nather/Steghofer without diacritics; spelling as in the authors' 2024 Crossref record).}
+}
+@article{hasan2024framework,
+  author  = {Khondokar Fida Hasan and Leonie Simpson and Mir Ali Rezazadeh Baee and Chadni Islam and Ziaur Rahman and Warren Armstrong and Praveen Gauravaram and Matthew McKague},
+  title   = {A Framework for Migrating to Post-Quantum Cryptography: Security Dependency Analysis and Case Studies},
+  journal = {IEEE Access},
+  volume  = {12},
+  pages   = {23427--23450},
+  year    = {2024},
+  doi     = {10.1109/access.2024.3360412},
+  note    = {Verified: Crossref.}
+}
+@article{joseph2022transitioning,
+  author  = {David Joseph and Rafael Misoczki and Marc Manzano and Joe Tricot and Fernando Dominguez Pinuaga and Olivier Lacombe and Stefan Leichenauer and Jack Hidary and Phil Venables and Royal Hansen},
+  title   = {Transitioning Organizations to Post-Quantum Cryptography},
+  journal = {Nature},
+  volume  = {605},
+  number  = {7909},
+  pages   = {237--243},
+  year    = {2022},
+  doi     = {10.1038/s41586-022-04623-2},
+  note    = {Verified: Crossref.}
+}
+@misc{ott2019challenges,
+  author        = {David Ott and Christopher Peikert and {other workshop participants}},
+  title         = {Identifying Research Challenges in Post Quantum Cryptography Migration and Cryptographic Agility},
+  year          = {2019},
+  eprint        = {1909.07353},
+  archivePrefix = {arXiv},
+  doi           = {10.48550/arXiv.1909.07353},
+  note          = {Preprint. Verified: DataCite.}
+}
+@article{zhang2023db2,
+  author  = {Lei Zhang and Andriy Miranskyy and Walid Rjaibi and Greg Stager and Michael Gray and John Peck},
+  title   = {Making Existing Software Quantum Safe: A Case Study on {IBM Db2}},
+  journal = {Information and Software Technology},
+  volume  = {161},
+  pages   = {107249},
+  year    = {2023},
+  doi     = {10.1016/j.infsof.2023.107249},
+  note    = {Verified: Crossref.}
+}
+@article{zhang2021y2k,
+  author  = {Lei Zhang and Andriy Miranskyy and Walid Rjaibi},
+  title   = {Quantum Advantage and the {Y2K} Bug: A Comparison},
+  journal = {IEEE Software},
+  volume  = {38},
+  number  = {2},
+  pages   = {80--87},
+  year    = {2021},
+  doi     = {10.1109/ms.2020.2985321},
+  note    = {Verified: Crossref (issued March 2021).}
+}
+@article{rattanavipanon2025toolchain,
+  author  = {Norrathep Rattanavipanon and Jakapan Suaboot and Warodom Werapun},
+  title   = {A Toolchain for Assisting Migration of Software Executables Towards Post-Quantum Cryptography},
+  journal = {IEEE Access},
+  volume  = {13},
+  pages   = {4368--4380},
+  year    = {2025},
+  doi     = {10.1109/access.2024.3524309},
+  note    = {Verified: Crossref (volume 13, 2025; DOI minted 2024).}
+}
+@inproceedings{ahmed2025survey,
+  author    = {Nadeem Ahmed and Lei Zhang and Aryya Gangopadhyay},
+  title     = {A Survey of Post-Quantum Cryptography Support in Cryptographic Libraries},
+  booktitle = {2025 IEEE International Conference on Quantum Computing and Engineering (QCE)},
+  pages     = {906--917},
+  year      = {2025},
+  doi       = {10.1109/qce65121.2025.00102},
+  note      = {Verified: Crossref.}
+}
+@inproceedings{vonnethen2024pmmp,
+  author    = {Nils Von Nethen and Alexander Wiesmaier and Nouri Alnahawi and Johanna Henrich},
+  title     = {{PMMP}---{PQC} Migration Management Process},
+  booktitle = {European Interdisciplinary Cybersecurity Conference (EICC)},
+  pages     = {144--154},
+  year      = {2024},
+  doi       = {10.1145/3655693.3655719},
+  note      = {Verified: Crossref (title carries a footnote marker in the record, omitted here).}
+}
+@misc{shaw2026auditing,
+  author        = {Animesh Shaw},
+  title         = {Quantum-Safe Code Auditing: {LLM}-Assisted Static Analysis and Quantum-Aware Risk Scoring for Post-Quantum Cryptography Migration},
+  year          = {2026},
+  eprint        = {2604.00560},
+  archivePrefix = {arXiv},
+  doi           = {10.48550/arXiv.2604.00560},
+  note          = {Preprint. Verified: DataCite.}
+}
+@misc{pallares2026llm,
+  author        = {Javier Pallar{\'e}s de Bonrostro and Ana I. Gonz{\'a}lez-Tablas and Mar{\'i}a Isabel Gonz{\'a}lez Vasco},
+  title         = {Empirical Evaluation of Large Language Models for Migration of Code Fragments to Post-Quantum Cryptography},
+  year          = {2026},
+  eprint        = {2606.07341},
+  archivePrefix = {arXiv},
+  doi           = {10.48550/arXiv.2606.07341},
+  note          = {Preprint. Verified: DataCite.}
+}
+@incollection{ye2024quantumthreats,
+  author    = {Xiaodong Ye and Teik Guan Tan and Jianying Zhou},
+  title     = {Towards Discovering Quantum-Threats for Applications Using Open-Source Libraries},
+  booktitle = {Lecture Notes in Computer Science},
+  publisher = {Springer},
+  pages     = {283--302},
+  year      = {2024},
+  doi       = {10.1007/978-3-031-61486-6_17},
+  note      = {Verified: Crossref (volume number not given in the record).}
+}
+
+% ---------------------------------------------------------------- cryptographic API detection and misuse
+@article{frantz2024cryptolation,
+  author  = {Miles Frantz and Ya Xiao and Tanmoy Sarkar Pias and Na Meng and Danfeng Yao},
+  title   = {Methods and Benchmark for Detecting Cryptographic {API} Misuses in {Python}},
+  journal = {IEEE Transactions on Software Engineering},
+  volume  = {50},
+  number  = {5},
+  pages   = {1118--1129},
+  year    = {2024},
+  doi     = {10.1109/tse.2024.3377182},
+  note    = {Verified: Crossref.}
+}
+@inproceedings{guo2024cryptopyt,
+  author    = {Xiangxin Guo and Shijie Jia and Jingqiang Lin and Yuan Ma and Fangyu Zheng and Guangzheng Li and Bowen Xu and Yueqiang Cheng and Kailiang Ji},
+  title     = {{CryptoPyt}: Unraveling {Python} Cryptographic {APIs} Misuse with Precise Static Taint Analysis},
+  booktitle = {2024 Annual Computer Security Applications Conference (ACSAC)},
+  pages     = {1075--1091},
+  year      = {2024},
+  doi       = {10.1109/acsac63791.2024.00088},
+  note      = {Verified: Crossref.}
+}
+@inproceedings{cho2025cryptbara,
+  author    = {Seogyeong Cho and Seungeun Yu and Seunghoon Woo},
+  title     = {Cryptbara: Dependency-Guided Detection of {Python} Cryptographic {API} Misuses},
+  booktitle = {2025 40th IEEE/ACM International Conference on Automated Software Engineering (ASE)},
+  pages     = {1578--1590},
+  year      = {2025},
+  doi       = {10.1109/ase63991.2025.00133},
+  note      = {Verified: Crossref.}
+}
+@inproceedings{wickert2021licma,
+  author    = {Anna-Katharina Wickert and Lars Baumg{\"a}rtner and Florian Breitfelder and Mira Mezini},
+  title     = {{Python} Crypto Misuses in the Wild},
+  booktitle = {Proceedings of the 15th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM)},
+  pages     = {1--6},
+  year      = {2021},
+  doi       = {10.1145/3475716.3484195},
+  note      = {Verified: Crossref.}
+}
+@article{kruger2021crysl,
+  author  = {Stefan Kruger and Johannes Spath and Karim Ali and Eric Bodden and Mira Mezini},
+  title   = {{CrySL}: An Extensible Approach to Validating the Correct Usage of Cryptographic {APIs}},
+  journal = {IEEE Transactions on Software Engineering},
+  volume  = {47},
+  number  = {11},
+  pages   = {2382--2400},
+  year    = {2021},
+  doi     = {10.1109/tse.2019.2948910},
+  note    = {Verified: Crossref (record spells Kruger/Spath without diacritics; kept as in the record).}
+}
+@inproceedings{ami2022masc,
+  author    = {Amit Seal Ami and Nathan Cooper and Kaushal Kafle and Kevin Moran and Denys Poshyvanyk and Adwait Nadkarni},
+  title     = {Why Crypto-detectors Fail: A Systematic Evaluation of Cryptographic Misuse Detection Techniques},
+  booktitle = {2022 IEEE Symposium on Security and Privacy (SP)},
+  pages     = {614--631},
+  year      = {2022},
+  doi       = {10.1109/sp46214.2022.9833582},
+  note      = {Verified: Crossref.}
+}
+@article{ami2026mutation,
+  author  = {Amit Seal Ami and Scott Marsden and Kevin Moran and Denys Poshyvanyk and Adwait Nadkarni},
+  title   = {Mutation-based Evaluation of Cryptographic {API} Misuse Detectors},
+  journal = {ACM Transactions on Privacy and Security},
+  volume  = {29},
+  number  = {2},
+  pages   = {1--35},
+  year    = {2026},
+  doi     = {10.1145/3796221},
+  note    = {Verified: Crossref. Earlier project notes called this the "MASC/Why Crypto-detectors Fail" TOPS extension; Crossref title is as given here.}
+}
+@inproceedings{chen2024precise,
+  author    = {Yikang Chen and Yibo Liu and Ka Lok Wu and Duc V. Le and Sze Yiu Chau},
+  title     = {Towards Precise Reporting of Cryptographic Misuses},
+  booktitle = {Proceedings 2024 Network and Distributed System Security Symposium (NDSS)},
+  year      = {2024},
+  doi       = {10.14722/ndss.2024.241032},
+  note      = {Verified: Crossref (no page numbers in the record).}
+}
+@article{xia2025beyond,
+  author  = {Yifan Xia and Zichen Xie and Peiyu Liu and Kangjie Lu and Yan Liu and Wenhai Wang and Shouling Ji},
+  title   = {Beyond Static Pattern Matching? Rethinking Automatic Cryptographic {API} Misuse Detection in the Era of {LLMs}},
+  journal = {Proceedings of the ACM on Software Engineering},
+  volume  = {2},
+  number  = {ISSTA},
+  pages   = {113--136},
+  year    = {2025},
+  doi     = {10.1145/3728875},
+  note    = {Verified: Crossref.}
+}
+@article{mousavi2025misuse,
+  author  = {Zahra Mousavi and Chadni Islam and Muhammad Ali Babar and Alsharif Abuadbba and Kristen Moore},
+  title   = {Detecting Misuse of Security {APIs}: A Systematic Review},
+  journal = {ACM Computing Surveys},
+  volume  = {57},
+  number  = {12},
+  pages   = {1--39},
+  year    = {2025},
+  doi     = {10.1145/3735968},
+  note    = {Verified: Crossref.}
+}
+@misc{moffie2025cryptoscope,
+  author        = {Micha Moffie and Omer Boehm and Anatoly Koyfman and Eyal Bin and Efrayim Sztokman and Sukanta Bhattacharjee and Meghnath Saha and James McGugan},
+  title         = {Cryptoscope: Analyzing Cryptographic Usages in Modern Software},
+  year          = {2025},
+  eprint        = {2503.19531},
+  archivePrefix = {arXiv},
+  doi           = {10.48550/arXiv.2503.19531},
+  note          = {Preprint. Verified: DataCite.}
+}
+@incollection{nather2026hiddenciphers,
+  author    = {Christian N{\"a}ther and Eduard Hirsch},
+  title     = {Hidden Ciphers and Where to Find Them: Static Discovery and Assessment of Cryptographic Assets in Software},
+  booktitle = {Lecture Notes in Computer Science},
+  publisher = {Springer},
+  pages     = {351--373},
+  year      = {2026},
+  doi       = {10.1007/978-981-92-6837-5_18},
+  note      = {Verified: Crossref (published 2026-10-23; volume number not given in the record).}
+}
+@inproceedings{salis2021pycg,
+  author    = {Vitalis Salis and Thodoris Sotiropoulos and Panos Louridas and Diomidis Spinellis and Dimitris Mitropoulos},
+  title     = {{PyCG}: Practical Call Graph Generation in {Python}},
+  booktitle = {2021 IEEE/ACM 43rd International Conference on Software Engineering (ICSE)},
+  pages     = {1646--1657},
+  year      = {2021},
+  doi       = {10.1109/icse43902.2021.00146},
+  note      = {Verified: Crossref.}
+}
+
+% ---------------------------------------------------------------- crypto inventory and CBOM
+@inproceedings{bogli2026bfcbom,
+  author    = {Roman B{\"o}gli and Jonas Spieler and Timo Kehrer},
+  title     = {{BF-CBOM}: Uncovering Cryptographic Assets Through Comparative {CBOM} Analysis at Scale},
+  booktitle = {Proceedings of the 2026 34th IEEE/ACM International Conference on Program Comprehension (ICPC)},
+  pages     = {463--467},
+  year      = {2026},
+  doi       = {10.1145/3794763.3794831},
+  note      = {Verified: Crossref.}
+}
+@inproceedings{yamamuro2026sok,
+  author    = {Hiroki Yamamuro and Shusaku Uemura and Kazuhide Fukushima},
+  title     = {{SoK}: Challenges for Implementing Automated Cryptography Discovery and Inventory Tool},
+  booktitle = {Proceedings of the 12th International Conference on Information Systems Security and Privacy (ICISSP)},
+  pages     = {157--168},
+  year      = {2026},
+  doi       = {10.5220/0014227100004061},
+  note      = {Verified: Crossref.}
+}
+@inproceedings{lee2026taxonomy,
+  author    = {Euimin Lee and Hyeonseong Jung and Yunah Choi and Junyong Lee and Jeihee Cho and Seokhyeon Son and Shiho Kim},
+  title     = {A Taxonomy-Driven Cryptographic Dependency Inventory for Post-Quantum Migration in Decentralized Systems: Triage Rules and a Worked Example},
+  booktitle = {Companion Proceedings of the ACM Web Conference 2026},
+  pages     = {1514--1516},
+  year      = {2026},
+  doi       = {10.1145/3774905.3794696},
+  note      = {Verified: Crossref.}
+}
+@inproceedings{schmitt2024inventories,
+  author    = {Nicolai Schmitt and Johanna Henrich and Dominik Heinz and Nouri Alnahawi and Alexander Wiesmaier},
+  title     = {On Criteria and Tooling for Cryptographic Inventories},
+  booktitle = {Sicherheit 2024},
+  publisher = {Gesellschaft f{\"u}r Informatik e.V.},
+  year      = {2024},
+  doi       = {10.18420/sicherheit2024_003},
+  note      = {Verified: DataCite (publisher GI e.V., 2024). Venue name from the DOI prefix; pages not in the record.}
+}
+
+% ---------------------------------------------------------------- abstention / selective prediction
+@article{chow1970reject,
+  author  = {C. Chow},
+  title   = {On Optimum Recognition Error and Reject Tradeoff},
+  journal = {IEEE Transactions on Information Theory},
+  volume  = {16},
+  number  = {1},
+  pages   = {41--46},
+  year    = {1970},
+  doi     = {10.1109/TIT.1970.1054406},
+  note    = {Verified: Crossref.}
+}
+@inproceedings{rathnasuriya2026defer,
+  author    = {Ravishka Rathnasuriya and Wei Yang},
+  title     = {When to Answer and When to Defer: A Decision Framework for Reliable Code Predictions},
+  booktitle = {Proceedings of the IEEE/ACM 48th International Conference on Software Engineering: Companion Proceedings},
+  pages     = {231--235},
+  year      = {2026},
+  doi       = {10.1145/3786582.3786845},
+  note      = {Verified: Crossref.}
+}
+
+% ---------------------------------------------------------------- statistics
+@article{mcnemar1947note,
+  author  = {Quinn McNemar},
+  title   = {Note on the Sampling Error of the Difference Between Correlated Proportions or Percentages},
+  journal = {Psychometrika},
+  volume  = {12},
+  number  = {2},
+  pages   = {153--157},
+  year    = {1947},
+  doi     = {10.1007/BF02295996},
+  note    = {Verified: Crossref.}
+}
+@article{efron1979bootstrap,
+  author  = {B. Efron},
+  title   = {Bootstrap Methods: Another Look at the Jackknife},
+  journal = {The Annals of Statistics},
+  volume  = {7},
+  number  = {1},
+  pages   = {1--26},
+  year    = {1979},
+  doi     = {10.1214/aos/1176344552},
+  note    = {Verified: Crossref.}
+}
+@article{holm1979simple,
+  author  = {Sture Holm},
+  title   = {A Simple Sequentially Rejective Multiple Test Procedure},
+  journal = {Scandinavian Journal of Statistics},
+  volume  = {6},
+  number  = {2},
+  pages   = {65--70},
+  year    = {1979},
+  url     = {https://www.jstor.org/stable/4615733},
+  note    = {No DOI. Verified: JSTOR stable URL and bibliographic records (web search, 17 Nov 2026).}
+}
+
+% ---------------------------------------------------------------- baseline tools (pinned commits; benchmark/baselines_manifest.json)
+@misc{tool_pqcheck,
+  title  = {pqcheck},
+  howpublished = {\url{https://github.com/Rafael-Ryu/pqcheck}},
+  note   = {Software, commit 3e99c742a3e448c92fedc0e91dd578cbdbd78d83 (pinned in benchmark/baselines\_manifest.json; fetched and run 14 Nov 2026).}
+}
+@misc{tool_pqcaudit,
+  title  = {pqc-audit (repository pqc-scanner)},
+  howpublished = {\url{https://github.com/rauleteee/pqc-scanner}},
+  note   = {Software, commit b5ccaac159aa4f4133ff1f6aa72ec119826355f1 (pinned; fetched and run 14 Nov 2026).}
+}
+@misc{tool_postquant,
+  title  = {PostQuant},
+  howpublished = {\url{https://github.com/postquantdev/postquant}},
+  note   = {Software, commit 4dc61b7965198e460a8e01c91e04b5c503fd4a2f (pinned; fetched and run 14 Nov 2026).}
+}
+@misc{tool_qsafe,
+  title  = {qsafe (repository quantum-mcp)},
+  howpublished = {\url{https://github.com/Miles0sage/quantum-mcp}},
+  note   = {Software, commit ff4f6dc384431aabe789ffa927e8ea4e111c5a50 (pinned; fetched and run 14 Nov 2026).}
+}
+@misc{tool_qsaregex,
+  title  = {Quantum-Safe Auditor (regex stage)},
+  howpublished = {\url{https://github.com/AnimeshShaw/quantum-safe-auditor}},
+  note   = {Software accompanying shaw2026auditing, commit 4d695503e6aea3f33897dc60c77981f6127f1dda (pinned; fetched and run 14 Nov 2026).}
+}
+@misc{tool_pqblocks,
+  title  = {pqblocks-scan (repository cbom-scanner)},
+  howpublished = {\url{https://github.com/PQBlocks/cbom-scanner}},
+  note   = {Software, commit 3d1eccfdfc7c283b5c5efe496ca1f0c08219d545 (pinned; fetched and run 14 Nov 2026).}
+}
+@misc{tool_semgrep,
+  title  = {Semgrep Community Edition, version 1.185.0},
+  howpublished = {\url{https://semgrep.dev/}},
+  note   = {Pinned dependency of pqscan; version printed by `semgrep --version` in docs/final/demo/outputs/transcript.txt.}
+}
