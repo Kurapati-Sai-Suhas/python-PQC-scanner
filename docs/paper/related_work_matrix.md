@@ -1,103 +1,85 @@
-# Related-work matrix (provisional)
+# Related-work matrix (provisional; updated 18 Nov 2026 after the full-text audit)
 
-**Sources:**
-- Bibliographic data was verified on 17 Nov 2026 (Crossref, DataCite, NIST PDFs, Ecma, OASIS, JSTOR); see `references.bib`.
-- Content claims (method, results, limitations) come from the project's hostile novelty audit (`docs/research/02_hostile_novelty_audit.md`, 12 Nov 2026) and its evidence log. They were **not re-read today**.
+**Two separate verification layers:**
+- **Bibliographic metadata:** all entries were verified on 17 Nov 2026 (`references.bib`).
+- **Content:** verified on 18 Nov 2026 in `related_work_fulltext_audit.md`, with page numbers and, for tools, file:line.
 
-**Content level:**
-- ✔ = full text or source code inspected on 12 Nov 2026;
-- ◐ = abstract or metadata only.
+**Content status:**
+- **FT** = full text verified;
+- **SRC** = pinned source verified;
+- **NFT** = NOT FULL-TEXT VERIFIED (metadata only; no content claim may rest on it);
+- **(12 Nov)** = source inspection from the earlier novelty audit, not re-checked.
 
-Claims marked ◐ must be re-checked against full text before submission.
-
-**Novelty status: PROVISIONAL.** The final novelty audit (R4-20 sequence) has not been performed. The literature search had known limits: Consensus API top-20 per query; IEEE Xplore and ACM DL not readable by automation; no non-English venues. No "first" claim may be made from this matrix.
+**Novelty status: PROVISIONAL.** The final novelty audit has not been done. Absence claims are scoped to the inspected set (audit Sec. 3).
 
 ## 1. PQC migration and readiness
 
-| Work (bib key) | Method | Relevant contribution | Limitation for our RQ | Difference from this project | Content |
+| Work (bib key) | Method | Relevant verified content | Limitation for our RQ | Difference from this project | Status |
 |---|---|---|---|---|---|
-| Zhang 2026, ICSE-C poster (`zhang2026qsse`) | Vision paper: Quantum-Safe Software Engineering; AQuA pillars P1 detection, P2 refactoring, P3 verification | Names call-site semantics and "protocol roles" as missing from CBOM-oriented inventories (gap G1) | No definitions, tool, data or metrics | Operationalises part of P1 only: call-site roles, provenance, role-conditioned guidance. P2 and P3 are out of scope. | ✔ |
-| Näther et al. 2024, IEEE Access SLR (`nather2024slr`) | Systematic literature review of PQC software migration | Map of migration challenges | Review; no tool | — | ◐ |
-| Hasan et al. 2024 (`hasan2024framework`) | Migration framework, security-dependency analysis, case studies | Dependency-centred migration planning | Organisational and system level, not call sites | Site-level role | ◐ |
-| Joseph et al. 2022, Nature (`joseph2022transitioning`) | Perspective on organisational PQC transition | Motivation; inventory as the first step | No tooling | — | ◐ |
-| Ott et al. 2019 (`ott2019challenges`) | Workshop report on migration and agility challenges | Research agenda | Preprint | — | ◐ |
-| Zhang et al. 2023, IST (`zhang2023db2`) | Industrial case study (IBM Db2) | Migration is a software-engineering effort | One system | — | ◐ |
-| Rattanavipanon et al. 2025 (`rattanavipanon2025toolchain`) | Toolchain for migrating executables | Binary-level assistance | Binaries, not Python source | Source-level role | ◐ |
-| Ahmed et al. 2025, QCE (`ahmed2025survey`) | Survey of PQC support in crypto libraries | Library readiness | Libraries, not application call sites | — | ◐ |
-| Von Nethen et al. 2024, EICC (`vonnethen2024pmmp`) | Migration management process (PMMP) | Process model | Process, no analysis | — | ◐ |
-| Näther et al. 2026, IEEE Access (`nather2026agility`) | Systematic review of cryptographic agility (48 sources) | Vocabulary | Conceptual | — | ◐ |
-| Mehl 2026, ESEM (`mehl2026esem`, dataset `mehl2026zenodo`) | Multi-language scanner (Python `ast`); labels vulnerable / quantum-safe / PQC-ready; 14,508 repositories | Repository-level reference set (n = 19) with precision 1.00, recall 0.93/0.88 | States it does not prescribe migration; no data flow; wrappers not captured; repository-level labels; one annotator | Call-site roles, recommendations, call-site ground truth. Its scanner source is not public, so it is a "not run" baseline. | ✔ |
-| Yuan et al. 2026, ASE (`yuan2026pqcwild`) | Ecosystem-scale PQC-support detection (package and repository level, LLM post-verification) | 1.1 M packages; repository-level PQC-support label | Not call sites; no roles | Site-level role and guidance | ◐ |
-| Mallick et al. 2026, SACMAT (`mallick2026classifying`) | Runtime-telemetry classifiers: classical vs PQ key exchange and signatures | Treats key exchange vs signature as the primary axis | Dynamic, binaries and protocols | Static, source-level | ✔ |
-| Ye et al. 2024, LNCS (`ye2024quantumthreats`) | Keyword-based detection of quantum-vulnerable usage in Python | Early Python quantum-threat discovery | Keyword level; no roles | Role, provenance, abstention | ◐ |
+| Zhang 2026 (`zhang2026qsse`) | Vision paper; QSSE; AQuA pillars P1–P3 | Inventories rarely capture "which protocol roles they implement" (p. 2) | No tool, data or metrics | Operationalises part of P1 | FT |
+| Mehl 2026 (`mehl2026esem`; dataset `mehl2026zenodo`) | Static multi-language scanner; vulnerable / quantum-safe / PQC-ready; 14,508 repositories | Does not prescribe migration (p. 3); wrappers not captured (p. 7); repository-level reference set n = 19, P 1.00 / R 0.93, 0.88 (p. 8) | Repository-level labels from documentation; no roles or recommendations | Per-site roles, guidance and labels | FT. Scanner source public on GitHub (D14). |
+| Yuan et al. 2026 (`yuan2026pqcwild`) | (title) readiness of open-source ecosystems for PQC | — | — | — | **NFT**: no content claims |
+| Mallick et al. 2026 (`mallick2026classifying`) | Runtime-workload classifiers | Classical vs PQ key exchange 98%, signatures 100% (p. 1) | Dynamic, implementation-level | Static source analysis | FT |
+| Näther et al. 2024 (`nather2024slr`) | SLR of PQC migration **of IP networks** | Process phases and people roles (p. 1) | Process level | — | FT |
+| Hasan et al. 2024 (`hasan2024framework`) | Enterprise migration framework using inventories | (p. 1) | Organisational | Site level | FT |
+| Zhang et al. 2023 (`zhang2023db2`), Zhang et al. 2021 (`zhang2021y2k`) | 7E roadmap; Db2 case study; Y2K analogy | (p. 1) | One system | — | FT (2023) / NFT (2021) |
+| Rattanavipanon et al. 2025 (`rattanavipanon2025toolchain`) | QED: detects quantum-vulnerable executables | (pp. 1–2) | Binaries | Source level, role | FT |
+| Ahmed et al. 2025 (`ahmed2025survey`) | PQC support in nine libraries | (p. 1) | Libraries | — | FT |
+| Näther et al. 2026 (`nather2026agility`) | Crypto-agility definitions review | (p. 1) | Conceptual | — | FT |
+| Von Nethen et al. 2024 (`vonnethen2024pmmp`); Joseph et al. 2022 (`joseph2022transitioning`); Ott et al. 2019 (`ott2019challenges`); Ye et al. 2024 (`ye2024quantumthreats`) | (titles) process model; organisational transition; research challenges; Python quantum-threat discovery | — | — | — | **NFT**: title-level citation only |
 
-## 2. Cryptographic API detection and misuse (Python and general)
+## 2. Cryptographic API detection and misuse
 
-| Work | Method | Relevant contribution | Limitation for our RQ | Difference | Content |
-|---|---|---|---|---|---|
-| Frantz et al. 2024, TSE (`frantz2024cryptolation`) | Cryptolation: inter-procedural Python misuse detection; PyCryptoBench | Python variable inference across functions | Misuse rules, not PQC role or migration | We reuse the idea of bounded inter-procedural resolution for roles | ◐ paper / ✔ repository |
-| Guo et al. 2024, ACSAC (`guo2024cryptopyt`) | CryptoPyt: static taint analysis of Python crypto APIs | Precise Python crypto data flow | Misuse; code not located | Role for migration | ◐ |
-| Cho et al. 2025, ASE (`cho2025cryptbara`) | Cryptbara: dependency extraction plus LLM | Inter-procedural crypto-object context in Python | Misuse; LLM-dependent | Deterministic role evidence | ◐ |
-| Wickert et al. 2021, ESEM (`wickert2021licma`) | LICMA: Python crypto misuses in the wild | Prevalence of Python misuse | Misuse | — | ◐ |
-| Krüger et al. 2021, TSE (`kruger2021crysl`) | CrySL specification language; typestate (Java) | Specifying correct API usage | Java; misuse | Provenance-style evidence for Python roles | ◐ |
-| Ami et al. 2022, S&P (`ami2022masc`); Ami et al. 2026, TOPS (`ami2026mutation`) | Mutation-based evaluation of misuse detectors | Detectors break under semantics-preserving changes | Java misuse detectors | Method precedent for our invariance operators (RQ4, Dataset A) | ◐ |
-| Chen et al. 2024, NDSS (`chen2024precise`) | Precise misuse reporting | Warns about benchmark gaming | Misuse | Motivates the frozen held-out split | ◐ |
-| Xia et al. 2025, PACMSE/ISSTA (`xia2025beyond`) | LLM-based misuse detection | LLM vs static comparison | Misuse | — | ◐ |
-| Mousavi et al. 2025, CSUR (`mousavi2025misuse`) | Systematic review of security-API misuse detection | Field overview | Review | — | ◐ |
-| Moffie et al. 2025 (`moffie2025cryptoscope`) | Cryptoscope: slicing to key material (Java) | Links operations to key material | Java; no migration strategy | Python; role-conditioned guidance | ✔ |
-| Näther & Hirsch 2026, LNCS (`nather2026hiddenciphers`) | Static discovery and assessment of cryptographic assets (Ruby/Go); CBOM 1.7 | Semantic inventory | Not Python; computes no migration strategy | Python; recommendation | ✔ (arXiv) |
-| Salis et al. 2021, ICSE (`salis2021pycg`) | PyCG Python call graphs | Call-graph construction | General purpose | pqscan uses its own bounded resolver (depth ≤ 2), not PyCG | ◐ |
-
-## 3. Cryptographic role inference and key provenance
-
-| Work / tool | What it does with role or provenance | Limitation (from the 12 Nov source inspection) | Content |
+| Work | Verified content | Limitation | Status |
 |---|---|---|---|
-| CBOMkit / sonar-cryptography 1.7.0 | Captures pyca `sign`/`decrypt`/`exchange` only when the receiver is the literal result of `generate_private_key` | No verify (commented out), no public-key encrypt, no key loaders, no PyCryptodome | ✔ source |
-| pqcheck (`tool_pqcheck`) | Maps families to targets by policy | No method calls; RSA → ML-KEM always; `context` field parsed but not evaluated | ✔ source |
-| pqc-audit (`tool_pqcaudit`) | Hard-coded `Usage` per rule | Key-generation rules only; RSA/EC → "ML-KEM / ML-DSA" (undecided); no loaders; no unknown outcome | ✔ source |
-| PostQuant (`tool_postquant`) | Nearby-word heuristics; category per library | Role assigned by library, not by use | ✔ source |
-| qsafe / pqc-posture (`tool_qsafe`) | Regex buckets → targets | Regex; no data flow | ✔ source |
-| Quantum-Safe Auditor (`tool_qsaregex`, `shaw2026auditing`) | Regex plus LLM context labels; RSA → "ML-KEM / ML-DSA" | No role inference; single-labeller evaluation | ✔ paper and source |
-| CodeQL Python models | Algorithm and block mode | Operation kind not exposed; no key loaders | ✔ source |
-| Lee et al. 2026 (`lee2026taxonomy`) | Taxonomy and inventory schema with role-like categories and triage rules | No tool, no experiments | ◐ |
+| Ami et al. 2026, TOPS (`ami2026mutation`); Ami et al. 2022, S&P (`ami2022masc`) | MASC: 107 misuse cases, 19 usage-based mutation operators; detectors show undocumented flaws (TOPS p. 1) | Misuse detectors | FT (TOPS); 2022 version known via TOPS only |
+| Chen et al. 2024 (`chen2024precise`) | False positives of misuse detectors on real code; crafted benchmarks lack real-world intricacies (pp. 1–2) | Misuse | FT. Our earlier "benchmark gaming" wording withdrawn. |
+| Wickert et al. 2021 (`wickert2021licma`) | 895 Python projects; 52.26% with ≥ 1 misuse (p. 1) | Misuse | FT |
+| Xia et al. 2025 (`xia2025beyond`) | LLMs for misuse detection; instability of direct use (p. 2) | Misuse | FT |
+| Mousavi et al. 2025 (`mousavi2025misuse`) | Systematic review | Review | FT |
+| Moffie et al. 2025 (`moffie2025cryptoscope`) | Slicing-based inventory linking calls, parameters and objects (pp. 3–5); Python in the design (p. 5); **evaluated on 7 Java applications** (p. 6) | No per-site migration target evaluated | FT |
+| Näther & Hirsch 2026 (`nather2026hiddenciphers`) | Crypsy: Ruby and Go source rules plus TLS/SSH configuration formats (pp. 9–10); collective "ML-KEM, ML-DSA, or SLH-DSA" statement for 52 candidates (p. 16) | Not Python; no per-site role-conditioned target | FT |
+| Salis et al. 2021 (`salis2021pycg`) | Python call graphs (p. 1) | General purpose; not used by pqscan | FT |
+| Frantz et al. 2024 (`frantz2024cryptolation`), Guo et al. 2024 (`guo2024cryptopyt`), Cho et al. 2025 (`cho2025cryptbara`), Krüger et al. 2021 (`kruger2021crysl`) | (titles) Python / Java crypto-API misuse detection | — | **NFT**: title-level scope only. These are the closest Python inter-procedural analyses; overlap with our provenance tracing cannot be excluded. |
 
-**Reading (provisional).** No inspected Python-capable tool combines receiver provenance, method, arguments and consumer sinks into a site-level role with an explicit abstain outcome. That is a statement about the inspected set (Sec. 3 of the novelty audit), not about all existing work.
+## 3. Role and provenance in existing PQC tools (pinned source)
 
-## 4. Crypto inventory and CBOM
+| Tool @ commit | Verified behaviour | Status |
+|---|---|---|
+| pqcheck @ 3e99c74 | RSA → "migrate to ML-KEM-768" (`policy/defaults/br-drex-piloto.yaml:43`); README documents "usage-context blindness" (README.md:141–147) | SRC |
+| pqc-audit @ b5ccaac | RSA keygen → "ML-KEM (key establishment) / ML-DSA (signatures)" (`knowledge/code.py:103`, `targets.py:15`); per-rule `Usage` constant | SRC |
+| PostQuant @ 4dc61b7 | pyca RSA keygen → asymmetric-encryption, dual text; PyCryptodome `RSA.generate` → digital-signature → ML-DSA (`patterns/python.ts:14–39`): role by library | SRC |
+| qsafe @ ff4f6dc | RSA keygen and `PKCS1_OAEP.new` → "RSA Key Exchange" → ML-KEM 768 (`ast_analyzer.py:26–33, 179–180`) | SRC |
+| Quantum-Safe Auditor @ 4d69550 (`shaw2026auditing`) | RSA → "ML-KEM / ML-DSA" (paper Table 1, p. 5); LLM context labels; single labeller (p. 7) | FT (paper) |
+| CBOMkit / sonar-cryptography 1.7.0 | Captures pyca sign/decrypt/exchange only on in-place generated keys; no verify or encrypt | (12 Nov) |
+| Mehl scanner | Source public, not inspected | — |
 
-| Work | Contribution | Limitation for our RQ | Content |
-|---|---|---|---|
-| ECMA-424 / CycloneDX 1.6 (`ecma2024ecma424`) | Standard schema with `cryptoProperties` and the `cryptoFunctions` enum | No key-agreement function value; no PSS padding value. pqscan maps these to `other` plus properties. | ✔ schema |
-| Bögli et al. 2026, ICPC (`bogli2026bfcbom`) | Comparative CBOM analysis at scale; generators disagree | Inventory consistency, not correctness of migration guidance | ◐ |
-| Yamamuro et al. 2026, ICISSP (`yamamuro2026sok`) | SoK of discovery and inventory tools | Survey | ◐ |
-| Schmitt et al. 2024, GI Sicherheit (`schmitt2024inventories`) | Criteria and tooling for crypto inventories | Criteria | ○ (relayed; content not re-read) |
+## 4. Inventory and CBOM
 
-CBOM generation, Semgrep detection and abstention are **not** claimed as contributions (novelty audit Secs. 5.1, 5.10, 5.11).
+| Work | Status | Use in the draft |
+|---|---|---|
+| ECMA-424 / CycloneDX 1.6 (`ecma2024ecma424`) | schema used and validated | standard |
+| SARIF 2.1.0 (`oasis2023sarif`) | schema used and validated | standard |
+| Bögli et al. 2026 (`bogli2026bfcbom`), Yamamuro et al. 2026 (`yamamuro2026sok`), Schmitt et al. 2024 (`schmitt2024inventories`), Lee et al. 2026 (`lee2026taxonomy`) | **NFT** | title-level citation only; content descriptions withdrawn |
 
 ## 5. Migration correctness
 
-| Work | Contribution | Limitation for our RQ | Content |
-|---|---|---|---|
-| Pallarés de Bonrostro et al. 2026 (`pallares2026llm`) | LLM migration of code fragments to PQC; functional correctness | Migration category labelled by hand; fragment level; pyca only | ✔ |
-| Shaw 2026 (`shaw2026auditing`) | Risk scoring with LLM assistance | Detection-level evaluation; confidence values assigned, not estimated | ✔ |
-| Mehl 2026; Yuan et al. 2026 | Readiness measurement | Detection or readiness labels; recommendations are not judged | ✔ / ◐ |
+| Work | Verified content | Status |
+|---|---|---|
+| Pallarés de Bonrostro et al. 2026 (`pallares2026llm`) | 800 synthetic executable Python pairs; target fixed per category by dataset design; PyCA + liboqs-python (pp. 1, 3, 6–8) | FT |
+| Shaw 2026 (`shaw2026auditing`) | Detection-level metrics; recall 100% by construction (p. 8) | FT |
+| Mehl 2026 | Readiness detection; does not prescribe migration | FT |
 
-**Reading (provisional).** In the inspected literature, published numbers measure detection or readiness, not whether a recommendation is correct for the site's role. This is the gap our evaluation design targets (RQ1–RQ3). **No measurement has been made yet.**
+## 6. Abstention
 
-## 6. Abstention and selective recommendation
+| Work | Verified content | Status |
+|---|---|---|
+| Rathnasuriya & Yang 2026 (`rathnasuriya2026defer`) | Calibration plus tool-based abstention for code models (p. 1) | FT |
+| Chow 1970 (`chow1970reject`) | (title) reject-option trade-off | NFT (classical citation only) |
 
-| Work | Contribution | Relevance | Content |
-|---|---|---|---|
-| Chow 1970, IEEE T-IT (`chow1970reject`) | Optimal error–reject trade-off | Classical basis of abstention | ✔ metadata |
-| Rathnasuriya & Yang 2026, ICSE-C (`rathnasuriya2026defer`) | Answer-or-defer framework for code predictions | Abstention in SE tooling | ◐ |
+## 7. Where the contribution may lie (provisional)
 
-Abstention is an established method. Our use of it (evidence-tier gating with coverage-matched comparison) is evaluation discipline, **not** a novelty claim.
-
-## 7. Where the contribution may lie (provisional; final novelty audit pending)
-
-1. An **operational role taxonomy** for Python RSA/EC/Ed/X call sites, with a frozen key-provenance taxonomy and an evidence-tier model (T0–T3). It is implemented and tested.
-2. **Role-conditioned migration guidance with explicit non-migration classes**: inventory, protocol review, approved hybrid, abstain. Public-key encryption is treated as a KEM-DEM redesign, citing FIPS 203, FIPS 204, SP 800-227 and IR 8547.
-3. A **pre-registered, coverage-matched evaluation design** for recommendation correctness. It covers repository-level matching, a re-matching bootstrap, a coverage-gap guard, a feasibility gate and Holm control. It is calibrated by simulation and differentially verified.
-4. **Planned (not yet produced):** a role-labelled real-world benchmark and the measurements of RQ1–RQ4.
-
-Items 1–3 exist now as design and implementation. Item 4 is the empirical contribution, and it does not exist yet.
+1. **C1–C3** (taxonomy, analyser, role-conditioned policy with explicit non-migration classes) and **C4** (pre-registered, coverage-matched protocol) exist as verified artefacts.
+2. Within the inspected set (audit Sec. 3), no work combines provenance-based role inference, role-conditioned targets with abstention, and per-site correctness measurement.
+3. **C5**, the measurement, does not exist yet.
+4. Unverified works (Yuan et al.; CryptoPyt; Cryptbara; Cryptolation; BF-CBOM) must be checked before any submission-time novelty claim.

@@ -1,0 +1,834 @@
+{
+  "tool": "pqscan",
+  "tool_version": "0.1.0.dev0",
+  "policy_version": "1.1",
+  "tier_threshold": "T2",
+  "arm": "full",
+  "files_scanned": 1,
+  "semgrep_status": "ok",
+  "semgrep_errors": [],
+  "findings": [
+    {
+      "evidence": {
+        "location": {
+          "file": "token_service.py",
+          "line": 17,
+          "col": 12,
+          "end_line": 17,
+          "end_col": 66
+        },
+        "api": "cryptography.hazmat.primitives.serialization.load_pem_private_key",
+        "rule_id": "semantic.loader",
+        "kind": "key-material",
+        "operation": null,
+        "receiver": {
+          "description": "pyca:ANY:private:loaded-PEM",
+          "library": "pyca",
+          "algorithm": "ANY",
+          "private": true,
+          "provenance": "loaded-PEM",
+          "provenances": [
+            "loaded-PEM"
+          ],
+          "proximate": null,
+          "curve": null,
+          "key_size": null,
+          "multi": false,
+          "unresolved_reason": null,
+          "origins": [
+            [
+              17,
+              "serialization.load_pem_private_key"
+            ]
+          ],
+          "via_call": null
+        },
+        "args": {
+          "padding": null,
+          "hash": null,
+          "ecdsa": false,
+          "ecdh": false,
+          "curve": null,
+          "unresolved": [],
+          "resolved_all": true
+        },
+        "consumers": {
+          "families": [
+            "SIG"
+          ],
+          "locations": [
+            [
+              25,
+              ".sign()"
+            ]
+          ],
+          "paths": [
+            "_load_signing_key:17 -> return to TokenSigner.__init__:22 -> self._key in TokenSigner.sign -> .sign():25"
+          ],
+          "escapes": false,
+          "escape_notes": [],
+          "unresolved_callees": [],
+          "conflicts": [],
+          "filtered": []
+        },
+        "hybrid_context": false,
+        "hybrid_apis": [],
+        "origin_families": [],
+        "origin_conflict": false,
+        "hybrid_combined": false,
+        "function": "_load_signing_key",
+        "class": null,
+        "conflicts": [],
+        "notes": []
+      },
+      "decision": {
+        "site_kind": "key-material",
+        "role": "SIGN",
+        "tier": "T3",
+        "algorithm": "ANY",
+        "reason": "key material (ANY, loaded-PEM) reaches SIG consumers only",
+        "possible_roles": [],
+        "secondary_roles": [
+          "VERIFY"
+        ],
+        "supporting": [
+          [
+            17,
+            "cryptography.hazmat.primitives.serialization.load_pem_private_key (loaded-PEM)"
+          ],
+          [
+            25,
+            "consumer .sign()"
+          ]
+        ],
+        "conflicts": [],
+        "hybrid_context": false,
+        "arm": "full"
+      },
+      "recommendation": {
+        "action": "RECOMMEND",
+        "target_class": "SIG",
+        "family": "SIG",
+        "role": "SIGN",
+        "tier": "T3",
+        "target": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable",
+        "parameter_set": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5",
+        "rationale": "RSA/ECC signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch.",
+        "references": [
+          "NIST FIPS 204, Module-Lattice-Based Digital Signature Standard (ML-DSA), Aug 2024",
+          "NIST FIPS 205, Stateless Hash-Based Digital Signature Standard (SLH-DSA), Aug 2024",
+          "NIST IR 8547, Transition to Post-Quantum Cryptography Standards, final, Oct 2026"
+        ],
+        "policy_version": "1.1",
+        "tier_threshold": "T2",
+        "abstain_reason": null
+      },
+      "scope": "app",
+      "semgrep_rules": [
+        "pqscan.pyca.loader.pem"
+      ]
+    },
+    {
+      "evidence": {
+        "location": {
+          "file": "token_service.py",
+          "line": 25,
+          "col": 16,
+          "end_line": 29,
+          "end_col": 10
+        },
+        "api": "<receiver>.sign",
+        "rule_id": "semantic.operation",
+        "kind": "operation",
+        "operation": "sign",
+        "receiver": {
+          "description": "pyca:ANY:private:loaded-PEM",
+          "library": "pyca",
+          "algorithm": "ANY",
+          "private": true,
+          "provenance": "loaded-PEM",
+          "provenances": [
+            "loaded-PEM"
+          ],
+          "proximate": "attribute",
+          "curve": null,
+          "key_size": null,
+          "multi": false,
+          "unresolved_reason": null,
+          "origins": [
+            [
+              17,
+              "serialization.load_pem_private_key"
+            ]
+          ],
+          "via_call": "_load_signing_key"
+        },
+        "args": {
+          "padding": "PSS",
+          "hash": "SHA256",
+          "ecdsa": false,
+          "ecdh": false,
+          "curve": null,
+          "unresolved": [
+            "Attribute argument"
+          ],
+          "resolved_all": false
+        },
+        "consumers": {
+          "families": [],
+          "locations": [],
+          "paths": [],
+          "escapes": false,
+          "escape_notes": [],
+          "unresolved_callees": [],
+          "conflicts": [],
+          "filtered": []
+        },
+        "hybrid_context": false,
+        "hybrid_apis": [],
+        "origin_families": [
+          "SIG"
+        ],
+        "origin_conflict": false,
+        "hybrid_combined": false,
+        "function": "TokenSigner.sign",
+        "class": "TokenSigner",
+        "conflicts": [],
+        "notes": []
+      },
+      "decision": {
+        "site_kind": "operation",
+        "role": "SIGN",
+        "tier": "T3",
+        "algorithm": "RSA",
+        "reason": "operation .sign() -> SIGN; receiver resolved: pyca:ANY:private:loaded-PEM; arguments: padding=PSS, hash=SHA256",
+        "possible_roles": [],
+        "secondary_roles": [],
+        "supporting": [
+          [
+            25,
+            "method .sign()"
+          ],
+          [
+            25,
+            "receiver pyca:ANY:private:loaded-PEM"
+          ],
+          [
+            25,
+            "arguments padding=PSS, hash=SHA256"
+          ],
+          [
+            17,
+            "key origin serialization.load_pem_private_key"
+          ]
+        ],
+        "conflicts": [],
+        "hybrid_context": false,
+        "arm": "full"
+      },
+      "recommendation": {
+        "action": "RECOMMEND",
+        "target_class": "SIG",
+        "family": "SIG",
+        "role": "SIGN",
+        "tier": "T3",
+        "target": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable",
+        "parameter_set": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5",
+        "rationale": "RSA signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch.",
+        "references": [
+          "NIST FIPS 204, Module-Lattice-Based Digital Signature Standard (ML-DSA), Aug 2024",
+          "NIST FIPS 205, Stateless Hash-Based Digital Signature Standard (SLH-DSA), Aug 2024",
+          "NIST IR 8547, Transition to Post-Quantum Cryptography Standards, final, Oct 2026"
+        ],
+        "policy_version": "1.1",
+        "tier_threshold": "T2",
+        "abstain_reason": null
+      },
+      "scope": "app",
+      "semgrep_rules": [
+        "pqscan.common.method.candidate"
+      ]
+    },
+    {
+      "evidence": {
+        "location": {
+          "file": "token_service.py",
+          "line": 33,
+          "col": 12,
+          "end_line": 33,
+          "end_col": 66
+        },
+        "api": "<receiver>.sign",
+        "rule_id": "semantic.operation",
+        "kind": "operation",
+        "operation": "sign",
+        "receiver": {
+          "description": "unknown(untyped parameter)",
+          "library": null,
+          "algorithm": null,
+          "private": null,
+          "provenance": null,
+          "provenances": [],
+          "proximate": "parameter",
+          "curve": null,
+          "key_size": null,
+          "multi": false,
+          "unresolved_reason": "untyped parameter",
+          "origins": [],
+          "via_call": null
+        },
+        "args": {
+          "padding": "PKCS1v15",
+          "hash": "SHA256",
+          "ecdsa": false,
+          "ecdh": false,
+          "curve": null,
+          "unresolved": [],
+          "resolved_all": true
+        },
+        "consumers": {
+          "families": [],
+          "locations": [],
+          "paths": [],
+          "escapes": false,
+          "escape_notes": [],
+          "unresolved_callees": [],
+          "conflicts": [],
+          "filtered": []
+        },
+        "hybrid_context": false,
+        "hybrid_apis": [],
+        "origin_families": [],
+        "origin_conflict": false,
+        "hybrid_combined": false,
+        "function": "sign_with",
+        "class": null,
+        "conflicts": [],
+        "notes": []
+      },
+      "decision": {
+        "site_kind": "operation",
+        "role": "SIGN",
+        "tier": "T1",
+        "algorithm": "RSA",
+        "reason": "operation .sign() -> SIGN; receiver unresolved (untyped parameter); arguments: padding=PKCS1v15, hash=SHA256",
+        "possible_roles": [],
+        "secondary_roles": [],
+        "supporting": [
+          [
+            33,
+            "method .sign()"
+          ],
+          [
+            33,
+            "arguments padding=PKCS1v15, hash=SHA256"
+          ]
+        ],
+        "conflicts": [],
+        "hybrid_context": false,
+        "arm": "full"
+      },
+      "recommendation": {
+        "action": "ABSTAIN",
+        "target_class": "ABSTAIN",
+        "family": "NONE",
+        "role": "SIGN",
+        "tier": "T1",
+        "target": "No recommendation: evidence is insufficient",
+        "parameter_set": null,
+        "rationale": "Evidence tier T1 is below the policy threshold T2: only one of receiver typing or algorithm-specific arguments is available (or evidence conflicts). Inferred role (not acted on): SIGN.",
+        "references": [],
+        "policy_version": "1.1",
+        "tier_threshold": "T2",
+        "abstain_reason": "tier T1 < T2"
+      },
+      "scope": "app",
+      "semgrep_rules": [
+        "pqscan.common.method.candidate"
+      ]
+    },
+    {
+      "evidence": {
+        "location": {
+          "file": "token_service.py",
+          "line": 37,
+          "col": 12,
+          "end_line": 37,
+          "end_col": 80
+        },
+        "api": "cryptography.hazmat.primitives.asymmetric.rsa.generate_private_key",
+        "rule_id": "semantic.keygen",
+        "kind": "key-material",
+        "operation": null,
+        "receiver": {
+          "description": "pyca:RSA:private:generated",
+          "library": "pyca",
+          "algorithm": "RSA",
+          "private": true,
+          "provenance": "generated",
+          "provenances": [
+            "generated"
+          ],
+          "proximate": null,
+          "curve": null,
+          "key_size": 3072,
+          "multi": false,
+          "unresolved_reason": null,
+          "origins": [
+            [
+              37,
+              "rsa_alias.generate_private_key"
+            ]
+          ],
+          "via_call": null
+        },
+        "args": {
+          "padding": null,
+          "hash": null,
+          "ecdsa": false,
+          "ecdh": false,
+          "curve": null,
+          "unresolved": [],
+          "resolved_all": true
+        },
+        "consumers": {
+          "families": [],
+          "locations": [],
+          "paths": [],
+          "escapes": true,
+          "escape_notes": [
+            "returned from public make_key; external callers possible"
+          ],
+          "unresolved_callees": [],
+          "conflicts": [],
+          "filtered": []
+        },
+        "hybrid_context": false,
+        "hybrid_apis": [],
+        "origin_families": [],
+        "origin_conflict": false,
+        "hybrid_combined": false,
+        "function": "make_key",
+        "class": null,
+        "conflicts": [],
+        "notes": []
+      },
+      "decision": {
+        "site_kind": "key-material",
+        "role": "UNKNOWN",
+        "tier": "T1",
+        "algorithm": "RSA",
+        "reason": "key material leaves the analysed scope before any consumer is seen (returned from public make_key; external callers possible)",
+        "possible_roles": [
+          "SIGN",
+          "VERIFY",
+          "PK_ENCRYPT",
+          "PK_DECRYPT"
+        ],
+        "secondary_roles": [],
+        "supporting": [
+          [
+            37,
+            "cryptography.hazmat.primitives.asymmetric.rsa.generate_private_key (generated)"
+          ]
+        ],
+        "conflicts": [],
+        "hybrid_context": false,
+        "arm": "full"
+      },
+      "recommendation": {
+        "action": "ABSTAIN",
+        "target_class": "ABSTAIN",
+        "family": "NONE",
+        "role": "UNKNOWN",
+        "tier": "T1",
+        "target": "No recommendation: evidence is insufficient",
+        "parameter_set": null,
+        "rationale": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (returned from public make_key; external callers possible). Possible roles: SIGN, VERIFY, PK_ENCRYPT, PK_DECRYPT. No single target is justified.",
+        "references": [],
+        "policy_version": "1.1",
+        "tier_threshold": "T2",
+        "abstain_reason": "role UNKNOWN"
+      },
+      "scope": "app",
+      "semgrep_rules": [
+        "pqscan.pyca.rsa.keygen"
+      ]
+    },
+    {
+      "evidence": {
+        "location": {
+          "file": "token_service.py",
+          "line": 42,
+          "col": 19,
+          "end_line": 42,
+          "end_col": 87
+        },
+        "api": "cryptography.hazmat.primitives.asymmetric.rsa.generate_private_key",
+        "rule_id": "semantic.keygen",
+        "kind": "key-material",
+        "operation": null,
+        "receiver": {
+          "description": "pyca:RSA:private:generated",
+          "library": "pyca",
+          "algorithm": "RSA",
+          "private": true,
+          "provenance": "generated",
+          "provenances": [
+            "generated"
+          ],
+          "proximate": null,
+          "curve": null,
+          "key_size": 3072,
+          "multi": false,
+          "unresolved_reason": null,
+          "origins": [
+            [
+              42,
+              "rsa_alias.generate_private_key"
+            ]
+          ],
+          "via_call": null
+        },
+        "args": {
+          "padding": null,
+          "hash": null,
+          "ecdsa": false,
+          "ecdh": false,
+          "curve": null,
+          "unresolved": [],
+          "resolved_all": true
+        },
+        "consumers": {
+          "families": [
+            "PKE",
+            "SIG"
+          ],
+          "locations": [
+            [
+              45,
+              ".sign()"
+            ],
+            [
+              49,
+              ".decrypt()"
+            ]
+          ],
+          "paths": [
+            "Envelope.__init__:42 -> self._k in Envelope.seal_signature -> .sign():45",
+            "Envelope.__init__:42 -> self._k in Envelope.open -> .decrypt():49"
+          ],
+          "escapes": false,
+          "escape_notes": [],
+          "unresolved_callees": [],
+          "conflicts": [],
+          "filtered": []
+        },
+        "hybrid_context": false,
+        "hybrid_apis": [],
+        "origin_families": [],
+        "origin_conflict": false,
+        "hybrid_combined": false,
+        "function": "Envelope.__init__",
+        "class": "Envelope",
+        "conflicts": [],
+        "notes": []
+      },
+      "decision": {
+        "site_kind": "key-material",
+        "role": "UNKNOWN",
+        "tier": "T2",
+        "algorithm": "RSA",
+        "reason": "key material (RSA) reaches consumers of 2 families (PKE, SIG); the role depends on which path runs, so it is not statically determinable",
+        "possible_roles": [
+          "PK_DECRYPT",
+          "SIGN",
+          "VERIFY"
+        ],
+        "secondary_roles": [],
+        "supporting": [
+          [
+            42,
+            "cryptography.hazmat.primitives.asymmetric.rsa.generate_private_key (generated)"
+          ],
+          [
+            45,
+            "consumer .sign()"
+          ],
+          [
+            49,
+            "consumer .decrypt()"
+          ]
+        ],
+        "conflicts": [],
+        "hybrid_context": false,
+        "arm": "full"
+      },
+      "recommendation": {
+        "action": "ABSTAIN",
+        "target_class": "ABSTAIN",
+        "family": "NONE",
+        "role": "UNKNOWN",
+        "tier": "T2",
+        "target": "No recommendation: evidence is insufficient",
+        "parameter_set": null,
+        "rationale": "Role cannot be determined: key material (RSA) reaches consumers of 2 families (PKE, SIG); the role depends on which path runs, so it is not statically determinable. Possible roles: PK_DECRYPT, SIGN, VERIFY. No single target is justified.",
+        "references": [],
+        "policy_version": "1.1",
+        "tier_threshold": "T2",
+        "abstain_reason": "role UNKNOWN"
+      },
+      "scope": "app",
+      "semgrep_rules": [
+        "pqscan.pyca.rsa.keygen"
+      ]
+    },
+    {
+      "evidence": {
+        "location": {
+          "file": "token_service.py",
+          "line": 45,
+          "col": 16,
+          "end_line": 46,
+          "end_col": 103
+        },
+        "api": "<receiver>.sign",
+        "rule_id": "semantic.operation",
+        "kind": "operation",
+        "operation": "sign",
+        "receiver": {
+          "description": "pyca:RSA:private:generated",
+          "library": "pyca",
+          "algorithm": "RSA",
+          "private": true,
+          "provenance": "generated",
+          "provenances": [
+            "generated"
+          ],
+          "proximate": "attribute",
+          "curve": null,
+          "key_size": 3072,
+          "multi": false,
+          "unresolved_reason": null,
+          "origins": [
+            [
+              42,
+              "rsa_alias.generate_private_key"
+            ]
+          ],
+          "via_call": null
+        },
+        "args": {
+          "padding": "PSS",
+          "hash": "SHA256",
+          "ecdsa": false,
+          "ecdh": false,
+          "curve": null,
+          "unresolved": [
+            "Attribute argument"
+          ],
+          "resolved_all": false
+        },
+        "consumers": {
+          "families": [],
+          "locations": [],
+          "paths": [],
+          "escapes": false,
+          "escape_notes": [],
+          "unresolved_callees": [],
+          "conflicts": [],
+          "filtered": []
+        },
+        "hybrid_context": false,
+        "hybrid_apis": [],
+        "origin_families": [
+          "PKE",
+          "SIG"
+        ],
+        "origin_conflict": false,
+        "hybrid_combined": false,
+        "function": "Envelope.seal_signature",
+        "class": "Envelope",
+        "conflicts": [],
+        "notes": []
+      },
+      "decision": {
+        "site_kind": "operation",
+        "role": "SIGN",
+        "tier": "T2",
+        "algorithm": "RSA",
+        "reason": "operation .sign() -> SIGN; receiver resolved: pyca:RSA:private:generated; arguments: padding=PSS, hash=SHA256; the key may also come from an untyped parameter, or its origin is consumed by another role family or has conflicting consumers, so the tier is capped at T2",
+        "possible_roles": [],
+        "secondary_roles": [],
+        "supporting": [
+          [
+            45,
+            "method .sign()"
+          ],
+          [
+            45,
+            "receiver pyca:RSA:private:generated"
+          ],
+          [
+            45,
+            "arguments padding=PSS, hash=SHA256"
+          ],
+          [
+            42,
+            "key origin rsa_alias.generate_private_key"
+          ]
+        ],
+        "conflicts": [],
+        "hybrid_context": false,
+        "arm": "full"
+      },
+      "recommendation": {
+        "action": "RECOMMEND",
+        "target_class": "SIG",
+        "family": "SIG",
+        "role": "SIGN",
+        "tier": "T2",
+        "target": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable",
+        "parameter_set": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5",
+        "rationale": "RSA signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch.",
+        "references": [
+          "NIST FIPS 204, Module-Lattice-Based Digital Signature Standard (ML-DSA), Aug 2024",
+          "NIST FIPS 205, Stateless Hash-Based Digital Signature Standard (SLH-DSA), Aug 2024",
+          "NIST IR 8547, Transition to Post-Quantum Cryptography Standards, final, Oct 2026"
+        ],
+        "policy_version": "1.1",
+        "tier_threshold": "T2",
+        "abstain_reason": null
+      },
+      "scope": "app",
+      "semgrep_rules": [
+        "pqscan.common.method.candidate"
+      ]
+    },
+    {
+      "evidence": {
+        "location": {
+          "file": "token_service.py",
+          "line": 49,
+          "col": 16,
+          "end_line": 50,
+          "end_col": 96
+        },
+        "api": "<receiver>.decrypt",
+        "rule_id": "semantic.operation",
+        "kind": "operation",
+        "operation": "decrypt",
+        "receiver": {
+          "description": "pyca:RSA:private:generated",
+          "library": "pyca",
+          "algorithm": "RSA",
+          "private": true,
+          "provenance": "generated",
+          "provenances": [
+            "generated"
+          ],
+          "proximate": "attribute",
+          "curve": null,
+          "key_size": 3072,
+          "multi": false,
+          "unresolved_reason": null,
+          "origins": [
+            [
+              42,
+              "rsa_alias.generate_private_key"
+            ]
+          ],
+          "via_call": null
+        },
+        "args": {
+          "padding": "OAEP",
+          "hash": "SHA256",
+          "ecdsa": false,
+          "ecdh": false,
+          "curve": null,
+          "unresolved": [],
+          "resolved_all": true
+        },
+        "consumers": {
+          "families": [],
+          "locations": [],
+          "paths": [],
+          "escapes": false,
+          "escape_notes": [],
+          "unresolved_callees": [],
+          "conflicts": [],
+          "filtered": []
+        },
+        "hybrid_context": false,
+        "hybrid_apis": [],
+        "origin_families": [
+          "PKE",
+          "SIG"
+        ],
+        "origin_conflict": false,
+        "hybrid_combined": false,
+        "function": "Envelope.open",
+        "class": "Envelope",
+        "conflicts": [],
+        "notes": []
+      },
+      "decision": {
+        "site_kind": "operation",
+        "role": "PK_DECRYPT",
+        "tier": "T2",
+        "algorithm": "RSA",
+        "reason": "operation .decrypt() -> PK_DECRYPT; receiver resolved: pyca:RSA:private:generated; arguments: padding=OAEP, hash=SHA256; the key may also come from an untyped parameter, or its origin is consumed by another role family or has conflicting consumers, so the tier is capped at T2",
+        "possible_roles": [],
+        "secondary_roles": [],
+        "supporting": [
+          [
+            49,
+            "method .decrypt()"
+          ],
+          [
+            49,
+            "receiver pyca:RSA:private:generated"
+          ],
+          [
+            49,
+            "arguments padding=OAEP, hash=SHA256"
+          ],
+          [
+            42,
+            "key origin rsa_alias.generate_private_key"
+          ]
+        ],
+        "conflicts": [],
+        "hybrid_context": false,
+        "arm": "full"
+      },
+      "recommendation": {
+        "action": "RECOMMEND",
+        "target_class": "KEM_DEM",
+        "family": "KEM",
+        "role": "PK_DECRYPT",
+        "tier": "T2",
+        "target": "Redesign as KEM + KDF + AEAD (KEM/DEM, SP 800-227 Secs. 2.1, 5.2); not a drop-in replacement for encrypt/decrypt",
+        "parameter_set": "ML-KEM-768 (NIST IR 8547 default recommendation) with an approved KDF and AEAD",
+        "rationale": "RSA public-key decryption / key unwrapping has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 2.1, 5.2), decapsulation side: decapsulate with the ML-KEM decapsulation key, derive the content key from the shared secret (FIPS 203 Sec. 3.3), and decrypt with an AEAD. The existing decrypt(ciphertext) call shape cannot be preserved.",
+        "references": [
+          "NIST FIPS 203, Module-Lattice-Based Key-Encapsulation Mechanism Standard (ML-KEM), Aug 2024",
+          "NIST SP 800-227, Recommendations for Key-Encapsulation Mechanisms, Sep 2025",
+          "NIST IR 8547, Transition to Post-Quantum Cryptography Standards, final, Oct 2026"
+        ],
+        "policy_version": "1.1",
+        "tier_threshold": "T2",
+        "abstain_reason": null
+      },
+      "scope": "app",
+      "semgrep_rules": [
+        "pqscan.common.method.candidate"
+      ]
+    }
+  ],
+  "excluded": [],
+  "semgrep_only": [],
+  "unsupported": [],
+  "execution_failures": [],
+  "files_skipped": []
+}

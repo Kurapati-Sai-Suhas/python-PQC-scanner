@@ -58,7 +58,7 @@ The migration target of an RSA or EC call site depends on what the call *does*:
 - key agreement is redesigned around a key-encapsulation mechanism (ML-KEM), with PQ/T hybrids as a transitional option [nist2025sp800227, Sec. 4.6];
 - RSA public-key encryption ("key transport") has no drop-in PQC replacement and must be redesigned as KEM + KDF + authenticated encryption [nist2025sp800227, Sec. 5.2.1; nist2024fips203, Sec. 3.3].
 
-Several open-source Python PQC scanners, inspected at source for this project, map targets by algorithm family or hard-coded pattern, or emit an undecided dual target. Examples include "RSA → ML-KEM" and "ML-KEM / ML-DSA" (Sec. III; `related_work_matrix.md`). A role-incorrect target can mislead a migration; an undecided one shifts the decision back to the developer.
+Several open-source Python PQC scanners, inspected at source for this project, map targets by algorithm family or hard-coded pattern, or emit an undecided dual target. Examples include "RSA → ML-KEM-768" and "ML-KEM / ML-DSA" (Sec. III; pinned-source evidence in `related_work_fulltext_audit.md`). A role-incorrect target can mislead a migration; an undecided one shifts the decision back to the developer.
 
 We address this with **role-aware, evidence-gated migration guidance**:
 - the role of each site is inferred from evidence available statically within a bounded scope;
@@ -97,45 +97,65 @@ The empirical answer to the research question needs human-labelled sites from se
 
 ## III. Related Work (provisional; final novelty audit pending)
 
-Full matrix: `related_work_matrix.md`. Content claims marked ◐ there must be re-checked against full text before submission.
+**Evidence basis.**
+- Content statements below are verified in full text (page numbers in `related_work_fulltext_audit.md`) or, for tools, in the pinned source (file:line).
+- Works whose full text could not be accessed are cited only for their title-level scope and marked †.
+- Bibliographic metadata of every entry is verified separately (`references.bib`).
 
 **PQC migration and readiness.**
-- Systematic reviews and frameworks describe migration as an organisational and software-engineering process [nather2024slr, hasan2024framework, vonnethen2024pmmp, nather2026agility, ott2019challenges], with industrial evidence [zhang2023db2, zhang2021y2k], library surveys [ahmed2025survey] and binary-level tooling [rattanavipanon2025toolchain].
-- Empirical readiness studies measure detection or repository-level readiness:
-  - Mehl scans 14,508 repositories and labels them vulnerable, quantum-safe or PQC-ready, and states that it does not prescribe migration [mehl2026esem]; its released artefact contains results only [mehl2026zenodo];
-  - Yuan et al. assess PQC support at package and repository level [yuan2026pqcwild];
-  - Ye et al. detect quantum-vulnerable usage in Python by keywords [ye2024quantumthreats];
-  - Mallick et al. classify implementations from runtime telemetry [mallick2026classifying].
-- None of these attaches role-specific guidance to individual call sites.
+- Migration has been studied as a process for IP networks [nather2024slr] and enterprises [hasan2024framework], and through industrial experience [zhang2023db2]. Other work covers library support [ahmed2025survey], binary-level detection of quantum-vulnerable executables [rattanavipanon2025toolchain], crypto-agility definitions [nather2026agility], and process and organisational guidance [vonnethen2024pmmp†, joseph2022transitioning†, ott2019challenges†, zhang2021y2k†].
+- **Mehl** [mehl2026esem] statically scans 14,508 GitHub repositories (Python patterns for 11 libraries and 14 calls) and labels them vulnerable, quantum-safe or PQC-ready. It explicitly "measures where source code still relies on quantum-vulnerable public-key primitives rather than prescribing how to migrate" (p. 3). Its accuracy check is repository-level: 19 repositories labelled from project documentation, not line by line (pp. 7–8). Custom wrappers are not captured (p. 7). Its results dataset is [mehl2026zenodo].
+- **Mallick et al.** distinguish classical from PQ key exchange and signatures from runtime workload [mallick2026classifying].
+- **Yuan et al.** study PQC readiness of open-source ecosystems [yuan2026pqcwild†]. Their full text was not accessible to us, so we make no claim about their method.
+- Ye et al. address quantum-threat discovery in Python applications [ye2024quantumthreats†].
 
-**Cryptographic API detection and misuse.** Python misuse detectors resolve cryptographic objects across functions: Cryptolation [frantz2024cryptolation], CryptoPyt [guo2024cryptopyt], Cryptbara [cho2025cryptbara], with a prevalence study in [wickert2021licma]. Java analyses use typestate and slicing [kruger2021crysl, moffie2025cryptoscope]. Ami et al. showed that detectors fail under semantics-preserving mutations [ami2022masc, ami2026mutation], and Chen et al. warned about benchmark gaming [chen2024precise]. Reviews and LLM-based studies cover the wider field [mousavi2025misuse, xia2025beyond], and general Python call-graph construction is studied in [salis2021pycg]. We reuse these ideas (bounded inter-procedural resolution, mutation operators, a frozen held-out split) for role inference rather than misuse. We do **not** claim the analysis technique as new.
+**Cryptographic API analysis and misuse detection.**
+- Wickert et al. found misuses in 52.26% of 895 Python projects [wickert2021licma].
+- Python misuse detectors with inter-procedural reasoning exist [frantz2024cryptolation†, guo2024cryptopyt†, cho2025cryptbara†], as does typestate-based specification for Java [kruger2021crysl†]. We could not inspect their full texts. They are the closest prior analyses to our bounded provenance tracing, so we do **not** claim the tracing technique as new.
+- Cryptoscope builds inventories by slicing from cryptographic calls to their parameters and objects. Its design covers Python, but it is evaluated on seven Java applications [moffie2025cryptoscope].
+- MASC evaluates misuse detectors with usage-based mutation operators and finds undocumented flaws [ami2026mutation; earlier version ami2022masc]. Our Dataset A operators follow this idea.
+- Chen et al. show that misuse detectors produce false positives on real application code that hand-crafted benchmarks did not reveal [chen2024precise]. This motivates pairing synthetic data with frozen real repositories.
+- Reviews and LLM-based studies cover the wider field [mousavi2025misuse, xia2025beyond]. General Python call-graph construction is studied in [salis2021pycg]; pqscan does not use it.
 
-**Crypto inventory and CBOM.** CycloneDX 1.6 (ECMA-424) provides `cryptoProperties` [ecma2024ecma424]. Several tools generate CBOMs, and they disagree [bogli2026bfcbom, yamamuro2026sok, schmitt2024inventories, nather2026hiddenciphers]; taxonomy-driven inventories add role-like categories without automation [lee2026taxonomy]. CBOM output is a requirement here, not a contribution.
+**Crypto inventory and CBOM.**
+- CycloneDX 1.6 (ECMA-424) defines `cryptoProperties` [ecma2024ecma424].
+- Crypsy discovers cryptographic assets in Ruby and Go sources and in TLS/SSH configuration files, and emits CycloneDX 1.7 [nather2026hiddenciphers]. It reports its 52 PQ migration candidates collectively as requiring "ML-KEM, ML-DSA, or SLH-DSA" (p. 16), not per site by role.
+- Further inventory and CBOM work exists [bogli2026bfcbom†, yamamuro2026sok†, schmitt2024inventories†, lee2026taxonomy†].
+- CBOM output is a requirement of this project, not a contribution.
 
-**Role and provenance in existing PQC scanners.** Source inspection on 12 Nov 2026 of the pinned baseline tools [tool_pqcheck, tool_pqcaudit, tool_postquant, tool_qsafe, tool_qsaregex, tool_pqblocks] and CBOMkit found:
-- roles hard-coded per pattern;
-- roles assigned by library rather than by use;
-- dual "ML-KEM / ML-DSA" targets;
-- no abstention outcome.
+**PQC scanners: what the pinned versions implement.** Source inspection of the pinned baselines (read-only, 18 Nov 2026) shows the targets are fixed by pattern, library or name, not inferred from use:
+- pqcheck maps RSA to "migrate to ML-KEM-768" in its bundled policies, and its README documents "usage-context blindness" [tool_pqcheck];
+- pqc-audit maps RSA key generation to "ML-KEM (key establishment) / ML-DSA (signatures)" [tool_pqcaudit];
+- PostQuant classifies pyca RSA key generation as asymmetric encryption and PyCryptodome RSA key generation as a signature, i.e. by library [tool_postquant];
+- qsafe labels RSA key generation and `PKCS1_OAEP` "RSA Key Exchange" with target ML-KEM 768 [tool_qsafe];
+- the Quantum-Safe Auditor maps RSA to "ML-KEM / ML-DSA" (Table 1 of [shaw2026auditing]; [tool_qsaregex]).
 
-These statements describe the inspected versions only.
+The sixth pinned baseline, pqblocks-scan [tool_pqblocks], was checked only for its PQC algorithm tables; its role handling was not re-inspected. These statements describe the pinned versions only. **Our own comparison of these tools against labelled sites has not been run.**
 
 **Migration correctness and abstention.**
-- Pallarés de Bonrostro et al. evaluate LLM migration of code fragments whose migration category was labelled by hand [pallares2026llm].
-- Shaw combines static analysis with LLM-assisted risk scoring [shaw2026auditing].
-- Abstention and selective prediction are classical [chow1970reject] and used in SE tooling [rathnasuriya2026defer].
+- Pallarés de Bonrostro et al. evaluate LLM migration of 800 synthetic Python fragments. The target of each fragment is fixed by its category in the dataset design [pallares2026llm].
+- Shaw reports detection-level precision on 602 findings labelled by one author, with recall 100% by construction [shaw2026auditing].
+- Abstention is classical [chow1970reject†] and used for code models [rathnasuriya2026defer].
 
-To our knowledge, *pending the final novelty audit*, the inspected literature reports no call-site-level measurement of whether PQC recommendations are correct for the site's role. That measurement is what our protocol is designed to produce.
+**Scoped gap statement.** Among the 20 papers whose full text we inspected and the six pinned baseline tools whose source we inspected, none:
+1. infers a site-level cryptographic role from key provenance and consumers;
+2. conditions the PQC target on that role with an explicit abstain outcome; or
+3. measures per-site recommendation correctness.
+
+This statement does not cover the works marked †. In particular, Yuan et al., CryptoPyt, Cryptbara and Cryptolation must be checked before submission.
 
 ## IV. Research Gap and Contributions
 
-**Gap (provisional).** Existing Python PQC tools detect quantum-vulnerable usage. In the inspected set, none infers a site-level role from receiver provenance, method, arguments and consumers, and none abstains. Recommendation correctness per site has not been measured.
+**Gap (scoped; see the statement at the end of Sec. III).** Within the inspected set:
+- PQC tools attach targets by algorithm, pattern or library;
+- PQC studies measure detection or readiness;
+- no inspected work evaluates per-site recommendation correctness.
 
-**Contributions of this paper as it stands** (implemented and verified; not claimed novel until the novelty audit):
-1. **C1 – Operational role and provenance taxonomy.** Eight roles, eleven key-provenance kinds, and rules for consumer-based role inheritance, mixed-family indeterminacy and key-material-only sites (Sec. VI). Frozen before the benchmark was labelled.
-2. **C2 – Analyser.** Bounded key-provenance and consumer tracing with an ordinal evidence tier T0–T3, and four evidence-restricted ablation arms (Sec. V–VI).
+**Contributions of this paper as it stands** (implemented and verified; novelty provisional until the final novelty audit):
+1. **C1 – Operational role and provenance taxonomy.** Eight roles, eleven key-provenance kinds, and rules for consumer-based role inheritance, mixed-family indeterminacy and key-material-only sites (Sec. VI). Frozen before benchmark labelling.
+2. **C2 – Analyser.** Bounded key-provenance and consumer tracing with an ordinal evidence tier T0–T3, and four evidence-restricted ablation arms (Secs. V–VI). The tracing technique itself builds on established inter-procedural analysis and is not claimed as new.
 3. **C3 – Role-conditioned guidance policy.** Explicit non-migration classes (inventory, protocol review, approved hybrid, abstain) and a KEM-DEM redesign class for public-key encryption, each tied to NIST sections (Sec. VII).
-4. **C4 – Pre-registered, coverage-matched evaluation protocol.** Frozen repository split, tool-independent sampling, single-investigator labelling with an isolated AI-assisted review, and confirmatory families F-B and F-A. The statistics are differentially verified and simulation-calibrated (Sec. VIII–IX).
+4. **C4 – Pre-registered, coverage-matched evaluation protocol.** Frozen repository split; strata that do not depend on any tool; single-investigator labelling with an isolated AI-assisted review; confirmatory families F-B and F-A. The statistics are differentially verified and simulation-calibrated (Secs. VIII–IX).
 
 **Contributions that require the pending evaluation:**
 - **C5:** a role-labelled real-world benchmark and the measurements RQ1–RQ4.
@@ -215,6 +235,60 @@ Escapes are recorded and never guessed through: a public return, a call to an un
 
 **E. Hybrids.** A classical component combined with a matching-family approved PQ API in the same class or function is marked as a hybrid component. ML-KEM qualifies for key establishment; ML-DSA for signatures.
 
+**F. Worked example** (original synthetic code; `docs/paper/example/`). Listing 1 is abridged; the full file is `token_service.py`. Every outcome below is pqscan's actual output (`output_summary.txt`, `output_scan.json`), not a hand-derived expectation.
+
+```python
+from cryptography.hazmat.primitives.asymmetric import rsa as rsa_alias          # import alias
+
+def _load_signing_key(pem):                                    # private wrapper
+    return serialization.load_pem_private_key(pem, None)      # K1  key material, loaded-PEM
+
+class TokenSigner:
+    def __init__(self, pem):
+        self._key = _load_signing_key(pem)                    # wrapper result -> attribute
+    def sign(self, payload):
+        return self._key.sign(payload, PSS(...), SHA256())    # O1  operation
+
+def sign_with(key, payload):                                  # key is an untyped parameter
+    return key.sign(payload, PKCS1v15(), SHA256())            # O2
+
+def make_key():                                               # public: callers unknown
+    return rsa_alias.generate_private_key(65537, 3072)        # K2
+
+class Envelope:
+    def __init__(self):  self._k = rsa_alias.generate_private_key(65537, 3072)    # K3
+    def seal_signature(self, m):  return self._k.sign(m, PSS(...), SHA256())      # O3
+    def open(self, c):            return self._k.decrypt(c, OAEP(...))            # O4
+```
+
+*Listing 1: Worked example (abridged).*
+
+```
+K1 load_pem_private_key ──return (in-module caller)──► TokenSigner.__init__ ──► self._key ──► self._key.sign  (O1)
+   provenance: loaded-PEM            consumer families = {SIG}, no escape  ⇒ K1: SIGN, T3 ; O1: SIGN, T3
+K2 generate_private_key ──return from public make_key──► (outside analysed scope)   ⇒ escape, no consumer, RSA multi-purpose
+                                                                                     ⇒ UNKNOWN, T1 → ABSTAIN
+K3 generate_private_key ──► self._k ──► sign (SIG)  and  ──► decrypt (PKE)          ⇒ two families ⇒ UNKNOWN, T2 → ABSTAIN
+O2 key.sign(…, PKCS1v15, …) with `key` an untyped parameter                         ⇒ argument evidence only ⇒ SIGN, T1 → ABSTAIN (τ = T2)
+```
+
+*Figure E1 (text form; final rendering per the template): Provenance and consumer flow in Listing 1.*
+
+| Site | Role, tier (pqscan) | Action at τ = T2 | Why |
+|---|---|---|---|
+| K1 | SIGN, T3 | RECOMMEND SIG | The key is traced through the private wrapper's return and the attribute to its only consumer (`sign`), so the key inherits that role (rule 1). The algorithm stays `ANY` because a PEM loader does not reveal it; the role does not depend on it. |
+| O1 | SIGN, T3 | RECOMMEND SIG | The method fixes the role; the receiver is resolved to K1's concrete origin |
+| O2 | SIGN, T1 | **ABSTAIN** | Only the RSA-specific padding is visible; the receiver is a parameter |
+| K2 | UNKNOWN, T1 | **ABSTAIN** | Escapes the analysed scope before any consumer is seen |
+| K3 | UNKNOWN, T2 | **ABSTAIN** | Consumers from two families (rule 2); possible roles listed |
+| O3, O4 | SIGN T2; PK_DECRYPT T2 | RECOMMEND SIG; KEM_DEM | Receiver resolved, but the origin also feeds another family, so the tier is capped at T2 |
+
+**Matching illustration.** Under the H2-1 comparison at T0, `full` recommends 5 sites (K1, O1, O2, O3, O4). `method+args` recommends 4 (O1–O4), because without provenance K1 is UNKNOWN. Matching gives k = 4 (equation 1). `full` withdraws one recommendation from its lowest tier, T1, which holds only O2 (j = m = 1, so w = 1 in equation (2a)). This shows the mechanics only; without labels it implies nothing about correctness.
+
+**Scope of the example.**
+- The wrapper and its caller are in the same module, which is within the tracing bound.
+- A loader in another module, a key passed through more than two call levels outside the class, or dynamic dispatch would not be traced. Such sites would be classified at a lower tier or as UNKNOWN.
+
 ## VII. Post-Quantum Migration Recommendation Policy
 
 Policy v1.1 (`pqscan/policy/policy_v1_1.yaml`, frozen 2026-11-12) is a fixed table [E40]. The threshold τ = T2 is pre-registered.
@@ -291,10 +365,13 @@ Every statement above was checked against the PDFs [E42]. One citation-precision
   - H2-4: vs `method-only`.
 - **H2b** (≥ 10 points) is exploratory and outside error control.
 - **Family F-A:** the proposed system (`full` at T2) against each baseline that ran (at most 8), using a one-sided exact McNemar test on both-ran sites **at natural coverage** (no matching, no guard) [mcnemar1947note], with Holm correction [holm1979simple].
-- **Experiment A baselines:**
-  - the external tools;
-  - simple mappings computed on pqscan's own candidate sites, so that only the decision rule differs: algorithm-family B1-algorithm (RSA → KEM, EC → SIG, …) and B1-dual (multi-purpose algorithms → dual target).
-- **Coverage note (for the adopted RQ).** The coverage-matched ("comparable coverage") comparisons are the H2 family, whose comparators are the method/argument arms. The comparison with algorithm-family baselines (F-A) is at natural coverage. Abstention at comparable coverage is addressed separately by RQ3 (random withholding at matched coverage). See `peer_review.md`, item R2.
+- **Experiment A baselines** (protocol Sec. 4):
+  - the six runnable external tools;
+  - a simple algorithm-name mapping and a method/argument-only mapping, both computed on pqscan's own candidate sites so that only the decision rule differs. The code provides two algorithm-name variants: `B1-algorithm` (RSA → KEM, EC → SIG, …) and `B1-dual` (dual target for multi-purpose algorithms). Which of them enters F-A must be named before F1 (owner decision D15).
+- **Coverage note (for the adopted RQ; presentation pending owner decision D7, `d7_rq_alignment.md`).**
+  - The coverage-matched ("comparable coverage") comparisons are family F-B (H2-1, H2-3, H2-4), whose comparators are the method-only, method+arguments and method+arguments+receiver arms.
+  - Family F-A, against the algorithm-name mapping, the method/argument-only mapping and the external tools, is at natural coverage. Coverage is reported alongside each result.
+  - Abstention at matched coverage is addressed by RQ3, which compares the system's own policies with random withholding.
 
 **Estimand and matching** (analysis plan Secs. 2–5). For repository r with common evaluable set C_r of size n_r, let R_F,r and R_M,r be the recommendation counts of the two arms. Matching sets
 
@@ -304,14 +381,36 @@ The arm with the excess withdraws its lowest-tier recommendations first, breakin
 
   δ̃ = (1/K_e) Σ_{r estimable} δ̃_r,  (2)
 
-where δ̃_r is the expected difference in complete-policy correctness per site over all permitted tie orders.
+where δ̃_r is the exact expectation, over all permitted tie orders, of the difference in complete-policy correctness per common evaluable site (analysis plan Sec. 5; `pqscan/bench/matching.py`).
+
+*Tie-average closed form.* Let:
+- A ∈ {F, M} be the withdrawing arm, with excess e_r = R_A,r − k_r > 0;
+- G_0, G_1, G_2, G_3 be its RECOMMEND sites in tiers T0 < T1 < T2 < T3;
+- b be the boundary tier: the smallest t with Σ_{s≤t} |G_s| ≥ e_r;
+- j = e_r − Σ_{s<b} |G_s| be the number withdrawn inside the boundary tier, and m = |G_b|.
+
+Each RECOMMEND site i of arm A then has withdrawal probability
+
+  w_i = 1 if tier(i) < b;  w_i = j/m if tier(i) = b;  w_i = 0 if tier(i) > b.  (2a)
+
+The non-withdrawing arm and all non-RECOMMEND actions have w_i = 0. With c(·) the frozen judge's complete-policy correctness indicator, a withdrawn recommendation is scored as ABSTAIN:
+
+  E[X_i] = (1 − w_i^F) c(o_i^F) + w_i^F c(ABSTAIN_i),  E[Y_i] = (1 − w_i^M) c(o_i^M) + w_i^M c(ABSTAIN_i),  (2b)
+
+  δ̃_r = (1/n_r) Σ_{i ∈ C_r} (E[X_i] − E[Y_i]).  (2c)
+
+Equation (2a) is the exact average over the m!/(j!(m − j)!) equally likely choices of which j boundary-tier recommendations are withdrawn, so δ̃_r has no tie-breaking randomness. The ranking-free sensitivity variant ignores tiers and uses w_i = e_r / R_A,r for every RECOMMEND of arm A.
 
 **Inference** (Sec. 7).
 - **Bootstrap.** A re-matching percentile bootstrap [efron1979bootstrap] resamples sites within repositories and draws fresh random tie keys per resample; B = 10,000, seed 20261113. The p-value is
 
   p = (1 + #{δ*_b ≤ d0}) / (B + 1),  (3)
 
-  with B = 100,000 when |p − t| < 3√(p(1−p)/B).
+  with B = 100,000 when |p − t| < 3√(p(1−p)/B). Bootstrapping δ̃_r itself, with exact tie-averaging inside each resample, is not used: it was found liberal in the planning calibration (R4-13).
+- **Resample count in calibration versus analysis (B).** The pre-F1 calibration (Sec. X-B) used a fixed B = 1,000 with the Monte Carlo rule switched off. It consumed random numbers in the same way as the archived planning calibration (R4-13), so that every cell could be compared with it (`scripts/phase3_acceptance.py`, header). The confirmatory analysis uses B = 10,000 plus the Monte Carlo rule, which reduces the Monte Carlo error of each individual p-value.
+  - The only recorded check of sensitivity to B is in the superseded planning report R4-03c, for an earlier version of the bootstrap without the coverage-gap guard. There, B = 5,000 (4,000 data sets) gave rejection rates matching the B = 1,000 figures for four scenarios (R4-03c Sec. 3).
+  - No B-sensitivity run was made for the final guarded procedure.
+  - We therefore report the calibration as evidence for the procedure at B = 1,000. We do not claim that it bounds the error rates at B = 10,000 exactly.
 - **Coverage-gap guard.**
 
   g = (1/K_e) Σ_r (R_F,r − R_M,r)/n_r.  (4)
@@ -400,6 +499,12 @@ All results below depend on completed annotation and the F1 → T → F2 → E s
 
 **Internal validity.**
 - **Single annotator.** There is one investigator plus an isolated AI-assisted review; no independent human annotator exists. Mitigations: blinding to tool outputs, the packet-first subset, the intra-rater re-label after ≥ 14 days, and the hash-chained ledger.
+- **AI reviewer is not an independent annotator.**
+  - The isolated AI-assisted review is performed by a large language model, run by the investigator, on a fixed packet. It is not an independent human annotator.
+  - It may share failure modes with the investigator, for instance through common training material, the same packet framing, or the same misreading of an API. It also has failure modes of its own (hallucinated API semantics; run-to-run variation, which is measured).
+  - Owner–AI agreement therefore does **not** establish inter-annotator reliability. It is reported only as a review-consistency statistic, and the AI output is never used as ground truth (annotation guide v1.1 Sec. 1).
+  - Reliability evidence for the labels is limited to the intra-rater re-label.
+  - The investigator also built the analyser. Blinding to tool outputs mitigates this but does not remove it.
 - **Circular pilot.** The pilot repositories are development repositories and were used to tune Module B.
 - **Candidate pool.** The pool includes tool findings, which may favour sites some tool detects. Partial mitigation: the regex over-approximation and annotator-added sites.
 
@@ -416,7 +521,9 @@ All results below depend on completed annotation and the F1 → T → F2 → E s
 **Baseline fairness.**
 - Baselines were not designed to recommend per role.
 - Dual targets are scored as undecided, not harmful.
-- CBOMkit and Mehl's scanner are not run, and are reported as such.
+- CBOMkit is not run (owner decision D4 = A). Mehl's scanner is reported separately under the protocol.
+  - The protocol's stated basis was a results-only artefact. The Zenodo record does contain only results, but the paper links a public source repository (MIT licence).
+  - Whether to run it is open owner decision D14. It emits no migration recommendation by design (p. 3), so it could contribute detection-level comparison only.
 
 ## XIII. Limitations and Future Work
 

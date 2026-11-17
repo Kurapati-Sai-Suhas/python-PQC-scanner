@@ -32,7 +32,7 @@
 | III. Related work | Good coverage. Several content claims are ◐ (abstract only); tool statements date from 12 Nov source inspections. | Re-check ◐ items in full text. Re-inspect baseline tool versions before submission, because tools evolve. |
 | IV. Contributions | Correctly separates available (C1–C4) from pending (C5) | Reviewers will see C1–C3 as engineering without evaluation. D8 framing decision. |
 | V. Architecture | Clear | Draw Fig. 1 to the template |
-| VI. Role inference | Precise; bounds stated (depth ≤ 2, within a module) | Add a worked example (the guide's Sec. 7 has pilot-based examples; use synthetic ones to avoid circularity) |
+| VI. Role inference | Precise; bounds stated (depth ≤ 2, within a module) | **Done:** an original synthetic worked example (Sec. VI-F) whose outcomes are pqscan's actual output |
 | VII. Policy | Correct and cited | Decide W6 (D9). The PROTOCOL_REVIEW class is unreachable by the tool (W4/D10); either keep it as ground-truth-only or implement detection before F1. |
 | VIII. Dataset | Careful candidate/eligible distinction | State the expected eligible yield; it is unknown until labelling, so say so |
 | IX. Methodology | Rigorous and pre-registered | **R2:** coverage alignment (now stated). **R6:** justify calibration at B = 1,000 against analysis at B = 10,000 (R4-13 rationale) in one sentence. |
@@ -47,17 +47,17 @@
 | # | Correction | Severity | Status |
 |---|---|---|---|
 | R1 | Do not present as a completed empirical paper; choose the scope (design/protocol vs wait for E) | Critical | **Owner decision D3**; the draft labels itself provisional and non-submittable |
-| R2 | RQ "at comparable coverage" vs F-A at natural coverage | Major | **Applied** (Sec. IX coverage note). Presentation choice recorded as owner decision D7. The RQ text is not changed. |
+| R2 | RQ "at comparable coverage" vs F-A at natural coverage | Major | **Analysed** (18 Nov): `d7_rq_alignment.md` (two options with consequences; Option A recommended). Neutral facts are stated in Sec. IX. **Owner decision D7.** Also found: the F-A membership names an algorithm-name mapping without a code variant (D15). |
 | R3 | Single-annotator ground truth | Major | Disclosed (Secs. VIII-C, XII). Adding an external annotator would be a protocol change: owner decision. |
 | R4 | Generalisation beyond the 7 repositories | Major | Disclosed, with S16 evidence; wording rules enforced |
-| R5 | Novelty provisional; ◐ related-work claims | Major | **Open**: final novelty audit (D11); full-text re-check (Claude can do the open-access items) |
-| R6 | Calibration B vs analysis B | Minor | **Open**: add one justification sentence from R4-13 when finalising Sec. IX |
+| R5 | Novelty provisional; ◐ related-work claims | Major | **Partly done** (18 Nov): 20 papers checked in full text and 6 tools in pinned source (`related_work_fulltext_audit.md`). Four of our descriptions were corrected; the absence claim is scoped. 14 works remain NOT FULL-TEXT VERIFIED (ACM bot check, CAPTCHA, no open copy). The final novelty audit (D11) remains. |
+| R6 | Calibration B vs analysis B | Minor | **Fixed** (Sec. IX): calibration at fixed B = 1,000 for comparability with R4-13; the only B check on record (R4-03c Sec. 3) concerns an earlier unguarded version; no claim about B = 10,000 beyond that |
 | R7 | Demo table may be misread as evaluation | Minor | Labelled. Placement is owner decision D13. |
-| R8 | Formal definition of δ̃_r (tie averaging) in the paper | Minor | **Open**: copy the closed form from analysis plan Sec. 5 at the formatting stage |
+| R8 | Formal definition of δ̃_r (tie averaging) in the paper | Minor | **Fixed** (Sec. IX, eqs. 2a–2c), from analysis plan Sec. 5 and `pqscan/bench/matching.py` |
 | R9 | Reproducibility verified on one OS only | Minor | **Applied**: stated in Sec. X-C |
 | R10 | PROTOCOL_REVIEW class unreachable | Minor | Disclosed (Sec. VII); owner decision D10 |
 | R11 | Citation precision in the policy text (W6) | Minor | Manuscript cites the precise sections; policy text is owner decision D9 |
-| R12 | AI-use disclosure and the AI reviewer's non-independence | Minor | **Open**: D6; add the threat sentence at the formatting stage |
+| R12 | AI-use disclosure and the AI reviewer's non-independence | Minor | **Threat fixed** (Sec. XII: not an independent annotator; shared failure modes; no inter-annotator reliability). The AI-use disclosure wording remains owner decision D6. |
 | R13 | IEEE formatting | — | Blocked on the sample paper (D1). No compliance claim made. |
 
 ## 4. Bottom line

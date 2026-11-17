@@ -1,0 +1,12 @@
+pqscan 0.1.0.dev0 | policy 1.1 | threshold T0 | arm full
+files scanned: 1, skipped: 0, execution failures: 0, semgrep: ok
+sites: 7 (ABSTAIN=2, RECOMMEND=5); excluded non-PK sites: 0; unsupported-library imports: 0 (none)
+target classes: ABSTAIN=2, KEM_DEM=1, SIG=4
+
+token_service.py:17  ANY      SIGN               T3  RECOMMEND      SIG
+token_service.py:25  RSA      SIGN               T3  RECOMMEND      SIG
+token_service.py:33  RSA      SIGN               T1  RECOMMEND      SIG
+token_service.py:37  RSA      UNKNOWN            T1  ABSTAIN        ABSTAIN
+token_service.py:42  RSA      UNKNOWN            T2  ABSTAIN        ABSTAIN
+token_service.py:45  RSA      SIGN               T2  RECOMMEND      SIG
+token_service.py:49  RSA      PK_DECRYPT         T2  RECOMMEND      KEM_DEM
