@@ -290,8 +290,11 @@ Every statement above was checked against the PDFs [E42]. One citation-precision
   - H2-3: vs `method+args+recv`;
   - H2-4: vs `method-only`.
 - **H2b** (≥ 10 points) is exploratory and outside error control.
-- **Family F-A:** the proposed system (`full` at T2) against each baseline that ran, using a one-sided exact McNemar test on both-ran sites [mcnemar1947note], with Holm correction [holm1979simple].
-- **Algorithm-family baselines** (B1-algorithm, B1-dual) are evaluated on the same candidate sites.
+- **Family F-A:** the proposed system (`full` at T2) against each baseline that ran (at most 8), using a one-sided exact McNemar test on both-ran sites **at natural coverage** (no matching, no guard) [mcnemar1947note], with Holm correction [holm1979simple].
+- **Experiment A baselines:**
+  - the external tools;
+  - simple mappings computed on pqscan's own candidate sites, so that only the decision rule differs: algorithm-family B1-algorithm (RSA → KEM, EC → SIG, …) and B1-dual (multi-purpose algorithms → dual target).
+- **Coverage note (for the adopted RQ).** The coverage-matched ("comparable coverage") comparisons are the H2 family, whose comparators are the method/argument arms. The comparison with algorithm-family baselines (F-A) is at natural coverage. Abstention at comparable coverage is addressed separately by RQ3 (random withholding at matched coverage). See `peer_review.md`, item R2.
 
 **Estimand and matching** (analysis plan Secs. 2–5). For repository r with common evaluable set C_r of size n_r, let R_F,r and R_M,r be the recommendation counts of the two arms. Matching sets
 
@@ -353,7 +356,7 @@ Calibration ran with B = 1,000 on commit aa9d6b0, and pqscan is unchanged since 
 
 **C. Outputs, determinism and reproducibility** [E53–E55].
 - Three CBOMs validate against strict CycloneDX 1.6 and three SARIF files against SARIF 2.1.0.
-- Two clean environments built from a source archive reproduced the seven committed demonstration outputs byte-for-byte.
+- Two clean environments built from a source archive reproduced the seven committed demonstration outputs byte-for-byte. Both ran on Windows 11 with Python 3.12.10; other platforms have not been verified.
 - Real-library outputs were byte-identical across both runs, and the CBOM is byte-identical across repeated runs.
 - On the development and validation repositories, all 60 tool runs (6 baselines and 4 pqscan arms × 6 repositories) completed with 0 timeouts and 6,830 file-runs processed [E20].
 - Normalised findings were identical across repeated runs [E55].
