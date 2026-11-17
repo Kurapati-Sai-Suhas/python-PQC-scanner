@@ -238,8 +238,14 @@ def mcse(p, n):
     return float(np.sqrt(max(p, 1e-12) * (1 - p) / n))
 
 
-def main():
-    quick = "--quick" in sys.argv
+def main(argv=None):
+    # Only --quick is accepted. Any other argument (e.g. --help) used to start a run and rewrite the committed
+    # report's provenance fields from the checkpoint cache, so unknown arguments now stop before anything runs.
+    args = sys.argv[1:] if argv is None else argv
+    if any(a != "--quick" for a in args):
+        print(__doc__)
+        raise SystemExit(0 if set(args) <= {"-h", "--help", "--quick"} else 2)
+    quick = "--quick" in args
     R0, RK, RF, RT, B, CH = (40, 40, 30, 30, 200, 1) if quick else (20000, 10000, 10000, 10000, 1000, 4)
     t0 = time.time()
     scen = C.scenarios()
