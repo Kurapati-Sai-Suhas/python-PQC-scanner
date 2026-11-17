@@ -1,0 +1,10 @@
+{
+ "cryptography-47.0.0": {
+  "py_files": 77,
+  "tree_sha256": "f5f0572113c515567829249d71d7c30c7125bb04ef8ecb973cf7d29e17452a9b"
+ },
+ "pycryptodome-4.4.0": {
+  "py_files": 228,
+  "tree_sha256": "1bc95ddc444287b886f4b6f70661393f311761dd8d72b45e25c19c4502432199"
+ }
+}

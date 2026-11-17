@@ -1,0 +1,18 @@
+pqscan 0.1.0.dev0 | policy 1.1 | threshold T2 | arm full
+files scanned: 77, skipped: 0, execution failures: 0, semgrep: ok
+sites: 13 (ABSTAIN=11, RECOMMEND=2); excluded non-PK sites: 1; unsupported-library imports: 0 (none)
+target classes: ABSTAIN=11, SIG=2
+
+cryptography/fernet.py:203  ANY      PK_DECRYPT         T0  ABSTAIN        ABSTAIN
+cryptography/hazmat/primitives/serialization/ssh.py:330  RSA      UNKNOWN            T1  ABSTAIN        ABSTAIN
+cryptography/hazmat/primitives/serialization/ssh.py:352  RSA      UNKNOWN            T1  ABSTAIN        ABSTAIN
+cryptography/hazmat/primitives/serialization/ssh.py:486  EC       UNKNOWN            T1  ABSTAIN        ABSTAIN
+cryptography/hazmat/primitives/serialization/ssh.py:500  EC       UNKNOWN            T1  ABSTAIN        ABSTAIN
+cryptography/hazmat/primitives/serialization/ssh.py:546  Ed25519  VERIFY             T2  RECOMMEND      SIG
+cryptography/hazmat/primitives/serialization/ssh.py:562  Ed25519  SIGN               T2  RECOMMEND      SIG
+cryptography/hazmat/primitives/serialization/ssh.py:993  ANY      VERIFY             T0  ABSTAIN        ABSTAIN
+cryptography/hazmat/primitives/serialization/ssh.py:1003  EC       VERIFY             T1  ABSTAIN        ABSTAIN
+cryptography/hazmat/primitives/serialization/ssh.py:1015  RSA      VERIFY             T1  ABSTAIN        ABSTAIN
+cryptography/hazmat/primitives/serialization/ssh.py:1583  ANY      SIGN               T0  ABSTAIN        ABSTAIN
+cryptography/hazmat/primitives/serialization/ssh.py:1590  EC       SIGN               T1  ABSTAIN        ABSTAIN
+cryptography/hazmat/primitives/serialization/ssh.py:1608  RSA      SIGN               T1  ABSTAIN        ABSTAIN

@@ -1,0 +1,6 @@
+CBOM  docs/demo/outputs/03_cbom.json: VALID (CycloneDX 1.6 strict; 23 components)
+CBOM  docs/final/demo/outputs/real/cryptography-47.0.0_cbom.json: VALID (CycloneDX 1.6 strict; 13 components)
+CBOM  docs/final/demo/outputs/real/pycryptodome-4.4.0_cbom.json.gz: VALID (CycloneDX 1.6 strict; 1214 components)
+SARIF docs/demo/outputs/04_scan.sarif: VALID (SARIF 2.1.0 schema; 23 results)
+SARIF docs/final/demo/outputs/real/cryptography-47.0.0_scan.sarif: VALID (SARIF 2.1.0 schema; 13 results)
+SARIF docs/final/demo/outputs/real/pycryptodome-4.4.0_scan.sarif.gz: VALID (SARIF 2.1.0 schema; 1214 results)

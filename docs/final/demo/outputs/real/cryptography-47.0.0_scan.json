@@ -1,0 +1,1424 @@
+{
+  "tool": "pqscan",
+  "tool_version": "0.1.0.dev0",
+  "policy_version": "1.1",
+  "tier_threshold": "T2",
+  "arm": "full",
+  "files_scanned": 77,
+  "semgrep_status": "ok",
+  "semgrep_errors": [],
+  "findings": [
+    {
+      "evidence": {
+        "location": {
+          "file": "cryptography/fernet.py",
+          "line": 203,
+          "col": 24,
+          "end_line": 203,
+          "end_col": 43
+        },
+        "api": "<receiver>.decrypt",
+        "rule_id": "semantic.operation",
+        "kind": "operation",
+        "operation": "decrypt",
+        "receiver": {
+          "description": "unknown(undefined name)",
+          "library": null,
+          "algorithm": null,
+          "private": null,
+          "provenance": null,
+          "provenances": [],
+          "proximate": null,
+          "curve": null,
+          "key_size": null,
+          "multi": false,
+          "unresolved_reason": "undefined name",
+          "origins": [],
+          "via_call": null
+        },
+        "args": {
+          "padding": null,
+          "hash": null,
+          "ecdsa": false,
+          "ecdh": false,
+          "curve": null,
+          "unresolved": [],
+          "resolved_all": true
+        },
+        "consumers": {
+          "families": [],
+          "locations": [],
+          "paths": [],
+          "escapes": false,
+          "escape_notes": [],
+          "unresolved_callees": [],
+          "conflicts": [],
+          "filtered": []
+        },
+        "hybrid_context": false,
+        "hybrid_apis": [],
+        "origin_families": [],
+        "origin_conflict": false,
+        "hybrid_combined": false,
+        "function": "MultiFernet.decrypt",
+        "class": "MultiFernet",
+        "conflicts": [],
+        "notes": []
+      },
+      "decision": {
+        "site_kind": "operation",
+        "role": "PK_DECRYPT",
+        "tier": "T0",
+        "algorithm": "ANY",
+        "reason": "operation .decrypt() -> PK_DECRYPT; receiver unresolved (undefined name); arguments: no parameters",
+        "possible_roles": [],
+        "secondary_roles": [],
+        "supporting": [
+          [
+            203,
+            "method .decrypt()"
+          ]
+        ],
+        "conflicts": [],
+        "hybrid_context": false,
+        "arm": "full"
+      },
+      "recommendation": {
+        "action": "ABSTAIN",
+        "target_class": "ABSTAIN",
+        "family": "NONE",
+        "role": "PK_DECRYPT",
+        "tier": "T0",
+        "target": "No recommendation: evidence is insufficient",
+        "parameter_set": null,
+        "rationale": "Evidence tier T0 is below the policy threshold T2: the receiver is not resolved to a key object and no algorithm-specific argument is visible. Inferred role (not acted on): PK_DECRYPT.",
+        "references": [],
+        "policy_version": "1.1",
+        "tier_threshold": "T2",
+        "abstain_reason": "tier T0 < T2"
+      },
+      "scope": "app",
+      "semgrep_rules": [
+        "pqscan.common.method.candidate"
+      ]
+    },
+    {
+      "evidence": {
+        "location": {
+          "file": "cryptography/hazmat/primitives/serialization/ssh.py",
+          "line": 330,
+          "col": 22,
+          "end_line": 330,
+          "end_col": 49
+        },
+        "api": "rsa.RSAPublicNumbers.public_key",
+        "rule_id": "semantic.construct",
+        "kind": "key-material",
+        "operation": null,
+        "receiver": {
+          "description": "pyca:RSA:public:constructed-from-parsed-blob",
+          "library": "pyca",
+          "algorithm": "RSA",
+          "private": false,
+          "provenance": "constructed-from-parsed-blob",
+          "provenances": [
+            "constructed-from-parsed-blob"
+          ],
+          "proximate": null,
+          "curve": null,
+          "key_size": null,
+          "multi": false,
+          "unresolved_reason": null,
+          "origins": [
+            [
+              330,
+              "public_numbers.public_key"
+            ]
+          ],
+          "via_call": null
+        },
+        "args": {
+          "padding": null,
+          "hash": null,
+          "ecdsa": false,
+          "ecdh": false,
+          "curve": null,
+          "unresolved": [],
+          "resolved_all": true
+        },
+        "consumers": {
+          "families": [],
+          "locations": [],
+          "paths": [],
+          "escapes": true,
+          "escape_notes": [
+            "returned inside a tuple from _SSHFormatRSA.load_public (line 331)"
+          ],
+          "unresolved_callees": [],
+          "conflicts": [],
+          "filtered": []
+        },
+        "hybrid_context": false,
+        "hybrid_apis": [],
+        "origin_families": [],
+        "origin_conflict": false,
+        "hybrid_combined": false,
+        "function": "_SSHFormatRSA.load_public",
+        "class": "_SSHFormatRSA",
+        "conflicts": [],
+        "notes": []
+      },
+      "decision": {
+        "site_kind": "key-material",
+        "role": "UNKNOWN",
+        "tier": "T1",
+        "algorithm": "RSA",
+        "reason": "key material leaves the analysed scope before any consumer is seen (returned inside a tuple from _SSHFormatRSA.load_public (line 331))",
+        "possible_roles": [
+          "SIGN",
+          "VERIFY",
+          "PK_ENCRYPT",
+          "PK_DECRYPT"
+        ],
+        "secondary_roles": [],
+        "supporting": [
+          [
+            330,
+            "rsa.RSAPublicNumbers.public_key (constructed-from-parsed-blob)"
+          ]
+        ],
+        "conflicts": [],
+        "hybrid_context": false,
+        "arm": "full"
+      },
+      "recommendation": {
+        "action": "ABSTAIN",
+        "target_class": "ABSTAIN",
+        "family": "NONE",
+        "role": "UNKNOWN",
+        "tier": "T1",
+        "target": "No recommendation: evidence is insufficient",
+        "parameter_set": null,
+        "rationale": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (returned inside a tuple from _SSHFormatRSA.load_public (line 331)). Possible roles: SIGN, VERIFY, PK_ENCRYPT, PK_DECRYPT. No single target is justified.",
+        "references": [],
+        "policy_version": "1.1",
+        "tier_threshold": "T2",
+        "abstain_reason": "role UNKNOWN"
+      },
+      "scope": "app",
+      "semgrep_rules": []
+    },
+    {
+      "evidence": {
+        "location": {
+          "file": "cryptography/hazmat/primitives/serialization/ssh.py",
+          "line": 352,
+          "col": 23,
+          "end_line": 354,
+          "end_col": 10
+        },
+        "api": "rsa.RSAPrivateNumbers.private_key",
+        "rule_id": "semantic.construct",
+        "kind": "key-material",
+        "operation": null,
+        "receiver": {
+          "description": "pyca:RSA:private:constructed-from-parsed-blob",
+          "library": "pyca",
+          "algorithm": "RSA",
+          "private": true,
+          "provenance": "constructed-from-parsed-blob",
+          "provenances": [
+            "constructed-from-parsed-blob"
+          ],
+          "proximate": null,
+          "curve": null,
+          "key_size": null,
+          "multi": false,
+          "unresolved_reason": null,
+          "origins": [
+            [
+              352,
+              "private_numbers.private_key"
+            ]
+          ],
+          "via_call": null
+        },
+        "args": {
+          "padding": null,
+          "hash": null,
+          "ecdsa": false,
+          "ecdh": false,
+          "curve": null,
+          "unresolved": [],
+          "resolved_all": true
+        },
+        "consumers": {
+          "families": [],
+          "locations": [],
+          "paths": [],
+          "escapes": true,
+          "escape_notes": [
+            "returned inside a tuple from _SSHFormatRSA.load_private (line 355)"
+          ],
+          "unresolved_callees": [],
+          "conflicts": [],
+          "filtered": []
+        },
+        "hybrid_context": false,
+        "hybrid_apis": [],
+        "origin_families": [],
+        "origin_conflict": false,
+        "hybrid_combined": false,
+        "function": "_SSHFormatRSA.load_private",
+        "class": "_SSHFormatRSA",
+        "conflicts": [],
+        "notes": []
+      },
+      "decision": {
+        "site_kind": "key-material",
+        "role": "UNKNOWN",
+        "tier": "T1",
+        "algorithm": "RSA",
+        "reason": "key material leaves the analysed scope before any consumer is seen (returned inside a tuple from _SSHFormatRSA.load_private (line 355))",
+        "possible_roles": [
+          "SIGN",
+          "VERIFY",
+          "PK_ENCRYPT",
+          "PK_DECRYPT"
+        ],
+        "secondary_roles": [],
+        "supporting": [
+          [
+            352,
+            "rsa.RSAPrivateNumbers.private_key (constructed-from-parsed-blob)"
+          ]
+        ],
+        "conflicts": [],
+        "hybrid_context": false,
+        "arm": "full"
+      },
+      "recommendation": {
+        "action": "ABSTAIN",
+        "target_class": "ABSTAIN",
+        "family": "NONE",
+        "role": "UNKNOWN",
+        "tier": "T1",
+        "target": "No recommendation: evidence is insufficient",
+        "parameter_set": null,
+        "rationale": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (returned inside a tuple from _SSHFormatRSA.load_private (line 355)). Possible roles: SIGN, VERIFY, PK_ENCRYPT, PK_DECRYPT. No single target is justified.",
+        "references": [],
+        "policy_version": "1.1",
+        "tier_threshold": "T2",
+        "abstain_reason": "role UNKNOWN"
+      },
+      "scope": "app",
+      "semgrep_rules": []
+    },
+    {
+      "evidence": {
+        "location": {
+          "file": "cryptography/hazmat/primitives/serialization/ssh.py",
+          "line": 486,
+          "col": 22,
+          "end_line": 488,
+          "end_col": 10
+        },
+        "api": "cryptography.hazmat.primitives.asymmetric.ec.EllipticCurvePublicKey.from_encoded_point",
+        "rule_id": "semantic.construct",
+        "kind": "key-material",
+        "operation": null,
+        "receiver": {
+          "description": "pyca:EC:public:constructed-from-parsed-blob",
+          "library": "pyca",
+          "algorithm": "EC",
+          "private": false,
+          "provenance": "constructed-from-parsed-blob",
+          "provenances": [
+            "constructed-from-parsed-blob"
+          ],
+          "proximate": null,
+          "curve": null,
+          "key_size": null,
+          "multi": false,
+          "unresolved_reason": null,
+          "origins": [
+            [
+              486,
+              "ec.EllipticCurvePublicKey.from_encoded_point"
+            ]
+          ],
+          "via_call": null
+        },
+        "args": {
+          "padding": null,
+          "hash": null,
+          "ecdsa": false,
+          "ecdh": false,
+          "curve": null,
+          "unresolved": [],
+          "resolved_all": true
+        },
+        "consumers": {
+          "families": [],
+          "locations": [],
+          "paths": [],
+          "escapes": true,
+          "escape_notes": [
+            "returned inside a tuple from _SSHFormatECDSA.load_public (line 489)"
+          ],
+          "unresolved_callees": [],
+          "conflicts": [],
+          "filtered": []
+        },
+        "hybrid_context": false,
+        "hybrid_apis": [],
+        "origin_families": [],
+        "origin_conflict": false,
+        "hybrid_combined": false,
+        "function": "_SSHFormatECDSA.load_public",
+        "class": "_SSHFormatECDSA",
+        "conflicts": [],
+        "notes": []
+      },
+      "decision": {
+        "site_kind": "key-material",
+        "role": "UNKNOWN",
+        "tier": "T1",
+        "algorithm": "EC",
+        "reason": "key material leaves the analysed scope before any consumer is seen (returned inside a tuple from _SSHFormatECDSA.load_public (line 489))",
+        "possible_roles": [
+          "SIGN",
+          "VERIFY",
+          "KEY_ESTABLISHMENT"
+        ],
+        "secondary_roles": [],
+        "supporting": [
+          [
+            486,
+            "cryptography.hazmat.primitives.asymmetric.ec.EllipticCurvePublicKey.from_encoded_point (constructed-from-parsed-blob)"
+          ]
+        ],
+        "conflicts": [],
+        "hybrid_context": false,
+        "arm": "full"
+      },
+      "recommendation": {
+        "action": "ABSTAIN",
+        "target_class": "ABSTAIN",
+        "family": "NONE",
+        "role": "UNKNOWN",
+        "tier": "T1",
+        "target": "No recommendation: evidence is insufficient",
+        "parameter_set": null,
+        "rationale": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (returned inside a tuple from _SSHFormatECDSA.load_public (line 489)). Possible roles: SIGN, VERIFY, KEY_ESTABLISHMENT. No single target is justified.",
+        "references": [],
+        "policy_version": "1.1",
+        "tier_threshold": "T2",
+        "abstain_reason": "role UNKNOWN"
+      },
+      "scope": "app",
+      "semgrep_rules": [
+        "pqscan.pyca.ec.construct"
+      ]
+    },
+    {
+      "evidence": {
+        "location": {
+          "file": "cryptography/hazmat/primitives/serialization/ssh.py",
+          "line": 500,
+          "col": 23,
+          "end_line": 500,
+          "end_col": 64
+        },
+        "api": "cryptography.hazmat.primitives.asymmetric.ec.derive_private_key",
+        "rule_id": "semantic.construct",
+        "kind": "key-material",
+        "operation": null,
+        "receiver": {
+          "description": "pyca:EC:private:constructed-from-parsed-blob",
+          "library": "pyca",
+          "algorithm": "EC",
+          "private": true,
+          "provenance": "constructed-from-parsed-blob",
+          "provenances": [
+            "constructed-from-parsed-blob"
+          ],
+          "proximate": null,
+          "curve": null,
+          "key_size": null,
+          "multi": false,
+          "unresolved_reason": null,
+          "origins": [
+            [
+              500,
+              "ec.derive_private_key"
+            ]
+          ],
+          "via_call": null
+        },
+        "args": {
+          "padding": null,
+          "hash": null,
+          "ecdsa": false,
+          "ecdh": false,
+          "curve": null,
+          "unresolved": [],
+          "resolved_all": true
+        },
+        "consumers": {
+          "families": [],
+          "locations": [],
+          "paths": [],
+          "escapes": true,
+          "escape_notes": [
+            "returned inside a tuple from _SSHFormatECDSA.load_private (line 501)"
+          ],
+          "unresolved_callees": [],
+          "conflicts": [],
+          "filtered": []
+        },
+        "hybrid_context": false,
+        "hybrid_apis": [],
+        "origin_families": [],
+        "origin_conflict": false,
+        "hybrid_combined": false,
+        "function": "_SSHFormatECDSA.load_private",
+        "class": "_SSHFormatECDSA",
+        "conflicts": [],
+        "notes": []
+      },
+      "decision": {
+        "site_kind": "key-material",
+        "role": "UNKNOWN",
+        "tier": "T1",
+        "algorithm": "EC",
+        "reason": "key material leaves the analysed scope before any consumer is seen (returned inside a tuple from _SSHFormatECDSA.load_private (line 501))",
+        "possible_roles": [
+          "SIGN",
+          "VERIFY",
+          "KEY_ESTABLISHMENT"
+        ],
+        "secondary_roles": [],
+        "supporting": [
+          [
+            500,
+            "cryptography.hazmat.primitives.asymmetric.ec.derive_private_key (constructed-from-parsed-blob)"
+          ]
+        ],
+        "conflicts": [],
+        "hybrid_context": false,
+        "arm": "full"
+      },
+      "recommendation": {
+        "action": "ABSTAIN",
+        "target_class": "ABSTAIN",
+        "family": "NONE",
+        "role": "UNKNOWN",
+        "tier": "T1",
+        "target": "No recommendation: evidence is insufficient",
+        "parameter_set": null,
+        "rationale": "Role cannot be determined: key material leaves the analysed scope before any consumer is seen (returned inside a tuple from _SSHFormatECDSA.load_private (line 501)). Possible roles: SIGN, VERIFY, KEY_ESTABLISHMENT. No single target is justified.",
+        "references": [],
+        "policy_version": "1.1",
+        "tier_threshold": "T2",
+        "abstain_reason": "role UNKNOWN"
+      },
+      "scope": "app",
+      "semgrep_rules": [
+        "pqscan.pyca.ec.derive"
+      ]
+    },
+    {
+      "evidence": {
+        "location": {
+          "file": "cryptography/hazmat/primitives/serialization/ssh.py",
+          "line": 546,
+          "col": 22,
+          "end_line": 548,
+          "end_col": 10
+        },
+        "api": "cryptography.hazmat.primitives.asymmetric.ed25519.Ed25519PublicKey.from_public_bytes",
+        "rule_id": "semantic.construct",
+        "kind": "key-material",
+        "operation": null,
+        "receiver": {
+          "description": "pyca:Ed25519:public:constructed-from-parsed-blob",
+          "library": "pyca",
+          "algorithm": "Ed25519",
+          "private": false,
+          "provenance": "constructed-from-parsed-blob",
+          "provenances": [
+            "constructed-from-parsed-blob"
+          ],
+          "proximate": null,
+          "curve": null,
+          "key_size": null,
+          "multi": false,
+          "unresolved_reason": null,
+          "origins": [
+            [
+              546,
+              "ed25519.Ed25519PublicKey.from_public_bytes"
+            ]
+          ],
+          "via_call": null
+        },
+        "args": {
+          "padding": null,
+          "hash": null,
+          "ecdsa": false,
+          "ecdh": false,
+          "curve": null,
+          "unresolved": [],
+          "resolved_all": true
+        },
+        "consumers": {
+          "families": [],
+          "locations": [],
+          "paths": [],
+          "escapes": true,
+          "escape_notes": [
+            "returned inside a tuple from _SSHFormatEd25519.load_public (line 549)"
+          ],
+          "unresolved_callees": [],
+          "conflicts": [],
+          "filtered": []
+        },
+        "hybrid_context": false,
+        "hybrid_apis": [],
+        "origin_families": [],
+        "origin_conflict": false,
+        "hybrid_combined": false,
+        "function": "_SSHFormatEd25519.load_public",
+        "class": "_SSHFormatEd25519",
+        "conflicts": [],
+        "notes": []
+      },
+      "decision": {
+        "site_kind": "key-material",
+        "role": "VERIFY",
+        "tier": "T2",
+        "algorithm": "Ed25519",
+        "reason": "Ed25519 is a single-purpose algorithm (SIGN); consumers lie outside the analysed scope",
+        "possible_roles": [],
+        "secondary_roles": [],
+        "supporting": [
+          [
+            546,
+            "cryptography.hazmat.primitives.asymmetric.ed25519.Ed25519PublicKey.from_public_bytes (constructed-from-parsed-blob)"
+          ]
+        ],
+        "conflicts": [],
+        "hybrid_context": false,
+        "arm": "full"
+      },
+      "recommendation": {
+        "action": "RECOMMEND",
+        "target_class": "SIG",
+        "family": "SIG",
+        "role": "VERIFY",
+        "tier": "T2",
+        "target": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable",
+        "parameter_set": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5",
+        "rationale": "Add ML-DSA (FIPS 204) verification so that migrated signers can be accepted. NIST IR 8547 defines 'legacy use' as processing already-protected data such as verifying an existing signature; whether Ed25519 verification of already-issued signatures keeps that status after 2035 is set by SP 800-131A (to be revised). Retain legacy verification only for already-issued signatures; do not accept new Ed25519 signatures after the transition.",
+        "references": [
+          "NIST FIPS 204, Module-Lattice-Based Digital Signature Standard (ML-DSA), Aug 2024",
+          "NIST FIPS 205, Stateless Hash-Based Digital Signature Standard (SLH-DSA), Aug 2024",
+          "NIST IR 8547, Transition to Post-Quantum Cryptography Standards, final, Oct 2026"
+        ],
+        "policy_version": "1.1",
+        "tier_threshold": "T2",
+        "abstain_reason": null
+      },
+      "scope": "app",
+      "semgrep_rules": [
+        "pqscan.pyca.ed25519.keygen"
+      ]
+    },
+    {
+      "evidence": {
+        "location": {
+          "file": "cryptography/hazmat/primitives/serialization/ssh.py",
+          "line": 562,
+          "col": 23,
+          "end_line": 562,
+          "end_col": 75
+        },
+        "api": "cryptography.hazmat.primitives.asymmetric.ed25519.Ed25519PrivateKey.from_private_bytes",
+        "rule_id": "semantic.construct",
+        "kind": "key-material",
+        "operation": null,
+        "receiver": {
+          "description": "pyca:Ed25519:private:constructed-from-parsed-blob",
+          "library": "pyca",
+          "algorithm": "Ed25519",
+          "private": true,
+          "provenance": "constructed-from-parsed-blob",
+          "provenances": [
+            "constructed-from-parsed-blob"
+          ],
+          "proximate": null,
+          "curve": null,
+          "key_size": null,
+          "multi": false,
+          "unresolved_reason": null,
+          "origins": [
+            [
+              562,
+              "ed25519.Ed25519PrivateKey.from_private_bytes"
+            ]
+          ],
+          "via_call": null
+        },
+        "args": {
+          "padding": null,
+          "hash": null,
+          "ecdsa": false,
+          "ecdh": false,
+          "curve": null,
+          "unresolved": [],
+          "resolved_all": true
+        },
+        "consumers": {
+          "families": [],
+          "locations": [],
+          "paths": [],
+          "escapes": true,
+          "escape_notes": [
+            "returned inside a tuple from _SSHFormatEd25519.load_private (line 563)"
+          ],
+          "unresolved_callees": [],
+          "conflicts": [],
+          "filtered": []
+        },
+        "hybrid_context": false,
+        "hybrid_apis": [],
+        "origin_families": [],
+        "origin_conflict": false,
+        "hybrid_combined": false,
+        "function": "_SSHFormatEd25519.load_private",
+        "class": "_SSHFormatEd25519",
+        "conflicts": [],
+        "notes": []
+      },
+      "decision": {
+        "site_kind": "key-material",
+        "role": "SIGN",
+        "tier": "T2",
+        "algorithm": "Ed25519",
+        "reason": "Ed25519 is a single-purpose algorithm (SIGN); consumers lie outside the analysed scope",
+        "possible_roles": [],
+        "secondary_roles": [],
+        "supporting": [
+          [
+            562,
+            "cryptography.hazmat.primitives.asymmetric.ed25519.Ed25519PrivateKey.from_private_bytes (constructed-from-parsed-blob)"
+          ]
+        ],
+        "conflicts": [],
+        "hybrid_context": false,
+        "arm": "full"
+      },
+      "recommendation": {
+        "action": "RECOMMEND",
+        "target_class": "SIG",
+        "family": "SIG",
+        "role": "SIGN",
+        "tier": "T2",
+        "target": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable",
+        "parameter_set": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5",
+        "rationale": "Ed25519 signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch.",
+        "references": [
+          "NIST FIPS 204, Module-Lattice-Based Digital Signature Standard (ML-DSA), Aug 2024",
+          "NIST FIPS 205, Stateless Hash-Based Digital Signature Standard (SLH-DSA), Aug 2024",
+          "NIST IR 8547, Transition to Post-Quantum Cryptography Standards, final, Oct 2026"
+        ],
+        "policy_version": "1.1",
+        "tier_threshold": "T2",
+        "abstain_reason": null
+      },
+      "scope": "app",
+      "semgrep_rules": [
+        "pqscan.pyca.ed25519.keygen"
+      ]
+    },
+    {
+      "evidence": {
+        "location": {
+          "file": "cryptography/hazmat/primitives/serialization/ssh.py",
+          "line": 993,
+          "col": 13,
+          "end_line": 995,
+          "end_col": 14
+        },
+        "api": "<receiver>.verify",
+        "rule_id": "semantic.operation",
+        "kind": "operation",
+        "operation": "verify",
+        "receiver": {
+          "description": "unknown(undefined name)",
+          "library": null,
+          "algorithm": null,
+          "private": null,
+          "provenance": null,
+          "provenances": [],
+          "proximate": null,
+          "curve": null,
+          "key_size": null,
+          "multi": false,
+          "unresolved_reason": "undefined name",
+          "origins": [],
+          "via_call": "SSHCertificate.signature_key"
+        },
+        "args": {
+          "padding": null,
+          "hash": null,
+          "ecdsa": false,
+          "ecdh": false,
+          "curve": null,
+          "unresolved": [
+            "Call argument",
+            "Attribute argument",
+            "Call argument",
+            "Attribute argument"
+          ],
+          "resolved_all": false
+        },
+        "consumers": {
+          "families": [],
+          "locations": [],
+          "paths": [],
+          "escapes": false,
+          "escape_notes": [],
+          "unresolved_callees": [],
+          "conflicts": [],
+          "filtered": []
+        },
+        "hybrid_context": false,
+        "hybrid_apis": [],
+        "origin_families": [],
+        "origin_conflict": false,
+        "hybrid_combined": false,
+        "function": "SSHCertificate.verify_cert_signature",
+        "class": "SSHCertificate",
+        "conflicts": [],
+        "notes": []
+      },
+      "decision": {
+        "site_kind": "operation",
+        "role": "VERIFY",
+        "tier": "T0",
+        "algorithm": "ANY",
+        "reason": "operation .verify() -> VERIFY; receiver unresolved (undefined name); arguments: no parameters",
+        "possible_roles": [],
+        "secondary_roles": [],
+        "supporting": [
+          [
+            993,
+            "method .verify()"
+          ]
+        ],
+        "conflicts": [],
+        "hybrid_context": false,
+        "arm": "full"
+      },
+      "recommendation": {
+        "action": "ABSTAIN",
+        "target_class": "ABSTAIN",
+        "family": "NONE",
+        "role": "VERIFY",
+        "tier": "T0",
+        "target": "No recommendation: evidence is insufficient",
+        "parameter_set": null,
+        "rationale": "Evidence tier T0 is below the policy threshold T2: the receiver is not resolved to a key object and no algorithm-specific argument is visible. Inferred role (not acted on): VERIFY.",
+        "references": [],
+        "policy_version": "1.1",
+        "tier_threshold": "T2",
+        "abstain_reason": "tier T0 < T2"
+      },
+      "scope": "app",
+      "semgrep_rules": [
+        "pqscan.common.method.candidate"
+      ]
+    },
+    {
+      "evidence": {
+        "location": {
+          "file": "cryptography/hazmat/primitives/serialization/ssh.py",
+          "line": 1003,
+          "col": 13,
+          "end_line": 1005,
+          "end_col": 14
+        },
+        "api": "<receiver>.verify",
+        "rule_id": "semantic.operation",
+        "kind": "operation",
+        "operation": "verify",
+        "receiver": {
+          "description": "unknown(undefined name)",
+          "library": null,
+          "algorithm": null,
+          "private": null,
+          "provenance": null,
+          "provenances": [],
+          "proximate": null,
+          "curve": null,
+          "key_size": null,
+          "multi": false,
+          "unresolved_reason": "undefined name",
+          "origins": [],
+          "via_call": "SSHCertificate.signature_key"
+        },
+        "args": {
+          "padding": null,
+          "hash": "multi{SHA1|SHA256|SHA384|SHA512}",
+          "ecdsa": true,
+          "ecdh": false,
+          "curve": null,
+          "unresolved": [
+            "Call argument",
+            "Attribute argument"
+          ],
+          "resolved_all": false
+        },
+        "consumers": {
+          "families": [],
+          "locations": [],
+          "paths": [],
+          "escapes": false,
+          "escape_notes": [],
+          "unresolved_callees": [],
+          "conflicts": [],
+          "filtered": []
+        },
+        "hybrid_context": false,
+        "hybrid_apis": [],
+        "origin_families": [],
+        "origin_conflict": false,
+        "hybrid_combined": false,
+        "function": "SSHCertificate.verify_cert_signature",
+        "class": "SSHCertificate",
+        "conflicts": [],
+        "notes": []
+      },
+      "decision": {
+        "site_kind": "operation",
+        "role": "VERIFY",
+        "tier": "T1",
+        "algorithm": "EC",
+        "reason": "operation .verify() -> VERIFY; receiver unresolved (undefined name); arguments: hash=multi{SHA1|SHA256|SHA384|SHA512}, ECDSA",
+        "possible_roles": [],
+        "secondary_roles": [],
+        "supporting": [
+          [
+            1003,
+            "method .verify()"
+          ],
+          [
+            1003,
+            "arguments hash=multi{SHA1|SHA256|SHA384|SHA512}, ECDSA"
+          ]
+        ],
+        "conflicts": [],
+        "hybrid_context": false,
+        "arm": "full"
+      },
+      "recommendation": {
+        "action": "ABSTAIN",
+        "target_class": "ABSTAIN",
+        "family": "NONE",
+        "role": "VERIFY",
+        "tier": "T1",
+        "target": "No recommendation: evidence is insufficient",
+        "parameter_set": null,
+        "rationale": "Evidence tier T1 is below the policy threshold T2: only one of receiver typing or algorithm-specific arguments is available (or evidence conflicts). Inferred role (not acted on): VERIFY.",
+        "references": [],
+        "policy_version": "1.1",
+        "tier_threshold": "T2",
+        "abstain_reason": "tier T1 < T2"
+      },
+      "scope": "app",
+      "semgrep_rules": [
+        "pqscan.common.method.candidate"
+      ]
+    },
+    {
+      "evidence": {
+        "location": {
+          "file": "cryptography/hazmat/primitives/serialization/ssh.py",
+          "line": 1015,
+          "col": 13,
+          "end_line": 1020,
+          "end_col": 14
+        },
+        "api": "<receiver>.verify",
+        "rule_id": "semantic.operation",
+        "kind": "operation",
+        "operation": "verify",
+        "receiver": {
+          "description": "unknown(undefined name)",
+          "library": null,
+          "algorithm": null,
+          "private": null,
+          "provenance": null,
+          "provenances": [],
+          "proximate": null,
+          "curve": null,
+          "key_size": null,
+          "multi": false,
+          "unresolved_reason": "undefined name",
+          "origins": [],
+          "via_call": "SSHCertificate.signature_key"
+        },
+        "args": {
+          "padding": "PKCS1v15",
+          "hash": "multi{SHA1|SHA256|SHA384|SHA512}",
+          "ecdsa": false,
+          "ecdh": false,
+          "curve": null,
+          "unresolved": [
+            "Call argument",
+            "Attribute argument",
+            "Call argument",
+            "Attribute argument"
+          ],
+          "resolved_all": false
+        },
+        "consumers": {
+          "families": [],
+          "locations": [],
+          "paths": [],
+          "escapes": false,
+          "escape_notes": [],
+          "unresolved_callees": [],
+          "conflicts": [],
+          "filtered": []
+        },
+        "hybrid_context": false,
+        "hybrid_apis": [],
+        "origin_families": [],
+        "origin_conflict": false,
+        "hybrid_combined": false,
+        "function": "SSHCertificate.verify_cert_signature",
+        "class": "SSHCertificate",
+        "conflicts": [],
+        "notes": []
+      },
+      "decision": {
+        "site_kind": "operation",
+        "role": "VERIFY",
+        "tier": "T1",
+        "algorithm": "RSA",
+        "reason": "operation .verify() -> VERIFY; receiver unresolved (undefined name); arguments: padding=PKCS1v15, hash=multi{SHA1|SHA256|SHA384|SHA512}",
+        "possible_roles": [],
+        "secondary_roles": [],
+        "supporting": [
+          [
+            1015,
+            "method .verify()"
+          ],
+          [
+            1015,
+            "arguments padding=PKCS1v15, hash=multi{SHA1|SHA256|SHA384|SHA512}"
+          ]
+        ],
+        "conflicts": [],
+        "hybrid_context": false,
+        "arm": "full"
+      },
+      "recommendation": {
+        "action": "ABSTAIN",
+        "target_class": "ABSTAIN",
+        "family": "NONE",
+        "role": "VERIFY",
+        "tier": "T1",
+        "target": "No recommendation: evidence is insufficient",
+        "parameter_set": null,
+        "rationale": "Evidence tier T1 is below the policy threshold T2: only one of receiver typing or algorithm-specific arguments is available (or evidence conflicts). Inferred role (not acted on): VERIFY.",
+        "references": [],
+        "policy_version": "1.1",
+        "tier_threshold": "T2",
+        "abstain_reason": "tier T1 < T2"
+      },
+      "scope": "app",
+      "semgrep_rules": [
+        "pqscan.common.method.candidate"
+      ]
+    },
+    {
+      "evidence": {
+        "location": {
+          "file": "cryptography/hazmat/primitives/serialization/ssh.py",
+          "line": 1583,
+          "col": 25,
+          "end_line": 1583,
+          "end_col": 54
+        },
+        "api": "<receiver>.sign",
+        "rule_id": "semantic.operation",
+        "kind": "operation",
+        "operation": "sign",
+        "receiver": {
+          "description": "multi{pyca:EC:private:parameter|pyca:Ed25519:private:parameter|pyca:RSA:private:parameter}",
+          "library": "pyca",
+          "algorithm": null,
+          "private": true,
+          "provenance": "parameter",
+          "provenances": [
+            "parameter"
+          ],
+          "proximate": null,
+          "curve": null,
+          "key_size": null,
+          "multi": true,
+          "unresolved_reason": "conflicting algorithms: EC/Ed25519/RSA",
+          "origins": [
+            [
+              1582,
+              "isinstance cryptography.hazmat.primitives.asymmetric.ed25519.Ed25519PrivateKey"
+            ],
+            [
+              1487,
+              "isinstance cryptography.hazmat.primitives.asymmetric.ec.EllipticCurvePrivateKey"
+            ],
+            [
+              1487,
+              "isinstance cryptography.hazmat.primitives.asymmetric.rsa.RSAPrivateKey"
+            ]
+          ],
+          "via_call": null
+        },
+        "args": {
+          "padding": null,
+          "hash": null,
+          "ecdsa": false,
+          "ecdh": false,
+          "curve": null,
+          "unresolved": [
+            "Call argument"
+          ],
+          "resolved_all": false
+        },
+        "consumers": {
+          "families": [],
+          "locations": [],
+          "paths": [],
+          "escapes": false,
+          "escape_notes": [],
+          "unresolved_callees": [],
+          "conflicts": [],
+          "filtered": []
+        },
+        "hybrid_context": false,
+        "hybrid_apis": [],
+        "origin_families": [],
+        "origin_conflict": false,
+        "hybrid_combined": false,
+        "function": "SSHCertificateBuilder.sign",
+        "class": "SSHCertificateBuilder",
+        "conflicts": [],
+        "notes": []
+      },
+      "decision": {
+        "site_kind": "operation",
+        "role": "SIGN",
+        "tier": "T0",
+        "algorithm": "ANY",
+        "reason": "operation .sign() -> SIGN; receiver unresolved (conflicting algorithms: EC/Ed25519/RSA); arguments: no parameters",
+        "possible_roles": [],
+        "secondary_roles": [],
+        "supporting": [
+          [
+            1583,
+            "method .sign()"
+          ]
+        ],
+        "conflicts": [],
+        "hybrid_context": false,
+        "arm": "full"
+      },
+      "recommendation": {
+        "action": "ABSTAIN",
+        "target_class": "ABSTAIN",
+        "family": "NONE",
+        "role": "SIGN",
+        "tier": "T0",
+        "target": "No recommendation: evidence is insufficient",
+        "parameter_set": null,
+        "rationale": "Evidence tier T0 is below the policy threshold T2: the receiver is not resolved to a key object and no algorithm-specific argument is visible. Inferred role (not acted on): SIGN.",
+        "references": [],
+        "policy_version": "1.1",
+        "tier_threshold": "T2",
+        "abstain_reason": "tier T0 < T2"
+      },
+      "scope": "app",
+      "semgrep_rules": [
+        "pqscan.common.method.candidate"
+      ]
+    },
+    {
+      "evidence": {
+        "location": {
+          "file": "cryptography/hazmat/primitives/serialization/ssh.py",
+          "line": 1590,
+          "col": 25,
+          "end_line": 1590,
+          "end_col": 74
+        },
+        "api": "<receiver>.sign",
+        "rule_id": "semantic.operation",
+        "kind": "operation",
+        "operation": "sign",
+        "receiver": {
+          "description": "multi{pyca:EC:private:parameter|pyca:Ed25519:private:parameter|pyca:RSA:private:parameter}",
+          "library": "pyca",
+          "algorithm": null,
+          "private": true,
+          "provenance": "parameter",
+          "provenances": [
+            "parameter"
+          ],
+          "proximate": null,
+          "curve": null,
+          "key_size": null,
+          "multi": true,
+          "unresolved_reason": "conflicting algorithms: EC/Ed25519/RSA",
+          "origins": [
+            [
+              1582,
+              "isinstance cryptography.hazmat.primitives.asymmetric.ed25519.Ed25519PrivateKey"
+            ],
+            [
+              1487,
+              "isinstance cryptography.hazmat.primitives.asymmetric.ec.EllipticCurvePrivateKey"
+            ],
+            [
+              1487,
+              "isinstance cryptography.hazmat.primitives.asymmetric.rsa.RSAPrivateKey"
+            ]
+          ],
+          "via_call": null
+        },
+        "args": {
+          "padding": null,
+          "hash": "multi{SHA256|SHA384|SHA512}",
+          "ecdsa": true,
+          "ecdh": false,
+          "curve": null,
+          "unresolved": [
+            "Call argument"
+          ],
+          "resolved_all": false
+        },
+        "consumers": {
+          "families": [],
+          "locations": [],
+          "paths": [],
+          "escapes": false,
+          "escape_notes": [],
+          "unresolved_callees": [],
+          "conflicts": [],
+          "filtered": []
+        },
+        "hybrid_context": false,
+        "hybrid_apis": [],
+        "origin_families": [],
+        "origin_conflict": false,
+        "hybrid_combined": false,
+        "function": "SSHCertificateBuilder.sign",
+        "class": "SSHCertificateBuilder",
+        "conflicts": [],
+        "notes": []
+      },
+      "decision": {
+        "site_kind": "operation",
+        "role": "SIGN",
+        "tier": "T1",
+        "algorithm": "EC",
+        "reason": "operation .sign() -> SIGN; receiver unresolved (conflicting algorithms: EC/Ed25519/RSA); arguments: hash=multi{SHA256|SHA384|SHA512}, ECDSA",
+        "possible_roles": [],
+        "secondary_roles": [],
+        "supporting": [
+          [
+            1590,
+            "method .sign()"
+          ],
+          [
+            1590,
+            "arguments hash=multi{SHA256|SHA384|SHA512}, ECDSA"
+          ]
+        ],
+        "conflicts": [],
+        "hybrid_context": false,
+        "arm": "full"
+      },
+      "recommendation": {
+        "action": "ABSTAIN",
+        "target_class": "ABSTAIN",
+        "family": "NONE",
+        "role": "SIGN",
+        "tier": "T1",
+        "target": "No recommendation: evidence is insufficient",
+        "parameter_set": null,
+        "rationale": "Evidence tier T1 is below the policy threshold T2: only one of receiver typing or algorithm-specific arguments is available (or evidence conflicts). Inferred role (not acted on): SIGN.",
+        "references": [],
+        "policy_version": "1.1",
+        "tier_threshold": "T2",
+        "abstain_reason": "tier T1 < T2"
+      },
+      "scope": "app",
+      "semgrep_rules": [
+        "pqscan.common.method.candidate"
+      ]
+    },
+    {
+      "evidence": {
+        "location": {
+          "file": "cryptography/hazmat/primitives/serialization/ssh.py",
+          "line": 1608,
+          "col": 25,
+          "end_line": 1610,
+          "end_col": 14
+        },
+        "api": "<receiver>.sign",
+        "rule_id": "semantic.operation",
+        "kind": "operation",
+        "operation": "sign",
+        "receiver": {
+          "description": "multi{pyca:EC:private:parameter|pyca:Ed25519:private:parameter|pyca:RSA:private:parameter}",
+          "library": "pyca",
+          "algorithm": null,
+          "private": true,
+          "provenance": "parameter",
+          "provenances": [
+            "parameter"
+          ],
+          "proximate": null,
+          "curve": null,
+          "key_size": null,
+          "multi": true,
+          "unresolved_reason": "conflicting algorithms: EC/Ed25519/RSA",
+          "origins": [
+            [
+              1582,
+              "isinstance cryptography.hazmat.primitives.asymmetric.ed25519.Ed25519PrivateKey"
+            ],
+            [
+              1487,
+              "isinstance cryptography.hazmat.primitives.asymmetric.ec.EllipticCurvePrivateKey"
+            ],
+            [
+              1487,
+              "isinstance cryptography.hazmat.primitives.asymmetric.rsa.RSAPrivateKey"
+            ]
+          ],
+          "via_call": null
+        },
+        "args": {
+          "padding": "PKCS1v15",
+          "hash": "SHA512",
+          "ecdsa": false,
+          "ecdh": false,
+          "curve": null,
+          "unresolved": [
+            "Call argument"
+          ],
+          "resolved_all": false
+        },
+        "consumers": {
+          "families": [],
+          "locations": [],
+          "paths": [],
+          "escapes": false,
+          "escape_notes": [],
+          "unresolved_callees": [],
+          "conflicts": [],
+          "filtered": []
+        },
+        "hybrid_context": false,
+        "hybrid_apis": [],
+        "origin_families": [],
+        "origin_conflict": false,
+        "hybrid_combined": false,
+        "function": "SSHCertificateBuilder.sign",
+        "class": "SSHCertificateBuilder",
+        "conflicts": [],
+        "notes": []
+      },
+      "decision": {
+        "site_kind": "operation",
+        "role": "SIGN",
+        "tier": "T1",
+        "algorithm": "RSA",
+        "reason": "operation .sign() -> SIGN; receiver unresolved (conflicting algorithms: EC/Ed25519/RSA); arguments: padding=PKCS1v15, hash=SHA512",
+        "possible_roles": [],
+        "secondary_roles": [],
+        "supporting": [
+          [
+            1608,
+            "method .sign()"
+          ],
+          [
+            1608,
+            "arguments padding=PKCS1v15, hash=SHA512"
+          ]
+        ],
+        "conflicts": [],
+        "hybrid_context": false,
+        "arm": "full"
+      },
+      "recommendation": {
+        "action": "ABSTAIN",
+        "target_class": "ABSTAIN",
+        "family": "NONE",
+        "role": "SIGN",
+        "tier": "T1",
+        "target": "No recommendation: evidence is insufficient",
+        "parameter_set": null,
+        "rationale": "Evidence tier T1 is below the policy threshold T2: only one of receiver typing or algorithm-specific arguments is available (or evidence conflicts). Inferred role (not acted on): SIGN.",
+        "references": [],
+        "policy_version": "1.1",
+        "tier_threshold": "T2",
+        "abstain_reason": "tier T1 < T2"
+      },
+      "scope": "app",
+      "semgrep_rules": [
+        "pqscan.common.method.candidate"
+      ]
+    }
+  ],
+  "excluded": [
+    {
+      "file": "cryptography/fernet.py",
+      "line": 131,
+      "kind": "not-public-key",
+      "reason": "receiver is a symmetric/MAC object, not a public key; not a PQC migration site"
+    }
+  ],
+  "semgrep_only": [
+    {
+      "file": "cryptography/hazmat/primitives/serialization/ssh.py",
+      "line": 329,
+      "rules": [
+        "pqscan.pyca.rsa.construct"
+      ]
+    },
+    {
+      "file": "cryptography/hazmat/primitives/serialization/ssh.py",
+      "line": 348,
+      "rules": [
+        "pqscan.pyca.rsa.construct"
+      ]
+    },
+    {
+      "file": "cryptography/hazmat/primitives/serialization/ssh.py",
+      "line": 349,
+      "rules": [
+        "pqscan.pyca.rsa.construct"
+      ]
+    }
+  ],
+  "unsupported": [],
+  "execution_failures": [],
+  "files_skipped": []
+}

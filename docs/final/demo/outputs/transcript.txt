@@ -1,0 +1,177 @@
+### 2026-11-17T17:45:10Z py -3.12 -m venv <FD>/venv
+### exit=0 wall=18s
+### 2026-11-17T17:45:28Z <FD>/venv/Scripts/python -m pip install --upgrade pip -q
+### exit=0 wall=26s
+### 2026-11-17T17:45:54Z <FD>/venv/Scripts/python -m pip install -q <FD>/snap
+  <PIPTMP>\overlay\Lib\site-packages\setuptools\config\_apply_pyprojecttoml.py:82: BuildBackendWarning: `project.license` as a TOML table is deprecated
+  !!
+  
+          ********************************************************************************
+          Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+  
+          By 2027-Feb-18, you need to update your project and remove deprecated calls
+          or your builds will no longer be supported.
+  
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+  
+  !!
+    corresp(dist, value, root_dir)
+  <PIPTMP>\overlay\Lib\site-packages\setuptools\config\_apply_pyprojecttoml.py:82: BuildBackendWarning: `project.license` as a TOML table is deprecated
+  !!
+  
+          ********************************************************************************
+          Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+  
+          By 2027-Feb-18, you need to update your project and remove deprecated calls
+          or your builds will no longer be supported.
+  
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+  
+  !!
+    corresp(dist, value, root_dir)
+  <PIPTMP>\overlay\Lib\site-packages\setuptools\config\_apply_pyprojecttoml.py:82: BuildBackendWarning: `project.license` as a TOML table is deprecated
+  !!
+  
+          ********************************************************************************
+          Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+  
+          By 2027-Feb-18, you need to update your project and remove deprecated calls
+          or your builds will no longer be supported.
+  
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+  
+  !!
+    corresp(dist, value, root_dir)
+### exit=0 wall=165s
+### 2026-11-17T17:48:39Z <FD>/venv/Scripts/python --version
+Python 3.12.10
+### exit=0 wall=0s
+### 2026-11-17T17:48:39Z <FD>/venv/Scripts/pqscan --version
+pqscan 0.1.0.dev0
+### exit=0 wall=0s
+### 2026-11-17T17:48:39Z <FD>/venv/Scripts/semgrep --version
+1.185.0
+### exit=0 wall=9s
+### 2026-11-17T17:48:48Z <FD>/venv/Scripts/python -I -c import pqscan,cryptography;print(pqscan.__file__)
+<FD>\venv\Lib\site-packages\pqscan\__init__.py
+### exit=0 wall=0s
+### 2026-11-17T17:48:48Z <FD>/venv/Scripts/python -m pip freeze
+annotated-doc==0.0.6
+annotated-types==0.8.0
+anyio==4.16.0
+attrs==26.1.0
+boltons==21.0.0
+boolean.py==5.0
+bracex==3.2.3
+certifi==2026.10.23
+cffi==2.1.1
+charset-normalizer==3.5.2
+click==8.4.2
+click-option-group==0.5.10
+colorama==0.4.6
+cryptography==50.0.2
+cyclonedx-python-lib==11.12.0
+defusedxml==0.7.1
+exceptiongroup==1.2.2
+face==26.0.1
+glom==25.12.0
+googleapis-common-protos==1.76.0
+h11==0.16.0
+httpcore==1.0.9
+httpx==0.28.1
+httpx-sse==0.4.3
+idna==3.20
+importlib_metadata==8.7.1
+jsonschema==4.25.1
+jsonschema-specifications==2025.9.1
+license-expression==30.4.4
+markdown-it-py==4.3.0
+mcp==1.29.0
+mdurl==0.1.2
+opentelemetry-api==1.37.0
+opentelemetry-exporter-otlp-proto-common==1.37.0
+opentelemetry-exporter-otlp-proto-http==1.37.0
+opentelemetry-instrumentation==0.58b0
+opentelemetry-instrumentation-requests==0.58b0
+opentelemetry-instrumentation-threading==0.58b0
+opentelemetry-proto==1.37.0
+opentelemetry-sdk==1.37.0
+opentelemetry-semantic-conventions==0.58b0
+opentelemetry-util-http==0.58b0
+packageurl-python==0.17.6
+packaging==26.3
+peewee==3.19.0
+pqscan @ file:///<FD>/snap
+protobuf==6.33.6
+py-serializable==2.2.0
+pycparser==3.12
+pydantic==2.14.3
+pydantic-settings==2.16.3
+pydantic_core==2.50.4
+Pygments==2.21.0
+PyJWT==2.15.1
+python-dotenv==1.2.4
+python-multipart==0.0.34
+pywin32==311
+PyYAML==6.0.3
+referencing==0.37.0
+requests==2.34.2
+rich==15.0.0
+rpds-py==2026.9.1
+ruamel.yaml==0.19.1
+ruamel.yaml.clib==0.2.15
+semantic-version==2.10.0
+semgrep==1.185.0
+shellingham==1.5.4
+sortedcontainers==2.4.0
+sse-starlette==3.7.0
+starlette==1.10.0
+structlog==26.1.0
+tomli==2.4.1
+typer==0.29.1
+typing-inspection==0.4.5
+typing_extensions==4.16.0
+urllib3==2.8.0
+uvicorn==0.54.0
+wcmatch==8.5.2
+wrapt==1.17.3
+zipp==4.1.2
+### exit=0 wall=3s
+### 2026-11-17T17:48:51Z pqscan scan docs/demo/demo_repo > 01_summary.txt
+### exit=0
+### 2026-11-17T17:48:54Z <FD>/venv/Scripts/pqscan scan docs/demo/demo_repo --format json -o <FD>/out_synth/02_scan.json
+### exit=0 wall=4s
+### 2026-11-17T17:48:58Z <FD>/venv/Scripts/pqscan scan docs/demo/demo_repo --format cbom -o <FD>/out_synth/03_cbom.json
+### exit=0 wall=3s
+### 2026-11-17T17:49:01Z <FD>/venv/Scripts/pqscan scan docs/demo/demo_repo --format sarif -o <FD>/out_synth/04_scan.sarif
+### exit=0 wall=3s
+### 2026-11-17T17:49:04Z T3
+### exit=0
+### 2026-11-17T17:49:07Z method-only
+### exit=0
+### 2026-11-17T17:49:10Z no-semgrep
+### exit=0
+### 2026-11-17T17:49:11Z summary cryptography-47.0.0
+### exit=0 wall=4s
+### 2026-11-17T17:49:15Z <FD>/venv/Scripts/pqscan scan cryptography-47.0.0 --format json -o <FD>/out_real/cryptography-47.0.0_scan.json
+### exit=0 wall=4s
+### 2026-11-17T17:49:19Z <FD>/venv/Scripts/pqscan scan cryptography-47.0.0 --format cbom -o <FD>/out_real/cryptography-47.0.0_cbom.json
+### exit=0 wall=4s
+### 2026-11-17T17:49:23Z <FD>/venv/Scripts/pqscan scan cryptography-47.0.0 --format cbom -o <FD>/out_real/cryptography-47.0.0_cbom_run2.json
+### exit=0 wall=4s
+### 2026-11-17T17:49:27Z <FD>/venv/Scripts/pqscan scan cryptography-47.0.0 --format sarif -o <FD>/out_real/cryptography-47.0.0_scan.sarif
+### exit=0 wall=3s
+### 2026-11-17T17:49:30Z summary pycryptodome-4.4.0
+### exit=0 wall=25s
+### 2026-11-17T17:49:55Z <FD>/venv/Scripts/pqscan scan pycryptodome-4.4.0 --format json -o <FD>/out_real/pycryptodome-4.4.0_scan.json
+### exit=0 wall=24s
+### 2026-11-17T17:50:19Z <FD>/venv/Scripts/pqscan scan pycryptodome-4.4.0 --format cbom -o <FD>/out_real/pycryptodome-4.4.0_cbom.json
+### exit=0 wall=26s
+### 2026-11-17T17:50:45Z <FD>/venv/Scripts/pqscan scan pycryptodome-4.4.0 --format cbom -o <FD>/out_real/pycryptodome-4.4.0_cbom_run2.json
+### exit=0 wall=25s
+### 2026-11-17T17:51:10Z <FD>/venv/Scripts/pqscan scan pycryptodome-4.4.0 --format sarif -o <FD>/out_real/pycryptodome-4.4.0_scan.sarif
+### exit=0 wall=24s
+### 2026-11-17T17:51:34Z DONE
