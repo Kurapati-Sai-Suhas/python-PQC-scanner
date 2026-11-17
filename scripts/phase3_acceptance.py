@@ -192,6 +192,47 @@ def task_two_stratum(args):
     return {"id": cid, "desc": desc, **cnt}
 
 
+# --------------------------------------------------------------------------------------------- checkpointing
+def _code_version() -> str:
+    """Git tree hash of pqscan/ (the code under test): cached results are reused only for identical code."""
+    out = subprocess.run(["git", "-C", str(ROOT), "rev-parse", "HEAD:pqscan"], capture_output=True, text=True).stdout.strip()
+    dirty = subprocess.run(["git", "-C", str(ROOT), "status", "--porcelain", "--", "pqscan"], capture_output=True, text=True).stdout.strip()
+    return out[:16] + ("-dirty" if dirty else "")
+
+
+def _task_key(fn, args) -> str:
+    kind_id = args[2]["id"] if isinstance(args[2], dict) else (args[1]["id"] if isinstance(args[1], dict) else args[1][0])
+    return f"{fn.__name__}-{args[0]}-{kind_id}-{args[1] if isinstance(args[1], int) else ''}-r{args[-3]}-B{args[-2]}-c{args[-1]}"
+
+
+def run_checkpointed(jobs, quick: bool):
+    """Run every task once; each finished task is written to .cache/acceptance/<code version>/ immediately, and a
+    restarted run reuses those results (same code, same seeds), so an interrupted run loses at most the tasks in
+    flight. Random streams depend only on (stream, task index, chunk), never on scheduling."""
+    from concurrent.futures import as_completed
+    cache = ROOT / ".cache" / "acceptance" / (_code_version() + ("-quick" if quick else ""))
+    cache.mkdir(parents=True, exist_ok=True)
+    results = [[None] * len(tasks) for _, tasks in jobs]
+    pending = []
+    for j, (fn, tasks) in enumerate(jobs):
+        for i, t in enumerate(tasks):
+            f = cache / (_task_key(fn, t).replace(" ", "_").replace("+", "p") + ".json")
+            if f.exists():
+                results[j][i] = json.loads(f.read_text(encoding="utf-8"))
+            else:
+                pending.append((j, i, fn, t, f))
+    print(f"checkpoint: {sum(r is not None for rr in results for r in rr)} cached, {len(pending)} to run ({cache.name})", flush=True)
+    with ProcessPoolExecutor(max_workers=16) as ex:
+        futs = {ex.submit(fn, t): (j, i, f) for j, i, fn, t, f in pending}
+        for done_n, fut in enumerate(as_completed(futs), 1):
+            j, i, f = futs[fut]
+            r = {k: (int(v) if isinstance(v, (np.integer, np.bool_, bool)) else v) for k, v in fut.result().items()}
+            f.write_text(json.dumps(r), encoding="utf-8")
+            results[j][i] = r
+            print(f"task {done_n}/{len(pending)} done", flush=True)
+    return results
+
+
 # --------------------------------------------------------------------------------------------- main
 def mcse(p, n):
     return float(np.sqrt(max(p, 1e-12) * (1 - p) / n))
@@ -215,10 +256,7 @@ def main():
     cfgs = FAMSIM.configs()
     tasks_b = [(i, c, RF // CH, B, ch) for i, c in enumerate(cfgs) for ch in range(CH)]
     tasks_c = [(i, c, RT // CH, B, ch) for i, c in enumerate(two_stratum_configs()) for ch in range(CH)]
-    with ProcessPoolExecutor(max_workers=16) as ex:
-        ra = list(ex.map(task_single, tasks_a))
-        rb = list(ex.map(task_family, tasks_b))
-        rc = list(ex.map(task_two_stratum, tasks_c))
+    ra, rb, rc = run_checkpointed([(task_single, tasks_a), (task_family, tasks_b), (task_two_stratum, tasks_c)], quick)
     agg = lambda rows, key: {k: {f: sum(r[f] for r in rows if r[key] == k) for f in rows[0] if isinstance(rows[0][f], (int, np.integer)) and f != "chunk"}
                              | {"desc": next(r["desc"] for r in rows if r[key] == k), "kind": next(r.get("kind", "") for r in rows if r[key] == k)}
                              for k in dict.fromkeys(r[key] for r in rows)}
