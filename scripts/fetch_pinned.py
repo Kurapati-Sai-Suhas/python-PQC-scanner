@@ -4,7 +4,8 @@
     python scripts/fetch_pinned.py baselines <dest>   # external scanners, each in its own venv / node build
 
 Test-split repositories are fetched only with --include-test, to keep the held-out set unopened
-until the Phase 3 freeze. Nothing fetched is imported or executed by pqscan; baseline tools run
+until the Phase 3 freeze; --include-test is refused unless docs/freeze/pretest_freeze.json and the git
+tag phase3-pretest-freeze both exist (protocol v1.0.4, stage F1). Nothing fetched is imported or executed by pqscan; baseline tools run
 only inside their own environments.
 """
 from __future__ import annotations
@@ -36,6 +37,24 @@ def clone_at(url: str, commit: str, dest: Path) -> None:
     if not head.startswith(commit):
         raise SystemExit(f"{url}: HEAD {head} does not match pinned {commit}")
     print(f"   {dest.name} @ {head[:12]}")
+
+
+FREEZE_RECORD = Path("docs/freeze/pretest_freeze.json")
+FREEZE_TAG = "phase3-pretest-freeze"
+
+
+def held_out_blocker(project: Path = PROJECT) -> str | None:
+    """Why the held-out test split may not be fetched yet, or None if stage F1 is complete.
+
+    Protocol v1.0.4, stage F1: the freeze record docs/freeze/pretest_freeze.json is committed and the commit is
+    tagged phase3-pretest-freeze before any test-split repository is fetched. Both must exist locally."""
+    if not (project / FREEZE_RECORD).is_file():
+        return f"{FREEZE_RECORD.as_posix()} does not exist (stage F1 not complete)"
+    tag = subprocess.run(["git", "rev-parse", "-q", "--verify", f"refs/tags/{FREEZE_TAG}"], cwd=project,
+                         capture_output=True, text=True)
+    if tag.returncode != 0:
+        return f"git tag {FREEZE_TAG} does not exist (stage F1 not complete)"
+    return None
 
 
 def fetch_repos(dest: Path, include_test: bool) -> None:
@@ -82,7 +101,9 @@ def main() -> int:
     ap.add_argument("dest", type=Path)
     ap.add_argument("--include-test", action="store_true")
     a = ap.parse_args()
-    a.dest = a.dest.resolve()          # tool installs run with cwd=<tool dir>; relative venv paths would break
+    if a.include_test and (why := held_out_blocker()):
+        raise SystemExit(f"refusing --include-test: {why}")
+    a.dest = a.dest.resolve()         # tool installs run with cwd=<tool dir>; relative venv paths would break
     a.dest.mkdir(parents=True, exist_ok=True)
     fetch_repos(a.dest, a.include_test) if a.what == "repos" else fetch_baselines(a.dest)
     return 0
