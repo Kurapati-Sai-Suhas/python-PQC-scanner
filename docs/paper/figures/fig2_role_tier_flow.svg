@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="518.4pt" height="403.2pt" viewBox="0 0 518.4 403.2" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 403.2 
+L 518.4 403.2 
+L 518.4 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 183.5136 51.6096 
+L 334.8864 51.6096 
+Q 341.1072 51.6096 341.1072 46.7712 
+L 341.1072 25.8048 
+Q 341.1072 20.9664 334.8864 20.9664 
+L 183.5136 20.9664 
+Q 177.2928 20.9664 177.2928 25.8048 
+L 177.2928 46.7712 
+Q 177.2928 51.6096 183.5136 51.6096 
+z
+" clip-path="url(#p58b02a2a3c)" style="fill: #e6effa; stroke: #2a78d6; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 17.6256 116.1216 
+L 231.2064 116.1216 
+Q 237.4272 116.1216 237.4272 111.2832 
+L 237.4272 70.1568 
+Q 237.4272 65.3184 231.2064 65.3184 
+L 17.6256 65.3184 
+Q 11.4048 65.3184 11.4048 70.1568 
+L 11.4048 111.2832 
+Q 11.4048 116.1216 17.6256 116.1216 
+z
+" clip-path="url(#p58b02a2a3c)" style="fill: #e6effa; stroke: #2a78d6; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 17.6256 216.9216 
+L 231.2064 216.9216 
+Q 237.4272 216.9216 237.4272 212.0832 
+L 237.4272 130.6368 
+Q 237.4272 125.7984 231.2064 125.7984 
+L 17.6256 125.7984 
+Q 11.4048 125.7984 11.4048 130.6368 
+L 11.4048 212.0832 
+Q 11.4048 216.9216 17.6256 216.9216 
+z
+" clip-path="url(#p58b02a2a3c)" style="fill: #e6effa; stroke: #2a78d6; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 287.1936 116.1216 
+L 500.7744 116.1216 
+Q 506.9952 116.1216 506.9952 111.2832 
+L 506.9952 70.1568 
+Q 506.9952 65.3184 500.7744 65.3184 
+L 287.1936 65.3184 
+Q 280.9728 65.3184 280.9728 70.1568 
+L 280.9728 111.2832 
+Q 280.9728 116.1216 287.1936 116.1216 
+z
+" clip-path="url(#p58b02a2a3c)" style="fill: #e6effa; stroke: #2a78d6; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 287.1936 216.9216 
+L 500.7744 216.9216 
+Q 506.9952 216.9216 506.9952 212.0832 
+L 506.9952 130.6368 
+Q 506.9952 125.7984 500.7744 125.7984 
+L 287.1936 125.7984 
+Q 280.9728 125.7984 280.9728 130.6368 
+L 280.9728 212.0832 
+Q 280.9728 216.9216 287.1936 216.9216 
+z
+" clip-path="url(#p58b02a2a3c)" style="fill: #e6effa; stroke: #2a78d6; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 233.28 48.384 
+Q 178.848 60.48 125.50741 72.333464 
+" clip-path="url(#p58b02a2a3c)" style="fill: none; stroke: #52514e; stroke-linecap: round"/>
+    <path d="M 129.412159 73.309651 
+L 125.50741 72.333464 
+L 128.631209 69.795378 
+z
+" clip-path="url(#p58b02a2a3c)" style="fill: #52514e; stroke: #52514e; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 285.12 48.384 
+Q 339.552 60.48 392.89259 72.333464 
+" clip-path="url(#p58b02a2a3c)" style="fill: none; stroke: #52514e; stroke-linecap: round"/>
+    <path d="M 389.768791 69.795378 
+L 392.89259 72.333464 
+L 388.987841 73.309651 
+z
+" clip-path="url(#p58b02a2a3c)" style="fill: #52514e; stroke: #52514e; stroke-linecap: round"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 124.416 112.896 
+Q 124.416 120.96 124.416 127.905966 
+" clip-path="url(#p58b02a2a3c)" style="fill: none; stroke: #52514e; stroke-linecap: round"/>
+    <path d="M 126.216 124.305966 
+L 124.416 127.905966 
+L 122.616 124.305966 
+z
+" clip-path="url(#p58b02a2a3c)" style="fill: #52514e; stroke: #52514e; stroke-linecap: round"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 393.984 112.896 
+Q 393.984 120.96 393.984 127.905966 
+" clip-path="url(#p58b02a2a3c)" style="fill: none; stroke: #52514e; stroke-linecap: round"/>
+    <path d="M 395.784 124.305966 
+L 393.984 127.905966 
+L 392.184 124.305966 
+z
+" clip-path="url(#p58b02a2a3c)" style="fill: #52514e; stroke: #52514e; stroke-linecap: round"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 95.3856 303.6096 
+L 423.0144 303.6096 
+Q 429.2352 303.6096 429.2352 298.7712 
+L 429.2352 239.5008 
+Q 429.2352 234.6624 423.0144 234.6624 
+L 95.3856 234.6624 
+Q 89.1648 234.6624 89.1648 239.5008 
+L 89.1648 298.7712 
+Q 89.1648 303.6096 95.3856 303.6096 
+z
+" clip-path="url(#p58b02a2a3c)" style="fill: #e6effa; stroke: #2a78d6; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 124.416 213.696 
+Q 152.928 227.808 180.437984 241.424053 
+" clip-path="url(#p58b02a2a3c)" style="fill: none; stroke: #52514e; stroke-linecap: round"/>
+    <path d="M 178.010014 238.213918 
+L 180.437984 241.424053 
+L 176.413095 241.440348 
+z
+" clip-path="url(#p58b02a2a3c)" style="fill: #52514e; stroke: #52514e; stroke-linecap: round"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 393.984 213.696 
+Q 365.472 227.808 337.962016 241.424053 
+" clip-path="url(#p58b02a2a3c)" style="fill: none; stroke: #52514e; stroke-linecap: round"/>
+    <path d="M 341.986905 241.440348 
+L 337.962016 241.424053 
+L 340.389986 238.213918 
+z
+" clip-path="url(#p58b02a2a3c)" style="fill: #52514e; stroke: #52514e; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 9.5px; font-family: 'DejaVu Sans'; text-anchor: middle" x="259.2" y="10.08" transform="rotate(-0 259.2 10.08)">Fig. 2  Role inference, evidence tier and policy decision (arm `full`)</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 8.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #0b0b0b" x="259.2" y="38.956867" transform="rotate(-0 259.2 38.956867)">candidate call site (Modules A/B)</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 7.8px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(96.723562 83.122312)">Operation site</text>
+    <text style="font-size: 7.8px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(25.235953 92.872312)">&lt;recv&gt;.sign / verify / exchange / encrypt / decrypt</text>
+    <text style="font-size: 7.8px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(83.921203 103.377937)">role ← method name</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 7.4px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(20.736 146.368812)">Tier from evidence:</text>
+    <text style="font-size: 7.4px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(20.736 154.901938)">T0  receiver unresolved, no algorithm-specific arg.</text>
+    <text style="font-size: 7.4px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(20.736 164.151938)">T1  receiver typed as a key OR algorithm-specific arg.</text>
+    <text style="font-size: 7.4px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(20.736 174.118813)">T2  both</text>
+    <text style="font-size: 7.4px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(20.736 182.651938)">T3  T2 + receiver origin resolved to a concrete</text>
+    <text style="font-size: 7.4px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(20.736 191.901938)">       provenance, without conflict</text>
+    <text style="font-size: 7.4px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(20.736 201.151938)">any conflict → capped at T1</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 7.8px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(304.320562 83.122312)">Key-material site (keygen / loader / construct)</text>
+    <text style="font-size: 7.8px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(302.619187 92.872312)">bounded consumer tracing: aliases, attributes,</text>
+    <text style="font-size: 7.8px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(329.945391 103.377937)">≤ 2 call levels within the module</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 7.4px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(290.304 146.368812)">Consumers found:</text>
+    <text style="font-size: 7.4px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(290.304 154.901938)">1 family, no escape → that role, T3</text>
+    <text style="font-size: 7.4px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(290.304 164.151938)">1 family, escape → that role, T2</text>
+    <text style="font-size: 7.4px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(290.304 173.741297)">≥ 2 families → UNKNOWN, T2</text>
+    <text style="font-size: 7.4px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(290.304 182.483703)">none, no escape → KEY_MATERIAL_ONLY, T2</text>
+    <text style="font-size: 7.4px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(290.304 191.901938)">none, escape → single-purpose algorithm's role,</text>
+    <text style="font-size: 7.4px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(290.304 201.433484)">   T2 (X25519/X448/DH; Ed/DSA); else UNKNOWN, T1</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 7.4px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(186.400187 252.677937)">Policy v1.1 (threshold τ = T2), in order:</text>
+    <text style="font-size: 7.4px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(164.5725 261.927937)">1. role UNKNOWN → ABSTAIN (possible roles listed)</text>
+    <text style="font-size: 7.4px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(170.247953 271.177937)">2. tier &lt; τ → ABSTAIN (missing evidence stated)</text>
+    <text style="font-size: 7.4px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(111.520281 280.325031)">3. approved PQ/T hybrid component → FLAG_NO_TARGET (NO_ACTION_HYBRID)</text>
+    <text style="font-size: 7.4px; font-family: 'DejaVu Sans'; fill: #0b0b0b" transform="translate(186.566109 289.677937)">4. otherwise class by role (table below)</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="51.84" y="322.56" transform="rotate(-0 51.84 322.56)">SIGN, VERIFY</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans Mono'; text-anchor: start; fill: #0b0b0b" x="176.256" y="322.56" transform="rotate(-0 176.256 322.56)">SIG</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="269.568" y="322.56" transform="rotate(-0 269.568 322.56)">RECOMMEND: ML-DSA (FIPS 204)</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="51.84" y="336.672" transform="rotate(-0 51.84 336.672)">KEY_ESTABLISHMENT</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans Mono'; text-anchor: start; fill: #0b0b0b" x="176.256" y="336.672" transform="rotate(-0 176.256 336.672)">KEM</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="269.568" y="336.672" transform="rotate(-0 269.568 336.672)">RECOMMEND: ML-KEM-based redesign (FIPS 203, SP 800-227)</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="51.84" y="350.784" transform="rotate(-0 51.84 350.784)">PK_ENCRYPT, PK_DECRYPT</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans Mono'; text-anchor: start; fill: #0b0b0b" x="176.256" y="350.784" transform="rotate(-0 176.256 350.784)">KEM_DEM</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="269.568" y="350.784" transform="rotate(-0 269.568 350.784)">RECOMMEND: KEM + KDF + AEAD redesign, not a drop-in</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="51.84" y="364.896" transform="rotate(-0 51.84 364.896)">KEY_MATERIAL_ONLY</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans Mono'; text-anchor: start; fill: #0b0b0b" x="176.256" y="364.896" transform="rotate(-0 176.256 364.896)">INVENTORY</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="269.568" y="364.896" transform="rotate(-0 269.568 364.896)">FLAG_NO_TARGET: inventory, find downstream role</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #0b0b0b" x="51.84" y="379.008" transform="rotate(-0 51.84 379.008)">PROTOCOL_CONFIG*</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans Mono'; text-anchor: start; fill: #0b0b0b" x="176.256" y="379.008" transform="rotate(-0 176.256 379.008)">PROTOCOL_REVIEW</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 7.6px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="269.568" y="379.008" transform="rotate(-0 269.568 379.008)">FLAG_NO_TARGET: protocol-library review</text>
+   </g>
+   <g id="text_23">
+    <text style="font-size: 7px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #52514e" x="51.84" y="391.104" transform="rotate(-0 51.84 391.104)">* PROTOCOL_CONFIG is in the taxonomy and policy but is not emitted by Module C (stated limitation).</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p58b02a2a3c">
+   <rect x="0" y="0" width="518.4" height="403.2"/>
+  </clipPath>
+ </defs>
+</svg>

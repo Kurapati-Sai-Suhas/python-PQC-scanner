@@ -179,7 +179,7 @@ Module B finds sites independently of Semgrep, and Semgrep rule ids are joined b
 - the decision (role, tier, reason, possible and secondary roles);
 - the recommendation (action, target class, target text, parameter set, rationale, NIST references, policy version, threshold, abstention reason).
 
-[Figure 1 placeholder: architecture diagram. Source available in `docs/demo/architecture.md`; final figure per the IEEE template.]
+[Fig. 1: `docs/paper/figures/fig1_architecture.svg` (content-first; restyle to the template). Fig. 2, the role, tier and policy decision flow, is `fig2_role_tier_flow.svg`.]
 
 ## VI. Cryptographic Role and Key-Provenance Inference
 
@@ -422,7 +422,7 @@ Equation (2a) is the exact average over the m!/(j!(m − j)!) equally likely cho
 
 **Population statement.** Results are limited to RSA/EC/Ed/X public-key call sites in files importing pyca or PyCryptodome, within the candidate frame of the 13 frozen repositories. Inference is conditional on the seven test repositories.
 
-**Freeze sequence.**
+**Freeze sequence** (Fig. 3: `docs/paper/figures/fig3_protocol_timeline.svg`).
 1. Specification review.
 2. DV annotation and reliability.
 3. **F1:** pre-test methodological and code freeze, with a committed freeze record and a git tag.
@@ -441,7 +441,7 @@ Equation (2a) is the exact average over the m!/(j!(m − j)!) equally likely cho
   - a worked example.
 - The reference implementation's own 82 tests pass.
 
-**B. Statistical calibration under the planning model** [E30–E33].
+**B. Statistical calibration under the planning model** [E30–E33]. Fig. 4: `docs/paper/figures/fig4_calibration.svg`.
 
 | Check | Data sets per cell | Worst observed (α/3, α/2, α) | Criterion |
 |---|---|---|---|

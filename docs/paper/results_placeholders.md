@@ -46,10 +46,10 @@ All generators already exist in `pqscan/bench/reporting.py`, `h2.py`, `fa.py` an
 
 | # | Figure | Prerequisite | Status |
 |---|---|---|---|
-| F-1 | Architecture (Modules A–E, F–G) | none | **available** (`docs/demo/architecture.md`; redraw to the template) |
-| F-2 | Role decision and tier flow | none | **available** to draw from `pqscan/roles/classifier.py` docstring |
-| F-3 | Protocol timeline (spec review → DV → F1 → T → F2 → E) | none | **available** |
-| F-4 | Calibration: Type I by scenario with the nominal lines | none | **available** (`statistical_acceptance.md`; label "simulation under planning model") |
+| F-1 | Architecture (Modules A–E, F–G) | none | **created**: `figures/fig1_architecture.svg` (restyle to the template) |
+| F-2 | Role decision and tier flow | none | **created**: `figures/fig2_role_tier_flow.svg` |
+| F-3 | Protocol timeline (spec review → DV → F1 → T → F2 → E) | none | **created**: `figures/fig3_protocol_timeline.svg` |
+| F-4 | Calibration: Type I by scenario with the nominal lines | none | **created**: `figures/fig4_calibration.svg`, labelled simulation |
 | F-5 | Risk–coverage curves per method | E | NYE |
 | F-6 | δ̃_r per repository with bounds (forest plot) | E | NYE |
 | F-7 | Outcome-class stacked bars per tool | E | NYE |

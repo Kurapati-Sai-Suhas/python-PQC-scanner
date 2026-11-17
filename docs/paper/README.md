@@ -17,6 +17,10 @@
 | `author_decisions.md` | Decisions only the owner can make (format, title, scope, licence, …) |
 | `owner_action_checklist.md` | Ordered owner-gated steps vs work Claude can do now |
 | `peer_review.md` | Strict reviewer assessment and correction list |
+| `related_work_fulltext_audit.md` | Full-text and pinned-source verification of related work, with pages and file:line; NOT FULL-TEXT VERIFIED list; scoped absence claim |
+| `d7_rq_alignment.md` | Author decision D7: which comparisons are coverage-matched; two presentation options; recommendation |
+| `example/` | Original synthetic worked example and pqscan's actual outputs (Sec. VI-F) |
+| `figures/` | Figs. 1–4 as vector SVG/PDF, built by `make_figures.py` (template styling pending) |
 
 Re-run before any edit to the manuscript's numbers:
 
