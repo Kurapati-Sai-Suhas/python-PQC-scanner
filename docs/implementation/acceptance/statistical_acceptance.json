@@ -1,0 +1,19 @@
+{
+  "commit": "aa9d6b00697f8f480c1c4be1b62cd3588731b685",
+  "pqscan_tree_dirty": false,
+  "python": "3.12.10",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "B": 1000,
+  "data_sets": {
+    "A_type1": 20000,
+    "A_nearkink": 10000,
+    "B_family": 10000,
+    "C_two_stratum": 10000
+  },
+  "seeds": "numpy default_rng([20261113, 21|41|51, task, chunk]); bootstrap seed drawn per data set",
+  "variant_in_force": "unstratified",
+  "accepted": true,
+  "failed_cells": []
+}

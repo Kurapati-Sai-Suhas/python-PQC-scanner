@@ -1,4 +1,4 @@
-# Phase 3 implementation tracker and blocker register (live)
+# Phase 3 implementation tracker and blocker register (engineering closed 2026-11-17; see phase3_engineering_closeout.md)
 
 **Scope.** Implementation of R4-19 (17 items) under protocol v1.0.4, adopted 2026-11-16. Updated at every batch close.
 
@@ -30,8 +30,8 @@
 | 15 | Frame-audit tooling | 5 | done | 00f8c0a | same |
 | 14 | Report generators (tables, abstract template, wording guard, V4/V9 label variants, analysis sets) | 5 | done | 00f8c0a | same (9) |
 | 17 | Differential tests (1,000 + 1,000 random cases, bootstrap distributions, worked examples, pilot) | 6 | done | 3e8ee67 | `tests/test_h2_differential.py` (7) |
-| 17 | Re-calibration, family-wise error, two-stratum calibration on production code | 6 | in progress | 3e8ee67 (code under test) | `docs/implementation/acceptance/` |
-| — | Lecturer demo package (`docs/demo/`), built in a parallel session | parallel | in progress | | |
+| 17 | Re-calibration, family-wise error, two-stratum calibration on production code | 6 | done | aa9d6b0 (code under test) | `docs/implementation/acceptance/statistical_acceptance.md`: ACCEPTED; unstratified bootstrap in force |
+| — | Lecturer demo package (`docs/demo/`), built in a parallel session | parallel | done | 3c51dbc | real run in a fresh venv; paths redacted |
 
 ## Engineering notes (decisions taken within R4-18, recorded for the owner)
 
