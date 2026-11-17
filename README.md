@@ -18,8 +18,16 @@ does not implement AQuA P2 (refactoring) or P3 (verification).
 
 Phase 1 (research specification and pilot): conditional pass. Phase 2 (system implementation): gate passed on
 14 Nov 2026 (`docs/reports/Phase_2_System_Implementation_Report.md`, tag `phase2-complete`). Phase 3
-(benchmark annotation and held-out evaluation) has not started, and no experimental results exist yet.
-Numbers in `docs/dev/` and `docs/pilot/` are development checks on development repositories, not results.
+engineering is complete (branch `phase3-preparation`). Evaluation protocol v1.0.4 and annotation guide v1.1 were
+adopted on 16 Nov 2026; the annotation, sampling, matching and statistics tooling is implemented; and the pre-F1
+statistical acceptance passed (`docs/implementation/phase3_engineering_closeout.md`). Benchmark annotation and the
+held-out evaluation have **not** started. No labels exist, and **no experimental results (accuracy, precision,
+recall or hypothesis outcomes) exist yet**. Numbers in `docs/dev/` and `docs/pilot/` are development checks on
+development repositories, not results.
+
+Final audit (17 Nov 2026): `docs/final/`. It contains the dataset inventory, metrics and logs audit, readiness
+report, completion checklist, and a reproducible demonstration (`docs/final/final_project_demo.md`) rebuilt in a
+fresh environment.
 
 Licence: none chosen yet (the default is all rights reserved). Bundled third-party files keep their own
 licences: the CycloneDX 1.6 schema (Apache-2.0) and the OASIS SARIF 2.1.0 schema.
