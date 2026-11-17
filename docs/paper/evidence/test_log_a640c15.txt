@@ -1,0 +1,16 @@
+# pytest log, commit a640c15d4168fd2103beb57a66a18dd5359cd574, 2026-11-17T18:13:22Z, tree clean: yes
+## full production suite
+..........................................................               [100%]
+=========================== short test summary info ===========================
+SKIPPED [1] tests\test_pipeline_export.py:118: symlink creation not permitted on this system
+489 passed, 1 skipped in 180.79s (0:03:00)
+## production suite excluding the 3 test files added on 17 Nov (expected 475)
+475 passed, 1 skipped in 102.08s (0:01:42)
+## archived reference suite (rev4 only, expected 82)
+82 passed in 5.79s
+## archived reference suite (all, rev3 + rev4)
+95 passed in 4.24s
+## differential tests
+7 passed in 4.92s
+## adoption record check
+exit=0

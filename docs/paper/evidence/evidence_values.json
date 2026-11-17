@@ -1,0 +1,200 @@
+{
+ "head": "a640c15d4168fd2103beb57a66a18dd5359cd574",
+ "values": {
+  "E01.main": "81f561e34997dc56b2728241617cd19785210c85",
+  "E01.main_eq_tag": true,
+  "E01.freeze_tag_absent": true,
+  "E01.freeze_record_absent": true,
+  "E01.ai_identity_absent": true,
+  "E01.label_files": 0,
+  "E01.local_checkouts": [
+   "development",
+   "paramiko",
+   "python-jose",
+   "validation"
+  ],
+  "E10.split": {
+   "development": 4,
+   "validation": 2,
+   "test": 7
+  },
+  "E10.repositories": 13,
+  "E10.frozen": "2026-11-13",
+  "E10.tuning_corpus_in_test": 0,
+  "E10.pycryptodome_imports_dv": 2,
+  "E10.pyca_imports_dv": 254,
+  "E10.pycryptodome_imports_test": {
+   "saltstack/salt": 14,
+   "hclivess/bismuth": 34
+  },
+  "E11.quotas": {
+   "test": 30,
+   "development": 25,
+   "validation": 25
+  },
+  "E11.planned_primary_sites": 360,
+  "E12.orders": 6,
+  "E12.strata": {
+   "S1-app": 920,
+   "S1-nonapp": 1080,
+   "S2": 1503
+  },
+  "E12.candidates_total": 3503,
+  "E13.instances": 388,
+  "E13.base_cases": 61,
+  "E13.by_kind": {
+   "key": 182,
+   "neg": 52,
+   "op": 154
+  },
+  "E13.split_base_cases": {
+   "synthetic-dev": 31,
+   "synthetic-holdout": 30
+  },
+  "E13.split_instances": {
+   "synthetic-dev": 196,
+   "synthetic-holdout": 192
+  },
+  "E13.roles": {
+   "SIGN": 140,
+   "PK_DECRYPT": 28,
+   "KEY_MATERIAL_ONLY": 42,
+   "UNKNOWN": 21,
+   "VERIFY": 35,
+   "PK_ENCRYPT": 28,
+   "KEY_ESTABLISHMENT": 42,
+   "NONE": 52
+  },
+  "E13.libraries": {
+   "pyca": 241,
+   "pycryptodome": 127,
+   "unknown": 16,
+   "out-of-scope:ecdsa": 4
+  },
+  "E13.eligible": 336,
+  "E13.validation_subset": 78,
+  "E13.transformations": {
+   "identity": 61,
+   "alias-import": 61,
+   "wrapper-function": 61,
+   "class-method": 61,
+   "cross-function": 48,
+   "dict-dispatch": 48,
+   "loaded-key": 48
+  },
+  "E13.provenance": {
+   "generated": 200,
+   "loaded-PEM": 48,
+   "parameter": 66,
+   "attribute": 22,
+   "n/a": 52
+  },
+  "E13.hybrids": 0,
+  "E14.pilot_sites": 31,
+  "E14.pilot_repos": [
+   "paramiko",
+   "python-jose"
+  ],
+  "E14.pilot_eligible": 30,
+  "E20.development/run1.ok": "40/40",
+  "E20.development/run1.timeouts": 0,
+  "E20.development/run1.file_status": {
+   "processed": 5230
+  },
+  "E20.validation/run1.ok": "20/20",
+  "E20.validation/run1.timeouts": 0,
+  "E20.validation/run1.file_status": {
+   "processed": 1600
+  },
+  "E30.accepted": true,
+  "E30.code_commit": "aa9d6b00697f8f480c1c4be1b62cd3588731b685",
+  "E30.pqscan_unchanged_since": true,
+  "E30.B": 1000,
+  "E30.failed_cells": [],
+  "E31.typeI_worst_fixed_a3_a2_a": [
+   0.0061,
+   0.0093,
+   0.0191
+  ],
+  "E31.nearkink_worst": [
+   0.0092,
+   0.0125,
+   0.0213
+  ],
+  "E31.S16_a": 0.0415,
+  "E32.fwer_worst": 0.0125,
+  "E33.two_stratum_unstratified_worst": [
+   0.0025,
+   0.004,
+   0.0114
+  ],
+  "E33.variant_in_force": "unstratified",
+  "E40.policy_version": "1.1",
+  "E40.role_map": {
+   "SIGN": "SIG",
+   "VERIFY": "SIG",
+   "KEY_ESTABLISHMENT": "KEM",
+   "PK_ENCRYPT": "KEM_DEM",
+   "PK_DECRYPT": "KEM_DEM",
+   "KEY_MATERIAL_ONLY": "INVENTORY",
+   "PROTOCOL_CONFIG": "PROTOCOL_REVIEW",
+   "UNKNOWN": "ABSTAIN"
+  },
+  "E40.default_threshold": "T2",
+  "E41.protocol_config_emitted_by_module_C": false,
+  "E50.fixture_sites": 23,
+  "E50.fixture_actions": {
+   "ABSTAIN": 2,
+   "RECOMMEND": 20,
+   "FLAG_NO_TARGET": 1
+  },
+  "E50.fixture_roles": {
+   "SIGN": 8,
+   "UNKNOWN": 1,
+   "PK_DECRYPT": 4,
+   "PK_ENCRYPT": 2,
+   "KEY_ESTABLISHMENT": 6,
+   "KEY_MATERIAL_ONLY": 1,
+   "VERIFY": 1
+  },
+  "E51.cryptography-47.0.0.files_scanned": 77,
+  "E51.cryptography-47.0.0.execution_failures": 0,
+  "E51.cryptography-47.0.0.sites": 13,
+  "E51.cryptography-47.0.0.actions": {
+   "ABSTAIN": 11,
+   "RECOMMEND": 2
+  },
+  "E51.cryptography-47.0.0.classes": {
+   "ABSTAIN": 11,
+   "SIG": 2
+  },
+  "E51.cryptography-47.0.0.excluded": 1,
+  "E51.cryptography-47.0.0.semgrep_only": 3,
+  "E51.cryptography-47.0.0.semantic_only_sites": 2,
+  "E52.cryptography-47.0.0.non_abstain_class_mismatch": 0,
+  "E52.cryptography-47.0.0.abstain_without_unknown_or_low_tier": 0,
+  "E52.cryptography-47.0.0.recommend_below_T2": 0,
+  "E51.pycryptodome-4.4.0.files_scanned": 228,
+  "E51.pycryptodome-4.4.0.execution_failures": 0,
+  "E51.pycryptodome-4.4.0.sites": 1214,
+  "E51.pycryptodome-4.4.0.actions": {
+   "ABSTAIN": 573,
+   "RECOMMEND": 210,
+   "FLAG_NO_TARGET": 431
+  },
+  "E51.pycryptodome-4.4.0.classes": {
+   "ABSTAIN": 573,
+   "KEM_DEM": 86,
+   "SIG": 124,
+   "INVENTORY": 431
+  },
+  "E51.pycryptodome-4.4.0.excluded": 729,
+  "E51.pycryptodome-4.4.0.semgrep_only": 35,
+  "E51.pycryptodome-4.4.0.semantic_only_sites": 0,
+  "E52.pycryptodome-4.4.0.non_abstain_class_mismatch": 0,
+  "E52.pycryptodome-4.4.0.abstain_without_unknown_or_low_tier": 0,
+  "E52.pycryptodome-4.4.0.recommend_below_T2": 0,
+  "E53.schema_valid": "6/6"
+ },
+ "failures": []
+}

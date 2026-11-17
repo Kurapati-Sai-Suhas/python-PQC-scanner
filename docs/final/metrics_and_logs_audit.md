@@ -74,7 +74,7 @@ Every value was recomputed on 17 Nov 2026 from raw files: `runs/*/batch_summary.
 ## 4. Commands run for this audit (17 Nov 2026)
 
 ```bash
-.venv/Scripts/python -m pytest -o addopts="" -q                  # 485 passed, 1 skipped (after the first fix commit); 489 + 1 at the end
+.venv/Scripts/python -m pytest -o addopts="" -q                  # 485 + 1 skipped at 196399b (intermediate); final: 489 passed, 1 skipped at a640c15
 .venv/Scripts/python -m pytest -o addopts="" -q docs/proposals   # 95 passed (82 rev4 + 13 rev3)
 .venv/Scripts/python scripts/adoption_record.py --check          # exit 0
 bash docs/final/demo/run_final_demo.sh <scratch>                 # fresh venv, demo reproduction, real-code scan
