@@ -57,7 +57,7 @@ b9206df73e71422654e86f9daf34e7e0dc537fd3d2f8fe859d016d4e94631699  pycryptodome-4
 3ecc61bad1002ae04d189aa9c4a2078b1146eefd12f6ef306aac18a1aa41150d  pycryptodome-4.4.0_scan.sarif   (committed as .gz)
 ```
 
-The `.gz` files were written with `gzip -n -9`, so they carry no name or timestamp. `gzip -dc <file> | sha256sum` reproduces the raw hashes above.
+These hashes are of the files as written on Windows, where text outputs have CRLF line endings. Git stores the committed text files with LF endings (`core.autocrlf`). On another platform, convert to CRLF before hashing, or compare with line endings normalised. The `.gz` files are binary, and their contents are the raw CRLF files. The `.gz` files were written with `gzip -n -9`, so they carry no name or timestamp. `gzip -dc <file> | sha256sum` reproduces the raw hashes above.
 
 ## Edits made after the run
 
