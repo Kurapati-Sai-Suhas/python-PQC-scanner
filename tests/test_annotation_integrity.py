@@ -223,7 +223,7 @@ def test_packet_first_is_seeded_deterministic_and_near_rate():
 def _identity(tmp_path):
     p = tmp_path / "ident.json"
     p.write_text(json.dumps({"interface_or_api": "ChatGPT web, Temporary Chat", "model": "TEST-MODEL",
-                             "recorded_utc": "2026-11-16T09:00:00Z", "isolation": "temporary chat; memory off"}), encoding="utf-8")
+                             "recorded_utc": "2026-11-16T09:00:00Z", "isolation": {"fresh_temporary_chat_per_batch": "yes", "custom_instructions": "off", "memory_and_chat_history_reference": "off", "projects": "off", "connectors": "off", "file_library": "off", "browsing_search": "off"}}), encoding="utf-8")
     return p
 
 
@@ -337,6 +337,9 @@ def test_workflow_cli_end_to_end(tmp_path, monkeypatch, capsys):
     raw = tmp_path / "raw.txt"
     raw.write_text("\n".join(_ai_line(t["candidate_id"], gt_role="VERIFY" if i == 0 else "SIGN") for i, t in enumerate(todo)), encoding="utf-8")
     assert run("ai", "--phase", "DV", "--repo", "demo", "--batch", "B1", "--response", str(raw), "--utc", "2026-11-16T12:00:00Z")["records"] == 3
+    ai_entry = L.read(root / "benchmark" / "ledger" / "DV" / "ledger_demo.jsonl")[-1]
+    assert ai_entry["step"] == "ai_review" and f"identity sha256 {R.identity_sha256()}" in ai_entry["note"]
+    assert "app_version not shown" in ai_entry["note"]
     assert run("compare", "--phase", "DV", "--repo", "demo", "--batch", "B1")["disagreements"] == 1
     adj = tmp_path / "adj.csv"
     with adj.open("w", newline="", encoding="utf-8") as f:

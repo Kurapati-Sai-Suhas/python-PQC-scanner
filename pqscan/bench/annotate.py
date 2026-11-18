@@ -163,12 +163,14 @@ def cmd_ai(a, root: Path) -> dict:
     p = paths(a.phase, a.repo, root)
     packets = json.loads((p["work"] / f"packets_{a.repo}_{a.batch}.json").read_text(encoding="utf-8"))
     raw = Path(a.response).read_text(encoding="utf-8")
-    parsed = R.parse_ai_response(raw, packets, R.load_identity(), datetime_utc=a.utc, prompt_sha256=R.template_sha256())
+    ident = R.load_identity()
+    parsed = R.parse_ai_response(raw, packets, ident, datetime_utc=a.utc, prompt_sha256=R.template_sha256())
     out = p["work"] / f"ai_review_{a.repo}_{a.batch}.jsonl"
     out.write_text("".join(json.dumps(r) + "\n" for r in parsed["records"]), encoding="utf-8", newline="\n")
     (p["work"] / f"ai_raw_{a.repo}_{a.batch}.txt").write_bytes(Path(a.response).read_bytes())
     L.append(p["ledger"], step="ai_review", repo=a.repo, phase=a.phase, batch=a.batch, file=out,
-             note=f"raw sha256 {L.file_sha256(Path(a.response))}")
+             note=f"raw sha256 {L.file_sha256(Path(a.response))}; identity sha256 {R.identity_sha256()}"
+                  f"; app_version {ident.get('app_version') or 'not shown'}")
     return {"records": len(parsed["records"]), "problems": parsed["problems"], "absent": parsed["absent"]}
 
 

@@ -37,7 +37,7 @@ No tool output, no label, no result and no held-out test repository is in the pa
 
 ## Steps for the owner (only after approving the review)
 
-1. **Check the identity record.** `docs/benchmark/ai_review_identity.json` must exist and describe the interface, model and isolation settings actually used (V8). At the time this folder was prepared, the file was **not in the repository**. Do not start until it is.
+1. **Check the identity record.** `docs/benchmark/ai_review_identity.json` must exist and describe the interface, model and isolation settings actually used (V8). At the time this folder was prepared, the file was **not in the repository**. Do not start until it is. `python scripts/spec_review_packet.py --check` must end with `AI-review identity: recorded`; it reports `INVALID: ...` when the record fails `pqscan.bench.review.load_identity` (placeholder left, missing setting, or a setting not off).
 2. **Check the packet.** Run `python scripts/spec_review_packet.py --check`. It must print no "out of date" line and exit 0.
 3. **Open one fresh isolated session**, set up exactly as the identity record says (for ChatGPT: a new Temporary Chat; custom instructions, memory and chat history, Projects, connectors, file library and browsing off).
 4. **Paste the parts in order**, one per message. After each part except the last, the reply should be only `RECEIVED PART i OF 5`. If the reviewer starts reviewing early or says a part is cut off, stop, note it, and start again in a new session.

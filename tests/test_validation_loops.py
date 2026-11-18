@@ -32,7 +32,7 @@ def _base_cases() -> list[str]:
 def _identity(tmp_path):
     p = tmp_path / "ident.json"
     p.write_text(json.dumps({"interface_or_api": "TEST interface", "model": "TEST-MODEL",
-                             "recorded_utc": "2026-11-18T09:00:00Z", "isolation": "test fixture"}), encoding="utf-8")
+                             "recorded_utc": "2026-11-16T09:00:00Z", "isolation": {"fresh_temporary_chat_per_batch": "yes", "custom_instructions": "off", "memory_and_chat_history_reference": "off", "projects": "off", "connectors": "off", "file_library": "off", "browsing_search": "off"}}), encoding="utf-8")
     return p
 
 

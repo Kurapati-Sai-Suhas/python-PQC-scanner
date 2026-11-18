@@ -105,7 +105,14 @@ def test_no_timestamp_commit_or_identity_values_in_manifest():
 def test_identity_status_reflects_the_file(tmp_path):
     assert SRP.identity_status(tmp_path).startswith("NOT RECORDED")
     (tmp_path / "docs" / "benchmark").mkdir(parents=True)
-    (tmp_path / "docs" / "benchmark" / "ai_review_identity.json").write_text("{}", encoding="utf-8")
+    p = tmp_path / "docs" / "benchmark" / "ai_review_identity.json"
+    p.write_text("{}", encoding="utf-8")                                   # exists but empty: not accepted
+    assert SRP.identity_status(tmp_path).startswith("INVALID")
+    iso = {"fresh_temporary_chat_per_batch": "yes"} | {k: "off" for k in (
+        "custom_instructions", "memory_and_chat_history_reference", "projects", "connectors", "file_library",
+        "browsing_search")}
+    p.write_text(json.dumps({"interface_or_api": "TEST interface", "model": "TEST-MODEL",
+                             "recorded_utc": "2026-11-16T09:00:00Z", "isolation": iso}), encoding="utf-8")
     assert SRP.identity_status(tmp_path) == "recorded"
 
 

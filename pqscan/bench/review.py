@@ -38,17 +38,86 @@ class ReviewError(ValueError):
     pass
 
 
+IDENTITY_REQUIRED = ("interface_or_api", "model", "recorded_utc", "isolation")
+IDENTITY_OPTIONAL = ("app_version", "notes")
+# guide v1.1 Sec. 6: one fresh ChatGPT Temporary Chat per batch, with these all off
+ISOLATION_YES = ("fresh_temporary_chat_per_batch",)
+ISOLATION_OFF = ("custom_instructions", "memory_and_chat_history_reference", "projects", "connectors", "file_library",
+                 "browsing_search")
+_PLACEHOLDER = re.compile(r"FILL|TODO|[<>]")
+_UTC = re.compile(r"^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}(:[0-9]{2})?Z$")   # as meta_schema ai.datetime_utc
+
+
+def identity_problems(ident) -> list[str]:
+    """Every reason the identity record is not acceptable (empty list = acceptable). Never fills anything in."""
+    import datetime as _dt
+    if not isinstance(ident, dict):
+        return ["the identity record must be a JSON object"]
+    probs = []
+    for k in IDENTITY_REQUIRED:
+        if k not in ident or (isinstance(ident[k], str) and not ident[k].strip()):
+            probs.append(f"{k} is missing or empty")
+    unknown = sorted(set(ident) - set(IDENTITY_REQUIRED) - set(IDENTITY_OPTIONAL))
+    if unknown:
+        probs.append(f"unknown keys {unknown} (allowed: {list(IDENTITY_REQUIRED + IDENTITY_OPTIONAL)})")
+    for k in ("interface_or_api", "model", "recorded_utc") + IDENTITY_OPTIONAL:
+        if k in ident and not isinstance(ident[k], str):
+            probs.append(f"{k} must be a string")
+    for k, v in ident.items():
+        for s in ([v] if isinstance(v, str) else list(v.values()) if isinstance(v, dict) else []):
+            if isinstance(s, str) and _PLACEHOLDER.search(s):
+                probs.append(f"{k} still contains a placeholder (FILL, TODO, < or >)")
+                break
+    utc = ident.get("recorded_utc")
+    if isinstance(utc, str) and utc.strip() and not _PLACEHOLDER.search(utc):
+        if not _UTC.match(utc):
+            probs.append("recorded_utc must look like YYYY-MM-DDTHH:MM:SSZ (UTC)")
+        else:
+            t = _dt.datetime.fromisoformat(utc.replace("Z", "+00:00"))
+            if t > _dt.datetime.now(_dt.timezone.utc) + _dt.timedelta(minutes=5):
+                probs.append("recorded_utc is in the future")
+    iso = ident.get("isolation")
+    if "isolation" in ident:
+        if not isinstance(iso, dict):
+            probs.append("isolation must be an object with the guide v1.1 Sec. 6 settings")
+        else:
+            expected = ISOLATION_YES + ISOLATION_OFF
+            for k in expected:
+                if k not in iso:
+                    probs.append(f"isolation.{k} is not recorded")
+            extra = sorted(set(iso) - set(expected))
+            if extra:
+                probs.append(f"isolation has unknown keys {extra}")
+            for k in ISOLATION_YES:
+                if k in iso and str(iso[k]).strip().lower() != "yes":
+                    probs.append(f"isolation.{k} must be 'yes' (guide v1.1 Sec. 6)")
+            for k in ISOLATION_OFF:
+                if k in iso and str(iso[k]).strip().lower() != "off":
+                    probs.append(f"isolation.{k} must be 'off' (guide v1.1 Sec. 6)")
+    return probs
+
+
 def load_identity(path: Path | None = None) -> dict:
-    """The owner's record of the AI interface and model (V8). Required before the first review."""
+    """The owner's record of the AI interface, model and isolation (V8; guide v1.1 Sec. 6). Required before the first
+    review. Refused when missing, malformed, with a placeholder left in, or with a required isolation setting not
+    switched off. Covers the ChatGPT Temporary Chat route; the API route of guide Sec. 6 is not supported here."""
     path = Path(path) if path is not None else IDENTITY
     if not path.exists():
         raise ReviewError(f"{path.name} is missing: the owner must record the AI interface and model before any review (V8)")
-    ident = json.loads(path.read_text(encoding="utf-8"))
-    need = ("interface_or_api", "model", "recorded_utc", "isolation")
-    missing = [k for k in need if not str(ident.get(k, "")).strip()]
-    if missing:
-        raise ReviewError(f"AI identity record incomplete: {missing}")
+    try:
+        ident = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, UnicodeDecodeError) as e:
+        raise ReviewError(f"AI identity record is not valid UTF-8 JSON: {e}") from None
+    probs = identity_problems(ident)
+    if probs:
+        raise ReviewError("AI identity record not acceptable: " + "; ".join(probs))
     return ident
+
+
+def identity_sha256(path: Path | None = None) -> str:
+    """SHA-256 of the identity record in force (LF-normalised), stored with each AI review in the ledger."""
+    path = Path(path) if path is not None else IDENTITY
+    return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
 def guide_extract(guide_text: str) -> str:
@@ -241,4 +310,5 @@ def unresolved_report(finals: list[dict]) -> dict:
 
 
 __all__ = ["ReviewError", "LabelError", "load_identity", "build_prompt", "parse_ai_response", "compare",
-           "write_disagreements", "read_adjudication", "adjudicate", "unresolved_report", "template_sha256"]
+           "write_disagreements", "read_adjudication", "adjudicate", "unresolved_report", "template_sha256",
+           "identity_problems", "identity_sha256"]

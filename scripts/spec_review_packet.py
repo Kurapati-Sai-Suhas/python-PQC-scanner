@@ -135,8 +135,18 @@ def check(root: Path = ROOT) -> list[str]:
 
 
 def identity_status(root: Path = ROOT) -> str:
+    """'recorded' only when the identity record passes pqscan.bench.review.load_identity (V8; guide v1.1 Sec. 6)."""
+    if str(ROOT) not in sys.path:
+        sys.path.insert(0, str(ROOT))
+    from pqscan.bench import review as R
     p = root / "docs" / "benchmark" / "ai_review_identity.json"
-    return "recorded" if p.exists() else "NOT RECORDED: the review must not start until the owner records it (V8)"
+    if not p.exists():
+        return "NOT RECORDED: the review must not start until the owner records it (V8)"
+    try:
+        R.load_identity(p)
+    except R.ReviewError as e:
+        return f"INVALID: {e}"
+    return "recorded"
 
 
 def main(argv=None) -> int:

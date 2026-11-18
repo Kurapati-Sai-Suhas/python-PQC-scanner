@@ -9,6 +9,7 @@ This review is "ChatGPT review with owner sign-off" (protocol v1.0.4, Sec. 3). I
 - Identity record used: `docs/benchmark/ai_review_identity.json`, SHA-256: TO FILL
 - Session date and time (UTC): TO FILL
 - Interface and model, as shown in the session: TO FILL
+- App version, if shown (guide v1.1 Sec. 6; otherwise write "not shown"): TO FILL
 - Isolation settings confirmed before pasting (yes/no for each): Temporary Chat TO FILL; custom instructions off TO FILL; memory and chat history off TO FILL; Projects off TO FILL; connectors off TO FILL; file library off TO FILL; browsing off TO FILL
 - Number of sessions started (including any restarted): TO FILL. Reason for any restart: TO FILL
 

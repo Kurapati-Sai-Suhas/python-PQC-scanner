@@ -70,26 +70,40 @@ The tooling refuses to build any AI-review prompt until the identity file exists
   - browsing / web search.
 - **Alternative:** the OpenAI API with a pinned model identifier and *your own* key. Claude never handles API keys.
 
-**Then create the file** `docs/benchmark/ai_review_identity.json` with exactly these four keys. The tool checks that all four are present and non-empty (`review.load_identity`):
+**Then create the file** `docs/benchmark/ai_review_identity.json` in this format. Four keys are required (`interface_or_api`, `model`, `recorded_utc`, `isolation`); `app_version` and `notes` are optional; no other key is accepted. `isolation` is an object with exactly the seven entries below. The tool (`review.load_identity`, hardened 18 Nov 2026) refuses the file if a key is missing, a placeholder (`FILL`, `TODO`, `<`, `>`) is left anywhere, `recorded_utc` is not a past UTC time, or any isolation entry is not `yes`/`off` as shown:
 
 ```json
 {
-  "interface_or_api": "<what you actually use, e.g. the product name and mode as you see it>",
-  "model": "<the model name EXACTLY as the model picker displays it (or the API model ID)>",
-  "recorded_utc": "<the current date and time in UTC, ISO format, e.g. YYYY-MM-DDTHH:MM:SSZ>",
-  "isolation": "<the settings you actually switched off, in your own words>"
+  "interface_or_api": "FILL: e.g. product name and mode as you use it",
+  "model": "FILL: exactly as the model picker shows it",
+  "app_version": "FILL if shown; otherwise delete this line",
+  "recorded_utc": "FILL: output of the PowerShell UTC command",
+  "isolation": {
+    "fresh_temporary_chat_per_batch": "FILL: yes",
+    "custom_instructions": "FILL: off",
+    "memory_and_chat_history_reference": "FILL: off",
+    "projects": "FILL: off",
+    "connectors": "FILL: off",
+    "file_library": "FILL: off",
+    "browsing_search": "FILL: off"
+  },
+  "notes": "FILL or delete this line"
 }
 ```
+
+Write `off` only for a setting you actually switched off. If a setting cannot be found or switched off, stop and tell Claude. The API route of guide Sec. 6 is not supported by this format.
 
 **How to get each value:**
 - **`interface_or_api`:** describe what you open, for example the product and the Temporary Chat mode. Do not copy an example: write what you use.
 - **`model`:** read it from the model picker at the moment you record. Copy it character for character.
-- **`recorded_utc`:** the time you write the file, in UTC. In Git Bash, `date -u +%FT%TZ` prints it.
-- **`isolation`:** list the settings from the list above that you turned off, and anything else you did.
+- **`recorded_utc`:** the time you write the file, in UTC. In PowerShell, `(Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")` prints it (in Git Bash: `date -u +%FT%TZ`).
+- **`isolation`:** one entry per setting above: `off` for each setting you switched off, `yes` for the fresh Temporary Chat. Anything else you did goes in `notes`.
+- **`app_version`:** only if the interface shows one; otherwise delete the line.
 
 **Rules:**
-- **Never leave a `<…>` placeholder.** The tool only checks that the fields are non-empty; it cannot tell a placeholder from a real value.
-- If the displayed model changes later (providers rotate models), stop and tell Claude. Record a new identity file version with the date and the reason, committed before the next batch. Each review record also stores the model and UTC time per batch.
+- **Never leave a placeholder.** The tool now refuses `FILL`, `TODO`, `<` and `>`, but it cannot tell an invented value from a real one: every value must be what you actually see.
+- Each AI-review ledger entry records the SHA-256 of the identity file in force and its `app_version`.
+- If the displayed model or app version changes later (providers rotate models), stop and tell Claude. Record a new identity file version with the date and the reason, committed before the next batch. Each review record also stores the model and UTC time per batch.
 - Commit the file yourself, or ask Claude to commit it as written by you. Claude will not change its content.
 
 ---
