@@ -1,0 +1,247 @@
+{
+ "procedure": "one-sided exact McNemar per baseline on pooled both-ran discordant pairs; Holm at 0.025",
+ "alpha": 0.025,
+ "design": {
+  "repositories": 7,
+  "m_app": 20,
+  "m_nonapp": 10,
+  "frame_app": [
+   40,
+   60,
+   90,
+   150,
+   220,
+   300,
+   400
+  ],
+  "frame_nonapp": [
+   12,
+   20,
+   35,
+   60,
+   100,
+   150,
+   250
+  ]
+ },
+ "seed_rule": "numpy default_rng(first 8 bytes, big-endian, of SHA-256('20261113:fa-type1:<config>'))",
+ "criterion": "rate <= 0.025 + 3 * sqrt(0.025 * 0.975 / R)",
+ "single": {
+  "S1-homogeneous": {
+   "desc": "every stratum: discordance 0.20, exactly balanced",
+   "R": 20000,
+   "rejection_rate": 0.00885,
+   "mean_discordant": 41.2937,
+   "design_E_b_minus_c": -0.03428571428571431,
+   "limit": 0.028311910324872944,
+   "pass": true
+  },
+  "S2-repo-heterogeneous": {
+   "desc": "repositories favour opposite arms (shares 0.8/0.2, 0.75/0.25, 0.7/0.3, 0.5), cancelling under the design",
+   "R": 20000,
+   "rejection_rate": 0.0084,
+   "mean_discordant": 41.3407,
+   "design_E_b_minus_c": -0.03093795093795071,
+   "limit": 0.028311910324872944,
+   "pass": true
+  },
+  "S3-stratum-heterogeneous": {
+   "desc": "app favours the proposed system (d 0.15, share 0.7), non-app the baseline (d 0.30, share 0.3); small non-app frames (fractions up to 0.83)",
+   "R": 20000,
+   "rejection_rate": 0.00625,
+   "mean_discordant": 41.4779,
+   "design_E_b_minus_c": -0.001038961038961006,
+   "limit": 0.028311910324872944,
+   "pass": true
+  },
+  "S4-sparse": {
+   "desc": "discordance 0.03 (about 6 discordant pairs per data set)",
+   "R": 20000,
+   "rejection_rate": 0.0018,
+   "mean_discordant": 5.28885,
+   "design_E_b_minus_c": -0.012582972582972585,
+   "limit": 0.028311910324872944,
+   "pass": true
+  },
+  "S5-failures-random": {
+   "desc": "S2 with 10% execution failures independent of the outcome",
+   "R": 20000,
+   "rejection_rate": 0.0088,
+   "mean_discordant": 37.221,
+   "design_E_b_minus_c": -0.02784415584415567,
+   "limit": 0.028311910324872944,
+   "pass": true
+  },
+  "S6-failures-by-stratum": {
+   "desc": "S3-type heterogeneity with failures 5% (app) and 30% (non-app); null on the both-ran sites (estimand of plan Sec. 9 item 4)",
+   "R": 20000,
+   "rejection_rate": 0.0075,
+   "mean_discordant": 33.951,
+   "design_E_b_minus_c": -0.008606060606060895,
+   "limit": 0.028311910324872944,
+   "pass": true
+  }
+ },
+ "family": {
+  "F1-all-null-correlated": {
+   "desc": "8 baselines, all null, shared discordant core 60% (correlated tests)",
+   "R": 10000,
+   "fwer_null_baselines": 0.003,
+   "single_rejection_rates": [
+    0.0111,
+    0.0094,
+    0.0083,
+    0.0089,
+    0.0095,
+    0.0085,
+    0.0094,
+    0.0111
+   ],
+   "design_E_b_minus_c": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "null_mask": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "mean_corr_b_between_null_baselines": 0.5901863722715304,
+   "limit": 0.0296837484987988,
+   "pass": true
+  },
+  "F2-half-alternative": {
+   "desc": "baselines 1-4 favour the proposed system (share 0.75), 5-8 null; FWER over 5-8",
+   "R": 10000,
+   "fwer_null_baselines": 0.0046,
+   "single_rejection_rates": [
+    0.9368,
+    0.9398,
+    0.9348,
+    0.932,
+    0.0095,
+    0.0078,
+    0.008,
+    0.0092
+   ],
+   "design_E_b_minus_c": [
+    21.586031746031747,
+    21.586031746031747,
+    21.586031746031747,
+    21.586031746031747,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "null_mask": [
+    false,
+    false,
+    false,
+    false,
+    true,
+    true,
+    true,
+    true
+   ],
+   "mean_corr_b_between_null_baselines": 0.5969956479766917,
+   "limit": 0.0296837484987988,
+   "pass": true
+  },
+  "F3-all-null-failures": {
+   "desc": "F1 with 10% execution failures",
+   "R": 10000,
+   "fwer_null_baselines": 0.0047,
+   "single_rejection_rates": [
+    0.0091,
+    0.0086,
+    0.0097,
+    0.0077,
+    0.0103,
+    0.0082,
+    0.0077,
+    0.0096
+   ],
+   "design_E_b_minus_c": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "null_mask": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "mean_corr_b_between_null_baselines": 0.50546469772935,
+   "limit": 0.0296837484987988,
+   "pass": true
+  },
+  "F4-all-null-sparse": {
+   "desc": "F1 with discordance 0.05",
+   "R": 10000,
+   "fwer_null_baselines": 0.0004,
+   "single_rejection_rates": [
+    0.0031,
+    0.0037,
+    0.004,
+    0.0035,
+    0.0051,
+    0.0037,
+    0.0037,
+    0.0039
+   ],
+   "design_E_b_minus_c": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "null_mask": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "mean_corr_b_between_null_baselines": 0.7141415137493905,
+   "limit": 0.0296837484987988,
+   "pass": true
+  }
+ },
+ "all_pass": true,
+ "environment": {
+  "python": "3.12.10",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "platform": "Windows-11-10.0.26300-SP0"
+ },
+ "runtime_seconds": 2.4
+}
