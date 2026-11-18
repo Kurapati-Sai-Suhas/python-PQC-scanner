@@ -1,3 +1,5 @@
+> **Superseded on 18 Nov 2026 by `docs/audit/owner_action_checklist_next_stage.md`.** This file is kept unchanged below as the earlier record.
+
 # Owner action checklist (updated 18 Nov 2026)
 
 **Current state** (verified by `docs/paper/verify_evidence.py`, E01):
