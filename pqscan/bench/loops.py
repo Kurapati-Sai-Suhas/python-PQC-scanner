@@ -128,6 +128,24 @@ def prepare_batch(phase: str, batch: list[dict], root: Path, work: Path) -> None
             raise LoopError(f"pilot checkout {base} missing; run scripts/fetch_pinned.py repos .cache/repos")
 
 
+# ---------------------------------------------------------------- pilot sites exposed in the annotation guide
+# Owner decision (pilot exposure): the worked examples of annotation guide Sec. 7 are pilot sites whose labels the
+# owner has read. They are kept in the pilot loop as a separately reported subset; their agreement with the AI review
+# or the earlier labels is never counted as blind evidence. (repo, file name, line); a test ties this to the guide.
+GUIDE_EXPOSED_PILOT = frozenset({
+    ("paramiko", "kex_ecdh_nist.py", 59), ("paramiko", "kex_mlkem.py", 112), ("paramiko", "pkey.py", 195),
+    ("python-jose", "cryptography_backend.py", 208), ("python-jose", "cryptography_backend.py", 252),
+})
+
+
+def guide_exposed(phase: str, repo: str, root: Path) -> set[str]:
+    """Candidate IDs of the guide-exposed pilot sites of one loop repository (empty outside the pilot)."""
+    if phase != "pilot":
+        return set()
+    return {i["candidate_id"] for i in items(phase, repo, root)
+            if (repo, Path(i["file"]).name, i["line"]) in GUIDE_EXPOSED_PILOT}
+
+
 # ---------------------------------------------------------------- reference comparison (after the loop only)
 def _bool(v):
     if isinstance(v, bool) or v is None:

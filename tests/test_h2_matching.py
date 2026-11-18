@@ -228,6 +228,26 @@ def test_failure_partition_concordance_and_sensitivities():
     assert r2["partition"]["m_only"] == 1
 
 
+def test_failures_reported_by_stratum_and_two_estimands_kept_apart():
+    """F04 (plan v1.0.1): m_r,h of the sampled primary set and c_r,h of the common evaluable set are both reported,
+    failures are partitioned by stratum, and with concordant failures S-F1 = (n_r/m_r) x primary, so the two coincide
+    only when nothing failed."""
+    L = [lab(0), lab(1), lab(2, stratum="S1-nonapp"), lab(3, stratum="S1-nonapp"), lab(4), lab(5, stratum="S1-nonapp")]
+    f = [rec("T2"), rec("T3"), EF, rec("T2"), AB, EF]
+    m = [rec("T1"), AB, EF, AB, AB, EF]
+    r = MT.repository_result(L, f, m, comparison="c", repo="r", seeds=())
+    assert r["strata_drawn"] == {"S1-app": 3, "S1-nonapp": 3}
+    assert r["strata"] == {"S1-app": 3, "S1-nonapp": 1}
+    assert r["failures_by_stratum"]["neither"] == {"S1-app": 0, "S1-nonapp": 2}
+    assert r["failures_by_stratum"]["f_only"] == r["failures_by_stratum"]["m_only"] == {"S1-app": 0, "S1-nonapp": 0}
+    assert r["n_eligible"] == 6 and r["n_common"] == 4
+    assert r["delta_sf1"] == pytest.approx(r["delta_ta"] * r["n_common"] / r["n_eligible"])
+    if r["delta_ta"] != 0:
+        assert r["delta_sf1"] != pytest.approx(r["delta_ta"])            # never identical when failures exist
+    clean = MT.repository_result(L, [rec("T2")] * 6, [AB] * 6, comparison="c", repo="r", seeds=())
+    assert clean["n_common"] == clean["n_eligible"] and clean["delta_sf1"] == pytest.approx(clean["delta_ta"])
+
+
 def test_repository_without_common_sites_is_reported_not_dropped():
     r = MT.repository_result([lab(0), lab(1)], [EF, EF], [EF, EF], comparison="c", repo="r", seeds=())
     assert r["n_common"] == 0 and r["delta_ta"] is None and r["estimable"] is False and r["n_eligible"] == 2

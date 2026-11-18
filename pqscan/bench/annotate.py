@@ -23,12 +23,14 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import re
 import sys
 from pathlib import Path
 
 from . import candidates as C
 from . import ledger as L
 from . import loops as LP
+from . import multicall as MC
 from . import packets as P
 from . import review as R
 from .labels import eligibility_of, validate_file
@@ -66,6 +68,14 @@ def _batch_ids(records: list[dict], batch: str) -> list[str]:
     raise L.LedgerError(f"batch {batch} was never issued")
 
 
+def _multi(base: Path, row: dict) -> dict:
+    """`multi_call` marking of an issued candidate (owner decision F03; guide v1.2 Step A): source only."""
+    f = Path(base) / row["file"]
+    if not f.is_file():
+        return {"multi_call": False}
+    return MC.mark(f.read_text(encoding="utf-8", errors="replace"), int(row["line"]))
+
+
 def _issue_loop(a, root: Path) -> dict:
     """Validation-loop issuance (phases pilot / synthetic): location-only, every item, batches of 10."""
     if a.split is not None:
@@ -84,9 +94,10 @@ def _issue_loop(a, root: Path) -> dict:
     p["work"].mkdir(parents=True, exist_ok=True)
     rows = res["batch"]
     LP.prepare_batch(a.phase, rows, root, p["work"])
-    todo = p["work"] / f"todo_{a.repo}_{label}.jsonl"
-    todo.write_text("".join(json.dumps(r | {"packet_first": False}) + "\n" for r in rows), encoding="utf-8", newline="\n")
     base = LP.checkout(a.phase, a.repo, root, p["work"])
+    todo = p["work"] / f"todo_{a.repo}_{label}.jsonl"
+    todo.write_text("".join(json.dumps(r | {"packet_first": False} | _multi(base, r)) + "\n" for r in rows),
+                    encoding="utf-8", newline="\n")
     packets = [P.build_packet(base, r["file"], r["line"], r["candidate_id"]) for r in rows]
     (p["work"] / f"packets_{a.repo}_{label}.json").write_text(json.dumps(packets, indent=1), encoding="utf-8", newline="\n")
     rec = L.append(p["ledger"], step="issue", repo=a.repo, phase=a.phase, batch=label,
@@ -117,10 +128,10 @@ def cmd_issue(a, root: Path) -> dict:
     p["work"].mkdir(parents=True, exist_ok=True)
     rows = C.annotator_list(order, res["batch"])
     flags = {r["candidate_id"]: P.packet_first(r["candidate_id"], a.phase) for r in rows} if a.phase in P.PLANNED_CANDIDATES else {}
-    todo = p["work"] / f"todo_{a.repo}_{label}.jsonl"
-    todo.write_text("".join(json.dumps(r | {"packet_first": flags.get(r["candidate_id"], False)}) + "\n" for r in rows),
-                    encoding="utf-8", newline="\n")
     checkout = _checkout(a.split, a.repo, root)
+    todo = p["work"] / f"todo_{a.repo}_{label}.jsonl"
+    todo.write_text("".join(json.dumps(r | {"packet_first": flags.get(r["candidate_id"], False)} | _multi(checkout, r))
+                            + "\n" for r in rows), encoding="utf-8", newline="\n")
     packets = [P.build_packet(checkout, r["file"], r["line"], r["candidate_id"]) for r in rows]
     (p["work"] / f"packets_{a.repo}_{label}.json").write_text(json.dumps(packets, indent=1), encoding="utf-8", newline="\n")
     rec = L.append(p["ledger"], step="issue", repo=a.repo, phase=a.phase, batch=label,
@@ -150,13 +161,76 @@ def cmd_primary(a, root: Path) -> dict:
     return {"step": rec["step"], "sha256": rec["sha256"][:12]}
 
 
+DECISION_COLUMNS = ["candidate_id", "token", "verdict", "evidence"]
+_EVIDENCE_LOC = re.compile(r"\S+:\d+")
+
+
+def _forbidden_gate(a, p: dict, packets: list[dict]) -> tuple[list[dict], list[str], dict]:
+    """Forbidden-token gate (guide v1.2 Sec. 6; owner decision F07). A packet whose text contains a forbidden token
+    (packets.FORBIDDEN) never reaches the AI unless the owner has recorded, for every (candidate, token):
+    * verdict `genuine` -> the candidate is EXCLUDED from the AI review (no reason can override this), or
+    * verdict `false_positive` -> allowed only with evidence (file:line and why the match does not refer to an
+      evaluated tool, this project or its hypotheses).
+    Returns (packets to send, excluded candidate IDs, info). The decision file is copied to the work tree and its
+    SHA-256 is recorded in the ledger as a `note`. Nothing is redacted."""
+    warned = {pk["candidate_id"]: P._forbidden_in(pk["text"]) for pk in packets}
+    warned = {c: t for c, t in warned.items() if t}
+    if not warned:
+        return packets, [], {}
+    pairs = {(c, t) for c, ts in warned.items() for t in ts}
+    if not a.warnings_decision:
+        raise SystemExit(f"forbidden token(s) in {len(warned)} packet(s): {sorted(pairs)}. The prompt is not built. "
+                         f"Record a decision per (candidate_id, token) in a CSV with columns {DECISION_COLUMNS} "
+                         "and pass it with --warnings-decision (guide v1.2 Sec. 6).")
+    src = Path(a.warnings_decision)
+    with src.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames != DECISION_COLUMNS:
+            raise SystemExit(f"decision file columns must be exactly {DECISION_COLUMNS}")
+        rows = list(reader)
+    got = [(r["candidate_id"], r["token"]) for r in rows]
+    if len(got) != len(set(got)) or set(got) != pairs:
+        raise SystemExit(f"the decision file must cover exactly the warned (candidate, token) pairs {sorted(pairs)}")
+    excluded, fp = set(), set()
+    for r in rows:
+        v = r["verdict"].strip()
+        if v == "genuine":
+            excluded.add(r["candidate_id"])
+        elif v == "false_positive":
+            if not _EVIDENCE_LOC.search(r["evidence"] or ""):
+                raise SystemExit(f"{r['candidate_id']}/{r['token']}: a false positive needs evidence with a file:line "
+                                 "reference showing the match is not forbidden content")
+            fp.add(r["candidate_id"])
+        else:
+            raise SystemExit(f"verdict must be 'genuine' or 'false_positive', not {v!r}")
+    dest = p["work"] / f"forbidden_decision_{a.repo}_{a.batch}.csv"
+    if dest.exists() and dest.read_bytes() != src.read_bytes():
+        raise SystemExit(f"{dest.name} already exists with a different decision; a change is a new batch decision")
+    if not dest.exists():
+        dest.write_bytes(src.read_bytes())
+    rec = L.append(p["ledger"], step="note", repo=a.repo, phase=a.phase, batch=a.batch, file=dest,
+                   note=f"forbidden-token decision: excluded {sorted(excluded)}; verified false positives "
+                        f"{sorted(fp - excluded)}")
+    return ([pk for pk in packets if pk["candidate_id"] not in excluded], sorted(excluded),
+            {"decision_sha256": rec["sha256"], "false_positive": sorted(fp - excluded)})
+
+
+def _excluded(p: dict, a) -> list[str]:
+    f = p["work"] / f"forbidden_decision_{a.repo}_{a.batch}.csv"
+    if not f.exists():
+        return []
+    with f.open(encoding="utf-8", newline="") as fh:
+        return sorted({r["candidate_id"] for r in csv.DictReader(fh) if r["verdict"].strip() == "genuine"})
+
+
 def cmd_prompt(a, root: Path) -> dict:
     p = paths(a.phase, a.repo, root)
     packets = json.loads((p["work"] / f"packets_{a.repo}_{a.batch}.json").read_text(encoding="utf-8"))
-    text, sha = R.build_prompt(packets)
+    send, excluded, info = _forbidden_gate(a, p, packets)
+    text, sha = R.build_prompt(send)
     out = p["work"] / f"prompt_{a.repo}_{a.batch}.txt"
     out.write_text(text, encoding="utf-8", newline="\n")
-    return {"prompt": str(out), "template_sha256": sha}
+    return {"prompt": str(out), "template_sha256": sha, "excluded_forbidden": excluded, **info}
 
 
 def cmd_ai(a, root: Path) -> dict:
@@ -171,7 +245,9 @@ def cmd_ai(a, root: Path) -> dict:
     L.append(p["ledger"], step="ai_review", repo=a.repo, phase=a.phase, batch=a.batch, file=out,
              note=f"raw sha256 {L.file_sha256(Path(a.response))}; identity sha256 {R.identity_sha256()}"
                   f"; app_version {ident.get('app_version') or 'not shown'}")
-    return {"records": len(parsed["records"]), "problems": parsed["problems"], "absent": parsed["absent"]}
+    excl = _excluded(p, a)
+    return {"records": len(parsed["records"]), "problems": parsed["problems"],
+            "absent": [c for c in parsed["absent"] if c not in excl], "excluded_forbidden": excl}
 
 
 def cmd_compare(a, root: Path) -> dict:
@@ -217,16 +293,22 @@ def cmd_reference(a, root: Path) -> dict:
     finals = [json.loads(x) for f in sorted(p["work"].glob(f"final_{a.repo}_B*.jsonl"))
               for x in f.read_text(encoding="utf-8").splitlines() if x.strip()]
     res = LP.reference_compare(finals, LP.reference_labels(a.phase, a.repo, root))
+    exposed = LP.guide_exposed(a.phase, a.repo, root)
     out = p["work"] / f"reference_disagreements_{a.repo}.csv"
     with out.open("w", encoding="utf-8", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=["candidate_id", "field", "owner_final", "reference", "decision", "reason"])
+        w = csv.DictWriter(f, fieldnames=["candidate_id", "guide_exposed", "field", "owner_final", "reference",
+                                          "decision", "reason"])
         w.writeheader()
         for r in res["disagreements"]:
-            w.writerow({**r, "decision": "", "reason": ""})
+            w.writerow({**r, "guide_exposed": r["candidate_id"] in exposed, "decision": "", "reason": ""})
+    dis_exp = sum(r["candidate_id"] in exposed for r in res["disagreements"])
+    fin_ids = {r["meta"]["candidate_id"] for r in finals if not r["meta"].get("annotator_added")}
     L.append(p["ledger"], step="note", repo=a.repo, phase=a.phase, file=out,
-             note=f"reference comparison: {len(res['disagreements'])} field disagreements over {res['compared']} items")
+             note=f"reference comparison: {len(res['disagreements'])} field disagreements over {res['compared']} items "
+                  f"(guide-exposed subset: {len(exposed & fin_ids)} items, {dis_exp} disagreements; reported separately)")
     return {"disagreements": len(res["disagreements"]), "compared": res["compared"], "no_reference": len(res["no_reference"]),
-            "file": out.name}
+            "file": out.name, "guide_exposed_items": len(exposed & fin_ids), "disagreements_guide_exposed": dis_exp,
+            "disagreements_not_exposed": len(res["disagreements"]) - dis_exp}
 
 
 def cmd_status(a, root: Path) -> dict:
@@ -259,6 +341,11 @@ def main(argv: list[str] | None = None, root: Path = ROOT) -> int:
             s.add_argument("--utc", required=True)
         if name == "adjudicate":
             s.add_argument("--adjudication", required=True)
+        if name == "prompt":
+            s.add_argument("--warnings-decision", default=None,
+                           help="CSV (candidate_id,token,verdict,evidence) required when a packet contains a "
+                                "forbidden token: genuine -> excluded from the AI review; false_positive -> needs "
+                                "file:line evidence")
     a = ap.parse_args(argv)
     res = globals()[f"cmd_{a.cmd}"](a, root)
     if a.push and a.cmd != "status":

@@ -1,0 +1,109 @@
+{
+ "evidence": "F03 multi-call candidate statements (source-only census of the DV candidate pool)",
+ "reads": "order_*.json (locations) and pinned DV source only; never pool_sources_*, tool outputs or labels",
+ "orders_sha256": {
+  "benchmark/candidates/development/order_jpadilla__pyjwt.json": "6b5c6d3665a24ce2dda1f05f654caf66968e96bbab1464329426b8d724a4bd12",
+  "benchmark/candidates/development/order_lepture__authlib.json": "4037590df85a79cd3076b80f0813b74eb4a9da90a35b86a91fded658c41311ed",
+  "benchmark/candidates/development/order_mpdavis__python-jose.json": "472a7745c8d2a6fdb975226635f5f5cb4a489d0abaed69d8f2cc3a175a16edf6",
+  "benchmark/candidates/development/order_paramiko__paramiko.json": "1b25194db441c15496aff658fecf268c1bb05ce01d7db84d384032f5461c2775",
+  "benchmark/candidates/validation/order_latchset__jwcrypto.json": "6e30f2e8e64911cb8b48e613a317ec051116e20bfc7285696738683596637cd9",
+  "benchmark/candidates/validation/order_ronf__asyncssh.json": "f8f41584a9851d1aead1acbeb3fcb93730cf026c6cfffc1794038fa5a906ac29"
+ },
+ "pool_candidates": 3503,
+ "counts": {
+  "S1-app|0": 710,
+  "S1-app|1": 187,
+  "S1-app|>=2": 4,
+  "S1-app|no_statement": 19,
+  "S1-nonapp|0": 847,
+  "S1-nonapp|1": 167,
+  "S1-nonapp|>=2": 4,
+  "S1-nonapp|no_statement": 62,
+  "S2|0": 1258,
+  "S2|1": 161,
+  "S2|no_statement": 84
+ },
+ "multi_call": [
+  {
+   "repo": "jpadilla__pyjwt",
+   "file": "tests/test_algorithms.py",
+   "line": 1214,
+   "stratum": "S1-nonapp",
+   "calls": [
+    "operation:verify",
+    "key_material:public_key"
+   ]
+  },
+  {
+   "repo": "jpadilla__pyjwt",
+   "file": "tests/test_algorithms.py",
+   "line": 1332,
+   "stratum": "S1-nonapp",
+   "calls": [
+    "operation:verify",
+    "key_material:public_key"
+   ]
+  },
+  {
+   "repo": "lepture__authlib",
+   "file": "tests/jose/test_jwt.py",
+   "line": 63,
+   "stratum": "S1-nonapp",
+   "calls": [
+    "key_material:public_key",
+    "key_material:public_key",
+    "operation:sign"
+   ]
+  },
+  {
+   "repo": "mpdavis__python-jose",
+   "file": "jose/backends/cryptography_backend.py",
+   "line": 316,
+   "stratum": "S1-app",
+   "calls": [
+    "key_material:public_key",
+    "operation:verify"
+   ]
+  },
+  {
+   "repo": "mpdavis__python-jose",
+   "file": "jose/backends/cryptography_backend.py",
+   "line": 357,
+   "stratum": "S1-app",
+   "calls": [
+    "key_material:public_numbers",
+    "key_material:public_numbers"
+   ]
+  },
+  {
+   "repo": "paramiko__paramiko",
+   "file": "paramiko/kex_mlkem.py",
+   "line": 89,
+   "stratum": "S1-app",
+   "calls": [
+    "key_material:public_key",
+    "key_material:public_key"
+   ]
+  },
+  {
+   "repo": "paramiko__paramiko",
+   "file": "paramiko/kex_mlkem.py",
+   "line": 196,
+   "stratum": "S1-app",
+   "calls": [
+    "key_material:public_key",
+    "key_material:public_key"
+   ]
+  },
+  {
+   "repo": "paramiko__paramiko",
+   "file": "tests/test_kex.py",
+   "line": 61,
+   "stratum": "S1-nonapp",
+   "calls": [
+    "key_material:from_encoded_point",
+    "key_material:public_numbers"
+   ]
+  }
+ ]
+}

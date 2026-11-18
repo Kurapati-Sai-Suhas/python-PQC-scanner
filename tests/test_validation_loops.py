@@ -147,7 +147,7 @@ def test_synthetic_issue_is_blinded_and_ledgered(tmp_path, capsys):
     packets = json.loads((work / "packets_synthetic_B1.json").read_text(encoding="utf-8"))
     names = _base_cases()
     for t, pk in zip(todo, packets):
-        assert set(t) == ITEM_KEYS | {"packet_first"} and (work / t["file"]).exists()
+        assert set(t) - {"calls"} == ITEM_KEYS | {"packet_first", "multi_call"} and (work / t["file"]).exists()
         assert not any(n in pk["text"] for n in names) and "Synthetic case" not in pk["text"]
         assert P._forbidden_in(pk["text"]) == []
     assert not (work / "sites.jsonl").exists() and not any(work.glob("reference*"))
@@ -170,7 +170,7 @@ def test_pilot_loop_end_to_end_and_reference_gate(tmp_path, monkeypatch, capsys)
         AN.main(["reference", "--phase", "pilot", "--repo", "paramiko"], root=root)
     work = root / "benchmark/annotation/pilot/paramiko"
     todo = [json.loads(x) for x in (work / "todo_paramiko_B1.jsonl").read_text(encoding="utf-8").splitlines()]
-    assert all(set(t) == ITEM_KEYS | {"packet_first"} for t in todo)
+    assert all(set(t) - {"calls"} == ITEM_KEYS | {"packet_first", "multi_call"} for t in todo)
     prim = tmp_path / "prim.jsonl"
     prim.write_text("".join(json.dumps(_label(t, "pilot")) + "\n" for t in todo), encoding="utf-8")
     with pytest.raises(SystemExit, match="packet-first"):
@@ -189,6 +189,7 @@ def test_pilot_loop_end_to_end_and_reference_gate(tmp_path, monkeypatch, capsys)
     ref = run("reference", "--phase", "pilot", "--repo", "paramiko")
     # the fixture finals match reference row P01; row P02 differs in obvious_from_name ('yes') and evidence_needed ('none')
     assert ref["compared"] == 2 and ref["disagreements"] == 2 and ref["no_reference"] == 0
+    assert ref["disagreements_guide_exposed"] + ref["disagreements_not_exposed"] == ref["disagreements"]
     with (work / ref["file"]).open(encoding="utf-8", newline="") as f:
         rows = list(csv.DictReader(f))
     assert sorted(r["field"] for r in rows) == ["evidence_needed", "obvious_from_name"]

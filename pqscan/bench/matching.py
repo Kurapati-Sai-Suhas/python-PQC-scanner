@@ -201,11 +201,17 @@ def repository_result(labels: Sequence[Mapping], f: Sequence[Output], m: Sequenc
     M = [o for l, o in zip(labels, m) if l["site_id"] in keep]
     cid = [l["site_id"] for l in L]
     n_all, n = len(labels), len(L)
+    strat_of = {l["site_id"]: l.get("stratum") for l in labels}
     out = {"comparison": comparison, "repo": repo, "n_eligible": n_all, "n_common": n,
            "partition": {k: len(v) for k, v in part.items()}, "failed_sites": part,
            "fail_f": len(part["m_only"]) + len(part["neither"]), "fail_m": len(part["f_only"]) + len(part["neither"]),
            "n_indeterminate_common": sum(correct(l, WITHDRAWN) for l in L),
            "strata": {s: sum(l.get("stratum") == s for l in L) for s in ("S1-app", "S1-nonapp")},
+           # plan v1.0.1 Sec. 2-3 and 6 (F04): m_r,h (sampled primary set E_r) next to c_r,h (common evaluable set
+           # C_r), and the failure partition by stratum. The primary estimate describes C_r; S-F1 describes E_r.
+           "strata_drawn": {s: sum(l.get("stratum") == s for l in labels) for s in ("S1-app", "S1-nonapp")},
+           "failures_by_stratum": {k: {s: sum(1 for sid in part[k] if strat_of.get(sid) == s)
+                                       for s in ("S1-app", "S1-nonapp")} for k in ("f_only", "m_only", "neither")},
            "estimable": n >= 1}
     if n == 0:
         out.update(k=0, R_f=0, R_m=0, delta_ta=None)
