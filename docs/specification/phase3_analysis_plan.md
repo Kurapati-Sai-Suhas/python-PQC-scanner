@@ -1,6 +1,6 @@
-# Phase 3 analysis plan for H2 and Experiment A (v1.0, adopted 2026-11-16)
+# Phase 3 analysis plan for H2 and Experiment A (v1.0.1; v1.0 adopted 2026-11-16, corrected 2026-11-18)
 
-**Status.** Normative companion of `evaluation_protocol.md` v1.0.4. It was adopted by owner decision (R4-18 as amended by R4-21 Sec. 6), before any test-split access.
+**Status.** Normative companion of `evaluation_protocol.md` v1.0.5. v1.0 was adopted by owner decision (R4-18 as amended by R4-21 Sec. 6), before any test-split access. v1.0.1 (18 Nov 2026, before any labelling and any test-split access) applies the owner-approved pre-F1 decision register (`docs/audit/owner_decision_register_v1.0.5.md`); see the Changelog. The v1.0 text is kept in `docs/specification/archive/v1.0.4/phase3_analysis_plan.md`.
 
 **Sources.** It consolidates, without methodological change:
 - R4-03a (matching specification);
@@ -40,15 +40,27 @@ The proposal history is in `docs/proposals/v1.0.4/`.
 
 Conditional on the number m_r,h of eligible sites drawn, they are a simple random sample of that stratum's eligible frame U_r,h. Reason: under a uniform order, the 0/1 eligibility sequence is independent of which eligible unit occupies each eligible position.
 
-**Estimand A (adopted; the design mixture).**
-- P_r^A = Σ_h (m_r,h / n_r) · Uniform(U_r,h).
-- δ_r = Ψ(P_r^A), where Ψ is the matched complete-policy functional of Sec. 4–5 (the population value of δ̃_r).
-- δ = (1/7) Σ_r δ_r.
+**Estimand A (adopted; the design mixture; denominator corrected in v1.0.1, F04).** With m_r = Σ_h m_r,h = |E_r| (the sampled primary set, Sec. 3):
+- w_r,h = m_r,h / m_r;
+- P_r^A = Σ_h w_r,h · Uniform(U_r,h);
+- δ_r^A = Ψ(P_r^A), where Ψ is the matched complete-policy functional of Sec. 4–5;
+- δ^A = (1/7) Σ_r δ_r^A.
+
+v1.0 wrote the weights as m_r,h / n_r. With n_r = |C_r| (Sec. 3) those weights add up to m_r / n_r ≥ 1 whenever a site fails; the intended denominator is m_r.
+
+**What the primary estimator describes when execution failures exist (v1.0.1; owner decision F04, Option 1).** Let U^ev_r,h ⊆ U_r,h be the sites where both arms run, ρ_r,h = |U^ev_r,h| / |U_r,h| and π_r = Σ_h w_r,h ρ_r,h. Then:
+- P_r^ev = Σ_h (w_r,h ρ_r,h / π_r) · Uniform(U^ev_r,h), δ_r^ev = Ψ(P_r^ev) and δ^ev = (1/7) Σ_r δ_r^ev;
+- the **primary estimate δ̃_r, computed on C_r, estimates δ_r^ev**: the design mixture over the **commonly evaluable** sites, with stratum weights c_r,h / n_r, where c_r,h = |C_r ∩ stratum h|;
+- **S-F1 (Sec. 6) is a separate sensitivity analysis over the sampled primary set E_r**, under the rule that a site where both arms fail (a concordant execution failure) is incorrect for both arms. It estimates π_r · δ_r^ev, which is δ_r^A under that rule (failed sites carry no recommendation for either arm, so matching is unchanged; for H2, S-F1 = (n_r / m_r) · δ̃_r);
+- **the two coincide** for repository r if and only if no eligible site fails (π_r = 1; then C_r = E_r and c_r,h = m_r,h). **They differ whenever a site fails:** within a repository by the factor π_r; across repositories δ^A = (1/7) Σ_r π_r δ_r^ev reweights repositories, so the pooled sign and the H2b margin can differ; the stratum mix also shifts when failures differ between strata;
+- the primary C_r estimate is **never** described as measuring the full design mixture when failures exist, and the two are never claimed identical then. When any failure exists, the primary value, S-F1 and S-F2 are reported side by side;
+- no estimator, bootstrap, matching rule or calibration changes: the calibration (Sec. 11) simulated no failures (π_r = 1).
 
 **Estimand B (frame-proportional).** Weights N_r,h / N_r. It is **not** estimated or claimed.
 
 **Required reporting:**
 - per repository: m_r,app and m_r,nonapp, and the S1-app and S1-nonapp pool sizes;
+- per repository and stratum (v1.0.1): m_r,h (sampled primary set) next to c_r,h (common evaluable set), and the execution failures by stratum and partition (F only, M only, neither);
 - descriptive per-stratum results: δ̃ matched within (repository × stratum), for app and non-app separately.
 
 **Bootstrap.** Resampling sites within repositories, ignoring strata, is conservative for A: its variance adds the between-stratum term Σ_h m_h (μ_h − μ)²/n². It is the adopted bootstrap, subject to the two-stratum acceptance check (Sec. 11). The pre-specified fallback is resampling within (repository × stratum) cells, with matching still done per repository.
@@ -58,7 +70,7 @@ Conditional on the number m_r,h of eligible sites drawn, they are a simple rando
 For comparison c and repository r:
 - **E_r:** the primary-set eligible sites of r, with owner-final labels.
 - **Per site and arm:** `action` ∈ {RECOMMEND, FLAG_NO_TARGET, ABSTAIN, NO_FINDING, EXECUTION_FAILURE}, `rec_class` and `evidence_tier` ∈ {T0, T1, T2, T3}.
-- **C_r:** the sites of E_r where **both** arms ran (common evaluable set); n_r = |C_r|.
+- **C_r:** the sites of E_r where **both** arms ran (common evaluable set); n_r = |C_r| and m_r = |E_r|.
 
 **Validation (any failure stops the run):**
 - duplicate site_id;
@@ -116,7 +128,7 @@ Per-arm failure rates use |E_r|.
 - paired analyses use both-ran sites.
 
 **Sensitivity analyses:**
-- **S-F1:** δ_S-F1,r = [n_r·δ̃_r + Σ_{F only} X − Σ_{M only} Y] / |E_r|. Each failed (site, arm) is scored not correct. For concordant failures this is a pure rescaling.
+- **S-F1:** δ_S-F1,r = [n_r·δ̃_r + Σ_{F only} X − Σ_{M only} Y] / |E_r|. Each failed (site, arm) is scored not correct. For concordant failures this is a pure rescaling. **S-F1 describes the sampled primary set E_r, not the commonly evaluable set; it is a sensitivity analysis and never replaces the primary estimate (Sec. 2).**
 - **S-F2 (bounds):** [… − |F_F,r|] / |E_r| to [… + |F_M,r|] / |E_r|.
 
 **Reporting (never omitted):** per repository and arm, the failure counts by reason (unreadable, parse error, time limit, recursion, other), by library and by scope; the failed-file list; and the label distribution of failed sites.
@@ -165,7 +177,7 @@ For each c in {H2-1, H2-3, H2-4}:
 2. Compute the counts and k_r; hash the matching output.
 3. Compute K_e, g_c and the gate G_c (label-free).
 4. Join labels, score, and compute δ̃_c.
-5. Bootstrap → p_c and the one-sided 97.5% lower bound L_c.
+5. Bootstrap → p_c and the one-sided 97.5% lower bound L_c (a per-comparison bound, not adjusted for multiplicity; the Holm decision of step 8 is the confirmatory claim).
 6. Apply the Monte Carlo rule.
 7. Guard → p*_c.
 
@@ -173,7 +185,7 @@ Then:
 
 8. **Holm** (m = 3) over the three p*_c at α = 0.025, with thresholds 0.025/3, 0.025/2 and 0.025 in ascending order of p*. Stop at the first non-rejection.
 9. **Claim.** c is claimable iff K_e = 7, it is Holm-rejected, and G_c passes.
-10. **H2b.** It is met iff K_e = 7 and p*_m ≤ 0.025, where p_m = p(0.10) for H2-1 and p*_m is guarded as in Sec. 7.2. Equivalently, the 97.5% lower bound exceeds 0.10 (the 98.75% bound when the guard is active).
+10. **H2b.** It is met iff K_e = 7 and p*_m ≤ 0.025, where p_m = p(0.10) for H2-1 and p*_m is guarded as in Sec. 7.2. Equivalently, the 97.5% lower bound exceeds 0.10 (the 98.75% bound when the guard is active). These bounds are per comparison and not multiplicity-adjusted.
 11. **Secondary and exploratory analyses** (Sec. 10). None of them alters steps 8–10.
 
 ## 8. Outcome statements (C4) and templates
@@ -193,7 +205,7 @@ Then:
 - "H2 supported" is never used.
 - The discussion sentence about the original 10-point H2 is allowed only when H2a is supported and H2b is met (protocol Sec. 1.1).
 
-**Abstract template.** "In seven pre-registered test repositories, matching each method to the same number of migration recommendations per repository, the provenance-aware analysis made correct site-level decisions [more often than / not detectably more often than] method-and-argument analysis (difference x pp, one-sided 97.5% bound y pp). [The 10-point improvement of the original hypothesis was / was not met in a pre-specified exploratory analysis.] Results describe these repositories only."
+**Abstract template.** "In seven pre-registered test repositories, matching each method to the same number of migration recommendations per repository, the provenance-aware analysis made correct site-level decisions [more often than / not detectably more often than] method-and-argument analysis (difference x pp; per-comparison one-sided 97.5% bound y pp, not adjusted for multiplicity). [The 10-point improvement of the original hypothesis was / was not met in a pre-specified exploratory analysis.] Results describe these repositories only."
 
 **Never in the abstract:**
 - "recommendation accuracy" for the matched difference;
@@ -208,7 +220,7 @@ Then:
 | Σn_r | failures |
 | c_pool | gate |
 | g and guard | δ̃ (repository-balanced) |
-| δ̃_site | one-sided 97.5% bound |
+| δ̃_site | one-sided 97.5% bound (per comparison, not multiplicity-adjusted) |
 | raw p | guarded p |
 | Holm-adjusted p | statement |
 | matched precision F / M | natural δ |
@@ -222,10 +234,10 @@ Then:
 **Assumptions** (must be printed with the results):
 1. the 7 test repositories are fixed; inference concerns them only;
 2. sites are stratified simple random samples with eligibility-only stopping (Sec. 2);
-3. the sampled pairs are independent (without-replacement sampling makes them weakly negatively correlated, which is conservative);
+3. sites are drawn without replacement within strata, so the sampled pairs are not independent. Whether the pooled exact test keeps its level under this design is not asserted from theory: it was checked by the pre-F1 simulation of Sec. 11.6 (PASS; `docs/implementation/acceptance/fa_type1.md`), which covers the simulated configurations only;
 4. the estimand of comparison j is the site-weighted difference over **its** both-ran sites.
 
-Under heterogeneity across repositories and strata, the exact test is conservative.
+In every simulated configuration (Sec. 11.6) the test was conservative: single-test rejection rates 0.0018–0.0089 and Holm family-wise errors 0.0004–0.0047 at nominal 0.025. This is evidence under the assumed configurations, not a proof, and the conservativeness costs power.
 
 **Required for each j:**
 - the both-ran denominator per repository and pooled;
@@ -246,7 +258,7 @@ No guard is applied (there is no matching).
 - **S8:** ranking-free matching.
 - **S9:** the seeded table with site-level McNemar and Tango.
 - **S10:** the 100-seed distribution.
-- **S11:** fixed-target matching (target ⌊c_DV·n_r⌋).
+- **S11:** fixed-target matching (target ⌊c_DV·n_r⌋). **c_DV (v1.0.1, F19)** is defined per comparison c as c_pool (Sec. 7.3: Σ_r k_r / Σ_r n_r, an exact fraction over the estimable repositories) computed on the Phase DV primary set (the 6 development and validation repositories) and recorded in the F1 evidence. Secondary only.
 - **S12:** feasible repositories only.
 - **S13:** failure sensitivities.
 - **S14:** H2-S.
@@ -288,8 +300,9 @@ Production code is accepted only if all of the following hold.
    - the null calibrated on the design-mixture functional Ψ(P^A);
    - ≥ 10,000 data sets per configuration, B = 1,000;
    - the unstratified bootstrap must satisfy criterion 2.
-4. **Fallback.** If criterion 3 fails, the repository-by-stratum bootstrap (Sec. 2) is activated, and **all** of criteria 2–3 are re-run with it and must pass. If it also fails, work stops and the owner decides, before F1.
+4. **Fallback.** If criterion 3 fails, the repository-by-stratum bootstrap (Sec. 2) is activated, and **all** of criteria 2–3 are re-run with it and must pass. If it also fails, work stops before F1. **F1 is not permitted after a failed calibration:** only a newly versioned procedure that passes every criterion of this section may proceed, and the owner decides which (v1.0.1, F20).
 5. **Records.** The results, code version (commit SHA), seeds and the bootstrap variant in force are recorded in the F1 evidence.
+6. **F-A Type I error simulation (v1.0.1; owner decision F05).** `scripts/fa_type1_simulation.py` simulates the unchanged F-A procedure (Sec. 9) under the design: 7 repositories; stratified sampling without replacement (20 app / 10 non-app per repository) from frames of very different sizes; heterogeneity between repositories and between strata; sparse discordance; random and stratum-dependent execution failures; 8 correlated baselines under Holm. Every configuration lies on the null boundary. Criterion: every single-test rejection rate ≤ 0.025 + 3 MC-SE and every Holm family-wise error ≤ 0.025 + 3 MC-SE, with MC-SE = √(0.025 · 0.975 / R), R = 20,000 (single) and 10,000 (family). **If any criterion fails, work stops and alternatives are presented to the owner; the method is never changed automatically.** Result on 18 Nov 2026: **PASS** (`docs/implementation/acceptance/fa_type1.{json,md}`). It says nothing about scanner accuracy.
 
 ## 12. Seeds
 
@@ -298,5 +311,13 @@ Production code is accepted only if all of the following hold.
 | `20261113` | sampler order; bootstrap generator; the SHA-256 seed of the seeded per-site table |
 | `20261113-S001` … `S100` | tie-break sensitivity only |
 | `20261113:intra:<phase>`, `20261113:airepeat:<phase>`, `20261113:packet:<phase>` | reliability and packet-first samples |
+| `20261113:withhold:001` … `20261113:withhold:100` (v1.0.1; frozen before F1) | H3 random withholding. Not fed to a random-number generator: the per-repository order is ascending SHA-256 (hexadecimal text) of UTF-8 `<seed>\|H3-withhold\|<repo>\|<site_id>`; the same order is used at 70%, 80% and 90% (nested subsets) |
+| SHA-256 of `20261113\|H3-T2\|<repo>\|<site_id>` (v1.0.1) | H3: tie order within an evidence tier when the T2 policy is withdrawn to a fixed coverage |
+| `20261113:fa-type1:<configuration>` (v1.0.1) | F-A Type I simulation: numpy default_rng(first 8 bytes, big-endian, of the SHA-256 of the string) |
 
 **The primary point estimate has no tie seed. No seed is chosen for its result.**
+
+## Changelog
+
+- v1.0 (2026-11-16): adopted with protocol v1.0.4.
+- v1.0.1 (2026-11-18, before any labelling and any test-split access; owner-approved pre-F1 decision register `docs/audit/owner_decision_register_v1.0.5.md`): estimand A's weight denominator corrected to m_r, and what the primary C_r estimate and S-F1 each describe when execution failures exist, with failures reported by stratum (F04); F-A assumption 3 restated and the F-A Type I error simulation added and passed (F05, Sec. 11.6); bounds labelled per comparison, not multiplicity-adjusted (F17); c_DV defined (F19); F1 never after a failed calibration (F20); H3 seeds (H-5). No estimator, test, threshold, family or calibration result changed.

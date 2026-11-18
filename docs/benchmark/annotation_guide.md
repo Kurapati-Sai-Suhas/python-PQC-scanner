@@ -1,6 +1,6 @@
-# Annotation guide for PyPQC-RoleBench (v1.1)
+# Annotation guide for PyPQC-RoleBench (v1.2)
 
-Adopted 2026-11-16 with evaluation protocol v1.0.4 (owner decisions V1, V5, V8, V9, V16; `docs/specification/phase3_decisions.md`). The superseded v1.0 is kept in `docs/benchmark/annotation_guide_v1.0.md`.
+Adopted 2026-11-16 with evaluation protocol v1.0.4 (owner decisions V1, V5, V8, V9, V16; `docs/specification/phase3_decisions.md`). The superseded v1.0 is kept in `docs/benchmark/annotation_guide_v1.0.md`. v1.2 (18 Nov 2026, before any labelling and any test-split access) applies the owner-approved pre-F1 decision register with protocol v1.0.5 (`docs/audit/owner_decision_register_v1.0.5.md`); the v1.1 text is kept in `docs/specification/archive/v1.0.4/annotation_guide.md`.
 
 **Changes from v1.0:**
 - a single investigator with a separately conducted AI-assisted review;
@@ -11,7 +11,9 @@ Adopted 2026-11-16 with evaluation protocol v1.0.4 (owner decisions V1, V5, V8, 
 - the re-label procedure;
 - reporting language.
 
-The decision procedure (Steps A–E and G) and the worked examples are unchanged from v1.0.
+**Changes in v1.2:** the multi-call candidate rule (Step A, F03); Step D consumer inheritance as in taxonomy rule 1 (F02) and escape before KEY_MATERIAL_ONLY (F21); the hybrid rule requires a matching PQ family and actual combination (Step F, F08); the unresolved-field convention (Sec. 2, F10); owner and AI example records (Sec. 5, F15); the packet-first rule as implemented (Sec. 5, F11); the forbidden-token gate (Sec. 6, F07).
+
+The decision procedure (Steps A–E and G) and the worked examples are unchanged from v1.0, except for the v1.2 changes listed above.
 
 Use with `docs/specification/role_taxonomy.md` (definitions) and `docs/specification/data_dictionary.md` (fields). Labels are made from **source code only**; tool outputs are hidden during labelling.
 
@@ -35,7 +37,7 @@ Use with `docs/specification/role_taxonomy.md` (definitions) and `docs/specifica
 - **Completeness.** Label every issued candidate. Never skip or edit a submitted file; a correction is a new file with a reason.
 - **S2.** S2 (B0) candidates are labelled exactly like the others. They are reported separately and do not count toward quotas.
 - **Annotator-added sites.** Add any other eligible RSA/EC site you notice in the same function that is not in the list as `annotator_added`. It is reported separately.
-- **Unresolved.** Mark a field `unresolved` with a reason when it cannot be decided. An unresolved `eligible` counts as not eligible. Every unresolved case is recorded before F2.
+- **Unresolved (convention stated in v1.2).** When a field cannot be decided, put its name in `meta.unresolved` and the reason in `meta.unresolved_reason` (required: the meta schema rejects an unresolved field without a reason). The site field itself keeps your provisional, schema-valid value; it is never treated as settled. An unresolved `eligible` counts as not eligible. Unresolved fields are excluded, listed and bounded as in protocol Sec. 5.6. Every unresolved case is recorded before F2.
 - **Phases.** DV = development and validation together; T = test (only after F1).
 - **Re-label (intra-rater).**
   - **Sample:** per phase, n = max(50, ⌈0.10·N⌉), selected by the script (seed `20261113:intra:<phase>`).
@@ -54,6 +56,13 @@ Use with `docs/specification/role_taxonomy.md` (definitions) and `docs/specifica
 - a parameter-object construction on its own (`padding.PKCS1v15()`, `ec.SECP256R1()`, `ec.ECDSA(...)`);
 - a type reference (`isinstance(k, RSAPrivateKey)`);
 - an out-of-scope library.
+
+**Multi-call candidate statement (v1.2).** A candidate is one statement. When the candidate statement contains more than one call to a supported library API, the candidate's site is exactly one call expression, chosen in this order:
+1. a public-key **operation** call (`sign`, `verify`, `exchange`, `encrypt`, `decrypt`) on a quantum-vulnerable key (taxonomy rule 4); otherwise
+2. a **key-material** call (generate, load, derive, construct, extract) on a quantum-vulnerable algorithm; otherwise the candidate has no eligible site (label it ineligible as above);
+3. if several calls qualify at the same level, the first in source order (line, then column of the called name).
+
+Calls on post-quantum algorithms (ML-KEM, ML-DSA, SLH-DSA) never become the site; they may be evidence for `hybrid_component`. Record the chosen call in `api_call`; `line_start` and `line_end` stay the statement's lines. Every other eligible call in the statement whose role family differs from the site's is added as an annotator-added site; same-family calls are listed in `notes`. Issued candidates of this kind are marked `multi_call: true`, with their calls listed by name.
 
 **Step B — Identify the API.**
 - Resolve the import chain to the fully qualified API (follow `import x as y`, `from a.b import c`).
@@ -74,16 +83,16 @@ Use with `docs/specification/role_taxonomy.md` (definitions) and `docs/specifica
 - arguments passed to one callee.
 
 Collect the set of operation consumers, then decide:
-- **All consumers in one family** → that family's role (`SIGN` when the consumers are sign and/or verify; `KEY_ESTABLISHMENT`; `PK_ENCRYPT`/`PK_DECRYPT`). Record the other members in `secondary_roles`.
+- **All consumers in one family** → that family's role, as in taxonomy rule 1 (v1.2): a **private** key whose consumers are sign and/or verify, at least one of them sign → `SIGN` (secondary `VERIFY`); a **public** key whose consumers are all verify → `VERIFY`; exchange → `KEY_ESTABLISHMENT`; encrypt → `PK_ENCRYPT`; decrypt → `PK_DECRYPT`. Only consumers that can succeed for the key's type count (a public key cannot sign or decrypt). Record the other members in `secondary_roles`.
 - **Two families, selected by a static constant in the same class or module** → label the role that constant selects, and note it.
 - **Two families, selected by a runtime value** (an `algorithm` argument, configuration, a dispatch dict keyed by user input) → `gt_role = UNKNOWN`, `assessability = INDETERMINATE`, and fill `possible_roles`.
-- **No consumer within the bounded scope** → `KEY_MATERIAL_ONLY` (`DETERMINATE`).
-- **The key leaves the scope** (returned two levels up, stored in a global registry, pickled) → `UNKNOWN` / `INDETERMINATE`, with `possible_roles = [all]` and a note.
+- **The key escapes the bounded scope** (returned beyond the direct caller, stored in a module-level or global variable or registry, serialized or pickled, or passed to code outside the analysed scope) → `UNKNOWN` / `INDETERMINATE`, with `possible_roles = [all]` and a note. **An observed escape takes precedence over `KEY_MATERIAL_ONLY` (v1.2).**
+- **No consumer within the bounded scope, and no escape** → `KEY_MATERIAL_ONLY` (`DETERMINATE`). Every use inside the scope must be a non-operation (export, fingerprint, `isinstance`, storage in a local or in an attribute of the same class), and nothing may leave the scope.
 
 **Step E — Provenance.** For the receiver of an operation, record the proximate provenance (`attribute`, `parameter`, or a local from a loader/generator). If it is resolvable within the bounded scope, also record the `ultimate_provenance` set.
 
 **Step F — Flags (v1.1).**
-- **`hybrid_component = true`** only if the same class or function combines the site with an ML-KEM/ML-DSA call (pyca `mlkem`/`mldsa`, `oqs`, `pqcrypto`), with the combining line(s) as evidence.
+- **`hybrid_component = true`** only if both hold (v1.2), with the lines as evidence: (1) an approved post-quantum component **of the matching family** is present — ML-KEM for `KEY_ESTABLISHMENT`; ML-DSA or SLH-DSA for `SIGN` and `VERIFY` (pyca `mlkem`/`mldsa`, `oqs`, `pqcrypto`); and (2) the site's output is **actually combined** with it within the bounded scope of Step D: both shared secrets enter one key derivation or combiner (for example a hash of their concatenation), or both signatures are produced over, or verified against, the same message and used together. Being in the same class or function alone is not enough: then `hybrid_component = false`, with a note.
 - **`scope`:** classify the path relative to the repository root, applying the first class that matches in this order:
   1. `vendored`: a directory `vendor`, `_vendor` or `third_party`;
   2. `test`: a directory `test`, `tests` or `testing`; or a file `test_*.py`, `*_test.py`, `test.py`, `tests.py`, `tests_*.py`, `tests-*.py`, `conftest.py`;
@@ -112,18 +121,28 @@ Every eligible label lists `evidence_lines` (file:line), including the line that
 
 ## 5. Record envelope and context
 
-One JSON object per line:
+One JSON object per line. An **owner primary** record (v1.2: separate examples, each with `label_kind`):
 
 ```json
 {"site": { ...fields of docs/benchmark/benchmark_schema.json, validated unchanged... },
- "meta": {"candidate_id": "C-…", "annotator": "owner | ai_review", "submitted_utc": "…",
+ "meta": {"candidate_id": "C-…", "annotator": "owner", "label_kind": "primary", "submitted_utc": "…",
           "evidence_lines": ["file:line", …], "rationale": "…", "confidence": 1,
           "ambiguity": "none | guide_unclear | context_insufficient | unresolved",
           "hard": false, "time_seconds": 0,
-          "context_used": "packet_sufficient | extended", "context_extra": ["file:start-end", …],
+          "context_used": "packet_sufficient | extended", "context_extra": ["file:start-end", …]}}
+```
+
+An **AI-review** record, written by the script from the verbatim response (`site` holds only `site_id` and the 8 compared fields):
+
+```json
+{"site": {"site_id": "C-…", ...the 8 compared fields... },
+ "meta": {"candidate_id": "C-…", "annotator": "ai_review", "label_kind": "ai_review", "submitted_utc": "…",
+          "evidence_lines": ["file:line", …], "rationale": "…", "ambiguity": "…",
           "ai": {"interface_or_api": "…", "model": "…", "datetime_utc": "…", "prompt_sha256": "…",
                  "packet_sha256": "…", "status": "ok | insufficient_context"}}}
 ```
+
+Other `label_kind` values: `packet_first` and `relabel` (owner), `final` (written by the script after adjudication).
 
 **Type rules:**
 - `site.eligible`, `site.hybrid_component` and `site.obvious_from_name` must be JSON booleans. Anything else is rejected, never coerced.
@@ -133,7 +152,7 @@ One JSON object per line:
 - `packet_sufficient`: every one of the 8 compared fields was decided from lines inside the packet the packet builder generated for this candidate. Open the packet file, not only the repository.
 - `extended`: anything else. Every extra file:line range goes in `context_extra`.
 
-**Packet-first subset.** For candidates the script flags `packet_first = true` (a seeded 10% per phase, at least 50):
+**Packet-first subset.** For candidates the script flags `packet_first = true` (seeded; rate max(10%, 60 / planned candidates) per phase: 12.8% for DV, 10% for T; ≥ 50 is an expected count, and the realised count is reported):
 1. First record a P-label from the packet only, in `primary_packet_<repo>_B<n>.jsonl`. It is validated, hashed and pushed.
 2. Then record the normal primary label (the F-label), which may use more context.
 
@@ -141,11 +160,12 @@ Never edit the P-label afterwards.
 
 ## 6. AI-review rules (run by the owner)
 
-- **Identification first.** Before the first review, the owner records the interface and the model identity as displayed (or the API model identifier).
+- **Identification first.** Before the first review, the owner records the interface and the model identity as displayed (or the API model identifier) in `docs/benchmark/ai_review_identity.json`, which the tool validates; each AI-review ledger entry records its SHA-256.
 - **Isolation.** Never use the existing project conversation, or any session that has seen this project. Use one fresh ChatGPT Temporary Chat per batch, with these all off: custom instructions, memory and chat-history reference, Projects, connectors, file library, and browsing/search. Alternatively, use the API with a pinned model identifier and the owner's own key; Claude never handles it.
-- **Inputs.** The fixed prompt template (hash recorded), guide v1.1 Steps A–G with the field definitions, and the packet. Nothing else: no owner label, tool output, project name or hypotheses.
+- **Inputs.** The fixed prompt template (hash recorded), guide v1.2 Steps A–G with the field definitions, and the packet. Nothing else: no owner label, tool output, project name or hypotheses.
 - **Per-review identification:** the interface; the model as displayed or the API model ID; the app version if shown; the date and time in UTC.
 - **Export:** the verbatim response plus the conversation export or the API JSON.
+- **Forbidden tokens (v1.2).** If a packet contains a forbidden token (a tool name, the project's name or a hypothesis label; `packets.FORBIDDEN`), the prompt step refuses the batch until you record, for every (candidate, token), a decision in a CSV with columns `candidate_id,token,verdict,evidence`: `genuine` → the candidate is **excluded** from the AI review (it is still labelled by you and reported as not AI-reviewed), and no reason can override this; `false_positive` → allowed only with evidence (file:line, and why the match does not refer to an evaluated tool, this project or its hypotheses). The decision file's SHA-256 is recorded in the ledger. Nothing is redacted.
 - **Repeat-run sample:** per phase, max(30, ⌈0.10·N_AI⌉) (seed `20261113:airepeat:<phase>`), in new sessions.
 
 ## 7. Worked examples (from the pilot, `docs/pilot/h1_pilot_sites.csv`)
@@ -154,7 +174,9 @@ Never edit the P-label afterwards.
 - **paramiko `pkey.py:195`** `serialization.load_ssh_private_key(...)`. The loaded object is only used in `isinstance` checks, and the signing key is re-loaded elsewhere → `KEY_MATERIAL_ONLY`.
 - **python-jose `cryptography_backend.py:252`** `load_pem_private_key` inside `CryptographyRSAKey`. The consumers `sign` (RS*) and `decrypt` (RSA-OAEP unwrap) are selected by the runtime `algorithm` argument → `UNKNOWN`, `INDETERMINATE`, `possible_roles = [SIGN, VERIFY, PK_DECRYPT]`.
 - **python-jose `cryptography_backend.py:208`** `RSA1_5 = padding.PKCS1v15()` → `eligible = false`.
-- **paramiko `kex_mlkem.py:112`** X25519 `exchange` next to `MLKEM768PrivateKey` → `KEY_ESTABLISHMENT`, `hybrid_component = true`.
+- **paramiko `kex_mlkem.py:112`** X25519 `exchange`; the secret is returned to its caller in the same class and combined with the ML-KEM secret as SHA-256(K_PQ ‖ K_CL) (lines 139–141 and 193–194) → `KEY_ESTABLISHMENT`, `hybrid_component = true`.
+
+These five worked examples are pilot sites. In the pilot loop they form a separately reported subset, and their agreement is never counted as blind evidence (owner decision, 18 Nov 2026).
 
 ## 8. What reports may say
 

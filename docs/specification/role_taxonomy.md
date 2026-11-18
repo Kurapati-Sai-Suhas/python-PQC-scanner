@@ -1,4 +1,4 @@
-# Role taxonomy and key-provenance taxonomy (frozen, v1.0)
+# Role taxonomy and key-provenance taxonomy (frozen, v1.1)
 
 Project: Post-quantum crypto scanner for Python projects. Base paper: Lei Zhang, "Toward Quantum-Safe Software Engineering: A Vision for Post-Quantum Cryptography Migration", ICSE-Companion '26, pp. 402–403, DOI 10.1145/3774748.3795653 (Pillar P1: PQC-aware detection with "protocol roles" and enriched inventories).
 
@@ -8,7 +8,7 @@ Status: **FROZEN v1.0 on 12 Nov 2026** after the H1 pilot (`docs/pilot/h1_pilot_
 
 A *call site* is one Python call expression (or attribute-chained call) in a source file that invokes an API of a supported library (`docs/specification/api_coverage.md`) and either (a) performs a public-key cryptographic operation, (b) creates, loads, derives or reconstructs public-key material, or (c) configures a protocol object with public-key algorithm choices. A site is identified by `(repository, commit, file, line_start, line_end, api_call)`.
 
-A site is **eligible** for recommendation scoring when it is (a) or (b) above and involves RSA, EC (ECDSA/ECDH, NIST curves), X25519/X448, Ed25519/Ed448, finite-field DH or DSA. Parameter-object constructions (e.g. `padding.PKCS1v15()`, `ec.SECP256R1()`), type references in `isinstance`, docstrings and comments are **ineligible** negatives: a tool that reports them is scored at detection level (false positive), never at recommendation level.
+A site is **eligible** for recommendation scoring when it is (a), (b) or (c) above (v1.1) and involves RSA, EC (ECDSA/ECDH, NIST curves), X25519/X448, Ed25519/Ed448, finite-field DH or DSA. Parameter-object constructions (e.g. `padding.PKCS1v15()`, `ec.SECP256R1()`), type references in `isinstance`, docstrings and comments are **ineligible** negatives: a tool that reports them is scored at detection level (false positive), never at recommendation level.
 
 ## 2. Cryptographic roles (ground truth, one primary role per site)
 
@@ -19,7 +19,7 @@ A site is **eligible** for recommendation scoring when it is (a) or (b) above an
 | `KEY_ESTABLISHMENT` | The site derives a shared secret with a peer public key (ECDH, X25519, DH) or participates in a protocol key exchange. | `exchange(ec.ECDH(), peer)`, `X25519PrivateKey.exchange`, `DHPrivateKey.exchange` |
 | `PK_ENCRYPT` | The site encrypts data (typically a symmetric key, "key transport") with a public key. | `public_key.encrypt(data, padding)`, `PKCS1_OAEP.new(key).encrypt` |
 | `PK_DECRYPT` | The site decrypts public-key-encrypted data with a private key. | `private_key.decrypt(ct, padding)`, `PKCS1_OAEP.new(key).decrypt` |
-| `KEY_MATERIAL_ONLY` | The site generates, loads, derives or reconstructs a key and the key is **not** consumed by any operation reachable from the site within the analysed scope (export, fingerprinting, type dispatch and storage only). | `generate_private_key`, `load_pem_private_key`, `RSA.import_key` with no reachable `sign`/`verify`/`exchange`/`encrypt`/`decrypt` |
+| `KEY_MATERIAL_ONLY` | The site generates, loads, derives or reconstructs a key and the key is **not** consumed by any operation reachable from the site within the analysed scope (export, fingerprinting, type dispatch and storage within the analysed scope only; a key that escapes the scope is `UNKNOWN`, annotation guide Step D). | `generate_private_key`, `load_pem_private_key`, `RSA.import_key` with no reachable `sign`/`verify`/`exchange`/`encrypt`/`decrypt` |
 | `PROTOCOL_CONFIG` | The site configures a protocol library object (TLS/SSH contexts, cipher-suite or key-exchange lists, JOSE `alg` registries) rather than calling a primitive. | `ssl.SSLContext.set_ciphers`, `ssl.SSLContext.set_ecdh_curve`, transport KEX preference lists |
 | `UNKNOWN` | The role cannot be fixed from the code because it depends on a runtime value (e.g. an `algorithm` string), on dynamic dispatch, or on code outside the analysed scope. Always paired with `assessability = INDETERMINATE` and a `possible_roles` list. | python-jose `CryptographyRSAKey` loaders (sites J06–J09 in the pilot) |
 
@@ -31,7 +31,7 @@ Rules:
 4. **Operations fix their own role.** `sign`, `verify`, `exchange`, `encrypt`, `decrypt` method calls on public-key objects are determinate from the method name once the receiver type is known to be a public-key object (for pyca) or the module is known (for PyCryptodome `pkcs1_15`, `pss`, `DSS`, `PKCS1_OAEP`, `PKCS1_v1_5`). The padding object alone (`PKCS1v15` is shared by RSA sign and RSA encrypt in pyca) never fixes the role.
 5. **Hybrid flag.** `hybrid_component = yes` marks a quantum-vulnerable component that is combined with an approved PQC algorithm in a PQ/T hybrid construction (SP 800-227 Sec. 4.6, e.g. paramiko `mlkem768x25519-sha256`). The role is still recorded (e.g. `KEY_ESTABLISHMENT`); the policy treats the site as "no migration required, review the combiner".
 6. **Scope attribution** (`app` / `test` / `vendored` / `example`) is recorded separately and never changes the role.
-7. **One call expression per site.** A `try: load_a() except: load_b()` fallback pair, or two loaders feeding the same variable, are two sites with the same consumers and labels; provenance is never a composite value.
+7. **One call expression per site.** A `try: load_a() except: load_b()` fallback pair, or two loaders feeding the same variable, are two sites with the same consumers and labels; provenance is never a composite value. When one candidate statement contains several supported calls, annotation guide v1.2 Step A fixes which call is the site.
 8. **Ineligible negatives** carry `gt_role = NONE`, `assessability = DETERMINATE`, `key_provenance = n/a`, `obvious_from_name = n/a`, `evidence_needed = none`; they are scored at detection level only.
 9. **`possible_roles` vs `secondary_roles`.** `secondary_roles` lists same-family alternatives of a determinate role (e.g. `VERIFY` next to `SIGN`). `possible_roles` is required for `UNKNOWN` and lists the cross-family candidates. The two are never mixed.
 
@@ -84,5 +84,6 @@ Every component carries role, tier, action, target class, rationale, policy vers
 
 ## Changelog
 
+- v1.1 (2026-11-18, before any labelling and any test-split access; owner-approved pre-F1 decision register `docs/audit/owner_decision_register_v1.0.5.md`): kind (c) protocol-configuration sites are eligible when they occur (F01), aligning the taxonomy with recommendation policy Sec. 5, the annotation guide, the schema and the scoring table; the scanner's lack of PROTOCOL_CONFIG output stays a stated limitation (D10). KEY_MATERIAL_ONLY storage means storage within the analysed scope, and an observed escape is UNKNOWN (F21). Rule 7 points to the multi-call rule (F03). No role, assessability value or provenance value was added or removed. The v1.0.1 text is kept in `docs/specification/archive/v1.0.4/role_taxonomy.md`.
 - v1.0.1 (2026-11-14): Sec. 6 replaced by the schema-verified mapping (no change to roles or rules).
 - v1.0 (2026-11-12): frozen after the H1 pilot and after an independent re-derivation of 12 pilot labels (12/12 role, 12/12 assessability, 11/12 provenance agreement). Added `hybrid_component`, the "type-valid consumer" wording of rule 1, rules 7–9 (one call per site; ineligible-negative fields; `possible_roles` vs `secondary_roles`) and the receiver-type condition on `obvious_from_name`, all in response to that review. The pilot showed 15 of 30 eligible sites (50%) require consumer evidence and one hybrid site (P16).

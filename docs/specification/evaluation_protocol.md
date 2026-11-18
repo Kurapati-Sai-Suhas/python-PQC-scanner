@@ -1,16 +1,18 @@
-# Evaluation protocol (v1.0.4, pre-registered)
+# Evaluation protocol (v1.0.5, pre-registered)
 
 Project: Post-quantum crypto scanner for Python projects. Base paper: Lei Zhang 2026, ICSE-Companion '26, DOI 10.1145/3774748.3795653.
 
 **History.**
 - Written 12 Nov 2026, after the H1 pilot and before any benchmark construction or analyzer code.
 - Version 1.0.4 was **adopted on 16 Nov 2026, before any test-split access**, by owner decision: R4-18 as amended by R4-21 Sec. 6, including corrections C1–C6. The decision record is `docs/specification/phase3_decisions.md`.
-- The superseded v1.0.3 is kept unchanged in `docs/specification/evaluation_protocol_v1.0.3.md` and in git history.
+- Version 1.0.5 was **adopted on 18 Nov 2026, before any labelling and before any test-split access**, by owner approval of the pre-F1 decision register that resolves the isolated specification review of v1.0.4 (`docs/audit/owner_decision_register_v1.0.5.md`; amendment record `docs/specification/amendment_v1.0.5.md`). It corrects, clarifies and records interpretations; no hypothesis, threshold, primary metric, confirmatory family or baseline changed.
+- The superseded v1.0.4 and its changed companions are kept unchanged in `docs/specification/archive/v1.0.4/`; the superseded v1.0.3 in `docs/specification/evaluation_protocol_v1.0.3.md`; both also in git history.
 
 **Normative companions (hashed in the adoption record and at F1):**
 - `docs/specification/phase3_analysis_plan.md`: the exact H2 and F-A procedures, estimands, failure handling and reporting rules;
-- `docs/benchmark/annotation_guide.md` v1.1;
-- `docs/specification/scoring_policy.md` v1.0 and `data_dictionary.md` v1.0, both unchanged.
+- `docs/benchmark/annotation_guide.md` v1.2;
+- `docs/specification/scoring_policy.md` v1.0.1 (an interpretation note only; no scoring rule changed), `data_dictionary.md` v1.1 and `role_taxonomy.md` v1.1;
+- `docs/specification/run_specification_pre_f1.{md,json}`: pre-F1 owner decisions, including the H1, H3 and H4 interpretations (H-1 to H-6).
 
 **What did not change in v1.0.4:**
 - The wording of RQ1–RQ4 and H1–H4.
@@ -18,6 +20,8 @@ Project: Post-quantum crypto scanner for Python projects. Base paper: Lei Zhang 
 - Every metric definition in `scoring_policy.md` and `data_dictionary.md`.
 - τ = T2 for the proposed system.
 - The repository and baseline manifests.
+
+**What did not change in v1.0.5:** the wording of RQ1–RQ4 and H1–H4; every threshold (25%, 10%, 30%, 90%; the 70/80/90% coverage points); the primary metrics and the frozen scoring rules; the confirmatory families F-A and F-B; the baseline set; D7 and D15; τ = T2; the sampling unit, the candidate pool and the seeded orders (V6).
 
 ## 1. Research questions and pre-registered hypotheses
 
@@ -155,6 +159,7 @@ Every report states: "Results are limited to RSA/EC/Ed/X public-key call sites i
 - **Reported descriptively:** per-stratum results (`phase3_analysis_plan.md` Sec. 2).
 
 **Frame audit (V7), descriptive.** On the 6 development and validation repositories, the owner reads crypto-importing files in a seeded round-robin order until ≥ 60 eligible sites have been audited and every repository has contributed ≥ 1 file. Pool membership is then checked at statement level.
+- **Seed and order (v1.0.5, as implemented in `pqscan/bench/frame_audit.py`):** each repository's crypto-importing files are ordered by ascending SHA-256 of `20261113:frame|<repository>|<file>`; repositories are visited round-robin in ascending name order, one file per visit; the audit stops after the first file at which ≥ 60 eligible sites have been audited **and** every repository of the frame has contributed ≥ 1 file.
 - **It can estimate:** the share of eligible sites in such files that the pool misses, with a file-level cluster bootstrap interval.
 - **It cannot estimate:** recall in files importing no supported library, recall in the test split, recall in Python projects generally, or errors shared by the owner and the pool.
 
@@ -162,7 +167,7 @@ Every report states: "Results are limited to RSA/EC/Ed/X public-key call sites i
 
 ## 3. Annotation [v1.0.4: replaced; V1, V3, V8, V9, V16]
 
-**Primary annotator.** The owner labels every issued candidate, following annotation guide v1.1:
+**Primary annotator.** The owner labels every issued candidate, following annotation guide v1.2:
 - from the full repository at the pinned commit;
 - with every tool output hidden;
 - each label carrying role-specific evidence lines and a rationale.
@@ -171,10 +176,12 @@ Every report states: "Results are limited to RSA/EC/Ed/X public-key call sites i
 
 **AI-assisted review (V8).** A separately conducted, isolated, blind review:
 - **Session:** one fresh isolated ChatGPT Temporary Chat per batch, with custom instructions, memory and history reference, Projects, connectors, file library and browsing all off. Alternatively, the API with a pinned model identifier and the owner's own key. The existing project conversation is never used.
-- **Inputs:** guide v1.1's decision procedure and field definitions, the fixed hashed prompt, and the packet only.
+- **Inputs:** guide v1.2's decision procedure and field definitions, the fixed hashed prompt, and the packet only.
 - **Records:** the interface and model as displayed (or the API model ID) and the date and time in UTC, recorded before the first review. The verbatim response and the conversation export are archived.
 
 **The AI review is never ground truth and is never called an annotation.**
+
+**[v1.0.5] Forbidden content gate (F07).** A packet whose text contains a forbidden token (a tool name, the project's name or a hypothesis label) is never sent to the AI unless the owner has recorded a decision for every (candidate, token): genuine forbidden content → the candidate is **excluded** from the AI review (no reason can override this; it is still labelled by the owner and reported as not AI-reviewed); only a **verified false positive**, with file:line evidence, may proceed. The decision file's SHA-256 is recorded in the ledger. Nothing is redacted (guide v1.2 Sec. 6).
 
 **Fields labelled, compared and adjudicated:** `eligible`, `gt_role`, `assessability`, `possible_roles`, `hybrid_component`, `obvious_from_name`, `evidence_needed`, `key_provenance`.
 
@@ -201,7 +208,7 @@ How they are run:
 - **Reported per field:** n, raw agreement, Cohen's κ with a within-repository bootstrap 95% CI (2,000 resamples), the confusion table, per-class specific agreement (classes with ≥ 5 items) and prevalence.
 - **Rule:** if the κ(gt_role) point estimate is < 0.60 → Phase DV: revise the guide and re-label Phase DV before F1; Phase T: all test results are labelled exploratory.
 
-**Packet-first subset (V16).** A seeded 10% per phase (≥ 50; seed `20261113:packet:<phase>`) is first labelled from the packet alone (P-label), then normally (F-label).
+**Packet-first subset (V16; rule stated as implemented in v1.0.5, F11).** Each candidate of a phase is flagged by a seeded hash rule (seed `20261113:packet:<phase>`) at rate max(0.10, 60 / N_planned), with N_planned = 468 (DV) and 630 (T) (`pqscan/bench/packets.py`): 12.8% for DV and 10% for T. The target of ≥ 50 P-labels per phase is an **expected** count, not a guarantee; the realised count is reported and a shortfall is reported as such (flags are never topped up). Flagged candidates are first labelled from the packet alone (P-label), then normally (F-label).
 
 **Synthetic subset, pilot and specification review.** These follow the same loop. The specification review is "ChatGPT review with owner sign-off".
 
@@ -241,7 +248,7 @@ How they are run:
 | **F-B** (confirmatory) | H2-1, H2-3, H2-4 | Holm (m = 3) over the **guarded** p-values at one-sided α = 0.025. A result can be claimed only if it is Holm-rejected **and** its feasibility gate passes. |
 | — (exploratory) | H2-2 (H2b) | outside every family; guarded margin criterion (Sec. 5.3) |
 | **F-A** (confirmatory) | the proposed system vs. each baseline that ran (≤ 8) | Holm at one-sided α = 0.025 (Sec. 5.4) |
-| others | H1, H3, H4; Experiment B natural-coverage McNemar; H2-S | as in v1.0.3, or descriptive/secondary |
+| others | H1, H3, H4; Experiment B natural-coverage McNemar; H2-S | **[v1.0.5]** H1a and H1b are pre-registered threshold decision rules without multiplicity-controlled inference; H3 and H4 are pre-specified secondary/descriptive analyses without a confirmatory or family-wise claim. Their exact interpretation (decision basis, populations, the H1b baseline set, the H3 coverage procedure, the H4 flip definitions) is recorded before F1 in `run_specification_pre_f1.md` (H-1 to H-6). Experiment B natural-coverage McNemar and H2-S: descriptive/secondary. |
 
 ### 5.3 H2 inference (V12, V13, V20, V21, V22; R4-21 C1, C3, C5)
 
@@ -265,16 +272,16 @@ The normative text and the order of steps are in `phase3_analysis_plan.md` Sec. 
    - if 1 ≤ K_e ≤ 6, the estimable-repository average is reported as secondary only;
    - if K_e = 0, no average exists, the coverage gap is undefined, and every H2 result is "not assessable";
    - no difference is ever imputed and no repository is silently dropped.
-8. **Calibration (C1):** under the planning model, before F1. A two-stratum scenario is a mandatory acceptance criterion. If the unstratified bootstrap fails it, the pre-specified repository-by-stratum bootstrap replaces it, before F1.
+8. **Calibration (C1):** under the planning model, before F1. A two-stratum scenario is a mandatory acceptance criterion. If the unstratified bootstrap fails it, the pre-specified repository-by-stratum bootstrap replaces it, before F1. **[v1.0.5]** F1 is never permitted after a failed calibration: only a newly versioned procedure that passes every acceptance criterion may proceed (`phase3_analysis_plan.md` Sec. 11.4).
 
 ### 5.4 Experiment A family F-A (R4-21 C6)
 
 **Test.** A pooled one-sided exact McNemar per baseline j, on the sites where both the proposed system and j ran, at natural coverage, with Holm across the baselines.
 
-**Assumptions under which this is valid** (and conservative under heterogeneity):
+**Assumptions** (printed with every result):
 1. the 7 repositories are fixed (inference concerns these repositories only);
-2. sites are stratified random samples with eligibility-only stopping;
-3. the sampled pairs are independent;
+2. sites are stratified random samples, drawn without replacement, with eligibility-only stopping;
+3. **[v1.0.5]** because sites are drawn without replacement within strata, the sampled pairs are not independent. The Type I error of the pooled exact test under this design, with heterogeneity across repositories and strata, execution failures and correlated baselines, was checked by simulation before F1 (`phase3_analysis_plan.md` Sec. 11.6; `docs/implementation/acceptance/fa_type1.md`): PASS, every single-test rejection rate ≤ 0.0089 and every Holm family-wise error ≤ 0.0047 at nominal 0.025. This covers the simulated configurations only; it is not a proof;
 4. the estimand is restricted to the both-ran sites of each comparison.
 
 **Required with every F-A result:**
@@ -304,7 +311,7 @@ The normative text and the order of steps are in `phase3_analysis_plan.md` Sec. 
 
 **Stage F1: pre-test methodological and code freeze.** It must be complete before any test-split repository is fetched. The freeze record `docs/freeze/pretest_freeze.json` is committed and the commit is tagged `phase3-pretest-freeze`. It contains:
 1. the git commit SHA and the source-tree fingerprint (`scripts/tree_hash.py`);
-2. SHA-256 of the role taxonomy, the recommendation policy (YAML and text), the scoring policy, this protocol, `phase3_analysis_plan.md`, `phase3_decisions.md`, the data dictionary, annotation guide v1.1, the benchmark schema and the meta schema;
+2. SHA-256 of the role taxonomy, the recommendation policy (YAML and text), the scoring policy, this protocol, `phase3_analysis_plan.md`, `phase3_decisions.md`, the data dictionary, annotation guide v1.2, the benchmark schema, the meta schema and the pre-F1 run specification (`run_specification_pre_f1.{md,json}`);
 3. τ and every threshold and decision rule (Sections 1, 4 and 5; `scoring_policy.md`; the analysis plan);
 4. the baseline manifest, with tool versions, commit SHAs and measured failure profiles;
 5. the sampling frame: the test entries of `benchmark/real/manifest.json`, the candidate-pool procedure and the sampling rule with its seed and the quota table;
@@ -320,6 +327,9 @@ The normative text and the order of steps are in `phase3_analysis_plan.md` Sec. 
    - the production statistical code hashes with their test results;
    - the differential-test report;
    - **the calibration evidence, with code version and seeds:** the single-comparison, two-stratum (C1) and family-wise runs, and which bootstrap variant is in force.
+   - **[v1.0.5] the external human review record (mandatory; recommendation policy Sec. 7):** a review of the full specification by a human reviewer outside the build team. It is **pending**; it is not waived, the AI specification review does not replace it, and the F1 record cannot be made without it (F14).
+   - **[v1.0.5]** the F-A Type I error simulation with its seeds (`docs/implementation/acceptance/fa_type1.{json,md}`; F05);
+   - **[v1.0.5]** the H3 random-withholding seeds and the H3/H4 definitions (`run_specification_pre_f1.md`, H-5 and H-6).
 
 After F1, no change to code, policy, scoring, τ, the baseline set or the analysis plan may influence Experiment E. Any later change is logged, and its effect is evaluated only on a new partition or reported as exploratory.
 
@@ -327,7 +337,7 @@ After F1, no change to code, policy, scoring, τ, the baseline set or the analys
 - After F1, the test repositories are fetched at their frozen commits (`scripts/fetch_pinned.py repos --include-test`).
 - The frozen batch runner executes every method once on them. Raw outputs and logs are written to a sealed directory. Before anyone reads them, `docs/freeze/test_run_seal.json` records for every run the SHA-256 of the raw report, of the log and of the parsed findings (`findings_sha256`).
 - A mechanical step extracts only locations (file, line range, API call) and produces a candidate list with no tool attribution and no recommendation text.
-- **[v1.0.4]** The owner labels from source with tool outputs hidden. The test loop of Sec. 3 runs, with the ledger (hashes only) pushed after each step. Test labels stay out of git until F2. The owner records an attestation that the sealed outputs were not opened.
+- **[v1.0.4]** The owner labels from source with tool outputs hidden. The test loop of Sec. 3 runs, with the ledger (hashes only) pushed after each step. Test labels stay out of git until F2. The owner records a **self-attestation** that the sealed outputs were not opened. **[v1.0.5]** This is a self-attestation only: it is not independently enforced or verifiable, and the hashes of the sealed outputs prove their integrity, not that they were unread. The protocol and every report describe test-output blinding as self-attested and never as independently enforced (F06).
 - Nobody may change the system in this window. The frozen code cannot be tuned on test material, and any change voids F1 for the affected comparisons.
 
 **Stage F2: test-label freeze.** It must be complete before any judgment or statistic is computed on the test split. The addendum `docs/freeze/label_freeze.json` is committed and the commit is tagged `phase3-label-freeze`. **[v1.0.4]** It records:
@@ -335,7 +345,7 @@ After F1, no change to code, policy, scoring, τ, the baseline set or the analys
 - the ledger heads;
 - the Phase T reliability results;
 - the unresolved list;
-- the attestation and the dates.
+- the self-attestation (so named, F06) and the dates.
 
 Label files are immutable after F2. A correction is a new, dated file with a reason, reported next to the original.
 
@@ -356,7 +366,7 @@ Label files are immutable after F2. A correction is a new, dated file with a rea
 **[v1.0.4] Added:**
 - a single human annotator; builder–annotator overlap (Phase DV labels are less blind than Phase T);
 - AI-review errors correlated with the owner's framing; context asymmetry between owner and AI;
-- blinding to sealed outputs by self-discipline;
+- blinding to sealed outputs is a self-attestation, not independently enforced or verifiable (v1.0.5);
 - **only 7 purposively chosen test repositories:** no generalisation claim, and repository-level analyses are exploratory;
 - the design-mixture weighting (test, example and vendored code are capped at one third);
 - the matched H2 difference measures complete-policy correctness, not recommendation accuracy;
@@ -365,6 +375,15 @@ Label files are immutable after F2. A correction is a new, dated file with a rea
 - the 10-point margin is exploratory and has low power;
 - tool execution failures restrict estimands to sites where the tools ran;
 - no external human validation.
+
+**[v1.0.5] Added:**
+- the external human review required before F1 is pending (not completed, not waived);
+- when execution failures exist, the primary H2 estimate describes the commonly evaluable sites; S-F1 describes the sampled primary set under the rule that concordant failures are incorrect for both arms (plan Sec. 2);
+- the scanner recognises approved hybrids through the pyca ML-KEM and ML-DSA API prefixes only; the supported library version (cryptography 47.0.0) exposes no SLH-DSA API, so an SLH-DSA hybrid labelled by the guide would not be recognised by the scanner (a measured limitation);
+- the scanner does not emit PROTOCOL_CONFIG (D10), which is eligible when it occurs (taxonomy v1.1);
+- a primary CORRECT means a compatible target family, not a verified complete KEM + KDF + AEAD redesign (scoring policy v1.0.1 interpretation note);
+- the exact F-A test is conservative in every simulated configuration, which costs power;
+- five pilot sites are shown as worked examples in the guide; in the pilot loop they are a separately reported subset and their agreement is never counted as blind evidence.
 
 ## Changelog
 
@@ -382,3 +401,10 @@ Label files are immutable after F2. A correction is a new, dated file with a rea
   - **Statistics amendments:** McNemar demoted to secondary for H2; the cluster bootstrap by repository is exploratory only (V24).
   - **Identifiers:** H-numbers (V23).
   - **Unchanged:** the H1–H4 sentences, the H1/H3/H4 decision rules, the metric definitions, τ = T2 and the manifests.
+- **v1.0.5 (2026-11-18, before any labelling and any test-split access; owner approval of the pre-F1 decision register `docs/audit/owner_decision_register_v1.0.5.md`, which resolves the 21 findings of the isolated AI specification review of v1.0.4; amendment record `amendment_v1.0.5.md`):**
+  - **Clarifications:** frame-audit seed, order and stopping rule (F18); packet-first rule as implemented (F11); forbidden-content gate before the AI review (F07); F1 never after a failed calibration (F20).
+  - **Honest scope:** test-output blinding is a self-attestation (F06); the external human review is a pending, mandatory F1 prerequisite (F14).
+  - **F-A:** assumption 3 restated; the Type I error simulation passed (F05).
+  - **H1, H3, H4:** status and interpretation recorded before F1 in the run specification (F16; H-1 to H-6).
+  - **Companions:** annotation guide v1.2, analysis plan v1.0.1, role taxonomy v1.1, data dictionary v1.1, scoring policy v1.0.1 (interpretation note).
+  - **Unchanged:** the H1–H4 sentences, every threshold, the primary metrics and frozen scoring rules, the confirmatory families, the baseline set, D7, D15, τ = T2 and the sampling unit, pool and orders.

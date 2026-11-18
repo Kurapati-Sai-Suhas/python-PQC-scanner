@@ -1,4 +1,4 @@
-# Data dictionary (v1.0)
+# Data dictionary (v1.1)
 
 Project: Post-quantum crypto scanner for Python projects. Companion to `role_taxonomy.md`, `recommendation_policy.md`, `evaluation_protocol.md`.
 
@@ -26,7 +26,7 @@ Project: Post-quantum crypto scanner for Python projects. Companion to `role_tax
 | `evidence_needed` | enum | `none`, `argument-resolution`, `downstream-usage`, `protocol-context`, `runtime-value` |
 | `evidence_scope` | enum | `call`, `function`, `cross-function`, `cross-module`, `runtime-value` |
 | `base_case`, `transformation` | string | synthetic only: base id and operator (`alias-import`, `wrapper-function`, `class-method`, `loaded-key`, `cross-function`, `dict-dispatch`, `identity`) |
-| `annotator_1`, `annotator_2`, `adjudicated` | string / bool | labels per annotator kept in `labels/` with the same site_id |
+| (annotation records) | — | v1.1: labels are not fields of this record. Each label is an envelope `{"site": <this record>, "meta": {...}}` (meta schema `docs/benchmark/meta_schema.json`; annotation guide Sec. 5), kept in the git-ignored work tree `benchmark/annotation/<phase>/<repo>/` (`primary_*`, `ai_review_*`, `adjudication_*`, `final_*`), with a hash-chained ledger `benchmark/ledger/<phase>/ledger_<repo>.jsonl` (hashes only). `meta.annotator` is `owner` or `ai_review`; `meta.label_kind` is `primary`, `packet_first`, `relabel`, `final` or `ai_review`. Single-investigator design: there is no second human annotator. |
 | `notes` | string | |
 
 Variants sharing a `base_case` are correlated; statistics cluster on `base_case` (synthetic) and `repo` (real).
@@ -61,10 +61,10 @@ Tiers are ordinal; no numeric confidence is derived from them.
 ## 4. Metrics (Module F)
 
 - Recommendation correctness = CORRECT / (eligible DETERMINATE sites with RECOMMEND).
-- Harmful rate = INCORRECT / eligible sites (denominator stated with every figure).
-- Coverage = (RECOMMEND) / eligible sites; abstention rate = ABSTAIN / eligible sites.
-- End-to-end correct per eligible site = CORRECT / eligible sites.
-- Undecided rate, unjustified rate, missed rate, detected-only rate: each / eligible sites.
+- Harmful rate = INCORRECT / n_exec, where n_exec = eligible sites where the method ran (scoring policy Sec. 5; denominator stated with every figure).
+- Coverage = (RECOMMEND) / n_exec; abstention rate = ABSTAIN / n_exec.
+- End-to-end correct per eligible site = CORRECT / n_exec.
+- Undecided rate, unjustified rate, missed rate, detected-only rate: each / n_exec. Execution failures are reported in their own column per method (scoring policy Sec. 5).
 - Detection precision/recall at site level (any finding within the window) against eligible + ineligible sites.
 - Role macro-F1 and confusion matrix (our analyzer and the method-only / method+args baselines).
 - Provenance-edge precision/recall against `ultimate_provenance`.
@@ -77,7 +77,14 @@ benchmark/
   schema/benchmark_schema.json
   synthetic/cases/<base>/<variant>.py  + manifest.jsonl
   real/manifest.json (repos, commits, split)
-  labels/<annotator>/*.jsonl, adjudicated.jsonl
+  candidates/<split>/order_<repo>.json  (location-only seeded orders; v1.1)
+  annotation/<phase>/<repo>/  (git-ignored labelling work tree; v1.1)
+  ledger/<phase>/ledger_<repo>.jsonl  (hash-chained, hashes only; v1.1)
 results/<tool>/<dataset>.jsonl
 reports/figures/*.png, tables/*.md
 ```
+
+## Changelog
+
+- v1.0 (2026-11-12): initial dictionary.
+- v1.1 (2026-11-18, before any labelling and any test-split access; owner-approved pre-F1 decision register `docs/audit/owner_decision_register_v1.0.5.md`): the obsolete two-annotator fields are replaced by the single-investigator record envelope, work tree and ledger (F13); rate denominators stated as n_exec, as in the frozen scoring policy (F13). No field of `benchmark_schema.json` changed. The v1.0 text is kept in `docs/specification/archive/v1.0.4/data_dictionary.md`.

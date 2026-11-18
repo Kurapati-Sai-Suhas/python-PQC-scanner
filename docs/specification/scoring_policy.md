@@ -1,4 +1,4 @@
-# Recommendation scoring policy (v1.0, FROZEN 2026-11-14, before any held-out evaluation)
+# Recommendation scoring policy (v1.0.1: v1.0 rules FROZEN 2026-11-14, before any held-out evaluation; interpretation note 2026-11-18)
 
 Project: Post-quantum crypto scanner for Python projects. Base paper DOI 10.1145/3774748.3795653.
 
@@ -62,6 +62,12 @@ Rationale: ML-KEM is a KEM, not a public-key encryption scheme. SP 800-227 descr
 - Detection precision counts FALSE_POSITIVE_SITE for every method, including pqscan abstentions.
 - Each external tool's file-failure behaviour is the measured profile in `benchmark/baselines_manifest.json`. A tool's silence on a file of a condition it is known to drop is EXECUTION_FAILURE, never MISSED.
 
+## 6. Interpretation note (v1.0.1; no rule changed)
+
+- **What a primary CORRECT means (F09).** The expected class treats KEM and KEM_DEM as one family. A primary CORRECT therefore means that the recommended **target family** is compatible with the site's role. It does not verify that the recommendation's content is a complete KEM + KDF + AEAD redesign, which recommendation policy Sec. 2 requires; the pre-registered strict sensitivity analysis adds only the drop-in-wording check. Reports state this wherever a CORRECT rate is given.
+- **"Cannot be adjudicated" under the single-investigator design.** The two-annotator wording of the exclusion rule for sites whose ground truth cannot be adjudicated reads, since protocol v1.0.4 Sec. 3, as: eligibility left unresolved by the owner (`meta.unresolved` contains `eligible`). Such sites are excluded, listed and bounded (protocol Sec. 5.6).
+
 ## Changelog
 
+- v1.0.1 (2026-11-18, before any labelling and any test-split access; owner-approved pre-F1 decision register `docs/audit/owner_decision_register_v1.0.5.md`): interpretation note (Sec. 6). No scoring rule, class, judgment or denominator changed. The v1.0 text is kept in `docs/specification/archive/v1.0.4/scoring_policy.md`.
 - v1.0 (2026-11-14): frozen. Strict sensitivity scoring adopted (decision C2); execution-failure handling for external tools; abstention on ineligible sites counts as a false positive.

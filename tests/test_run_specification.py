@@ -45,3 +45,39 @@ def test_fa_is_natural_coverage_and_fb_is_the_adopted_family():
 def test_decisions_recorded():
     ids = {d["id"]: d for d in SPEC["decisions"]}
     assert {"D7", "D15"} <= set(ids) and all(ids[i]["by"] == "owner" for i in ("D7", "D15"))
+
+
+# ------------------------------------------------------------------ owner decision register of 18 Nov 2026 (v1.0.5)
+ROOT = Path(__file__).resolve().parents[1]
+MD = (ROOT / "docs/specification/run_specification_pre_f1.md").read_text(encoding="utf-8")
+REGISTER = ROOT / "docs/audit/owner_decision_register_v1.0.5.md"
+
+
+def test_h1b_set_is_the_six_external_tools_inside_fa():
+    h = SPEC["h1b"]
+    assert h["set"] == ["pqcheck", "pqc-audit", "PostQuant", "qsafe", "QSA-regex", "pqblocks-scan"]
+    assert set(h["set"]) <= set(FA["baselines"]) and not any(t.startswith("pqscan:") for t in h["set"])
+    assert h["reported_separately"] == ["pqscan:B1-algorithm", "pqscan:B2-method-args"]
+    assert {"CBOMkit (sonar-cryptography)", "Mehl ESEM 2026 scanner", "pqscan:B1-dual"} == set(h["excluded"])
+
+
+def test_interpretations_recorded_and_thresholds_unchanged():
+    it = SPEC["interpretations"]
+    assert {"H-1", "H-2", "H-3", "H-4", "H-5 (H3)", "H-6 (H4)"} == set(it)
+    assert ">= 0.25" in it["H-2"] and ">= 0.10" in it["H-2"]
+    assert it["H-5 (H3)"]["coverage_points"] == ["7/10", "4/5", "9/10"]
+    assert ">= 0.30" in it["H-6 (H4)"]["decision"] and ">= 0.90" in it["H-6 (H4)"]["decision"]
+    assert "20261113:withhold:001 ... 20261113:withhold:100" in it["H-5 (H3)"]["random_withholding"]
+    assert "NOT ASSESSABLE" in it["H-5 (H3)"]["decision_C2"] and "all seven repositories" in it["H-5 (H3)"]["estimability_C1"]
+    assert "still abstains on UNKNOWN roles" in it["H-5 (H3)"]["arms"]["always_recommend"]
+    assert "eligible and ineligible cases included" in it["H-6 (H4)"]["denominator_C3"]
+    assert any(d["id"] == "PF-REG-2026-11-18" and d["by"] == "owner" for d in SPEC["decisions"])
+
+
+def test_eligible_only_sensitivity_wording_identical_everywhere():
+    s = SPEC["interpretations"]["H-6 (H4)"]["eligible_only_sensitivity"]
+    assert s.startswith("Eligible-only recommendation-flip sensitivity (H4; secondary; reported separately).")
+    assert "never substituted for them in the primary H4 decision" in s
+    assert s in MD
+    assert s in REGISTER.read_text(encoding="utf-8")
+    assert s not in SPEC["interpretations"]["H-6 (H4)"]["decision"]          # never part of the decision rule

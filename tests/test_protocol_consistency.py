@@ -24,11 +24,88 @@ FROZEN_H2 = ("H2: correct-per-eligible-site of the provenance-aware arm exceeds 
 
 
 def test_versions():
-    assert PROTO.startswith("# Evaluation protocol (v1.0.4, pre-registered)")
-    assert GUIDE.startswith("# Annotation guide for PyPQC-RoleBench (v1.1)")
-    assert "v1.0.4 (2026-11-16" in PROTO
+    assert PROTO.startswith("# Evaluation protocol (v1.0.5, pre-registered)")
+    assert GUIDE.startswith("# Annotation guide for PyPQC-RoleBench (v1.2)")
+    assert "v1.0.4 (2026-11-16" in PROTO and "v1.0.5 (2026-11-18" in PROTO
     assert (ROOT / "docs/specification/evaluation_protocol_v1.0.3.md").exists()
     assert (ROOT / "docs/benchmark/annotation_guide_v1.0.md").exists()
+    arch = ROOT / "docs/specification/archive/v1.0.4"
+    assert (arch / "evaluation_protocol.md").read_text(encoding="utf-8").startswith(
+        "# Evaluation protocol (v1.0.4, pre-registered)")
+    assert (arch / "annotation_guide.md").read_text(encoding="utf-8").startswith(
+        "# Annotation guide for PyPQC-RoleBench (v1.1)")
+
+
+# ------------------------------------------------------------------ v1.0.5 owner-approved corrections (18 Nov 2026)
+TAX = (ROOT / "docs/specification/role_taxonomy.md").read_text(encoding="utf-8")
+DICT = (ROOT / "docs/specification/data_dictionary.md").read_text(encoding="utf-8")
+SCORING = (ROOT / "docs/specification/scoring_policy.md").read_text(encoding="utf-8")
+EVERY_DOC = {**ADOPTED, "taxonomy": TAX, "dictionary": DICT, "scoring": SCORING}
+
+
+@pytest.mark.parametrize("name", list(EVERY_DOC))
+def test_f06_blinding_never_claimed_enforced(name):
+    for line in EVERY_DOC[name].splitlines():
+        low = line.lower()
+        if "blinding" in low and re.search(r"independently enforced|enforced blinding|verified blinding", low):
+            assert re.search(r"not independently enforced|never (as|claimed)|never .*independently enforced", low), line
+
+
+def test_f14_human_review_is_a_pending_f1_prerequisite():
+    f1 = PROTO[PROTO.index("**Stage F1:"):PROTO.index("**Between F1 and F2")]
+    assert "external human review record (mandatory" in f1 and "**pending**" in f1 and "not waived" in f1
+    pol = (ROOT / "docs/specification/recommendation_policy.md").read_text(encoding="utf-8")
+    assert "| pending | Human reviewer outside the build team" in pol      # never marked completed
+
+
+def test_f04_estimands_kept_apart():
+    assert "w_r,h = m_r,h / m_r" in PLAN and "Σ_h (m_r,h / n_r) · Uniform" not in PLAN.split("v1.0 wrote")[0]
+    assert "estimates δ_r^ev" in PLAN and "S-F1 (Sec. 6) is a separate sensitivity analysis over the sampled primary set" in PLAN
+    assert "**the two coincide** for repository r if and only if no eligible site fails" in PLAN
+    assert "**never** described as measuring the full design mixture when failures exist" in PLAN
+
+
+def test_f01_f21_taxonomy_and_guide_agree():
+    assert "when it is (a), (b) or (c) above" in TAX
+    assert "storage within the analysed scope only" in TAX
+    assert "An observed escape takes precedence over" in GUIDE
+
+
+def test_f17_f19_f20_wording():
+    assert PLAN.count("not multiplicity-adjusted") >= 2 and "not adjusted for multiplicity" in PLAN
+    assert "**c_DV (v1.0.1, F19)**" in PLAN
+    assert "F1 is not permitted after a failed calibration" in PLAN and "F1 is never permitted after a failed calibration" in PROTO
+
+
+def test_f18_frame_audit_seed_matches_code():
+    from pqscan.bench import frame_audit
+    assert frame_audit.SEED == "20261113:frame" and "`20261113:frame|<repository>|<file>`" in PROTO
+
+
+def test_f11_packet_first_rule_matches_code():
+    from pqscan.bench import packets
+    assert packets.PLANNED_CANDIDATES == {"DV": 468, "T": 630}
+    assert round(packets.packet_first_rate("DV"), 4) == 0.1282 and packets.packet_first_rate("T") == 0.10
+    assert "max(0.10, 60 / N_planned)" in PROTO and "12.8% for DV" in GUIDE
+
+
+def test_f13_dictionary_has_no_two_annotator_fields():
+    assert "annotator_1" not in DICT and "annotator_2" not in DICT and "labels/<annotator>" not in DICT
+    assert "Coverage = (RECOMMEND) / n_exec" in DICT
+
+
+def test_f15_guide_examples_carry_label_kind_and_schema_keys():
+    import json as _json
+    schema = _json.loads((ROOT / "docs/benchmark/meta_schema.json").read_text(encoding="utf-8"))
+    sec5 = GUIDE[GUIDE.index("## 5. Record envelope"):GUIDE.index("**Type rules:**")]
+    blocks = re.findall(r"```json\n(.*?)```", sec5, re.S)
+    assert len(blocks) == 2
+    for block, kind in zip(blocks, ("primary", "ai_review")):
+        meta = block[block.index('"meta"'):]
+        keys = set(re.findall(r'"([a-z_0-9]+)":', meta)) - {"meta", "ai", "interface_or_api", "model", "datetime_utc",
+                                                            "prompt_sha256", "packet_sha256", "status"}
+        assert f'"label_kind": "{kind}"' in meta
+        assert set(schema["required"]) <= keys <= set(schema["properties"])
 
 
 def test_frozen_hypotheses_preserved_verbatim():
