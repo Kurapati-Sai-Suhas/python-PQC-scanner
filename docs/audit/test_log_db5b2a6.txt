@@ -1,0 +1,25 @@
+# canonical test log, commit db5b2a68289952cc4ac1194ba2c26ed45a07bcac, 2026-11-18T05:33:03Z, pqscan/tests/scripts clean: yes
+## A. production suite (tests/)
+=========================== short test summary info ===========================
+SKIPPED [1] tests\test_pipeline_export.py:118: symlink creation not permitted on this system
+489 passed, 1 skipped in 187.10s (0:03:07)
+## B. production suite without the 14 tests added 17 Nov (close-out baseline)
+475 passed, 1 skipped in 133.80s (0:02:13)
+## C. archived reference suite, rev4
+82 passed in 7.50s
+## D. archived reference suite, rev3
+13 passed in 1.70s
+## E. differential tests (subset of A)
+7 passed in 8.04s
+## F. adoption record
+exit=0
+## G. evidence register
+81 values, 0 failed checks
+## H. output schema validation
+CBOM  docs/demo/outputs/03_cbom.json: VALID (CycloneDX 1.6 strict; 23 components)
+CBOM  docs/final/demo/outputs/real/cryptography-47.0.0_cbom.json: VALID (CycloneDX 1.6 strict; 13 components)
+CBOM  docs/final/demo/outputs/real/pycryptodome-4.4.0_cbom.json.gz: VALID (CycloneDX 1.6 strict; 1214 components)
+SARIF docs/demo/outputs/04_scan.sarif: VALID (SARIF 2.1.0 schema; 23 results)
+SARIF docs/final/demo/outputs/real/cryptography-47.0.0_scan.sarif: VALID (SARIF 2.1.0 schema; 13 results)
+SARIF docs/final/demo/outputs/real/pycryptodome-4.4.0_scan.sarif.gz: VALID (SARIF 2.1.0 schema; 1214 results)
+exit=0
