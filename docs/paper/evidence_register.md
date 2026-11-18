@@ -25,7 +25,8 @@ Created 17 Nov 2026 at commit a640c15, on branch `phase3-preparation`. Every imp
 |---|---|---|
 | a89743a (engineering close-out) | 475 passed, 1 skipped | close-out claim; reproduced at a640c15 by excluding the 3 test files added on 17 Nov: **475 passed, 1 skipped** |
 | 196399b | 485 passed, 1 skipped | +10 tests (fetch guard 5, NIST alignment 5). This intermediate figure appeared in `dataset_inventory.md`, now corrected. |
-| **a640c15 (current)** | **489 passed, 1 skipped** | +4 acceptance-CLI tests. **This is the verified final count.** |
+| a640c15 | 489 passed, 1 skipped | +4 acceptance-CLI tests. Verified count for the paper package and the one-day audit (`docs/audit/test_log_db5b2a6.txt`). |
+| **18 Nov, D15 run specification** | **494 passed, 1 skipped** | +5 tests in `tests/test_run_specification.py` (owner decisions D7/D15 guarded against the code). Current count. |
 
 The skipped test is `tests/test_pipeline_export.py:118`: symlink creation is not permitted on this Windows system. The archived reference suite has **82 passed** (rev4, the close-out figure); with the 13 rev3 tests, the folder total is **95 passed**. Differential tests: **7 passed**. `scripts/adoption_record.py --check`: exit 0. Source: `evidence/test_log_a640c15.txt`.
 

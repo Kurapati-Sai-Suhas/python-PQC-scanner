@@ -40,7 +40,9 @@ The RQ text and the protocol are unchanged.
 - **(c)** In every case, **correct the stated reason** in the paper ("reported separately because it does not emit migration recommendations by design, so it cannot be judged on recommendation correctness"). The draft already says this.
 - The frozen `benchmark/baselines_manifest.json` text is **not** edited. A dated amendment note, like the manifest's existing amendment mechanism, needs your approval.
 
-## D15: which algorithm-name mapping enters F-A — recommendation: `B1-algorithm` (needs owner approval)
+## D15: which algorithm-name mapping enters F-A — **DECIDED: `B1-algorithm` (owner, 18 Nov 2026)**
+
+Recorded in the pre-F1 run specification (`docs/specification/run_specification_pre_f1.{md,json}`) and guarded by `tests/test_run_specification.py`. `B1-dual` is descriptive only, outside F-A. No scanner change. The analysis below is kept as the basis of the decision.
 
 **Source** (`pqscan/baselines/simple.py` ll. 1–13 and 25–27; decision function `decide`):
 

@@ -31,7 +31,7 @@
 **Ambiguity to fix before F1 (owner).**
 - The protocol names "a simple algorithm-name mapping" but not which code variant: `B1-algorithm` (RSA → KEM, EC → SIG) or `B1-dual` (dual target for multi-purpose algorithms). Both exist in `pqscan/baselines/simple.py`.
 - "≤ 8" fits exactly one algorithm mapping plus one method/argument mapping plus six external tools.
-- The run specification should name the variant(s) before F1; this is recorded as D15.
+- The run specification should name the variant(s) before F1; this is recorded as D15. **Resolved 18 Nov 2026:** the owner chose `B1-algorithm`; `B1-dual` is descriptive only (`docs/specification/run_specification_pre_f1.{md,json}`).
 
 **Consequence of the design.**
 - The phrase "at comparable coverage" is tested confirmatorily **only for the method/argument-based baselines** (family F-B).

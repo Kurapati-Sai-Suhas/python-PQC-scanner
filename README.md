@@ -31,7 +31,7 @@ fresh environment.
 
 One-day completion audit (18 Nov 2026): `docs/audit/`. It contains:
 - the dataset audit, recomputed from raw manifests;
-- the metrics and logs audit, with the canonical test count of 489 passed and 1 skipped;
+- the metrics and logs audit, with the canonical test count at the audit of 489 passed and 1 skipped (494 passed, 1 skipped after the D15 run-specification test, 18 Nov 2026);
 - the software-readiness check, run in a fresh clone;
 - the research decisions D7, D14 and D15;
 - the execution plan.

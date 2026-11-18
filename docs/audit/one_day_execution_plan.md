@@ -28,7 +28,7 @@
 | # | Task | Estimate | Status |
 |---|---|---|---|
 | I1 | Apply D7 Option A consistently | 15 min | ✅ manuscript Secs. I and IX; decision log |
-| I2 | Inspect Mehl's scanner (D14) and the B1 variants (D15); write recommendations | 45 min | ✅ `research_decisions_and_novelty.md`; **decisions wait for the owner** |
+| I2 | Inspect Mehl's scanner (D14) and the B1 variants (D15); write recommendations | 45 min | ✅ `research_decisions_and_novelty.md`. D15 decided (B1-algorithm) and recorded in the pre-F1 run specification; D14 waits for the owner |
 | I3 | Mark method-implied roles in the summary output (W5; display only) | 1 h | not done. It would change the committed demo outputs and their recorded hashes. Recommended after the demo. |
 | I4 | Licence decision (D5) and the pyproject licence-table deprecation | 10 min after the decision | ⏳ owner |
 | I5 | Correct the stale pilot figure (51.7% → 53.3%) and the SP 800-227 citation precision (W6) in adopted documents | 30 min after approval | ⏳ owner approval (pre-F1 correction route; adoption-record update) |

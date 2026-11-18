@@ -92,7 +92,7 @@ HEAD db5b2a6.
 - No labels, so no comparison of correctness exists yet.
 - Coverage differs widely (fixture: 9–23 of 23 sites), so every F-A result must print coverage.
 - CBOMkit is not run (D4 = A). The Mehl scanner is not run; its stated reason is inaccurate (D14).
-- The algorithm-name variant for F-A is not yet named (D15).
+- The algorithm-name variant for F-A is now named: `B1-algorithm` (owner decision D15, 18 Nov 2026; pre-F1 run specification). `B1-dual` is descriptive only.
 - The harness's text classifier interprets free-text tool advice. It is frozen, but it is a heuristic.
 
 ## 5. Conclusion

@@ -35,7 +35,7 @@ Not run:
 - CBOMkit (sonar-cryptography): not run by owner decision D4 = A (2026-11-14): inventory tool without per-site migration advice; supports pyca but not PyCryptodome; never scored on recommendations; reported as not run in every table (docs/implementation/cbomkit_route.md, docs/review/owner_decision_package.md).
 - Mehl ESEM 2026 scanner: Zenodo record 10.5281/zenodo.19634475 contains results only, no scanner source; repository-level comparison only
 
-Python 3.12.10 � Windows-11-10.0.26300-SP0 � created 2026-11-18T05:41:21+00:00
+Python 3.12.10 · Windows-11-10.0.26300-SP0 · created 2026-11-18T05:41:21+00:00
 
 ## Per-site side-by-side
 
@@ -73,6 +73,6 @@ Sites (of 23) at which each external tool reported anything: {"pqcheck": 18, "pq
 
 - **pqscan arms** run at the default threshold T2. The H2 comparisons in the protocol use the comparator arms at T0, so this table shows the arms' *evidence tier*, not the H2 setting.
 - **B1-algorithm** maps by algorithm family (RSA → KEM, EC → SIG). It therefore gives KEM for RSA signing (`signing_service.py`, `legacy_pycryptodome.py:11,13`) and SIG for EC (P-384) key agreement (`key_agreement.py:14–16`).
-- **B1-dual** gives DUAL for every multi-purpose algorithm. See D15 in `docs/audit/research_decisions_and_novelty.md`.
+- **B1-dual** gives DUAL for every multi-purpose algorithm. By owner decision D15 (18 Nov 2026), `B1-algorithm` is the algorithm-name baseline in F-A and `B1-dual` is descriptive only (`docs/specification/run_specification_pre_f1.{md,json}`).
 - **External tools** are shown as classified by the benchmark harness's own text classifier (`pqscan/bench/judge.py`). "PQC_ALREADY" and "DUAL" are that classifier's readings of the tool's text.
 - **Coverage differs:** pqscan's full arm reports all 23 sites, and the tools report between 9 and 21 of them. Any real comparison must therefore state its coverage (F-A at natural coverage; F-B coverage-matched).
