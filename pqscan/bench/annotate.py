@@ -8,6 +8,11 @@
     python -m pqscan.bench.annotate adjudicate --phase DV --repo paramiko__paramiko --batch B1 --adjudication adj.csv
     python -m pqscan.bench.annotate status     --phase DV --repo paramiko__paramiko
 
+Validation loops (R4-20 step 4; `pqscan/bench/loops.py`): phases `pilot` (repos `paramiko`, `python-jose`) and
+`synthetic` (repo `synthetic`) use the same steps without `--split`; every item is issued in batches of 10; no quota,
+no packet-first subset, no re-label rule. After the last batch is adjudicated:
+    python -m pqscan.bench.annotate reference  --phase synthetic --repo synthetic
+
 Files: labels, packets, prompts, AI exports and final labels go to the git-ignored `benchmark/annotation/<phase>/<repo>/`.
 The hash-only ledger goes to `benchmark/ledger/<phase>/ledger_<repo>.jsonl`. Add `--push` to commit and push the
 ledger after a step (the protocol requires that during annotation). Nothing here starts annotation by itself: every
@@ -16,12 +21,14 @@ step is run by the owner.
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import sys
 from pathlib import Path
 
 from . import candidates as C
 from . import ledger as L
+from . import loops as LP
 from . import packets as P
 from . import review as R
 from .labels import eligibility_of, validate_file
@@ -59,7 +66,39 @@ def _batch_ids(records: list[dict], batch: str) -> list[str]:
     raise L.LedgerError(f"batch {batch} was never issued")
 
 
+def _issue_loop(a, root: Path) -> dict:
+    """Validation-loop issuance (phases pilot / synthetic): location-only, every item, batches of 10."""
+    if a.split is not None:
+        raise SystemExit(f"--split does not apply to the {a.phase} loop")
+    p = paths(a.phase, a.repo, root)
+    recs = L.read(p["ledger"])
+    L.verify(recs)
+    batch, state = L.open_batch(recs)
+    if state not in (None, "adjudication"):
+        raise SystemExit(f"batch {batch} is still open at step {state}")
+    all_items = LP.items(a.phase, a.repo, root)
+    res = LP.next_batch(all_items, L.issued_ids(recs))
+    if res["stop"]:
+        return {k: v for k, v in res.items() if k != "batch"}
+    label = f"B{sum(r['step'] == 'issue' for r in recs) + 1}"
+    p["work"].mkdir(parents=True, exist_ok=True)
+    rows = res["batch"]
+    LP.prepare_batch(a.phase, rows, root, p["work"])
+    todo = p["work"] / f"todo_{a.repo}_{label}.jsonl"
+    todo.write_text("".join(json.dumps(r | {"packet_first": False}) + "\n" for r in rows), encoding="utf-8", newline="\n")
+    base = LP.checkout(a.phase, a.repo, root, p["work"])
+    packets = [P.build_packet(base, r["file"], r["line"], r["candidate_id"]) for r in rows]
+    (p["work"] / f"packets_{a.repo}_{label}.json").write_text(json.dumps(packets, indent=1), encoding="utf-8", newline="\n")
+    rec = L.append(p["ledger"], step="issue", repo=a.repo, phase=a.phase, batch=label,
+                   candidates=[r["candidate_id"] for r in rows])
+    return {"batch": label, "candidates": len(rows), "packet_first": 0, "issued_total": res["issued"] + len(rows),
+            "items_total": res["total"], "ledger": rec["hash"][:12],
+            "warnings": sorted({w for pk in packets for w in pk["warnings"]})}
+
+
 def cmd_issue(a, root: Path) -> dict:
+    if a.phase in LP.LOOP_PHASES:
+        return _issue_loop(a, root)
     if a.phase == "T" and not (root / "docs" / "freeze" / "pretest_freeze.json").exists():
         raise SystemExit("the test phase needs the F1 freeze record first")
     if a.split not in SPLIT_OF_PHASE[a.phase]:
@@ -93,6 +132,8 @@ def cmd_issue(a, root: Path) -> dict:
 def cmd_primary(a, root: Path) -> dict:
     p = paths(a.phase, a.repo, root)
     recs = L.read(p["ledger"])
+    if a.packet_first and a.phase in LP.LOOP_PHASES:
+        raise SystemExit(f"the packet-first subset is defined for phases DV and T only, not the {a.phase} loop")
     kind = "packet_first" if a.packet_first else "primary"
     ids = _batch_ids(recs, a.batch)
     if a.packet_first:
@@ -158,6 +199,34 @@ def cmd_adjudicate(a, root: Path) -> dict:
     return {"final_records": len(finals), "unresolved": R.unresolved_report(finals)["with_unresolved_field"]}
 
 
+def cmd_reference(a, root: Path) -> dict:
+    """Validation loops only: owner-final labels vs the reference labels (pilot: earlier developer labels, circular;
+    synthetic: generator labels by construction). Refused until every item is issued and every batch adjudicated."""
+    if a.phase not in LP.LOOP_PHASES:
+        raise SystemExit("the reference comparison exists only for the pilot and synthetic loops")
+    p = paths(a.phase, a.repo, root)
+    recs = L.read(p["ledger"])
+    L.verify(recs)
+    batch, state = L.open_batch(recs)
+    total = len(LP.items(a.phase, a.repo, root))
+    if len(set(L.issued_ids(recs))) != total or state != "adjudication":
+        raise SystemExit(f"the loop is not finished: {len(set(L.issued_ids(recs)))}/{total} items issued, "
+                         f"last step {state!r}; the reference stays closed until every batch is adjudicated")
+    finals = [json.loads(x) for f in sorted(p["work"].glob(f"final_{a.repo}_B*.jsonl"))
+              for x in f.read_text(encoding="utf-8").splitlines() if x.strip()]
+    res = LP.reference_compare(finals, LP.reference_labels(a.phase, a.repo, root))
+    out = p["work"] / f"reference_disagreements_{a.repo}.csv"
+    with out.open("w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=["candidate_id", "field", "owner_final", "reference", "decision", "reason"])
+        w.writeheader()
+        for r in res["disagreements"]:
+            w.writerow({**r, "decision": "", "reason": ""})
+    L.append(p["ledger"], step="note", repo=a.repo, phase=a.phase, file=out,
+             note=f"reference comparison: {len(res['disagreements'])} field disagreements over {res['compared']} items")
+    return {"disagreements": len(res["disagreements"]), "compared": res["compared"], "no_reference": len(res["no_reference"]),
+            "file": out.name}
+
+
 def cmd_status(a, root: Path) -> dict:
     p = paths(a.phase, a.repo, root)
     recs = L.read(p["ledger"])
@@ -170,13 +239,14 @@ def cmd_status(a, root: Path) -> dict:
 def main(argv: list[str] | None = None, root: Path = ROOT) -> int:
     ap = argparse.ArgumentParser(prog="pqscan.bench.annotate")
     sub = ap.add_subparsers(dest="cmd", required=True)
-    for name in ("issue", "primary", "prompt", "ai", "compare", "adjudicate", "status"):
+    for name in ("issue", "primary", "prompt", "ai", "compare", "adjudicate", "status", "reference"):
         s = sub.add_parser(name)
-        s.add_argument("--phase", choices=["DV", "T"], required=True)
+        s.add_argument("--phase", choices=["DV", "T", *LP.LOOP_PHASES], required=True)
         s.add_argument("--repo", required=True)
         s.add_argument("--push", action="store_true", help="commit and push the ledger after the step")
         if name == "issue":
-            s.add_argument("--split", choices=sorted(C.QUOTAS), required=True)
+            s.add_argument("--split", choices=sorted(C.QUOTAS), default=None,
+                           help="required for phases DV and T; not used by the pilot/synthetic loops")
         if name in ("primary", "prompt", "ai", "compare", "adjudicate"):
             s.add_argument("--batch", required=True)
         if name == "primary":
