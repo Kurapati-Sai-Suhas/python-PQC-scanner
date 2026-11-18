@@ -29,6 +29,13 @@ Final audit (17 Nov 2026): `docs/final/`. It contains the dataset inventory, met
 report, completion checklist, and a reproducible demonstration (`docs/final/final_project_demo.md`) rebuilt in a
 fresh environment.
 
+One-day completion audit (18 Nov 2026): `docs/audit/`. It contains:
+- the dataset audit, recomputed from raw manifests;
+- the metrics and logs audit, with the canonical test count of 489 passed and 1 skipped;
+- the software-readiness check, run in a fresh clone;
+- the research decisions D7, D14 and D15;
+- the execution plan.
+
 Licence: none chosen yet (the default is all rights reserved). Bundled third-party files keep their own
 licences: the CycloneDX 1.6 schema (Apache-2.0) and the OASIS SARIF 2.1.0 schema.
 
@@ -40,6 +47,15 @@ uv pip install --python .venv/Scripts/python.exe -e ".[bench,dev]"
 ```
 
 On Linux use `.venv/bin/python`. Semgrep 1.185.0 is pinned and installed as a dependency.
+
+To check an installation end to end, run `bash docs/audit/e2e/run_e2e.sh <scratch-dir>` (Git Bash or Linux) from the repository root. It:
+- clones the committed HEAD;
+- installs with the two commands above;
+- runs the test suite;
+- scans synthetic fixtures (demo, worked example, PQ/T hybrid, broken and unsupported files);
+- validates the CBOM and SARIF output.
+
+The last verified run (18 Nov 2026, Windows 11) is recorded in `docs/audit/software_readiness.md`.
 
 ## Use
 
