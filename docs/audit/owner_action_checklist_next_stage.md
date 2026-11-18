@@ -2,6 +2,8 @@
 
 Prepared 18 Nov 2026. Supersedes `docs/paper/owner_action_checklist.md`, which is kept for the record.
 
+> **Status update (18 Nov 2026, later the same day).** The state below is as verified when this checklist was written. Since then: the AI-review identity was recorded by the owner, validated and committed unchanged (commit `77f7600`); the first isolated specification review ran and its 21 findings were decided (`docs/audit/owner_decision_register_v1.0.5.md`, protocol v1.0.5); the second review package is prepared but not started. Still pending: the external human review (an F1 prerequisite), the second review, the pilot and synthetic loops, DV labelling, F1, F2 and E.
+
 **Verified state before writing:**
 - branch `phase3-preparation`, HEAD `0e2932c`, in sync with origin;
 - `main` = 81f561e, untouched;

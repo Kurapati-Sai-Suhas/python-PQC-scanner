@@ -22,5 +22,5 @@ def test_matrix_files_are_current_and_complete():
 def test_status_is_never_overstated():
     rows = {r["id"]: r for r in csv.DictReader((ROOT / "docs/audit/chatgpt_review_finding_verification.csv").open(encoding="utf-8"))}
     assert "PENDING" in rows["F14"]["status"]                  # the human review itself is not done
-    assert "NOT applied" in rows["E01"]["status"]
+    assert "committed (77f7600)" in rows["E01"]["status"] and "E01 valid" in rows["E01"]["status"]
     assert "PASS" in rows["F05"]["status"]

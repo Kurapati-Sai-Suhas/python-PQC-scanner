@@ -25,7 +25,7 @@ Execution record of `pre_f1_correction_plan.md` under the owner-approved registe
 | Records | v1.0.4 texts archived byte-for-byte (`docs/specification/archive/v1.0.4/`); `adoption_record_v1.0.5.json`; `scripts/adoption_record.py --check` verifies both records; `amendment_v1.0.5.md`. | `test_adoption_record_hashes_match` |
 | Review packets | The first-review (v1.0.4) packet stays frozen and still reproduces (archive copies; run specification read from git at `547ce08`). Second-review package `docs/review/spec_review_v1.0.5/` (8 parts, 21 documents). | `tests/test_spec_review_packet.py` |
 | Paper | Manuscript wording for v1.0.5, F04, F05, F06, F09, F12, F14; register rows E63–E65. | `verify_evidence.py` |
-| E01 | **Prepared, not applied:** `docs/audit/pending/e01_identity_committed.patch`. The identity file is unchanged and uncommitted. Until approval, `verify_evidence.py` honestly reports 1 failure (E01.ai_identity_absent). | `git apply --check` passes |
+| E01 | Prepared as `docs/audit/pending/e01_identity_committed.patch` while the identity file was uncommitted; until then `verify_evidence.py` honestly reported 1 failure (E01.ai_identity_absent). **Update 18 Nov 2026:** with the owner's separate approval, the identity file was committed unchanged and the patch applied in commit `77f7600` (E01.ai_identity_valid and E01.ai_identity_committed). | `verify_evidence.py`: 96 values, 0 failed checks |
 
 ## Unchanged (verified)
 
@@ -35,5 +35,4 @@ The nine files of the E30 calibration closure (`scripts/calibration_closure.py`:
 
 - External human review (mandatory before F1; pending).
 - The second isolated AI specification review (package ready; needs the owner).
-- E01: commit of the owner's identity file (needs separate approval; patch ready).
 - Pilot, synthetic and DV annotation; F1, F2, E (each needs approval).

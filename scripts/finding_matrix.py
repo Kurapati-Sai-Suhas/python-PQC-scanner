@@ -107,9 +107,13 @@ ROWS = [
      "annotation", "P1", "Observed escape -> UNKNOWN, ahead of KEY_MATERIAL_ONLY; storage within scope only",
      "test_protocol_consistency (F01/F21)", "yes (approved)", "implemented"],
     ["E01", "(audit) evidence check E01 fails once the identity file exists", "VALID (expected)",
-     "verify_evidence.py E01.ai_identity_absent; identity file present, untracked, valid", "One evidence check fails until the identity file is committed",
-     "paper evidence", "P2", "Identity file kept unchanged and uncommitted; correction prepared as docs/audit/pending/e01_identity_committed.patch",
-     "git apply --check passes", "yes: separate approval to commit the identity file", "prepared, NOT applied"],
+     "verify_evidence.py E01.ai_identity_absent failed while the owner's valid identity file was present but uncommitted; "
+     "it is now replaced by E01.ai_identity_valid and E01.ai_identity_committed",
+     "One evidence check failed until the identity file was committed; resolved",
+     "paper evidence", "P2", "Identity file committed unchanged with the owner's separate approval (18 Nov 2026); the "
+     "prepared patch docs/audit/pending/e01_identity_committed.patch applied in commit 77f7600",
+     "verify_evidence.py: 96 values, 0 failed checks", "yes: separate owner approval given 18 Nov 2026",
+     "applied and committed (77f7600); E01 valid"],
     ["PILOT", "(audit) 5 pilot sites are worked examples in the guide", "VALID",
      "guide Sec. 7 examples = pilot sites (paramiko 3, python-jose 2)", "Their pilot agreement is not blind evidence",
      "annotation", "P1", "Separately reported subset; other 26 distinguishable", "tests/test_pilot_exposure.py",
