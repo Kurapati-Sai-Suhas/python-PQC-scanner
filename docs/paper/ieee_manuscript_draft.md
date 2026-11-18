@@ -458,7 +458,7 @@ Equation (2a) is the exact average over the m!/(j!(m − j)!) equally likely cho
 | Two-stratum, unstratified bootstrap (3 configurations) | 10,000 | 0.0025 / 0.0040 / 0.0114 | met; unstratified variant kept |
 | Random repositories (S16) | 20,000 | α: 0.0415 | **not calibrated for generalisation** (expected; not used) |
 
-Calibration ran with B = 1,000 on commit aa9d6b0, and pqscan is unchanged since [E30]. These results show that the *procedure* controls error under an *assumed* data-generating model. **They say nothing about scanner accuracy.**
+Calibration ran with B = 1,000 on commit aa9d6b0. Every file the calibration loads (the H2 procedure `pqscan.bench.h2`, its helpers `pqscan.bench.stats` and `pqscan.bench.judge`, the two package initialisers and the archived planning-model simulator) is byte-identical at the current commit. Later commits changed only annotation tooling that the calibration does not load, and the driver script's command-line handling [E30]. These results show that the *procedure* controls error under an *assumed* data-generating model. **They say nothing about scanner accuracy.**
 
 **C. Outputs, determinism and reproducibility** [E53–E55].
 - Three CBOMs validate against strict CycloneDX 1.6 and three SARIF files against SARIF 2.1.0.

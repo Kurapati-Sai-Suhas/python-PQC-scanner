@@ -120,7 +120,21 @@ for run, n in (("development/run1", 40), ("validation/run1", 20)):
 acc = jl(ROOT / "docs/implementation/acceptance/statistical_acceptance.json")
 put("E30.accepted", acc["accepted"], True)
 put("E30.code_commit", acc["commit"], "aa9d6b00697f8f480c1c4be1b62cd3588731b685")
-put("E30.pqscan_unchanged_since", git("diff", "--stat", acc["commit"], "HEAD", "--", "pqscan") == "", True)
+# E30 is scoped to the calibration's code closure (scripts/calibration_closure.py): the files the calibration loads,
+# import-traced, byte-identical at the calibration commit, HEAD and in the working tree; plus the driver script.
+sys.path.insert(0, str(ROOT / "scripts"))
+import calibration_closure as CC  # noqa: E402
+
+put("E30.closure_commit_matches", CC.CALIBRATION_COMMIT == acc["commit"], True)
+_cc = CC.status(ROOT)
+put("E30.closure_files", len(CC.CLOSURE), 9)
+put("E30.closure_traced", _cc["closure_traced"], True)
+put("E30.closure_unchanged", _cc["closure_unchanged"], True)
+put("E30.driver_since_5d78a06", _cc["driver_since_ref"], True)
+for _p in _cc["problems"]:
+    print("    E30:", _p)
+put("E30.pqscan_changed_since_outside_closure",           # informational: what changed in pqscan/ since calibration
+    sorted(set(git("diff", "--name-only", acc["commit"], "HEAD", "--", "pqscan").split()) - set(CC.CLOSURE)))
 put("E30.B", acc["B"], 1000)
 put("E30.failed_cells", acc["failed_cells"], [])
 md = (ROOT / "docs/implementation/acceptance/statistical_acceptance.md").read_text(encoding="utf-8")

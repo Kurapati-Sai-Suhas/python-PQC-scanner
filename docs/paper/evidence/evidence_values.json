@@ -1,5 +1,5 @@
 {
- "head": "0454aad4b6693eacce91abcd74821137728e2b80",
+ "head": "547ce08c50c2c23a77ce3f2b5d9f7ab155af4ffb",
  "values": {
   "E01.main": "81f561e34997dc56b2728241617cd19785210c85",
   "E01.main_eq_tag": true,
@@ -108,7 +108,15 @@
   },
   "E30.accepted": true,
   "E30.code_commit": "aa9d6b00697f8f480c1c4be1b62cd3588731b685",
-  "E30.pqscan_unchanged_since": true,
+  "E30.closure_commit_matches": true,
+  "E30.closure_files": 9,
+  "E30.closure_traced": true,
+  "E30.closure_unchanged": true,
+  "E30.driver_since_5d78a06": true,
+  "E30.pqscan_changed_since_outside_closure": [
+   "pqscan/bench/annotate.py",
+   "pqscan/bench/loops.py"
+  ],
   "E30.B": 1000,
   "E30.failed_cells": [],
   "E31.typeI_worst_fixed_a3_a2_a": [

@@ -3,7 +3,7 @@
 Created 17 Nov 2026 at commit a640c15, on branch `phase3-preparation`. Every important claim in `ieee_manuscript_draft.md` must appear here. A summary document is never the only evidence for a number.
 
 **Verification:**
-- `.venv/Scripts/python docs/paper/verify_evidence.py --write` recomputes every E-id below from raw files and fails on any mismatch. Last run: **81 values, 0 failed checks**; output in `evidence/evidence_values.json`.
+- `.venv/Scripts/python docs/paper/verify_evidence.py --write` recomputes every E-id below from raw files and fails on any mismatch. Last run: **86 values, 0 failed checks** (18 Nov 2026, after E30 was rescoped to the calibration's code closure); output in `evidence/evidence_values.json`.
 - Test counts come from `evidence/test_log_a640c15.txt`.
 
 **Evidence classes:**
@@ -47,7 +47,7 @@ The skipped test is `tests/test_pipeline_export.py:118`: symlink creation is not
 | E13b | Dataset A role distribution | SIGN 140, NONE 52, KMO 42, KEY_ESTABLISHMENT 42, VERIFY 35, PK_DECRYPT 28, PK_ENCRYPT 28, UNKNOWN 21 | same | E13.roles | SYN | Yes (qualified) |
 | E14 | Pilot: 31 sites (30 eligible) from paramiko and python-jose | as stated | `docs/pilot/h1_pilot_sites.csv` | E14.* | META | Yes as a description. **Pilot outcome figures: No** (circular). |
 | E20 | DV execution: 60/60 tool runs completed (40 development, 20 validation), 0 timeouts, 6,830 file-runs processed | as stated | `runs/*/run1/batch_summary.json` (git-ignored, local) | E20.* | IMPL | Yes (qualified: execution only; outputs withheld for blinding; must be re-run at D6) |
-| E30 | Pre-F1 statistical acceptance: ACCEPTED; code aa9d6b0; pqscan unchanged since; B = 1,000 | as stated | `docs/implementation/acceptance/statistical_acceptance.{json,md}` | E30.*; re-aggregation from 132 cached checkpoints reproduced every value on 17 Nov | CAL | Yes (qualified: under the assumed planning model) |
+| E30 | Pre-F1 statistical acceptance: ACCEPTED; code aa9d6b0; the 9 files the calibration loads (import-traced; `scripts/calibration_closure.py`) are byte-identical at HEAD; the driver script changed after aa9d6b0 only in argument handling (5d78a06); B = 1,000 | as stated | `docs/implementation/acceptance/statistical_acceptance.{json,md}` | E30.*; re-aggregation from 132 cached checkpoints reproduced every value on 17 Nov | CAL | Yes (qualified: under the assumed planning model) |
 | E31 | Type I error, worst over 17 fixed-repository scenarios: 0.0061 / 0.0093 / 0.0191 at α/3, α/2, α (α = 0.025); near-kink worst 0.0092 / 0.0125 / 0.0213 | as stated | same (generated report) | E31.* | CAL | Yes (qualified) |
 | E31b | Random-repository scenario S16: 0.0415 at α = 0.025 | as stated | same | E31.S16_a | CAL | Yes. Must be stated as the reason generalisation is not claimed. |
 | E32 | Family-wise error (Holm, m = 3), worst of 8 configurations: 0.0125 | as stated | same | E32 | CAL | Yes (qualified) |
