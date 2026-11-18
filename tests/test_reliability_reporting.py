@@ -104,7 +104,13 @@ def test_frame_audit_worklist_stop_membership_and_share(tmp_path):
     wl = FAU.worklist(frames)
     assert [r for r, _ in wl[:4]] == ["x", "y", "x", "y"] and wl == FAU.worklist(frames) and len(FAU.frame_hash(frames)) == 64
     audited = [{"repo": r, "file": f, "eligible_lines": [3, 5]} for r, f in wl]          # line 3 is inside the line-2 statement
-    assert not FAU.stop_reached(audited) and FAU.stop_reached(audited * 6)
+    assert not FAU.stop_reached(audited, ["x", "y"]) and FAU.stop_reached(audited * 6, ["x", "y"])
+    # a repository not yet visited blocks the stop even when 60 eligible sites were already found elsewhere
+    many_x = [{"repo": "x", "file": "m0.py", "eligible_lines": list(range(70))}]
+    assert not FAU.stop_reached(many_x, ["x", "y"])
+    assert FAU.stop_reached(many_x + [{"repo": "y", "file": "m0.py", "eligible_lines": []}], ["x", "y"])
+    with pytest.raises(ValueError):
+        FAU.stop_reached(many_x, [])
     pools = {"x": {(f, 2) for f in frames["x"]}, "y": set()}
     per = FAU.membership(audited, pools, {"x": tmp_path / "x", "y": tmp_path / "y"})
     assert per[0]["sites"][0]["statement"] == 2

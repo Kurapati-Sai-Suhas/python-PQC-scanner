@@ -51,9 +51,13 @@ def worklist(frames: dict[str, list[str]]) -> list[tuple[str, str]]:
     return out
 
 
-def stop_reached(audited: Sequence[dict]) -> bool:
-    """audited: [{"repo", "file", "eligible_lines": [...]}] in worklist order."""
-    repos = {a["repo"] for a in audited}
+def stop_reached(audited: Sequence[dict], repos: Sequence[str]) -> bool:
+    """audited: [{"repo", "file", "eligible_lines": [...]}] in worklist order; repos: EVERY repository of the audit
+    frame. Stop only when >= MIN_ELIGIBLE eligible sites have been audited AND every repository of the frame (not only
+    those already visited) has contributed >= MIN_FILES_PER_REPO files (protocol v1.0.5 Sec. 2; fixed 2026-11-18:
+    the earlier version checked only the repositories already audited)."""
+    if not repos:
+        raise ValueError("the audit frame's repositories must be given")
     return sum(len(a["eligible_lines"]) for a in audited) >= MIN_ELIGIBLE and all(
         sum(a["repo"] == r for a in audited) >= MIN_FILES_PER_REPO for r in repos)
 
