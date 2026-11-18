@@ -1,0 +1,532 @@
+{
+ "B_manifest": {
+  "frozen": "2026-11-13",
+  "split_counts": {
+   "development": 4,
+   "validation": 2,
+   "test": 7
+  },
+  "per_split_sums": {
+   "development": {
+    "py_files": 523,
+    "regex_candidates": 643,
+    "pyca_imports": 185,
+    "pycryptodome_imports": 2
+   },
+   "validation": {
+    "py_files": 160,
+    "regex_candidates": 249,
+    "pyca_imports": 69,
+    "pycryptodome_imports": 0
+   },
+   "test": {
+    "py_files": 5293,
+    "regex_candidates": 1484,
+    "pyca_imports": 490,
+    "pycryptodome_imports": 48
+   }
+  },
+  "pycryptodome_share_of_crypto_imports": {
+   "development": 0.0107,
+   "validation": 0.0,
+   "test": 0.0892
+  },
+  "repos_with_any_pycryptodome": {
+   "development": [
+    "mpdavis/python-jose",
+    "lepture/authlib"
+   ],
+   "validation": [],
+   "test": [
+    "saltstack/salt",
+    "hclivess/bismuth"
+   ]
+  },
+  "licences": {
+   "LGPL-2.1": 1,
+   "MIT": 4,
+   "BSD-3-Clause": 1,
+   "LGPL-3.0": 1,
+   "EPL-2.0": 1,
+   "Apache-2.0": 3,
+   "GPL-2.0": 1,
+   "GPL-3.0": 1
+  },
+  "open_conditions": [
+   "RESOLVED 2026-11-14: Only one accepted test repository (saltstack/salt) imports PyCryptodome; the protocol asks for two. A second PyCryptodome-using repository must be found and verified before test labelling, or the shortfall reported. Second PyCryptodome repository: hclivess/bismuth (19 PyCryptodome public-key imports), added before F1.",
+   "fortra/impacket (57 PyCryptodome imports) was rejected only because GitHub reports its licence as NOASSERTION; manual licence review could admit it.",
+   "ansible/ansible and aws/aws-encryption-sdk-python failed to clone in the verification run (see error field) and were not retried."
+  ]
+ },
+ "DV_orders": {
+  "per_repo": {
+   "jpadilla__pyjwt": {
+    "split": "development",
+    "strata": {
+     "S1-app": 111,
+     "S1-nonapp": 282,
+     "S2": 78
+    },
+    "total": 471,
+    "scope": {
+     "app": 127,
+     "test": 344
+    },
+    "scope_by_stratum": {
+     "S1-app": {
+      "app": 111
+     },
+     "S1-nonapp": {
+      "test": 282
+     },
+     "S2": {
+      "app": 16,
+      "test": 62
+     }
+    },
+    "files": 13,
+    "duplicate_ids": 0,
+    "duplicate_locations": 0,
+    "scope_class_mismatch": 0,
+    "missing_fields": 0,
+    "quota": 25,
+    "nonapp_cap": 8
+   },
+   "lepture__authlib": {
+    "split": "development",
+    "strata": {
+     "S1-app": 171,
+     "S1-nonapp": 270,
+     "S2": 515
+    },
+    "total": 956,
+    "scope": {
+     "app": 308,
+     "test": 648
+    },
+    "scope_by_stratum": {
+     "S1-app": {
+      "app": 171
+     },
+     "S1-nonapp": {
+      "test": 270
+     },
+     "S2": {
+      "test": 378,
+      "app": 137
+     }
+    },
+    "files": 108,
+    "duplicate_ids": 0,
+    "duplicate_locations": 0,
+    "scope_class_mismatch": 0,
+    "missing_fields": 0,
+    "quota": 25,
+    "nonapp_cap": 8
+   },
+   "mpdavis__python-jose": {
+    "split": "development",
+    "strata": {
+     "S1-app": 55,
+     "S1-nonapp": 62,
+     "S2": 183
+    },
+    "total": 300,
+    "scope": {
+     "app": 132,
+     "test": 168
+    },
+    "scope_by_stratum": {
+     "S1-app": {
+      "app": 55
+     },
+     "S1-nonapp": {
+      "test": 62
+     },
+     "S2": {
+      "app": 77,
+      "test": 106
+     }
+    },
+    "files": 28,
+    "duplicate_ids": 0,
+    "duplicate_locations": 0,
+    "scope_class_mismatch": 0,
+    "missing_fields": 0,
+    "quota": 25,
+    "nonapp_cap": 8
+   },
+   "paramiko__paramiko": {
+    "split": "development",
+    "strata": {
+     "S1-app": 204,
+     "S1-nonapp": 206,
+     "S2": 165
+    },
+    "total": 575,
+    "scope": {
+     "app": 247,
+     "test": 328
+    },
+    "scope_by_stratum": {
+     "S1-app": {
+      "app": 204
+     },
+     "S1-nonapp": {
+      "test": 206
+     },
+     "S2": {
+      "test": 122,
+      "app": 43
+     }
+    },
+    "files": 33,
+    "duplicate_ids": 0,
+    "duplicate_locations": 0,
+    "scope_class_mismatch": 0,
+    "missing_fields": 0,
+    "quota": 25,
+    "nonapp_cap": 8
+   },
+   "latchset__jwcrypto": {
+    "split": "validation",
+    "strata": {
+     "S1-app": 236,
+     "S1-nonapp": 143,
+     "S2": 37
+    },
+    "total": 416,
+    "scope": {
+     "app": 242,
+     "test": 174
+    },
+    "scope_by_stratum": {
+     "S1-app": {
+      "app": 236
+     },
+     "S1-nonapp": {
+      "test": 143
+     },
+     "S2": {
+      "test": 31,
+      "app": 6
+     }
+    },
+    "files": 7,
+    "duplicate_ids": 0,
+    "duplicate_locations": 0,
+    "scope_class_mismatch": 0,
+    "missing_fields": 0,
+    "quota": 25,
+    "nonapp_cap": 8
+   },
+   "ronf__asyncssh": {
+    "split": "validation",
+    "strata": {
+     "S1-app": 143,
+     "S1-nonapp": 117,
+     "S2": 525
+    },
+    "total": 785,
+    "scope": {
+     "app": 511,
+     "test": 272,
+     "example": 2
+    },
+    "scope_by_stratum": {
+     "S1-app": {
+      "app": 143
+     },
+     "S1-nonapp": {
+      "test": 117
+     },
+     "S2": {
+      "app": 368,
+      "test": 155,
+      "example": 2
+     }
+    },
+    "files": 60,
+    "duplicate_ids": 0,
+    "duplicate_locations": 0,
+    "scope_class_mismatch": 0,
+    "missing_fields": 0,
+    "quota": 25,
+    "nonapp_cap": 8
+   }
+  },
+  "strata_total": {
+   "S1-app": 920,
+   "S1-nonapp": 1080,
+   "S2": 1503
+  },
+  "candidates_total": 3503,
+  "scope_total": {
+   "app": 1567,
+   "test": 1934,
+   "example": 2
+  }
+ },
+ "A_synthetic": {
+  "instances": 388,
+  "base_cases": 61,
+  "base_cases_by_kind": {
+   "key": 26,
+   "op": 22,
+   "neg": 13
+  },
+  "instances_by_kind": {
+   "key": 182,
+   "neg": 52,
+   "op": 154
+  },
+  "split_instances": {
+   "synthetic-dev": 196,
+   "synthetic-holdout": 192
+  },
+  "library": {
+   "pyca": 241,
+   "pycryptodome": 127,
+   "unknown": 16,
+   "out-of-scope:ecdsa": 4
+  },
+  "algorithm": {
+   "RSA": 169,
+   "EC": 99,
+   "X25519": 18,
+   "other": 48,
+   "X448": 12,
+   "Ed25519": 30,
+   "Ed448": 12
+  },
+  "role": {
+   "SIGN": 140,
+   "PK_DECRYPT": 28,
+   "KEY_MATERIAL_ONLY": 42,
+   "UNKNOWN": 21,
+   "VERIFY": 35,
+   "PK_ENCRYPT": 28,
+   "KEY_ESTABLISHMENT": 42,
+   "NONE": 52
+  },
+  "role_by_library": {
+   "pyca": {
+    "SIGN": 84,
+    "PK_DECRYPT": 14,
+    "KEY_MATERIAL_ONLY": 28,
+    "UNKNOWN": 14,
+    "VERIFY": 21,
+    "PK_ENCRYPT": 14,
+    "KEY_ESTABLISHMENT": 42,
+    "NONE": 24
+   },
+   "pycryptodome": {
+    "SIGN": 56,
+    "PK_DECRYPT": 14,
+    "KEY_MATERIAL_ONLY": 14,
+    "UNKNOWN": 7,
+    "VERIFY": 14,
+    "PK_ENCRYPT": 14,
+    "NONE": 8
+   }
+  },
+  "eligible": 336,
+  "scope": {
+   "app": 388
+  },
+  "assessability": {
+   "DETERMINATE": 367,
+   "INDETERMINATE": 21
+  },
+  "provenance": {
+   "generated": 200,
+   "loaded-PEM": 48,
+   "parameter": 66,
+   "attribute": 22,
+   "n/a": 52
+  },
+  "evidence_scope": {
+   "function": 135,
+   "cross-function": 180,
+   "runtime-value": 21,
+   "call": 52
+  },
+  "transformation": {
+   "identity": 61,
+   "alias-import": 61,
+   "wrapper-function": 61,
+   "class-method": 61,
+   "cross-function": 48,
+   "dict-dispatch": 48,
+   "loaded-key": 48
+  },
+  "hybrid_components": 0,
+  "duplicate_site_ids": 0,
+  "duplicate_files": 0,
+  "schema_required_fields": [
+   "site_id",
+   "dataset",
+   "repo",
+   "commit",
+   "file",
+   "line_start",
+   "line_end",
+   "library",
+   "algorithm",
+   "api_call",
+   "key_provenance",
+   "gt_role",
+   "assessability",
+   "eligible",
+   "hybrid_component",
+   "scope",
+   "obvious_from_name",
+   "evidence_needed",
+   "evidence_scope"
+  ],
+  "records_missing_required": 0,
+  "validation_subset": 78,
+  "label_status": "by construction (generator v1.0); 78-instance blind validation subset not yet labelled"
+ },
+ "pilot": {
+  "sites": 31,
+  "repos": {
+   "paramiko": 17,
+   "python-jose": 14
+  },
+  "eligible": 30,
+  "library": {
+   "pyca": 31
+  },
+  "algorithm": {
+   "RSA": 14,
+   "EC": 12,
+   "X25519": 3,
+   "RSA|EC|Ed25519": 2
+  },
+  "role": {
+   "SIGN": 12,
+   "VERIFY": 5,
+   "KEY_ESTABLISHMENT": 5,
+   "KEY_MATERIAL_ONLY": 2,
+   "UNKNOWN": 4,
+   "PK_ENCRYPT": 1,
+   "PK_DECRYPT": 1,
+   "NONE": 1
+  },
+  "assessability": {
+   "DETERMINATE": 27,
+   "INDETERMINATE": 4
+  },
+  "provenance": {
+   "attribute": 13,
+   "generated": 4,
+   "loaded-DER": 2,
+   "constructed-from-parsed-blob": 2,
+   "loaded-SSH": 1,
+   "loaded-PEM": 5,
+   "loaded-JWK": 2,
+   "loaded-certificate": 1,
+   "n/a": 1
+  },
+  "evidence_scope": {
+   "call": 12,
+   "cross-function": 13,
+   "function": 2,
+   "cross-module": 4
+  },
+  "obvious_from_name_among_eligible": {
+   "yes": 14,
+   "no": 16
+  },
+  "label_status": "developer labels from Phases 1-2; Module B was debugged on these sites (circular); not owner-final under guide v1.1"
+ },
+ "labels_and_gates": {
+  "owner_label_files": 0,
+  "ledger_dir_exists": false,
+  "ai_review_identity_exists": false,
+  "freeze_record_exists": false,
+  "test_candidate_frames_built": false,
+  "label_schema_fields": [
+   "site_id",
+   "dataset",
+   "repo",
+   "commit",
+   "file",
+   "line_start",
+   "line_end",
+   "library",
+   "algorithm",
+   "api_call",
+   "method",
+   "arguments",
+   "key_provenance",
+   "ultimate_provenance",
+   "gt_role",
+   "secondary_roles",
+   "possible_roles",
+   "assessability",
+   "eligible",
+   "hybrid_component",
+   "scope",
+   "obvious_from_name",
+   "evidence_needed",
+   "evidence_scope",
+   "base_case",
+   "transformation",
+   "hard",
+   "time_seconds",
+   "notes"
+  ],
+  "meta_schema_fields": [
+   "candidate_id",
+   "annotator",
+   "label_kind",
+   "submitted_utc",
+   "evidence_lines",
+   "rationale",
+   "confidence",
+   "ambiguity",
+   "hard",
+   "time_seconds",
+   "context_used",
+   "context_extra",
+   "unresolved",
+   "unresolved_reason",
+   "annotator_added",
+   "ai"
+  ]
+ },
+ "baselines": {
+  "pinned_tools": [
+   "pqcheck",
+   "pqc-audit",
+   "PostQuant",
+   "qsafe",
+   "QSA-regex",
+   "pqblocks-scan"
+  ],
+  "not_runnable": {
+   "CBOMkit (sonar-cryptography)": "not run by owner decision D4 = A (2026-11-14): inventory tool without per-site migration advice; supports pyca but not PyCryptodome; never scored on recommendations; reported as not run in every table (docs/implementation/cbomkit_route.md, docs/review/owner_decision_package.md).",
+   "Mehl ESEM 2026 scanner": "Zenodo record 10.5281/zenodo.19634475 contains results only, no scanner source; repository-level comparison only"
+  }
+ },
+ "plan": {
+  "quotas": {
+   "test": 30,
+   "development": 25,
+   "validation": 25
+  },
+  "planned_primary_eligible": {
+   "test": 210,
+   "development": 100,
+   "validation": 50,
+   "total": 360
+  },
+  "minimums": {
+   "dataset_B": 300,
+   "test": 150
+  },
+  "owner_final_eligible_available": 0
+ }
+}
