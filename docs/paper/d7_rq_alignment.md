@@ -1,6 +1,8 @@
 # Author decision D7: research-question alignment ("at comparable coverage")
 
-**Status: OPEN. The owner decides. Nothing in the protocol or the RQ has been changed.**
+**Status: DECIDED, 18 Nov 2026. The owner approved Option A (Sec. 3).** The analysis below is kept unchanged as the record of the options considered. Nothing in the protocol or the RQ was changed.
+
+*Original status line (17–18 Nov): "OPEN. The owner decides."*
 
 **Adopted RQ (verbatim):** *Does bounded key-provenance-aware cryptographic role inference improve the correctness of post-quantum migration recommendations at comparable coverage for Python cryptographic call sites, compared with algorithm-family and method/argument-based baselines?*
 

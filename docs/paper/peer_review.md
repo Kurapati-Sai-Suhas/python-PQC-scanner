@@ -47,7 +47,7 @@
 | # | Correction | Severity | Status |
 |---|---|---|---|
 | R1 | Do not present as a completed empirical paper; choose the scope (design/protocol vs wait for E) | Critical | **Owner decision D3**; the draft labels itself provisional and non-submittable |
-| R2 | RQ "at comparable coverage" vs F-A at natural coverage | Major | **Analysed** (18 Nov): `d7_rq_alignment.md` (two options with consequences; Option A recommended). Neutral facts are stated in Sec. IX. **Owner decision D7.** Also found: the F-A membership names an algorithm-name mapping without a code variant (D15). |
+| R2 | RQ "at comparable coverage" vs F-A at natural coverage | Major | **Analysed** (18 Nov): `d7_rq_alignment.md` (two options with consequences; Option A recommended). **Resolved 18 Nov: owner chose Option A**, applied in manuscript Secs. I and IX. Also found: the F-A membership names an algorithm-name mapping without a code variant (D15). |
 | R3 | Single-annotator ground truth | Major | Disclosed (Secs. VIII-C, XII). Adding an external annotator would be a protocol change: owner decision. |
 | R4 | Generalisation beyond the 7 repositories | Major | Disclosed, with S16 evidence; wording rules enforced |
 | R5 | Novelty provisional; ◐ related-work claims | Major | **Partly done** (18 Nov): 20 papers checked in full text and 6 tools in pinned source (`related_work_fulltext_audit.md`). Four of our descriptions were corrected; the absence claim is scoped. 14 works remain NOT FULL-TEXT VERIFIED (ACM bot check, CAPTCHA, no open copy). The final novelty audit (D11) remains. |

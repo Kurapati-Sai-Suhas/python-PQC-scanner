@@ -74,6 +74,12 @@ We address this with **role-aware, evidence-gated migration guidance**:
 
 The empirical answer to the research question needs human-labelled sites from sealed test repositories, which do not yet exist (Sec. XIV).
 
+The RQ is answered through two pre-registered families (Sec. IX):
+- against method/argument-based analysis at matched recommendation volume (F-B);
+- against algorithm-name and existing-tool baselines at natural coverage (F-A).
+
+The phrase "at comparable coverage" therefore applies to the first comparison only.
+
 ## II. Background and Motivation
 
 **A. NIST transition timeline.**
@@ -368,10 +374,11 @@ Every statement above was checked against the PDFs [E42]. One citation-precision
 - **Experiment A baselines** (protocol Sec. 4):
   - the six runnable external tools;
   - a simple algorithm-name mapping and a method/argument-only mapping, both computed on pqscan's own candidate sites so that only the decision rule differs. The code provides two algorithm-name variants: `B1-algorithm` (RSA → KEM, EC → SIG, …) and `B1-dual` (dual target for multi-purpose algorithms). Which of them enters F-A must be named before F1 (owner decision D15).
-- **Coverage note (for the adopted RQ; presentation pending owner decision D7, `d7_rq_alignment.md`).**
-  - The coverage-matched ("comparable coverage") comparisons are family F-B (H2-1, H2-3, H2-4), whose comparators are the method-only, method+arguments and method+arguments+receiver arms.
-  - Family F-A, against the algorithm-name mapping, the method/argument-only mapping and the external tools, is at natural coverage. Coverage is reported alongside each result.
-  - Abstention at matched coverage is addressed by RQ3, which compares the system's own policies with random withholding.
+- **How the adopted RQ is operationalised** (owner decision D7, Option A, 18 Nov 2026; `d7_rq_alignment.md`). The RQ is kept verbatim and answered through two pre-registered confirmatory families:
+  - **(a) Family F-B (H2a; H2-3, H2-4).** It compares the provenance-aware analysis with method/argument-based analysis (method-only, method+arguments, method+arguments+receiver) **at matched recommendation volume** per repository. "Comparable coverage" holds by construction only here.
+  - **(b) Family F-A.** It compares the proposed system with the algorithm-name mapping, the method/argument-only mapping and the external tools **at each method's natural coverage**, with coverage reported alongside every result.
+  - Every F-A finding is described as a natural-coverage comparison. **No result of this study is presented as showing superior correctness over algorithm-family baselines at comparable coverage.**
+  - Abstention at matched coverage is addressed separately by RQ3, which compares the system's own policies with random withholding.
 
 **Estimand and matching** (analysis plan Secs. 2–5). For repository r with common evaluable set C_r of size n_r, let R_F,r and R_M,r be the recommendation counts of the two arms. Matching sets
 
