@@ -1,0 +1,469 @@
+PART 7 OF 8 — specification review packet (protocol v1.0.5)
+
+| `PK_ENCRYPT` | `KEM_DEM` | "RSA public-key encryption / key transport (PKCS#1 v1.5, OAEP) has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 2.1, 5.2): the sender encapsulates to the recipient's authenticated ML-KEM key, derives the content key from the shared secret (FIPS 203 Sec. 3.3), and encrypts with an AEAD. The existing encrypt(data) call shape cannot be preserved." |
+| `PK_DECRYPT` | `KEM_DEM` | As above, decapsulation side. |
+| `KEY_MATERIAL_ONLY` | `INVENTORY` | "RSA/EC key material with no consumer found in the analysed scope. No target is recommended; determine the downstream role first." |
+| `PROTOCOL_CONFIG` | `PROTOCOL_REVIEW` | "Protocol configuration site. Migrate by enabling the library's PQC/hybrid options; do not replace primitives here." |
+| any role with `hybrid_component = yes` (approved PQ component) | `NO_ACTION_HYBRID` | "Traditional component of a PQ/T hybrid with an approved PQ algorithm; no migration of this component is required now; hybrids are transitional (IR 8547) — plan a PQC-only follow-up; review the combiner per SP 800-227 Sec. 4.6." |
+| `UNKNOWN` (INDETERMINATE) | `ABSTAIN` | "Role cannot be determined: <missing evidence>. Possible roles: <list>. No single target is justified." |
+
+## 4. Evidence-tier gate (Module D parameter, pre-registered)
+
+Module C emits an ordinal evidence tier T0–T3 (`data_dictionary.md`). Module D recommends only when `tier ≥ τ`; below τ it abstains with the tier and the missing evidence. **τ = T2 is the pre-registered primary threshold**; T1 and T3 are sensitivity arms. Tiers are ordinal labels, never converted to probabilities.
+
+## 5. Scoring a tool's recommendation (Module F and the pilot)
+
+Given a site with expected class E (Section 3) and a tool output mapped by the published adapters to R ∈ {`SIG`, `KEM`, `DUAL`, `PQC_ALREADY`, `NONE`}:
+
+| Condition | Judgment | Harm category |
+|---|---|---|
+| no output at the site | `MISSED` | — |
+| flagged with no target (R = NONE) on a site with E ∈ {SIG, KEM, KEM_DEM} | `DETECTED_ONLY` | — |
+| E ∈ {SIG, KEM, KEM_DEM} and R is E's family (KEM_DEM ≡ KEM family) | `CORRECT` | — |
+| E = SIG and R = KEM, or E ∈ {KEM, KEM_DEM} and R = SIG | `INCORRECT` | `ROLE_INCOMPATIBLE` |
+| R = `PQC_ALREADY` on a quantum-vulnerable, non-hybrid site | `INCORRECT` | `FALSE_ASSURANCE` |
+| E ∈ {INVENTORY, NO_ACTION_HYBRID, PROTOCOL_REVIEW} and R ∈ {SIG, KEM} | `INCORRECT` | `OVER_RECOMMENDATION` |
+| E ∈ {INVENTORY, PROTOCOL_REVIEW} and R = NONE (flag only) | `CORRECT` | — |
+| E = NO_ACTION_HYBRID and R ∈ {NONE, PQC_ALREADY} | `CORRECT` | — |
+| R = `DUAL` ("ML-KEM / ML-DSA") on a DETERMINATE site | `UNDECIDED` | — |
+| site INDETERMINATE and R single target | `UNJUSTIFIED` | — |
+| site INDETERMINATE and R = DUAL | `UNDECIDED` | — |
+| site INDETERMINATE and the tool abstains with a reason | `CORRECT` | — |
+| ineligible site reported | `FALSE_POSITIVE_SITE` (detection level) | — |
+
+"Harmful" in every report = `INCORRECT` with any harm category. `UNDECIDED` and `UNJUSTIFIED` are reported separately and never folded into "harmful".
+
+`PROTOCOL_CONFIG` sites are eligible for this scoring (they are kind (c) in the taxonomy); detection-level metrics treat them as true sites.
+
+**Drop-in wording flag.** For E ∈ {KEM, KEM_DEM}, if the tool's text implies a direct substitution ("replace X with ML-KEM", "replaces … entirely", "drop-in", "swap"), `dropin_wording = true` is recorded. The judgment stays `CORRECT` (family) under the pre-registered definition of harm, but **drop-in counts are reported beside harmful counts in every table** so the distinction cannot be dropped later.
+
+Scoring is consolidated and frozen in `scoring_policy.md` v1.0 (2026-11-14). That file adds the pre-registered strict sensitivity analysis (drop-in wording on KEM-family sites counts as UNSUPPORTED_DROP_IN), execution-failure handling for external tools, and false-positive counting of abstentions on ineligible sites. The role → class table above is unchanged.
+
+## 6. Explicit non-claims
+
+- ML-KEM is never recommended as a replacement for a signature; ML-DSA is never recommended for key establishment or encryption.
+- No specific protocol RFC is cited for hybrid TLS/SSH/JOSE until verified.
+- Parameter-set defaults follow IR 8547 (ML-KEM-768) and a category-3 default for signatures (ML-DSA-65); they are not a security assessment of the scanned system.
+- The policy does not cover symmetric algorithms, hashes, or key sizes.
+
+## 7. Independent review record
+
+| Date | Reviewer | Scope | Outcome |
+|---|---|---|---|
+| 2026-11-12 | Independent AI reviewer (separate context, cryptography/PQC persona) with access to the NIST text extractions | v1.0 Sections 1–6 | APPROVE WITH CHANGES: 3 MAJOR (legacy-use attribution, hybrid permanence and approved-PQ condition, PROTOCOL_CONFIG scoring inconsistency), 8 MINOR (EdDSA 128-bit row, definitions location, FIPS 203 citation location, key confirmation "should", drop-in flag for KEM, drop-in reporting, missing scoring rows, DSA sentence, additional source statements). All eleven incorporated in v1.1; every cited line re-checked by the author against the source text. |
+| pending | Human reviewer outside the build team (lecturer or external) | full document | **required before the Phase 3 freeze** |
+
+## Changelog
+
+- v1.1 (2026-11-12): incorporated independent review (Section 7).
+- v1.0 (2026-11-12): initial pre-registered policy.
+=== END DOCUMENT: docs/specification/recommendation_policy.md ===
+
+=== BEGIN DOCUMENT: pqscan/policy/policy_v1_1.yaml (sha256 4127de79765489fa5513359813fa3bf0a77675f0eeb7124dfcb03e4ca196d432) ===
+# Recommendation policy v1.1 (docs/specification/recommendation_policy.md), as data.
+# Frozen 2026-11-12. Do not edit after final test results have been viewed (development rule 12).
+version: "1.1"
+frozen: "2026-11-12"
+default_tier_threshold: T2
+
+references:
+  FIPS203: "NIST FIPS 203, Module-Lattice-Based Key-Encapsulation Mechanism Standard (ML-KEM), Aug 2024"
+  FIPS204: "NIST FIPS 204, Module-Lattice-Based Digital Signature Standard (ML-DSA), Aug 2024"
+  FIPS205: "NIST FIPS 205, Stateless Hash-Based Digital Signature Standard (SLH-DSA), Aug 2024"
+  SP800-227: "NIST SP 800-227, Recommendations for Key-Encapsulation Mechanisms, Sep 2025"
+  IR8547: "NIST IR 8547, Transition to Post-Quantum Cryptography Standards, final, Oct 2026"
+
+classes:
+  SIG:
+    family: SIG
+    target: "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+    parameter_set: "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+    references: [FIPS204, FIPS205, IR8547]
+  KEM:
+    family: KEM
+    target: "ML-KEM-based key-establishment redesign (FIPS 203, SP 800-227); PQ/T hybrid with the existing scheme through an approved combiner is an acceptable transitional design"
+    parameter_set: "ML-KEM-768 (NIST IR 8547 default recommendation)"
+    references: [FIPS203, SP800-227, IR8547]
+  KEM_DEM:
+    family: KEM
+    target: "Redesign as KEM + KDF + AEAD (KEM/DEM, SP 800-227 Secs. 2.1, 5.2); not a drop-in replacement for encrypt/decrypt"
+    parameter_set: "ML-KEM-768 (NIST IR 8547 default recommendation) with an approved KDF and AEAD"
+    references: [FIPS203, SP800-227, IR8547]
+  INVENTORY:
+    family: NONE
+    target: "No migration target at this site; inventory the key material and determine its downstream role"
+    references: []
+  PROTOCOL_REVIEW:
+    family: NONE
+    target: "Protocol/library migration review (enable PQC or hybrid options of the protocol library)"
+    references: [IR8547]
+  NO_ACTION_HYBRID:
+    family: NONE
+    target: "No migration of this component now: it is the traditional half of a PQ/T hybrid with an approved PQ algorithm; plan a PQC-only follow-up"
+    references: [SP800-227, IR8547]
+  ABSTAIN:
+    family: NONE
+    target: "No recommendation: evidence is insufficient"
+    references: []
+
+roles:
+  SIGN: SIG
+  VERIFY: SIG
+  KEY_ESTABLISHMENT: KEM
+  PK_ENCRYPT: KEM_DEM
+  PK_DECRYPT: KEM_DEM
+  KEY_MATERIAL_ONLY: INVENTORY
+  PROTOCOL_CONFIG: PROTOCOL_REVIEW
+  UNKNOWN: ABSTAIN
+
+# Approved PQ component per role (policy Sec. 2, NO_ACTION_HYBRID: "whose PQ component is a NIST-approved
+# scheme (ML-KEM; ML-DSA/SLH-DSA for signatures)"). The PQ API must be of the matching family and be used
+# in the same class or function as the site. Encoding fix 2026-11-14 (independent review finding 1): an
+# earlier encoding accepted any PQ family for any role. Policy text and version are unchanged.
+approved_hybrid_prefixes:
+  KEY_ESTABLISHMENT:
+    - "cryptography.hazmat.primitives.asymmetric.mlkem."
+  SIGN:
+    - "cryptography.hazmat.primitives.asymmetric.mldsa."
+  VERIFY:
+    - "cryptography.hazmat.primitives.asymmetric.mldsa."
+
+templates:
+  SIGN: >-
+    {alg} signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing
+    to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains
+    must be able to accept ML-DSA before signers switch.
+  SIGN_DSA: >-
+    DSA is no longer specified in FIPS 186-5 and is not listed in NIST IR 8547 Table 2; migrate to ML-DSA (FIPS 204).
+  VERIFY: >-
+    Add ML-DSA (FIPS 204) verification so that migrated signers can be accepted. NIST IR 8547 defines 'legacy use'
+    as processing already-protected data such as verifying an existing signature; whether {alg} verification of
+    already-issued signatures keeps that status after 2035 is set by SP 800-131A (to be revised). Retain legacy
+    verification only for already-issued signatures; do not accept new {alg} signatures after the transition.
+  KEY_ESTABLISHMENT: >-
+    {alg} key establishment is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 4) and is exposed
+    to harvest-now-decrypt-later. Redesign around ML-KEM (FIPS 203; ML-KEM-768 recommended by NIST IR 8547) per
+    SP 800-227; a PQ/T hybrid with the existing scheme via an approved combiner (SP 800-227 Sec. 4.6) is an acceptable
+    transitional design. ML-KEM uses encapsulate/decapsulate, not a symmetric exchange(peer) call.
+  PK_ENCRYPT: >-
+    RSA public-key encryption / key transport (PKCS#1 v1.5, OAEP) has no drop-in PQC replacement. Redesign as
+    KEM + KDF + AEAD (SP 800-227 Secs. 2.1, 5.2): the sender encapsulates to the recipient's authenticated ML-KEM key,
+    derives the content key from the shared secret (FIPS 203 Sec. 3.3), and encrypts with an AEAD. The existing
+    encrypt(data) call shape cannot be preserved.
+  PK_DECRYPT: >-
+    RSA public-key decryption / key unwrapping has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD
+    (SP 800-227 Secs. 2.1, 5.2), decapsulation side: decapsulate with the ML-KEM decapsulation key, derive the content
+    key from the shared secret (FIPS 203 Sec. 3.3), and decrypt with an AEAD. The existing decrypt(ciphertext) call
+    shape cannot be preserved.
+  KEY_MATERIAL_ONLY: >-
+    {alg} key material with no consumer found in the analysed scope. No target is recommended; determine the
+    downstream role first.
+  PROTOCOL_CONFIG: >-
+    Protocol configuration site. Migrate by enabling the library's PQC/hybrid options; do not replace primitives here.
+  HYBRID: >-
+    Traditional component of a PQ/T hybrid with an approved PQ algorithm; no migration of this component is required
+    now; hybrids are transitional (NIST IR 8547) - plan a PQC-only follow-up; review the combiner per SP 800-227 Sec. 4.6.
+  ABSTAIN_UNKNOWN: >-
+    Role cannot be determined: {missing}. Possible roles: {possible}. No single target is justified.
+  ABSTAIN_TIER: >-
+    Evidence tier {tier} is below the policy threshold {threshold}: {missing}. Inferred role (not acted on): {role}.
+=== END DOCUMENT: pqscan/policy/policy_v1_1.yaml ===
+
+=== BEGIN DOCUMENT: docs/benchmark/benchmark_schema.json (sha256 8204226495ca24404539b6f1ac3efb49b32e0f016423e03e3c09083145b31291) ===
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/pypqc-rolebench/site.schema.json",
+  "title": "PyPQC-RoleBench site record (v1.0)",
+  "type": "object",
+  "required": ["site_id", "dataset", "repo", "commit", "file", "line_start", "line_end", "library", "algorithm", "api_call", "key_provenance", "gt_role", "assessability", "eligible", "hybrid_component", "scope", "obvious_from_name", "evidence_needed", "evidence_scope"],
+  "additionalProperties": false,
+  "properties": {
+    "site_id": {"type": "string", "pattern": "^[A-Z]-?[A-Za-z0-9_.-]+$"},
+    "dataset": {"enum": ["synthetic", "real-dev", "real-val", "real-test", "pilot"]},
+    "repo": {"type": "string"},
+    "commit": {"type": "string", "pattern": "^[0-9a-f]{7,40}$|^generator-[0-9a-f]{7,}$"},
+    "file": {"type": "string"},
+    "line_start": {"type": "integer", "minimum": 1},
+    "line_end": {"type": "integer", "minimum": 1},
+    "library": {"type": "string", "pattern": "^(pyca|pycryptodome|unknown|out-of-scope:[a-z0-9_.-]+)$"},
+    "algorithm": {"enum": ["RSA", "EC", "X25519", "X448", "Ed25519", "Ed448", "DH", "DSA", "ML-KEM", "ML-DSA", "other"]},
+    "api_call": {"type": "string"},
+    "method": {"type": "string"},
+    "arguments": {"type": "string"},
+    "key_provenance": {"enum": ["generated", "loaded-PEM", "loaded-DER", "loaded-SSH", "loaded-JWK", "loaded-certificate", "constructed-from-parsed-blob", "parameter", "attribute", "env-or-KMS", "unknown", "n/a"]},
+    "ultimate_provenance": {"type": "array", "items": {"type": "string"}},
+    "gt_role": {"enum": ["SIGN", "VERIFY", "KEY_ESTABLISHMENT", "PK_ENCRYPT", "PK_DECRYPT", "KEY_MATERIAL_ONLY", "PROTOCOL_CONFIG", "UNKNOWN", "NONE"]},
+    "secondary_roles": {"type": "array", "items": {"enum": ["SIGN", "VERIFY", "KEY_ESTABLISHMENT", "PK_ENCRYPT", "PK_DECRYPT"]}},
+    "possible_roles": {"type": "array", "items": {"enum": ["SIGN", "VERIFY", "KEY_ESTABLISHMENT", "PK_ENCRYPT", "PK_DECRYPT", "KEY_MATERIAL_ONLY", "PROTOCOL_CONFIG"]}},
+    "assessability": {"enum": ["DETERMINATE", "INDETERMINATE"]},
+    "eligible": {"type": "boolean"},
+    "hybrid_component": {"type": "boolean"},
+    "scope": {"enum": ["app", "test", "vendored", "example"]},
+    "obvious_from_name": {"type": "boolean"},
+    "evidence_needed": {"enum": ["none", "argument-resolution", "downstream-usage", "protocol-context", "runtime-value"]},
+    "evidence_scope": {"enum": ["call", "function", "cross-function", "cross-module", "runtime-value"]},
+    "base_case": {"type": "string"},
+    "transformation": {"enum": ["identity", "alias-import", "wrapper-function", "class-method", "loaded-key", "cross-function", "dict-dispatch"]},
+    "hard": {"type": "boolean"},
+    "time_seconds": {"type": "integer", "minimum": 0},
+    "notes": {"type": "string"}
+  },
+  "allOf": [
+    {"if": {"properties": {"gt_role": {"const": "UNKNOWN"}}}, "then": {"required": ["possible_roles"], "properties": {"assessability": {"const": "INDETERMINATE"}}}},
+    {"if": {"properties": {"eligible": {"const": false}}}, "then": {"properties": {"gt_role": {"const": "NONE"}}}},
+    {"if": {"properties": {"dataset": {"const": "synthetic"}}}, "then": {"required": ["base_case", "transformation"]}}
+  ]
+}
+=== END DOCUMENT: docs/benchmark/benchmark_schema.json ===
+
+=== BEGIN DOCUMENT: docs/benchmark/meta_schema.json (sha256 71b36e5e347386dc7bfb6eeef76e012fff0b3bb05e54784f23a1fb62b8681f58) ===
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/pypqc-rolebench/meta.schema.json",
+  "title": "PyPQC-RoleBench label meta record (v1.1, annotation guide v1.1 Sec. 5)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["candidate_id", "annotator", "label_kind", "submitted_utc", "rationale", "evidence_lines", "ambiguity"],
+  "properties": {
+    "candidate_id": {"type": "string", "pattern": "^([CA]-[0-9a-f]{12}|[PJ][0-9]{2}[a-z]?|S-[A-Za-z0-9_.-]+)$"},
+    "annotator": {"enum": ["owner", "ai_review"]},
+    "label_kind": {"enum": ["primary", "packet_first", "relabel", "ai_review", "final"]},
+    "submitted_utc": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}(:[0-9]{2})?Z$"},
+    "evidence_lines": {"type": "array", "items": {"type": "string", "pattern": "^[^:]+:[0-9]+(-[0-9]+)?$"}},
+    "rationale": {"type": "string", "minLength": 1},
+    "confidence": {"type": "integer", "minimum": 1, "maximum": 5},
+    "ambiguity": {"enum": ["none", "guide_unclear", "context_insufficient", "unresolved"]},
+    "hard": {"type": "boolean"},
+    "time_seconds": {"type": "integer", "minimum": 0},
+    "context_used": {"enum": ["packet_sufficient", "extended"]},
+    "context_extra": {"type": "array", "items": {"type": "string", "pattern": "^[^:]+:[0-9]+(-[0-9]+)?$"}},
+    "unresolved": {"type": "array", "uniqueItems": true,
+                   "items": {"enum": ["eligible", "gt_role", "assessability", "possible_roles", "hybrid_component",
+                                      "obvious_from_name", "evidence_needed", "key_provenance"]}},
+    "unresolved_reason": {"type": "string", "minLength": 1},
+    "annotator_added": {"type": "boolean"},
+    "ai": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["interface_or_api", "model", "datetime_utc", "prompt_sha256", "packet_sha256", "status"],
+      "properties": {
+        "interface_or_api": {"type": "string", "minLength": 1},
+        "model": {"type": "string", "minLength": 1},
+        "datetime_utc": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}(:[0-9]{2})?Z$"},
+        "prompt_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "packet_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "status": {"enum": ["ok", "insufficient_context"]}
+      }
+    }
+  },
+  "allOf": [
+    {"if": {"properties": {"annotator": {"const": "ai_review"}}, "required": ["annotator"]},
+     "then": {"required": ["ai"], "properties": {"label_kind": {"const": "ai_review"}}},
+     "else": {"not": {"required": ["ai"]}}},
+    {"if": {"properties": {"label_kind": {"enum": ["primary", "packet_first"]}}, "required": ["label_kind"]},
+     "then": {"required": ["context_used", "time_seconds"], "properties": {"annotator": {"const": "owner"}}}},
+    {"if": {"properties": {"context_used": {"const": "extended"}}, "required": ["context_used"]},
+     "then": {"required": ["context_extra"], "properties": {"context_extra": {"minItems": 1}}}},
+    {"if": {"required": ["unresolved"], "properties": {"unresolved": {"minItems": 1}}},
+     "then": {"required": ["unresolved_reason"]}},
+    {"if": {"properties": {"annotator_added": {"const": true}}, "required": ["annotator_added"]},
+     "then": {"properties": {"candidate_id": {"pattern": "^A-[0-9a-f]{12}$"}}}}
+  ]
+}
+=== END DOCUMENT: docs/benchmark/meta_schema.json ===
+
+=== BEGIN DOCUMENT: docs/benchmark/ai_review_prompt_v1.md (sha256 cdd20fa67c700ea9a69ef98851f7fc93e4995b847c01ca18324c1d3702eafd76) ===
+You are reviewing Python call sites that use public-key cryptography (RSA, elliptic-curve, X25519/X448, Ed25519/Ed448)
+through the libraries pyca/cryptography or PyCryptodome. For each candidate below, decide its labels by following the
+decision procedure and the evidence rules that follow this introduction, using ONLY the code shown in that
+candidate's packet. Do not assume anything about code that is not shown.
+
+For each candidate, output exactly one JSON object on its own line, with these keys:
+
+{"candidate_id": "<as given>", "status": "ok" or "insufficient_context",
+ "eligible": true or false, "gt_role": "<SIGN|VERIFY|KEY_ESTABLISHMENT|PK_ENCRYPT|PK_DECRYPT|KEY_MATERIAL_ONLY|PROTOCOL_CONFIG|UNKNOWN|NONE>",
+ "assessability": "<DETERMINATE|INDETERMINATE>", "possible_roles": [<roles, required when gt_role is UNKNOWN>],
+ "hybrid_component": true or false, "obvious_from_name": true or false,
+ "evidence_needed": "<none|argument-resolution|downstream-usage|protocol-context|runtime-value>",
+ "key_provenance": "<generated|loaded-PEM|loaded-DER|loaded-SSH|loaded-JWK|loaded-certificate|constructed-from-parsed-blob|parameter|attribute|env-or-KMS|unknown|n/a>",
+ "ambiguity": "<none|guide_unclear|context_insufficient>",
+ "evidence_lines": ["<file>:<line>", ...], "rationale": "<one or two sentences>"}
+
+Use "status": "insufficient_context" when the packet does not contain enough code to decide; still fill every field
+you can decide and explain what is missing in the rationale. Use JSON booleans (true/false), not strings. Output the
+JSON lines only, one per candidate, in the order given.
+
+The decision procedure and the evidence rules follow.
+=== END DOCUMENT: docs/benchmark/ai_review_prompt_v1.md ===
+
+=== BEGIN DOCUMENT: pqscan/bench/packets.py (sha256 636b4b8f68fc315dc5d2c504b566452c1a89f477e0567116a6bdb89a6f493925) ===
+"""Annotation packets for the blind AI-assisted review (protocol v1.0.4 Sec. 3; guide v1.1 Sec. 5-6; V8, V16;
+R4-19 item 5).
+
+Packet rule `packet-v1` (fixed; its hash is recorded at F1). For candidate (file, line) of a repository checkout at
+its pinned commit, the packet contains, from that one file only:
+  1. a header: candidate ID, file path (relative), line;
+  2. every top-level import statement of the file;
+  3. the context: the smallest enclosing class if it has at most CLASS_MAX_LINES lines, otherwise the smallest
+     enclosing function; at module level, WINDOW lines either side of the candidate;
+  4. up to MAX_CALLERS other functions in the same file that call the enclosing function by name (Step D: the direct
+     caller, one level).
+Every source line is prefixed with its line number; the candidate line is marked ">>". The source code is never
+executed or imported; it is read as text and parsed with `ast`. Nothing outside the file is included, so labels that
+need more context are recorded by the owner as `context_used = extended`.
+
+Forbidden content: the packet template itself never contains tool names, the project's name, hypotheses or results
+(FORBIDDEN). Source code is copied verbatim; if the scanned code itself contains a forbidden token, the packet is
+still built and the token is reported in `warnings` for the owner to review, never silently edited.
+
+Packet-first subset: a candidate is labelled packet-first iff u < rate(phase), where u is a uniform value from
+SHA-256("20261113:packet:<phase>|<candidate_id>") and rate(phase) = max(0.10, 60 / planned issued candidates of the
+phase). The planned counts are the workload estimates of R3-03 (DV about 468, T about 630), so the expected subset
+is at least 60 (target >= 50; the realised count is reported, and a shortfall cannot be topped up later because
+packet-first labels must precede the primary label).
+"""
+from __future__ import annotations
+
+import ast
+import hashlib
+import re
+from pathlib import Path
+
+RULE = "packet-v1"
+CLASS_MAX_LINES, WINDOW, MAX_CALLERS = 400, 40, 3
+# tool names, the project's name and the study's hypotheses/arms; matched case-insensitively on word boundaries
+FORBIDDEN = ("pqscan", "pqcheck", "pqc-audit", "pqc_audit", "postquant", "qsafe", "pqblocks", "cbomkit",
+             "quantum-safe auditor", "semgrep", "pypqc", "rolebench", "post-quantum crypto scanner", "provenance-aware",
+             "method+args", "h2a", "h2b")
+_FORBIDDEN_RE = re.compile(r"(?<![a-z0-9_])(" + "|".join(re.escape(t) for t in FORBIDDEN) + r")(?![a-z0-9_])")
+PACKET_SEED = 20261113
+PLANNED_CANDIDATES = {"DV": 468, "T": 630}
+
+
+def _forbidden_in(text: str) -> list[str]:
+    return sorted({m.group(1) for m in _FORBIDDEN_RE.finditer(text.lower())})
+
+
+def _span(node: ast.AST) -> tuple[int, int]:
+    start = min([node.lineno] + [d.lineno for d in getattr(node, "decorator_list", [])])
+    return start, node.end_lineno
+
+
+def _enclosing(tree: ast.AST, line: int):
+    cls = fn = None
+    for node in ast.walk(tree):
+        if isinstance(node, (ast.ClassDef, ast.FunctionDef, ast.AsyncFunctionDef)):
+            a, b = _span(node)
+            if a <= line <= b:
+                if isinstance(node, ast.ClassDef):
+                    if cls is None or _span(node)[0] >= _span(cls)[0]:
+                        cls = node
+                elif fn is None or _span(node)[0] >= _span(fn)[0]:
+                    fn = node
+    return cls, fn
+
+
+def _callers(tree: ast.AST, name: str, exclude: tuple[int, int]) -> list[tuple[int, int]]:
+    out = []
+    for node in ast.walk(tree):
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and _span(node) != exclude:
+            for sub in ast.walk(node):
+                if isinstance(sub, ast.Call):
+                    f = sub.func
+                    callee = f.id if isinstance(f, ast.Name) else f.attr if isinstance(f, ast.Attribute) else None
+                    if callee == name:
+                        out.append(_span(node))
+                        break
+    return sorted(set(out))[:MAX_CALLERS]
+
+
+def build_packet(repo_root: Path, file: str, line: int, candidate_id: str) -> dict:
+    text = (Path(repo_root) / file).read_text(encoding="utf-8", errors="replace")
+    lines = text.splitlines()
+    if not 1 <= line <= len(lines):
+        raise ValueError(f"{file}:{line} is outside the file ({len(lines)} lines)")
+    header = f"Candidate: {candidate_id}\nFile: {file}\nLine: {line}\n"
+    bad = _forbidden_in(header)
+    if bad:
+        raise ValueError(f"packet header would contain forbidden content: {bad}")
+    sections: list[tuple[str, list[tuple[int, int]]]] = []
+    notes = []
+    try:
+        tree = ast.parse(text)
+    except (SyntaxError, ValueError):
+        tree = None
+        notes.append("the file does not parse; a line window is shown")
+    if tree is not None:
+        imports = [_span(n) for n in tree.body if isinstance(n, (ast.Import, ast.ImportFrom))]
+        if imports:
+            sections.append(("Imports", imports))
+        cls, fn = _enclosing(tree, line)
+        if cls is not None and _span(cls)[1] - _span(cls)[0] + 1 <= CLASS_MAX_LINES:
+            ctx = _span(cls)
+            sections.append(("Enclosing class", [ctx]))
+        elif fn is not None:
+            ctx = _span(fn)
+            sections.append(("Enclosing function", [ctx]))
+        else:
+            ctx = (max(1, line - WINDOW), min(len(lines), line + WINDOW))
+            sections.append(("Module context", [ctx]))
+        if fn is not None:
+            calls = [s for s in _callers(tree, fn.name, _span(fn)) if not (ctx[0] <= s[0] and s[1] <= ctx[1])]
+            if calls:
+                sections.append((f"Callers of {fn.name} in this file", calls))
+    else:
+        sections.append(("Line window", [(max(1, line - WINDOW), min(len(lines), line + WINDOW))]))
+    width = len(str(len(lines)))
+    body = [header]
+    for title, spans in sections:
+        body.append(f"--- {title} ---")
+        for a, b in spans:
+            for i in range(a, b + 1):
+                mark = ">>" if i == line else "  "
+                body.append(f"{mark} {i:>{width}} | {lines[i - 1]}")
+            body.append("")
+    if notes:
+        body.append("Note: " + "; ".join(notes))
+    packet_text = "\n".join(body).rstrip() + "\n"
+    return {"rule": RULE, "candidate_id": candidate_id, "file": file, "line": line, "text": packet_text,
+            "sha256": hashlib.sha256(packet_text.encode("utf-8")).hexdigest(),
+            "warnings": [f"source contains forbidden token(s) {w}" for w in [_forbidden_in(text)] if w]}
+
+
+def packet_first_rate(phase: str) -> float:
+    if phase not in PLANNED_CANDIDATES:
+        raise ValueError(f"packet-first applies to phases {sorted(PLANNED_CANDIDATES)}, not {phase!r}")
+    return max(0.10, 60 / PLANNED_CANDIDATES[phase])
+
+
+def packet_first(candidate_id: str, phase: str) -> bool:
+    h = hashlib.sha256(f"{PACKET_SEED}:packet:{phase}|{candidate_id}".encode("utf-8")).hexdigest()
+    return int(h[:16], 16) / 2**64 < packet_first_rate(phase)
+
+
+def is_candidate_id(s: str) -> bool:
+    return bool(re.fullmatch(r"[CA]-[0-9a-f]{12}", s))
+=== END DOCUMENT: pqscan/bench/packets.py ===
+
+=== BEGIN DOCUMENT: pqscan/bench/candidates.py (sha256 57deeba6469347ec6daaa400021c8c569aeed1380c3dd8c047dbab052c63d17d) ===
+"""Annotation candidate pool and seeded sequential sampler (Dataset B; protocol v1.0.4 Sec. 2; decisions V2, V5, V6, V11).
+
+    python -m pqscan.bench.candidates build --repo <dir> --name <repo> --commit <sha> --run-dir <batch out> --out <dir>
+    python -m pqscan.bench.candidates next  --order <dir>/order_<repo>.json --split development \
+                                            --issued <issued ids> --labels <final labels.jsonl> [--out batch.jsonl]
+
+Pool (repository_split.md Sec. 3): the union of
+* the regex over-approximation, applied to files importing pyca or PyCryptodome (tool-independent, so it can contain
+  sites every evaluated tool misses),
+* every baseline's findings (parsed by the adapters from a batch-runner output directory),
+* pqscan Module A/B locations (findings and Semgrep-only candidates of the `full` arm),
+deduplicated by statement: each candidate line is mapped to the start line of the smallest enclosing statement.
+
+Scope classes (V5; first match on the path relative to the repository root; directory and file names are compared
+in lower case): vendored (a directory vendor/_vendor/third_party) > test (a directory test/tests/testing, or a file
+test_*.py, *_test.py, test.py, tests.py, tests_*.py, tests-*.py, conftest.py) > example (a directory example,
+examples, demo, demos or demo*) > app.
+
+Strata (V11; tool-independent): S1-app (file imports a supported library; scope app), S1-nonapp (the same; scope
+
+END OF PART 7 OF 8. Reply only: RECEIVED PART 7 OF 8

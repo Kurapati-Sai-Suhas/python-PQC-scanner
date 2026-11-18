@@ -1,0 +1,271 @@
+PART 6 OF 8 — specification review packet (protocol v1.0.5)
+
+5. **Hybrid flag.** `hybrid_component = yes` marks a quantum-vulnerable component that is combined with an approved PQC algorithm in a PQ/T hybrid construction (SP 800-227 Sec. 4.6, e.g. paramiko `mlkem768x25519-sha256`). The role is still recorded (e.g. `KEY_ESTABLISHMENT`); the policy treats the site as "no migration required, review the combiner".
+6. **Scope attribution** (`app` / `test` / `vendored` / `example`) is recorded separately and never changes the role.
+7. **One call expression per site.** A `try: load_a() except: load_b()` fallback pair, or two loaders feeding the same variable, are two sites with the same consumers and labels; provenance is never a composite value. When one candidate statement contains several supported calls, annotation guide v1.2 Step A fixes which call is the site.
+8. **Ineligible negatives** carry `gt_role = NONE`, `assessability = DETERMINATE`, `key_provenance = n/a`, `obvious_from_name = n/a`, `evidence_needed = none`; they are scored at detection level only.
+9. **`possible_roles` vs `secondary_roles`.** `secondary_roles` lists same-family alternatives of a determinate role (e.g. `VERIFY` next to `SIGN`). `possible_roles` is required for `UNKNOWN` and lists the cross-family candidates. The two are never mixed.
+
+## 3. Assessability
+
+| Value | Meaning |
+|---|---|
+| `DETERMINATE` | A careful human reader can fix one primary role from the repository at the frozen commit using the evidence scopes below. |
+| `INDETERMINATE` | The role depends on a runtime value, dynamic dispatch, reflection or code outside the repository. The justified scanner action is to **abstain** (or to emit a dual/undecided target with an explicit reason). |
+
+Assessability is a property of the site, independent of any tool's ability to resolve it.
+
+## 4. Evidence scopes (what a reader needed to fix the role)
+
+`call` (the call expression alone) → `function` (def-use inside the enclosing function) → `cross-function` (same module or class: attribute assignments, helper calls, one call level) → `cross-module` (another module in the repository) → `runtime-value` (cannot be fixed statically). The pilot records this per site in `evidence_scope`.
+
+`obvious_from_name` is `yes` only when the role follows from the method name, given that the receiver is a public-key object of a supported library (its *type*, not its *origin*), or from a single-purpose algorithm name (X25519/X448 are key-agreement-only; Ed25519/Ed448 are signature-only), without inspecting the receiver's origin or consumers. The receiver-type condition matters because `encrypt`/`decrypt`/`sign`/`verify` also exist on AEAD cipher, HMAC and JOSE wrapper objects; "obvious" therefore means "obvious once the receiver is known to be an RSA/EC key", which is the T1→T2 step for an analyzer.
+
+## 5. Key-provenance taxonomy (frozen)
+
+| Provenance | Definition | Examples |
+|---|---|---|
+| `generated` | Key created in process by a key-generation API. | `rsa.generate_private_key`, `ec.generate_private_key`, `X25519PrivateKey.generate`, `RSA.generate`, `ECC.generate` |
+| `loaded-PEM` | Parsed from PEM text. | `load_pem_private_key`, `load_pem_public_key`, `RSA.import_key(pem)` |
+| `loaded-DER` | Parsed from DER bytes. | `load_der_private_key`, `load_der_public_key` |
+| `loaded-SSH` | Parsed from OpenSSH formats. | `load_ssh_private_key`, `load_ssh_public_key` |
+| `loaded-JWK` | Reconstructed from JWK/JWT parameters (`n`,`e`,`d`,`x`,`y`,`crv`). | `RSAPrivateNumbers(...).private_key()`, `EllipticCurvePublicNumbers(...).public_key()` fed from a JWK dict, `RSA.construct` |
+| `loaded-certificate` | Public key taken from an X.509 certificate. | `load_pem_x509_certificate(...).public_key()` |
+| `constructed-from-parsed-blob` | Reconstructed from numbers parsed from a non-JWK wire/file format. | paramiko OpenSSH blob → `RSAPrivateNumbers` |
+| `parameter` | Received as a function/method parameter whose origin is outside the function. | `def sign(self, key, msg): key.sign(...)` when `key` is not resolvable |
+| `attribute` | Read from an object attribute (`self.key`, `self.prepared_key`) whose assignment is elsewhere in the class. | pilot sites P01, P06, J04 |
+| `env-or-KMS` | Obtained from environment variables, secret managers or KMS/HSM interfaces. | `boto3.client("kms")`, `os.environ["PRIVATE_KEY"]` |
+| `unknown` | Cannot be determined. | dynamic attribute, reflection |
+
+`attribute` and `parameter` are *proximate* provenances; the annotator additionally records the *ultimate* provenance set when it can be resolved (e.g. P01: attribute ← {generated, loaded-DER, constructed-from-parsed-blob, wire message}).
+
+## 6. Mapping to CycloneDX 1.6 (verified 2026-11-14 against the official bom-1.6 schema, tag 1.6.1)
+
+The 1.6 `cryptoFunctions` enum is: generate, keygen, encrypt, decrypt, digest, tag, keyderive, sign, verify, encapsulate, decapsulate, other, unknown. It has no key-agreement value, and the `padding` enum (pkcs5, pkcs7, pkcs1v15, oaep, raw, other, unknown) has no PSS. The exporter (`pqscan/export/cbom.py`) therefore uses:
+
+| Role | Component | primitive | cryptoFunctions | Extra |
+|---|---|---|---|---|
+| SIGN / VERIFY | `algorithm` asset | signature | sign / verify | padding pkcs1v15, or `other` + `pqscan:padding=PSS` |
+| KEY_ESTABLISHMENT | `algorithm` asset | key-agree | other | `pqscan:role=KEY_ESTABLISHMENT` |
+| PK_ENCRYPT / PK_DECRYPT | `algorithm` asset | pke | encrypt / decrypt | padding oaep / pkcs1v15 |
+| key-material sites (any role) | `related-crypto-material` | — | — | type private-key / public-key / key; size when known |
+| UNKNOWN | as above by site kind | unknown when no role family applies | unknown | `pqscan:possibleRole` entries |
+
+Every component carries role, tier, action, target class, rationale, policy version, provenance and evidence as `pqscan:*` properties; operation components depend on the key-material components their receiver was traced to.
+
+## Changelog
+
+- v1.1 (2026-11-18, before any labelling and any test-split access; owner-approved pre-F1 decision register `docs/audit/owner_decision_register_v1.0.5.md`): kind (c) protocol-configuration sites are eligible when they occur (F01), aligning the taxonomy with recommendation policy Sec. 5, the annotation guide, the schema and the scoring table; the scanner's lack of PROTOCOL_CONFIG output stays a stated limitation (D10). KEY_MATERIAL_ONLY storage means storage within the analysed scope, and an observed escape is UNKNOWN (F21). Rule 7 points to the multi-call rule (F03). No role, assessability value or provenance value was added or removed. The v1.0.1 text is kept in `docs/specification/archive/v1.0.4/role_taxonomy.md`.
+- v1.0.1 (2026-11-14): Sec. 6 replaced by the schema-verified mapping (no change to roles or rules).
+- v1.0 (2026-11-12): frozen after the H1 pilot and after an independent re-derivation of 12 pilot labels (12/12 role, 12/12 assessability, 11/12 provenance agreement). Added `hybrid_component`, the "type-valid consumer" wording of rule 1, rules 7–9 (one call per site; ineligible-negative fields; `possible_roles` vs `secondary_roles`) and the receiver-type condition on `obvious_from_name`, all in response to that review. The pilot showed 15 of 30 eligible sites (50%) require consumer evidence and one hybrid site (P16).
+=== END DOCUMENT: docs/specification/role_taxonomy.md ===
+
+=== BEGIN DOCUMENT: docs/specification/data_dictionary.md (sha256 34953505c3bd3567436c99ce416888ed66ef88f74381ad66b892212065053bd2) ===
+# Data dictionary (v1.1)
+
+Project: Post-quantum crypto scanner for Python projects. Companion to `role_taxonomy.md`, `recommendation_policy.md`, `evaluation_protocol.md`.
+
+## 1. Benchmark site record (`benchmark_schema.json`, one object per site)
+
+| Field | Type | Values / notes |
+|---|---|---|
+| `site_id` | string | unique; synthetic `S-<base>-<variant>`, real `R-<repo>-<n>`, pilot `P..`/`J..` |
+| `dataset` | enum | `synthetic`, `real-dev`, `real-val`, `real-test`, `pilot` |
+| `repo`, `commit` | string | frozen; synthetic uses `benchmark` + generator version hash |
+| `file`, `line_start`, `line_end` | string, int, int | 1-based inclusive |
+| `library` | enum | `pyca`, `pycryptodome` (others recorded as `out-of-scope:<name>`) |
+| `algorithm` | enum | `RSA`, `EC`, `X25519`, `X448`, `Ed25519`, `Ed448`, `DH`, `DSA`, `ML-KEM`, `ML-DSA`, `other` |
+| `api_call`, `method`, `arguments` | string | normalised call text; arguments as `name=value;` list |
+| `key_provenance` | enum | `role_taxonomy.md` Sec. 5 |
+| `ultimate_provenance` | list | optional resolved set for `attribute`/`parameter` |
+| `gt_role` | enum | `SIGN`,`VERIFY`,`KEY_ESTABLISHMENT`,`PK_ENCRYPT`,`PK_DECRYPT`,`KEY_MATERIAL_ONLY`,`PROTOCOL_CONFIG`,`UNKNOWN`,`NONE` (ineligible) |
+| `secondary_roles` | list | same-family alternatives |
+| `possible_roles` | list | required when `gt_role = UNKNOWN` |
+| `assessability` | enum | `DETERMINATE`, `INDETERMINATE` |
+| `eligible` | bool | recommendation scoring applies |
+| `hybrid_component` | bool | |
+| `scope` | enum | `app`, `test`, `vendored`, `example` |
+| `obvious_from_name` | bool | |
+| `evidence_needed` | enum | `none`, `argument-resolution`, `downstream-usage`, `protocol-context`, `runtime-value` |
+| `evidence_scope` | enum | `call`, `function`, `cross-function`, `cross-module`, `runtime-value` |
+| `base_case`, `transformation` | string | synthetic only: base id and operator (`alias-import`, `wrapper-function`, `class-method`, `loaded-key`, `cross-function`, `dict-dispatch`, `identity`) |
+| (annotation records) | — | v1.1: labels are not fields of this record. Each label is an envelope `{"site": <this record>, "meta": {...}}` (meta schema `docs/benchmark/meta_schema.json`; annotation guide Sec. 5), kept in the git-ignored work tree `benchmark/annotation/<phase>/<repo>/` (`primary_*`, `ai_review_*`, `adjudication_*`, `final_*`), with a hash-chained ledger `benchmark/ledger/<phase>/ledger_<repo>.jsonl` (hashes only). `meta.annotator` is `owner` or `ai_review`; `meta.label_kind` is `primary`, `packet_first`, `relabel`, `final` or `ai_review`. Single-investigator design: there is no second human annotator. |
+| `notes` | string | |
+
+Variants sharing a `base_case` are correlated; statistics cluster on `base_case` (synthetic) and `repo` (real).
+
+## 2. Tool result record (`results/<tool>/<dataset>.jsonl`, one per site × tool)
+
+| Field | Values |
+|---|---|
+| `tool`, `tool_version`, `tool_commit`, `run_id` | pinned |
+| `tool_action` | `RECOMMEND`, `FLAG_NO_TARGET`, `ABSTAIN`, `NO_FINDING`, `EXECUTION_FAILURE` |
+| `raw_findings` | list of the tool's own records matched to the site (file/line window) |
+| `rec_class` | `SIG`, `KEM`, `DUAL`, `PQC_ALREADY`, `NONE` |
+| `rec_text` | verbatim tool text |
+| `dropin_wording` | bool |
+| `predicted_role`, `evidence_tier`, `abstain_reason` | our analyzer only; tier ∈ {T0,T1,T2,T3} |
+| `judgment` | `CORRECT`, `INCORRECT`, `UNDECIDED`, `UNJUSTIFIED`, `UNASSESSABLE`, `MISSED`, `DETECTED_ONLY`, `FALSE_POSITIVE_SITE`, `N/A` |
+| `harm_category` | `ROLE_INCOMPATIBLE`, `FALSE_ASSURANCE`, `OVER_RECOMMENDATION`, `UNSUPPORTED_DROP_IN`, `OTHER`, empty |
+
+`EXECUTION_FAILURE` (tool crashed/timed out on the file) is recorded per file and is never counted as `MISSED`.
+
+## 3. Evidence tiers (Module C output)
+
+| Tier | Definition |
+|---|---|
+| `T0` | No meaningful evidence: candidate matched by name only, receiver and arguments unresolved. |
+| `T1` | API/method evidence only: the call is a known operation or key API of a supported library; receiver type or provenance unknown. |
+| `T2` | Resolved operation arguments and receiver/key evidence: receiver resolved to a public-key object of known algorithm; padding/hash/curve resolved; or key API with resolved provenance. |
+| `T3` | T2 plus provenance and downstream-usage evidence that are mutually consistent (e.g. generated key reaches only `exchange` consumers). Conflicting evidence drops the tier to T1 and records the conflict. |
+
+Tiers are ordinal; no numeric confidence is derived from them.
+
+## 4. Metrics (Module F)
+
+- Recommendation correctness = CORRECT / (eligible DETERMINATE sites with RECOMMEND).
+- Harmful rate = INCORRECT / n_exec, where n_exec = eligible sites where the method ran (scoring policy Sec. 5; denominator stated with every figure).
+- Coverage = (RECOMMEND) / n_exec; abstention rate = ABSTAIN / n_exec.
+- End-to-end correct per eligible site = CORRECT / n_exec.
+- Undecided rate, unjustified rate, missed rate, detected-only rate: each / n_exec. Execution failures are reported in their own column per method (scoring policy Sec. 5).
+- Detection precision/recall at site level (any finding within the window) against eligible + ineligible sites.
+- Role macro-F1 and confusion matrix (our analyzer and the method-only / method+args baselines).
+- Provenance-edge precision/recall against `ultimate_provenance`.
+- Risk–coverage curve: risk = harmful / recommended at each tier threshold; AURC by trapezoid; bootstrap CI clustered by repo / base_case.
+
+## 5. File layout (Phase 2 onward)
+
+```
+benchmark/
+  schema/benchmark_schema.json
+  synthetic/cases/<base>/<variant>.py  + manifest.jsonl
+  real/manifest.json (repos, commits, split)
+  candidates/<split>/order_<repo>.json  (location-only seeded orders; v1.1)
+  annotation/<phase>/<repo>/  (git-ignored labelling work tree; v1.1)
+  ledger/<phase>/ledger_<repo>.jsonl  (hash-chained, hashes only; v1.1)
+results/<tool>/<dataset>.jsonl
+reports/figures/*.png, tables/*.md
+```
+
+## Changelog
+
+- v1.0 (2026-11-12): initial dictionary.
+- v1.1 (2026-11-18, before any labelling and any test-split access; owner-approved pre-F1 decision register `docs/audit/owner_decision_register_v1.0.5.md`): the obsolete two-annotator fields are replaced by the single-investigator record envelope, work tree and ledger (F13); rate denominators stated as n_exec, as in the frozen scoring policy (F13). No field of `benchmark_schema.json` changed. The v1.0 text is kept in `docs/specification/archive/v1.0.4/data_dictionary.md`.
+=== END DOCUMENT: docs/specification/data_dictionary.md ===
+
+=== BEGIN DOCUMENT: docs/specification/scoring_policy.md (sha256 5916efe74761fea2d437e34cad2be60df96a32c4655ae45e68fb8b211103b4df) ===
+# Recommendation scoring policy (v1.0.1: v1.0 rules FROZEN 2026-11-14, before any held-out evaluation; interpretation note 2026-11-18)
+
+Project: Post-quantum crypto scanner for Python projects. Base paper DOI 10.1145/3774748.3795653.
+
+This document freezes how every method (external tools, simple baselines, pqscan arms) is judged at each benchmark site. It consolidates `recommendation_policy.md` v1.1 Section 5, the review-round decisions of Phase 2, and the open strict-scoring decision. Implementation: `pqscan/bench/judge.py` (`judge`, `strict_judgment`, `dropin_wording`, `classify_text`) and `pqscan/bench/run.py`. Changing anything here after test-split results have been viewed is not allowed. A change before that requires a new version and a dated changelog entry.
+
+## 1. Separate dimensions per site and method
+
+| Dimension | Values | Source |
+|---|---|---|
+| Ground-truth role | SIGN, VERIFY, KEY_ESTABLISHMENT, PK_ENCRYPT, PK_DECRYPT, KEY_MATERIAL_ONLY, PROTOCOL_CONFIG, UNKNOWN, NONE (ineligible) | adjudicated human labels |
+| Assessability | DETERMINATE, INDETERMINATE | adjudicated human labels |
+| Expected class | SIG, KEM (KEM and KEM_DEM are one family), NONE (inventory, approved hybrid, protocol review), ABSTAIN (indeterminate), N/A (ineligible) | derived from the two rows above by the frozen role → class table |
+| Method action | RECOMMEND, FLAG_NO_TARGET, ABSTAIN, NO_FINDING, EXECUTION_FAILURE | method output via adapters |
+| Recommended class | SIG, KEM, DUAL, PQC_ALREADY, NONE | `classify_text` on the method's text (negated mentions removed token by token) |
+| Judgment (primary) | see Section 2 | `judge` |
+| Harm category | ROLE_INCOMPATIBLE, FALSE_ASSURANCE, OVER_RECOMMENDATION, UNSUPPORTED_DROP_IN (strict only), OTHER (unused so far) | `judge`, `strict_judgment` |
+| Drop-in wording flag | true / false | `dropin_wording` on the method's text; negated phrases do not count |
+
+## 2. Primary judgment (policy v1.1 Section 5)
+
+| Condition | Judgment | Harm |
+|---|---|---|
+| Method failed on the file (missing report, file the tool is measured to drop, file in the tool's own error log) | EXECUTION_FAILURE | — |
+| Ineligible site, nothing reported | N/A | — |
+| Ineligible site, anything reported (an abstention included) | FALSE_POSITIVE_SITE (detection level) | — |
+| Eligible site, nothing reported | MISSED | — |
+| ABSTAIN on an INDETERMINATE site | CORRECT | — |
+| ABSTAIN on a DETERMINATE site | UNASSESSABLE (not correct, not harmful; lowers coverage) | — |
+| FLAG_NO_TARGET where expected NONE | CORRECT | — |
+| FLAG_NO_TARGET elsewhere | DETECTED_ONLY | — |
+| RECOMMEND of the expected family | CORRECT | — |
+| RECOMMEND of the other family (KEM for SIGN/VERIFY; SIG for KE/PK_*) | INCORRECT | ROLE_INCOMPATIBLE |
+| RECOMMEND "already PQC" on a quantum-vulnerable non-hybrid site | INCORRECT | FALSE_ASSURANCE |
+| RECOMMEND SIG/KEM where expected NONE (inventory, approved hybrid) | INCORRECT | OVER_RECOMMENDATION |
+| RECOMMEND DUAL on a DETERMINATE site, or on an INDETERMINATE site | UNDECIDED | — |
+| RECOMMEND a single target on an INDETERMINATE site | UNJUSTIFIED | — |
+
+"Harmful" always means INCORRECT with a harm category. UNDECIDED, UNJUSTIFIED and UNASSESSABLE are reported separately and never folded into "harmful".
+
+## 3. Strict sensitivity analysis (resolves open decision C2)
+
+Pre-registered and reported in every results table next to the primary score, never instead of it:
+
+- A primary CORRECT on a site whose expected family is KEM (key establishment or public-key encryption/decryption), where the method's text implies a direct substitution ("replace RSA with ML-KEM", "drop-in", "swap", "replaces … entirely/directly"), becomes **INCORRECT with harm UNSUPPORTED_DROP_IN**.
+- Negated phrases ("no drop-in replacement", "not a drop-in") never trigger it.
+- All other judgments are identical to the primary scoring.
+
+Rationale: ML-KEM is a KEM, not a public-key encryption scheme. SP 800-227 describes key transport with a KEM only through the KEM/DEM construction, so "replace RSA encryption with ML-KEM" is unsafe advice even though the family is right. The primary scoring keeps the pre-registered v1.1 definition of harm (family incompatibility). The strict scoring tests whether conclusions change when unsafe wording also counts as harm.
+
+## 4. Indeterminate and unassessable examples
+
+- A site is INDETERMINATE when its role depends on a runtime value, dynamic dispatch or code outside the repository (annotation guide, Step D). The only CORRECT outcome is an abstention (or, for ineligible handling, nothing). A dual target is UNDECIDED, and a single target is UNJUSTIFIED.
+- Annotators who cannot decide between DETERMINATE and INDETERMINATE after adjudication record INDETERMINATE.
+- UNASSESSABLE marks a method's abstention on a determinate site. It counts against coverage, never against harm.
+- Sites whose ground truth cannot be adjudicated at all (annotators and adjudicator disagree on eligibility after discussion) are excluded from scoring and listed with the reason. They are never silently dropped.
+
+## 5. Denominators and fairness
+
+- Every rate (correct, harmful, undecided, coverage) uses n_exec: eligible sites where the method ran. Execution failures are reported in their own column per method.
+- Paired comparisons (McNemar) use only sites where both methods ran.
+- Detection precision counts FALSE_POSITIVE_SITE for every method, including pqscan abstentions.
+- Each external tool's file-failure behaviour is the measured profile in `benchmark/baselines_manifest.json`. A tool's silence on a file of a condition it is known to drop is EXECUTION_FAILURE, never MISSED.
+
+## 6. Interpretation note (v1.0.1; no rule changed)
+
+- **What a primary CORRECT means (F09).** The expected class treats KEM and KEM_DEM as one family. A primary CORRECT therefore means that the recommended **target family** is compatible with the site's role. It does not verify that the recommendation's content is a complete KEM + KDF + AEAD redesign, which recommendation policy Sec. 2 requires; the pre-registered strict sensitivity analysis adds only the drop-in-wording check. Reports state this wherever a CORRECT rate is given.
+- **"Cannot be adjudicated" under the single-investigator design.** The two-annotator wording of the exclusion rule for sites whose ground truth cannot be adjudicated reads, since protocol v1.0.4 Sec. 3, as: eligibility left unresolved by the owner (`meta.unresolved` contains `eligible`). Such sites are excluded, listed and bounded (protocol Sec. 5.6).
+
+## Changelog
+
+- v1.0.1 (2026-11-18, before any labelling and any test-split access; owner-approved pre-F1 decision register `docs/audit/owner_decision_register_v1.0.5.md`): interpretation note (Sec. 6). No scoring rule, class, judgment or denominator changed. The v1.0 text is kept in `docs/specification/archive/v1.0.4/scoring_policy.md`.
+- v1.0 (2026-11-14): frozen. Strict sensitivity scoring adopted (decision C2); execution-failure handling for external tools; abstention on ineligible sites counts as a false positive.
+=== END DOCUMENT: docs/specification/scoring_policy.md ===
+
+=== BEGIN DOCUMENT: docs/specification/recommendation_policy.md (sha256 4e89ac6cdbce6e0dc5bace2b58e3651240d09e2778f9759d11658d87b57d67ce) ===
+# Role-to-migration recommendation policy (v1.1, pre-registered)
+
+Project: Post-quantum crypto scanner for Python projects. Base paper: Zhang, ICSE-Companion '26, DOI 10.1145/3774748.3795653.
+
+Status: **v1.1, 12 Nov 2026, frozen before any benchmark experiment**, after an independent cryptography review of v1.0 (Section 7). The policy may not change after final test results are viewed (Development rule 12).
+
+## 1. Standards basis (verified directly from the NIST PDFs on 12 Nov 2026; line numbers refer to the plain-text extractions kept with the audit evidence)
+
+| Source | Verified statement | Location |
+|---|---|---|
+| FIPS 203 (Aug 2024, final) | ML-KEM is a key-encapsulation mechanism with parameter sets ML-KEM-512 (security category 1), ML-KEM-768 (category 3), ML-KEM-1024 (category 5). The 256-bit shared secret "can be used directly as a shared secret key for symmetric cryptography"; if further keys are needed they "shall be derived … in an approved manner" (SP 800-108 / SP 800-56C). | Sec. 3.2 (category list), Sec. 8 prose; Sec. 3.3 "Approved usage of the shared secret key" |
+| FIPS 204 (Aug 2024, final) | ML-DSA generates and verifies digital signatures; ML-DSA-44 is claimed in category 2 (reduced to category 1 if the RBG has < 192 bits of security), ML-DSA-65 category 3, ML-DSA-87 category 5. | abstract; Sec. 3.6.1 (RBG strength); Sec. 4 |
+| FIPS 205 (Aug 2024, final) | SLH-DSA is a stateless hash-based digital-signature algorithm. | abstract |
+| SP 800-227 (Sep 2025, final) | A KEM establishes a shared secret used with symmetric algorithms; the KEM/DEM paradigm combines a KEM with a symmetric data-encryption mechanism to build public-key encryption (Sec. 2.1); key transport with a KEM that "does not natively perform key transport (e.g., ML-KEM)" is achieved only via the KEM–DEM procedure (Sec. 5.2, Fig. 7); key derivation may be required (Sec. 4.3); key confirmation "should be used" and may be implicit, e.g. successful use of the key for authenticated encryption (Sec. 4.4); an encapsulating party using another party's static encapsulation key "must have assurance of the other party's ownership of the key" (Sec. 4.2); Sec. 4.6 describes PQ/T hybrids and composite KEMs (ML-KEM + a traditional scheme) with approved key combiners (Sec. 4.6.2). | Secs. 2.1, 4.2–4.6, 5.2 |
+| NIST IR 8547 (Oct 2026, final) | Quantum-vulnerable signature algorithms ECDSA (≥ 112-bit), EdDSA (≥ 128-bit) and RSA (≥ 112-bit) and key-establishment schemes (finite-field DH/MQV, elliptic-curve DH/MQV, RSA-based, all ≥ 112-bit) are **deprecated after 2030** and **disallowed after 2035**. Sec. 4.1 defines *deprecated* (may be used with some security risk), *disallowed* (no longer allowed for the stated purpose) and *legacy use* (only to process already-protected information, e.g. verify a signature); the assignment of those statuses to specific algorithms lives in SP 800-131A, which NIST "will revise". "NIST recommends using ML-KEM-768 as the default parameter set." Hybrid solutions "are typically expected to be temporary measures that lead to a second transition" to PQC-only; a hybrid combination can be FIPS 140-validated if at least one input comes from an approved scheme, with combiner guidance in SP 800-227. | Sec. 4.1 (definitions, Tables 2–4), Sec. 4.1.2 (ML-KEM-768 default), Sec. 3 (hybrids) |
+
+Not cited because not verified: specific IETF RFC numbers for hybrid key exchange in TLS/SSH/JOSE; CNSA 2.0 dates. These appear only as "protocol-specific review" pointers.
+
+## 2. Target classes
+
+| Class | Meaning | Standard |
+|---|---|---|
+| `SIG` | Migrate to a PQC digital-signature scheme: ML-DSA (FIPS 204), or SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable. Parameter set by required category: ML-DSA-65 (category 3) as the default; ML-DSA-44 only with an RBG of ≥ 192-bit strength if category 2 is required; ML-DSA-87 for category 5. | FIPS 204 / 205; IR 8547 Table 3 |
+| `KEM` | Redesign key establishment around ML-KEM (FIPS 203) following SP 800-227: encapsulate/decapsulate roles (not a Diffie–Hellman-style symmetric `exchange(peer)` interface), ephemeral keys used once, key derivation (Sec. 4.3) where more keys are needed, key confirmation (Sec. 4.4, possibly implicit via AEAD). A PQ/T hybrid with the existing ECDH/X25519 through an approved combiner (Sec. 4.6) is an acceptable *transitional* design. Default parameter set ML-KEM-768 (IR 8547 recommendation). | FIPS 203, SP 800-227, IR 8547 |
+| `KEM_DEM` | Public-key encryption / key transport must be redesigned as KEM + KDF + symmetric AEAD (KEM/DEM, SP 800-227 Sec. 2.1 and Sec. 5.2 key-transport procedure). **ML-KEM is not a drop-in replacement for `encrypt(message)` / `decrypt(ciphertext)`**: the sender cannot choose the plaintext of an encapsulation; the KEM outputs the shared secret, and the content key is derived from it. The recipient's static encapsulation key must be authenticated (SP 800-227 Sec. 4.2), as the RSA public key had to be. Scored in the same family as `KEM`; the recommendation text must say "redesign", never "replace". | SP 800-227, FIPS 203 Sec. 3.3 |
+| `INVENTORY` | No migration target is justified at this site: report the asset, algorithm, parameters, provenance and that no consumer was found; the developer must determine the downstream role. | — |
+| `PROTOCOL_REVIEW` | Migration is decided at the protocol library (TLS, SSH, JOSE): enable the library's ML-KEM hybrid key exchange / ML-DSA certificate options; never patch primitives inside configuration code. | IR 8547 Sec. 4.2 (application-specific guidance) |
+| `NO_ACTION_HYBRID` | The site is the traditional component of a PQ/T hybrid whose PQ component is a NIST-approved scheme (ML-KEM; ML-DSA/SLH-DSA for signatures). No migration of the traditional component is required *now*; the hybrid is transitional (IR 8547 Sec. 3), so a follow-up to PQC-only is recorded, and the combiner is reviewed against SP 800-227 Sec. 4.6. A hybrid whose PQ component is not NIST-approved (e.g. `sntrup761x25519`) does **not** receive this class; it is treated as `KEY_ESTABLISHMENT` → `KEM`. | SP 800-227 Sec. 4.6; IR 8547 Sec. 3 |
+| `ABSTAIN` | Evidence is insufficient for any class; the output names the missing evidence (role, provenance, consumer) and lists the possible roles. | — |
+
+## 3. Policy table (role → class)
+
+| Ground-truth / inferred role | Class | Rationale text template (emitted by Module D) |
+|---|---|---|
+| `SIGN` | `SIG` | "RSA/ECDSA/EdDSA signing is deprecated after 2030 and disallowed after 2035 (IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch." For finite-field DSA: "DSA is no longer specified in FIPS 186-5 and is not listed in IR 8547 Table 2; migrate to ML-DSA (FIPS 204)." |
+| `VERIFY` | `SIG` | "Add ML-DSA (FIPS 204) verification so that migrated signers can be accepted. IR 8547 defines 'legacy use' as processing already-protected data such as verifying an existing signature; whether RSA/ECDSA verification of already-issued signatures keeps that status after 2035 is set by SP 800-131A (to be revised). Retain legacy verification only for already-issued signatures; do not accept new RSA/ECDSA signatures after the transition." |
+| `KEY_ESTABLISHMENT` | `KEM` | "ECDH/DH/X25519 key establishment is deprecated after 2030 and disallowed after 2035 (IR 8547 Table 4) and is exposed to harvest-now-decrypt-later. Redesign around ML-KEM (FIPS 203; ML-KEM-768 recommended by IR 8547) per SP 800-227; a PQ/T hybrid with the existing scheme via an approved combiner (SP 800-227 Sec. 4.6) is an acceptable transitional design. ML-KEM uses encapsulate/decapsulate, not a symmetric exchange(peer) call." |
+
+END OF PART 6 OF 8. Reply only: RECEIVED PART 6 OF 8

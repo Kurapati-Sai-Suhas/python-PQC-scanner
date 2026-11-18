@@ -1,0 +1,273 @@
+PART 2 OF 8 — specification review packet (protocol v1.0.5)
+
+- **C. Abstention.** Always-recommend; tier gate τ ∈ {T1, T2, T3}; random withholding at matched coverage (100 seeds). Risk–coverage, AURC.
+- **D. Robustness.** Dataset A operators; invariance per operator per tool; failure taxonomy.
+- **E. Generalisation.** Test split only, run once after the Phase 3 freeze.
+
+## 5. Statistics
+
+### 5.1 General
+
+- Wilson intervals for proportions.
+- Exact McNemar for paired binary outcomes on the same sites.
+- Holm correction within each family of comparisons.
+- Effect sizes (risk differences) always reported with CIs; p-values are secondary.
+- When a comparison involves different site sets (for example a tool that crashed on some files), the paired test uses only the sites where both methods ran, and the reason is stated (scoring policy Sec. 5).
+- **[v1.0.4] Significance level (V17).** One-sided family-wise α = 0.025 for the confirmatory families F-B and F-A. Per-test thresholds come from Holm.
+
+### 5.2 Comparison families
+
+| Family | Members | Procedure |
+|---|---|---|
+| **F-B** (confirmatory) | H2-1, H2-3, H2-4 | Holm (m = 3) over the **guarded** p-values at one-sided α = 0.025. A result can be claimed only if it is Holm-rejected **and** its feasibility gate passes. |
+| — (exploratory) | H2-2 (H2b) | outside every family; guarded margin criterion (Sec. 5.3) |
+| **F-A** (confirmatory) | the proposed system vs. each baseline that ran (≤ 8) | Holm at one-sided α = 0.025 (Sec. 5.4) |
+| others | H1, H3, H4; Experiment B natural-coverage McNemar; H2-S | **[v1.0.5]** H1a and H1b are pre-registered threshold decision rules without multiplicity-controlled inference; H3 and H4 are pre-specified secondary/descriptive analyses without a confirmatory or family-wise claim. Their exact interpretation (decision basis, populations, the H1b baseline set, the H3 coverage procedure, the H4 flip definitions) is recorded before F1 in `run_specification_pre_f1.md` (H-1 to H-6). Experiment B natural-coverage McNemar and H2-S: descriptive/secondary. |
+
+### 5.3 H2 inference (V12, V13, V20, V21, V22; R4-21 C1, C3, C5)
+
+The normative text and the order of steps are in `phase3_analysis_plan.md` Sec. 3–7. In summary:
+
+1. **Paired set:** the common evaluable set C_r of each repository: primary-set eligible sites where both arms ran.
+2. **Matching:** label-free. k_r = min(R_F,r, R_M,r) RECOMMENDs per repository. The arm with more RECOMMENDs withdraws its lowest-evidence-tier recommendations first (SHA-256 order within a tier). A withdrawn RECOMMEND is scored as ABSTAIN by the frozen judge.
+3. **Point estimate:** δ̃, the exact tie-average over all permitted tie orders, repository-balanced. The site-weighted value is also reported.
+4. **Test:** a stratified re-matching percentile bootstrap. Sites are resampled within repositories, and **fresh random tie keys are drawn in every resample**. B = 10,000, seed 20261113. If p falls within 3 Monte Carlo SE of a threshold, the bootstrap is re-run with B = 100,000.
+5. **Coverage-gap guard:**
+   - g = (1/K_e) Σ_r (R_F,r − R_M,r)/n_r, an exact fraction;
+   - if g < 1/10, p → min(1, 2p) before Holm;
+   - the guard also applies to the H2b margin criterion (C5).
+6. **Feasibility gate (label-free):**
+   - a repository is feasible iff k_r ≥ 5;
+   - the gate passes iff Σk_r / Σn_r ≥ 1/5 **and** ≥ 5 of the 7 repositories are feasible;
+   - otherwise the comparison is "not assessable at equal coverage".
+7. **Repositories without common evaluable sites (C3):**
+   - K = 7 is always reported, together with K_e, the number of estimable repositories;
+   - if K_e < 7, H2a, H2-3 and H2-4, **and H2b**, are "not assessable as pre-registered";
+   - if 1 ≤ K_e ≤ 6, the estimable-repository average is reported as secondary only;
+   - if K_e = 0, no average exists, the coverage gap is undefined, and every H2 result is "not assessable";
+   - no difference is ever imputed and no repository is silently dropped.
+8. **Calibration (C1):** under the planning model, before F1. A two-stratum scenario is a mandatory acceptance criterion. If the unstratified bootstrap fails it, the pre-specified repository-by-stratum bootstrap replaces it, before F1. **[v1.0.5]** F1 is never permitted after a failed calibration: only a newly versioned procedure that passes every acceptance criterion may proceed (`phase3_analysis_plan.md` Sec. 11.4).
+
+### 5.4 Experiment A family F-A (R4-21 C6)
+
+**Test.** A pooled one-sided exact McNemar per baseline j, on the sites where both the proposed system and j ran, at natural coverage, with Holm across the baselines.
+
+**Assumptions** (printed with every result):
+1. the 7 repositories are fixed (inference concerns these repositories only);
+2. sites are stratified random samples, drawn without replacement, with eligibility-only stopping;
+3. **[v1.0.5]** because sites are drawn without replacement within strata, the sampled pairs are not independent. The Type I error of the pooled exact test under this design, with heterogeneity across repositories and strata, execution failures and correlated baselines, was checked by simulation before F1 (`phase3_analysis_plan.md` Sec. 11.6; `docs/implementation/acceptance/fa_type1.md`): PASS, every single-test rejection rate ≤ 0.0089 and every Holm family-wise error ≤ 0.0047 at nominal 0.025. This covers the simulated configurations only; it is not a proof;
+4. the estimand is restricted to the both-ran sites of each comparison.
+
+**Required with every F-A result:**
+- the per-baseline both-ran denominators;
+- the site-weighted **and** repository-balanced differences (descriptive);
+- the execution-failure sensitivities S-F1 and S-F2;
+- a CI from the within-repository bootstrap.
+
+**Stated limitation:** the 7 purposively chosen repositories support no claim beyond them.
+
+### 5.5 Amendments of v1.0.3 Sec. 1 and 5 (V24)
+
+- **H2's test.** The v1.0.3 H2 rule ("Paired McNemar … clustered by repo") is replaced by Sec. 5.3. Exact McNemar and Tango on the matched site pairs (primary-seed table) are kept as **secondary**.
+  - *Consequence:* McNemar on matched pairs is valid but conservative under matching; McNemar at natural coverage tests a different estimand, not "at equal coverage".
+- **Cluster bootstrap by repository** (1,000 resamples) is kept **only as an exploratory** interval, labelled "7 purposively chosen repositories; not a population CI".
+  - *Consequence:* no population-level CI is claimed.
+  - Differences for Dataset A keep the cluster bootstrap by `base_case`, unchanged.
+- **Execution-failure handling:** `phase3_analysis_plan.md` Sec. 6. The frozen n_exec and paired-set rules are unchanged; the sensitivity analyses are added.
+
+### 5.6 Secondary label analyses (V4) and unresolved bounding (V9)
+
+- **Consensus subset:** sites where the owner's primary label equals the AI review on `eligible`, `gt_role`, `assessability` and `hybrid_component`.
+- **AI-label sensitivity:** where the AI fields are definite.
+- **Unresolved bounding:** H2 and H3 are recomputed with unresolved sites set to the owner's primary label, to the AI's label and to INDETERMINATE, and the range is reported. More than 5% unresolved among eligible test sites is flagged as a major limitation.
+
+## 6. Freeze procedure: two stages (structure unchanged since v1.0.1)
+
+**Stage F1: pre-test methodological and code freeze.** It must be complete before any test-split repository is fetched. The freeze record `docs/freeze/pretest_freeze.json` is committed and the commit is tagged `phase3-pretest-freeze`. It contains:
+1. the git commit SHA and the source-tree fingerprint (`scripts/tree_hash.py`);
+2. SHA-256 of the role taxonomy, the recommendation policy (YAML and text), the scoring policy, this protocol, `phase3_analysis_plan.md`, `phase3_decisions.md`, the data dictionary, annotation guide v1.2, the benchmark schema, the meta schema and the pre-F1 run specification (`run_specification_pre_f1.{md,json}`);
+3. τ and every threshold and decision rule (Sections 1, 4 and 5; `scoring_policy.md`; the analysis plan);
+4. the baseline manifest, with tool versions, commit SHAs and measured failure profiles;
+5. the sampling frame: the test entries of `benchmark/real/manifest.json`, the candidate-pool procedure and the sampling rule with its seed and the quota table;
+6. hashes of the frozen development and validation labels, the ledger heads and the synthetic dataset (Dataset A);
+7. the hypotheses and planned comparisons with their families (Sections 1 and 5);
+8. the experiment commands for Stages F1→F2 and E;
+9. **[v1.0.4]:**
+   - the AI interface and model identity, and the prompt-template and packet-rule hashes;
+   - the Phase DV reliability results;
+   - the frame-audit result;
+   - the specification-review record;
+   - the Phase DV feasibility check (c_DV, k_r per repository);
+   - the production statistical code hashes with their test results;
+   - the differential-test report;
+   - **the calibration evidence, with code version and seeds:** the single-comparison, two-stratum (C1) and family-wise runs, and which bootstrap variant is in force.
+   - **[v1.0.5] the external human review record (mandatory; recommendation policy Sec. 7):** a review of the full specification by a human reviewer outside the build team. It is **pending**; it is not waived, the AI specification review does not replace it, and the F1 record cannot be made without it (F14).
+   - **[v1.0.5]** the F-A Type I error simulation with its seeds (`docs/implementation/acceptance/fa_type1.{json,md}`; F05);
+   - **[v1.0.5]** the H3 random-withholding seeds and the H3/H4 definitions (`run_specification_pre_f1.md`, H-5 and H-6).
+
+After F1, no change to code, policy, scoring, τ, the baseline set or the analysis plan may influence Experiment E. Any later change is logged, and its effect is evaluated only on a new partition or reported as exploratory.
+
+**Between F1 and F2: candidate extraction and annotation.**
+- After F1, the test repositories are fetched at their frozen commits (`scripts/fetch_pinned.py repos --include-test`).
+- The frozen batch runner executes every method once on them. Raw outputs and logs are written to a sealed directory. Before anyone reads them, `docs/freeze/test_run_seal.json` records for every run the SHA-256 of the raw report, of the log and of the parsed findings (`findings_sha256`).
+- A mechanical step extracts only locations (file, line range, API call) and produces a candidate list with no tool attribution and no recommendation text.
+- **[v1.0.4]** The owner labels from source with tool outputs hidden. The test loop of Sec. 3 runs, with the ledger (hashes only) pushed after each step. Test labels stay out of git until F2. The owner records a **self-attestation** that the sealed outputs were not opened. **[v1.0.5]** This is a self-attestation only: it is not independently enforced or verifiable, and the hashes of the sealed outputs prove their integrity, not that they were unread. The protocol and every report describe test-output blinding as self-attested and never as independently enforced (F06).
+- Nobody may change the system in this window. The frozen code cannot be tuned on test material, and any change voids F1 for the affected comparisons.
+
+**Stage F2: test-label freeze.** It must be complete before any judgment or statistic is computed on the test split. The addendum `docs/freeze/label_freeze.json` is committed and the commit is tagged `phase3-label-freeze`. **[v1.0.4]** It records:
+- the SHA-256 of the owner's primary files, the AI-review files and exports, the comparison tables, the adjudication log and the final label files;
+- the ledger heads;
+- the Phase T reliability results;
+- the unresolved list;
+- the self-attestation (so named, F06) and the dates.
+
+Label files are immutable after F2. A correction is a new, dated file with a reason, reported next to the original.
+
+**Stage E: held-out evaluation.** Only once F1 and F2 are both valid:
+- The sealed outputs are judged against the frozen labels with the frozen judge and statistics, in one pre-registered evaluation.
+- A determinism check compares the parsed-findings hashes with the seal.
+- The command, environment, outputs and every failure and exclusion are recorded.
+- No threshold, policy, scoring or code change follows from test outcomes. **The statistical method is never changed after held-out results have been seen.**
+
+## 7. Threats to validity
+
+**v1.0.3 text, kept.**
+- **Construct:** role labels are themselves a judgement; mitigated by the guide, reliability statistics and adjudication.
+- **Internal:** leakage from development to test; mitigated by the frozen split and the no-fix rule.
+- **External:** two libraries, Python only, crypto-dense repositories over-represented.
+- **Conclusion:** small n for some roles; report per-role n and avoid claims for roles with n < 20.
+
+**[v1.0.4] Added:**
+- a single human annotator; builder–annotator overlap (Phase DV labels are less blind than Phase T);
+- AI-review errors correlated with the owner's framing; context asymmetry between owner and AI;
+- blinding to sealed outputs is a self-attestation, not independently enforced or verifiable (v1.0.5);
+- **only 7 purposively chosen test repositories:** no generalisation claim, and repository-level analyses are exploratory;
+- the design-mixture weighting (test, example and vendored code are capped at one third);
+- the matched H2 difference measures complete-policy correctness, not recommendation accuracy;
+- coverage matching depends on the tier ranking (ranking-free sensitivity reported);
+- bootstrap calibration rests on an assumed generative model (an empirical calibration, not a proof);
+- the 10-point margin is exploratory and has low power;
+- tool execution failures restrict estimands to sites where the tools ran;
+- no external human validation.
+
+**[v1.0.5] Added:**
+- the external human review required before F1 is pending (not completed, not waived);
+- when execution failures exist, the primary H2 estimate describes the commonly evaluable sites; S-F1 describes the sampled primary set under the rule that concordant failures are incorrect for both arms (plan Sec. 2);
+- the scanner recognises approved hybrids through the pyca ML-KEM and ML-DSA API prefixes only; the supported library version (cryptography 47.0.0) exposes no SLH-DSA API, so an SLH-DSA hybrid labelled by the guide would not be recognised by the scanner (a measured limitation);
+- the scanner does not emit PROTOCOL_CONFIG (D10), which is eligible when it occurs (taxonomy v1.1);
+- a primary CORRECT means a compatible target family, not a verified complete KEM + KDF + AEAD redesign (scoring policy v1.0.1 interpretation note);
+- the exact F-A test is conservative in every simulated configuration, which costs power;
+- five pilot sites are shown as worked examples in the guide; in the pilot loop they are a separately reported subset and their agreement is never counted as blind evidence.
+
+## Changelog
+
+- v1.0.1 (2026-11-14, before any test-split access): Section 6 split into two freeze stages (F1 pre-test, F2 test-label) plus the sealed candidate-extraction run. No hypothesis, metric, threshold or statistic changed.
+- v1.0.2 (2026-11-14, before any test-split access): the determinism check compares parsed-findings hashes rather than raw report hashes. No hypothesis, metric, threshold or statistic changed.
+- v1.0.3 (2026-11-14, before any test-split access; owner decisions D2–D5): clarified the 300 / 150 targets; added the seeded, stratified, quota-based sampling rule with a one-third test-path cap; CBOMkit not run (D4 = A). No hypothesis, metric, threshold or statistic changed.
+- **v1.0.4 (2026-11-16, before any test-split access; owner approval of R4-18 as amended by R4-21 Sec. 6, corrections C1–C6; record `phase3_decisions.md`):**
+  - **Annotation:** single-investigator design with an isolated AI-assisted review (V1, V8, V9, V16); intra-rater, owner–AI and AI repeat-run reliability replace two-annotator κ (V3).
+  - **Dataset B:** 13 repositories (V15); quotas as a tested constant (V2).
+  - **Sampling:** scope classes and S1-nonapp strata; sampler and ledger integrity rules (V5, V6, V11); analysis sets (V14); the descriptive frame audit (V7); the design-mixture statement (C2).
+  - **H2:** operationalised as H2a (confirmatory) and H2b (exploratory) with explicit reporting statements; the unqualified phrase "H2 supported" is withdrawn (V10a, C4).
+  - **Families and level:** F-B Holm m = 3 over guarded p-values with a feasibility-gated claim (V10b); one-sided family α = 0.025 (V17).
+  - **H2 procedure:** arms and thresholds (V18); matching and estimand (V12); re-matching bootstrap (V13); coverage-gap guard (V20), also on H2b (C5); feasibility gate (V21); execution-failure handling (V22); K / K_e rule (C3); two-stratum calibration (C1).
+  - **F-A:** assumptions and required reporting (C6).
+  - **Statistics amendments:** McNemar demoted to secondary for H2; the cluster bootstrap by repository is exploratory only (V24).
+  - **Identifiers:** H-numbers (V23).
+  - **Unchanged:** the H1–H4 sentences, the H1/H3/H4 decision rules, the metric definitions, τ = T2 and the manifests.
+- **v1.0.5 (2026-11-18, before any labelling and any test-split access; owner approval of the pre-F1 decision register `docs/audit/owner_decision_register_v1.0.5.md`, which resolves the 21 findings of the isolated AI specification review of v1.0.4; amendment record `amendment_v1.0.5.md`):**
+  - **Clarifications:** frame-audit seed, order and stopping rule (F18); packet-first rule as implemented (F11); forbidden-content gate before the AI review (F07); F1 never after a failed calibration (F20).
+  - **Honest scope:** test-output blinding is a self-attestation (F06); the external human review is a pending, mandatory F1 prerequisite (F14).
+  - **F-A:** assumption 3 restated; the Type I error simulation passed (F05).
+  - **H1, H3, H4:** status and interpretation recorded before F1 in the run specification (F16; H-1 to H-6).
+  - **Companions:** annotation guide v1.2, analysis plan v1.0.1, role taxonomy v1.1, data dictionary v1.1, scoring policy v1.0.1 (interpretation note).
+  - **Unchanged:** the H1–H4 sentences, every threshold, the primary metrics and frozen scoring rules, the confirmatory families, the baseline set, D7, D15, τ = T2 and the sampling unit, pool and orders.
+=== END DOCUMENT: docs/specification/evaluation_protocol.md ===
+
+=== BEGIN DOCUMENT: docs/specification/evaluation_protocol_v1.0.3.md (sha256 0bca5103293afeef8705b03cc1e6231ecbcf9b3e7a4aabe4b2a4d257a9e3edcc) ===
+# Evaluation protocol (v1.0.3, pre-registered) — SUPERSEDED by v1.0.4 on 2026-11-16; kept unchanged as the historical record
+
+Project: Post-quantum crypto scanner for Python projects. Written 12 Nov 2026 after the H1 pilot and before any benchmark construction or analyzer code.
+
+## 1. Research questions and pre-registered hypotheses
+
+| RQ | Hypothesis | Pre-registered decision rule |
+|---|---|---|
+| RQ1 How accurately do existing Python scanners give role-appropriate PQC recommendations per call site? | H1a: ≥ 25% of eligible real sites require evidence beyond the method/algorithm name. H1b: every baseline has harmful + undecided + unjustified rate ≥ 10% on eligible real sites. | Report rates with Wilson 95% CIs per tool; if H1a or H1b fails on the full real set, the recommendation framing is weakened and the paper is re-centred on N3 (robustness) — stated in advance. Pilot values: 51.7% (15/29) and 7–31% (see `docs/pilot/h1_pilot_summary.md`); thresholds set *before* the full-set labelling. |
+| RQ2 Does bounded provenance-aware analysis improve correctness over simpler mappings? | H2: correct-per-eligible-site of the provenance-aware arm exceeds the method+argument arm by ≥ 10 percentage points at equal coverage. | Paired McNemar on per-site correctness (same sites), Holm-corrected across arms; report difference with bootstrap CI clustered by repo. |
+| RQ3 Does evidence-based withholding reduce harmful recommendations at comparable coverage? | H3: at coverage ≥ 70%, the harmful rate of the τ = T2 policy is lower than "always recommend" and than random withholding at the same coverage. | Risk–coverage curves; AURC with bootstrap CI; comparison at fixed coverages 70/80/90%. |
+| RQ4 Which transformations change classification or recommendation? | H4: at least one operator (predicted: `loaded-key`, `cross-function`) flips ≥ 30% of base cases for every baseline; the proposed analyzer is invariant under `alias-import` and `wrapper-function` for ≥ 90% of base cases. | Per-operator invariance rate with Wilson CI; pairs (base, variant) are the unit. |
+
+A negative result on any hypothesis is reported as such.
+
+## 2. Datasets
+
+**Dataset A (synthetic).** ~60 base cases × up to 7 variants (`identity`, `alias-import`, `wrapper-function`, `class-method`, `loaded-key`, `cross-function`, `dict-dispatch`) ≈ 400 instances; both libraries; all roles; generated and loaded keys; negatives (padding constants, unrelated `.sign(` methods, `pqcrypto`-like names, comments). Base cases are seeded from idioms observed in the pilot and development repos. Variants are correlated with their base case: all statistics cluster on `base_case`. `loaded-key` is an **evidence-condition change**, not a semantics-preserving transformation; it is analysed separately from the invariance operators.
+
+**Dataset B (real).** Target ≥ 300 eligible, double-annotated sites from 8–12 repositories. Selection criteria: public GitHub, OSI licence, ≥ 100 stars or a security-relevant purpose, uses pyca and/or PyCryptodome for RSA/EC, ≥ 10 candidate sites by regex over-approximation. Stratify by library and domain (JOSE/JWT, SSH, PKI/TLS, cloud-auth, generic). Split: development (rules may be tuned), validation (threshold τ and operator choices), **test (frozen, never inspected for tuning)**. Repositories used in any baseline's own tuning corpus (pqcheck `tests/corpus`, Mehl's 19-repo ground truth, Quantum-Safe Auditor's 5-repo corpus) are excluded from the test split. The two pilot repositories are development repositories.
+
+Candidate discovery for ground truth = union of (regex over-approximation, every baseline's findings, our Module A) followed by manual source reading. The scanner's own output is never the sole source.
+
+**Targets (clarified in v1.0.3; unchanged in meaning).** "≥ 300 eligible, double-annotated sites" counts Dataset B across all splits. The test split must also contain ≥ 150 eligible sites (`docs/benchmark/repository_split.md` Sec. 2). Development and validation sites count toward the 300 but are never pooled with test sites in any reported metric. Experiment E uses only test-split sites.
+
+**Sampling rule (v1.0.3; owner decisions D2 = O2 and D3, 14 Nov 2026; implemented in `pqscan/bench/candidates.py`).**
+- **Pool.** Per repository, the union above, deduplicated by enclosing statement.
+- **Strata.** These do not depend on any tool:
+  - S1-app: files importing pyca or PyCryptodome, outside test paths;
+  - S1-test: the same, in test paths;
+  - S2: all other candidates.
+- **Order.** Each stratum is put in a seeded random order (seed 20261113, recorded in F1).
+- **Eligible quota.** 30 sites per test repository (7 × 30 = 210) and 25 per development or validation repository (6 × 25 = 150).
+- **Batches.** Annotation proceeds in batches of 10: 7 S1-app and 3 S1-test, with empty slots filled from the other S1 list.
+- **Test-path cap.** Test-path sites count toward a quota up to one third of it (10 of 30, 8 of 25). Once the cap is reached, no further test-path candidates are drawn.
+- **S2.** The first 10 S2 candidates of each repository are annotated once.
+- **Stopping.** Annotation stops when the counted eligible sites reach the quota, when 4 × quota S1 candidates have been issued, or when S1 is exhausted. The last two are reported as shortfalls; quotas are never moved between repositories.
+- **Stopping depends only on adjudicated eligibility.** It never depends on any tool's output or correctness.
+- **Annotator-added sites.** Eligible RSA/EC sites an annotator notices in the same function, but which are not in the candidate list, are recorded as `annotator_added` and reported separately.
+- **Reporting.** Results are reported pooled (primary) and per scope (app vs. test path).
+
+## 3. Annotation
+
+Two annotators per site, at least one outside the build team; annotation guide `docs/benchmark/annotation_guide.md`; Cohen's κ reported for role, assessability and provenance (target ≥ 0.70); disagreements adjudicated by a third person; all labels and adjudication notes published. A 20% sample of synthetic cases is validated by an external annotator.
+
+## 4. Experiments
+
+- **A. Baseline recommendation correctness** — Simple algorithm-name mapping, method/argument-only mapping, pqcheck 0.1.0, pqc-audit 0.4.1, PostQuant 0.7.0, qsafe 1.1.0 (pqc-posture), Quantum-Safe Auditor regex stage, pqblocks-scan 0.1.0, CBOMkit (not run: owner decision D4 = A; it is an inventory tool without migration advice and is never scored on recommendations; reported as not run in every table), Mehl's scanner (results-only artefact; repository-level, reported separately), ours. Outcome classes per site; harmful/undecided/unjustified/missed rates; detection precision/recall.
+- **B. Provenance ablation** — method-only → +arguments → +receiver → +provenance → +downstream usage. Same sites; McNemar; which evidence resolves which sites.
+- **C. Abstention** — always-recommend; tier gate τ ∈ {T1, T2, T3}; random withholding at matched coverage (100 seeds). Risk–coverage, AURC.
+- **D. Robustness** — Dataset A operators; invariance per operator per tool; failure taxonomy.
+- **E. Generalisation** — test split only, run once after the Phase 3 freeze.
+
+## 5. Statistics
+
+Wilson intervals for proportions; cluster bootstrap (1,000 resamples) by repo or base_case for differences and AURC; McNemar exact test for paired binary outcomes on the same sites; Holm correction within each family of comparisons; Cohen's κ for agreement; effect sizes (risk differences) with CIs always reported; p-values secondary. When a comparison involves different site sets (e.g. a tool that crashed on some files), the paired test is not applied and the reason is stated.
+
+## 6. Freeze procedure: two stages (revised in v1.0.1, before any test-split access)
+
+Version 1.0 listed "adjudicated labels" inside the single freeze that also had to precede any contact with the test split. Test labels can only be produced after test access, so that order was impossible. Version 1.0.1 splits the freeze into two stages. The hypotheses, metrics, statistics, τ and decision rules in Sections 1–5 are unchanged.
+
+**Stage F1: pre-test methodological and code freeze.** It must be complete before any test-split repository is fetched. The freeze record `docs/freeze/pretest_freeze.json` is committed and the commit is tagged `phase3-pretest-freeze`. It contains:
+1. the git commit SHA and the source-tree fingerprint (`scripts/tree_hash.py`);
+2. SHA-256 of role taxonomy, recommendation policy (YAML and text), scoring policy, this protocol, the data dictionary, the annotation guide and the benchmark schema;
+3. τ and every threshold and decision rule (Sections 1, 4 and 5; `scoring_policy.md`);
+4. the baseline manifest, with tool versions, commit SHAs and measured failure profiles;
+5. the sampling frame: the test entries of `benchmark/real/manifest.json` (repositories and commits), the candidate-pool procedure (Stage F1→F2 below) and the per-repository site sampling rule (all candidates, or a stratified random sample with a recorded seed if a repository yields more than its cap);
+6. hashes of the frozen development and validation labels and of the synthetic dataset (Dataset A);
+7. the hypotheses and the planned comparisons with their correction families (Sections 1 and 5);
+8. the experiment commands for Stages F1→F2 and E.
+
+After F1, no change to code, policy, scoring, τ, the baseline set or the analysis plan may influence Experiment E. Any later change is logged, and its effect is evaluated only on a new partition or reported as exploratory.
+
+**Between F1 and F2: candidate extraction and annotation.**
+- After F1, the test repositories are fetched at their frozen commits (`scripts/fetch_pinned.py repos --include-test`).
+- The frozen batch runner executes every method once on them. Raw outputs and logs are written to a sealed directory. Before anyone reads them, `docs/freeze/test_run_seal.json` records for every run the SHA-256 of the raw report, of the log and of the parsed findings (`findings_sha256`; v1.0.2).
+- A mechanical step extracts only locations (file, line range, API call) from the union of the regex over-approximation, every baseline's findings and pqscan Module A detections. It produces a candidate list with no tool attribution and no recommendation text. Annotators label from source with tool outputs hidden (annotation guide Sec. 1 and 4).
+- The two annotators label independently, and each one's raw file is hashed when they submit it.
+- Nobody may change the system in this window. The frozen code cannot be tuned on test material, and any change voids F1 for the affected comparisons.
+
+**Stage F2: test-label freeze.** It must be complete before any judgment or statistic is computed on the test split. The addendum `docs/freeze/label_freeze.json` is committed and the commit is tagged `phase3-label-freeze`. It records:
+- the SHA-256 of both annotators' raw label files and of the initial disagreement table;
+- the adjudication log and the adjudicated label file;
+- κ and raw agreement per field;
+
+END OF PART 2 OF 8. Reply only: RECEIVED PART 2 OF 8
