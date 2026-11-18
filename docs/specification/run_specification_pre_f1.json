@@ -1,0 +1,75 @@
+{
+  "record": "Pre-F1 run specification: owner decisions on how the frozen protocol is executed",
+  "status": "pre-F1. NOT part of the v1.0.4 adoption record (adoption_record_v1.0.4.json is unchanged). At F1 this file is hashed into docs/freeze/pretest_freeze.json (protocol Sec. 'Stage F1', items 4 and 7).",
+  "protocol_version": "1.0.4",
+  "annotation_guide_version": "1.1",
+  "analysis_plan_version": "1.0",
+  "decisions": [
+    {
+      "id": "D7",
+      "date": "2026-11-18",
+      "by": "owner",
+      "decision": "Option A. The adopted RQ is kept verbatim. F-B (H2a; H2-3, H2-4) compares at matched recommendation volume per repository against the method/argument arms. F-A compares at natural coverage against the algorithm-name mapping, the method/argument-only mapping and the external tools. Every F-A finding is described as a natural-coverage comparison; no claim of superior correctness over algorithm-family baselines at comparable coverage.",
+      "record": "docs/paper/d7_rq_alignment.md; docs/paper/author_decisions.md (decision log)"
+    },
+    {
+      "id": "D15",
+      "date": "2026-11-18",
+      "by": "owner",
+      "decision": "pqscan:B1-algorithm is the single 'simple algorithm-name mapping' baseline in F-A, with the mappings already defined in pqscan/baselines/simple.py (ALG_RULE). pqscan:B1-dual is reported descriptively only, outside F-A, because it emits DUAL recommendations rather than a specific migration choice. The scanner is not modified or rebuilt for this decision.",
+      "record": "docs/specification/run_specification_pre_f1.md; docs/paper/author_decisions.md (decision log)"
+    }
+  ],
+  "families": {
+    "F-B": {
+      "status": "confirmatory",
+      "comparisons": {
+        "H2-1": ["B3-full-noabst", "B2-method-args"],
+        "H2-3": ["B3-full-noabst", "method-args-recv-T0"],
+        "H2-4": ["B3-full-noabst", "method-only-T0"]
+      },
+      "arm_identifiers_source": "pqscan/baselines/simple.py H2_COMPARISONS",
+      "coverage": "matched recommendation volume per repository (analysis plan Secs. 4-7)",
+      "multiplicity": "Holm, m = 3, over guarded p-values",
+      "alpha_one_sided": 0.025
+    },
+    "F-A": {
+      "status": "confirmatory",
+      "system": "pqscan:B4-full-T2",
+      "baselines": [
+        "pqcheck",
+        "pqc-audit",
+        "PostQuant",
+        "qsafe",
+        "QSA-regex",
+        "pqblocks-scan",
+        "pqscan:B1-algorithm",
+        "pqscan:B2-method-args"
+      ],
+      "max_members_protocol": 8,
+      "coverage": "natural coverage (no matching, no guard; analysis plan Sec. 9)",
+      "test": "one-sided exact McNemar on the pooled discordant pairs over sites where both ran",
+      "multiplicity": "Holm across the baselines that ran",
+      "alpha_one_sided": 0.025,
+      "reporting": "always described as a natural-coverage comparison, with coverage printed alongside (D7 Option A)",
+      "algorithm_name_mapping": {
+        "method": "pqscan:B1-algorithm",
+        "mapping_as_implemented": {"RSA": "KEM", "EC": "SIG", "X25519": "KEM", "X448": "KEM", "XDH": "KEM", "DH": "KEM",
+                                   "Ed25519": "SIG", "Ed448": "SIG", "EdDSA": "SIG", "DSA": "SIG"},
+        "unresolved_algorithm": "DUAL",
+        "mapping_source": "pqscan/baselines/simple.py ALG_RULE (unchanged)"
+      }
+    }
+  },
+  "descriptive_only": {
+    "pqscan:B1-dual": "Algorithm-name convention that refuses to choose for multi-purpose algorithms (RSA, EC, unresolved -> DUAL). Reported descriptively, outside F-A and outside every confirmatory family (D15)."
+  },
+  "not_run": {
+    "CBOMkit (sonar-cryptography)": "owner decision D4 = A; listed as not run in every table",
+    "Mehl ESEM 2026 scanner": "not in F-A; owner decision D14 pending (docs/audit/research_decisions_and_novelty.md)"
+  },
+  "unchanged": [
+    "evaluation protocol v1.0.4", "annotation guide v1.1", "analysis plan v1.0", "all frozen thresholds and decision rules",
+    "F-A / F-B methodology", "baseline manifest", "test-split safeguards (fetch guard; no access before the F1 record and tag)"
+  ]
+}
