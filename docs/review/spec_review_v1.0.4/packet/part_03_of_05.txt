@@ -1,0 +1,357 @@
+PART 3 OF 5 — specification review packet (protocol v1.0.4)
+
+# Pre-F1 run specification (owner decisions on executing protocol v1.0.4)
+
+**Machine-readable form:** `run_specification_pre_f1.json`. The JSON is authoritative for method identifiers. `tests/test_run_specification.py` checks it against the code.
+
+**Status: pre-F1.**
+- This is **not** part of the v1.0.4 adoption record. `adoption_record_v1.0.4.json` and every adopted document are unchanged.
+- At F1, both files are hashed into `docs/freeze/pretest_freeze.json`: protocol "Stage F1", item 4 (baseline manifest) and item 7 (planned comparisons with their families).
+- After F1 they may not change (protocol: "no change to … the baseline set or the analysis plan may influence Experiment E").
+
+## Recorded owner decisions
+
+| Id | Date | Decision |
+|---|---|---|
+| D7 | 2026-11-18 | **Option A.** RQ kept verbatim. F-B (H2a; H2-3, H2-4) compares at **matched recommendation volume** against the method/argument arms. F-A compares at **natural coverage** against the algorithm-name mapping, the method/argument-only mapping and the external tools. Every F-A finding is described as a natural-coverage comparison; no claim of superior correctness over algorithm-family baselines at comparable coverage. |
+| D15 | 2026-11-18 | **`pqscan:B1-algorithm` is the single "simple algorithm-name mapping" in F-A**, using the mappings already in `pqscan/baselines/simple.py` (`ALG_RULE`, unchanged). **`pqscan:B1-dual` is descriptive only, outside F-A**, because it emits DUAL recommendations rather than a migration choice. The scanner is not modified or rebuilt. |
+
+## Family F-A as it will be run (confirmatory; natural coverage)
+
+| | Method identifier | Note |
+|---|---|---|
+| System | `pqscan:B4-full-T2` | `full` arm, τ = T2 (`pqscan/bench/fa.py` `SYSTEM`) |
+| Baseline 1–6 | `pqcheck`, `pqc-audit`, `PostQuant`, `qsafe`, `QSA-regex`, `pqblocks-scan` | pinned in `benchmark/baselines_manifest.json` |
+| Baseline 7 | `pqscan:B1-algorithm` | RSA → KEM, EC → SIG, X25519/X448/XDH/DH → KEM, Ed25519/Ed448/EdDSA/DSA → SIG, unresolved → DUAL |
+| Baseline 8 | `pqscan:B2-method-args` | the method/argument-only mapping (`method+args` arm, always recommend) |
+
+**Procedure (analysis plan Sec. 9, unchanged):**
+- one-sided exact McNemar on both-ran sites;
+- Holm across the baselines that ran, one-sided α = 0.025;
+- ≤ 8 members, as the protocol requires;
+- coverage printed with every result.
+
+**Not run / not scored:**
+- CBOMkit: D4 = A.
+- Mehl ESEM 2026 scanner: D14 pending; not in F-A.
+
+**Descriptive only:** `pqscan:B1-dual`.
+
+## Family F-B (confirmatory; matched recommendation volume; unchanged)
+
+| Comparison | Provenance-aware arm | Comparator |
+|---|---|---|
+| H2-1 (H2a) | `B3-full-noabst` | `B2-method-args` |
+| H2-3 | `B3-full-noabst` | `method-args-recv-T0` |
+| H2-4 | `B3-full-noabst` | `method-only-T0` |
+
+Holm, m = 3, over guarded p-values, one-sided α = 0.025 (identifiers from `pqscan/baselines/simple.py` `H2_COMPARISONS`). H2b remains exploratory and outside error control.
+
+## What this record does not change
+
+- Protocol v1.0.4, annotation guide v1.1, analysis plan v1.0.
+- All thresholds and decision rules.
+- The F-A / F-B methodology.
+- The baseline manifest.
+- The test-split safeguards: `scripts/fetch_pinned.py --include-test` refuses until the F1 record and tag exist.
+=== END DOCUMENT: docs/specification/run_specification_pre_f1.md ===
+
+=== BEGIN DOCUMENT: docs/specification/run_specification_pre_f1.json (sha256 d5fe1181118c910bdb006741893c277e8ce83f6f66cd67c29ba8cb7cb52a4b8a) ===
+{
+  "record": "Pre-F1 run specification: owner decisions on how the frozen protocol is executed",
+  "status": "pre-F1. NOT part of the v1.0.4 adoption record (adoption_record_v1.0.4.json is unchanged). At F1 this file is hashed into docs/freeze/pretest_freeze.json (protocol Sec. 'Stage F1', items 4 and 7).",
+  "protocol_version": "1.0.4",
+  "annotation_guide_version": "1.1",
+  "analysis_plan_version": "1.0",
+  "decisions": [
+    {
+      "id": "D7",
+      "date": "2026-11-18",
+      "by": "owner",
+      "decision": "Option A. The adopted RQ is kept verbatim. F-B (H2a; H2-3, H2-4) compares at matched recommendation volume per repository against the method/argument arms. F-A compares at natural coverage against the algorithm-name mapping, the method/argument-only mapping and the external tools. Every F-A finding is described as a natural-coverage comparison; no claim of superior correctness over algorithm-family baselines at comparable coverage.",
+      "record": "docs/paper/d7_rq_alignment.md; docs/paper/author_decisions.md (decision log)"
+    },
+    {
+      "id": "D15",
+      "date": "2026-11-18",
+      "by": "owner",
+      "decision": "pqscan:B1-algorithm is the single 'simple algorithm-name mapping' baseline in F-A, with the mappings already defined in pqscan/baselines/simple.py (ALG_RULE). pqscan:B1-dual is reported descriptively only, outside F-A, because it emits DUAL recommendations rather than a specific migration choice. The scanner is not modified or rebuilt for this decision.",
+      "record": "docs/specification/run_specification_pre_f1.md; docs/paper/author_decisions.md (decision log)"
+    }
+  ],
+  "families": {
+    "F-B": {
+      "status": "confirmatory",
+      "comparisons": {
+        "H2-1": ["B3-full-noabst", "B2-method-args"],
+        "H2-3": ["B3-full-noabst", "method-args-recv-T0"],
+        "H2-4": ["B3-full-noabst", "method-only-T0"]
+      },
+      "arm_identifiers_source": "pqscan/baselines/simple.py H2_COMPARISONS",
+      "coverage": "matched recommendation volume per repository (analysis plan Secs. 4-7)",
+      "multiplicity": "Holm, m = 3, over guarded p-values",
+      "alpha_one_sided": 0.025
+    },
+    "F-A": {
+      "status": "confirmatory",
+      "system": "pqscan:B4-full-T2",
+      "baselines": [
+        "pqcheck",
+        "pqc-audit",
+        "PostQuant",
+        "qsafe",
+        "QSA-regex",
+        "pqblocks-scan",
+        "pqscan:B1-algorithm",
+        "pqscan:B2-method-args"
+      ],
+      "max_members_protocol": 8,
+      "coverage": "natural coverage (no matching, no guard; analysis plan Sec. 9)",
+      "test": "one-sided exact McNemar on the pooled discordant pairs over sites where both ran",
+      "multiplicity": "Holm across the baselines that ran",
+      "alpha_one_sided": 0.025,
+      "reporting": "always described as a natural-coverage comparison, with coverage printed alongside (D7 Option A)",
+      "algorithm_name_mapping": {
+        "method": "pqscan:B1-algorithm",
+        "mapping_as_implemented": {"RSA": "KEM", "EC": "SIG", "X25519": "KEM", "X448": "KEM", "XDH": "KEM", "DH": "KEM",
+                                   "Ed25519": "SIG", "Ed448": "SIG", "EdDSA": "SIG", "DSA": "SIG"},
+        "unresolved_algorithm": "DUAL",
+        "mapping_source": "pqscan/baselines/simple.py ALG_RULE (unchanged)"
+      }
+    }
+  },
+  "descriptive_only": {
+    "pqscan:B1-dual": "Algorithm-name convention that refuses to choose for multi-purpose algorithms (RSA, EC, unresolved -> DUAL). Reported descriptively, outside F-A and outside every confirmatory family (D15)."
+  },
+  "not_run": {
+    "CBOMkit (sonar-cryptography)": "owner decision D4 = A; listed as not run in every table",
+    "Mehl ESEM 2026 scanner": "not in F-A; owner decision D14 pending (docs/audit/research_decisions_and_novelty.md)"
+  },
+  "unchanged": [
+    "evaluation protocol v1.0.4", "annotation guide v1.1", "analysis plan v1.0", "all frozen thresholds and decision rules",
+    "F-A / F-B methodology", "baseline manifest", "test-split safeguards (fetch guard; no access before the F1 record and tag)"
+  ]
+}
+=== END DOCUMENT: docs/specification/run_specification_pre_f1.json ===
+
+=== BEGIN DOCUMENT: docs/benchmark/annotation_guide.md (sha256 de81abd6d4ca0e755fd5535628b780a55181a016690bb473c7f87adfc682075f) ===
+# Annotation guide for PyPQC-RoleBench (v1.1)
+
+Adopted 2026-11-16 with evaluation protocol v1.0.4 (owner decisions V1, V5, V8, V9, V16; `docs/specification/phase3_decisions.md`). The superseded v1.0 is kept in `docs/benchmark/annotation_guide_v1.0.md`.
+
+**Changes from v1.0:**
+- a single investigator with a separately conducted AI-assisted review;
+- the Step F scope rule;
+- evidence requirements;
+- the record envelope with `context_used`;
+- packet-first labelling;
+- the re-label procedure;
+- reporting language.
+
+The decision procedure (Steps A–E and G) and the worked examples are unchanged from v1.0.
+
+Use with `docs/specification/role_taxonomy.md` (definitions) and `docs/specification/data_dictionary.md` (fields). Labels are made from **source code only**; tool outputs are hidden during labelling.
+
+## 1. Who does what
+
+| Step | Who | What | Record (ledger committed and pushed after the step) |
+|---|---|---|---|
+| 1 | script | issues a location-only batch (opaque candidate ID, repository, commit, file, line). B0 = 10 S2 candidates, once; B1+ = S1 batches of 10 | ledger `issue` |
+| 2 | **owner** | labels every candidate from the full repository at the pinned commit, tool outputs hidden, using Sec. 3–5; records `context_used`; the file must pass strict validation | `primary_<repo>_B<n>.jsonl`; ledger `primary` (hash) |
+| 3 | **AI review** (run by the owner; Sec. 6) | blind review of the same candidates in a fresh isolated session, from the packet only | `ai_review_<repo>_B<n>.jsonl` plus export; ledger `ai_review` |
+| 4 | script | compares `eligible`, `gt_role`, `assessability`, `possible_roles`, `hybrid_component`, `obvious_from_name`, `evidence_needed`, `key_provenance` | `disagreements_<repo>_B<n>.csv`; ledger `compare` |
+| 5 | **owner** | decides each disagreement: final value, reason, category (`kept`, `adopted_ai`, `third_value`, `unresolved`), `context_difference` tag. Agreed fields keep the owner's value. | `adjudication_<repo>_B<n>.csv`; `final_<repo>.jsonl` (script); ledger `adjudication` |
+| 6 | owner | records ambiguity and guide problems | `meta.ambiguity`; adjudication notes |
+
+**The AI review is never ground truth.** An AI "insufficient context" answer is `ai_status = insufficient_context`, not a disagreement.
+
+## 2. Rules for the owner
+
+- **No tool outputs.** Never open pqscan or baseline outputs for a repository before its final labels exist. That includes `runs/` and judgment files. Never open the sealed test outputs before F2.
+- **Order.** Run the AI review only after the primary file's hash has been pushed.
+- **Completeness.** Label every issued candidate. Never skip or edit a submitted file; a correction is a new file with a reason.
+- **S2.** S2 (B0) candidates are labelled exactly like the others. They are reported separately and do not count toward quotas.
+- **Annotator-added sites.** Add any other eligible RSA/EC site you notice in the same function that is not in the list as `annotator_added`. It is reported separately.
+- **Unresolved.** Mark a field `unresolved` with a reason when it cannot be decided. An unresolved `eligible` counts as not eligible. Every unresolved case is recorded before F2.
+- **Phases.** DV = development and validation together; T = test (only after F1).
+- **Re-label (intra-rater).**
+  - **Sample:** per phase, n = max(50, ⌈0.10·N⌉), selected by the script (seed `20261113:intra:<phase>`).
+  - **Timing:** presented in a new order, no earlier than 14 days after the latest primary label in the sample. The script refuses earlier.
+  - **Blinding:** earlier labels must not be consulted.
+- **What the labels feed.**
+  - Owner-final labels define eligibility, the expected class (`eligible`, `gt_role`, `assessability`, `hybrid_component`) and H1a (`obvious_from_name`, `evidence_needed`).
+  - Tool outputs, tiers and coverage matching are never consulted while labelling.
+- **No scanners.** Do not run any scanner on a repository before labelling it.
+- **Hard sites.** A site whose label took > 10 minutes is flagged `hard = true`.
+
+## 3. Decision procedure (follow in order)
+
+**Step A — Is it a site at all?** If the matched text is any of the following, set `eligible = false`, `gt_role = NONE`, and stop:
+- a comment, docstring or string literal;
+- a parameter-object construction on its own (`padding.PKCS1v15()`, `ec.SECP256R1()`, `ec.ECDSA(...)`);
+- a type reference (`isinstance(k, RSAPrivateKey)`);
+- an out-of-scope library.
+
+**Step B — Identify the API.**
+- Resolve the import chain to the fully qualified API (follow `import x as y`, `from a.b import c`).
+- Record `library`, `algorithm`, `api_call`, `method` and `arguments`.
+- If the receiver's library cannot be determined (for example `key.sign(...)` on an untyped parameter), record `library = unknown` and continue. Eligibility stays true only if the file imports a supported library and no other candidate library.
+
+**Step C — Operation or key material?**
+- **Operation.** `sign`, `verify`, `exchange`, `encrypt`, `decrypt`, and PyCryptodome `pkcs1_15/pss/DSS/eddsa/PKCS1_OAEP/PKCS1_v1_5 .new(...).sign/verify/encrypt/decrypt`.
+  - The role follows the method: `SIGN`, `VERIFY`, `KEY_ESTABLISHMENT`, `PK_ENCRYPT` or `PK_DECRYPT`.
+  - Check that the receiver is a public-key object, not an AEAD cipher, HMAC or JOSE wrapper object.
+  - For pyca `encrypt`/`decrypt` on an RSA key object → `PK_ENCRYPT`/`PK_DECRYPT`; on a `Cipher`/`AESGCM` object → `eligible = false`.
+- **Key material** (generate / load / derive / construct): go to Step D.
+
+**Step D — Follow the key (bounded).** Trace the produced key object through:
+- assignments in the same function;
+- the return value to the direct caller (one level);
+- attribute assignments (`self.key = ...`) and uses of that attribute in the same class;
+- arguments passed to one callee.
+
+Collect the set of operation consumers, then decide:
+- **All consumers in one family** → that family's role (`SIGN` when the consumers are sign and/or verify; `KEY_ESTABLISHMENT`; `PK_ENCRYPT`/`PK_DECRYPT`). Record the other members in `secondary_roles`.
+- **Two families, selected by a static constant in the same class or module** → label the role that constant selects, and note it.
+- **Two families, selected by a runtime value** (an `algorithm` argument, configuration, a dispatch dict keyed by user input) → `gt_role = UNKNOWN`, `assessability = INDETERMINATE`, and fill `possible_roles`.
+- **No consumer within the bounded scope** → `KEY_MATERIAL_ONLY` (`DETERMINATE`).
+- **The key leaves the scope** (returned two levels up, stored in a global registry, pickled) → `UNKNOWN` / `INDETERMINATE`, with `possible_roles = [all]` and a note.
+
+**Step E — Provenance.** For the receiver of an operation, record the proximate provenance (`attribute`, `parameter`, or a local from a loader/generator). If it is resolvable within the bounded scope, also record the `ultimate_provenance` set.
+
+**Step F — Flags (v1.1).**
+- **`hybrid_component = true`** only if the same class or function combines the site with an ML-KEM/ML-DSA call (pyca `mlkem`/`mldsa`, `oqs`, `pqcrypto`), with the combining line(s) as evidence.
+- **`scope`:** classify the path relative to the repository root, applying the first class that matches in this order:
+  1. `vendored`: a directory `vendor`, `_vendor` or `third_party`;
+  2. `test`: a directory `test`, `tests` or `testing`; or a file `test_*.py`, `*_test.py`, `test.py`, `tests.py`, `tests_*.py`, `tests-*.py`, `conftest.py`;
+  3. `example`: a directory `example`, `examples`, `demo`, `demos` or `demo*`;
+  4. `app`: otherwise.
+
+**Step G — Difficulty fields.**
+- `obvious_from_name`: `true` only if Step C decided the role without Step D, or the algorithm is single-purpose (X25519/X448 → key establishment; Ed25519/Ed448 → signature).
+- `evidence_needed` and `evidence_scope`: per the taxonomy.
+
+## 4. Evidence required for each label
+
+Every eligible label lists `evidence_lines` (file:line), including the line that **establishes the receiver's type**: key creation, loading, annotation, isinstance or attribute assignment.
+
+| Label | Required evidence | Not sufficient on its own |
+|---|---|---|
+| **SIGN** | **Operation:** a signing call: pyca `.sign(...)` on an RSA/EC/Ed25519/Ed448 private key, or PyCryptodome `pkcs1_15/pss/DSS/eddsa.new(key).sign(...)`.<br>**Key site:** the creation or load line, plus every consumer within the bounded scope (Step D). All consumers are sign or verify, and at least one is sign. | the `.sign(` name alone (HMAC, JOSE and token objects have it); the algorithm name alone |
+| **VERIFY** | **Operation:** verification on a public key (pyca `.verify(...)`; PyCryptodome `...new(pubkey).verify(...)`).<br>**Key site:** a public key whose only consumers are verify. | `verify` on a non-key object |
+| **KEY_ESTABLISHMENT** | **Operation:** an `exchange(...)` call (ECDH with `ec.ECDH()`, X25519, X448, DH), with the peer argument identified.<br>**Key site:** every consumer is exchange. | the curve name or a "kex" substring |
+| **PK_ENCRYPT** | encryption with an RSA public key (pyca `.encrypt(data, padding)`; PyCryptodome `PKCS1_OAEP` / `PKCS1_v1_5` cipher `.encrypt`); the receiver shown to be a key, not an AEAD or Fernet object | `encrypt` on any object; the padding constant alone |
+| **PK_DECRYPT** | decryption with an RSA private key; the receiver shown to be a key | as for PK_ENCRYPT |
+| **KEY_MATERIAL_ONLY** | the creation or load line, plus the list of every use examined within the bounded scope (export, fingerprint, storage, isinstance, return with no consumer at the direct caller) and the boundary reached | "no consumer found" without the list |
+| **PROTOCOL_CONFIG** | a configuration call on a protocol library object (TLS/SSH context, KEX or cipher list, JOSE `alg` registry) | a protocol-library import alone |
+| **UNKNOWN** | the runtime value, dynamic dispatch, reflection or out-of-scope flow that prevents fixing the role (with its line), plus `possible_roles` with at least one evidence line per family; `assessability = INDETERMINATE` | the annotator's own uncertainty (use `meta.ambiguity`) |
+| **NONE** (ineligible) | the Step A category (comment, docstring, string, parameter or padding object alone, type reference, out-of-scope library, symmetric or hash primitive, unrelated method on a non-key object), with the line that shows it | — |
+
+## 5. Record envelope and context
+
+One JSON object per line:
+
+```json
+{"site": { ...fields of docs/benchmark/benchmark_schema.json, validated unchanged... },
+ "meta": {"candidate_id": "C-…", "annotator": "owner | ai_review", "submitted_utc": "…",
+          "evidence_lines": ["file:line", …], "rationale": "…", "confidence": 1,
+          "ambiguity": "none | guide_unclear | context_insufficient | unresolved",
+          "hard": false, "time_seconds": 0,
+          "context_used": "packet_sufficient | extended", "context_extra": ["file:start-end", …],
+          "ai": {"interface_or_api": "…", "model": "…", "datetime_utc": "…", "prompt_sha256": "…",
+                 "packet_sha256": "…", "status": "ok | insufficient_context"}}}
+```
+
+**Type rules:**
+- `site.eligible`, `site.hybrid_component` and `site.obvious_from_name` must be JSON booleans. Anything else is rejected, never coerced.
+- `meta.ai` is present only for AI-review records.
+
+**`context_used`.** It is set while labelling and cannot be changed after the primary file is hashed:
+- `packet_sufficient`: every one of the 8 compared fields was decided from lines inside the packet the packet builder generated for this candidate. Open the packet file, not only the repository.
+- `extended`: anything else. Every extra file:line range goes in `context_extra`.
+
+**Packet-first subset.** For candidates the script flags `packet_first = true` (a seeded 10% per phase, at least 50):
+1. First record a P-label from the packet only, in `primary_packet_<repo>_B<n>.jsonl`. It is validated, hashed and pushed.
+2. Then record the normal primary label (the F-label), which may use more context.
+
+Never edit the P-label afterwards.
+
+## 6. AI-review rules (run by the owner)
+
+- **Identification first.** Before the first review, the owner records the interface and the model identity as displayed (or the API model identifier).
+- **Isolation.** Never use the existing project conversation, or any session that has seen this project. Use one fresh ChatGPT Temporary Chat per batch, with these all off: custom instructions, memory and chat-history reference, Projects, connectors, file library, and browsing/search. Alternatively, use the API with a pinned model identifier and the owner's own key; Claude never handles it.
+- **Inputs.** The fixed prompt template (hash recorded), guide v1.1 Steps A–G with the field definitions, and the packet. Nothing else: no owner label, tool output, project name or hypotheses.
+- **Per-review identification:** the interface; the model as displayed or the API model ID; the app version if shown; the date and time in UTC.
+- **Export:** the verbatim response plus the conversation export or the API JSON.
+- **Repeat-run sample:** per phase, max(30, ⌈0.10·N_AI⌉) (seed `20261113:airepeat:<phase>`), in new sessions.
+
+## 7. Worked examples (from the pilot, `docs/pilot/h1_pilot_sites.csv`)
+
+- **paramiko `kex_ecdh_nist.py:59`** `self.P = ec.generate_private_key(self.curve)`. The consumer is `self.P.exchange(ec.ECDH(), …)` in two other methods of the same class → `KEY_ESTABLISHMENT`, provenance `generated`, `obvious_from_name = false`, scope `cross-function`.
+- **paramiko `pkey.py:195`** `serialization.load_ssh_private_key(...)`. The loaded object is only used in `isinstance` checks, and the signing key is re-loaded elsewhere → `KEY_MATERIAL_ONLY`.
+- **python-jose `cryptography_backend.py:252`** `load_pem_private_key` inside `CryptographyRSAKey`. The consumers `sign` (RS*) and `decrypt` (RSA-OAEP unwrap) are selected by the runtime `algorithm` argument → `UNKNOWN`, `INDETERMINATE`, `possible_roles = [SIGN, VERIFY, PK_DECRYPT]`.
+- **python-jose `cryptography_backend.py:208`** `RSA1_5 = padding.PKCS1v15()` → `eligible = false`.
+- **paramiko `kex_mlkem.py:112`** X25519 `exchange` next to `MLKEM768PrivateKey` → `KEY_ESTABLISHMENT`, `hybrid_component = true`.
+
+## 8. What reports may say
+
+"Single-investigator labels with a separately conducted AI-assisted review and investigator adjudication".
+
+Never:
+- "double-annotated";
+- "independent annotators";
+- "inter-annotator agreement";
+- "independent human validation".
+=== END DOCUMENT: docs/benchmark/annotation_guide.md ===
+
+=== BEGIN DOCUMENT: docs/specification/role_taxonomy.md (sha256 a2bff302495f0a59c1f5d47c914903f898e1ea9880f3d995dbb3db51ba3e8247) ===
+# Role taxonomy and key-provenance taxonomy (frozen, v1.0)
+
+Project: Post-quantum crypto scanner for Python projects. Base paper: Lei Zhang, "Toward Quantum-Safe Software Engineering: A Vision for Post-Quantum Cryptography Migration", ICSE-Companion '26, pp. 402–403, DOI 10.1145/3774748.3795653 (Pillar P1: PQC-aware detection with "protocol roles" and enriched inventories).
+
+Status: **FROZEN v1.0 on 12 Nov 2026** after the H1 pilot (`docs/pilot/h1_pilot_analysis.md`). Any change requires a new version number, a dated changelog entry at the end of this file, and re-annotation of affected benchmark items.
+
+## 1. Unit of analysis: the cryptographic call site
+
+A *call site* is one Python call expression (or attribute-chained call) in a source file that invokes an API of a supported library (`docs/specification/api_coverage.md`) and either (a) performs a public-key cryptographic operation, (b) creates, loads, derives or reconstructs public-key material, or (c) configures a protocol object with public-key algorithm choices. A site is identified by `(repository, commit, file, line_start, line_end, api_call)`.
+
+A site is **eligible** for recommendation scoring when it is (a) or (b) above and involves RSA, EC (ECDSA/ECDH, NIST curves), X25519/X448, Ed25519/Ed448, finite-field DH or DSA. Parameter-object constructions (e.g. `padding.PKCS1v15()`, `ec.SECP256R1()`), type references in `isinstance`, docstrings and comments are **ineligible** negatives: a tool that reports them is scored at detection level (false positive), never at recommendation level.
+
+## 2. Cryptographic roles (ground truth, one primary role per site)
+
+| Role | Definition | Typical evidence |
+|---|---|---|
+| `SIGN` | The site produces a digital signature with a private key. | method `sign`/`sign_ssh_data`, `DSS.new(...).sign`, `pkcs1_15.new(...).sign`, `pss.new(...).sign` |
+| `VERIFY` | The site verifies a digital signature with a public key. | method `verify`, `pkcs1_15.new(...).verify` |
+| `KEY_ESTABLISHMENT` | The site derives a shared secret with a peer public key (ECDH, X25519, DH) or participates in a protocol key exchange. | `exchange(ec.ECDH(), peer)`, `X25519PrivateKey.exchange`, `DHPrivateKey.exchange` |
+| `PK_ENCRYPT` | The site encrypts data (typically a symmetric key, "key transport") with a public key. | `public_key.encrypt(data, padding)`, `PKCS1_OAEP.new(key).encrypt` |
+| `PK_DECRYPT` | The site decrypts public-key-encrypted data with a private key. | `private_key.decrypt(ct, padding)`, `PKCS1_OAEP.new(key).decrypt` |
+| `KEY_MATERIAL_ONLY` | The site generates, loads, derives or reconstructs a key and the key is **not** consumed by any operation reachable from the site within the analysed scope (export, fingerprinting, type dispatch and storage only). | `generate_private_key`, `load_pem_private_key`, `RSA.import_key` with no reachable `sign`/`verify`/`exchange`/`encrypt`/`decrypt` |
+| `PROTOCOL_CONFIG` | The site configures a protocol library object (TLS/SSH contexts, cipher-suite or key-exchange lists, JOSE `alg` registries) rather than calling a primitive. | `ssl.SSLContext.set_ciphers`, `ssl.SSLContext.set_ecdh_curve`, transport KEX preference lists |
+| `UNKNOWN` | The role cannot be fixed from the code because it depends on a runtime value (e.g. an `algorithm` string), on dynamic dispatch, or on code outside the analysed scope. Always paired with `assessability = INDETERMINATE` and a `possible_roles` list. | python-jose `CryptographyRSAKey` loaders (sites J06–J09 in the pilot) |
+
+Rules:
+
+1. **Key material inherits the role of its type-valid consumer.** A key-generation or key-loading site whose result flows (by def-use within the function, by attribute assignment inside the same class, by passing through a constructor into such an attribute, or by one level of call) to exactly one operation family receives that family's role, considering only consumers that can succeed for the loaded key type (a public key cannot `sign` or `decrypt`; a private key can do both halves): private key with `sign`/`verify` consumers → `SIGN` (secondary `VERIFY`); public key with `verify` consumer → `VERIFY`; `exchange` → `KEY_ESTABLISHMENT`; `encrypt`/`decrypt` → `PK_ENCRYPT`/`PK_DECRYPT`. `secondary_roles` records the other members of the same family. Consumers reached through methods of the same class count even when those methods are invoked from other modules.
+2. **Mixed families mean `UNKNOWN`.** If the key reaches consumers of two different target families (e.g. `verify` and `encrypt`, as in a JOSE key object that serves both JWS and JWE), the site is `UNKNOWN`/`INDETERMINATE` unless a static argument (not a runtime value) selects the family.
+3. **No reachable consumer means `KEY_MATERIAL_ONLY`.** This is a determinate role: the correct output is an inventory entry, not a migration target.
+4. **Operations fix their own role.** `sign`, `verify`, `exchange`, `encrypt`, `decrypt` method calls on public-key objects are determinate from the method name once the receiver type is known to be a public-key object (for pyca) or the module is known (for PyCryptodome `pkcs1_15`, `pss`, `DSS`, `PKCS1_OAEP`, `PKCS1_v1_5`). The padding object alone (`PKCS1v15` is shared by RSA sign and RSA encrypt in pyca) never fixes the role.
+5. **Hybrid flag.** `hybrid_component = yes` marks a quantum-vulnerable component that is combined with an approved PQC algorithm in a PQ/T hybrid construction (SP 800-227 Sec. 4.6, e.g. paramiko `mlkem768x25519-sha256`). The role is still recorded (e.g. `KEY_ESTABLISHMENT`); the policy treats the site as "no migration required, review the combiner".
+6. **Scope attribution** (`app` / `test` / `vendored` / `example`) is recorded separately and never changes the role.
+7. **One call expression per site.** A `try: load_a() except: load_b()` fallback pair, or two loaders feeding the same variable, are two sites with the same consumers and labels; provenance is never a composite value.
+8. **Ineligible negatives** carry `gt_role = NONE`, `assessability = DETERMINATE`, `key_provenance = n/a`, `obvious_from_name = n/a`, `evidence_needed = none`; they are scored at detection level only.
+9. **`possible_roles` vs `secondary_roles`.** `secondary_roles` lists same-family alternatives of a determinate role (e.g. `VERIFY` next to `SIGN`). `possible_roles` is required for `UNKNOWN` and lists the cross-family candidates. The two are never mixed.
+
+## 3. Assessability
+
+| Value | Meaning |
+|---|---|
+| `DETERMINATE` | A careful human reader can fix one primary role from the repository at the frozen commit using the evidence scopes below. |
+| `INDETERMINATE` | The role depends on a runtime value, dynamic dispatch, reflection or code outside the repository. The justified scanner action is to **abstain** (or to emit a dual/undecided target with an explicit reason). |
+
+Assessability is a property of the site, independent of any tool's ability to resolve it.
+
+## 4. Evidence scopes (what a reader needed to fix the role)
+
+
+END OF PART 3 OF 5. Reply only: RECEIVED PART 3 OF 5

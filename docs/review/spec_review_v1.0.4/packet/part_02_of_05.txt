@@ -1,0 +1,432 @@
+PART 2 OF 5 — specification review packet (protocol v1.0.4)
+
+   - the Phase DV feasibility check (c_DV, k_r per repository);
+   - the production statistical code hashes with their test results;
+   - the differential-test report;
+   - **the calibration evidence, with code version and seeds:** the single-comparison, two-stratum (C1) and family-wise runs, and which bootstrap variant is in force.
+
+After F1, no change to code, policy, scoring, τ, the baseline set or the analysis plan may influence Experiment E. Any later change is logged, and its effect is evaluated only on a new partition or reported as exploratory.
+
+**Between F1 and F2: candidate extraction and annotation.**
+- After F1, the test repositories are fetched at their frozen commits (`scripts/fetch_pinned.py repos --include-test`).
+- The frozen batch runner executes every method once on them. Raw outputs and logs are written to a sealed directory. Before anyone reads them, `docs/freeze/test_run_seal.json` records for every run the SHA-256 of the raw report, of the log and of the parsed findings (`findings_sha256`).
+- A mechanical step extracts only locations (file, line range, API call) and produces a candidate list with no tool attribution and no recommendation text.
+- **[v1.0.4]** The owner labels from source with tool outputs hidden. The test loop of Sec. 3 runs, with the ledger (hashes only) pushed after each step. Test labels stay out of git until F2. The owner records an attestation that the sealed outputs were not opened.
+- Nobody may change the system in this window. The frozen code cannot be tuned on test material, and any change voids F1 for the affected comparisons.
+
+**Stage F2: test-label freeze.** It must be complete before any judgment or statistic is computed on the test split. The addendum `docs/freeze/label_freeze.json` is committed and the commit is tagged `phase3-label-freeze`. **[v1.0.4]** It records:
+- the SHA-256 of the owner's primary files, the AI-review files and exports, the comparison tables, the adjudication log and the final label files;
+- the ledger heads;
+- the Phase T reliability results;
+- the unresolved list;
+- the attestation and the dates.
+
+Label files are immutable after F2. A correction is a new, dated file with a reason, reported next to the original.
+
+**Stage E: held-out evaluation.** Only once F1 and F2 are both valid:
+- The sealed outputs are judged against the frozen labels with the frozen judge and statistics, in one pre-registered evaluation.
+- A determinism check compares the parsed-findings hashes with the seal.
+- The command, environment, outputs and every failure and exclusion are recorded.
+- No threshold, policy, scoring or code change follows from test outcomes. **The statistical method is never changed after held-out results have been seen.**
+
+## 7. Threats to validity
+
+**v1.0.3 text, kept.**
+- **Construct:** role labels are themselves a judgement; mitigated by the guide, reliability statistics and adjudication.
+- **Internal:** leakage from development to test; mitigated by the frozen split and the no-fix rule.
+- **External:** two libraries, Python only, crypto-dense repositories over-represented.
+- **Conclusion:** small n for some roles; report per-role n and avoid claims for roles with n < 20.
+
+**[v1.0.4] Added:**
+- a single human annotator; builder–annotator overlap (Phase DV labels are less blind than Phase T);
+- AI-review errors correlated with the owner's framing; context asymmetry between owner and AI;
+- blinding to sealed outputs by self-discipline;
+- **only 7 purposively chosen test repositories:** no generalisation claim, and repository-level analyses are exploratory;
+- the design-mixture weighting (test, example and vendored code are capped at one third);
+- the matched H2 difference measures complete-policy correctness, not recommendation accuracy;
+- coverage matching depends on the tier ranking (ranking-free sensitivity reported);
+- bootstrap calibration rests on an assumed generative model (an empirical calibration, not a proof);
+- the 10-point margin is exploratory and has low power;
+- tool execution failures restrict estimands to sites where the tools ran;
+- no external human validation.
+
+## Changelog
+
+- v1.0.1 (2026-11-14, before any test-split access): Section 6 split into two freeze stages (F1 pre-test, F2 test-label) plus the sealed candidate-extraction run. No hypothesis, metric, threshold or statistic changed.
+- v1.0.2 (2026-11-14, before any test-split access): the determinism check compares parsed-findings hashes rather than raw report hashes. No hypothesis, metric, threshold or statistic changed.
+- v1.0.3 (2026-11-14, before any test-split access; owner decisions D2–D5): clarified the 300 / 150 targets; added the seeded, stratified, quota-based sampling rule with a one-third test-path cap; CBOMkit not run (D4 = A). No hypothesis, metric, threshold or statistic changed.
+- **v1.0.4 (2026-11-16, before any test-split access; owner approval of R4-18 as amended by R4-21 Sec. 6, corrections C1–C6; record `phase3_decisions.md`):**
+  - **Annotation:** single-investigator design with an isolated AI-assisted review (V1, V8, V9, V16); intra-rater, owner–AI and AI repeat-run reliability replace two-annotator κ (V3).
+  - **Dataset B:** 13 repositories (V15); quotas as a tested constant (V2).
+  - **Sampling:** scope classes and S1-nonapp strata; sampler and ledger integrity rules (V5, V6, V11); analysis sets (V14); the descriptive frame audit (V7); the design-mixture statement (C2).
+  - **H2:** operationalised as H2a (confirmatory) and H2b (exploratory) with explicit reporting statements; the unqualified phrase "H2 supported" is withdrawn (V10a, C4).
+  - **Families and level:** F-B Holm m = 3 over guarded p-values with a feasibility-gated claim (V10b); one-sided family α = 0.025 (V17).
+  - **H2 procedure:** arms and thresholds (V18); matching and estimand (V12); re-matching bootstrap (V13); coverage-gap guard (V20), also on H2b (C5); feasibility gate (V21); execution-failure handling (V22); K / K_e rule (C3); two-stratum calibration (C1).
+  - **F-A:** assumptions and required reporting (C6).
+  - **Statistics amendments:** McNemar demoted to secondary for H2; the cluster bootstrap by repository is exploratory only (V24).
+  - **Identifiers:** H-numbers (V23).
+  - **Unchanged:** the H1–H4 sentences, the H1/H3/H4 decision rules, the metric definitions, τ = T2 and the manifests.
+=== END DOCUMENT: docs/specification/evaluation_protocol.md ===
+
+=== BEGIN DOCUMENT: docs/specification/phase3_analysis_plan.md (sha256 b6efff819038761ea92d25884b9a01f1efa4b1fd8eeac5a294154999af83dfd7) ===
+# Phase 3 analysis plan for H2 and Experiment A (v1.0, adopted 2026-11-16)
+
+**Status.** Normative companion of `evaluation_protocol.md` v1.0.4. It was adopted by owner decision (R4-18 as amended by R4-21 Sec. 6), before any test-split access.
+
+**Sources.** It consolidates, without methodological change:
+- R4-03a (matching specification);
+- R4-12 (execution failures);
+- R4-14 (metrics);
+- R4-17 Sec. 2–5 (sequence, reporting);
+- R4-21 corrections C1–C6;
+- the owner's edge-case rules A–D of 16 Nov 2026.
+
+The proposal history is in `docs/proposals/v1.0.4/`.
+
+**Implementation.**
+- **Production:** `pqscan/bench/` (implementation hand-off R4-19).
+- **Independent reference:** `docs/proposals/v1.0.4/rev4/scripts/matching_ref_v4.py`, which must stay separate.
+- **Scoring:** always by the frozen `pqscan.bench.judge.judge` (scoring policy v1.0).
+
+## 1. Comparisons
+
+| ID | Provenance-aware arm F | Comparator M | Status | Family |
+|---|---|---|---|---|
+| H2-1 | `full`, threshold T0 | `method+args`, T0 | confirmatory (H2a) | F-B |
+| H2-2 | the same pair | | exploratory (H2b, margin 0.10) | none |
+| H2-3 | `full`, T0 | `method+args+recv`, T0 | confirmatory | F-B |
+| H2-4 | `full`, T0 | `method-only`, T0 | confirmatory | F-B |
+| H2-S | `full`, T2 | `method+args`, T0 | secondary | none |
+| F-A(j) | `full`, T2 (proposed system) | baseline j as run | confirmatory | F-A |
+
+**Arm rules (H2):**
+- **UNKNOWN roles abstain.**
+- **Shared evidence:** all arms of a comparison are derived from **the same per-file evidence** (one parse per file).
+
+## 2. Study population and estimand (R4-21 C2)
+
+**Sampling.** Within each repository r and S1 stratum h ∈ {app, nonapp}:
+- the sampler issues candidates in a seeded uniformly random order;
+- it stops on eligibility counts only.
+
+Conditional on the number m_r,h of eligible sites drawn, they are a simple random sample of that stratum's eligible frame U_r,h. Reason: under a uniform order, the 0/1 eligibility sequence is independent of which eligible unit occupies each eligible position.
+
+**Estimand A (adopted; the design mixture).**
+- P_r^A = Σ_h (m_r,h / n_r) · Uniform(U_r,h).
+- δ_r = Ψ(P_r^A), where Ψ is the matched complete-policy functional of Sec. 4–5 (the population value of δ̃_r).
+- δ = (1/7) Σ_r δ_r.
+
+**Estimand B (frame-proportional).** Weights N_r,h / N_r. It is **not** estimated or claimed.
+
+**Required reporting:**
+- per repository: m_r,app and m_r,nonapp, and the S1-app and S1-nonapp pool sizes;
+- descriptive per-stratum results: δ̃ matched within (repository × stratum), for app and non-app separately.
+
+**Bootstrap.** Resampling sites within repositories, ignoring strata, is conservative for A: its variance adds the between-stratum term Σ_h m_h (μ_h − μ)²/n². It is the adopted bootstrap, subject to the two-stratum acceptance check (Sec. 11). The pre-specified fallback is resampling within (repository × stratum) cells, with matching still done per repository.
+
+## 3. Inputs and the common evaluable set
+
+For comparison c and repository r:
+- **E_r:** the primary-set eligible sites of r, with owner-final labels.
+- **Per site and arm:** `action` ∈ {RECOMMEND, FLAG_NO_TARGET, ABSTAIN, NO_FINDING, EXECUTION_FAILURE}, `rec_class` and `evidence_tier` ∈ {T0, T1, T2, T3}.
+- **C_r:** the sites of E_r where **both** arms ran (common evaluable set); n_r = |C_r|.
+
+**Validation (any failure stops the run):**
+- duplicate site_id;
+- an action outside the list;
+- a RECOMMEND without a tier in T0–T3;
+- a RECOMMEND with rec_class NONE;
+- an ineligible site;
+- for the Module C arms of H2, a **discordant** EXECUTION_FAILURE (one arm failed, the other ran on the same site). That is treated as a software defect.
+
+## 4. Matching (V12), label-free
+
+For each comparison, each repository, on C_r:
+1. R_F,r and R_M,r are the RECOMMEND counts. k_r = min(R_F,r, R_M,r).
+2. If they differ, the arm with more RECOMMENDs withdraws the excess:
+   - ascending evidence tier (T0 < T1 < T2 < T3);
+   - within a tier, ascending SHA-256 of `"<seed>|<comparison>|<repository>|<site_id>"` (UTF-8, lowercase hex).
+3. A withdrawn RECOMMEND becomes ABSTAIN (rec_class NONE, tier kept for the record) and is judged by the frozen judge. No other action and no other arm is changed.
+4. Assert that both arms then have exactly k_r RECOMMENDs.
+5. The matching output (everything except the judgments) is hashed **before** labels are joined.
+
+**Equal volume ≠ same sites.** Equal recommendation **counts** per repository never mean identical recommended sites. Every table shows "recommended by both / F only / M only".
+
+## 5. Estimators
+
+| Quantity | Definition | Role |
+|---|---|---|
+| δ̃_r | exact expectation of (ΣX − ΣY)/n_r over all permitted tie orders: each boundary-tier recommendation of the withdrawing arm is withdrawn with probability j/m (closed form, O(n)) | primary, per repository |
+| δ̃ | (1/K_e) Σ_{r ∈ estimable} δ̃_r, repository-balanced. Confirmatory only when K_e = 7 (Sec. 7.4). | **primary point estimate** |
+| δ̃_site | Σ n_r δ̃_r / Σ n_r. It equals δ̃ only if every n_r is equal. | secondary, always printed |
+| seeded table | matching with seed string `20261113`: binary X/Y per site, b, c, site-level exact McNemar and Tango | secondary illustration |
+| 100-seed distribution | δ for seeds `20261113-S001` … `20261113-S100`: minimum, median, maximum, histogram | sensitivity |
+| ranking-free δ̃ | withdrawal uniformly at random over all RECOMMENDs of the withdrawing arm, tiers ignored; exact average (probability e/R) | sensitivity: primary minus ranking-free = value of the tier ranking |
+| decomposition | δ̃ split by the final action: REC, WITHDRAWN, FLAG, ABSTAIN, NO_FINDING | required |
+| matched precision | expected correct kept RECOMMENDs / k_r per arm (tie-averaged) | descriptive |
+| natural precision; frozen recommendation correctness | correct RECOMMENDs / R_A; CORRECT / determinate sites with RECOMMEND | descriptive |
+| natural δ | the same without matching | secondary |
+
+**Repositories.**
+- **Estimable:** n_r ≥ 1.
+- **Counts:** K = 7 always; K_e = #estimable.
+
+## 6. Execution failures (V22)
+
+**Partition.** For each repository and comparison:
+- both ran (= C_r);
+- F only;
+- M only;
+- neither.
+
+Per-arm failure rates use |E_r|.
+
+**Frozen rules unchanged:**
+- EXECUTION_FAILURE is its own judgment;
+- per-arm rates use n_exec;
+- paired analyses use both-ran sites.
+
+**Sensitivity analyses:**
+- **S-F1:** δ_S-F1,r = [n_r·δ̃_r + Σ_{F only} X − Σ_{M only} Y] / |E_r|. Each failed (site, arm) is scored not correct. For concordant failures this is a pure rescaling.
+- **S-F2 (bounds):** [… − |F_F,r|] / |E_r| to [… + |F_M,r|] / |E_r|.
+
+**Reporting (never omitted):** per repository and arm, the failure counts by reason (unreadable, parse error, time limit, recursion, other), by library and by scope; the failed-file list; and the label distribution of failed sites.
+
+**Wording trigger.** If the pooled failure share is > 5%, or > 10% in any repository, the H2 or F-A sentence says "on sites in files the analyser could parse (x% failed)" and S-F1 appears in the main table.
+
+## 7. Inference (V13, V20, V21, V10b; C3, C5)
+
+### 7.1 Bootstrap
+
+- **Resampling.** For b = 1..B (B = 10,000; numpy `default_rng(20261113)`, one fresh generator per comparison; chunks of 2,000), for each estimable repository in ascending name order:
+  - draw n_r indices with replacement from C_r;
+  - draw n_r uniform tie keys for F, then n_r for M.
+- **In each resample:** recount, re-match (lowest tier first, ties by the uniform keys), re-score (withdrawn → the ABSTAIN judgment), and form δ*_b with the same pooling as the point estimate.
+- **p-value:** p(d0) = (1 + #{δ*_b ≤ d0}) / (B + 1), with d0 = 0 for H2a, H2-3 and H2-4, and d0 = 0.10 for H2b.
+- **The bootstrap of δ̃ itself (exact tie-averaging inside resamples) is not used.** It was shown to be liberal (R4-13).
+- **Monte Carlo rule.** If |p − t| < 3·√(p(1 − p)/B) for the threshold t it is compared to, re-run with B = 100,000 and the same seed. That result is final.
+
+### 7.2 Coverage-gap guard (V20; C3, C5)
+
+- **Gap:** g = (1/K_e) Σ_{r ∈ estimable} (R_F,r − R_M,r)/n_r, held as an exact rational number.
+- **Activation:** the guard is active iff **g < 1/10**. That covers negative gaps, zero and 0 < g < 0.10. At g = 1/10 exactly, or above, it is not active.
+- **Effect:** when active, p* = min(1, 2p) for the direction tests (before Holm) **and** for the H2b margin criterion.
+- **K_e = 0:** g is undefined.
+
+### 7.3 Feasibility gate (V21), label-free
+
+- **Feasible repository:** k_r ≥ 5. A repository with n_r = 0 has k_r = 0 and is not feasible.
+- **Pooled matched coverage:** c_pool = Σ_r k_r / Σ_r n_r, an exact fraction over the estimable repositories. Also reported: c̄ = (1/K_e) Σ k_r / n_r.
+- **The gate passes iff c_pool ≥ 1/5 AND #feasible ≥ 5.**
+
+### 7.4 Assessability by K_e (C3; owner rules A and B)
+
+| K_e | H2a, H2-3, H2-4 (confirmatory) | H2b | Estimable-repository average | Guard |
+|---|---|---|---|---|
+| 7 | assessable (subject to the gate) | assessable | is the primary estimate | g over the 7 repositories |
+| 1–6 | **not assessable as pre-registered** | **not assessable for the original seven-repository estimand** | reported as **secondary only**: δ̃_e, with its own bootstrap p and bound over the K_e repositories, guard g_e | g_e over the estimable repositories |
+| 0 | not assessable | not assessable | **does not exist** | undefined |
+
+**Never:** zero imputation, carried-forward values, or silent removal. Every non-estimable repository is listed with its eligible count and failure reasons, and "K = 7; K_e = x (non-estimable: …)" is printed next to every pooled H2 figure.
+
+### 7.5 Exact sequence (family F-B)
+
+For each c in {H2-1, H2-3, H2-4}:
+1. Build C_r, report failures, and assert concordance.
+2. Compute the counts and k_r; hash the matching output.
+3. Compute K_e, g_c and the gate G_c (label-free).
+4. Join labels, score, and compute δ̃_c.
+5. Bootstrap → p_c and the one-sided 97.5% lower bound L_c.
+6. Apply the Monte Carlo rule.
+7. Guard → p*_c.
+
+Then:
+
+8. **Holm** (m = 3) over the three p*_c at α = 0.025, with thresholds 0.025/3, 0.025/2 and 0.025 in ascending order of p*. Stop at the first non-rejection.
+9. **Claim.** c is claimable iff K_e = 7, it is Holm-rejected, and G_c passes.
+10. **H2b.** It is met iff K_e = 7 and p*_m ≤ 0.025, where p_m = p(0.10) for H2-1 and p*_m is guarded as in Sec. 7.2. Equivalently, the 97.5% lower bound exceeds 0.10 (the 98.75% bound when the guard is active).
+11. **Secondary and exploratory analyses** (Sec. 10). None of them alters steps 8–10.
+
+## 8. Outcome statements (C4) and templates
+
+**For H2-1:**
+
+| Condition | H2a statement | H2b statement |
+|---|---|---|
+| K_e < 7 | "not assessable as pre-registered" | "not assessable" |
+| K_e = 7, gate fails | "not assessable at equal coverage (matched coverage too low)" | reported, labelled exploratory |
+| gate passes, not Holm-rejected | "not supported" | met / not met (exploratory) |
+| claimable | "supported" | met / not met (exploratory) |
+
+**Statements for H2-3 and H2-4** are formed in the same way: "evidence beyond receiver typing / beyond the method name improves complete-policy correctness: supported / not supported / not assessable".
+
+**Rules:**
+- "H2 supported" is never used.
+- The discussion sentence about the original 10-point H2 is allowed only when H2a is supported and H2b is met (protocol Sec. 1.1).
+
+**Abstract template.** "In seven pre-registered test repositories, matching each method to the same number of migration recommendations per repository, the provenance-aware analysis made correct site-level decisions [more often than / not detectably more often than] method-and-argument analysis (difference x pp, one-sided 97.5% bound y pp). [The 10-point improvement of the original hypothesis was / was not met in a pre-specified exploratory analysis.] Results describe these repositories only."
+
+**Never in the abstract:**
+- "recommendation accuracy" for the matched difference;
+- any generalisation beyond the 7 repositories;
+- "H2 supported" (never used anywhere).
+
+**H2 results table (one row per comparison):**
+
+| Field | Field |
+|---|---|
+| comparison, arms, thresholds | K, K_e |
+| Σn_r | failures |
+| c_pool | gate |
+| g and guard | δ̃ (repository-balanced) |
+| δ̃_site | one-sided 97.5% bound |
+| raw p | guarded p |
+| Holm-adjusted p | statement |
+| matched precision F / M | natural δ |
+| ranking-free δ̃ | 100-seed range |
+| S-F1 | |
+
+## 9. Experiment A (family F-A; C6 and owner rule D)
+
+**Test.** For each baseline j that ran: a one-sided exact McNemar (proposed system better) on the pooled discordant pairs b_j and c_j over the sites where both ran, at natural coverage. Holm across j at α = 0.025.
+
+**Assumptions** (must be printed with the results):
+1. the 7 test repositories are fixed; inference concerns them only;
+2. sites are stratified simple random samples with eligibility-only stopping (Sec. 2);
+3. the sampled pairs are independent (without-replacement sampling makes them weakly negatively correlated, which is conservative);
+4. the estimand of comparison j is the site-weighted difference over **its** both-ran sites.
+
+Under heterogeneity across repositories and strata, the exact test is conservative.
+
+**Required for each j:**
+- the both-ran denominator per repository and pooled;
+- the site-weighted **and** repository-balanced differences (descriptive), with a within-repository bootstrap CI;
+- S-F1 and S-F2;
+- execution failures by reason;
+- the limitation sentence: "7 purposively chosen repositories; no claim beyond them".
+
+No guard is applied (there is no matching).
+
+## 10. Secondary and exploratory analyses (pre-registered; none can create a confirmatory claim)
+
+- **S1:** H2b (Sec. 7.5).
+- **S2–S4:** matched precision, frozen recommendation correctness, natural precision.
+- **S5:** natural-coverage comparison with exact McNemar.
+- **S6:** the decomposition.
+- **S7:** harmful, undecided and unjustified rates.
+- **S8:** ranking-free matching.
+- **S9:** the seeded table with site-level McNemar and Tango.
+- **S10:** the 100-seed distribution.
+- **S11:** fixed-target matching (target ⌊c_DV·n_r⌋).
+- **S12:** feasible repositories only.
+- **S13:** failure sensitivities.
+- **S14:** H2-S.
+- **S15:** repository-level exploratory analyses: all δ̃_r, leave-one-out, one-sided t (df = K_e − 1), sign-flip, Wilcoxon.
+- **S16:** the cluster bootstrap by repository, labelled "not a population CI".
+- **S17:** strict scoring.
+- **S18:** per-stratum results (Sec. 2).
+
+**Per-repository report fields:**
+
+| Field | Field |
+|---|---|
+| \|E_r\| | n_r |
+| failures per arm and the partition | indeterminate counts |
+| R_F, R_M | natural coverages |
+| k_r and matched coverage | withdrawn per arm, boundary tier, withdrawn of tied |
+| both / F only / M only recommended | correct and incorrect per arm (natural, matched) |
+| δ̃_r | seeded δ_r |
+| 100-seed minimum / median / maximum | ranking-free δ̃_r |
+| natural δ_r | precisions |
+| S-F1, S-F2 | feasibility flag |
+| decomposition | stratum allocation |
+
+## 11. Pre-F1 acceptance (C1; owner rule C)
+
+Production code is accepted only if all of the following hold.
+
+1. **Differential equality with the reference implementation.** On:
+   - the worked examples;
+   - the pilot tables;
+   - 1,000 random property cases;
+
+   the withdrawal sets, δ̃_r, g, the gate, guarded p, Holm and the K/K_e logic must be identical.
+2. **Re-calibration on production code.** The 18 single-comparison scenarios, the 8 near-equal-coverage cells and the 8 family configurations must give:
+   - every Type I cell ≤ nominal + 3 MC-SE;
+   - every family-wise error ≤ 0.025 + 3 MC-SE.
+3. **Two-stratum calibration (mandatory).** At least two configurations in which app and non-app sites differ in arm behaviour and in coverage:
+   - allocation as the design produces (for example 20 app / 10 non-app per repository);
+   - the null calibrated on the design-mixture functional Ψ(P^A);
+   - ≥ 10,000 data sets per configuration, B = 1,000;
+   - the unstratified bootstrap must satisfy criterion 2.
+4. **Fallback.** If criterion 3 fails, the repository-by-stratum bootstrap (Sec. 2) is activated, and **all** of criteria 2–3 are re-run with it and must pass. If it also fails, work stops and the owner decides, before F1.
+5. **Records.** The results, code version (commit SHA), seeds and the bootstrap variant in force are recorded in the F1 evidence.
+
+## 12. Seeds
+
+| Seed | Use |
+|---|---|
+| `20261113` | sampler order; bootstrap generator; the SHA-256 seed of the seeded per-site table |
+| `20261113-S001` … `S100` | tie-break sensitivity only |
+| `20261113:intra:<phase>`, `20261113:airepeat:<phase>`, `20261113:packet:<phase>` | reliability and packet-first samples |
+
+**The primary point estimate has no tie seed. No seed is chosen for its result.**
+=== END DOCUMENT: docs/specification/phase3_analysis_plan.md ===
+
+=== BEGIN DOCUMENT: docs/specification/phase3_decisions.md (sha256 d0f37c137b1d9b47502a3e71f8ce3881bf9efbca1d317ec231ae520f0c029b93) ===
+# Phase 3 owner decisions (ADOPTED 2026-11-16)
+
+**The decision.** On 16 Nov 2026, before any test-split access, the owner approved R4-18 (`docs/proposals/v1.0.4/rev4/R4_18_final_decision_matrix.md`) **as amended by R4-21 Sec. 6**, including corrections C1–C6. The owner also added the edge-case rules A–D below.
+
+**What this file is.** The adopted record, with the amendments integrated. Normative texts:
+- `evaluation_protocol.md` v1.0.4;
+- `phase3_analysis_plan.md` v1.0;
+- `docs/benchmark/annotation_guide.md` v1.1.
+
+The proposal documents remain unchanged as history. V19 was never assigned.
+
+| ID | Adopted decision | Normative text |
+|---|---|---|
+| V1 | Single-investigator design (owner labels and adjudicates); separately conducted isolated blind AI-assisted review; wording limits | protocol Sec. 3; guide Sec. 1, 8 |
+| V2 | Quotas 30 (test) / 25 (development, validation); 360 primary-set; minimums 300 / 150; quota table as a tested constant | protocol Sec. 2 |
+| V3 | Reliability: intra-rater, owner–AI and AI repeat-run per phase; samples, seeds, gap, reporting and κ(gt_role) < 0.60 rule | protocol Sec. 3 |
+| V4 | Consensus and AI-label secondary analyses | protocol Sec. 5.6 |
+| V5 | Scope classes and precedence vendored > test > example > app | protocol Sec. 2; guide Step F |
+| V6 | Sampler fixes M1–M14, opaque IDs, B0, hash-chained ledger, strict validation | protocol Sec. 2 |
+| V7 | Descriptive frame audit (6 DV repositories, ≥ 60 eligible) | protocol Sec. 2 |
+| V8 | AI-review isolation, inputs, identification, export, repeat runs; **the owner names the interface and model before the first review** | protocol Sec. 3; guide Sec. 6 |
+| V9 | Unresolved labels recorded before F2, excluded, listed, bounded; > 5% flagged | protocol Sec. 3, 5.6 |
+| V10a | H2 is operationalised as H2a (confirmatory direction, H2-1) and H2b (exploratory 10-point criterion, H2-2). **They are always two separate statements; the unqualified phrase "H2 supported" is never used**; traceability table; templates (amended by R4-21 C4) | protocol Sec. 1.1; plan Sec. 8 |
+| V10b | F-B = Holm (m = 3) over the **guarded** p-values of H2-1, H2-3, H2-4 at one-sided α = 0.025; a claim needs Holm rejection and a passed gate; H2b uses the guarded margin criterion (C5); F-A is a separate Holm family with documented assumptions (C6) | protocol Sec. 5.2–5.4; plan Sec. 7, 9 |
+| V11 | Strata S1-app / S1-nonapp / S2; non-app classes reported separately | protocol Sec. 2 |
+| V12 | Within-repository matching on the common evaluable set (k_r = min; lowest tier first; SHA-256 ties; withdrawn → ABSTAIN; label-free, hashed). Estimand: complete-policy correctness at equal recommendation volume over the **design mixture** (C2). Point estimate: the exact tie-average, repository-balanced. Precision and decomposition reported separately; ranking-free, seeded, 100-seed, V12-B, feasible-only and per-stratum sensitivities. | protocol Sec. 1.1, 5.3; plan Sec. 2, 4, 5 |
+| V13 | Stratified re-matching percentile bootstrap, random tie keys per resample, B = 10,000, seed 20261113, Monte Carlo rule; site-level McNemar/Tango secondary; generalisation analyses exploratory; **confirmatory estimation requires K_e = 7** (C3); two-stratum calibration and its fallback (C1) | protocol Sec. 5.3, 5.5; plan Sec. 7, 11 |
+| V14 | Primary population; S2, annotator-added and tool false-positive reporting | protocol Sec. 2 |
+| V15 | 13 repositories (4 development, 2 validation, 7 test) | protocol Sec. 2 |
+| V16 | `context_used` recorded before the AI review; packet-first 10% subset per phase | protocol Sec. 3; guide Sec. 5 |
+| V17 | One-sided family-wise α = 0.025 for F-B and F-A | protocol Sec. 5.1 |
+| V18 | H2 arms at T0: H2-1 full vs. method+args; H2-3 full vs. method+args+recv; H2-4 full vs. method-only; H2-S full at T2 vs. method+args at T0 | protocol Sec. 1.1 |
+| V20 | Coverage-gap guard: g over the estimable repositories, exact; doubling iff g < 1/10, before Holm; also applied to H2b | plan Sec. 7.2 |
+| V21 | Feasibility gate: k_r ≥ 5 per repository; Σk/Σn ≥ 1/5 and ≥ 5 feasible; otherwise "not assessable at equal coverage"; Phase DV viability check before F1; K / K_e reporting line | plan Sec. 7.3–7.4 |
+| V22 | Execution failures: common evaluable set, four-way partition, concordance assertion, S-F1, S-F2, wording triggers, nothing omitted | plan Sec. 6 |
+| V23 | Identifiers H2-1 … H2-4, H2-S, F-A; B-names only for code baselines | protocol Sec. 1.1 |
+| V24 | Adoption of protocol v1.0.4 and guide v1.1 (this record); McNemar secondary for H2; cluster bootstrap by repository exploratory | protocol changelog |
+
+**Owner edge-case rules (16 Nov 2026):**
+- **A. K_e = 0.** No estimable-repository average exists. The coverage gap is undefined. Every H2 confirmatory and estimable-only result is reported as not assessable.
+- **B. 1 ≤ K_e ≤ 6.**
+  - The estimable-repository average is reported as secondary only.
+  - H2a, H2-3 and H2-4 are not assessable as pre-registered.
+  - H2b is not assessable for the original seven-repository estimand.
+  - No zero differences are assigned and no repository is silently removed.
+- **C. Two-stratum calibration.** A mandatory pre-F1 acceptance criterion:
+  - app and non-app sites with different behaviour and coverage, under the actual design-mixture allocation;
+  - if the unstratified bootstrap fails, the repository-by-stratum bootstrap is activated;
+  - the result, code version and seed are recorded in the F1 evidence.
+- **D. F-A.** The pooled McNemar is kept only with its documented assumptions. Required: per-baseline both-ran denominators; site-weighted and repository-balanced descriptive results; failure sensitivities; the stated limitation of the 7 fixed repositories.
+- **No change to the statistical method after held-out results have been seen.**
+=== END DOCUMENT: docs/specification/phase3_decisions.md ===
+
+=== BEGIN DOCUMENT: docs/specification/run_specification_pre_f1.md (sha256 217bda0a1c7fb9f62eed07bc7da29ba74cb9afff60653c3fa7265d159451bc84) ===
+
+END OF PART 2 OF 5. Reply only: RECEIVED PART 2 OF 5
