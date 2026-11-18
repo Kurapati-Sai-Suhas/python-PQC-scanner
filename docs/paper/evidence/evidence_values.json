@@ -1,11 +1,11 @@
 {
- "head": "547ce08c50c2c23a77ce3f2b5d9f7ab155af4ffb",
+ "head": "f72cda138f89e104f182cfff025ae6e1b93f0c00",
  "values": {
   "E01.main": "81f561e34997dc56b2728241617cd19785210c85",
   "E01.main_eq_tag": true,
   "E01.freeze_tag_absent": true,
   "E01.freeze_record_absent": true,
-  "E01.ai_identity_absent": true,
+  "E01.ai_identity_absent": false,
   "E01.label_files": 0,
   "E01.local_checkouts": [
    "development",
@@ -115,7 +115,10 @@
   "E30.driver_since_5d78a06": true,
   "E30.pqscan_changed_since_outside_closure": [
    "pqscan/bench/annotate.py",
-   "pqscan/bench/loops.py"
+   "pqscan/bench/loops.py",
+   "pqscan/bench/matching.py",
+   "pqscan/bench/multicall.py",
+   "pqscan/bench/review.py"
   ],
   "E30.B": 1000,
   "E30.failed_cells": [],
@@ -202,7 +205,22 @@
   "E52.pycryptodome-4.4.0.non_abstain_class_mismatch": 0,
   "E52.pycryptodome-4.4.0.abstain_without_unknown_or_low_tier": 0,
   "E52.pycryptodome-4.4.0.recommend_below_T2": 0,
-  "E53.schema_valid": "6/6"
+  "E53.schema_valid": "6/6",
+  "E63.fa_type1_all_pass": true,
+  "E63.single_R": [
+   20000
+  ],
+  "E63.family_R": [
+   10000
+  ],
+  "E63.max_single_rate": 0.0089,
+  "E63.max_family_fwer": 0.0047,
+  "E64.pool_candidates": 3503,
+  "E64.multi_call_candidates": 8,
+  "E65.protocol_version": "# Evaluation protocol (v1.0.5, pre-registered)",
+  "E65.adoption_record": "1.0.5"
  },
- "failures": []
+ "failures": [
+  "E01.ai_identity_absent: got False, expected True"
+ ]
 }

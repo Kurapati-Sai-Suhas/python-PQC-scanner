@@ -1,0 +1,33 @@
+diff --git a/docs/paper/evidence_register.md b/docs/paper/evidence_register.md
+index 7f19b76..49055bb 100644
+--- a/docs/paper/evidence_register.md
++++ b/docs/paper/evidence_register.md
+@@ -37,7 +37,7 @@ The skipped test is `tests/test_pipeline_export.py:118`: symlink creation is not
+ | T1 | Production test suite | 489 passed, 1 skipped | `evidence/test_log_a640c15.txt` | `pytest -o addopts="" -q` at a640c15 | IMPL | Yes |
+ | T2 | Differential agreement with an independent reference implementation | 7 tests pass; identical outputs on 1,000 random matching cases, 1,000 guard/gate/Holm cases, bootstrap distributions at 3 seeds, worked example and pilot tables | `tests/test_h2_differential.py`; reference `docs/proposals/v1.0.4/rev4/scripts/matching_ref_v4.py` | `pytest tests/test_h2_differential.py` | IMPL | Yes |
+ | T3 | Reference (planning) implementation tests | 82 passed (rev4) | test log | `pytest docs/proposals/v1.0.4/rev4` | IMPL | Yes (as internal verification) |
+-| E01 | `main` untouched; no F1 freeze; no AI-review identity; no labels | main = 81f561e = `phase2-complete`; no freeze tag or record; no identity file; 0 label files | git; file system | `verify_evidence.py` E01.* | IMPL | Yes (status statement) |
++| E01 | `main` untouched; no F1 freeze; AI-review identity recorded by the owner and valid; no labels | main = 81f561e = `phase2-complete`; no freeze tag or record; identity file committed unchanged and passing `load_identity` (values not reproduced here); 0 label files | git; file system | `verify_evidence.py` E01.* | IMPL | Yes (status statement) |
+ | E10 | Dataset B: 13 repositories, 4 development / 2 validation / 7 test, frozen 2026-11-13 | as stated | `benchmark/real/manifest.json` | E10.split | META | Yes |
+ | E10b | No test repository is in a baseline's tuning corpus | 0 of 7 | same | E10.tuning_corpus_in_test | META | Yes |
+ | E10c | PyCryptodome imports: 2 across the 6 DV repositories; test: salt 14, bismuth 34 | as stated | same | E10.pycryptodome_* | META | Yes (metadata only; no test-source content) |
+diff --git a/docs/paper/verify_evidence.py b/docs/paper/verify_evidence.py
+index 9cc0b61..8f9b741 100644
+--- a/docs/paper/verify_evidence.py
++++ b/docs/paper/verify_evidence.py
+@@ -47,7 +47,14 @@ put("E01.main", git("rev-parse", "main"), "81f561e34997dc56b2728241617cd19785210
+ put("E01.main_eq_tag", git("rev-parse", "main") == git("rev-list", "-n", "1", "phase2-complete"), True)
+ put("E01.freeze_tag_absent", git("tag", "--list", "phase3-pretest-freeze") == "", True)
+ put("E01.freeze_record_absent", not (ROOT / "docs/freeze/pretest_freeze.json").exists(), True)
+-put("E01.ai_identity_absent", not (ROOT / "docs/benchmark/ai_review_identity.json").exists(), True)
++from pqscan.bench import review as _R  # noqa: E402
++try:
++    _R.load_identity(ROOT / "docs/benchmark/ai_review_identity.json")
++    _ident_ok = True
++except _R.ReviewError:
++    _ident_ok = False
++put("E01.ai_identity_valid", _ident_ok, True)
++put("E01.ai_identity_committed", git("ls-files", "docs/benchmark/ai_review_identity.json") != "", True)
+ ann = ROOT / "benchmark/annotation"
+ put("E01.label_files", len([p for p in ann.rglob("*") if p.is_file()]) if ann.exists() else 0, 0)
+ cache = ROOT / ".cache/repos"

@@ -1,0 +1,158 @@
+"""Verification matrix of the 21 findings of the isolated AI specification review of protocol v1.0.4 (plus E01 and
+the pilot exposure). One data table produces both docs/audit/chatgpt_review_finding_verification.md and .csv, so
+they cannot disagree.
+
+    python scripts/finding_matrix.py           # (re)write both files
+    python scripts/finding_matrix.py --check   # exit 1 if either file differs from a fresh render
+"""
+from __future__ import annotations
+
+import csv
+import io
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+MD = ROOT / "docs" / "audit" / "chatgpt_review_finding_verification.md"
+CSV = ROOT / "docs" / "audit" / "chatgpt_review_finding_verification.csv"
+COLS = ["id", "reviewer_claim", "verdict", "evidence", "consequence", "affects", "priority", "approved_correction",
+        "tests_or_evidence", "owner_decision", "status"]
+
+ROWS = [
+    ["F01", "PROTOCOL_CONFIG eligibility contradicts between taxonomy and policy", "VALID (rare in the frame)",
+     "role_taxonomy.md Sec. 1 (eligible = (a) or (b)) vs recommendation_policy.md Sec. 5 ('PROTOCOL_CONFIG sites are eligible'); guide Sec. 4 PROTOCOL_CONFIG label; ssl out of scope (api_coverage.md); 0 of 31 pilot sites",
+     "Scoring denominators would disagree if such a site occurred", "annotation; documentation", "P1",
+     "Kind (c) eligible when it occurs (taxonomy v1.1); D10 stays a stated limitation", "test_protocol_consistency (F01/F21)",
+     "yes (approved 18 Nov)", "implemented"],
+    ["F02", "Step D 'SIGN when consumers sign and/or verify' ignores private/public key distinction", "PARTIALLY VALID",
+     "guide Step D (v1.1 line 77) vs guide Sec. 4 SIGN/VERIFY rows and taxonomy rule 1, which are already correct",
+     "Internal inconsistency within the guide; a reader of Sec. 4 labels correctly", "annotation", "P1",
+     "Step D rewritten as taxonomy rule 1 (guide v1.2)", "consistency read", "yes (approved)", "implemented"],
+    ["F03", "Statement dedup vs one call per site; candidate-ID collisions", "VALID (unit); collision claim FALSE",
+     "protocol Sec. 2 'deduplicated by enclosing statement'; candidates.py statement merge; collisions stop the build (candidates.py order_pool); taxonomy rule 7",
+     "8 of 3,503 DV pool candidates contain >1 supported call (all S1); no silent collision possible", "annotation; sampling", "P1",
+     "Keep statement-level sampling (V6); deterministic multi-call rule (guide v1.2 Step A); multi_call marking; pool/orders not rebuilt",
+     "tests/test_f03_multicall.py; docs/audit/evidence/f03_multicall_pool.json (E64)", "yes (approved)", "implemented"],
+    ["F04", "Design-mixture estimand unclear under execution failures", "PARTIALLY VALID (not wording only)",
+     "phase3_analysis_plan.md Sec. 2 weights m_r,h/n_r with n_r=|C_r| (Sec. 3); matching.py S-F1 = (n/m) x primary under concordant failures",
+     "With failures the primary C_r estimate targets the commonly evaluable sites, not estimand A", "statistics; reporting", "P1",
+     "Option 1: denominator m_r; primary describes commonly evaluable sites; S-F1 separately describes the sampled primary set; never claimed identical when failures exist; failures by stratum",
+     "test_h2_matching (failures by stratum; identity); test_protocol_consistency (F04)", "yes (Option 1 approved)", "implemented"],
+    ["F05", "Pooled exact McNemar justified by 'independent' yet 'negatively correlated' pairs", "PARTIALLY VALID",
+     "phase3_analysis_plan.md Sec. 9 assumption 3; F-A was not in the pre-F1 calibration",
+     "Error-control justification of a confirmatory family was asserted, not shown", "statistics", "P0 until checked",
+     "Separate Type I error simulation; no validity claim until it passes; stop on failure. Result PASS (max 0.0089 single, 0.0047 FWER)",
+     "tests/test_fa_type1_simulation.py; docs/implementation/acceptance/fa_type1.* (E63)", "yes (approved)", "implemented; PASS"],
+    ["F06", "Attestation cannot show sealed outputs were unopened", "VALID",
+     "protocol Sec. 6 'records an attestation'; threats 'blinding ... by self-discipline'",
+     "Test-output blinding is self-attested only", "documentation; reporting", "P0 (honesty of claims)",
+     "Disclose as self-attested, not independently enforced; never claimed otherwise", "test_protocol_consistency (F06)",
+     "yes (approved)", "implemented"],
+    ["F07", "Forbidden tokens in packets only warned, no mandatory action", "VALID",
+     "packets.py docstring and build_packet warnings; annotate.py issue returned warnings only",
+     "The AI could see a tool, project or hypothesis name", "annotation; leakage to AI", "P1",
+     "Gate: genuine -> excluded (no override); verified false positive with file:line evidence may proceed; decision hash in ledger; no redaction",
+     "tests/test_forbidden_gate.py", "yes (approved)", "implemented"],
+    ["F08", "Hybrid rule weaker than taxonomy; SLH-DSA missing from YAML", "PARTIALLY VALID",
+     "guide Step F (co-location, no family match, no SLH-DSA); engine.py already requires family + combination; cryptography 47.0.0 has no SLH-DSA module",
+     "Guide could label a non-hybrid or wrong-family site as hybrid; YAML gap is a coverage limitation", "annotation; documentation", "P1",
+     "Matching PQ family + evidence of actual combination (guide v1.2); SLH-DSA prefix gap disclosed", "worked example re-checked (kex_mlkem.py combines secrets)",
+     "yes (approved)", "implemented"],
+    ["F09", "Primary CORRECT does not show complete KEM/DEM redesign", "VALID (interpretation)",
+     "scoring_policy.md: KEM and KEM_DEM one family", "CORRECT could be over-read", "reporting", "P2",
+     "Interpretation note (scoring policy v1.0.1); paper metric definition", "-", "wording approved", "implemented"],
+    ["F10", "Unresolved storage convention undefined", "PARTIALLY VALID",
+     "guide Sec. 2; review.py adjudicate keeps provisional value + meta.unresolved; meta_schema.json already requires unresolved_reason",
+     "Convention existed in code but not in the guide (the audit's earlier claim that no reason was required was wrong)", "annotation; reproducibility", "P1",
+     "Convention documented (guide v1.2 Sec. 2); no code change needed", "existing test_annotation_integrity (reason required)",
+     "yes (approved)", "implemented (documentation)"],
+    ["F11", "Packet-first rate differs from '10%, >= 50'", "VALID",
+     "protocol Sec. 3 and guide Sec. 5 vs packets.py packet_first_rate = max(0.10, 60/468) = 12.8% for DV",
+     "Secondary analysis only; minimum not guaranteed (about 7% chance of < 50 if 468 issued)", "documentation", "P2",
+     "Document the implemented rule; >= 50 is an expected count; realised count reported", "test_protocol_consistency (F11)",
+     "yes (approved)", "implemented"],
+    ["F12", "'Every baseline' in H1b not enumerated", "VALID", "protocol Sec. 1 RQ1 row; run specification F-A list",
+     "H1b decision depended on an undefined set", "statistics; reporting", "P1",
+     "H1b set = six external tools; B1/B2 separate; CBOMkit, Mehl, B1-dual excluded with reasons (H-4)",
+     "tests/test_run_specification.py", "yes (approved)", "implemented"],
+    ["F13", "Obsolete annotator_1/annotator_2 fields in the data dictionary", "VALID",
+     "data_dictionary.md Sec. 1 and Sec. 5; benchmark_schema additionalProperties false", "Literal reader would produce invalid records",
+     "documentation", "P2", "Dictionary v1.1: single-investigator envelope; n_exec denominators", "test_protocol_consistency (F13)",
+     "wording approved", "implemented"],
+    ["F14", "External human review required by the policy is not an F1 prerequisite", "VALID",
+     "recommendation_policy.md Sec. 7 'required before the Phase 3 freeze' vs protocol Stage F1 list", "F1 conditions contradicted each other",
+     "protocol integrity", "P0", "Mandatory F1 prerequisite; pending; not waived; not marked complete", "test_protocol_consistency (F14)",
+     "yes (approved)", "implemented; review itself PENDING"],
+    ["F15", "Meta example omits label_kind", "VALID", "guide Sec. 5 example vs meta_schema required", "Example invalid under the schema",
+     "documentation", "P2", "Separate owner and AI examples with label_kind", "test_protocol_consistency (F15)", "wording approved", "implemented"],
+    ["F16", "v1.0.3 procedures referenced but not supplied", "VALID (packet omission was the auditor's); H1/H3/H4 rules thin",
+     "protocol Sec. 5.2 'as in v1.0.3'; v1.0.3 file exists but was not in the first packet", "H1/H3/H4 not reviewable; decision basis undefined",
+     "reproducibility; statistics", "P1", "v1.0.3 in the second packet; H-1 to H-6 recorded with C1-C3 and the eligible-only sensitivity",
+     "test_spec_review_packet; test_run_specification", "yes (approved)", "implemented"],
+    ["F17", "97.5% bound not labelled unadjusted", "VALID", "phase3_analysis_plan.md Sec. 7.5, 8", "Readers could read a family-wise guarantee into it",
+     "reporting", "P2", "Labelled per comparison, not multiplicity-adjusted", "test_protocol_consistency (F17)", "wording approved", "implemented"],
+    ["F18", "Frame-audit seed and order unspecified", "PARTIALLY VALID",
+     "protocol Sec. 2 vs frame_audit.py SEED and worklist; while documenting, stop_reached was found to check only visited repositories",
+     "Reproducibility gap in the documents; a stopping-rule defect in code", "reproducibility", "P2",
+     "Seed, order and stopping rule stated; stop_reached now requires every repository of the frame",
+     "test_reliability_reporting (stop rule); test_protocol_consistency (F18)", "wording approved", "implemented (+ code fix)"],
+    ["F19", "c_DV undefined", "VALID", "phase3_analysis_plan.md Sec. 10 S11; protocol F1 item 9", "Secondary fixed-target matching ambiguous",
+     "statistics (secondary)", "P2", "c_DV = c_pool on the DV primary set, per comparison", "test_protocol_consistency (F19)",
+     "yes (approved)", "implemented"],
+    ["F20", "Outcome after a failed fallback calibration unspecified", "PARTIALLY VALID (moot: acceptance passed)",
+     "phase3_analysis_plan.md Sec. 11.4; statistical_acceptance.json accepted, 0 failed cells", "None now", "protocol integrity", "P2",
+     "F1 never after a failed calibration", "test_protocol_consistency (F20)", "wording approved", "implemented"],
+    ["F21", "KEY_MATERIAL_ONLY vs escape precedence unclear", "VALID",
+     "guide Step D two bullets; taxonomy KEY_MATERIAL_ONLY includes 'storage'", "Edge cases could be labelled differently",
+     "annotation", "P1", "Observed escape -> UNKNOWN, ahead of KEY_MATERIAL_ONLY; storage within scope only",
+     "test_protocol_consistency (F01/F21)", "yes (approved)", "implemented"],
+    ["E01", "(audit) evidence check E01 fails once the identity file exists", "VALID (expected)",
+     "verify_evidence.py E01.ai_identity_absent; identity file present, untracked, valid", "One evidence check fails until the identity file is committed",
+     "paper evidence", "P2", "Identity file kept unchanged and uncommitted; correction prepared as docs/audit/pending/e01_identity_committed.patch",
+     "git apply --check passes", "yes: separate approval to commit the identity file", "prepared, NOT applied"],
+    ["PILOT", "(audit) 5 pilot sites are worked examples in the guide", "VALID",
+     "guide Sec. 7 examples = pilot sites (paramiko 3, python-jose 2)", "Their pilot agreement is not blind evidence",
+     "annotation", "P1", "Separately reported subset; other 26 distinguishable", "tests/test_pilot_exposure.py",
+     "yes (approved)", "implemented"],
+]
+
+
+def render_csv() -> str:
+    buf = io.StringIO()
+    w = csv.writer(buf, lineterminator="\n")
+    w.writerow(COLS)
+    w.writerows(ROWS)
+    return buf.getvalue()
+
+
+def render_md() -> str:
+    out = ["# Verification of the 21 findings of the isolated AI specification review (protocol v1.0.4)", "",
+           "Each finding was checked against the repository, not accepted on the reviewer's confidence. The owner's "
+           "decisions are in `docs/audit/owner_decision_register_v1.0.5.md` (approved 18 Nov 2026). This file and "
+           "`chatgpt_review_finding_verification.csv` are generated from one table by `scripts/finding_matrix.py`.", "",
+           "**Tally:** 14 VALID, 7 PARTIALLY VALID, 0 FALSE POSITIVE, 0 NOT VERIFIABLE (one sub-claim of F03, silent "
+           "candidate-ID collisions, is false). Two audit items are added: E01 and the pilot exposure.", "",
+           "**Corrections to the auditor's own earlier statements:** the first F03 estimate (21.4% multi-call) counted "
+           "regex over-matches; the pool measurement is 8 of 3,503. F10 needed no code: the meta schema already required "
+           "a reason. F16's packet omission was the auditor's.", "",
+           "| " + " | ".join(c.replace("_", " ") for c in COLS) + " |", "|" + "---|" * len(COLS)]
+    for r in ROWS:
+        out.append("| " + " | ".join(str(x).replace("|", "\\|") for x in r) + " |")
+    return "\n".join(out) + "\n"
+
+
+def main(argv=None) -> int:
+    check = "--check" in (sys.argv[1:] if argv is None else argv)
+    want = {MD: render_md(), CSV: render_csv()}
+    if check:
+        bad = [p.name for p, t in want.items() if not p.exists() or p.read_bytes().replace(b"\r\n", b"\n").decode("utf-8") != t]
+        print("finding matrix", "up to date" if not bad else f"differs: {bad}")
+        return 1 if bad else 0
+    for p, t in want.items():
+        p.write_text(t, encoding="utf-8", newline="\n")
+    print("wrote", MD.relative_to(ROOT).as_posix(), "and", CSV.name)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

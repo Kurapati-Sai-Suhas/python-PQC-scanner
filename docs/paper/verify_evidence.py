@@ -196,6 +196,21 @@ for name, gzipped, exp in (("cryptography-47.0.0", False, 13), ("pycryptodome-4.
 val = (ROOT / "docs/final/demo/outputs/validation.txt").read_text(encoding="utf-8")
 put("E53.schema_valid", f"{val.count(': VALID')}/{len(val.strip().splitlines())}", "6/6")
 
+# --- pre-F1 corrections of 18 Nov 2026 (owner decision register v1.0.5) ------------------------------
+fa1 = jl(ROOT / "docs/implementation/acceptance/fa_type1.json")
+put("E63.fa_type1_all_pass", fa1["all_pass"], True)
+put("E63.single_R", sorted({v["R"] for v in fa1["single"].values()}), [20000])
+put("E63.family_R", sorted({v["R"] for v in fa1["family"].values()}), [10000])
+put("E63.max_single_rate", round(max(v["rejection_rate"] for v in fa1["single"].values()), 4), 0.0089)
+put("E63.max_family_fwer", round(max(v["fwer_null_baselines"] for v in fa1["family"].values()), 4), 0.0047)
+f03 = jl(ROOT / "docs/audit/evidence/f03_multicall_pool.json")
+put("E64.pool_candidates", f03["pool_candidates"], 3503)
+put("E64.multi_call_candidates", len(f03["multi_call"]), 8)
+put("E65.protocol_version", (ROOT / "docs/specification/evaluation_protocol.md").read_text(encoding="utf-8").splitlines()[0],
+    "# Evaluation protocol (v1.0.5, pre-registered)")
+rec105 = jl(ROOT / "docs/specification/adoption_record_v1.0.5.json")
+put("E65.adoption_record", rec105["protocol_version"], "1.0.5")
+
 if "--write" in sys.argv:
     out = ROOT / "docs/paper/evidence/evidence_values.json"
     out.write_text(json.dumps({"head": git("rev-parse", "HEAD"), "values": V, "failures": FAIL}, indent=1, default=str) + "\n",

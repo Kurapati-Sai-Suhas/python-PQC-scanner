@@ -329,17 +329,17 @@ Every statement above was checked against the PDFs [E42]. One citation-precision
 - The test split has not been fetched for analysis; only its manifest metadata is used here.
 - PyCryptodome public-key use is concentrated in two test repositories. The six development/validation repositories contain 2 PyCryptodome imports in total [E10c].
 
-**B. Sampling (protocol v1.0.4).**
-- **Pool:** the union of a regex over-approximation, every baseline's findings and pqscan Module A, deduplicated by enclosing statement. pqscan is never the sole source.
+**B. Sampling (protocol v1.0.5).**
+- **Pool:** the union of a regex over-approximation, every baseline's findings and pqscan Module A, deduplicated by enclosing statement. pqscan is never the sole source. Eight of the 3,503 DV candidates contain more than one supported call; a deterministic rule fixes which call is the site (annotation guide v1.2) [E64].
 - **Scope classes:** vendored > test > example > app.
 - **Strata:** S1-app and S1-nonapp (files importing pyca or PyCryptodome), and S2 (all other candidates).
 - **Order:** seeded and uniformly random within each stratum. Issuance uses batches of 10 (7 app + up to 3 non-app), with a one-third non-app cap.
 - **Quotas:** 30 (test), 25 (development) and 25 (validation) eligible sites per repository, for **360 planned primary-set eligible sites** [E11].
 - **Current DV frames:** **3,503 candidate locations** in the six development/validation repositories (S1-app 920, S1-nonapp 1,080, S2 1,503) [E12]. These are candidates, not eligible sites; eligibility exists only after labelling.
 
-**C. Labelling (annotation guide v1.1).**
+**C. Labelling (annotation guide v1.2).**
 - **Annotator.** The single investigator labels each candidate from source with all tool outputs hidden, recording `context_used`.
-- **AI review.** A separately conducted, isolated, blind AI-assisted review works from a fixed packet only. It is never ground truth.
+- **AI review.** A separately conducted, isolated, blind AI-assisted review works from a fixed packet only. It is never ground truth. A packet containing a forbidden token (a tool name, the project's name or a hypothesis label) is excluded from the AI review unless the match is a verified false positive.
 - **Adjudication.** The investigator adjudicates every disagreement.
 - **Integrity.** A hash-chained ledger records every step; labels themselves are never committed.
 - **Intra-rater reliability.** A re-label sample (n = max(50, ⌈0.10 N⌉)) is presented no earlier than 14 days after the last primary label.
@@ -354,15 +354,18 @@ Every statement above was checked against the PDFs [E42]. One citation-precision
 
 **E. Pilot.** 31 sites from two development repositories (30 eligible) [E14]. The pilot fixed the taxonomy. Module B was debugged on these sites, so pilot outcomes are circular and are **not** used as evidence.
 
-## IX. Experimental Methodology (pre-registered, protocol v1.0.4)
+## IX. Experimental Methodology (pre-registered, protocol v1.0.5)
+
+Protocol v1.0.5 (18 Nov 2026) applies the owner's decisions on an isolated AI specification review of v1.0.4, before any labelling or test-split access; no hypothesis, threshold, primary metric, confirmatory family or baseline changed [E65]. H1a and H1b are threshold decision rules on point estimates with Wilson intervals; H3 and H4 are pre-specified secondary analyses; neither carries a family-wise error claim.
 
 **RQ mapping.** The adopted research question corresponds to protocol **RQ2** (H2, "at equal coverage"), with the coverage condition of **RQ3**. The protocol also pre-registers:
-- **RQ1:** H1a/H1b, prevalence and baseline harm;
+- **RQ1:** H1a/H1b, prevalence and baseline harm (H1b over the six external tools; the internal mappings are reported separately);
 - **RQ4:** H4, robustness on Dataset A.
 
 **Judging** (scoring policy v1.0). For each site and method, the judgment is one of: CORRECT, INCORRECT (with a harm category: role-incompatible, false assurance, over-recommendation), UNDECIDED, UNJUSTIFIED, UNASSESSABLE, DETECTED_ONLY, MISSED or EXECUTION_FAILURE.
 - An abstention is CORRECT only on an indeterminate site.
 - A strict sensitivity score treats "drop-in" wording for KEM-family sites as harmful.
+- A CORRECT judgment means that the recommended target family suits the site's role. It does not verify that the recommendation's content is a complete KEM + KDF + AEAD redesign.
 
 **Comparisons.**
 - **Family F-B (confirmatory; Holm, m = 3, one-sided α = 0.025):**
@@ -370,7 +373,7 @@ Every statement above was checked against the PDFs [E42]. One citation-precision
   - H2-3: vs `method+args+recv`;
   - H2-4: vs `method-only`.
 - **H2b** (≥ 10 points) is exploratory and outside error control.
-- **Family F-A:** the proposed system (`full` at T2) against each baseline that ran (at most 8), using a one-sided exact McNemar test on both-ran sites **at natural coverage** (no matching, no guard) [mcnemar1947note], with Holm correction [holm1979simple].
+- **Family F-A:** the proposed system (`full` at T2) against each baseline that ran (at most 8), using a one-sided exact McNemar test on both-ran sites **at natural coverage** (no matching, no guard) [mcnemar1947note], with Holm correction [holm1979simple]. Sites are sampled without replacement within strata, so pairs are not independent; a pre-F1 simulation of the design, with heterogeneous repositories and strata, execution failures and correlated baselines, found the test conservative in every configuration [E63]. This is evidence under the simulated configurations, not a proof.
 - **Experiment A baselines** (protocol Sec. 4):
   - the six runnable external tools;
   - a simple algorithm-name mapping and a method/argument-only mapping, both computed on pqscan's own candidate sites so that only the decision rule differs. By owner decision D15 (18 Nov 2026; `docs/specification/run_specification_pre_f1.{md,json}`), the single algorithm-name mapping in F-A is `B1-algorithm` (RSA → KEM, EC → SIG, X25519/X448/DH → KEM, Ed25519/Ed448/DSA → SIG, unresolved → DUAL). The variant `B1-dual`, which emits a dual target for multi-purpose algorithms instead of a migration choice, is reported descriptively only, outside every confirmatory family. F-A thus has eight members: six external tools, `B1-algorithm` and the method/argument mapping `B2-method-args`.
@@ -505,19 +508,21 @@ All results below depend on completed annotation and the F1 → T → F2 → E s
 - The judge's text classification of baseline outputs, and the "drop-in" sensitivity rule, are heuristics. Both are fixed before evaluation.
 
 **Internal validity.**
-- **Single annotator.** There is one investigator plus an isolated AI-assisted review; no independent human annotator exists. Mitigations: blinding to tool outputs, the packet-first subset, the intra-rater re-label after ≥ 14 days, and the hash-chained ledger.
+- **Single annotator.** There is one investigator plus an isolated AI-assisted review; no independent human annotator exists. Mitigations: blinding to tool outputs (self-attested; not independently enforced or verifiable), the packet-first subset, the intra-rater re-label after ≥ 14 days, and the hash-chained ledger.
 - **AI reviewer is not an independent annotator.**
   - The isolated AI-assisted review is performed by a large language model, run by the investigator, on a fixed packet. It is not an independent human annotator.
   - It may share failure modes with the investigator, for instance through common training material, the same packet framing, or the same misreading of an API. It also has failure modes of its own (hallucinated API semantics; run-to-run variation, which is measured).
-  - Owner–AI agreement therefore does **not** establish inter-annotator reliability. It is reported only as a review-consistency statistic, and the AI output is never used as ground truth (annotation guide v1.1 Sec. 1).
+  - Owner–AI agreement therefore does **not** establish inter-annotator reliability. It is reported only as a review-consistency statistic, and the AI output is never used as ground truth (annotation guide v1.2 Sec. 1).
   - Reliability evidence for the labels is limited to the intra-rater re-label.
   - The investigator also built the analyser. Blinding to tool outputs mitigates this but does not remove it.
+- **Specification review.** The specification was reviewed by an isolated AI review with owner decisions on each finding. The external human review that the protocol requires before F1 has **not** been done yet.
 - **Circular pilot.** The pilot repositories are development repositories and were used to tune Module B.
 - **Candidate pool.** The pool includes tool findings, which may favour sites some tool detects. Partial mitigation: the regex over-approximation and annotator-added sites.
 
 **Statistical conclusion validity.**
 - Calibration holds under an assumed model, with B = 1,000 in calibration against B = 10,000 in analysis.
 - Seven repositories limit power. The feasibility gate may make H2 "not assessable".
+- When execution failures occur, the primary H2 estimate describes the commonly evaluable sites; the S-F1 sensitivity describes the sampled primary set (analysis plan v1.0.1 Sec. 2). Both are reported.
 
 **External validity.**
 - Results are conditional on seven fixed repositories. S16 shows the procedure is not calibrated for new repositories.
@@ -562,8 +567,8 @@ See `references.bib` (verified entries only). Every [key] above resolves to an e
 - Taxonomy: `docs/specification/role_taxonomy.md`.
 - Policy: `pqscan/policy/policy_v1_1.yaml`, `docs/specification/recommendation_policy.md`.
 - Scoring: `docs/specification/scoring_policy.md`.
-- Protocol: `docs/specification/evaluation_protocol.md` (v1.0.4).
+- Protocol: `docs/specification/evaluation_protocol.md` (v1.0.5; owner decision register `docs/audit/owner_decision_register_v1.0.5.md`).
 - Analysis plan: `docs/specification/phase3_analysis_plan.md`.
-- Annotation guide: `docs/benchmark/annotation_guide.md` (v1.1).
+- Annotation guide: `docs/benchmark/annotation_guide.md` (v1.2).
 - Acceptance: `docs/implementation/acceptance/statistical_acceptance.md`.
 - Demonstration: `docs/final/final_project_demo.md`.

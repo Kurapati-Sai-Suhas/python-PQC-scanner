@@ -3,7 +3,7 @@
 Created 17 Nov 2026 at commit a640c15, on branch `phase3-preparation`. Every important claim in `ieee_manuscript_draft.md` must appear here. A summary document is never the only evidence for a number.
 
 **Verification:**
-- `.venv/Scripts/python docs/paper/verify_evidence.py --write` recomputes every E-id below from raw files and fails on any mismatch. Last run: **86 values, 0 failed checks** (18 Nov 2026, after E30 was rescoped to the calibration's code closure); output in `evidence/evidence_values.json`.
+- `.venv/Scripts/python docs/paper/verify_evidence.py --write` recomputes every E-id below from raw files and fails on any mismatch. Last run: **95 values, 1 failed check** (18 Nov 2026, after the v1.0.5 corrections). The failure is `E01.ai_identity_absent`: the owner's AI-review identity file now exists (valid, but not yet committed). The correction is prepared in `docs/audit/pending/e01_identity_committed.patch` and is applied only with the owner's approval to commit the identity file; until then the failure is reported, not hidden.
 - Test counts come from `evidence/test_log_a640c15.txt`.
 
 **Evidence classes:**
@@ -62,6 +62,9 @@ The skipped test is `tests/test_pipeline_export.py:118`: symlink creation is not
 | E53 | Schema validity: 3 CBOMs (CycloneDX 1.6 strict) and 3 SARIF files (2.1.0) valid | 6/6 | `docs/final/demo/outputs/validation.txt` | `validate_outputs.py`; E53 | DEMO / IMPL | Yes |
 | E54 | Reproducibility: two fresh venvs from `git archive`; lecturer-demo outputs 7/7 byte-identical to the committed files; real-code outputs 8/8 identical across runs; CBOM byte-identical across runs | as stated | `docs/final/demo/RUN_LOG.md`, `outputs/transcript.txt` | `run_final_demo.sh` prints IDENTICAL/DIFFERENT | IMPL | Yes |
 | E55 | DV run determinism: pqscan arms 16/16 byte-identical; 24/24 parsed baseline findings identical (run1 vs run2) | as stated | `runs/development/run{1,2}` | `findings_digest` (audit, 17 Nov) | IMPL | Yes (qualified: execution level) |
+| E63 | F-A Type I error simulation (pre-F1; owner decision F05): PASS. 6 single configurations (R = 20,000): max rejection rate 0.0089; 4 family configurations, 8 baselines under Holm (R = 10,000): max FWER over null baselines 0.0047; nominal 0.025 | as stated | `docs/implementation/acceptance/fa_type1.{json,md}`; `scripts/fa_type1_simulation.py` | E63.* | CAL | Yes (qualified: simulated configurations only; says nothing about scanner accuracy) |
+| E64 | Multi-call candidate statements in the DV pool (F03): 8 of 3,503 candidates (all S1); source-only census, never tool attribution | as stated | `docs/audit/evidence/f03_multicall_pool.json`; `scripts/f03_multicall_census.py` | E64.* | IMPL | Yes |
+| E65 | Protocol v1.0.5 adopted 18 Nov 2026 (owner-approved pre-F1 decision register), before any labelling and test-split access; v1.0.4 texts archived and hash-verified | as stated | `docs/specification/adoption_record_v1.0.5.json`; `docs/audit/owner_decision_register_v1.0.5.md` | E65.*; `scripts/adoption_record.py --check` | IMPL | Yes |
 | R0 | Precision, recall, F1, accuracy, harmful rate, recommendation correctness, H1/H2/F-A outcomes, superiority over baselines | **NOT AVAILABLE** | — | 0 labels | REAL | **No: must not appear** |
 | P0 | Pilot outcome table (e.g. B4 30/30 correct) | circular | `docs/dev/pilot_harness/summary.md` | — | (pilot) | **No** (Module B was debugged on these sites) |
 
