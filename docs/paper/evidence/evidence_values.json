@@ -1,11 +1,12 @@
 {
- "head": "f72cda138f89e104f182cfff025ae6e1b93f0c00",
+ "head": "d08f2f29d237e994e6d68eee38e389a6b5216a4a",
  "values": {
   "E01.main": "81f561e34997dc56b2728241617cd19785210c85",
   "E01.main_eq_tag": true,
   "E01.freeze_tag_absent": true,
   "E01.freeze_record_absent": true,
-  "E01.ai_identity_absent": false,
+  "E01.ai_identity_valid": true,
+  "E01.ai_identity_committed": true,
   "E01.label_files": 0,
   "E01.local_checkouts": [
    "development",
@@ -115,6 +116,7 @@
   "E30.driver_since_5d78a06": true,
   "E30.pqscan_changed_since_outside_closure": [
    "pqscan/bench/annotate.py",
+   "pqscan/bench/frame_audit.py",
    "pqscan/bench/loops.py",
    "pqscan/bench/matching.py",
    "pqscan/bench/multicall.py",
@@ -220,7 +222,5 @@
   "E65.protocol_version": "# Evaluation protocol (v1.0.5, pre-registered)",
   "E65.adoption_record": "1.0.5"
  },
- "failures": [
-  "E01.ai_identity_absent: got False, expected True"
- ]
+ "failures": []
 }

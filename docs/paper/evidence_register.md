@@ -3,7 +3,7 @@
 Created 17 Nov 2026 at commit a640c15, on branch `phase3-preparation`. Every important claim in `ieee_manuscript_draft.md` must appear here. A summary document is never the only evidence for a number.
 
 **Verification:**
-- `.venv/Scripts/python docs/paper/verify_evidence.py --write` recomputes every E-id below from raw files and fails on any mismatch. Last run: **95 values, 1 failed check** (18 Nov 2026, after the v1.0.5 corrections). The failure is `E01.ai_identity_absent`: the owner's AI-review identity file now exists (valid, but not yet committed). The correction is prepared in `docs/audit/pending/e01_identity_committed.patch` and is applied only with the owner's approval to commit the identity file; until then the failure is reported, not hidden.
+- `.venv/Scripts/python docs/paper/verify_evidence.py --write` recomputes every E-id below from raw files and fails on any mismatch. Last run: **96 values, 0 failed checks** (18 Nov 2026, after the owner approved committing the unchanged AI-review identity file and the prepared E01 patch was applied: E01.ai_identity_valid and E01.ai_identity_committed replace E01.ai_identity_absent).
 - Test counts come from `evidence/test_log_a640c15.txt`.
 
 **Evidence classes:**
@@ -37,7 +37,7 @@ The skipped test is `tests/test_pipeline_export.py:118`: symlink creation is not
 | T1 | Production test suite | 489 passed, 1 skipped | `evidence/test_log_a640c15.txt` | `pytest -o addopts="" -q` at a640c15 | IMPL | Yes |
 | T2 | Differential agreement with an independent reference implementation | 7 tests pass; identical outputs on 1,000 random matching cases, 1,000 guard/gate/Holm cases, bootstrap distributions at 3 seeds, worked example and pilot tables | `tests/test_h2_differential.py`; reference `docs/proposals/v1.0.4/rev4/scripts/matching_ref_v4.py` | `pytest tests/test_h2_differential.py` | IMPL | Yes |
 | T3 | Reference (planning) implementation tests | 82 passed (rev4) | test log | `pytest docs/proposals/v1.0.4/rev4` | IMPL | Yes (as internal verification) |
-| E01 | `main` untouched; no F1 freeze; no AI-review identity; no labels | main = 81f561e = `phase2-complete`; no freeze tag or record; no identity file; 0 label files | git; file system | `verify_evidence.py` E01.* | IMPL | Yes (status statement) |
+| E01 | `main` untouched; no F1 freeze; AI-review identity recorded by the owner and valid; no labels | main = 81f561e = `phase2-complete`; no freeze tag or record; identity file committed unchanged and passing `load_identity` (values not reproduced here); 0 label files | git; file system | `verify_evidence.py` E01.* | IMPL | Yes (status statement) |
 | E10 | Dataset B: 13 repositories, 4 development / 2 validation / 7 test, frozen 2026-11-13 | as stated | `benchmark/real/manifest.json` | E10.split | META | Yes |
 | E10b | No test repository is in a baseline's tuning corpus | 0 of 7 | same | E10.tuning_corpus_in_test | META | Yes |
 | E10c | PyCryptodome imports: 2 across the 6 DV repositories; test: salt 14, bismuth 34 | as stated | same | E10.pycryptodome_* | META | Yes (metadata only; no test-source content) |

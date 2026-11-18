@@ -47,7 +47,14 @@ put("E01.main", git("rev-parse", "main"), "81f561e34997dc56b2728241617cd19785210
 put("E01.main_eq_tag", git("rev-parse", "main") == git("rev-list", "-n", "1", "phase2-complete"), True)
 put("E01.freeze_tag_absent", git("tag", "--list", "phase3-pretest-freeze") == "", True)
 put("E01.freeze_record_absent", not (ROOT / "docs/freeze/pretest_freeze.json").exists(), True)
-put("E01.ai_identity_absent", not (ROOT / "docs/benchmark/ai_review_identity.json").exists(), True)
+from pqscan.bench import review as _R  # noqa: E402
+try:
+    _R.load_identity(ROOT / "docs/benchmark/ai_review_identity.json")
+    _ident_ok = True
+except _R.ReviewError:
+    _ident_ok = False
+put("E01.ai_identity_valid", _ident_ok, True)
+put("E01.ai_identity_committed", git("ls-files", "docs/benchmark/ai_review_identity.json") != "", True)
 ann = ROOT / "benchmark/annotation"
 put("E01.label_files", len([p for p in ann.rglob("*") if p.is_file()]) if ann.exists() else 0, 0)
 cache = ROOT / ".cache/repos"

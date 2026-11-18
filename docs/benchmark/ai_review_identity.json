@@ -1,0 +1,16 @@
+
+{
+  "interface_or_api": "ChatGPT web app - Temporary Chat (Unpersonalized), Go plan",
+  "model": "GPT-6",
+  "recorded_utc": "2026-11-18T08:24:42Z",
+  "isolation": {
+    "fresh_temporary_chat_per_batch": "yes",
+    "custom_instructions": "off",
+    "memory_and_chat_history_reference": "off",
+    "projects": "off",
+    "connectors": "off",
+    "file_library": "off",
+    "browsing_search": "off"
+  },
+ "notes": "The model was not manually selectable in my Go interface. GPT-6 is recorded as the model identified for this review session; it was not manually selected."
+}
