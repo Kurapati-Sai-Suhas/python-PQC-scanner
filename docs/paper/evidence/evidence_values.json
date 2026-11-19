@@ -1,8 +1,13 @@
 {
- "head": "d08f2f29d237e994e6d68eee38e389a6b5216a4a",
+ "head": "77a6ec73677959b3696de88b6037e79314f8f74f",
  "values": {
-  "E01.main": "81f561e34997dc56b2728241617cd19785210c85",
-  "E01.main_eq_tag": true,
+  "E01.baseline_tag_commit": "81f561e34997dc56b2728241617cd19785210c85",
+  "E01.baseline_tag_annotated": "tag",
+  "E01.baseline_eq_phase2_tag": "81f561e34997dc56b2728241617cd19785210c85",
+  "E01.main_contains_baseline": true,
+  "E01.main_linear_since_baseline": "0",
+  "E01.approved_head_reachable": true,
+  "E01.consolidation_record": true,
   "E01.freeze_tag_absent": true,
   "E01.freeze_record_absent": true,
   "E01.ai_identity_valid": true,

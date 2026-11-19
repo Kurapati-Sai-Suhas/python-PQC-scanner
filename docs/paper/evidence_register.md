@@ -3,7 +3,7 @@
 Created 17 Nov 2026 at commit a640c15, on branch `phase3-preparation`. Every important claim in `ieee_manuscript_draft.md` must appear here. A summary document is never the only evidence for a number.
 
 **Verification:**
-- `.venv/Scripts/python docs/paper/verify_evidence.py --write` recomputes every E-id below from raw files and fails on any mismatch. Last run: **96 values, 0 failed checks** (18 Nov 2026, after the owner approved committing the unchanged AI-review identity file and the prepared E01 patch was applied: E01.ai_identity_valid and E01.ai_identity_committed replace E01.ai_identity_absent).
+- `.venv/Scripts/python docs/paper/verify_evidence.py --write` recomputes every E-id below from raw files and fails on any mismatch. Last run: **101 values, 0 failed checks** (19 Nov 2026, on `main` after the branch consolidation: E01 now verifies the preserved baseline tags and the fast-forward; `docs/audit/branch_consolidation.md`).
 - Test counts come from `evidence/test_log_a640c15.txt`.
 
 **Evidence classes:**
