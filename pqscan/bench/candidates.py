@@ -33,7 +33,9 @@ explicitly (from the issuance ledger, M11); every issued candidate must be label
 Stopping depends only on adjudicated eligibility, never on any tool's output or correctness.
 
 Outputs for annotators carry locations only (candidate id, repository, commit, file, line); which tools reported a
-candidate is written to a separate `pool_sources_<repo>.json` that annotators must not see.
+candidate is written to a separate `pool_sources_<repo>.json` that annotators must not see. Since 19 Nov 2026
+(second review G11) it is written to `benchmark/restricted/pool_sources/<split>/` (or --sources-out), never next to
+the order; the build refuses a sources folder inside the order folder.
 """
 from __future__ import annotations
 
@@ -321,14 +323,20 @@ def main(argv: list[str] | None = None) -> int:
     n.add_argument("--issued", type=Path, help="issued candidate IDs (from the issuance ledger)")
     n.add_argument("--labels", type=Path, help="final labels of every issued candidate")
     n.add_argument("--out", type=Path, help="write the location-only batch here (jsonl)")
+    b.add_argument("--sources-out", type=Path, default=None,
+                   help="folder for pool_sources_<repo>.json (default: <out>/../../restricted/pool_sources/<out name>)")
     a = ap.parse_args(argv)
     if a.cmd == "build":
         pool, sources = build_pool(a.repo, a.run_dir, a.name)
         order = order_pool(pool, a.name, a.commit, a.seed)
         a.out.mkdir(parents=True, exist_ok=True)
+        src_dir = a.sources_out or (a.out.resolve().parent.parent / "restricted" / "pool_sources" / a.out.name)
+        if src_dir.resolve() == a.out.resolve() or a.out.resolve() in src_dir.resolve().parents:
+            raise SamplerError("tool-attribution files must not be written inside the candidate order folder (G11)")
+        src_dir.mkdir(parents=True, exist_ok=True)
         (a.out / f"order_{a.name}.json").write_text(json.dumps(order, indent=1), encoding="utf-8", newline="\n")
-        (a.out / f"pool_sources_{a.name}.json").write_text(json.dumps(sources, indent=1, sort_keys=True),
-                                                           encoding="utf-8", newline="\n")
+        (src_dir / f"pool_sources_{a.name}.json").write_text(json.dumps(sources, indent=1, sort_keys=True),
+                                                            encoding="utf-8", newline="\n")
         print(f"{a.name}: {len(pool)} candidates {order['counts']}")
         return 0
     quota = quota_for(a.split, a.quota_override, a.reason)

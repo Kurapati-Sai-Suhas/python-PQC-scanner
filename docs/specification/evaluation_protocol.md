@@ -34,6 +34,8 @@ Project: Post-quantum crypto scanner for Python projects. Base paper: Lei Zhang 
 
 A negative result on any hypothesis is reported as such.
 
+**H3 interpretation note (v1.0.5-r2; second review G07; recorded before F1 as H-5 in `run_specification_pre_f1.md`).** The H3 sentence is kept verbatim. "At the same coverage" applies to random withholding: the τ = T2 policy and random withholding are compared at **matched coverage**, at the fixed points 70%, 80% and 90%. The comparison with "always recommend" (`pqscan:B3-full-noabst`, which still abstains on UNKNOWN roles) is a **natural-coverage** comparison at that arm's own coverage, which is reported. Results tables label the two comparisons accordingly.
+
 ### 1.1 Operationalisation of H2 (v1.0.4)
 
 **Identifiers (V23):**
@@ -330,12 +332,13 @@ The normative text and the order of steps are in `phase3_analysis_plan.md` Sec. 
    - **[v1.0.5] the external human review record (mandatory; recommendation policy Sec. 7):** a review of the full specification by a human reviewer outside the build team. It is **pending**; it is not waived, the AI specification review does not replace it, and the F1 record cannot be made without it (F14).
    - **[v1.0.5]** the F-A Type I error simulation with its seeds (`docs/implementation/acceptance/fa_type1.{json,md}`; F05);
    - **[v1.0.5]** the H3 random-withholding seeds and the H3/H4 definitions (`run_specification_pre_f1.md`, H-5 and H-6).
+   - **[v1.0.5-r2]** the source-attribution access attestation (G11): `pool_sources_*.json` is kept in `benchmark/restricted/pool_sources/`, apart from candidate and annotation folders; for the test split it is written to the sealed directory. The separation is procedural and self-attested, not technically enforced.
 
 After F1, no change to code, policy, scoring, τ, the baseline set or the analysis plan may influence Experiment E. Any later change is logged, and its effect is evaluated only on a new partition or reported as exploratory.
 
 **Between F1 and F2: candidate extraction and annotation.**
 - After F1, the test repositories are fetched at their frozen commits (`scripts/fetch_pinned.py repos --include-test`).
-- The frozen batch runner executes every method once on them. Raw outputs and logs are written to a sealed directory. Before anyone reads them, `docs/freeze/test_run_seal.json` records for every run the SHA-256 of the raw report, of the log and of the parsed findings (`findings_sha256`).
+- The frozen batch runner executes every method once on them. **(v1.0.5-r2, G04)** This prescribed run is the only execution of any method on the test split before F2; nobody manually runs, opens or inspects a scanner or its outputs for a test repository before F2. Raw outputs and logs are written to a sealed directory. Before anyone reads them, `docs/freeze/test_run_seal.json` records for every run the SHA-256 of the raw report, of the log and of the parsed findings (`findings_sha256`).
 - A mechanical step extracts only locations (file, line range, API call) and produces a candidate list with no tool attribution and no recommendation text.
 - **[v1.0.4]** The owner labels from source with tool outputs hidden. The test loop of Sec. 3 runs, with the ledger (hashes only) pushed after each step. Test labels stay out of git until F2. The owner records a **self-attestation** that the sealed outputs were not opened. **[v1.0.5]** This is a self-attestation only: it is not independently enforced or verifiable, and the hashes of the sealed outputs prove their integrity, not that they were unread. The protocol and every report describe test-output blinding as self-attested and never as independently enforced (F06).
 - Nobody may change the system in this window. The frozen code cannot be tuned on test material, and any change voids F1 for the affected comparisons.
@@ -383,6 +386,7 @@ Label files are immutable after F2. A correction is a new, dated file with a rea
 - the scanner does not emit PROTOCOL_CONFIG (D10), which is eligible when it occurs (taxonomy v1.1);
 - a primary CORRECT means a compatible target family, not a verified complete KEM + KDF + AEAD redesign (scoring policy v1.0.1 interpretation note);
 - the exact F-A test is conservative in every simulated configuration, which costs power;
+- tool-attribution files are separated from the annotation folders, but access to them is self-attested (v1.0.5-r2, G11);
 - five pilot sites are shown as worked examples in the guide; in the pilot loop they are a separately reported subset and their agreement is never counted as blind evidence.
 
 ## Changelog
@@ -408,3 +412,4 @@ Label files are immutable after F2. A correction is a new, dated file with a rea
   - **H1, H3, H4:** status and interpretation recorded before F1 in the run specification (F16; H-1 to H-6).
   - **Companions:** annotation guide v1.2, analysis plan v1.0.1, role taxonomy v1.1, data dictionary v1.1, scoring policy v1.0.1 (interpretation note).
   - **Unchanged:** the H1–H4 sentences, every threshold, the primary metrics and frozen scoring rules, the confirmatory families, the baseline set, D7, D15, τ = T2 and the sampling unit, pool and orders.
+- **v1.0.5-r2 (2026-11-19, editorial; second isolated AI review, findings G01–G11; `docs/audit/second_review_closure.md`):** H3 interpretation note (G07); the frozen batch run as the only execution before F2 (G04); tool-attribution separation and its self-attested status (G11); companion revisions: guide v1.2-r2, taxonomy v1.1-r2, analysis plan v1.0.1-r2 (guard rationale, G10), run specification (H4 inventory, G08). No hypothesis, threshold, metric, estimand, test, family, sampling rule or label outcome changed. Code fixes G05/G06 (`second_review_g05_g06_fix.md`).

@@ -13,6 +13,8 @@ Adopted 2026-11-16 with evaluation protocol v1.0.4 (owner decisions V1, V5, V8, 
 
 **Changes in v1.2:** the multi-call candidate rule (Step A, F03); Step D consumer inheritance as in taxonomy rule 1 (F02) and escape before KEY_MATERIAL_ONLY (F21); the hybrid rule requires a matching PQ family and actual combination (Step F, F08); the unresolved-field convention (Sec. 2, F10); owner and AI example records (Sec. 5, F15); the packet-first rule as implemented (Sec. 5, F11); the forbidden-token gate (Sec. 6, F07).
 
+**Editorial revision r2 (19 Nov 2026; second review G01, G04, G11; `docs/audit/second_review_closure.md`):** the protocol-configuration branch of Step C and of the multi-call rule (kind (c) of a supported library; reserved in the current frame); the permitted frozen batch run versus manual scanner use; the tool-attribution files. No eligibility outcome changes: out-of-scope protocol configuration was already ineligible under Step A.
+
 The decision procedure (Steps A–E and G) and the worked examples are unchanged from v1.0, except for the v1.2 changes listed above.
 
 Use with `docs/specification/role_taxonomy.md` (definitions) and `docs/specification/data_dictionary.md` (fields). Labels are made from **source code only**; tool outputs are hidden during labelling.
@@ -46,7 +48,8 @@ Use with `docs/specification/role_taxonomy.md` (definitions) and `docs/specifica
 - **What the labels feed.**
   - Owner-final labels define eligibility, the expected class (`eligible`, `gt_role`, `assessability`, `hybrid_component`) and H1a (`obvious_from_name`, `evidence_needed`).
   - Tool outputs, tiers and coverage matching are never consulted while labelling.
-- **No scanners.** Do not run any scanner on a repository before labelling it.
+- **No scanners (clarified in r2, G04).** Do not run, open or inspect any scanner or baseline yourself on a repository before its final labels exist (for the test split: before F2). The only permitted execution is the prescribed one: the frozen batch run (protocol Sec. 6) executes every method once and writes to a sealed directory that you do not open; its outputs are first read at the stage the protocol names (Phase DV: after the DV labels are final; test split: after F2).
+- **Tool-attribution files (r2, G11).** `pool_sources_<repo>.json` records which tool found each candidate. It is kept in `benchmark/restricted/pool_sources/<split>/`, outside the candidate and annotation folders, and the annotation tool refuses to issue a batch while such a file sits in a candidate or annotation folder. Never open it before the repository's final labels exist (test split: before F2). With a single investigator this separation is **procedural and self-attested, not technically enforced**: record the access attestation (`docs/audit/source_attribution_access_attestation_TEMPLATE.md`) for each phase.
 - **Hard sites.** A site whose label took > 10 minutes is flagged `hard = true`.
 
 ## 3. Decision procedure (follow in order)
@@ -59,8 +62,9 @@ Use with `docs/specification/role_taxonomy.md` (definitions) and `docs/specifica
 
 **Multi-call candidate statement (v1.2).** A candidate is one statement. When the candidate statement contains more than one call to a supported library API, the candidate's site is exactly one call expression, chosen in this order:
 1. a public-key **operation** call (`sign`, `verify`, `exchange`, `encrypt`, `decrypt`) on a quantum-vulnerable key (taxonomy rule 4); otherwise
-2. a **key-material** call (generate, load, derive, construct, extract) on a quantum-vulnerable algorithm; otherwise the candidate has no eligible site (label it ineligible as above);
-3. if several calls qualify at the same level, the first in source order (line, then column of the called name).
+2. a **key-material** call (generate, load, derive, construct, extract) on a quantum-vulnerable algorithm; otherwise
+3. a **protocol-configuration** call on a supported library's protocol object (Step C, `PROTOCOL_CONFIG`; r2, G01); otherwise the candidate has no eligible site (label it ineligible as above);
+4. if several calls qualify at the same level, the first in source order (line, then column of the called name).
 
 Calls on post-quantum algorithms (ML-KEM, ML-DSA, SLH-DSA) never become the site; they may be evidence for `hybrid_component`. Record the chosen call in `api_call`; `line_start` and `line_end` stay the statement's lines. Every other eligible call in the statement whose role family differs from the site's is added as an annotator-added site; same-family calls are listed in `notes`. Issued candidates of this kind are marked `multi_call: true`, with their calls listed by name.
 
@@ -75,6 +79,7 @@ Calls on post-quantum algorithms (ML-KEM, ML-DSA, SLH-DSA) never become the site
   - Check that the receiver is a public-key object, not an AEAD cipher, HMAC or JOSE wrapper object.
   - For pyca `encrypt`/`decrypt` on an RSA key object → `PK_ENCRYPT`/`PK_DECRYPT`; on a `Cipher`/`AESGCM` object → `eligible = false`.
 - **Key material** (generate / load / derive / construct): go to Step D.
+- **Protocol configuration (r2, G01).** A call that configures a protocol object *of a supported library* with public-key algorithm choices (taxonomy kind (c)) → `PROTOCOL_CONFIG`, `eligible = true`. Evidence: the configuration call, the line that shows the object belongs to a supported library, and the algorithm list or option it sets. The supported libraries in their pinned versions (pyca/cryptography 47.0.0, PyCryptodome) expose no such protocol objects, so this branch is reserved and not expected to occur in the current frame. Protocol configuration in a library outside the supported list (for example `ssl.SSLContext.set_ciphers`, paramiko `Transport(disabled_algorithms=...)` or `get_security_options()`, a JOSE library's own algorithm registry) is an out-of-scope library (Step A): `eligible = false`.
 
 **Step D — Follow the key (bounded).** Trace the produced key object through:
 - assignments in the same function;

@@ -76,11 +76,23 @@ def _multi(base: Path, row: dict) -> dict:
     return MC.mark(f.read_text(encoding="utf-8", errors="replace"), int(row["line"]))
 
 
+def _attribution_isolated(root: Path, work: Path) -> None:
+    """Second review G11: no tool-attribution file (pool_sources_*.json) may sit in a candidate or annotation folder
+    when a batch is issued; it belongs in benchmark/restricted/pool_sources/. This is a procedural check: with a single
+    investigator it cannot stop a deliberate look (the access attestation records that)."""
+    places = [root / "benchmark" / "candidates", root / "benchmark" / "annotation", Path(work)]
+    found = sorted({str(f.relative_to(root)) for d in places if d.exists() for f in d.rglob("pool_sources_*.json")})
+    if found:
+        raise SystemExit(f"tool-attribution file(s) {found} sit in a candidate or annotation folder; move them to "
+                         "benchmark/restricted/pool_sources/ before issuing (guide Sec. 2)")
+
+
 def _issue_loop(a, root: Path) -> dict:
     """Validation-loop issuance (phases pilot / synthetic): location-only, every item, batches of 10."""
     if a.split is not None:
         raise SystemExit(f"--split does not apply to the {a.phase} loop")
     p = paths(a.phase, a.repo, root)
+    _attribution_isolated(root, p["work"])
     recs = L.read(p["ledger"])
     L.verify(recs)
     batch, state = L.open_batch(recs)
@@ -115,6 +127,7 @@ def cmd_issue(a, root: Path) -> dict:
     if a.split not in SPLIT_OF_PHASE[a.phase]:
         raise SystemExit(f"split {a.split} does not belong to phase {a.phase}")
     p = paths(a.phase, a.repo, root)
+    _attribution_isolated(root, p["work"])
     recs = L.read(p["ledger"])
     L.verify(recs)
     batch, state = L.open_batch(recs)

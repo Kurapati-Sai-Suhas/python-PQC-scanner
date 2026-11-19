@@ -55,9 +55,13 @@ roles:
   UNKNOWN: ABSTAIN
 
 # Approved PQ component per role (policy Sec. 2, NO_ACTION_HYBRID: "whose PQ component is a NIST-approved
-# scheme (ML-KEM; ML-DSA/SLH-DSA for signatures)"). The PQ API must be of the matching family and be used
-# in the same class or function as the site. Encoding fix 2026-11-14 (independent review finding 1): an
-# earlier encoding accepted any PQ family for any role. Policy text and version are unchanged.
+# scheme (ML-KEM; ML-DSA/SLH-DSA for signatures)"). A PQ API of the matching family in the same class or function
+# is only a CANDIDATE condition: the site is treated as an approved hybrid only when the code also shows the actual
+# combination (pqscan/semantic/hybrid.py combined_hybrid: both shared secrets enter one derivation, or both
+# signatures/verifications cover the same data); co-location alone never yields NO_ACTION_HYBRID
+# (tests/test_hybrid_review3.py). Comment corrected 2026-11-19 (second review G09); behaviour unchanged.
+# Encoding fix 2026-11-14 (independent review finding 1): an earlier encoding accepted any PQ family for any role.
+# Policy text and version are unchanged.
 approved_hybrid_prefixes:
   KEY_ESTABLISHMENT:
     - "cryptography.hazmat.primitives.asymmetric.mlkem."

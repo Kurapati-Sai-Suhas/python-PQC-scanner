@@ -84,6 +84,15 @@ Approved by the owner on 18 Nov 2026 (`docs/audit/owner_decision_register_v1.0.5
 - **flip rates:** FR_cls(o, j) = #{pairs in N(o, j) whose classification outcome differs between identity and variant} / |N(o, j)|; FR_rec(o, j) = #{pairs in N(o, j) whose recommendation outcome differs between identity and variant} / |N(o, j)|.
 - **decision:** All decisions use point estimates, with Wilson 95% confidence intervals reported for every rate. Part 1: for every tool j in the pre-specified H4 baseline set, at least one pre-registered operator o - loaded-key included, because the original hypothesis names it - has FR_cls(o, j) >= 0.30 or FR_rec(o, j) >= 0.30 (wording kept: 'classification or recommendation'). Both flip types are always reported separately. The prediction (loaded-key, cross-function) is reported as confirmed or not. loaded-key is reported separately as an evidence-condition change, not a semantics-preserving transformation. Part 2: for the proposed analyser, separately under alias-import and under wrapper-function: classification stability 1 - FR_cls and recommendation stability 1 - FR_rec are reported separately; a pair is invariant only if neither its classification nor its recommendation flipped; Part 2 is met if the invariant share is >= 0.90 for both operators. loaded-key never enters the invariance calculations.
 
+**H4 tool inventory (second review G08; the JSON is authoritative).** Inventory of the actual runnable identifiers (second review G08), taken from the code and the manifest. Which of them count as 'every baseline' in H4 Part 1 is an OWNER DECISION, pending.
+
+- Proposed analyser: `pqscan:B4-full-T2`.
+- Runnable external tools: `pqcheck`, `pqc-audit`, `PostQuant`, `qsafe`, `QSA-regex`, `pqblocks-scan`.
+- Runnable pqscan arms: `pqscan:B1-algorithm`, `pqscan:B1-dual`, `pqscan:B2-method-args`, `pqscan:B3-full-noabst`, `pqscan:B4-full-T2`, `pqscan:method-args-recv-T0`, `pqscan:method-only-T0`.
+- Not runnable: CBOMkit (not run, D4 = A); Mehl ESEM 2026 scanner (results-only artefact).
+- Sources: `pqscan/baselines/adapters.py ADAPTERS`; `pqscan/baselines/simple.py ARMS and H2_ARMS`; `benchmark/baselines_manifest.json not_runnable`.
+- Decision set for Part 1 ('every baseline'): **pending owner decision**.
+
 **[S-ELIG]**
 
 Eligible-only recommendation-flip sensitivity (H4; secondary; reported separately). FR_rec^elig(o, j) = #{pairs in N^elig(o, j) whose recommendation outcome differs between the identity and the variant instance} / |N^elig(o, j)|, where N^elig(o, j) is the set of base–variant pairs for operator o whose frozen Dataset A label is eligible and on which tool j ran successfully on both the identity and the variant instance. It uses the same common recommendation-outcome vocabulary as the primary rate. It is reported separately from the primary all-pair classification and recommendation flip rates, FR_cls(o, j) and FR_rec(o, j), and is never substituted for them in the primary H4 decision.

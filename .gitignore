@@ -51,3 +51,6 @@ benchmark/candidates/**/pool_sources_*.json
 
 # Annotation work files (labels, packets, prompts, AI exports): never committed; only the hash-only ledger is
 benchmark/annotation/
+
+# second review G11: tool-attribution files live outside candidate/annotation folders (never committed)
+benchmark/restricted/

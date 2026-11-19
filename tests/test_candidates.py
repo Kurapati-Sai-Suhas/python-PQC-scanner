@@ -305,8 +305,9 @@ def test_cli_build_and_next(tmp_path, capsys):
     repo = _repo(tmp_path)
     out = tmp_path / "cand"
     assert C.main(["build", "--repo", str(repo), "--name", "demo", "--commit", "abc", "--run-dir", str(_run_dir(tmp_path, repo)),
-                   "--out", str(out)]) == 0
-    assert (out / "order_demo.json").exists() and (out / "pool_sources_demo.json").exists()
+                   "--out", str(out), "--sources-out", str(tmp_path / "restricted")]) == 0
+    assert (out / "order_demo.json").exists() and not (out / "pool_sources_demo.json").exists()     # G11
+    assert (tmp_path / "restricted" / "pool_sources_demo.json").exists()
     assert C.main(["next", "--order", str(out / "order_demo.json"), "--split", "test", "--out", str(tmp_path / "b.jsonl")]) == 0
     status = json.loads(capsys.readouterr().out.strip().splitlines()[-1])
     assert status["batch_size"] > 0 and status["stop"] is None and status["quota"] == 30
