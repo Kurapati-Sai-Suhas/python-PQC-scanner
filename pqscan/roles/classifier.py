@@ -83,6 +83,19 @@ def _ops_in(ev: SiteEvidence) -> set[str]:
     return {d.strip(".()") for _, d in ev.consumers.locations if d.startswith(".")}
 
 
+def _direction_unknown(single_role: Role, recv) -> bool:
+    """Owner decision TA07 (taxonomy rule 10, 19 Nov 2026): a signature-family key whose public/private status is not
+    established (e.g. PyCryptodome DSA.import_key) has no determinable direction; SIGN is never inferred from it."""
+    return single_role == Role.SIGN and recv.private is None
+
+
+def _unknown_direction(d: RoleDecision, alg: str, where: str) -> None:
+    d.role, d.tier = Role.UNKNOWN, Tier.T1
+    d.possible_roles = [Role.SIGN, Role.VERIFY, Role.KEY_MATERIAL_ONLY]
+    d.reason = (f"{alg} is a signature-only algorithm, but whether this key is private (SIGN) or public (VERIFY) is not "
+                f"established; {where}")
+
+
 def _key_material_role(ev: SiteEvidence, family: str) -> tuple[Role, list[Role]]:
     """Type-valid consumer rule: a public key with signature consumers verifies; a private key signs."""
     ops = _ops_in(ev)
@@ -177,7 +190,9 @@ def classify(ev: SiteEvidence, arm: str = "full") -> RoleDecision:
     d.supporting.append((ev.candidate.location.line, f"{ev.candidate.api} ({recv.provenance.value if recv.provenance else 'unknown provenance'})"))
     single_role = SINGLE_PURPOSE.get(alg)
     if not use_prov:
-        if single_role:
+        if single_role and _direction_unknown(single_role, recv):
+            _unknown_direction(d, alg, "consumers not used in this arm")
+        elif single_role:
             # the key API names a single-purpose algorithm; receiver/key typing (the recv arms) makes it T2
             d.role, d.tier = single_role, Tier.T2 if use_recv else Tier.T1
             if single_role == Role.SIGN and recv.private is False:
@@ -220,6 +235,8 @@ def classify(ev: SiteEvidence, arm: str = "full") -> RoleDecision:
     elif not ev.consumers.escapes:
         d.role, d.tier = Role.KEY_MATERIAL_ONLY, Tier.T2
         d.reason = f"key material ({alg}) with no consumer inside the analysed scope and no escape: inventory only"
+    elif single_role and _direction_unknown(single_role, recv):
+        _unknown_direction(d, alg, "consumers lie outside the analysed scope (" + "; ".join(ev.consumers.escape_notes[:2]) + ")")
     elif single_role:
         d.role, d.tier = (Role.VERIFY if single_role == Role.SIGN and recv.private is False else single_role), Tier.T2
         d.reason = f"{alg} is a single-purpose algorithm ({single_role.value}); consumers lie outside the analysed scope"

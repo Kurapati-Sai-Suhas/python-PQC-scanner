@@ -90,29 +90,29 @@
   "sites_semantic_only": 0,
   "sites_only_generic_semgrep_rule": 431,
   "action": {
-   "ABSTAIN": 573,
-   "RECOMMEND": 210,
+   "ABSTAIN": 578,
+   "RECOMMEND": 205,
    "FLAG_NO_TARGET": 431
   },
   "target_class": {
-   "ABSTAIN": 573,
+   "ABSTAIN": 578,
    "KEM_DEM": 86,
-   "SIG": 124,
+   "SIG": 119,
    "INVENTORY": 431
   },
   "role": {
    "PK_ENCRYPT": 152,
    "PK_DECRYPT": 149,
    "VERIFY": 132,
-   "UNKNOWN": 198,
-   "SIGN": 152,
+   "UNKNOWN": 203,
+   "SIGN": 147,
    "KEY_MATERIAL_ONLY": 431
   },
   "tier": {
    "T0": 328,
-   "T1": 245,
+   "T1": 250,
    "T3": 202,
-   "T2": 439
+   "T2": 434
   },
   "algorithm": {
    "ANY": 328,
@@ -138,24 +138,24 @@
    "PK_ENCRYPT->ABSTAIN": 125,
    "PK_DECRYPT->ABSTAIN": 90,
    "VERIFY->ABSTAIN": 101,
-   "UNKNOWN->ABSTAIN": 198,
+   "UNKNOWN->ABSTAIN": 203,
    "PK_DECRYPT->KEM_DEM": 59,
    "PK_ENCRYPT->KEM_DEM": 27,
-   "SIGN->SIG": 93,
+   "SIGN->SIG": 88,
    "KEY_MATERIAL_ONLY->INVENTORY": 431,
    "SIGN->ABSTAIN": 59,
    "VERIFY->SIG": 31
   },
   "tier_x_action": {
    "T0:ABSTAIN": 328,
-   "T1:ABSTAIN": 245,
+   "T1:ABSTAIN": 250,
    "T3:RECOMMEND": 202,
-   "T2:RECOMMEND": 8,
+   "T2:RECOMMEND": 3,
    "T2:FLAG_NO_TARGET": 431
   },
   "abstain_reason": {
    "tier T0 < T2": 328,
-   "role UNKNOWN": 198,
+   "role UNKNOWN": 203,
    "tier T1 < T2": 47
   },
   "excluded_kind": {
@@ -164,8 +164,8 @@
    "signer-object": 120
   },
   "recommend_by_scope": {
-   "test": 210
+   "test": 205
   },
-  "recommend_in_selftest": 210
+  "recommend_in_selftest": 205
  }
 }

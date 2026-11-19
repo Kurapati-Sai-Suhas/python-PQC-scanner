@@ -19,7 +19,7 @@ Annotation is human work. The single investigator labels each candidate from sou
 
 ## 2. Prerequisites before the first label (in order)
 
-1. **Owner decisions on labelling rules raised by the third AI review:**
+1. **Owner decisions on labelling rules raised by the third AI review: DECIDED 19 Nov 2026 (revision r5, `docs/audit/owner_decisions_labelling_rules_2026-11-19.md`).**
    - TA06 (PROTOCOL_CONFIG examples);
    - TA07 (escaped keys of single-purpose algorithms);
    - TA11 (PyCryptodome `cipher = PKCS1_OAEP.new(key)` followed by `cipher.encrypt`);

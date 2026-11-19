@@ -1,0 +1,171 @@
+{
+ "cryptography-47.0.0": {
+  "files_scanned": 77,
+  "files_skipped": 0,
+  "execution_failures": 0,
+  "semgrep_status": "ok",
+  "semgrep_errors": 0,
+  "sites": 13,
+  "unique_files": 2,
+  "excluded": 1,
+  "semgrep_only": 3,
+  "unsupported": 0,
+  "sites_with_semgrep_rule": 11,
+  "sites_semantic_only": 2,
+  "sites_only_generic_semgrep_rule": 7,
+  "action": {
+   "ABSTAIN": 11,
+   "RECOMMEND": 2
+  },
+  "target_class": {
+   "ABSTAIN": 11,
+   "SIG": 2
+  },
+  "role": {
+   "PK_DECRYPT": 1,
+   "UNKNOWN": 4,
+   "VERIFY": 4,
+   "SIGN": 4
+  },
+  "tier": {
+   "T0": 3,
+   "T1": 8,
+   "T2": 2
+  },
+  "algorithm": {
+   "ANY": 3,
+   "RSA": 4,
+   "EC": 4,
+   "Ed25519": 2
+  },
+  "receiver_library": {
+   "unresolved": 4,
+   "pyca": 9
+  },
+  "site_kind": {
+   "operation": 7,
+   "key-material": 6
+  },
+  "scope": {
+   "app": 13
+  },
+  "role_x_class": {
+   "PK_DECRYPT->ABSTAIN": 1,
+   "UNKNOWN->ABSTAIN": 4,
+   "VERIFY->SIG": 1,
+   "SIGN->SIG": 1,
+   "VERIFY->ABSTAIN": 3,
+   "SIGN->ABSTAIN": 3
+  },
+  "tier_x_action": {
+   "T0:ABSTAIN": 3,
+   "T1:ABSTAIN": 8,
+   "T2:RECOMMEND": 2
+  },
+  "abstain_reason": {
+   "tier T0 < T2": 3,
+   "role UNKNOWN": 4,
+   "tier T1 < T2": 4
+  },
+  "excluded_kind": {
+   "not-public-key": 1
+  },
+  "recommend_by_scope": {
+   "app": 2
+  },
+  "recommend_in_selftest": 0
+ },
+ "pycryptodome-4.4.0": {
+  "files_scanned": 228,
+  "files_skipped": 0,
+  "execution_failures": 0,
+  "semgrep_status": "ok",
+  "semgrep_errors": 0,
+  "sites": 1214,
+  "unique_files": 64,
+  "excluded": 729,
+  "semgrep_only": 35,
+  "unsupported": 0,
+  "sites_with_semgrep_rule": 1214,
+  "sites_semantic_only": 0,
+  "sites_only_generic_semgrep_rule": 431,
+  "action": {
+   "ABSTAIN": 573,
+   "RECOMMEND": 210,
+   "FLAG_NO_TARGET": 431
+  },
+  "target_class": {
+   "ABSTAIN": 573,
+   "KEM_DEM": 86,
+   "SIG": 124,
+   "INVENTORY": 431
+  },
+  "role": {
+   "PK_ENCRYPT": 152,
+   "PK_DECRYPT": 149,
+   "VERIFY": 132,
+   "UNKNOWN": 198,
+   "SIGN": 152,
+   "KEY_MATERIAL_ONLY": 431
+  },
+  "tier": {
+   "T0": 328,
+   "T1": 245,
+   "T3": 202,
+   "T2": 439
+  },
+  "algorithm": {
+   "ANY": 328,
+   "EC": 649,
+   "RSA": 204,
+   "DSA": 11,
+   "EC-or-DSA": 17,
+   "Ed25519": 5
+  },
+  "receiver_library": {
+   "unresolved": 360,
+   "pycryptodome": 854
+  },
+  "site_kind": {
+   "operation": 523,
+   "key-material": 691
+  },
+  "scope": {
+   "app": 79,
+   "test": 1135
+  },
+  "role_x_class": {
+   "PK_ENCRYPT->ABSTAIN": 125,
+   "PK_DECRYPT->ABSTAIN": 90,
+   "VERIFY->ABSTAIN": 101,
+   "UNKNOWN->ABSTAIN": 198,
+   "PK_DECRYPT->KEM_DEM": 59,
+   "PK_ENCRYPT->KEM_DEM": 27,
+   "SIGN->SIG": 93,
+   "KEY_MATERIAL_ONLY->INVENTORY": 431,
+   "SIGN->ABSTAIN": 59,
+   "VERIFY->SIG": 31
+  },
+  "tier_x_action": {
+   "T0:ABSTAIN": 328,
+   "T1:ABSTAIN": 245,
+   "T3:RECOMMEND": 202,
+   "T2:RECOMMEND": 8,
+   "T2:FLAG_NO_TARGET": 431
+  },
+  "abstain_reason": {
+   "tier T0 < T2": 328,
+   "role UNKNOWN": 198,
+   "tier T1 < T2": 47
+  },
+  "excluded_kind": {
+   "not-public-key": 574,
+   "cipher-object": 35,
+   "signer-object": 120
+  },
+  "recommend_by_scope": {
+   "test": 210
+  },
+  "recommend_in_selftest": 210
+ }
+}

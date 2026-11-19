@@ -34,9 +34,9 @@ H4_PART1 = ("pqcheck", "pqc-audit", "PostQuant", "qsafe", "QSA-regex", "pqblocks
             "pqscan:B1-algorithm", "pqscan:B2-method-args")
 # Third-review findings that settle how a hypothesis is computed or how sites are labelled (owner decisions; F1 or
 # annotation prerequisites). Source: docs/review/spec_review_v1.0.5-r3/review_outputs/third_ai_review_report.md
+# TA06, TA07, TA11 and TA19 were decided on 19 Nov 2026 (revision v1.0.5-r5;
+# docs/audit/owner_decisions_labelling_rules_2026-11-19.md).
 OPEN_DECISIONS = {
-    "before annotation": ["TA06 PROTOCOL_CONFIG examples", "TA07 escaped single-purpose keys",
-                          "TA11 PyCryptodome split idiom", "TA19 hybrid_component roles"],
     "before F1": ["TA01 S16 exemption", "TA03 H3 harmful-rate definition", "TA04 H4 quantifier",
                   "TA05 H4 synthetic split", "TA08 H1a numerator", "TA09 kappa statistic", "TA10 api_coverage.md hash",
                   "TA28 H3 bootstrap procedure", "W6 policy citation", "N1 PyCryptodome PQ modules"],

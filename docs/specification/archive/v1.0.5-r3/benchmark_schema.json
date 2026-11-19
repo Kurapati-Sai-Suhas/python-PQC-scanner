@@ -1,0 +1,309 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/pypqc-rolebench/site.schema.json",
+  "title": "PyPQC-RoleBench site record (v1.1)",
+  "type": "object",
+  "required": [
+    "site_id",
+    "dataset",
+    "repo",
+    "commit",
+    "file",
+    "line_start",
+    "line_end",
+    "library",
+    "algorithm",
+    "api_call",
+    "key_provenance",
+    "gt_role",
+    "assessability",
+    "eligible",
+    "hybrid_component",
+    "scope",
+    "obvious_from_name",
+    "evidence_needed",
+    "evidence_scope"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "site_id": {
+      "type": "string",
+      "pattern": "^[A-Z]-?[A-Za-z0-9_.-]+$"
+    },
+    "dataset": {
+      "enum": [
+        "synthetic",
+        "real-dev",
+        "real-val",
+        "real-test",
+        "pilot"
+      ]
+    },
+    "repo": {
+      "type": "string"
+    },
+    "commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{7,40}$|^generator-[0-9a-f]{7,}$"
+    },
+    "file": {
+      "type": "string"
+    },
+    "line_start": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "line_end": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "library": {
+      "type": "string",
+      "pattern": "^(pyca|pycryptodome|unknown|out-of-scope:[a-z0-9_.-]+)$"
+    },
+    "algorithm": {
+      "enum": [
+        "RSA",
+        "EC",
+        "X25519",
+        "X448",
+        "Ed25519",
+        "Ed448",
+        "DH",
+        "DSA",
+        "ML-KEM",
+        "ML-DSA",
+        "other"
+      ]
+    },
+    "api_call": {
+      "type": "string"
+    },
+    "method": {
+      "type": "string"
+    },
+    "arguments": {
+      "type": "string"
+    },
+    "key_provenance": {
+      "enum": [
+        "generated",
+        "loaded-PEM",
+        "loaded-DER",
+        "loaded-SSH",
+        "loaded-JWK",
+        "loaded-certificate",
+        "constructed-from-parsed-blob",
+        "parameter",
+        "attribute",
+        "env-or-KMS",
+        "unknown",
+        "n/a"
+      ]
+    },
+    "ultimate_provenance": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "gt_role": {
+      "enum": [
+        "SIGN",
+        "VERIFY",
+        "KEY_ESTABLISHMENT",
+        "PK_ENCRYPT",
+        "PK_DECRYPT",
+        "KEY_MATERIAL_ONLY",
+        "PROTOCOL_CONFIG",
+        "UNKNOWN",
+        "NONE"
+      ]
+    },
+    "secondary_roles": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "SIGN",
+          "VERIFY",
+          "KEY_ESTABLISHMENT",
+          "PK_ENCRYPT",
+          "PK_DECRYPT"
+        ]
+      }
+    },
+    "possible_roles": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "SIGN",
+          "VERIFY",
+          "KEY_ESTABLISHMENT",
+          "PK_ENCRYPT",
+          "PK_DECRYPT",
+          "KEY_MATERIAL_ONLY",
+          "PROTOCOL_CONFIG"
+        ]
+      }
+    },
+    "assessability": {
+      "enum": [
+        "DETERMINATE",
+        "INDETERMINATE"
+      ]
+    },
+    "eligible": {
+      "type": "boolean"
+    },
+    "hybrid_component": {
+      "type": "boolean"
+    },
+    "scope": {
+      "enum": [
+        "app",
+        "test",
+        "vendored",
+        "example"
+      ]
+    },
+    "obvious_from_name": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "evidence_needed": {
+      "enum": [
+        "none",
+        "argument-resolution",
+        "downstream-usage",
+        "protocol-context",
+        "runtime-value"
+      ]
+    },
+    "evidence_scope": {
+      "enum": [
+        "call",
+        "function",
+        "cross-function",
+        "cross-module",
+        "runtime-value"
+      ]
+    },
+    "base_case": {
+      "type": "string"
+    },
+    "transformation": {
+      "enum": [
+        "identity",
+        "alias-import",
+        "wrapper-function",
+        "class-method",
+        "loaded-key",
+        "cross-function",
+        "dict-dispatch"
+      ]
+    },
+    "hard": {
+      "type": "boolean"
+    },
+    "time_seconds": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "gt_role": {
+            "const": "UNKNOWN"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "possible_roles"
+        ],
+        "properties": {
+          "assessability": {
+            "const": "INDETERMINATE"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "eligible": {
+            "const": false
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "gt_role": {
+            "const": "NONE"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "dataset": {
+            "const": "synthetic"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "base_case",
+          "transformation"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "eligible": {
+            "const": false
+          }
+        },
+        "required": [
+          "eligible"
+        ]
+      },
+      "then": {
+        "properties": {
+          "obvious_from_name": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "eligible": {
+            "const": true
+          }
+        },
+        "required": [
+          "eligible"
+        ]
+      },
+      "then": {
+        "properties": {
+          "obvious_from_name": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  ],
+  "$comment": "v1.1 (2026-11-19, owner decision G02): obvious_from_name is a boolean on an eligible record and null (not applicable) on an ineligible record. v1.0 required a boolean everywhere."
+}

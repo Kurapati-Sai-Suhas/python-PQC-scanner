@@ -8,9 +8,9 @@
    "name": "commit and source-tree fingerprint",
    "status": "COMPUTED",
    "detail": {
-    "head": "1cdc2d79424956db71340fcaeef28ebe44586cfd",
-    "tracked_changes": false,
-    "tree": "tree sha256 d1ba796675b6b05df9a11a96ae3314d01eb518a19893e9593781c43b6958fd91 over 610 files"
+    "head": "b85e0b2d9883281fbb3a77e1c6ec341c93b2bc6d",
+    "tracked_changes": true,
+    "tree": "tree sha256 b47169ac2868b45f17548b8f191889a0a033f58017654a3173fee5dc389ddbac over 628 files"
    }
   },
   {
@@ -18,16 +18,16 @@
    "name": "SHA-256 of the normative documents",
    "status": "COMPUTED",
    "detail": {
-    "docs/specification/role_taxonomy.md": "59b798bbfe4dc71dc929072392dce79d805364d7f334b6ac0c89475daf840f64",
+    "docs/specification/role_taxonomy.md": "5c5050e9a807458a5d3a9ecf28e9c9f29503e167a38f69a998af84c657f7cf2b",
     "pqscan/policy/policy_v1_1.yaml": "907a8156d8857f9d649733371299c30a04cfe43d2a37a332ea0854a5b64e469d",
-    "docs/specification/recommendation_policy.md": "4e89ac6cdbce6e0dc5bace2b58e3651240d09e2778f9759d11658d87b57d67ce",
+    "docs/specification/recommendation_policy.md": "2d2fe3db3270f75e39ae259e090afe258ba331e2562924887fd57e72ed4adba6",
     "docs/specification/scoring_policy.md": "5916efe74761fea2d437e34cad2be60df96a32c4655ae45e68fb8b211103b4df",
     "docs/specification/evaluation_protocol.md": "71171fe35083ca98c500a2e005a43b7c7991894e7282cccbea5afbff21fe33c1",
     "docs/specification/phase3_analysis_plan.md": "7c0fc7b72afef5964faf817653c79ddf48a536b42cb68e13885ea747dd93691b",
     "docs/specification/phase3_decisions.md": "d0f37c137b1d9b47502a3e71f8ce3881bf9efbca1d317ec231ae520f0c029b93",
     "docs/specification/data_dictionary.md": "5759de353adb0701789c4daf9baccab8590860a03ddf597f20e88e4e14c603ff",
-    "docs/benchmark/annotation_guide.md": "73faebf7f6a5568de971b29eabb01c98bac5607b10edc805fc7feb5a31af0f3b",
-    "docs/benchmark/benchmark_schema.json": "52b1c0f5ccad3828282aa1a56253e36fe082def6e24cef06db40c4853ae1e32b",
+    "docs/benchmark/annotation_guide.md": "42bcc0f46943c34d69602ebaebceb2ea4cbf78aab59b116e859e9aaa3cc5ac5a",
+    "docs/benchmark/benchmark_schema.json": "cb05b532c3ba1c077658217671d461f371b606773b549063f1f1332e3b488c18",
     "docs/benchmark/meta_schema.json": "71b36e5e347386dc7bfb6eeef76e012fff0b3bb05e54784f23a1fb62b8681f58",
     "docs/specification/run_specification_pre_f1.md": "663809b9f47d73c0f0abbab15ec194ea976533e584e9fbce5d3c7ec2e3ccb263",
     "docs/specification/run_specification_pre_f1.json": "eee2f35f7826b1d079050f6d715d318e67d125b05a50788b0afbd3078c99eb1a"
@@ -98,7 +98,7 @@
    "status": "COMPUTED",
    "detail": {
     "docs/benchmark/ai_review_identity.json": "e7fb60c4716110e3689d5acfacf0f761903dd390664f1a8c7ad7af9e511e73b2",
-    "docs/benchmark/ai_review_prompt_v1.md": "9c7d183406019c7dae708f9b89dae3fea8dc6969bfb666a8df6865fa76570b38",
+    "docs/benchmark/ai_review_prompt_v1.md": "e1c1c7608571072a83fcd24b5a1865d4095727b52e007e2319526a62ae59bc0b",
     "pqscan/bench/packets.py": "3aa9ea54e5b3ed44d4348179870447376145845fa0317621e8465ff249922301"
    }
   },
@@ -182,12 +182,6 @@
    "name": "open owner decisions from the third AI review",
    "status": "MISSING",
    "detail": {
-    "before annotation": [
-     "TA06 PROTOCOL_CONFIG examples",
-     "TA07 escaped single-purpose keys",
-     "TA11 PyCryptodome split idiom",
-     "TA19 hybrid_component roles"
-    ],
     "before F1": [
      "TA01 S16 exemption",
      "TA03 H3 harmful-rate definition",
@@ -211,7 +205,7 @@
   "9d specification-review record: EXTERNAL HUMAN REVIEW (mandatory, F14): no completed external human review form; AI reviews do not count",
   "9e Phase DV feasibility check (c_DV, k_r): needs DV labels",
   "9h source-attribution access attestation (G11): only the template exists; the owner signs it at F1",
-  "D open owner decisions from the third AI review: {'before annotation': ['TA06 PROTOCOL_CONFIG examples', 'TA07 escaped single-purpose keys', 'TA11 PyCryptodome split idiom', 'TA19 hybrid_component roles'], 'before F1': ['TA01 S16 exemption', 'TA03 H3 harmful-rate definition', 'TA04 H4 quantifier', 'TA05 H4 synthetic split', 'TA08 H1a numerator', 'TA09 kappa statistic', 'TA10 api_coverage.md hash', 'TA28 H3 bootstrap procedure', 'W6 policy citation', 'N1 PyCryptodome PQ modules']}",
+  "D open owner decisions from the third AI review: {'before F1': ['TA01 S16 exemption', 'TA03 H3 harmful-rate definition', 'TA04 H4 quantifier', 'TA05 H4 synthetic split', 'TA08 H1a numerator', 'TA09 kappa statistic', 'TA10 api_coverage.md hash', 'TA28 H3 bootstrap procedure', 'W6 policy citation', 'N1 PyCryptodome PQ modules']}",
   "explicit owner approval of F1 (not given)"
  ]
 }

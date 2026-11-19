@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/pypqc-rolebench/site.schema.json",
-  "title": "PyPQC-RoleBench site record (v1.1)",
+  "title": "PyPQC-RoleBench site record (v1.2)",
   "type": "object",
   "required": [
     "site_id",
@@ -303,7 +303,30 @@
           }
         }
       }
+    },
+    {
+      "if": {
+        "properties": {
+          "hybrid_component": {
+            "const": true
+          }
+        },
+        "required": [
+          "hybrid_component"
+        ]
+      },
+      "then": {
+        "properties": {
+          "gt_role": {
+            "enum": [
+              "KEY_ESTABLISHMENT",
+              "SIGN",
+              "VERIFY"
+            ]
+          }
+        }
+      }
     }
   ],
-  "$comment": "v1.1 (2026-11-19, owner decision G02): obvious_from_name is a boolean on an eligible record and null (not applicable) on an ineligible record. v1.0 required a boolean everywhere."
+  "$comment": "v1.1 (2026-11-19, owner decision G02): obvious_from_name is a boolean on an eligible record and null (not applicable) on an ineligible record. v1.0 required a boolean everywhere. v1.2 (2026-11-19, owner decision TA19): hybrid_component = true is permitted only with gt_role KEY_ESTABLISHMENT, SIGN or VERIFY."
 }

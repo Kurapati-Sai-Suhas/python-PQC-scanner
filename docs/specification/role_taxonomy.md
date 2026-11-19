@@ -20,7 +20,7 @@ A site is **eligible** for recommendation scoring when it is (a), (b) or (c) abo
 | `PK_ENCRYPT` | The site encrypts data (typically a symmetric key, "key transport") with a public key. | `public_key.encrypt(data, padding)`, `PKCS1_OAEP.new(key).encrypt` |
 | `PK_DECRYPT` | The site decrypts public-key-encrypted data with a private key. | `private_key.decrypt(ct, padding)`, `PKCS1_OAEP.new(key).decrypt` |
 | `KEY_MATERIAL_ONLY` | The site generates, loads, derives or reconstructs a key and the key is **not** consumed by any operation reachable from the site within the analysed scope (export, fingerprinting, type dispatch and storage within the analysed scope only; a key that escapes the scope is `UNKNOWN`, annotation guide Step D). | `generate_private_key`, `load_pem_private_key`, `RSA.import_key` with no reachable `sign`/`verify`/`exchange`/`encrypt`/`decrypt` |
-| `PROTOCOL_CONFIG` | The site configures a protocol library object (TLS/SSH contexts, cipher-suite or key-exchange lists, JOSE `alg` registries) rather than calling a primitive. | `ssl.SSLContext.set_ciphers`, `ssl.SSLContext.set_ecdh_curve`, transport KEX preference lists |
+| `PROTOCOL_CONFIG` | **Reserved (v1.1-r5, owner decision TA06).** The site configures a protocol object *of a supported library* (Sec. 1, kind (c)) with public-key algorithm choices, rather than calling a primitive. The pinned supported libraries expose no such object, so the current frame contains no such site, and Module C does not emit this role. | a protocol object of a supported library, when one exists. **Not** `ssl.SSLContext` methods, paramiko or asyncssh transport settings: those libraries are outside `api_coverage.md`, so such calls are ineligible (annotation guide Step C) |
 | `UNKNOWN` | The role cannot be fixed from the code because it depends on a runtime value (e.g. an `algorithm` string), on dynamic dispatch, or on code outside the analysed scope. Always paired with `assessability = INDETERMINATE` and a `possible_roles` list. | python-jose `CryptographyRSAKey` loaders (sites J06–J09 in the pilot) |
 
 Rules:
@@ -29,11 +29,18 @@ Rules:
 2. **Mixed families mean `UNKNOWN`.** If the key reaches consumers of two different target families (e.g. `verify` and `encrypt`, as in a JOSE key object that serves both JWS and JWE), the site is `UNKNOWN`/`INDETERMINATE` unless a static argument (not a runtime value) selects the family.
 3. **No reachable consumer means `KEY_MATERIAL_ONLY`.** This is a determinate role: the correct output is an inventory entry, not a migration target.
 4. **Operations fix their own role.** `sign`, `verify`, `exchange`, `encrypt`, `decrypt` method calls on public-key objects are determinate from the method name once the receiver type is known to be a public-key object (for pyca) or the module is known (for PyCryptodome `pkcs1_15`, `pss`, `DSS`, `PKCS1_OAEP`, `PKCS1_v1_5`). The padding object alone (`PKCS1v15` is shared by RSA sign and RSA encrypt in pyca) never fixes the role.
-5. **Hybrid flag.** `hybrid_component = yes` marks a quantum-vulnerable component that is combined with an approved PQC algorithm in a PQ/T hybrid construction (SP 800-227 Sec. 4.6, e.g. paramiko `mlkem768x25519-sha256`). The role is still recorded (e.g. `KEY_ESTABLISHMENT`); the policy treats the site as "no migration required, review the combiner".
+5. **Hybrid flag.** `hybrid_component = yes` marks a quantum-vulnerable component that is combined with an approved PQC algorithm in a PQ/T hybrid construction (SP 800-227 Sec. 4.6, e.g. paramiko `mlkem768x25519-sha256`). The role is still recorded (e.g. `KEY_ESTABLISHMENT`); the policy treats the site as "no migration required, review the combiner". Under the current policy the flag is permitted **only** with `gt_role` `KEY_ESTABLISHMENT`, `SIGN` or `VERIFY` (v1.1-r5, owner decision TA19): those are the only roles with an approved matching post-quantum family (ML-KEM; ML-DSA/SLH-DSA). Any other combination is rejected by the benchmark schema.
 6. **Scope attribution** (`app` / `test` / `vendored` / `example`) is recorded separately and never changes the role.
 7. **One call expression per site.** (v1.1-r3, owner decision G03: in a sampled candidate statement only the call selected by annotation guide Step A is the site; additional same-family calls are recorded in `notes` and are not sites.) A `try: load_a() except: load_b()` fallback pair, or two loaders feeding the same variable, are two sites with the same consumers and labels; provenance is never a composite value. When one candidate statement contains several supported calls, annotation guide v1.2 Step A fixes which call is the site.
 8. **Ineligible negatives** carry `gt_role = NONE`, `assessability = DETERMINATE`, `key_provenance = n/a`, `obvious_from_name = null` (JSON null: not applicable; v1.1-r3, owner decision G02), `evidence_needed = none`; they are scored at detection level only.
-9. **`possible_roles` vs `secondary_roles`.** `secondary_roles` lists same-family alternatives of a determinate role (e.g. `VERIFY` next to `SIGN`). `possible_roles` is required for `UNKNOWN` and lists the cross-family candidates. The two are never mixed.
+9. **`possible_roles` vs `secondary_roles`.** `secondary_roles` lists same-family alternatives of a determinate role (e.g. `VERIFY` next to `SIGN`). `possible_roles` is required for `UNKNOWN` and lists the cross-family candidates. The two are never mixed. **Exception (v1.1-r5, owner decision TA07):** when the only ambiguity is the *direction* within one migration family, because a signature-family key's public/private status cannot be established, the site is `UNKNOWN` and `possible_roles` lists `SIGN`, `VERIFY` and, where applicable, `KEY_MATERIAL_ONLY` (rule 10).
+10. **Escaped keys of single-purpose algorithms (v1.1-r5, owner decision TA07).** If a key escapes the bounded scope before any consumer is seen, but its algorithm *and resolved key type* establish the family, the role follows from them, not from an algorithm name in the source text alone:
+    - X25519, X448 or DH → `KEY_ESTABLISHMENT`;
+    - Ed25519, Ed448 or DSA **private** key → `SIGN` (secondary `VERIFY`);
+    - Ed25519, Ed448 or DSA **public** key → `VERIFY`;
+    - a signature-family key whose public/private status cannot be established (for example PyCryptodome `DSA.import_key(data)`, which accepts either) → `UNKNOWN`/`INDETERMINATE` with `possible_roles = [SIGN, VERIFY, KEY_MATERIAL_ONLY]`.
+
+    `SIGN` is never inferred merely because the status is unknown. Escaped keys of multi-purpose algorithms (RSA, EC, unresolved) stay `UNKNOWN` as before.
 
 ## 3. Assessability
 
@@ -83,6 +90,13 @@ The 1.6 `cryptoFunctions` enum is: generate, keygen, encrypt, decrypt, digest, t
 Every component carries role, tier, action, target class, rationale, policy version, provenance and evidence as `pqscan:*` properties; operation components depend on the key-material components their receiver was traced to.
 
 ## Changelog
+
+- v1.1-r5 (2026-11-19; owner decisions TA06, TA07, TA11, TA19 after the third AI review; `docs/audit/owner_decisions_labelling_rules_2026-11-19.md`; before any annotation):
+  - the PROTOCOL_CONFIG row is reserved, and its examples are limited to supported-library protocol objects (TA06);
+  - new rule 10 for escaped keys of single-purpose algorithms, with a rule-9 exception for direction ambiguity within the signature family (TA07);
+  - `hybrid_component` is permitted only for `KEY_ESTABLISHMENT`, `SIGN` and `VERIFY` (TA19; annotation guide Step F, schema).
+
+  No existing label changes: the pilot and Dataset A contain no affected site. The pre-change text is in `docs/specification/archive/v1.0.5-r4/role_taxonomy.md`.
 
 - v1.1-r3 (2026-11-19; owner decisions G02 and G03; `docs/audit/owner_decisions_g02_g03_g08_g10.md`): ineligible negatives carry `obvious_from_name = null`; rule 7 states that additional same-family calls in a sampled statement are notes, not sites. No role, eligibility outcome or label value other than this representation changed.
 - v1.1-r2 (2026-11-19, editorial; second review G01; `docs/audit/second_review_closure.md`): kind (c) requires a protocol object of a supported library; out-of-scope protocol configuration stays ineligible (Step A of the guide). No role, value or eligibility outcome changed.

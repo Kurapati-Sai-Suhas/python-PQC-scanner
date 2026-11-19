@@ -1,7 +1,7 @@
 pqscan 0.1.0.dev0 | policy 1.1 | threshold T2 | arm full
 files scanned: 228, skipped: 0, execution failures: 0, semgrep: ok
-sites: 1214 (ABSTAIN=573, FLAG_NO_TARGET=431, RECOMMEND=210); excluded non-PK sites: 729; unsupported-library imports: 0 (none)
-target classes: ABSTAIN=573, INVENTORY=431, KEM_DEM=86, SIG=124
+sites: 1214 (ABSTAIN=578, FLAG_NO_TARGET=431, RECOMMEND=205); excluded non-PK sites: 729; unsupported-library imports: 0 (none)
+target classes: ABSTAIN=578, INVENTORY=431, KEM_DEM=86, SIG=119
 
 Crypto/Cipher/AES.py:155  ANY      PK_ENCRYPT         T0  ABSTAIN        ABSTAIN
 Crypto/Cipher/ARC4.py:77  ANY      PK_ENCRYPT         T0  ABSTAIN        ABSTAIN
@@ -629,9 +629,9 @@ Crypto/SelfTest/PublicKey/test_import_Curve448.py:249  EC       KEY_MATERIAL_ONL
 Crypto/SelfTest/PublicKey/test_import_Curve448.py:253  EC       KEY_MATERIAL_ONLY  T2  FLAG_NO_TARGET INVENTORY
 Crypto/SelfTest/PublicKey/test_import_Curve448.py:302  EC       UNKNOWN            T1  ABSTAIN        ABSTAIN
 Crypto/SelfTest/PublicKey/test_import_Curve448.py:330  EC       KEY_MATERIAL_ONLY  T2  FLAG_NO_TARGET INVENTORY
-Crypto/SelfTest/PublicKey/test_import_DSA.py:368  DSA      SIGN               T2  RECOMMEND      SIG
-Crypto/SelfTest/PublicKey/test_import_DSA.py:370  DSA      SIGN               T2  RECOMMEND      SIG
-Crypto/SelfTest/PublicKey/test_import_DSA.py:383  DSA      SIGN               T2  RECOMMEND      SIG
+Crypto/SelfTest/PublicKey/test_import_DSA.py:368  DSA      UNKNOWN            T1  ABSTAIN        ABSTAIN
+Crypto/SelfTest/PublicKey/test_import_DSA.py:370  DSA      UNKNOWN            T1  ABSTAIN        ABSTAIN
+Crypto/SelfTest/PublicKey/test_import_DSA.py:383  DSA      UNKNOWN            T1  ABSTAIN        ABSTAIN
 Crypto/SelfTest/PublicKey/test_import_DSA.py:427  DSA      KEY_MATERIAL_ONLY  T2  FLAG_NO_TARGET INVENTORY
 Crypto/SelfTest/PublicKey/test_import_DSA.py:441  DSA      KEY_MATERIAL_ONLY  T2  FLAG_NO_TARGET INVENTORY
 Crypto/SelfTest/PublicKey/test_import_ECC.py:65  EC       UNKNOWN            T1  ABSTAIN        ABSTAIN
@@ -958,7 +958,7 @@ Crypto/SelfTest/PublicKey/test_import_passphrase.py:51  EC       UNKNOWN        
 Crypto/SelfTest/PublicKey/test_import_passphrase.py:148  EC       KEY_MATERIAL_ONLY  T2  FLAG_NO_TARGET INVENTORY
 Crypto/SelfTest/PublicKey/test_import_passphrase.py:154  EC       KEY_MATERIAL_ONLY  T2  FLAG_NO_TARGET INVENTORY
 Crypto/SelfTest/PublicKey/test_import_passphrase.py:174  RSA      UNKNOWN            T1  ABSTAIN        ABSTAIN
-Crypto/SelfTest/PublicKey/test_import_passphrase.py:175  DSA      SIGN               T2  RECOMMEND      SIG
+Crypto/SelfTest/PublicKey/test_import_passphrase.py:175  DSA      UNKNOWN            T1  ABSTAIN        ABSTAIN
 Crypto/SelfTest/PublicKey/test_import_passphrase.py:180  RSA      UNKNOWN            T1  ABSTAIN        ABSTAIN
 Crypto/SelfTest/PublicKey/test_import_passphrase.py:185  RSA      UNKNOWN            T1  ABSTAIN        ABSTAIN
 Crypto/SelfTest/PublicKey/test_import_passphrase.py:193  EC       UNKNOWN            T1  ABSTAIN        ABSTAIN
@@ -1015,7 +1015,7 @@ Crypto/SelfTest/Signature/test_dss.py:1145  EC       SIGN               T3  RECO
 Crypto/SelfTest/Signature/test_dss.py:1152  EC       SIGN               T3  RECOMMEND      SIG
 Crypto/SelfTest/Signature/test_dss.py:1159  EC       SIGN               T3  RECOMMEND      SIG
 Crypto/SelfTest/Signature/test_dss.py:1166  EC       SIGN               T3  RECOMMEND      SIG
-Crypto/SelfTest/Signature/test_dss.py:1200  DSA      SIGN               T2  RECOMMEND      SIG
+Crypto/SelfTest/Signature/test_dss.py:1200  DSA      UNKNOWN            T1  ABSTAIN        ABSTAIN
 Crypto/SelfTest/Signature/test_dss.py:1245  EC-or-DSA VERIFY             T1  ABSTAIN        ABSTAIN
 Crypto/SelfTest/Signature/test_dss.py:1276  EC       UNKNOWN            T1  ABSTAIN        ABSTAIN
 Crypto/SelfTest/Signature/test_dss.py:1364  EC-or-DSA VERIFY             T1  ABSTAIN        ABSTAIN

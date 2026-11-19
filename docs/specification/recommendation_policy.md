@@ -39,7 +39,7 @@ Not cited because not verified: specific IETF RFC numbers for hybrid key exchang
 | `PK_DECRYPT` | `KEM_DEM` | As above, decapsulation side. |
 | `KEY_MATERIAL_ONLY` | `INVENTORY` | "RSA/EC key material with no consumer found in the analysed scope. No target is recommended; determine the downstream role first." |
 | `PROTOCOL_CONFIG` | `PROTOCOL_REVIEW` | "Protocol configuration site. Migrate by enabling the library's PQC/hybrid options; do not replace primitives here." |
-| any role with `hybrid_component = yes` (approved PQ component) | `NO_ACTION_HYBRID` | "Traditional component of a PQ/T hybrid with an approved PQ algorithm; no migration of this component is required now; hybrids are transitional (IR 8547) — plan a PQC-only follow-up; review the combiner per SP 800-227 Sec. 4.6." |
+| `KEY_ESTABLISHMENT`, `SIGN` or `VERIFY` with `hybrid_component = yes` (approved PQ component of the matching family; the only roles for which the flag is permitted, owner decision TA19, 19 Nov 2026) | `NO_ACTION_HYBRID` | "Traditional component of a PQ/T hybrid with an approved PQ algorithm; no migration of this component is required now; hybrids are transitional (IR 8547) — plan a PQC-only follow-up; review the combiner per SP 800-227 Sec. 4.6." |
 | `UNKNOWN` (INDETERMINATE) | `ABSTAIN` | "Role cannot be determined: <missing evidence>. Possible roles: <list>. No single target is justified." |
 
 ## 4. Evidence-tier gate (Module D parameter, pre-registered)
@@ -90,5 +90,6 @@ Scoring is consolidated and frozen in `scoring_policy.md` v1.0 (2026-11-14). Tha
 
 ## Changelog
 
+- v1.1, text clarification r5 (2026-11-19; owner decision TA19): the `NO_ACTION_HYBRID` row names the only roles for which `hybrid_component` is permitted (`KEY_ESTABLISHMENT`, `SIGN`, `VERIFY`), as the policy engine already enforces (`pqscan/policy/engine.py`). No mapping, template, threshold or policy-version change. Pre-change text: `docs/specification/archive/v1.0.5-r4/recommendation_policy.md`.
 - v1.1 (2026-11-12): incorporated independent review (Section 7).
 - v1.0 (2026-11-12): initial pre-registered policy.

@@ -8,7 +8,7 @@ For each candidate, output exactly one JSON object on its own line, with these k
 {"candidate_id": "<as given>", "status": "ok" or "insufficient_context",
  "eligible": true or false, "gt_role": "<SIGN|VERIFY|KEY_ESTABLISHMENT|PK_ENCRYPT|PK_DECRYPT|KEY_MATERIAL_ONLY|PROTOCOL_CONFIG|UNKNOWN|NONE>",
  "assessability": "<DETERMINATE|INDETERMINATE>", "possible_roles": [<roles, required when gt_role is UNKNOWN>],
- "hybrid_component": true or false, "obvious_from_name": true or false (null when eligible is false),
+ "hybrid_component": true or false (true only when gt_role is KEY_ESTABLISHMENT, SIGN or VERIFY), "obvious_from_name": true or false (null when eligible is false),
  "evidence_needed": "<none|argument-resolution|downstream-usage|protocol-context|runtime-value>",
  "key_provenance": "<generated|loaded-PEM|loaded-DER|loaded-SSH|loaded-JWK|loaded-certificate|constructed-from-parsed-blob|parameter|attribute|env-or-KMS|unknown|n/a>",
  "ambiguity": "<none|guide_unclear|context_insufficient>",

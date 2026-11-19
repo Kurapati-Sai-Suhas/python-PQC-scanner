@@ -13,6 +13,12 @@ Adopted 2026-11-16 with evaluation protocol v1.0.4 (owner decisions V1, V5, V8, 
 
 **Changes in v1.2:** the multi-call candidate rule (Step A, F03); Step D consumer inheritance as in taxonomy rule 1 (F02) and escape before KEY_MATERIAL_ONLY (F21); the hybrid rule requires a matching PQ family and actual combination (Step F, F08); the unresolved-field convention (Sec. 2, F10); owner and AI example records (Sec. 5, F15); the packet-first rule as implemented (Sec. 5, F11); the forbidden-token gate (Sec. 6, F07).
 
+**Revision r5 (19 Nov 2026; owner decisions TA06, TA07, TA11, TA19; `docs/audit/owner_decisions_labelling_rules_2026-11-19.md`; before any annotation):**
+- PROTOCOL_CONFIG evidence is limited to supported-library protocol objects; the role is reserved (TA06).
+- Escaped keys of single-purpose algorithms take their family's role when the key type establishes it. Unknown public/private status gives `UNKNOWN` with `possible_roles = [SIGN, VERIFY, KEY_MATERIAL_ONLY]` (TA07).
+- PyCryptodome constructors are not sites; the split-idiom operation is (TA11).
+- `hybrid_component = true` is permitted only for `KEY_ESTABLISHMENT`, `SIGN` and `VERIFY` (TA19).
+
 **Revision r3 (19 Nov 2026; owner decisions G02 and G03; `docs/audit/owner_decisions_g02_g03_g08_g10.md`):** `obvious_from_name` is `null` on ineligible records; the four units of the multi-call rule and the `notes` format for additional same-family calls.
 
 **Editorial revision r2 (19 Nov 2026; second review G01, G04, G11; `docs/audit/second_review_closure.md`):** the protocol-configuration branch of Step C and of the multi-call rule (kind (c) of a supported library; reserved in the current frame); the permitted frozen batch run versus manual scanner use; the tool-attribution files. No eligibility outcome changes: out-of-scope protocol configuration was already ineligible under Step A.
@@ -59,6 +65,7 @@ Use with `docs/specification/role_taxonomy.md` (definitions) and `docs/specifica
 **Step A — Is it a site at all?** If the matched text is any of the following, set `eligible = false`, `gt_role = NONE`, `obvious_from_name = null`, and stop:
 - a comment, docstring or string literal;
 - a parameter-object construction on its own (`padding.PKCS1v15()`, `ec.SECP256R1()`, `ec.ECDSA(...)`);
+- a PyCryptodome cipher or signer **constructor** on its own (`cipher = PKCS1_OAEP.new(key)`, `PKCS1_v1_5.new(key)`, `signer = pkcs1_15.new(key)`, `pss.new(key)`, `DSS.new(key, mode)`, `eddsa.new(key, mode)`): the constructor is not an encryption or signature site. The later `cipher.encrypt(m)` / `signer.sign(h)` statement is the site (Step C; v1.2-r5, owner decision TA11);
 - a type reference (`isinstance(k, RSAPrivateKey)`);
 - an out-of-scope library.
 
@@ -80,7 +87,9 @@ Calls on post-quantum algorithms (ML-KEM, ML-DSA, SLH-DSA) never become the site
 **Step C — Operation or key material?**
 - **Operation.** `sign`, `verify`, `exchange`, `encrypt`, `decrypt`, and PyCryptodome `pkcs1_15/pss/DSS/eddsa/PKCS1_OAEP/PKCS1_v1_5 .new(...).sign/verify/encrypt/decrypt`.
   - The role follows the method: `SIGN`, `VERIFY`, `KEY_ESTABLISHMENT`, `PK_ENCRYPT` or `PK_DECRYPT`.
-  - Check that the receiver is a public-key object, not an AEAD cipher, HMAC or JOSE wrapper object.
+  - Check that the receiver is a public-key object, not an AEAD cipher, HMAC or JOSE wrapper object. A PyCryptodome cipher or signer object **constructed from a key** (`cipher = PKCS1_OAEP.new(key)`; `signer = pkcs1_15.new(key)`) counts as a public-key receiver. The split idiom `cipher = PKCS1_OAEP.new(key)` followed by `cipher.encrypt(m)` has one operation site: the `cipher.encrypt(m)` statement (`PK_ENCRYPT`), whose receiver provenance is the key passed to the constructor. The constructor statement is not a site (Step A). (v1.2-r5, owner decision TA11.)
+    - Positive: `c = PKCS1_OAEP.new(RSA.import_key(pub)); ct = c.encrypt(m)`: the site is `ct = c.encrypt(m)` → `PK_ENCRYPT`.
+    - Negative: `c = PKCS1_OAEP.new(key)` sampled on its own → `eligible = false` (constructor; Step A). `c = AES.new(k, AES.MODE_GCM); c.encrypt(m)` → `eligible = false` (symmetric cipher object).
   - For pyca `encrypt`/`decrypt` on an RSA key object → `PK_ENCRYPT`/`PK_DECRYPT`; on a `Cipher`/`AESGCM` object → `eligible = false`.
 - **Key material** (generate / load / derive / construct): go to Step D.
 - **Protocol configuration (r2, G01).** A call that configures a protocol object *of a supported library* with public-key algorithm choices (taxonomy kind (c)) → `PROTOCOL_CONFIG`, `eligible = true`. Evidence: the configuration call, the line that shows the object belongs to a supported library, and the algorithm list or option it sets. The supported libraries in their pinned versions (pyca/cryptography 47.0.0, PyCryptodome) expose no such protocol objects, so this branch is reserved and not expected to occur in the current frame. Protocol configuration in a library outside the supported list (for example `ssl.SSLContext.set_ciphers`, paramiko `Transport(disabled_algorithms=...)` or `get_security_options()`, a JOSE library's own algorithm registry) is an out-of-scope library (Step A): `eligible = false`.
@@ -95,13 +104,19 @@ Collect the set of operation consumers, then decide:
 - **All consumers in one family** → that family's role, as in taxonomy rule 1 (v1.2): a **private** key whose consumers are sign and/or verify, at least one of them sign → `SIGN` (secondary `VERIFY`); a **public** key whose consumers are all verify → `VERIFY`; exchange → `KEY_ESTABLISHMENT`; encrypt → `PK_ENCRYPT`; decrypt → `PK_DECRYPT`. Only consumers that can succeed for the key's type count (a public key cannot sign or decrypt). Record the other members in `secondary_roles`.
 - **Two families, selected by a static constant in the same class or module** → label the role that constant selects, and note it.
 - **Two families, selected by a runtime value** (an `algorithm` argument, configuration, a dispatch dict keyed by user input) → `gt_role = UNKNOWN`, `assessability = INDETERMINATE`, and fill `possible_roles`.
-- **The key escapes the bounded scope** (returned beyond the direct caller, stored in a module-level or global variable or registry, serialized or pickled, or passed to code outside the analysed scope) → `UNKNOWN` / `INDETERMINATE`, with `possible_roles = [all]` and a note. **An observed escape takes precedence over `KEY_MATERIAL_ONLY` (v1.2).**
+- **The key escapes the bounded scope** (returned beyond the direct caller, stored in a module-level or global variable or registry, serialized or pickled, or passed to code outside the analysed scope) → `UNKNOWN` / `INDETERMINATE`, with `possible_roles = [all]` and a note. **An observed escape takes precedence over `KEY_MATERIAL_ONLY` (v1.2).** Exception for single-purpose algorithms (taxonomy rule 10; v1.2-r5, owner decision TA07). When the algorithm and the resolved key type establish the family (a typed generator, loader or constructor, not an algorithm name appearing in the text):
+  - X25519, X448 or DH → `KEY_ESTABLISHMENT` (`DETERMINATE`);
+  - Ed25519, Ed448 or DSA **private** key → `SIGN` (secondary `VERIFY`);
+  - Ed25519, Ed448 or DSA **public** key → `VERIFY`;
+  - signature-family key whose public/private status cannot be established (for example PyCryptodome `DSA.import_key(data)`, which loads either) → `UNKNOWN` / `INDETERMINATE` with `possible_roles = [SIGN, VERIFY, KEY_MATERIAL_ONLY]`.
+
+  Never label `SIGN` merely because the status is unknown.
 - **No consumer within the bounded scope, and no escape** → `KEY_MATERIAL_ONLY` (`DETERMINATE`). Every use inside the scope must be a non-operation (export, fingerprint, `isinstance`, storage in a local or in an attribute of the same class), and nothing may leave the scope.
 
 **Step E — Provenance.** For the receiver of an operation, record the proximate provenance (`attribute`, `parameter`, or a local from a loader/generator). If it is resolvable within the bounded scope, also record the `ultimate_provenance` set.
 
 **Step F — Flags (v1.1).**
-- **`hybrid_component = true`** only if both hold (v1.2), with the lines as evidence: (1) an approved post-quantum component **of the matching family** is present — ML-KEM for `KEY_ESTABLISHMENT`; ML-DSA or SLH-DSA for `SIGN` and `VERIFY` (pyca `mlkem`/`mldsa`, `oqs`, `pqcrypto`); and (2) the site's output is **actually combined** with it within the bounded scope of Step D: both shared secrets enter one key derivation or combiner (for example a hash of their concatenation), or both signatures are produced over, or verified against, the same message and used together. Being in the same class or function alone is not enough: then `hybrid_component = false`, with a note.
+- **`hybrid_component = true`** only if both hold (v1.2), with the lines as evidence: (1) an approved post-quantum component **of the matching family** is present — ML-KEM for `KEY_ESTABLISHMENT`; ML-DSA or SLH-DSA for `SIGN` and `VERIFY` (pyca `mlkem`/`mldsa`, `oqs`, `pqcrypto`); and (2) the site's output is **actually combined** with it within the bounded scope of Step D: both shared secrets enter one key derivation or combiner (for example a hash of their concatenation), or both signatures are produced over, or verified against, the same message and used together. Being in the same class or function alone is not enough: then `hybrid_component = false`, with a note. **`hybrid_component = true` is permitted only with `gt_role` `KEY_ESTABLISHMENT`, `SIGN` or `VERIFY`** (v1.2-r5, owner decision TA19). For every other role, including `UNKNOWN`, `PK_ENCRYPT`, `PK_DECRYPT` and `KEY_MATERIAL_ONLY`, it is `false`, and the schema rejects `true`.
 - **`scope`:** classify the path relative to the repository root, applying the first class that matches in this order:
   1. `vendored`: a directory `vendor`, `_vendor` or `third_party`;
   2. `test`: a directory `test`, `tests` or `testing`; or a file `test_*.py`, `*_test.py`, `test.py`, `tests.py`, `tests_*.py`, `tests-*.py`, `conftest.py`;
@@ -124,7 +139,7 @@ Every eligible label lists `evidence_lines` (file:line), including the line that
 | **PK_ENCRYPT** | encryption with an RSA public key (pyca `.encrypt(data, padding)`; PyCryptodome `PKCS1_OAEP` / `PKCS1_v1_5` cipher `.encrypt`); the receiver shown to be a key, not an AEAD or Fernet object | `encrypt` on any object; the padding constant alone |
 | **PK_DECRYPT** | decryption with an RSA private key; the receiver shown to be a key | as for PK_ENCRYPT |
 | **KEY_MATERIAL_ONLY** | the creation or load line, plus the list of every use examined within the bounded scope (export, fingerprint, storage, isinstance, return with no consumer at the direct caller) and the boundary reached | "no consumer found" without the list |
-| **PROTOCOL_CONFIG** | a configuration call on a protocol library object (TLS/SSH context, KEX or cipher list, JOSE `alg` registry) | a protocol-library import alone |
+| **PROTOCOL_CONFIG** (reserved; v1.2-r5, TA06) | a configuration call on a protocol object **of a supported library** (Step C) with its public-key algorithm list or option | a protocol-library import alone; any `ssl`, paramiko, asyncssh or JOSE-library configuration (out of scope, `eligible = false`) |
 | **UNKNOWN** | the runtime value, dynamic dispatch, reflection or out-of-scope flow that prevents fixing the role (with its line), plus `possible_roles` with at least one evidence line per family; `assessability = INDETERMINATE` | the annotator's own uncertainty (use `meta.ambiguity`) |
 | **NONE** (ineligible) | the Step A category (comment, docstring, string, parameter or padding object alone, type reference, out-of-scope library, symmetric or hash primitive, unrelated method on a non-key object), with the line that shows it | — |
 

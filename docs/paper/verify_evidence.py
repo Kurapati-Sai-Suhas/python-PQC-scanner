@@ -249,6 +249,15 @@ put("E67.g10_reps_null", g10["reps_null"], 10000)
 put("E67.g10_worst_null_rate_at_a", round(g10["worst_null_rate_at_a"]["rate"], 4), 0.0183)
 put("E67.g10_power_at_a", {k: round(v["rates"]["a1"], 4) for k, v in g10["results"].items() if v["kind"] == "power"},
     {"G10a-power": 0.2175, "G10b-power": 0.158, "G10d-power": 0.219})
+# --- owner decisions TA06/TA07/TA11/TA19 of 19 Nov 2026 (revision v1.0.5-r5) -----------------------------------
+_pc = json.loads(gzip.decompress((ROOT / "docs/final/demo/outputs/real/pycryptodome-4.4.0_scan.json.gz").read_bytes()))
+put("E69.ta07_pycryptodome_actions", dict(sorted(C(f["recommendation"]["action"] for f in _pc["findings"]).items())),
+    {"ABSTAIN": 578, "FLAG_NO_TARGET": 431, "RECOMMEND": 205})
+put("E69.ta07_unknown_direction_sites", sorted(f'{f["evidence"]["location"]["file"]}:{f["evidence"]["location"]["line"]}'
+    for f in _pc["findings"] if "is not established" in f["decision"].get("reason", "")),
+    ["Crypto/SelfTest/PublicKey/test_import_DSA.py:368", "Crypto/SelfTest/PublicKey/test_import_DSA.py:370",
+     "Crypto/SelfTest/PublicKey/test_import_DSA.py:383", "Crypto/SelfTest/PublicKey/test_import_passphrase.py:175",
+     "Crypto/SelfTest/Signature/test_dss.py:1200"])
 from pqscan.bench import h4 as _h4
 spec = jl(ROOT / "docs/specification/run_specification_pre_f1.json")
 put("E68.g08_part1", list(_h4.PART1_BASELINES), spec["families"]["F-A"]["baselines"])

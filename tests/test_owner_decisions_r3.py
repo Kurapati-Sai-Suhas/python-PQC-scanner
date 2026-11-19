@@ -37,7 +37,7 @@ def test_g02_schema_requires_null_on_ineligible_and_boolean_on_eligible():
     assert list(V.iter_errors(dict(neg, obvious_from_name=False)))             # false is no longer "not applicable"
     assert list(V.iter_errors(dict(pos, obvious_from_name=None)))              # eligible needs a boolean
     assert list(V.iter_errors(dict(pos, obvious_from_name="n/a")))             # never coerced
-    assert SCHEMA["title"].endswith("(v1.1)")
+    assert SCHEMA["title"].endswith("(v1.2)")             # v1.1 (G02), then v1.2 (TA19, revision r5)
 
 
 def test_g02_dataset_a_fully_valid_and_only_the_contract_field_migrated():
