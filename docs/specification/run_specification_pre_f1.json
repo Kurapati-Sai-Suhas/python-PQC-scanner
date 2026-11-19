@@ -32,6 +32,13 @@
       "by": "owner",
       "decision": "G02: obvious_from_name nullable (null on ineligible records), data-contract correction with migration. G03: F03 primary sampling and annotation rule retained; units clarified; additional same-family calls are notes. G08: H4 Part 1 set = the F-A baseline set. G10: signed guard and threshold retained; an additional pre-specified calibration scenario must run and pass before F1.",
       "record": "docs/audit/owner_decisions_g02_g03_g08_g10.md"
+    },
+    {
+      "id": "OD-2026-11-19-G08C",
+      "date": "2026-11-19",
+      "by": "owner",
+      "decision": "G08 confirmation (third review TB01): H4 Part 1 = exactly the eight registered F-A baselines (six external tools, pqscan:B1-algorithm, pqscan:B2-method-args); inclusion by F-A membership only; the other five pqscan arms are reported separately.",
+      "record": "docs/audit/owner_decision_g08_confirmation_2026-11-19.md"
     }
   ],
   "families": {
@@ -188,15 +195,25 @@
           "pqscan:B2-method-args"
         ],
         "pqscan_arm_roles": {
-          "pqscan:B1-algorithm": "H4 Part 1 baseline (registered F-A baseline)",
-          "pqscan:B2-method-args": "H4 Part 1 baseline (registered F-A baseline)",
-          "pqscan:B4-full-T2": "proposed analyser (H4 Part 2); not a baseline",
-          "pqscan:B1-dual": "descriptive only (D15); not in Part 1",
-          "pqscan:B3-full-noabst": "T0 comparator (H2 arms); reported separately; not in Part 1",
-          "pqscan:method-args-recv-T0": "T0 comparator (H2-3); reported separately; not in Part 1",
-          "pqscan:method-only-T0": "T0 comparator (H2-4); reported separately; not in Part 1"
+          "pqscan:B1-algorithm": "H4 Part 1 baseline: member of the registered F-A baseline set",
+          "pqscan:B2-method-args": "H4 Part 1 baseline: member of the registered F-A baseline set (included because of that membership, although it is a T0 arm)",
+          "pqscan:B4-full-T2": "proposed analyser (H4 Part 2); not a baseline; reported separately from Part 1",
+          "pqscan:B1-dual": "descriptive only (D15); not in the F-A baseline set; reported separately, not in Part 1",
+          "pqscan:B3-full-noabst": "H2 arm; not in the F-A baseline set; reported separately, not in Part 1",
+          "pqscan:method-args-recv-T0": "H2-3 comparator; not in the F-A baseline set; reported separately, not in Part 1",
+          "pqscan:method-only-T0": "H2-4 comparator; not in the F-A baseline set; reported separately, not in Part 1"
         },
-        "registry": "pqscan/bench/h4.py (PART1_BASELINES, PROPOSED_ANALYSER; tests/test_owner_decisions_r3.py)"
+        "registry": "pqscan/bench/h4.py (PART1_BASELINES, PROPOSED_ANALYSER; tests/test_owner_decisions_r3.py)",
+        "part1_inclusion_criterion": "Membership in the registered F-A baseline set, exactly eight identifiers: the six registered external tools, pqscan:B1-algorithm and pqscan:B2-method-args. Not based on evidence tier (T0 or T2) and not on whether an arm is external or internal. The other five pqscan arms (B4-full-T2, B1-dual, B3-full-noabst, method-args-recv-T0, method-only-T0) are reported separately and are never added to Part 1.",
+        "h1b_versus_h4_sets": "H1b and H4 Part 1 both say 'every baseline' but use different, separately registered sets on purpose. H1b (RQ1) asks about existing scanners, so its set is the six external tools (F12, H-4). H4 Part 1 (RQ4) tests whether transformations change the outcome of any baseline method against which the proposed analyser is compared, so its set is the full F-A baseline set (eight members, owner decision G08). The H1b set is unchanged; the set used is printed next to every H1b and H4 result.",
+        "owner_confirmation": {
+          "id": "OD-2026-11-19-G08C",
+          "date": "2026-11-19",
+          "by": "owner",
+          "finding": "third review TB01 (Package B)",
+          "decision": "Confirmed: H4 Part 1 contains exactly the eight registered F-A baselines; the remaining five pqscan arms are reported separately; no threshold, hypothesis, metric, method or estimand changes.",
+          "record": "docs/audit/owner_decision_g08_confirmation_2026-11-19.md"
+        }
       }
     }
   },

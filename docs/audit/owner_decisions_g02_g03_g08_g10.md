@@ -45,3 +45,5 @@ Source of the earlier statuses: `second_review_closure.md` (r2, kept unchanged a
 | G11 | Tool-attribution isolation | **MITIGATED** | r2 | Procedurally controlled and self-attested, not technically enforced |
 
 **Still open (outside G01–G11):** external human review (F1 prerequisite), 14-day intra-rater interval, pilot figure, W6, N1 (above).
+
+**Update (19 Nov 2026, appended; text above unchanged).** Third-review finding TB01 asked for confirmation of the G08 interpretation. The owner confirmed that H4 Part 1 is exactly the eight registered F-A baselines and that the other five pqscan arms are reported separately; inclusion is by F-A membership only. Record: `owner_decision_g08_confirmation_2026-11-19.md`. G08: CLOSED, interpretation confirmed.

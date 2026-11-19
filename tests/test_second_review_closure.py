@@ -1,6 +1,6 @@
 """Second isolated AI specification review (protocol v1.0.5), findings G01, G04, G07, G08, G09, G10, G11: the editorial
 corrections are present and consistent with the code. G05/G06 are covered by tests/test_g05_g06_forbidden_gate.py.
-G02 and G03 are open owner decisions and are deliberately not asserted as closed here."""
+G02 and G03 were decided by the owner on 19 Nov 2026 and are tested in tests/test_owner_decisions_r3.py."""
 from __future__ import annotations
 
 import json

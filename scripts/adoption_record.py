@@ -1,6 +1,6 @@
 """Adoption records of the Phase 3 protocol: SHA-256 of every normative document.
 
-    python scripts/adoption_record.py           # rewrite the CURRENT record (adoption_record_v1.0.5-r3.json)
+    python scripts/adoption_record.py           # rewrite the CURRENT record (adoption_record_v1.0.5-r4.json)
     python scripts/adoption_record.py --check   # exit 1 if any current or historical hash is no longer satisfied
 
 Records, oldest first; only the current one is ever (re)written:
@@ -8,7 +8,8 @@ Records, oldest first; only the current one is ever (re)written:
 * adoption_record_v1.0.5.json     (18 Nov 2026; protocol v1.0.5, owner-approved pre-F1 decision register)
 * adoption_record_v1.0.5-r1.json  (19 Nov 2026; code fixes G05/G06 after the second isolated AI review)
 * adoption_record_v1.0.5-r2.json  (19 Nov 2026; editorial corrections for G01, G04, G07, G08, G09, G10, G11)
-* adoption_record_v1.0.5-r3.json  (19 Nov 2026; CURRENT: owner decisions G02, G03, G08, G10)
+* adoption_record_v1.0.5-r3.json  (19 Nov 2026; owner decisions G02, G03, G08, G10)
+* adoption_record_v1.0.5-r4.json  (19 Nov 2026; CURRENT: owner confirmation of G08 after third-review finding TB01)
 
 --check verifies every document of the current record against the working tree, and every hash of every historical
 record against either the current file or a byte-identical copy in one of the archive folders
@@ -26,9 +27,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SPEC = ROOT / "docs" / "specification"
-RECORD = SPEC / "adoption_record_v1.0.5-r3.json"
+RECORD = SPEC / "adoption_record_v1.0.5-r4.json"
 HISTORY = [SPEC / "adoption_record_v1.0.4.json", SPEC / "adoption_record_v1.0.5.json",
-           SPEC / "adoption_record_v1.0.5-r1.json", SPEC / "adoption_record_v1.0.5-r2.json"]
+           SPEC / "adoption_record_v1.0.5-r1.json", SPEC / "adoption_record_v1.0.5-r2.json",
+           SPEC / "adoption_record_v1.0.5-r3.json"]
 ARCHIVE = SPEC / "archive"
 DOCS = [
     "docs/specification/evaluation_protocol.md",
@@ -68,11 +70,12 @@ def archive_files() -> list[Path]:
 
 def build() -> dict:
     return {
-        "record": "Phase 3 protocol v1.0.5, revision r3: owner decisions of 19 Nov 2026 (G02 nullable "
-                  "obvious_from_name, a data-contract correction; G03 units with the F03 rule retained; G08 frozen H4 "
-                  "Part 1 set = the F-A baselines; G10 additional guard calibration, PASS). No hypothesis, threshold, "
-                  "metric, estimand, test, family, sampling rule, label outcome or guard changed.",
-        "protocol_version": "1.0.5-r3",
+        "record": "Phase 3 protocol v1.0.5, revision r4: owner confirmation of G08 after third-review finding TB01 "
+                  "(H4 Part 1 = exactly the eight registered F-A baselines; inclusion by F-A membership only; the other "
+                  "five pqscan arms reported separately; why H1b's six-tool set differs). Wording in the run "
+                  "specification and the H4 registry only. No hypothesis, threshold, metric, estimand, test, family, "
+                  "sampling rule, label outcome, guard or baseline set changed.",
+        "protocol_version": "1.0.5-r4",
         "annotation_guide_version": "1.2-r3",
         "analysis_plan_version": "1.0.1-r3",
         "role_taxonomy_version": "1.1-r3",
@@ -81,8 +84,9 @@ def build() -> dict:
         "synthetic_generator_version": "1.1",
         "scoring_policy_version": "1.0.1",
         "adopted_utc_date": "2026-11-19",
-        "basis": "owner decisions G02, G03, G08, G10 (docs/audit/owner_decisions_g02_g03_g08_g10.md); previous records "
-                 "adoption_record_v1.0.4.json, v1.0.5.json, v1.0.5-r1.json and v1.0.5-r2.json are kept unchanged",
+        "basis": "owner confirmation docs/audit/owner_decision_g08_confirmation_2026-11-19.md; previous records "
+                 "adoption_record_v1.0.4.json, v1.0.5.json, v1.0.5-r1.json, v1.0.5-r2.json and v1.0.5-r3.json are kept "
+                 "unchanged",
         "documents": {d: sha256_text(ROOT / d) for d in DOCS},
         "archived": {p.relative_to(ROOT).as_posix(): sha256_text(p) for p in archive_files()},
     }

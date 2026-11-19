@@ -23,12 +23,16 @@ from .stats import holm, mcnemar_exact_one_sided
 ALPHA = 0.025
 SYSTEM = "pqscan:B4-full-T2"
 NOT_SCORED = {"cbomkit": "not run (owner decision D4 = A)", "mehl": "repository-level results only (reported separately)"}
+# Wording of analysis plan v1.0.1 Sec. 9 (protocol v1.0.5 Sec. 5.4, F05); third-review finding TA02 replaced the v1.0.4
+# text, which still asserted independent pairs. Pinned by tests/test_g08_confirmation_and_fa_assumptions.py.
 ASSUMPTIONS = (
-    "F-A assumptions (protocol v1.0.4 Sec. 5.4): (1) the 7 test repositories are fixed and inference concerns them "
-    "only; (2) sites are stratified simple random samples with eligibility-only stopping; (3) the sampled site pairs "
-    "are independent; (4) each comparison's estimand is the site-weighted difference over its own both-ran sites. "
-    "Under heterogeneity across repositories and strata the exact test is conservative. Limitation: 7 purposively "
-    "chosen repositories; no claim beyond them.")
+    "F-A assumptions (protocol v1.0.5 Sec. 5.4; analysis plan Sec. 9): (1) the 7 test repositories are fixed; "
+    "inference concerns them only; (2) sites are stratified simple random samples with eligibility-only stopping; "
+    "(3) sites are drawn without replacement within strata, so the sampled pairs are not independent. Whether the "
+    "pooled exact test keeps its level under this design is not asserted from theory: it was checked by the pre-F1 "
+    "simulation (plan Sec. 11.6; PASS), which covers the simulated configurations only; (4) the estimand of each "
+    "comparison is the site-weighted difference over its own both-ran sites. Limitation: 7 purposively chosen "
+    "repositories; no claim beyond them.")
 
 
 def _correct(j: str) -> int:
