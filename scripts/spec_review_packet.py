@@ -3,6 +3,9 @@
 
     python scripts/spec_review_packet.py                    # (re)write the current packet (v1.0.5, second review)
     python scripts/spec_review_packet.py --review v1.0.4    # (re)write the first-review packet (historical record)
+    python scripts/spec_review_packet.py --review v1.0.5-r3-A   # third review, Package A (current specification only)
+    python scripts/spec_review_packet.py --diff                 # (re)write Package B's change diff, then:
+    python scripts/spec_review_packet.py --review v1.0.5-r3-B   # third review, Package B (closure evidence)
     python scripts/spec_review_packet.py --check            # exit 1 if any committed packet no longer reproduces
 
 A packet = the fixed instructions of that review followed by the specification documents, each with its SHA-256
@@ -70,11 +73,39 @@ DOCS_V105 = [
     "pqscan/bench/frame_audit.py",                                # F18
     "pqscan/bench/multicall.py",                                  # F03
 ]
+DOCS_R3_A = [d for d in DOCS_V105 if not d.startswith("docs/review/")] + [   # no decision-status page: no coaching
+    "pqscan/bench/h2.py",                                         # H2 bootstrap and the signed coverage-gap guard
+    "pqscan/bench/guard_diagnostics.py",                          # G10 descriptive diagnostics
+    "pqscan/bench/h4.py",                                         # G08 frozen H4 registry
+]
+R3_DIR = "docs/review/spec_review_v1.0.5-r3"
+R3_DIFF = f"{R3_DIR}/package_B/changes_since_second_review.diff"
+DOCS_R3_B = [
+    R3_DIFF,                                                      # what changed since the second review saw the texts
+    "docs/audit/owner_decision_register_v1.0.5.md",               # first review: F01-F21 decisions
+    "docs/audit/chatgpt_review_finding_verification.md",          # first review: verification matrix
+    "docs/audit/pre_f1_correction_log.md",
+    "docs/audit/second_review_closure.md",                        # second review: G01-G11 (r2 statuses)
+    "docs/audit/second_review_g05_g06_fix.md",
+    "docs/audit/owner_decisions_g02_g03_g08_g10.md",              # r3 owner decisions and current closure matrix
+    "docs/implementation/acceptance/g10_calibration.md",
+    "docs/audit/standards_verification_2026-11-19.md",
+    "docs/audit/phase3_pipeline_check_2026-11-19.md",
+    "tests/test_g05_g06_forbidden_gate.py",
+    "tests/test_second_review_closure.py",
+    "tests/test_owner_decisions_r3.py",
+]
 REVIEWS = {
     "v1.0.4": {"dir": "docs/review/spec_review_v1.0.4", "protocol": "1.0.4", "guide": "1.1", "plan": "1.0",
                "docs": DOCS_V104, "packet": "spec-review-v1.0.4"},
     "v1.0.5": {"dir": "docs/review/spec_review_v1.0.5", "protocol": "1.0.5", "guide": "1.2", "plan": "1.0.1",
                "docs": DOCS_V105, "packet": "spec-review-v1.0.5"},
+    "v1.0.5-r3-A": {"dir": f"{R3_DIR}/package_A", "protocol": "1.0.5-r3", "guide": "1.2-r3", "plan": "1.0.1-r3",
+                    "docs": DOCS_R3_A, "packet": "spec-review-v1.0.5-r3-package-A",
+                    "archive": "docs/specification/archive/v1.0.5-r3", "title": "third review, Package A"},
+    "v1.0.5-r3-B": {"dir": f"{R3_DIR}/package_B", "protocol": "1.0.5-r3", "guide": "1.2-r3", "plan": "1.0.1-r3",
+                    "docs": DOCS_R3_B, "packet": "spec-review-v1.0.5-r3-package-B",
+                    "archive": "docs/specification/archive/v1.0.5-r3", "title": "third review, Package B"},
 }
 CURRENT = "v1.0.5"
 
@@ -93,6 +124,10 @@ def sha256_text(text: str) -> str:
 
 def read_doc(review: str, rel: str, root: Path) -> str:
     """The text of `rel` as that review saw it."""
+    arch_dir = REVIEWS[review].get("archive")
+    if arch_dir:                                                  # later reviews: archive copy once the text changes
+        arch = root / arch_dir / Path(rel).name
+        return norm_text(arch if arch.exists() else root / rel)
     if review == "v1.0.5":
         arch = root / ARCHIVE_V105 / Path(rel).name           # basenames in DOCS_V105 are unique
         if arch.exists():
@@ -140,7 +175,8 @@ def build(review: str = CURRENT, root: Path = ROOT) -> tuple[list[str], dict]:
     n = len(bodies)
     parts = []
     for i, body in enumerate(bodies, 1):
-        top = f"PART {i} OF {n} — specification review packet (protocol v{cfg['protocol']})\n\n"
+        title = cfg.get("title", "specification review packet")
+        top = f"PART {i} OF {n} — {title} (protocol v{cfg['protocol']})\n\n"
         if i < n:
             bottom = f"\nEND OF PART {i} OF {n}. Reply only: RECEIVED PART {i} OF {n}\n"
         else:
@@ -212,11 +248,39 @@ def identity_status(root: Path = ROOT) -> str:
     return "recorded"
 
 
+def changes_diff(root: Path = ROOT) -> str:
+    """Unified diff, per document of the second-review packet, from the text that review saw to the current text."""
+    import difflib
+    out = ["# Changes since the second review (protocol v1.0.5 packet) to the current texts (v1.0.5-r3).\n",
+           "# Generated by scripts/spec_review_packet.py --diff; documents without changes are listed as unchanged.\n\n"]
+    for rel in DOCS_V105:
+        if rel.startswith("docs/review/"):
+            continue
+        old, new = read_doc("v1.0.5", rel, root), read_doc("v1.0.5-r3-A", rel, root)   # frozen via the r3 archive
+        if old == new:
+            out.append(f"# unchanged: {rel}\n")
+            continue
+        out.extend(difflib.unified_diff(old.splitlines(keepends=True), new.splitlines(keepends=True),
+                                        f"a/{rel} (second review)", f"b/{rel} (current)", n=2))
+        if not out[-1].endswith("\n"):
+            out.append("\n")
+    for rel in ("pqscan/bench/h4.py", "pqscan/bench/guard_diagnostics.py"):
+        out.append(f"# new since the second review (full text in Package A): {rel}\n")
+    return "".join(out)
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--review", choices=sorted(REVIEWS), default=CURRENT)
+    ap.add_argument("--diff", action="store_true")
     a = ap.parse_args(argv)
+    if a.diff:
+        f = ROOT / R3_DIFF
+        f.parent.mkdir(parents=True, exist_ok=True)
+        f.write_text(changes_diff(), encoding="utf-8", newline="\n")
+        print("wrote", R3_DIFF)
+        return 0
     if a.check:
         bad = 0
         for review in sorted(REVIEWS):

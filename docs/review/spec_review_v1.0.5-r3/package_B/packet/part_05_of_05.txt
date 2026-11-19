@@ -1,0 +1,355 @@
+PART 5 OF 5 — third review, Package B (protocol v1.0.5-r3)
+
+    (p["work"] / "packets_demo_B1.json").write_text(json.dumps([CLEAN, NOISY]), encoding="utf-8")
+    prim = p["work"] / "primary_demo_B1.jsonl"
+    prim.write_text("{}\n", encoding="utf-8")
+    L.append(p["ledger"], step="issue", repo="demo", phase="DV", batch="B1",
+             candidates=[CLEAN["candidate_id"], NOISY["candidate_id"]])
+    L.append(p["ledger"], step="primary", repo="demo", phase="DV", batch="B1", file=prim)
+    return root, p, tmp_path
+
+
+def _run(root, *args):
+    return AN.main(list(args), root=root)
+
+
+def _decision(tmp_path, verdict, evidence=""):
+    f = tmp_path / f"decision_{verdict}.csv"
+    with f.open("w", newline="", encoding="utf-8") as fh:
+        w = csv.DictWriter(fh, fieldnames=AN.DECISION_COLUMNS)
+        w.writeheader()
+        w.writerow({"candidate_id": NOISY["candidate_id"], "token": "h2-1", "verdict": verdict, "evidence": evidence})
+    return f
+
+
+def test_ai_step_refused_when_no_decision_was_recorded(batch):
+    root, p, tmp = batch
+    raw = tmp / "raw.txt"
+    raw.write_text(_ai_line(CLEAN["candidate_id"]) + "\n" + _ai_line(NOISY["candidate_id"]), encoding="utf-8")
+    with pytest.raises(SystemExit, match="no recorded decision"):
+        _run(root, "ai", "--phase", "DV", "--repo", "demo", "--batch", "B1", "--response", str(raw),
+             "--utc", "2026-11-16T12:00:00Z")
+    assert not (p["work"] / "ai_review_demo_B1.jsonl").exists()
+    assert L.read(p["ledger"])[-1]["step"] == "primary"                 # nothing recorded
+
+
+def test_prompt_refused_without_decision_and_excludes_genuine_content(batch, capsys):
+    root, p, tmp = batch
+    with pytest.raises(SystemExit, match="forbidden token"):
+        _run(root, "prompt", "--phase", "DV", "--repo", "demo", "--batch", "B1")
+    _run(root, "prompt", "--phase", "DV", "--repo", "demo", "--batch", "B1",
+         "--warnings-decision", str(_decision(tmp, "genuine", "reason ignored")))
+    out = json.loads(capsys.readouterr().out.strip().splitlines()[-1])
+    assert out["excluded_forbidden"] == [NOISY["candidate_id"]]
+    prompt = (p["work"] / "prompt_demo_B1.txt").read_text(encoding="utf-8")
+    assert NOISY["text"] not in prompt and CLEAN["text"] in prompt and P._forbidden_in(prompt) == []
+
+
+def test_ai_response_naming_an_excluded_candidate_is_rejected(batch, capsys):
+    root, p, tmp = batch
+    _run(root, "prompt", "--phase", "DV", "--repo", "demo", "--batch", "B1",
+         "--warnings-decision", str(_decision(tmp, "genuine")))
+    capsys.readouterr()
+    bad = tmp / "bad.txt"
+    bad.write_text(_ai_line(CLEAN["candidate_id"]) + "\n" + _ai_line(NOISY["candidate_id"]), encoding="utf-8")
+    with pytest.raises(SystemExit, match="excluded candidate"):
+        _run(root, "ai", "--phase", "DV", "--repo", "demo", "--batch", "B1", "--response", str(bad),
+             "--utc", "2026-11-16T12:00:00Z")
+    assert not (p["work"] / "ai_review_demo_B1.jsonl").exists()
+    good = tmp / "good.txt"
+    good.write_text(_ai_line(CLEAN["candidate_id"]), encoding="utf-8")
+    _run(root, "ai", "--phase", "DV", "--repo", "demo", "--batch", "B1", "--response", str(good),
+         "--utc", "2026-11-16T12:00:00Z")
+    out = json.loads(capsys.readouterr().out.strip().splitlines()[-1])
+    assert out["records"] == 1 and out["excluded_forbidden"] == [NOISY["candidate_id"]] and out["absent"] == []
+    recs = [json.loads(x) for x in (p["work"] / "ai_review_demo_B1.jsonl").read_text(encoding="utf-8").splitlines()]
+    assert [r["meta"]["candidate_id"] for r in recs] == [CLEAN["candidate_id"]]
+
+
+def test_tampered_decision_file_is_refused_at_the_ai_step(batch, capsys):
+    root, p, tmp = batch
+    _run(root, "prompt", "--phase", "DV", "--repo", "demo", "--batch", "B1",
+         "--warnings-decision", str(_decision(tmp, "genuine")))
+    capsys.readouterr()
+    dec = p["work"] / "forbidden_decision_demo_B1.csv"
+    dec.write_text(dec.read_text(encoding="utf-8").replace("genuine", "false_positive"), encoding="utf-8")  # no evidence
+    good = tmp / "good.txt"
+    good.write_text(_ai_line(CLEAN["candidate_id"]), encoding="utf-8")
+    with pytest.raises(SystemExit, match="file:line"):
+        _run(root, "ai", "--phase", "DV", "--repo", "demo", "--batch", "B1", "--response", str(good),
+             "--utc", "2026-11-16T12:00:00Z")
+
+
+def test_verified_false_positive_proceeds_through_both_steps(batch, capsys):
+    root, p, tmp = batch
+    _run(root, "prompt", "--phase", "DV", "--repo", "demo", "--batch", "B1", "--warnings-decision",
+         str(_decision(tmp, "false_positive", "b.py:1 is a vendored changelog line, not this study's comparison")))
+    out = json.loads(capsys.readouterr().out.strip().splitlines()[-1])
+    assert out["excluded_forbidden"] == [] and out["false_positive"] == [NOISY["candidate_id"]]
+    raw = tmp / "raw.txt"
+    raw.write_text(_ai_line(CLEAN["candidate_id"]) + "\n" + _ai_line(NOISY["candidate_id"]), encoding="utf-8")
+    _run(root, "ai", "--phase", "DV", "--repo", "demo", "--batch", "B1", "--response", str(raw),
+         "--utc", "2026-11-16T12:00:00Z")
+    assert json.loads(capsys.readouterr().out.strip().splitlines()[-1])["records"] == 2
+=== END DOCUMENT: tests/test_g05_g06_forbidden_gate.py ===
+
+=== BEGIN DOCUMENT: tests/test_second_review_closure.py (sha256 07d3cbba7be17dc52db568f9415306b135c68b3ae49e610cbc431a28c122f2b2) ===
+"""Second isolated AI specification review (protocol v1.0.5), findings G01, G04, G07, G08, G09, G10, G11: the editorial
+corrections are present and consistent with the code. G05/G06 are covered by tests/test_g05_g06_forbidden_gate.py.
+G02 and G03 are open owner decisions and are deliberately not asserted as closed here."""
+from __future__ import annotations
+
+import json
+from fractions import Fraction
+from pathlib import Path
+from types import SimpleNamespace
+
+import pytest
+
+from pqscan.baselines.adapters import ADAPTERS
+from pqscan.baselines.simple import ARMS, H2_ARMS
+from pqscan.bench import annotate as AN
+from pqscan.bench import candidates as C
+from pqscan.bench import guard_diagnostics as GD
+from pqscan.bench import h2 as H
+from pqscan.policy import load_policy
+
+ROOT = Path(__file__).resolve().parents[1]
+GUIDE = (ROOT / "docs/benchmark/annotation_guide.md").read_text(encoding="utf-8")
+TAX = (ROOT / "docs/specification/role_taxonomy.md").read_text(encoding="utf-8")
+PROTO = (ROOT / "docs/specification/evaluation_protocol.md").read_text(encoding="utf-8")
+PLAN = (ROOT / "docs/specification/phase3_analysis_plan.md").read_text(encoding="utf-8")
+SPEC = json.loads((ROOT / "docs/specification/run_specification_pre_f1.json").read_text(encoding="utf-8"))
+YAML = (ROOT / "pqscan/policy/policy_v1_1.yaml").read_text(encoding="utf-8")
+
+
+# ------------------------------------------------------------------ G01
+def test_g01_protocol_config_branch_is_defined_and_scored():
+    step_c = GUIDE[GUIDE.index("**Step C"):GUIDE.index("**Step D")]
+    assert "Protocol configuration (r2, G01)" in step_c and "`PROTOCOL_CONFIG`, `eligible = true`" in step_c
+    assert "out-of-scope library (Step A): `eligible = false`" in step_c
+    multi = GUIDE[GUIDE.index("**Multi-call candidate statement"):GUIDE.index("**Step B")]
+    assert "3. a **protocol-configuration** call" in multi and "4. if several calls qualify" in multi
+    assert "configures a protocol object of that supported library" in TAX
+    assert load_policy().data["roles"]["PROTOCOL_CONFIG"] == "PROTOCOL_REVIEW"     # scored as protocol review
+
+
+# ------------------------------------------------------------------ G04, G07
+def test_g04_batch_run_versus_manual_use_is_explicit_in_guide_and_protocol():
+    assert "The only permitted execution is the prescribed one: the frozen batch run" in GUIDE
+    assert "This prescribed run is the only execution of any method on the test split before F2" in PROTO
+
+
+def test_g07_h3_interpretation_note_next_to_the_hypotheses():
+    note = PROTO[PROTO.index("**H3 interpretation note"):PROTO.index("## 2. Datasets")]
+    assert "**matched coverage**" in note and "**natural-coverage**" in note and "B3-full-noabst" in note
+    assert "H3: at coverage ≥ 70%, the harmful rate of the τ = T2 policy is lower than" in PROTO   # wording kept
+
+
+# ------------------------------------------------------------------ G08
+def test_g08_inventory_matches_the_code_registry():
+    inv = SPEC["interpretations"]["H-6 (H4)"]["tool_inventory_G08"]
+    assert set(inv["runnable_external_tools"]) == set(ADAPTERS)
+    assert set(inv["runnable_pqscan_arms"]) == {f"pqscan:{a}" for a in set(ARMS) | set(H2_ARMS)}
+    assert inv["proposed_analyser"] in inv["runnable_pqscan_arms"]
+    assert set(inv["not_runnable"]) == {"CBOMkit (sonar-cryptography)", "Mehl ESEM 2026 scanner"}
+    # owner decision G08 (19 Nov 2026): the F-A baseline set (was "PENDING OWNER DECISION" in r2)
+    assert inv["decision_set_part1"] == SPEC["families"]["F-A"]["baselines"]
+
+
+# ------------------------------------------------------------------ G09
+def test_g09_yaml_comment_says_colocation_is_only_a_candidate_condition():
+    assert "only a CANDIDATE condition" in YAML and "co-location alone never yields NO_ACTION_HYBRID" in YAML
+    probes = (ROOT / "tests/test_hybrid_review3.py").read_text(encoding="utf-8")
+    assert "'N2 same fn, both computed, not combined': (False" in probes          # the behavioural test stays
+
+
+# ------------------------------------------------------------------ G10
+def _res(rf, rm, n):
+    return {"R_f": rf, "R_m": rm, "n_common": n}
+
+
+def test_g10_diagnostics_are_descriptive_and_agree_with_the_signed_gap():
+    rs = [_res(20, 10, 30), _res(5, 15, 30), _res(12, 12, 24), _res(0, 0, 0)]
+    d = GD.diagnostics(rs)
+    assert d["signed_mean"] == H.coverage_gap(rs) and d["K_e"] == 3 and d["descriptive_only"] is True
+    assert d["mean_absolute"] == (Fraction(10, 30) + Fraction(10, 30) + 0) / 3
+    assert d["minimum"] == Fraction(-10, 30) and d["opposite_direction_repositories"] == 1
+    # cancellation lowers the signed gap: the guard can only switch on, never off
+    assert H.guard_active(H.coverage_gap(rs)) and not H.guard_active(H.coverage_gap(rs[:1]))
+    assert GD.diagnostics([_res(0, 0, 0)])["K_e"] == 0
+
+
+def test_g10_rationale_and_limitation_recorded_without_changing_the_rule():
+    sec = PLAN[PLAN.index("### 7.2 Coverage-gap guard"):PLAN.index("### 7.3")]
+    assert "the guard is active iff **g < 1/10**" in sec and "**signed** coverage advantage" in sec
+    assert "never change the guard or p" in sec and "The pre-specified signed rule stands." in sec
+
+
+# ------------------------------------------------------------------ G11
+def _repo(tmp: Path) -> tuple[Path, Path]:
+    repo = tmp / "repo"
+    repo.mkdir()
+    (repo / "m.py").write_text("from cryptography.hazmat.primitives.asymmetric import rsa\n"
+                               "k = rsa.generate_private_key(public_exponent=65537, key_size=2048)\n", encoding="utf-8")
+    run = tmp / "run"
+    run.mkdir()
+    return repo, run
+
+
+def test_g11_build_writes_attribution_outside_the_order_folder(tmp_path):
+    repo, run = _repo(tmp_path)
+    out = tmp_path / "benchmark" / "candidates" / "development"
+    assert C.main(["build", "--repo", str(repo), "--name", "demo", "--commit", "abc", "--run-dir", str(run),
+                   "--out", str(out)]) == 0
+    assert not list(out.glob("pool_sources_*"))
+    assert (tmp_path / "benchmark" / "restricted" / "pool_sources" / "development" / "pool_sources_demo.json").exists()
+    with pytest.raises(C.SamplerError, match="G11"):
+        C.main(["build", "--repo", str(repo), "--name", "demo", "--commit", "abc", "--run-dir", str(run),
+                "--out", str(out), "--sources-out", str(out / "sub")])
+
+
+def test_g11_issue_refuses_while_attribution_sits_in_a_candidate_or_annotation_folder(tmp_path):
+    root = tmp_path
+    cand = root / "benchmark" / "candidates" / "development"
+    cand.mkdir(parents=True)
+    (cand / "pool_sources_x.json").write_text("{}", encoding="utf-8")
+    with pytest.raises(SystemExit, match="tool-attribution"):
+        AN._attribution_isolated(root, root / "benchmark" / "annotation" / "DV" / "x")
+    (cand / "pool_sources_x.json").unlink()
+    AN._attribution_isolated(root, root / "benchmark" / "annotation" / "DV" / "x")      # clean: no error
+    with pytest.raises(SystemExit, match="tool-attribution"):
+        AN.main(["issue", "--phase", "pilot", "--repo", "paramiko"], root=_with_stray(root))
+
+
+def _with_stray(root: Path) -> Path:
+    w = root / "benchmark" / "annotation" / "pilot" / "paramiko"
+    w.mkdir(parents=True, exist_ok=True)
+    (w / "pool_sources_paramiko.json").write_text("{}", encoding="utf-8")
+    return root
+
+
+def test_g11_real_repository_keeps_attribution_out_of_tracked_and_packet_paths():
+    assert not list((ROOT / "benchmark" / "candidates").rglob("pool_sources_*.json"))
+    import subprocess
+    tracked = subprocess.run(["git", "ls-files"], cwd=ROOT, capture_output=True, text=True).stdout
+    assert "pool_sources_" not in tracked and "benchmark/restricted" not in tracked
+    attest = (ROOT / "docs/audit/source_attribution_access_attestation_TEMPLATE.md").read_text(encoding="utf-8")
+    assert "self-attested" in attest and "not technically enforced" in attest
+=== END DOCUMENT: tests/test_second_review_closure.py ===
+
+=== BEGIN DOCUMENT: tests/test_owner_decisions_r3.py (sha256 b4bd30f7f67b1198a807575e4f9669a0deae9903dcf73f0fc86d3b999c0f9296) ===
+"""Owner decisions of 19 Nov 2026 (docs/audit/owner_decisions_g02_g03_g08_g10.md): G02 nullable obvious_from_name
+(schema v1.1, Dataset A generator 1.1, pilot migration), G03 units with the F03 rule retained, G08 frozen H4 set."""
+from __future__ import annotations
+
+import csv
+import json
+from pathlib import Path
+
+import pytest
+from jsonschema import Draft202012Validator
+
+from pqscan.baselines.adapters import ADAPTERS
+from pqscan.baselines.simple import ARMS, H2_ARMS
+from pqscan.bench import fa, h4, synth
+from pqscan.bench import labels as LB
+
+ROOT = Path(__file__).resolve().parents[1]
+SCHEMA = json.loads((ROOT / "docs/benchmark/benchmark_schema.json").read_text(encoding="utf-8"))
+V = Draft202012Validator(SCHEMA)
+SITES = [json.loads(x) for x in (ROOT / "benchmark/synthetic/sites.jsonl").read_text(encoding="utf-8").splitlines() if x]
+OLD = [json.loads(x) for x in (ROOT / "benchmark/synthetic/archive/generator-1.0/sites.jsonl").read_text(encoding="utf-8").splitlines() if x]
+SPEC = json.loads((ROOT / "docs/specification/run_specification_pre_f1.json").read_text(encoding="utf-8"))
+
+
+# ------------------------------------------------------------------ G02
+def _rec(**kw):
+    base = dict(SITES[0])
+    base.update(kw)
+    return base
+
+
+def test_g02_schema_requires_null_on_ineligible_and_boolean_on_eligible():
+    neg = next(r for r in SITES if not r["eligible"])
+    pos = next(r for r in SITES if r["eligible"])
+    assert not list(V.iter_errors(neg)) and neg["obvious_from_name"] is None
+    assert not list(V.iter_errors(pos)) and isinstance(pos["obvious_from_name"], bool)
+    assert list(V.iter_errors(dict(neg, obvious_from_name=False)))             # false is no longer "not applicable"
+    assert list(V.iter_errors(dict(pos, obvious_from_name=None)))              # eligible needs a boolean
+    assert list(V.iter_errors(dict(pos, obvious_from_name="n/a")))             # never coerced
+    assert SCHEMA["title"].endswith("(v1.1)")
+
+
+def test_g02_dataset_a_fully_valid_and_only_the_contract_field_migrated():
+    assert len(SITES) == 388 and all(not list(V.iter_errors(r)) for r in SITES)
+    assert [r["site_id"] for r in SITES] == [r["site_id"] for r in OLD]
+    for new, old in zip(SITES, OLD):
+        changed = {k for k in set(new) | set(old) if new.get(k) != old.get(k)}
+        assert changed <= {"commit", "obvious_from_name"}, (new["site_id"], changed)
+        if "obvious_from_name" in changed:
+            assert old["eligible"] is False and old["obvious_from_name"] is False and new["obvious_from_name"] is None
+    assert sum(1 for r in SITES if not r["eligible"]) == 52
+    assert {r["obvious_from_name"] for r in SITES if not r["eligible"]} == {None}
+    m = json.loads((ROOT / "benchmark/synthetic/manifest.json").read_text(encoding="utf-8"))
+    assert m["generator_version"] == synth.GENERATOR_VERSION == "1.1" and m["generator_sha256"] == synth.generator_hash()
+
+
+def test_g02_pilot_record_migrated_and_original_preserved():
+    rows = list(csv.DictReader((ROOT / "docs/pilot/h1_pilot_sites.csv").open(encoding="utf-8")))
+    old = list(csv.DictReader((ROOT / "docs/pilot/archive/h1_pilot_sites_pre_g02.csv").open(encoding="utf-8")))
+    assert len(rows) == len(old) == 31
+    for n, o in zip(rows, old):
+        diff = {k for k in n if n[k] != o[k]}
+        assert diff <= {"obvious_from_name"}
+        if diff:
+            assert o["obvious_from_name"] == "n/a" and n["obvious_from_name"] == "null" and o["eligible"].lower() == "no"
+    assert not any(r["obvious_from_name"] == "n/a" for r in rows)
+
+
+def test_g02_label_validator_accepts_null_only_where_not_applicable():
+    from pqscan.bench.loops import normalise
+    assert normalise("obvious_from_name", "null") is None and normalise("obvious_from_name", None) is None
+    full, _meta, partial = LB._validators()
+    assert partial.schema["properties"]["obvious_from_name"] == {"type": ["boolean", "null"]}
+
+
+@pytest.mark.parametrize("path,needle", [
+    ("docs/specification/role_taxonomy.md", "`obvious_from_name = null`"),
+    ("docs/benchmark/annotation_guide.md", "`site.obvious_from_name` is a JSON boolean on an eligible record and `null`"),
+    ("docs/specification/data_dictionary.md", "| `obvious_from_name` | bool or null |"),
+    ("docs/benchmark/ai_review_prompt_v1.md", '"obvious_from_name": true or false (null when eligible is false)'),
+])
+def test_g02_documents_consistent(path, needle):
+    assert needle in (ROOT / path).read_text(encoding="utf-8")
+
+
+# ------------------------------------------------------------------ G03
+def test_g03_units_defined_and_f03_rule_retained():
+    g = (ROOT / "docs/benchmark/annotation_guide.md").read_text(encoding="utf-8")
+    units = g[g.index("**Units (r3, owner decision G03"):]
+    for term in ("*candidate-discovery unit*", "*sampling unit*", "*primary annotated site*", "*analysis unit*",
+                 "`also-call: <api_call> @<line>:<column>`", "at most 8 of the 3,503", "never expanded retrospectively"):
+        assert term in units, term
+    ev = json.loads((ROOT / "docs/audit/evidence/f03_multicall_pool.json").read_text(encoding="utf-8"))
+    assert ev["pool_candidates"] == 3503 and len(ev["multi_call"]) == 8
+
+
+# ------------------------------------------------------------------ G08
+def test_g08_registry_json_and_code_agree():
+    inv = SPEC["interpretations"]["H-6 (H4)"]["tool_inventory_G08"]
+    assert tuple(inv["decision_set_part1"]) == h4.PART1_BASELINES == tuple(SPEC["families"]["F-A"]["baselines"])
+    assert h4.PROPOSED_ANALYSER == fa.SYSTEM == inv["proposed_analyser"]
+    externals = [b for b in h4.PART1_BASELINES if not b.startswith("pqscan:")]
+    assert set(externals) == set(ADAPTERS)
+    arms = {f"pqscan:{a}" for a in set(ARMS) | set(H2_ARMS)}
+    assert set(inv["pqscan_arm_roles"]) == arms and len(arms) == 7
+    assert set(h4.T0_COMPARATORS_SEPARATE).isdisjoint(h4.PART1_BASELINES)
+    assert set(h4.DESCRIPTIVE_ONLY).isdisjoint(h4.PART1_BASELINES)
+    manifest = json.loads((ROOT / "benchmark/baselines_manifest.json").read_text(encoding="utf-8"))
+    assert set(h4.EXCLUDED) == set(manifest["not_runnable"]) == set(inv["not_runnable"])
+    assert any(d["id"] == "OD-2026-11-19" and d["by"] == "owner" for d in SPEC["decisions"])
+=== END DOCUMENT: tests/test_owner_decisions_r3.py ===
+
+
+END OF PACKET (PART 5 OF 5). Now produce the review in the OUTPUT FORMAT given in PART 1.

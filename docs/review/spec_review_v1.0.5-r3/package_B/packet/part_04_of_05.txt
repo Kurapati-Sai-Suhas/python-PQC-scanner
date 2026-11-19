@@ -1,0 +1,244 @@
+PART 4 OF 5 — third review, Package B (protocol v1.0.5-r3)
+
+| G01 | PROTOCOL_CONFIG eligible in the taxonomy, but the guide had no branch for it | Guide Step C had only operation and key-material branches; multi-call rule ended "otherwise ineligible". Frame check (order files + DV source only): **12 DV pool candidates** contain protocol-configuration calls, all paramiko (`get_security_options`, `disabled_algorithms`): 1 S1-nonapp, 11 S2. Paramiko is not a supported library, so these were already ineligible under Step A (out-of-scope library). Pilot: 0 PROTOCOL_CONFIG labels. The pinned supported libraries expose no protocol objects. | Kind (c) defined as a protocol object *of a supported library*; Step C and multi-call branch added with evidence rules and examples; out-of-scope protocol configuration stays ineligible | guide, taxonomy | `test_g01_…` | None: no label outcome changes (reserved branch) | **CLOSED** | Kind (c) is reserved in the current frame; the scanner does not emit PROTOCOL_CONFIG (D10) |
+| G02 | `obvious_from_name = n/a` (taxonomy) vs boolean schema | Schema `benchmark_schema.json:30` boolean; taxonomy rule 8 `n/a`; data **inconsistent**: the 1 ineligible pilot row uses `n/a`, all 52 ineligible synthetic records use `false` | None yet | — | — | Option A (nullable; `null` for ineligible) changes the schema (adopted data contract), regenerates Dataset A (manifest and evidence hashes), and touches validators; Option B keeps boolean with an explicit conditional rule (`eligible = false` ⇒ `false`, meaning not applicable). Neither changes any estimand (`obvious_from_name` feeds H1a on eligible sites only) | **OWNER DECISION REQUIRED** | Until decided, analyses must read `obvious_from_name` on eligible sites only (already the case) |
+| G03 | Same-family extra calls only in `notes` vs one call per site | Units: discovery = statement candidate (V6); sampling = statement candidate (quotas count eligible candidates); annotated site = one call per candidate (guide Step A); analysis unit = site = candidate (1:1 in the primary set). Impact bound: **8 of 3,503** DV pool candidates are multi-call (`docs/audit/evidence/f03_multicall_pool.json`) | None yet (owner-approved F03 rule stands) | — | existing `tests/test_f03_multicall.py` | Recording same-family extra calls as annotator-added sites would add sensitivity-set sites only; primary sampling, denominator and estimand unchanged. Changing the sampling unit would be a methodological change (not proposed) | **OWNER DECISION REQUIRED** | Up to 8 candidates' extra same-family calls are not separate site records |
+| G04 | "No scanners" vs the frozen batch run | Guide Sec. 2 vs protocol Sec. 6 | Clarified: the prescribed frozen batch run is the only execution before F2; manual running, opening or inspecting is prohibited until final labels / F2; who reads what and when stated | guide, protocol | `test_g04_…` | None | **CLOSED** | Compliance is self-attested (single investigator) |
+| G05 | Hypothesis labels missing from the forbidden list | `packets.FORBIDDEN` had only h2a/h2b | All registered identifiers added; bare H1–H4 excluded (ordinary-code false positives) | `packets.py` (`370549c`) | `tests/test_g05_g06_forbidden_gate.py` (re-run) | None | **CLOSED** | Detection is lexical; a paraphrase of a hypothesis is not caught |
+| G06 | Fail-closed AI submission not demonstrated | Prompt gate existed; `ai` step did not enforce it | `ai` step refuses without a valid decision; rejects responses naming excluded candidates before writing or ledgering | `annotate.py` (`370549c`) | real `prompt` → `ai` command-path tests (re-run) | None | **CLOSED** | A deliberate bypass outside the tool (pasting raw text elsewhere) is procedural |
+| G07 | H3 comparison bases unclear | Protocol H3 row; H-5 in the run specification | Interpretation note next to the hypotheses: random withholding at matched coverage; always-recommend (B3-full-noabst) at natural coverage | protocol | `test_g07_…` | None (H-5 unchanged, recorded before any outcome) | **CLOSED** | — |
+| G08 | H4 tool set not enumerated | Code registry: 6 adapters; pqscan arms B1-algorithm, B1-dual, B2-method-args, B3-full-noabst, B4-full-T2, method-args-recv-T0, method-only-T0; manifest not-runnable: CBOMkit, Mehl | Inventory recorded (JSON authoritative, Markdown matching), with exclusions and sources | run specification | `test_g08_…` (inventory = code registry) | None | **MITIGATED** / **OWNER DECISION REQUIRED** for which identifiers count as "every baseline" in H4 Part 1 | Proposed: the F-A baseline set (6 external + B1-algorithm + B2-method-args), others descriptive |
+| G09 | Hybrid detector not shown to require combination | `pqscan/semantic/hybrid.py:297` `combined_hybrid`; `engine.py` requires matching family **and** combination; negatives N2, N11, S2, A1 in `tests/test_hybrid_review3.py` | YAML comment corrected (co-location only a candidate condition); behaviour unchanged | `policy_v1_1.yaml` (comment) | `test_g09_…` + existing probes | None | **FALSE POSITIVE** (implementation); comment fixed | — |
+| G10 | Signed coverage-gap guard unjustified | Plan Sec. 7.2; `h2.coverage_gap`; R4-03c Sec. 4 (anti-conservative bootstrap near the min() kink: unguarded up to 0.0397, guarded ≤ 0.0203); acceptance re-ran the near-equal-coverage cells on production code (ACCEPTED) | Rationale and interpretation documented: signed advantage by design; cancellation only lowers g (guard on, conservative). Mean absolute and minimum repository gaps added as **descriptive** diagnostics (`guard_diagnostics.py`), never changing p | plan, new module | `test_g10_…` | None (rule, threshold, p, Holm unchanged) | **MITIGATED** | A positive mean with near-zero or negative individual repositories was not a separate calibration scenario; a calibration run of that scenario is proposed before F1 (owner decision) |
+| G11 | Tool-attribution files not isolated | `pool_sources_*.json` was written next to the orders; git-ignored, never committed | Moved (hashes unchanged) to `benchmark/restricted/pool_sources/<split>/` (git-ignored); the build refuses to write them inside the order folder; the annotation tool refuses to issue while one sits in a candidate or annotation folder; access attestation template | `candidates.py`, `annotate.py`, `.gitignore`, guide, protocol, template | `test_g11_…`, `test_candidates` | None | **MITIGATED** (procedurally controlled and self-attested; **not technically enforced**) | One investigator can still open the file deliberately; the attestation is the record |
+
+**Owner decisions still required:** G02 (representation), G03 (same-family extra calls), G08 (H4 Part 1 decision set), G10 (whether to run the mixed-sign calibration scenario before F1). Earlier pending items unchanged: external human review (F1 prerequisite), pilot figure, W6.
+
+**Update (r3, 19 Nov 2026).** The owner decided G02, G03, G08 and G10; statuses above are those of r2 and are kept as the historical record. Current statuses: `owner_decisions_g02_g03_g08_g10.md`.
+=== END DOCUMENT: docs/audit/second_review_closure.md ===
+
+=== BEGIN DOCUMENT: docs/audit/second_review_g05_g06_fix.md (sha256 0877e196bb74a1cbf5a7f411c58229a7d6ad62bcef38bb1012653fd1e0d917ea) ===
+# Second specification review: code fixes G05 and G06 (19 Nov 2026)
+
+Owner-approved fix of the two verified code defects among findings G01–G11 of the second isolated AI specification review (protocol v1.0.5). Starting commit `f67c25056d1c271c5669da30887bf3b14fbc12ae` (local checkpoint tag `pre-g05-g06-fix-f67c250`).
+
+| Finding | Defect | Fix |
+|---|---|---|
+| G05 | `packets.FORBIDDEN` listed only `h2a`, `h2b` of the registered hypothesis/comparison identifiers | `HYPOTHESIS_IDS` = h1a, h1b, h2a, h2b, h2-1, h2-2, h2-3, h2-4, h2-s, f-a, f-b, added to `FORBIDDEN` (case-insensitive, existing word boundaries). Bare H1–H4 deliberately not listed (they match ordinary code). |
+| G06 | The prompt gate existed, but the `ai` step accepted a response without checking that the gate's decision existed, and parsed records for excluded candidates | `cmd_ai` now calls `_ai_gate`: if any packet contains a forbidden token, the recorded decision must exist and validate (same rules as the prompt gate); a response naming an excluded candidate is rejected before anything is written or ledgered; excluded candidates are never parsed. The prompt gate's semantics are unchanged. |
+
+**Hashes (SHA-256, LF-normalised).**
+- `pqscan/bench/packets.py`: before `636b4b8f68fc315dc5d2c504b566452c1a89f477e0567116a6bdb89a6f493925`, after `3aa9ea54e5b3ed44d4348179870447376145845fa0317621e8465ff249922301`.
+- `pqscan/bench/annotate.py`: before `f630b215370f6e4e03c017cf5af4722032d305dd794bbe746ad17d67de6c7bc6`, after `d9a4bdba9856d8327e4f2e2b9665053b335840b540d92645d251ad3cccc36904`.
+
+**Records.** `adoption_record_v1.0.5.json` and `adoption_record_v1.0.4.json` are not rewritten; the pre-fix `packets.py` is archived byte-for-byte in `docs/specification/archive/v1.0.5/` and `archive/v1.0.4/` and verified against both. Current hashes: `adoption_record_v1.0.5-r1.json`. Both review packets (v1.0.4, v1.0.5) still reproduce exactly the texts their reviewers saw.
+
+**Tests.** `tests/test_g05_g06_forbidden_gate.py` (every registered identifier in several forms and cases; ordinary-code negatives; the real `prompt` and `ai` command paths: refused without a decision, genuine content excluded, a response naming an excluded candidate rejected, a tampered decision refused, a verified false positive proceeding).
+
+**Not changed.** Protocol v1.0.5 text, sampling, candidate orders, labels, hypotheses, estimands, metrics, statistics, thresholds, F-A/F-B, D7, D15, the scanner and its hybrid detector (G09 is an implementation false positive), the E30 calibration closure.
+
+**Still open (not resolved by this fix):** G01, G02, G03, G04, G07, G08, G10 and G11 remain as verified (documentation corrections or owner decisions; G11 is a self-attested safeguard: `pool_sources_*.json` is git-ignored but on the same disk). The policy YAML comment noted under G09 is stale and unchanged.
+=== END DOCUMENT: docs/audit/second_review_g05_g06_fix.md ===
+
+=== BEGIN DOCUMENT: docs/audit/owner_decisions_g02_g03_g08_g10.md (sha256 b6726d4efe6389d847162a360ee2bba1da8bf26f506b185b98bd21014ba96392) ===
+# Owner decisions G02, G03, G08, G10 (19 Nov 2026) and their implementation
+
+Decided by the owner on 19 Nov 2026, after the verification in `second_review_closure.md`. Implemented in revision v1.0.5-r3 (`adoption_record_v1.0.5-r3.json`). Before any labelling and any test-split access. Pre-change texts are archived in `docs/specification/archive/v1.0.5-r2/` (and `archive/v1.0.4`, `archive/v1.0.5` where the earlier reviews saw the same text).
+
+## Decision register
+
+| ID | Owner decision (verbatim intent) | Implementation | Evidence | Scientific impact |
+|---|---|---|---|---|
+| G02 | `obvious_from_name` uses nullable Boolean semantics: true/false on eligible (applicable) records, null on ineligible (not applicable) records. A data-contract correction, not a label, sampling or estimand change. | Benchmark schema v1.1 (`type: [boolean, null]` plus conditional rules: eligible ⇒ boolean, ineligible ⇒ null); taxonomy rule 8, guide (Step A, type rules), data dictionary and AI-review prompt aligned; Dataset A regenerated with generator 1.1; pilot record migrated | 52 synthetic ineligible values `false` → `null`; 1 pilot value `n/a` → `null`; nothing else in any label changed (test compares every field with the archived generator-1.0 dataset); all 388 records validate against schema v1.1 | None: `obvious_from_name` feeds H1a on eligible sites only |
+| G03 | Retain the F03 primary sampling and annotation rule; additional same-family calls are not extra primary sites; clarify the four units; keep denominators and labels; disclose the impact | Guide: candidate-discovery unit, sampling unit, primary annotated site, analysis unit; `notes` format `also-call: <api_call> @<line>:<column>`; taxonomy rule 7; protocol threats | At most 8 of 3,503 DV pool candidates are multi-call (E64) | None: primary sample, denominators and estimands unchanged; nothing expanded retrospectively |
+| G08 | H4 Part 1 uses the F-A baseline set; exact identifiers from the registry; T0-only comparators separate; CBOMkit and Mehl exclusions kept | Run specification JSON (authoritative) and Markdown; registry `pqscan/bench/h4.py` | Part 1 = pqcheck, pqc-audit, PostQuant, qsafe, QSA-regex, pqblocks-scan, pqscan:B1-algorithm, pqscan:B2-method-args. Proposed analyser pqscan:B4-full-T2 (Part 2). B1-dual descriptive (D15). T0 comparators B3-full-noabst, method-args-recv-T0, method-only-T0 separate. Excluded: CBOMkit (D4 = A), Mehl (results-only) | Fixes the H4 tool set before any evaluation; no threshold change |
+| G10 | Keep the signed guard and its threshold; before F1 run an additional pre-specified calibration of heterogeneous repository gaps with the existing procedure and criteria; stop before F1 if it fails | `scripts/g10_calibration.py`; analysis plan Sec. 11.7 | **PASS**: worst Type I 0.0183 at α = 0.025 (limit 0.0297); cancellation case 0.0062; near-threshold case 0.0092; power at δ_r = +0.04: 0.158–0.219. Seeds `default_rng([20261113, 21, tid, chunk])`, tid 9001–9008 | Guard, threshold and p-values unchanged; planning-model evidence only |
+
+**Interpretation recorded for G08.** "Include the seven specified pqscan arms" is implemented as: all seven runnable pqscan arms are enumerated with their roles in the inventory; Part 1 contains only those that are registered F-A baseline arms (B1-algorithm, B2-method-args), because the same decision keeps T0-only comparators separate and B1-dual is descriptive only under D15. If the owner intended all seven arms in Part 1, that is a separate decision.
+
+## Hashes
+
+| Artefact | Before | After |
+|---|---|---|
+| `benchmark/synthetic/sites.jsonl` | `a18c023ea62ec714a2ae41ca9dbb896411428ecc5f87bb751190c782dbae6b2e` | `a2f8f354f3638e172fb58ba2d2e0b60f8fa6a7377cdd1d08549d51939e545390` |
+| `benchmark/synthetic/manifest.json` | `2dbb9c4c9300b66d292825b0dfee9a1dc8c095b90eb945538899a296cebf1cb6` | `eabe8951e85753c8ac66d431492eb3bab70435e63b8d288099f2206d11756c35` |
+
+The generator-1.0 dataset files are archived in `benchmark/synthetic/archive/generator-1.0/`; the pilot record before migration in `docs/pilot/archive/h1_pilot_sites_pre_g02.csv`. The 388 case files changed only on line 1 (generator version in the header docstring); candidate IDs, which depend on file path and line, are unchanged. Every record's `commit` field (generator hash) changed with the generator.
+
+## New finding during this work (not decided; owner decision required)
+
+**N1 — PyCryptodome post-quantum APIs.** The installed PyCryptodome 4.4.0 provides `Crypto.PublicKey.MLKEM`, `MLDSA` and `Hybrid`. The scanner's approved-hybrid encoding (`approved_hybrid_prefixes`) recognises only the pyca ML-KEM/ML-DSA prefixes, and the guide's list of PQ components (pyca `mlkem`/`mldsa`, `oqs`, `pqcrypto`) does not name PyCryptodome. A PyCryptodome-based PQ/T hybrid would therefore not be recognised by the scanner and is not explicitly covered by the labelling rule. Changing either alters labelling scope or scanner behaviour before F1; it is recorded as a limitation until the owner decides.
+
+## Current G01–G11 closure matrix (after r3, 19 Nov 2026)
+
+Source of the earlier statuses: `second_review_closure.md` (r2, kept unchanged apart from an appended pointer). The review was an isolated AI specification review with owner decisions, **not** independent human validation.
+
+| ID | Finding (short) | Status after r3 | Closed by | Residual limitation |
+|---|---|---|---|---|
+| G01 | PROTOCOL_CONFIG branch missing in the guide | **CLOSED** | r2 (guide, taxonomy) | Kind (c) reserved in the current frame |
+| G02 | `obvious_from_name` n/a vs boolean | **CLOSED** | r3, owner decision (schema v1.1, generator 1.1, pilot migration) | None for estimands; historical records keep the old representation (archived) |
+| G03 | Same-family extra calls | **CLOSED** (F03 rule retained) | r3, owner decision (units, notes format, disclosure) | Up to 8 of 3,503 candidates' extra same-family calls are notes, not site records |
+| G04 | "No scanners" vs frozen batch run | **CLOSED** | r2 | Compliance self-attested |
+| G05 | Hypothesis labels in the forbidden list | **CLOSED** | r1 (`370549c`) | Lexical detection only |
+| G06 | Fail-closed AI submission | **CLOSED** | r1 (`370549c`) | Bypass outside the tool is procedural |
+| G07 | H3 comparison bases | **CLOSED** | r2 | — |
+| G08 | H4 tool set | **CLOSED** | r2 inventory + r3 owner decision (frozen Part 1 set, registry `h4.py`) | Interpretation of "seven pqscan arms" recorded above |
+| G09 | Hybrid detector needs combination | **FALSE POSITIVE**; comment fixed | r2 | — |
+| G10 | Signed coverage-gap guard | **CLOSED** (rule retained; additional calibration PASS) | r2 diagnostics + r3 calibration | Planning-model evidence; says nothing about scanner accuracy |
+| G11 | Tool-attribution isolation | **MITIGATED** | r2 | Procedurally controlled and self-attested, not technically enforced |
+
+**Still open (outside G01–G11):** external human review (F1 prerequisite), 14-day intra-rater interval, pilot figure, W6, N1 (above).
+=== END DOCUMENT: docs/audit/owner_decisions_g02_g03_g08_g10.md ===
+
+=== BEGIN DOCUMENT: docs/implementation/acceptance/g10_calibration.md (sha256 8957a915066574cd4ddb7b127ab00dc98e2748c2c8e2364783ca20e4841a4431) ===
+# G10 additional calibration of the signed coverage-gap guard
+
+Procedure: production H2 single comparison via scripts/phase3_acceptance.py task_single (guard unchanged). B = 1000. Criterion: rate <= level + 3*sqrt(level*(1-level)/n) at a/3, a/2, a (plan Sec. 11.2). Seeds: numpy default_rng([20261113, 21, tid, chunk]); tid listed per scenario.
+
+**Overall (null cells): PASS**
+
+| id | kind | description | population repository gaps (F − M) | mean gap | n | a/3 | a/2 | a | P(guard on) | result |
+|---|---|---|---|---|---|---|---|---|---|---|
+| G10a | null | positive mean gap; two repositories near zero (kink) | +0.29, +0.29, +0.29, +0.29, +0.29, +0.00, +0.00 | +0.207 | 10000 | 0.0045 | 0.0080 | 0.0174 | 0.001 | pass |
+| G10b | null | positive mean gap; one repository with a negative gap | +0.29, +0.29, +0.29, +0.29, +0.29, +0.29, -0.33 | +0.202 | 10000 | 0.0034 | 0.0051 | 0.0121 | 0.003 | pass |
+| G10c | null | opposite-direction gaps that cancel (3 positive, 3 negative, 1 zero) | +0.29, +0.29, +0.29, -0.33, -0.33, -0.33, +0.00 | -0.015 | 10000 | 0.0020 | 0.0027 | 0.0062 | 0.999 | pass |
+| G10d | null | plausible heterogeneous coverage (one negative, one zero gap) | +0.44, +0.33, +0.40, +0.07, -0.05, +0.25, +0.03 | +0.210 | 10000 | 0.0061 | 0.0090 | 0.0183 | 0.001 | pass |
+| G10e | null | positive mean near the guard threshold (5 positive, 2 negative) | +0.29, +0.29, +0.29, +0.29, +0.29, -0.33, -0.33 | +0.114 | 10000 | 0.0023 | 0.0033 | 0.0092 | 0.327 | pass |
+| G10a-power | power | positive mean gap; two repositories near zero (kink); delta_r = +0.04 everywhere (power; larger effects are unreachable by the qF tuning in some repositories of these patterns) | +0.29, +0.29, +0.29, +0.29, +0.29, +0.00, +0.00 | +0.207 | 2000 | 0.1060 | 0.1375 | 0.2175 | 0.000 | power |
+| G10b-power | power | positive mean gap; one repository with a negative gap; delta_r = +0.04 everywhere (power; larger effects are unreachable by the qF tuning in some repositories of these patterns) | +0.29, +0.29, +0.29, +0.29, +0.29, +0.29, -0.33 | +0.202 | 2000 | 0.0665 | 0.0930 | 0.1580 | 0.001 | power |
+| G10d-power | power | plausible heterogeneous coverage (one negative, one zero gap); delta_r = +0.04 everywhere (power; larger effects are unreachable by the qF tuning in some repositories of these patterns) | +0.44, +0.33, +0.40, +0.07, -0.05, +0.25, +0.03 | +0.210 | 2000 | 0.1030 | 0.1415 | 0.2190 | 0.000 | power |
+
+Worst null rate at a = 0.025: 0.0183 (G10d).
+Environment: {'python': '3.12.10', 'numpy': '2.5.4', 'scipy': '1.18.1', 'platform': 'Windows-11-10.0.26300-SP0'}; runtime 2.1 min.
+Planning-model simulation: evidence about the procedure under assumed configurations, not about scanner accuracy.
+=== END DOCUMENT: docs/implementation/acceptance/g10_calibration.md ===
+
+=== BEGIN DOCUMENT: docs/audit/standards_verification_2026-11-19.md (sha256 9679c5e1a71e03cbde092ed5142e035b5515b84b4c9f1b611989d84c5378ded0) ===
+# Standards and library verification (Phase 2, 19 Nov 2026)
+
+Purpose: confirm, before the third review and the paper, that every standard and library the project cites is still in the status the project claims. This is a status check, not a fresh section-by-section reading.
+
+**Method.** Each publication's official CSRC page was opened in the app's built-in browser on 19 Nov 2026. The CycloneDX 1.6.1 schema enumerations were compared against the repository's pinned schema. Library APIs were imported from the project's virtual environment. No PDFs were downloaded: section-level content was **not** re-read today. Section citations still rest on the 17 Nov 2026 full-text check in `docs/final/technical_readiness_report.md` and `docs/paper/evidence_register.md`.
+
+## Standards
+
+| Publication | Status on CSRC (19 Nov 2026) | Project claim | Result |
+|---|---|---|---|
+| NIST IR 8547, *Transition to Post-Quantum Cryptography Standards* | Final, 27 Oct 2026 (initial public draft 12 Nov 2024); DOI 10.6028/NIST.IR.8547 | Final, Oct 2026 | Consistent |
+| FIPS 203 (ML-KEM) | Final, 13 Aug 2024; errata planning note dated 17 Nov 2025 | Final, Aug 2024 | Consistent; errata note does not affect parameter sets the policy names |
+| FIPS 204 (ML-DSA) | Final, 13 Aug 2024; errata note dated 31 Jul 2026 | Final, Aug 2024 | Consistent; errata contents not re-read |
+| FIPS 205 (SLH-DSA) | Final, 13 Aug 2024 | Final, Aug 2024 | Consistent |
+| SP 800-227, *Recommendations for Key-Encapsulation Mechanisms* | Final, 18 Sep 2025 | Final, Sep 2025 | Consistent |
+| SP 800-131A Rev. 2 | Final, Mar 2019; Rev. 3 still an initial public draft (21 Oct 2024) | "to be revised" | Consistent: Rev. 3 is not final, so it must not be cited as final |
+| FIPS 186-5 | Final, 3 Feb 2023 (errata note) | DSA no longer specified for signing | Consistent |
+
+## Formats and libraries
+
+| Item | Checked | Result |
+|---|---|---|
+| CycloneDX 1.6.1 schema | `cryptoFunctions` enumeration (no key-agree value); padding enumeration (no PSS); `primitive` includes signature, key-agree, pke, kem, combiner; `relatedCryptoMaterial` types include private-key, public-key, key | Consistent with `pqscan` CBOM output mapping |
+| pyca/cryptography 47.0.0 | `hazmat.primitives.asymmetric.mlkem` (ML-KEM-768/1024) and `mldsa` (ML-DSA-44/65/87) present; no SLH-DSA module | Consistent with the policy's pyca prefixes |
+| PyCryptodome 4.4.0 | `Crypto.PublicKey.MLKEM`, `Crypto.PublicKey.MLDSA`, `Crypto.PublicKey.Hybrid`, `Crypto.Signature.mldsa` present | **New finding N1** (below) |
+
+## N1 (owner decision required; nothing changed)
+
+PyCryptodome 4.4.0 provides ML-KEM, ML-DSA and a hybrid module. The scanner's approved-hybrid encoding recognises only the pyca ML-KEM/ML-DSA prefixes. The annotation guide's list of PQ components names pyca, `oqs` and `pqcrypto`, not PyCryptodome. A PyCryptodome-based PQ/T hybrid would be neither recognised by the scanner nor explicitly covered by the labelling rule.
+
+Changing the scanner or the guide before F1 alters labelling scope or scanner behaviour, so that is the owner's decision. Until then it is disclosed as a limitation (`owner_decisions_g02_g03_g08_g10.md`; paper limitations).
+
+## Not verified today
+
+- Section numbers and table numbers inside the PDFs; the 17 Nov check stands.
+- The contents of the FIPS 203/204 errata.
+- W6 (SP 800-227 citation precision in the frozen policy text) is still open and owner-gated.
+=== END DOCUMENT: docs/audit/standards_verification_2026-11-19.md ===
+
+=== BEGIN DOCUMENT: docs/audit/phase3_pipeline_check_2026-11-19.md (sha256 2f6f9991d1fc5c9395f4505a77bb6a0b53f3b62b0be2ece07951ff6cd395fc52) ===
+# Pipeline and reproducibility check on demonstration material (19 Nov 2026, after r3 commit `161edd5`)
+
+**Scope.** Development and demonstration material only: the synthetic lecturer-demo repository `docs/demo/demo_repo` and a copy of the installed pyca/cryptography 47.0.0 package's `.py` files (a dependency, not a benchmark repository). No benchmark repository of any split was scanned or opened. Nothing was written to `runs/` or `benchmark/`. Scratch outputs went to a temporary folder outside the repository.
+
+**Environment.** The project virtual environment (Python 3.12, pqscan installed in editable mode, Semgrep 1.185.0) on Windows 11. The fresh-venv rebuild from `git archive` (`docs/final/demo/run_final_demo.sh`, recorded in `docs/final/demo/RUN_LOG.md`) was **not** repeated today.
+
+| Check | Result |
+|---|---|
+| Seven lecturer-demo commands (summary, JSON, CBOM, SARIF, `--tier-threshold T3`, `--arm method-only`, `--no-semgrep`) against the committed `docs/demo/outputs` | All 7 **identical** after line-ending normalisation. Byte comparison differs only by CRLF on Windows, as `RUN_LOG.md` documents |
+| CBOM determinism (two runs, demo repository) | Byte-identical |
+| cryptography-47.0.0 JSON, CBOM, SARIF against the committed `docs/final/demo/outputs/real` | All 3 **identical** after line-ending normalisation |
+| Independent validation (`docs/final/demo/validate_outputs.py`) | 3 CBOMs VALID (CycloneDX 1.6 strict); 3 SARIF VALID (SARIF 2.1.0) |
+| Full test suite at `161edd5` | 725 passed, 1 skipped |
+| Evidence recomputation (`docs/paper/verify_evidence.py`) | 110 values, 0 failed |
+
+**Not repeated today:** the pycryptodome-4.4.0 scan (1,214 sites; its committed outputs are still validated above) and the fresh-environment rebuild.
+
+**Interpretation.** These results show the pipeline is deterministic and its exports are valid. They are **not** evidence of scanner accuracy: there are no labels for this material, and the evaluation (F1, F2, E) has not been run.
+=== END DOCUMENT: docs/audit/phase3_pipeline_check_2026-11-19.md ===
+
+=== BEGIN DOCUMENT: tests/test_g05_g06_forbidden_gate.py (sha256 31e44aea2d08896b388803639d7bc7b7c2071645f745b6c0399348a263576db6) ===
+"""Second-review findings G05 (forbidden-token coverage of every registered hypothesis/comparison identifier) and G06
+(the AI-response step is fail-closed: no response is accepted for a batch with forbidden content unless the prompt
+gate's decision is recorded, and a response naming an excluded candidate is rejected). Exercised through the real CLI
+command path (pqscan.bench.annotate.main). All values are test values."""
+from __future__ import annotations
+
+import csv
+import json
+from pathlib import Path
+
+import pytest
+
+from pqscan.bench import annotate as AN
+from pqscan.bench import ledger as L
+from pqscan.bench import packets as P
+from pqscan.bench import review as R
+
+REGISTERED = ["H1a", "H1b", "H2a", "H2b", "H2-1", "H2-2", "H2-3", "H2-4", "H2-S", "F-A", "F-B"]
+
+
+# ------------------------------------------------------------------ G05
+@pytest.mark.parametrize("label", REGISTERED)
+@pytest.mark.parametrize("form", ["{}", "{}", "({})", "# see {}.", 'x = "{}"', "{}: result", "family {}, Holm"])
+def test_every_registered_identifier_is_detected(label, form):
+    for variant in (label, label.lower(), label.upper()):
+        assert P._forbidden_in(form.format(variant)) == [label.lower()], variant
+
+
+@pytest.mark.parametrize("text", ["<h1>Title</h1>", "h1 = hashlib.sha1()", "H3 and H4 in prose", "sha1a", "h2-10",
+                                  "self-assessment", "chf-a", "buf-b", "x_h2a", "h1ab", "H2", "fa = 1", "f_a"])
+def test_ordinary_code_is_not_flagged(text):
+    assert P._forbidden_in(text) == []
+
+
+def test_registered_identifiers_listed_and_template_stays_clean():
+    assert set(P.HYPOTHESIS_IDS) == {x.lower() for x in REGISTERED}
+    assert set(P.HYPOTHESIS_IDS) <= set(P.FORBIDDEN)
+    assert P._forbidden_in(R.prompt_template()) == []
+
+
+# ------------------------------------------------------------------ G06 (real command path)
+CLEAN = {"candidate_id": "C-0000000000a1", "rule": "packet-v1", "file": "a.py", "line": 1, "warnings": [],
+         "text": "1: k = rsa.generate_private_key(65537, 3072)\n", "sha256": "a" * 64}
+NOISY = {"candidate_id": "C-0000000000b2", "rule": "packet-v1", "file": "b.py", "line": 2, "warnings": ["x"],
+         "text": "1: # benchmark notes: H2-1 comparison\n2: k.sign(m)\n", "sha256": "b" * 64}
+
+
+def _ai_line(cid: str) -> str:
+    return json.dumps({"candidate_id": cid, "status": "ok", "eligible": True, "gt_role": "SIGN",
+                       "assessability": "DETERMINATE", "hybrid_component": False, "obvious_from_name": False,
+                       "evidence_needed": "downstream-usage", "key_provenance": "generated", "ambiguity": "none",
+                       "evidence_lines": ["a.py:1"], "rationale": "r"})
+
+
+@pytest.fixture
+def batch(tmp_path, monkeypatch):
+    ident = tmp_path / "ident.json"
+    ident.write_text(json.dumps({"interface_or_api": "TEST interface", "model": "TEST-MODEL",
+                                 "recorded_utc": "2026-11-16T09:00:00Z",
+                                 "isolation": {"fresh_temporary_chat_per_batch": "yes"} | {k: "off" for k in R.ISOLATION_OFF}}),
+                     encoding="utf-8")
+    monkeypatch.setattr(R, "IDENTITY", ident)
+    root = tmp_path / "root"
+    p = AN.paths("DV", "demo", root)
+    p["work"].mkdir(parents=True)
+
+END OF PART 4 OF 5. Reply only: RECEIVED PART 4 OF 5

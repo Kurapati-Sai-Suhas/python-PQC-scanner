@@ -50,7 +50,8 @@ def test_all_documents_included_with_correct_hashes(review):
     required = {"docs/specification/evaluation_protocol.md", "docs/benchmark/annotation_guide.md",
                 "docs/specification/phase3_analysis_plan.md", "docs/specification/phase3_decisions.md",
                 "docs/specification/run_specification_pre_f1.md", "docs/specification/run_specification_pre_f1.json"}
-    assert required <= set(cfg["docs"])
+    if not review.endswith("-B"):                     # Package B audits the closure record, not the spec
+        assert required <= set(cfg["docs"])
     for d in m["documents"]:
         text = SRP.read_doc(review, d["path"], ROOT)
         text = text if text.endswith("\n") else text + "\n"
@@ -61,7 +62,7 @@ def test_all_documents_included_with_correct_hashes(review):
         assert i < j
         body = joined[i + len(begin):j]
         body = re.sub(r"\nEND OF PART \d+ OF \d+\. Reply only: RECEIVED PART \d+ OF \d+\n"
-                      r"PART \d+ OF \d+ — specification review packet \(protocol v[\d.]+\)\n\n", "", body)
+                      r"PART \d+ OF \d+ — [^\n]+ \(protocol v[\w.-]+\)\n\n", "", body)
         assert body == text
 
 
@@ -167,3 +168,13 @@ def test_check_detects_a_changed_source(tmp_path):
     assert any("manifest differs" in x for x in SRP.check("v1.0.5", tmp_path))
     with pytest.raises(FileNotFoundError):
         SRP.build("v1.0.5", tmp_path / "missing")
+
+
+def test_third_review_package_a_is_uncoached_and_package_b_carries_the_closure_record():
+    a, b = SRP.REVIEWS["v1.0.5-r3-A"]["docs"], SRP.REVIEWS["v1.0.5-r3-B"]["docs"]
+    assert not [d for d in a if d.startswith(("docs/review/", "docs/audit/", "tests/"))]       # no history, no coaching
+    assert {"pqscan/bench/h4.py", "pqscan/bench/guard_diagnostics.py", "pqscan/bench/h2.py"} <= set(a)
+    assert b[0] == SRP.R3_DIFF and "docs/audit/owner_decisions_g02_g03_g08_g10.md" in b
+    assert (ROOT / SRP.R3_DIFF).read_text(encoding="utf-8") == SRP.changes_diff()               # diff is current
+    ia = (ROOT / SRP.REVIEWS["v1.0.5-r3-A"]["dir"] / "review_instructions.md").read_text(encoding="utf-8")
+    assert "decision_status" not in ia and "no earlier review, finding, decision record" in ia

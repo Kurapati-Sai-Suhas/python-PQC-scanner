@@ -1,0 +1,106 @@
+{
+ "packet": "spec-review-v1.0.5-r3-package-B",
+ "protocol_version": "1.0.5-r3",
+ "annotation_guide_version": "1.2-r3",
+ "analysis_plan_version": "1.0.1-r3",
+ "instructions": {
+  "path": "docs/review/spec_review_v1.0.5-r3/package_B/review_instructions.md",
+  "sha256": "bf003cd27e8ea656a99b32dc06cd6199536a890ae355a272d834e8773b79c5b3"
+ },
+ "documents": [
+  {
+   "path": "docs/review/spec_review_v1.0.5-r3/package_B/changes_since_second_review.diff",
+   "sha256": "9db0bdb22bb6edb0a9e64204aaad0cf3e7beeb114827568fc769a9aa7efa76f7",
+   "chars": 50307
+  },
+  {
+   "path": "docs/audit/owner_decision_register_v1.0.5.md",
+   "sha256": "69e6729c33bd7b79e5faa44634288a1e4f4d3567a5e58a1213d9de8d0ef21b0e",
+   "chars": 14675
+  },
+  {
+   "path": "docs/audit/chatgpt_review_finding_verification.md",
+   "sha256": "b60e1478fab1e1bd4ce5f445b624f44694b4d0a6f0f74180037fee82f4749a6d",
+   "chars": 11258
+  },
+  {
+   "path": "docs/audit/pre_f1_correction_log.md",
+   "sha256": "885af9136b1bc59f10b205d11f70a7241c0f2d2bd259ad77ba51d573dc9f03aa",
+   "chars": 5387
+  },
+  {
+   "path": "docs/audit/second_review_closure.md",
+   "sha256": "1d048514e6987611c739b4aed9cd75863952b33ce4da577d3c32460c158db51a",
+   "chars": 8298
+  },
+  {
+   "path": "docs/audit/second_review_g05_g06_fix.md",
+   "sha256": "0877e196bb74a1cbf5a7f411c58229a7d6ad62bcef38bb1012653fd1e0d917ea",
+   "chars": 2862
+  },
+  {
+   "path": "docs/audit/owner_decisions_g02_g03_g08_g10.md",
+   "sha256": "b6726d4efe6389d847162a360ee2bba1da8bf26f506b185b98bd21014ba96392",
+   "chars": 7006
+  },
+  {
+   "path": "docs/implementation/acceptance/g10_calibration.md",
+   "sha256": "8957a915066574cd4ddb7b127ab00dc98e2748c2c8e2364783ca20e4841a4431",
+   "chars": 2714
+  },
+  {
+   "path": "docs/audit/standards_verification_2026-11-19.md",
+   "sha256": "9679c5e1a71e03cbde092ed5142e035b5515b84b4c9f1b611989d84c5378ded0",
+   "chars": 3434
+  },
+  {
+   "path": "docs/audit/phase3_pipeline_check_2026-11-19.md",
+   "sha256": "2f6f9991d1fc5c9395f4505a77bb6a0b53f3b62b0be2ece07951ff6cd395fc52",
+   "chars": 1995
+  },
+  {
+   "path": "tests/test_g05_g06_forbidden_gate.py",
+   "sha256": "31e44aea2d08896b388803639d7bc7b7c2071645f745b6c0399348a263576db6",
+   "chars": 8370
+  },
+  {
+   "path": "tests/test_second_review_closure.py",
+   "sha256": "07d3cbba7be17dc52db568f9415306b135c68b3ae49e610cbc431a28c122f2b2",
+   "chars": 7863
+  },
+  {
+   "path": "tests/test_owner_decisions_r3.py",
+   "sha256": "b4bd30f7f67b1198a807575e4f9669a0deae9903dcf73f0fc86d3b999c0f9296",
+   "chars": 6229
+  }
+ ],
+ "max_part_chars": 30000,
+ "parts": [
+  {
+   "file": "part_01_of_05.txt",
+   "sha256": "f91e34c27973f25b491421a74181c15fa0f2a105c19be26fddccc3b593eb723c",
+   "chars": 29293
+  },
+  {
+   "file": "part_02_of_05.txt",
+   "sha256": "3ff24f4c15568ec4c2e82a974bc42202b088300b63528683769bd53ee35e5046",
+   "chars": 29644
+  },
+  {
+   "file": "part_03_of_05.txt",
+   "sha256": "bed228a81dfad10675b0585ca5876656c9c79ef32577e1c24fab98dd4db654d9",
+   "chars": 29295
+  },
+  {
+   "file": "part_04_of_05.txt",
+   "sha256": "ee6fd93f7cf1c02fb128e56456181b85591ac38404bbdabc0bdc218756a2a323",
+   "chars": 29627
+  },
+  {
+   "file": "part_05_of_05.txt",
+   "sha256": "47d1e6250145ce0c2e5faf8adb1e8e5313648ed755ffc6d0825a16289879f456",
+   "chars": 19798
+  }
+ ],
+ "note": "Paste the parts in order into ONE fresh isolated session configured as recorded in docs/benchmark/ai_review_identity.json. Save the verbatim reply and the conversation export."
+}

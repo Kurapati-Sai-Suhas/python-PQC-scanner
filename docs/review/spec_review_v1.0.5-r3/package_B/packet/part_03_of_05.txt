@@ -1,0 +1,160 @@
+PART 3 OF 5 — third review, Package B (protocol v1.0.5-r3)
+
+| F12 / H-4 | H1b set = pqcheck, pqc-audit, PostQuant, qsafe, QSA-regex, pqblocks-scan; B1/B2 reported separately; CBOMkit, Mehl and B1-dual excluded with reasons | Run specification | Phase 3 |
+| F13 | Data dictionary updated to the single-investigator records; rate denominators n_exec as in the frozen scoring policy | Dictionary v1.1 | Neither |
+| F14 | **External human review is a mandatory F1 prerequisite; pending, not waived, not marked complete** | Protocol v1.0.5 | **Blocks F1** |
+| F15 | Separate owner and AI example records, each with `label_kind` | Guide v1.2 | Neither |
+| F16 | v1.0.3, `candidates.py`, `frame_audit.py` and an adopted/pending decision page added to the second review packet; H1/H3/H4 recorded as H-1 to H-6 | Packet; run specification | Second review |
+| H-1 | H1a/H1b keep their threshold decision-rule status without multiplicity-controlled inference; H3/H4 are pre-specified secondary/descriptive analyses | Run specification | Phase 3 |
+| H-2 | Point estimates against the frozen 25% and 10%; Wilson 95% CIs always reported | Run specification | Phase 3 |
+| H-3 | Primary H1 = primary-set eligible sites of the seven test repositories; DV reported separately, never pooled; H1b denominators n_exec per tool; failures reported separately | Run specification | Phase 3 |
+| H-5 | H3 definition of Sec. 4, including owner choices **C1** and **C2** and the accurate description of B3-full-noabst | Run specification; plan Sec. 12 seeds | Phase 3 |
+| H-6 | H4 definition of Sec. 5: primary denominator N(o, j) over all pairs where the tool ran on both instances, eligible and ineligible cases included (owner choice **C3**); failures counted separately; decision wording as stated; plus the **[S-ELIG]** paragraph verbatim | Run specification | Phase 3 |
+| F17 | Bounds labelled per comparison, not multiplicity-adjusted | Plan v1.0.1 | Paper wording |
+| F18 | Frame-audit seed, order and stopping rule stated as implemented (a stopping-rule defect found while doing so was fixed and tested) | Protocol v1.0.5; tooling | Neither |
+| F19 | c_DV = c_pool on the DV primary set, per comparison | Plan v1.0.1 | Phase 3 |
+| F20 | F1 is not permitted after a failed calibration | Plan v1.0.1; protocol v1.0.5 | Neither |
+| F21 | An observed escape beyond the bounded scope → UNKNOWN, ahead of KEY_MATERIAL_ONLY; "storage" means within the scope | Taxonomy v1.1; guide v1.2 | Phase 3 |
+| Pilot exposure | The 5 pilot sites shown as guide worked examples are a separately reported subset; their AI agreement is never blind evidence; the other 26 stay distinguishable | Decision record; tooling | Before the pilot |
+| E01 | The owner's AI identity file stays **unchanged and uncommitted**; the evidence-register correction is prepared as a patch file only (`docs/audit/pending/e01_identity_committed.patch`) and applied only with separate owner approval | None now | Paper evidence |
+
+## 2. Owner choices recorded during the review of the register
+
+- **H3(a):** deterministic tier-based withdrawal of the T2 policy to a fixed target count (T2 tier before T3; SHA-256 tie-break as in H2 matching); not estimable when the natural T2 count is below the target; never extrapolated.
+- **H3(b):** always-recommend (B3-full-noabst) at its own natural coverage, reported explicitly; a natural-coverage comparison.
+- **H3(c):** seeds `20261113:withhold:001` … `:100`, frozen before F1; nested per-repository permutations; the seed-to-order mapping is recorded (Sec. 4).
+- **H4(d):** loaded-key retained in the H4 flip analysis (named by the original hypothesis), reported separately as an evidence-condition change, excluded from invariance.
+- **H4(e):** classification and recommendation flips reported separately; "classification or recommendation" kept; the 30% criterion may be met by either outcome type; combined invariant outcome defined.
+- **C1:** all seven repositories must reach both targets at a coverage point, otherwise NOT ESTIMABLE.
+- **C2:** MET only if all three points are estimable and every comparison holds; NOT MET; NOT ASSESSABLE.
+- **C3:** primary recommendation-flip denominator over all pairs where the tool ran on both instances; eligible-only rate as a separate sensitivity ([S-ELIG]).
+
+## 3. F04: estimands (analysis plan v1.0.1 Sec. 2)
+
+For repository r and stratum h: U_r,h the eligible frame; E_r the sampled primary set with m_r,h per stratum and m_r = |E_r|; C_r ⊆ E_r the sites where both arms ran, with c_r,h per stratum and n_r = |C_r|; U^ev_r,h the sites where both arms would run, ρ_r,h = |U^ev_r,h| / |U_r,h|.
+
+- Estimand A (corrected): w_r,h = m_r,h / m_r; P_r^A = Σ_h w_r,h · Uniform(U_r,h); δ_r^A = Ψ(P_r^A); δ^A = (1/7) Σ_r δ_r^A.
+- Primary target when failures exist: π_r = Σ_h w_r,h ρ_r,h; P_r^ev = Σ_h (w_r,h ρ_r,h / π_r) · Uniform(U^ev_r,h); δ_r^ev = Ψ(P_r^ev). The primary δ̃_r on C_r estimates δ_r^ev (commonly evaluable sites).
+- S-F1 (sampled primary set; concordant failures incorrect for both arms): δ_S-F1,r = [n_r·δ̃_r + Σ_F-only X − Σ_M-only Y] / m_r; for H2 (one-arm failures stop the run) δ_S-F1,r = (n_r / m_r)·δ̃_r, targeting π_r·δ_r^ev.
+- S-F2 unchanged: [(n_r·δ̃_r + Σ_F-only X − Σ_M-only Y − fail_F,r) / m_r, (… + fail_M,r) / m_r].
+- They coincide iff π_r = 1 (no eligible site fails). Otherwise they differ (factor π_r within a repository; reweighting across repositories; stratum shift), and are never claimed identical.
+
+## 4. H3 (H-5)
+
+**Arms.** τ = T2 policy `pqscan:B4-full-T2`. The pre-registered "always recommend" comparator is `pqscan:B3-full-noabst` (Module C `full`, threshold T0); it recommends at every site where it reaches a determinate role, at any tier, **but still abstains on UNKNOWN roles**, so it is not literally universal; its natural coverage is reported explicitly.
+
+**Population.** Dataset B, seven test repositories, primary-set eligible sites; n_r = sites where pqscan ran. Coverage points c ∈ {7/10, 4/5, 9/10}, exact fractions. Target count K_r(c) = ⌈c · n_r⌉.
+
+**T2 to coverage c.** If R_r^T2 ≥ K_r(c), withdraw R_r^T2 − K_r(c) recommendations: tier ascending (T2 before T3), then ascending SHA-256 of `20261113|H3-T2|<repo>|<site_id>`; withdrawn = ABSTAIN; nested across c.
+
+**Random withholding.** Seeds `20261113:withhold:001` … `:100`, frozen before F1. Order for seed s: ascending SHA-256 (hex text) of UTF-8 `<s>|H3-withhold|<repo>|<site_id>` over B3's recommended sites; no random-number generator. The first K_r(c) keep their recommendation; the rest are ABSTAIN; the same order at every c (nested).
+
+**Estimability (C1).** Any repository with n_r = 0 → every point NOT ESTIMABLE. Point c is estimable only if, in all seven repositories, R_r^T2 ≥ K_r(c) and R_r^AR ≥ K_r(c); otherwise NOT ESTIMABLE. Per-repository results always reported; no repository removed; the population never changes between points.
+
+**Harmful rate (frozen scoring, n_exec).** HR_T2(c) = Σ_r H_r^T2(c) / Σ_r n_r; HR_AR at natural coverage Σ_r R_r^AR / Σ_r n_r (reported); HR_rand(c) = mean over the 100 seeds; random distribution (min, 2.5th pct, median, 97.5th pct, max) and SD; within-repository site bootstrap 95% CI for HR_T2(c) − HR_rand(c) (1,000 resamples, seed 20261113); per-repository values; risk–coverage curves and AURC unchanged. T2 versus always-recommend is always labelled a natural-coverage comparison.
+
+**Decision (C2).** "H3 is a pre-specified secondary/descriptive analysis; no multiplicity-controlled or confirmatory claim is made. At each coverage point c ∈ {70%, 80%, 90%}, evaluated separately, the point comparison holds if HR_T2(c) < HR_AR (natural coverage) **and** HR_T2(c) < HR_rand(c), strictly, on point estimates. The overall H3 criterion is **MET** only if all three points are estimable and the point comparison holds at every point; **NOT MET** if all three are estimable and any comparison fails; **NOT ASSESSABLE** if any point is not estimable. Every estimable point is always presented separately."
+
+## 5. H4 (H-6)
+
+**Data.** Dataset A's frozen base–variant pairs (b, o), one site each: alias-import, wrapper-function, class-method 61 pairs each; cross-function, dict-dispatch, loaded-key 48 each. **Tool set:** every runnable baseline and pqscan arm named before evaluation; proposed analyser `pqscan:B4-full-T2`; pre-specified exclusions with reasons only. **Outcomes:** classification (no finding, or a finding with its reported category; field fixed per tool in the inventory); recommendation ((action, rec_class): RECOMMEND with class, FLAG_NO_TARGET, ABSTAIN, NO_FINDING).
+
+**Primary denominator (C3).** N(o, j) = pairs for operator o where j ran on both instances, eligible and ineligible cases included; failure pairs counted and reported separately and excluded. FR_cls(o, j) and FR_rec(o, j) = flips / |N(o, j)|.
+
+**[S-ELIG]**
+
+Eligible-only recommendation-flip sensitivity (H4; secondary; reported separately). FR_rec^elig(o, j) = #{pairs in N^elig(o, j) whose recommendation outcome differs between the identity and the variant instance} / |N^elig(o, j)|, where N^elig(o, j) is the set of base–variant pairs for operator o whose frozen Dataset A label is eligible and on which tool j ran successfully on both the identity and the variant instance. It uses the same common recommendation-outcome vocabulary as the primary rate. It is reported separately from the primary all-pair classification and recommendation flip rates, FR_cls(o, j) and FR_rec(o, j), and is never substituted for them in the primary H4 decision.
+
+**Decision.** "H4 is a pre-specified secondary/descriptive analysis; no confirmatory or family-wise error claim is made. All decisions use point estimates, with Wilson 95% confidence intervals reported for every rate. **Part 1.** For every tool j in the pre-specified H4 baseline set, at least one pre-registered operator o — loaded-key included, because the original hypothesis names it — has FR_cls(o, j) ≥ 0.30 **or** FR_rec(o, j) ≥ 0.30 (wording kept: 'classification or recommendation'). Both flip types are always reported separately. The prediction (loaded-key, cross-function) is reported as confirmed or not. loaded-key is reported separately as an evidence-condition change, not a semantics-preserving transformation. **Part 2.** For the proposed analyser, separately under alias-import and under wrapper-function: classification stability 1 − FR_cls and recommendation stability 1 − FR_rec are reported separately; a pair is **invariant** only if neither its classification nor its recommendation flipped; Part 2 is met if the invariant share is ≥ 0.90 for **both** operators. loaded-key never enters the invariance calculations."
+=== END DOCUMENT: docs/audit/owner_decision_register_v1.0.5.md ===
+
+=== BEGIN DOCUMENT: docs/audit/chatgpt_review_finding_verification.md (sha256 b60e1478fab1e1bd4ce5f445b624f44694b4d0a6f0f74180037fee82f4749a6d) ===
+# Verification of the 21 findings of the isolated AI specification review (protocol v1.0.4)
+
+Each finding was checked against the repository, not accepted on the reviewer's confidence. The owner's decisions are in `docs/audit/owner_decision_register_v1.0.5.md` (approved 18 Nov 2026). This file and `chatgpt_review_finding_verification.csv` are generated from one table by `scripts/finding_matrix.py`.
+
+**Tally:** 14 VALID, 7 PARTIALLY VALID, 0 FALSE POSITIVE, 0 NOT VERIFIABLE (one sub-claim of F03, silent candidate-ID collisions, is false). Two audit items are added: E01 and the pilot exposure.
+
+**Corrections to the auditor's own earlier statements:** the first F03 estimate (21.4% multi-call) counted regex over-matches; the pool measurement is 8 of 3,503. F10 needed no code: the meta schema already required a reason. F16's packet omission was the auditor's.
+
+| id | reviewer claim | verdict | evidence | consequence | affects | priority | approved correction | tests or evidence | owner decision | status |
+|---|---|---|---|---|---|---|---|---|---|---|
+| F01 | PROTOCOL_CONFIG eligibility contradicts between taxonomy and policy | VALID (rare in the frame) | role_taxonomy.md Sec. 1 (eligible = (a) or (b)) vs recommendation_policy.md Sec. 5 ('PROTOCOL_CONFIG sites are eligible'); guide Sec. 4 PROTOCOL_CONFIG label; ssl out of scope (api_coverage.md); 0 of 31 pilot sites | Scoring denominators would disagree if such a site occurred | annotation; documentation | P1 | Kind (c) eligible when it occurs (taxonomy v1.1); D10 stays a stated limitation | test_protocol_consistency (F01/F21) | yes (approved 18 Nov) | implemented |
+| F02 | Step D 'SIGN when consumers sign and/or verify' ignores private/public key distinction | PARTIALLY VALID | guide Step D (v1.1 line 77) vs guide Sec. 4 SIGN/VERIFY rows and taxonomy rule 1, which are already correct | Internal inconsistency within the guide; a reader of Sec. 4 labels correctly | annotation | P1 | Step D rewritten as taxonomy rule 1 (guide v1.2) | consistency read | yes (approved) | implemented |
+| F03 | Statement dedup vs one call per site; candidate-ID collisions | VALID (unit); collision claim FALSE | protocol Sec. 2 'deduplicated by enclosing statement'; candidates.py statement merge; collisions stop the build (candidates.py order_pool); taxonomy rule 7 | 8 of 3,503 DV pool candidates contain >1 supported call (all S1); no silent collision possible | annotation; sampling | P1 | Keep statement-level sampling (V6); deterministic multi-call rule (guide v1.2 Step A); multi_call marking; pool/orders not rebuilt | tests/test_f03_multicall.py; docs/audit/evidence/f03_multicall_pool.json (E64) | yes (approved) | implemented |
+| F04 | Design-mixture estimand unclear under execution failures | PARTIALLY VALID (not wording only) | phase3_analysis_plan.md Sec. 2 weights m_r,h/n_r with n_r=\|C_r\| (Sec. 3); matching.py S-F1 = (n/m) x primary under concordant failures | With failures the primary C_r estimate targets the commonly evaluable sites, not estimand A | statistics; reporting | P1 | Option 1: denominator m_r; primary describes commonly evaluable sites; S-F1 separately describes the sampled primary set; never claimed identical when failures exist; failures by stratum | test_h2_matching (failures by stratum; identity); test_protocol_consistency (F04) | yes (Option 1 approved) | implemented |
+| F05 | Pooled exact McNemar justified by 'independent' yet 'negatively correlated' pairs | PARTIALLY VALID | phase3_analysis_plan.md Sec. 9 assumption 3; F-A was not in the pre-F1 calibration | Error-control justification of a confirmatory family was asserted, not shown | statistics | P0 until checked | Separate Type I error simulation; no validity claim until it passes; stop on failure. Result PASS (max 0.0089 single, 0.0047 FWER) | tests/test_fa_type1_simulation.py; docs/implementation/acceptance/fa_type1.* (E63) | yes (approved) | implemented; PASS |
+| F06 | Attestation cannot show sealed outputs were unopened | VALID | protocol Sec. 6 'records an attestation'; threats 'blinding ... by self-discipline' | Test-output blinding is self-attested only | documentation; reporting | P0 (honesty of claims) | Disclose as self-attested, not independently enforced; never claimed otherwise | test_protocol_consistency (F06) | yes (approved) | implemented |
+| F07 | Forbidden tokens in packets only warned, no mandatory action | VALID | packets.py docstring and build_packet warnings; annotate.py issue returned warnings only | The AI could see a tool, project or hypothesis name | annotation; leakage to AI | P1 | Gate: genuine -> excluded (no override); verified false positive with file:line evidence may proceed; decision hash in ledger; no redaction | tests/test_forbidden_gate.py | yes (approved) | implemented |
+| F08 | Hybrid rule weaker than taxonomy; SLH-DSA missing from YAML | PARTIALLY VALID | guide Step F (co-location, no family match, no SLH-DSA); engine.py already requires family + combination; cryptography 47.0.0 has no SLH-DSA module | Guide could label a non-hybrid or wrong-family site as hybrid; YAML gap is a coverage limitation | annotation; documentation | P1 | Matching PQ family + evidence of actual combination (guide v1.2); SLH-DSA prefix gap disclosed | worked example re-checked (kex_mlkem.py combines secrets) | yes (approved) | implemented |
+| F09 | Primary CORRECT does not show complete KEM/DEM redesign | VALID (interpretation) | scoring_policy.md: KEM and KEM_DEM one family | CORRECT could be over-read | reporting | P2 | Interpretation note (scoring policy v1.0.1); paper metric definition | - | wording approved | implemented |
+| F10 | Unresolved storage convention undefined | PARTIALLY VALID | guide Sec. 2; review.py adjudicate keeps provisional value + meta.unresolved; meta_schema.json already requires unresolved_reason | Convention existed in code but not in the guide (the audit's earlier claim that no reason was required was wrong) | annotation; reproducibility | P1 | Convention documented (guide v1.2 Sec. 2); no code change needed | existing test_annotation_integrity (reason required) | yes (approved) | implemented (documentation) |
+| F11 | Packet-first rate differs from '10%, >= 50' | VALID | protocol Sec. 3 and guide Sec. 5 vs packets.py packet_first_rate = max(0.10, 60/468) = 12.8% for DV | Secondary analysis only; minimum not guaranteed (about 7% chance of < 50 if 468 issued) | documentation | P2 | Document the implemented rule; >= 50 is an expected count; realised count reported | test_protocol_consistency (F11) | yes (approved) | implemented |
+| F12 | 'Every baseline' in H1b not enumerated | VALID | protocol Sec. 1 RQ1 row; run specification F-A list | H1b decision depended on an undefined set | statistics; reporting | P1 | H1b set = six external tools; B1/B2 separate; CBOMkit, Mehl, B1-dual excluded with reasons (H-4) | tests/test_run_specification.py | yes (approved) | implemented |
+| F13 | Obsolete annotator_1/annotator_2 fields in the data dictionary | VALID | data_dictionary.md Sec. 1 and Sec. 5; benchmark_schema additionalProperties false | Literal reader would produce invalid records | documentation | P2 | Dictionary v1.1: single-investigator envelope; n_exec denominators | test_protocol_consistency (F13) | wording approved | implemented |
+| F14 | External human review required by the policy is not an F1 prerequisite | VALID | recommendation_policy.md Sec. 7 'required before the Phase 3 freeze' vs protocol Stage F1 list | F1 conditions contradicted each other | protocol integrity | P0 | Mandatory F1 prerequisite; pending; not waived; not marked complete | test_protocol_consistency (F14) | yes (approved) | implemented; review itself PENDING |
+| F15 | Meta example omits label_kind | VALID | guide Sec. 5 example vs meta_schema required | Example invalid under the schema | documentation | P2 | Separate owner and AI examples with label_kind | test_protocol_consistency (F15) | wording approved | implemented |
+| F16 | v1.0.3 procedures referenced but not supplied | VALID (packet omission was the auditor's); H1/H3/H4 rules thin | protocol Sec. 5.2 'as in v1.0.3'; v1.0.3 file exists but was not in the first packet | H1/H3/H4 not reviewable; decision basis undefined | reproducibility; statistics | P1 | v1.0.3 in the second packet; H-1 to H-6 recorded with C1-C3 and the eligible-only sensitivity | test_spec_review_packet; test_run_specification | yes (approved) | implemented |
+| F17 | 97.5% bound not labelled unadjusted | VALID | phase3_analysis_plan.md Sec. 7.5, 8 | Readers could read a family-wise guarantee into it | reporting | P2 | Labelled per comparison, not multiplicity-adjusted | test_protocol_consistency (F17) | wording approved | implemented |
+| F18 | Frame-audit seed and order unspecified | PARTIALLY VALID | protocol Sec. 2 vs frame_audit.py SEED and worklist; while documenting, stop_reached was found to check only visited repositories | Reproducibility gap in the documents; a stopping-rule defect in code | reproducibility | P2 | Seed, order and stopping rule stated; stop_reached now requires every repository of the frame | test_reliability_reporting (stop rule); test_protocol_consistency (F18) | wording approved | implemented (+ code fix) |
+| F19 | c_DV undefined | VALID | phase3_analysis_plan.md Sec. 10 S11; protocol F1 item 9 | Secondary fixed-target matching ambiguous | statistics (secondary) | P2 | c_DV = c_pool on the DV primary set, per comparison | test_protocol_consistency (F19) | yes (approved) | implemented |
+| F20 | Outcome after a failed fallback calibration unspecified | PARTIALLY VALID (moot: acceptance passed) | phase3_analysis_plan.md Sec. 11.4; statistical_acceptance.json accepted, 0 failed cells | None now | protocol integrity | P2 | F1 never after a failed calibration | test_protocol_consistency (F20) | wording approved | implemented |
+| F21 | KEY_MATERIAL_ONLY vs escape precedence unclear | VALID | guide Step D two bullets; taxonomy KEY_MATERIAL_ONLY includes 'storage' | Edge cases could be labelled differently | annotation | P1 | Observed escape -> UNKNOWN, ahead of KEY_MATERIAL_ONLY; storage within scope only | test_protocol_consistency (F01/F21) | yes (approved) | implemented |
+| E01 | (audit) evidence check E01 fails once the identity file exists | VALID (expected) | verify_evidence.py E01.ai_identity_absent failed while the owner's valid identity file was present but uncommitted; it is now replaced by E01.ai_identity_valid and E01.ai_identity_committed | One evidence check failed until the identity file was committed; resolved | paper evidence | P2 | Identity file committed unchanged with the owner's separate approval (18 Nov 2026); the prepared patch docs/audit/pending/e01_identity_committed.patch applied in commit 77f7600 | verify_evidence.py: 96 values, 0 failed checks | yes: separate owner approval given 18 Nov 2026 | applied and committed (77f7600); E01 valid |
+| PILOT | (audit) 5 pilot sites are worked examples in the guide | VALID | guide Sec. 7 examples = pilot sites (paramiko 3, python-jose 2) | Their pilot agreement is not blind evidence | annotation | P1 | Separately reported subset; other 26 distinguishable | tests/test_pilot_exposure.py | yes (approved) | implemented |
+=== END DOCUMENT: docs/audit/chatgpt_review_finding_verification.md ===
+
+=== BEGIN DOCUMENT: docs/audit/pre_f1_correction_log.md (sha256 885af9136b1bc59f10b205d11f70a7241c0f2d2bd259ad77ba51d573dc9f03aa) ===
+# Pre-F1 correction log (18 Nov 2026)
+
+Execution record of `pre_f1_correction_plan.md` under the owner-approved register `owner_decision_register_v1.0.5.md`. Branch `phase3-preparation`; `main` untouched.
+
+## What was done
+
+| Finding | Change | Evidence and tests |
+|---|---|---|
+| F03 | `pqscan/bench/multicall.py` (lists supported calls of a statement by name, source only); issued to-do entries carry `multi_call`; guide v1.2 Step A rule; taxonomy rule 7 pointer. Pool and orders unchanged (pinned to `d051cc1` by a test). | `scripts/f03_multicall_census.py` (reads only `order_*.json` and DV source; never `pool_sources_*`) → `docs/audit/evidence/f03_multicall_pool.json`: **8 of 3,503** pool candidates (S1-app 4, S1-nonapp 4, S2 0). `tests/test_f03_multicall.py` |
+| F04 | `matching.repository_result` reports `strata_drawn` (m_r,h), `strata` (c_r,h) and `failures_by_stratum`. Plan v1.0.1 Sec. 2, 3, 6: denominator m_r; the primary C_r estimate describes commonly evaluable sites; S-F1 separately describes the sampled primary set; never claimed identical when failures exist. | Pre-change: the existing test already confirmed S-F1 = (n/m)·δ̃ under concordant failures. New: `test_failures_reported_by_stratum_and_two_estimands_kept_apart`. |
+| F05 | `scripts/fa_type1_simulation.py` (imports `stats.py` read-only). Configurations placed **on** the null boundary; a first draft left three configurations up to one discordant pair inside the null, which would have understated Type I error, and was corrected before the full run. | **PASS**: single max 0.0089 (limit 0.0283, R = 20,000); family FWER max 0.0047 (limit 0.0297, R = 10,000). The test is conservative in every configuration (a power cost). `tests/test_fa_type1_simulation.py`; register E63. |
+| F06, F14 | Protocol v1.0.5: self-attestation wording; external human review a mandatory, pending F1 prerequisite; threats; paper threats. | `test_protocol_consistency` (F06, F14) |
+| F07 | `annotate.py` prompt gate with `--warnings-decision`; ledger note with the decision file hash; excluded candidates reported by `ai`. | `tests/test_forbidden_gate.py` (8 tests) |
+| F08 | Guide v1.2 Step F; protocol threats (SLH-DSA prefix gap). The worked example `kex_mlkem.py:112` meets the stricter rule (SHA-256(K_PQ ‖ K_CL), lines 139–141 and 193–194). | consistency read |
+| F09 | Scoring policy v1.0.1 interpretation note; paper metric definition. | — |
+| F10 | Guide v1.2 Sec. 2. **No code needed:** `meta_schema.json` already requires `unresolved_reason` (the audit's earlier statement that it did not was wrong). | existing `test_annotation_integrity` |
+| F11 | Protocol and guide state the implemented rate max(10%, 60/N). | `test_f11_packet_first_rule_matches_code` |
+| F12, F16, H-1–H-6 | Run specification (JSON + Markdown): interpretations with C1–C3; H1b set; eligible-only sensitivity paragraph identical in the run specification (both forms) and the register. | `tests/test_run_specification.py` |
+| F13 | Data dictionary v1.1. | `test_f13_…` |
+| F15 | Guide v1.2 Sec. 5 owner and AI examples. | `test_f15_…` (keys checked against `meta_schema.json`) |
+| F17, F19, F20 | Plan v1.0.1 wording; c_DV definition; F1 never after a failed calibration. | `test_f17_f19_f20_wording` |
+| F18 | Protocol v1.0.5 seed/order/stop rule. **Code defect found and fixed:** `frame_audit.stop_reached` checked only repositories already visited; it now requires every repository of the frame. | `test_reliability_reporting`; `test_f18_…` |
+| F01, F21 | Taxonomy v1.1; guide v1.2 Step D. | `test_f01_f21_…` |
+| Pilot exposure | `loops.GUIDE_EXPOSED_PILOT`; the reference report tags and counts the subset separately. | `tests/test_pilot_exposure.py` |
+| Records | v1.0.4 texts archived byte-for-byte (`docs/specification/archive/v1.0.4/`); `adoption_record_v1.0.5.json`; `scripts/adoption_record.py --check` verifies both records; `amendment_v1.0.5.md`. | `test_adoption_record_hashes_match` |
+| Review packets | The first-review (v1.0.4) packet stays frozen and still reproduces (archive copies; run specification read from git at `547ce08`). Second-review package `docs/review/spec_review_v1.0.5/` (8 parts, 21 documents). | `tests/test_spec_review_packet.py` |
+| Paper | Manuscript wording for v1.0.5, F04, F05, F06, F09, F12, F14; register rows E63–E65. | `verify_evidence.py` |
+| E01 | Prepared as `docs/audit/pending/e01_identity_committed.patch` while the identity file was uncommitted; until then `verify_evidence.py` honestly reported 1 failure (E01.ai_identity_absent). **Update 18 Nov 2026:** with the owner's separate approval, the identity file was committed unchanged and the patch applied in commit `77f7600` (E01.ai_identity_valid and E01.ai_identity_committed). | `verify_evidence.py`: 96 values, 0 failed checks |
+
+## Unchanged (verified)
+
+The nine files of the E30 calibration closure (`scripts/calibration_closure.py`: all three checks pass); scanner modules (`detect`, `semantic`, `roles`, `policy`, `export`, `pipeline`, `cli`, `models`, `baselines`); `policy_v1_1.yaml`; the recommendation policy; the benchmark and meta schemas; the candidate orders; every threshold, hypothesis and family.
+
+## Still open
+
+- External human review (mandatory before F1; pending).
+- The second isolated AI specification review (package ready; needs the owner).
+- Pilot, synthetic and DV annotation; F1, F2, E (each needs approval).
+=== END DOCUMENT: docs/audit/pre_f1_correction_log.md ===
+
+=== BEGIN DOCUMENT: docs/audit/second_review_closure.md (sha256 1d048514e6987611c739b4aed9cd75863952b33ce4da577d3c32460c158db51a) ===
+# Second isolated AI specification review (protocol v1.0.5): findings G01–G11, verification and closure
+
+**Review.** Fresh isolated ChatGPT Temporary Chat, eight-part packet `docs/review/spec_review_v1.0.5/` (frozen; still reproduces). This is an AI review with owner decisions, **not** independent human validation; the external human review required before F1 is still pending.
+
+**Method.** Every finding was checked against the code, tests, data and adopted documents on `main`; the review was treated as evidence to investigate, not as ground truth. Code fixes: commit `370549c` (G05, G06; `second_review_g05_g06_fix.md`). Editorial corrections: revision r2 (this record; `adoption_record_v1.0.5-r2.json`). Pre-change texts are archived byte-for-byte in `docs/specification/archive/v1.0.5/` (and `archive/v1.0.4/` where the first review saw the same text).
+
+**Unchanged by everything below:** hypotheses and their wording, thresholds, primary metrics, estimands, statistical tests, families F-A/F-B, D7, D15, sampling rules, candidate orders, labels, the scanner's classification and hybrid behaviour, the E30 calibration closure.
+
+| ID | Original finding | Verified evidence | Action | Files changed | Tests | Scientific impact | Closure status | Residual limitation |
+|---|---|---|---|---|---|---|---|---|
+
+END OF PART 3 OF 5. Reply only: RECEIVED PART 3 OF 5
