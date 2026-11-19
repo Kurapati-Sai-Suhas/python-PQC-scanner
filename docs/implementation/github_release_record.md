@@ -15,7 +15,9 @@ No credentials appear in this file. Authentication used the GitHub CLI's existin
 | Push | ordinary push of `main` and the tag; no force push |
 | Commit identity | `Kurapati-Sai-Suhas`, GitHub no-reply e-mail (set in this repository's local git config, so a personal address is not published) |
 | Files | 175 tracked files; 0.84 MiB loose objects before packing |
-| Development branch | `phase3-preparation`, created from `81f561e3`; `main` stays the stable Phase 2 version |
+| Development branch | `phase3-preparation`, created from `81f561e3`; `main` stays the stable Phase 2 version (as of this record; see the note below) |
+
+**Note (19 Nov 2026).** By owner decision the repository was consolidated into `main` by a fast-forward: `main` now carries the approved Phase 3 history, the original `main` baseline `81f561e3` is preserved by the annotated tags `phase2-complete` and `pre-consolidation-main-81f561e`, and `phase3-preparation` was deleted after verification (`docs/audit/branch_consolidation.md`).
 
 This tag marks the Phase 2 checkpoint. It is **not** the Phase 3 freeze. That freeze uses the tag `phase3-pretest-freeze` (evaluation protocol v1.0.1, Sec. 6).
 

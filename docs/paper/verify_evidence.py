@@ -43,8 +43,27 @@ def git(*a: str) -> str:
 
 
 # --- repository state ---------------------------------------------------------------------------
-put("E01.main", git("rev-parse", "main"), "81f561e34997dc56b2728241617cd19785210c85")
-put("E01.main_eq_tag", git("rev-parse", "main") == git("rev-list", "-n", "1", "phase2-complete"), True)
+# Branch consolidation (owner decision, 19 Nov 2026; docs/audit/branch_consolidation.md): main was fast-forwarded to
+# the approved Phase 3 history. The original main baseline stays pinned, exactly, by two annotated tags, and main
+# must contain it with a linear (merge-free) history and the full approved pre-consolidation head.
+BASELINE = "81f561e34997dc56b2728241617cd19785210c85"
+PRE_CONSOLIDATION_HEAD = "9cc87d518e5051e9224c16b7f5c8bcfabeeca83c"
+BASELINE_TAG = "pre-consolidation-main-81f561e"
+
+
+def git_ok(*a: str) -> bool:
+    return subprocess.run(["git", *a], cwd=ROOT, capture_output=True, text=True).returncode == 0
+
+
+put("E01.baseline_tag_commit", git("rev-parse", f"{BASELINE_TAG}^{{commit}}"), BASELINE)
+put("E01.baseline_tag_annotated", git("cat-file", "-t", f"refs/tags/{BASELINE_TAG}"), "tag")
+put("E01.baseline_eq_phase2_tag", git("rev-list", "-n", "1", "phase2-complete"), BASELINE)
+put("E01.main_contains_baseline", git_ok("merge-base", "--is-ancestor", BASELINE, "main"), True)
+put("E01.main_linear_since_baseline", git("rev-list", "--merges", "--count", f"{BASELINE}..main"), "0")
+put("E01.approved_head_reachable", git_ok("merge-base", "--is-ancestor", PRE_CONSOLIDATION_HEAD, "main"), True)
+_rec = ROOT / "docs/audit/branch_consolidation.md"
+put("E01.consolidation_record", _rec.exists() and all(s in _rec.read_text(encoding="utf-8")
+                                                      for s in (BASELINE, PRE_CONSOLIDATION_HEAD, BASELINE_TAG)), True)
 put("E01.freeze_tag_absent", git("tag", "--list", "phase3-pretest-freeze") == "", True)
 put("E01.freeze_record_absent", not (ROOT / "docs/freeze/pretest_freeze.json").exists(), True)
 from pqscan.bench import review as _R  # noqa: E402

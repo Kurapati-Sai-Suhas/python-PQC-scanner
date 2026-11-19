@@ -18,8 +18,9 @@ does not implement AQuA P2 (refactoring) or P3 (verification).
 
 Phase 1 (research specification and pilot): conditional pass. Phase 2 (system implementation): gate passed on
 14 Nov 2026 (`docs/reports/Phase_2_System_Implementation_Report.md`, tag `phase2-complete`). Phase 3
-engineering is complete (branch `phase3-preparation`). Evaluation protocol v1.0.4 and annotation guide v1.1 were
-adopted on 16 Nov 2026; the annotation, sampling, matching and statistics tooling is implemented; and the pre-F1
+engineering is complete; since 19 Nov 2026 all work is on `main` (`docs/audit/branch_consolidation.md`). Evaluation
+protocol v1.0.4 and annotation guide v1.1 were adopted on 16 Nov 2026 and corrected to v1.0.5 and v1.2 on 18 Nov 2026
+after an isolated AI specification review (`docs/audit/owner_decision_register_v1.0.5.md`); the annotation, sampling, matching and statistics tooling is implemented; and the pre-F1
 statistical acceptance passed (`docs/implementation/phase3_engineering_closeout.md`). Benchmark annotation and the
 held-out evaluation have **not** started. No labels exist, and **no experimental results (accuracy, precision,
 recall or hypothesis outcomes) exist yet**. Numbers in `docs/dev/` and `docs/pilot/` are development checks on
