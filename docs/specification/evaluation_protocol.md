@@ -387,6 +387,7 @@ Label files are immutable after F2. A correction is a new, dated file with a rea
 - a primary CORRECT means a compatible target family, not a verified complete KEM + KDF + AEAD redesign (scoring policy v1.0.1 interpretation note);
 - the exact F-A test is conservative in every simulated configuration, which costs power;
 - tool-attribution files are separated from the annotation folders, but access to them is self-attested (v1.0.5-r2, G11);
+- additional same-family calls in a sampled multi-call statement are notes, not sites (owner decision G03): at most 8 of 3,503 development/validation pool candidates are multi-call;
 - five pilot sites are shown as worked examples in the guide; in the pilot loop they are a separately reported subset and their agreement is never counted as blind evidence.
 
 ## Changelog
@@ -413,3 +414,4 @@ Label files are immutable after F2. A correction is a new, dated file with a rea
   - **Companions:** annotation guide v1.2, analysis plan v1.0.1, role taxonomy v1.1, data dictionary v1.1, scoring policy v1.0.1 (interpretation note).
   - **Unchanged:** the H1–H4 sentences, every threshold, the primary metrics and frozen scoring rules, the confirmatory families, the baseline set, D7, D15, τ = T2 and the sampling unit, pool and orders.
 - **v1.0.5-r2 (2026-11-19, editorial; second isolated AI review, findings G01–G11; `docs/audit/second_review_closure.md`):** H3 interpretation note (G07); the frozen batch run as the only execution before F2 (G04); tool-attribution separation and its self-attested status (G11); companion revisions: guide v1.2-r2, taxonomy v1.1-r2, analysis plan v1.0.1-r2 (guard rationale, G10), run specification (H4 inventory, G08). No hypothesis, threshold, metric, estimand, test, family, sampling rule or label outcome changed. Code fixes G05/G06 (`second_review_g05_g06_fix.md`).
+- **v1.0.5-r3 (2026-11-19; owner decisions G02, G03, G08, G10; `docs/audit/owner_decisions_g02_g03_g08_g10.md`):** `obvious_from_name` nullable (benchmark schema v1.1; Dataset A regenerated as generator 1.1; pilot record migrated); multi-call units clarified with the F03 rule retained; the H4 Part 1 set frozen as the F-A baseline set; an additional pre-specified G10 calibration scenario required before F1 (`phase3_analysis_plan.md` Sec. 11.7). No hypothesis, threshold, estimand, test, family, sampling rule or primary label changed.

@@ -22,7 +22,7 @@ Project: Post-quantum crypto scanner for Python projects. Companion to `role_tax
 | `eligible` | bool | recommendation scoring applies |
 | `hybrid_component` | bool | |
 | `scope` | enum | `app`, `test`, `vendored`, `example` |
-| `obvious_from_name` | bool | |
+| `obvious_from_name` | bool or null | true/false on an eligible record; null (not applicable) on an ineligible record (v1.1-r3, owner decision G02; schema v1.1) |
 | `evidence_needed` | enum | `none`, `argument-resolution`, `downstream-usage`, `protocol-context`, `runtime-value` |
 | `evidence_scope` | enum | `call`, `function`, `cross-function`, `cross-module`, `runtime-value` |
 | `base_case`, `transformation` | string | synthetic only: base id and operator (`alias-import`, `wrapper-function`, `class-method`, `loaded-key`, `cross-function`, `dict-dispatch`, `identity`) |
@@ -87,4 +87,5 @@ reports/figures/*.png, tables/*.md
 ## Changelog
 
 - v1.0 (2026-11-12): initial dictionary.
+- v1.1-r3 (2026-11-19; owner decision G02; `docs/audit/owner_decisions_g02_g03_g08_g10.md`): `obvious_from_name` is nullable (null on ineligible records), matching benchmark schema v1.1.
 - v1.1 (2026-11-18, before any labelling and any test-split access; owner-approved pre-F1 decision register `docs/audit/owner_decision_register_v1.0.5.md`): the obsolete two-annotator fields are replaced by the single-investigator record envelope, work tree and ledger (F13); rate denominators stated as n_exec, as in the frozen scoring policy (F13). No field of `benchmark_schema.json` changed. The v1.0 text is kept in `docs/specification/archive/v1.0.4/data_dictionary.md`.

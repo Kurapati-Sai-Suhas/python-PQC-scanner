@@ -1,4 +1,4 @@
-"""Synthetic case pyca-x25519-key-export / alias-import (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case pyca-x25519-key-export / alias-import (pqscan synthetic generator 1.1). Never executed."""
 from cryptography.hazmat.primitives import serialization as _serialization_mod
 from cryptography.hazmat.primitives.asymmetric import x25519 as _x25519_mod
 

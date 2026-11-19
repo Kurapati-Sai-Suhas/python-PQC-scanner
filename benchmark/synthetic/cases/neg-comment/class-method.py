@@ -1,4 +1,4 @@
-"""Synthetic case neg-comment / class-method (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case neg-comment / class-method (pqscan synthetic generator 1.1). Never executed."""
 
 
 class Service:

@@ -1,4 +1,4 @@
-"""Synthetic case neg-pyca-ecdsa-object / wrapper-function (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case neg-pyca-ecdsa-object / wrapper-function (pqscan synthetic generator 1.1). Never executed."""
 from cryptography.hazmat.primitives.asymmetric import ec
 from cryptography.hazmat.primitives import hashes
 

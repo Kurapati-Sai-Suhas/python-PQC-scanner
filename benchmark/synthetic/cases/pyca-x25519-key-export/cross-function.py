@@ -1,4 +1,4 @@
-"""Synthetic case pyca-x25519-key-export / cross-function (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case pyca-x25519-key-export / cross-function (pqscan synthetic generator 1.1). Never executed."""
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric import x25519
 

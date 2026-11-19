@@ -1,4 +1,4 @@
-"""Synthetic case pyca-ec-op-exchange / alias-import (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case pyca-ec-op-exchange / alias-import (pqscan synthetic generator 1.1). Never executed."""
 from cryptography.hazmat.primitives.asymmetric import ec as _ec_mod
 
 

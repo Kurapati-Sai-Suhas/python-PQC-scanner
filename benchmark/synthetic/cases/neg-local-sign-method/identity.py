@@ -1,4 +1,4 @@
-"""Synthetic case neg-local-sign-method / identity (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case neg-local-sign-method / identity (pqscan synthetic generator 1.1). Never executed."""
 
 
 class Token:

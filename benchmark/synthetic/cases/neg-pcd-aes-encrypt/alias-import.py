@@ -1,4 +1,4 @@
-"""Synthetic case neg-pcd-aes-encrypt / alias-import (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case neg-pcd-aes-encrypt / alias-import (pqscan synthetic generator 1.1). Never executed."""
 from Crypto.Cipher import AES as _aes_mod
 
 

@@ -1,4 +1,4 @@
-"""Synthetic case pcd-ecc-key-export / alias-import (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case pcd-ecc-key-export / alias-import (pqscan synthetic generator 1.1). Never executed."""
 from Crypto.PublicKey import ECC as _ecc_mod
 
 

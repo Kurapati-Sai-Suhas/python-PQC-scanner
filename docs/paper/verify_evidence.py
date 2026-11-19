@@ -237,6 +237,22 @@ put("E65.protocol_version", (ROOT / "docs/specification/evaluation_protocol.md")
 rec105 = jl(ROOT / "docs/specification/adoption_record_v1.0.5.json")
 put("E65.adoption_record", rec105["protocol_version"], "1.0.5")
 
+# --- owner decisions G02, G03, G08, G10 of 19 Nov 2026 (revision v1.0.5-r3) ---------------------------------
+put("E66.g02_ineligible_obvious_from_name", sorted({repr(r["obvious_from_name"]) for r in syn if not r["eligible"]}), ["None"])
+put("E66.g02_ineligible_count", sum(1 for r in syn if not r["eligible"]), 52)
+put("E66.g02_generator_version", sm["generator_version"], "1.1")
+put("E66.g02_pilot_na_left", sum(1 for r in csv.DictReader(open(ROOT / "docs/pilot/h1_pilot_sites.csv", encoding="utf-8"))
+                                 if r["obvious_from_name"] == "n/a"), 0)
+g10 = jl(ROOT / "docs/implementation/acceptance/g10_calibration.json")
+put("E67.g10_all_null_pass", g10["all_null_pass"], True)
+put("E67.g10_reps_null", g10["reps_null"], 10000)
+put("E67.g10_worst_null_rate_at_a", round(g10["worst_null_rate_at_a"]["rate"], 4), 0.0183)
+put("E67.g10_power_at_a", {k: round(v["rates"]["a1"], 4) for k, v in g10["results"].items() if v["kind"] == "power"},
+    {"G10a-power": 0.2175, "G10b-power": 0.158, "G10d-power": 0.219})
+from pqscan.bench import h4 as _h4
+spec = jl(ROOT / "docs/specification/run_specification_pre_f1.json")
+put("E68.g08_part1", list(_h4.PART1_BASELINES), spec["families"]["F-A"]["baselines"])
+
 if "--write" in sys.argv:
     out = ROOT / "docs/paper/evidence/evidence_values.json"
     out.write_text(json.dumps({"head": git("rev-parse", "HEAD"), "values": V, "failures": FAIL}, indent=1, default=str) + "\n",

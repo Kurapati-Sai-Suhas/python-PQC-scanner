@@ -1,4 +1,4 @@
-"""Synthetic case pcd-rsa-op-verify / identity (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case pcd-rsa-op-verify / identity (pqscan synthetic generator 1.1). Never executed."""
 from Crypto.PublicKey import RSA
 from Crypto.Hash import SHA256
 from Crypto.Signature import pkcs1_15

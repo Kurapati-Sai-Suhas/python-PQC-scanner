@@ -1,4 +1,4 @@
-"""Synthetic case neg-pyca-fernet-encrypt / wrapper-function (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case neg-pyca-fernet-encrypt / wrapper-function (pqscan synthetic generator 1.1). Never executed."""
 from cryptography.fernet import Fernet
 
 

@@ -1,4 +1,4 @@
-"""Synthetic case pyca-ed448-op-sign / loaded-key (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case pyca-ed448-op-sign / loaded-key (pqscan synthetic generator 1.1). Never executed."""
 from cryptography.hazmat.primitives import serialization
 
 

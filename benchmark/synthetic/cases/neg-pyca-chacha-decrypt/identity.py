@@ -1,4 +1,4 @@
-"""Synthetic case neg-pyca-chacha-decrypt / identity (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case neg-pyca-chacha-decrypt / identity (pqscan synthetic generator 1.1). Never executed."""
 from cryptography.hazmat.primitives.ciphers.aead import ChaCha20Poly1305
 
 

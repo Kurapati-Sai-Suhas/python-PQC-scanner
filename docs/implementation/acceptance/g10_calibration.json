@@ -1,0 +1,281 @@
+{
+ "procedure": "production H2 single comparison via scripts/phase3_acceptance.py task_single (guard unchanged)",
+ "B": 1000,
+ "reps_null": 10000,
+ "reps_power": 2000,
+ "levels": {
+  "a3": 0.008333333333333333,
+  "a2": 0.0125,
+  "a1": 0.025
+ },
+ "criterion": "rate <= level + 3*sqrt(level*(1-level)/n) at a/3, a/2, a (plan Sec. 11.2)",
+ "seed_rule": "numpy default_rng([20261113, 21, tid, chunk]); tid listed per scenario",
+ "results": {
+  "G10a": {
+   "n": 10000,
+   "guard": 8,
+   "rej_a3": 45,
+   "rej_a2": 80,
+   "rej_a1": 174,
+   "kind": "null",
+   "desc": "positive mean gap; two repositories near zero (kink)",
+   "tid": 9001,
+   "population_gaps": [
+    0.29,
+    0.29,
+    0.29,
+    0.29,
+    0.29,
+    0.0,
+    0.0
+   ],
+   "population_mean_gap": 0.2071,
+   "rates": {
+    "a3": 0.0045,
+    "a2": 0.008,
+    "a1": 0.0174
+   },
+   "guard_share": 0.0008,
+   "limits": {
+    "a3": 0.011060511361992261,
+    "a2": 0.015833072906493346,
+    "a1": 0.0296837484987988
+   },
+   "pass": true
+  },
+  "G10b": {
+   "n": 10000,
+   "guard": 25,
+   "rej_a3": 34,
+   "rej_a2": 51,
+   "rej_a1": 121,
+   "kind": "null",
+   "desc": "positive mean gap; one repository with a negative gap",
+   "tid": 9002,
+   "population_gaps": [
+    0.29,
+    0.29,
+    0.29,
+    0.29,
+    0.29,
+    0.29,
+    -0.325
+   ],
+   "population_mean_gap": 0.2021,
+   "rates": {
+    "a3": 0.0034,
+    "a2": 0.0051,
+    "a1": 0.0121
+   },
+   "guard_share": 0.0025,
+   "limits": {
+    "a3": 0.011060511361992261,
+    "a2": 0.015833072906493346,
+    "a1": 0.0296837484987988
+   },
+   "pass": true
+  },
+  "G10c": {
+   "n": 10000,
+   "guard": 9993,
+   "rej_a3": 20,
+   "rej_a2": 27,
+   "rej_a1": 62,
+   "kind": "null",
+   "desc": "opposite-direction gaps that cancel (3 positive, 3 negative, 1 zero)",
+   "tid": 9003,
+   "population_gaps": [
+    0.29,
+    0.29,
+    0.29,
+    -0.325,
+    -0.325,
+    -0.325,
+    0.0
+   ],
+   "population_mean_gap": -0.015,
+   "rates": {
+    "a3": 0.002,
+    "a2": 0.0027,
+    "a1": 0.0062
+   },
+   "guard_share": 0.9993,
+   "limits": {
+    "a3": 0.011060511361992261,
+    "a2": 0.015833072906493346,
+    "a1": 0.0296837484987988
+   },
+   "pass": true
+  },
+  "G10d": {
+   "n": 10000,
+   "guard": 9,
+   "rej_a3": 61,
+   "rej_a2": 90,
+   "rej_a1": 183,
+   "kind": "null",
+   "desc": "plausible heterogeneous coverage (one negative, one zero gap)",
+   "tid": 9004,
+   "population_gaps": [
+    0.44,
+    0.3275,
+    0.4025,
+    0.065,
+    -0.0475,
+    0.2525,
+    0.0275
+   ],
+   "population_mean_gap": 0.2096,
+   "rates": {
+    "a3": 0.0061,
+    "a2": 0.009,
+    "a1": 0.0183
+   },
+   "guard_share": 0.0009,
+   "limits": {
+    "a3": 0.011060511361992261,
+    "a2": 0.015833072906493346,
+    "a1": 0.0296837484987988
+   },
+   "pass": true
+  },
+  "G10e": {
+   "n": 10000,
+   "guard": 3265,
+   "rej_a3": 23,
+   "rej_a2": 33,
+   "rej_a1": 92,
+   "kind": "null",
+   "desc": "positive mean near the guard threshold (5 positive, 2 negative)",
+   "tid": 9005,
+   "population_gaps": [
+    0.29,
+    0.29,
+    0.29,
+    0.29,
+    0.29,
+    -0.325,
+    -0.325
+   ],
+   "population_mean_gap": 0.1143,
+   "rates": {
+    "a3": 0.0023,
+    "a2": 0.0033,
+    "a1": 0.0092
+   },
+   "guard_share": 0.3265,
+   "limits": {
+    "a3": 0.011060511361992261,
+    "a2": 0.015833072906493346,
+    "a1": 0.0296837484987988
+   },
+   "pass": true
+  },
+  "G10a-power": {
+   "n": 2000,
+   "guard": 0,
+   "rej_a3": 212,
+   "rej_a2": 275,
+   "rej_a1": 435,
+   "kind": "power",
+   "desc": "positive mean gap; two repositories near zero (kink); delta_r = +0.04 everywhere (power; larger effects are unreachable by the qF tuning in some repositories of these patterns)",
+   "tid": 9006,
+   "population_gaps": [
+    0.29,
+    0.29,
+    0.29,
+    0.29,
+    0.29,
+    0.0,
+    0.0
+   ],
+   "population_mean_gap": 0.2071,
+   "rates": {
+    "a3": 0.106,
+    "a2": 0.1375,
+    "a1": 0.2175
+   },
+   "guard_share": 0.0,
+   "limits": {
+    "a3": 0.014431488792158567,
+    "a2": 0.01995297759288192,
+    "a1": 0.03547318003282671
+   }
+  },
+  "G10b-power": {
+   "n": 2000,
+   "guard": 2,
+   "rej_a3": 133,
+   "rej_a2": 186,
+   "rej_a1": 316,
+   "kind": "power",
+   "desc": "positive mean gap; one repository with a negative gap; delta_r = +0.04 everywhere (power; larger effects are unreachable by the qF tuning in some repositories of these patterns)",
+   "tid": 9007,
+   "population_gaps": [
+    0.29,
+    0.29,
+    0.29,
+    0.29,
+    0.29,
+    0.29,
+    -0.325
+   ],
+   "population_mean_gap": 0.2021,
+   "rates": {
+    "a3": 0.0665,
+    "a2": 0.093,
+    "a1": 0.158
+   },
+   "guard_share": 0.001,
+   "limits": {
+    "a3": 0.014431488792158567,
+    "a2": 0.01995297759288192,
+    "a1": 0.03547318003282671
+   }
+  },
+  "G10d-power": {
+   "n": 2000,
+   "guard": 0,
+   "rej_a3": 206,
+   "rej_a2": 283,
+   "rej_a1": 438,
+   "kind": "power",
+   "desc": "plausible heterogeneous coverage (one negative, one zero gap); delta_r = +0.04 everywhere (power; larger effects are unreachable by the qF tuning in some repositories of these patterns)",
+   "tid": 9008,
+   "population_gaps": [
+    0.44,
+    0.3275,
+    0.4025,
+    0.065,
+    -0.0475,
+    0.2525,
+    0.0275
+   ],
+   "population_mean_gap": 0.2096,
+   "rates": {
+    "a3": 0.103,
+    "a2": 0.1415,
+    "a1": 0.219
+   },
+   "guard_share": 0.0,
+   "limits": {
+    "a3": 0.014431488792158567,
+    "a2": 0.01995297759288192,
+    "a1": 0.03547318003282671
+   }
+  }
+ },
+ "worst_null_rate_at_a": {
+  "scenario": "G10d",
+  "rate": 0.0183
+ },
+ "all_null_pass": true,
+ "failed": [],
+ "environment": {
+  "python": "3.12.10",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "platform": "Windows-11-10.0.26300-SP0"
+ },
+ "runtime_minutes": 2.1
+}

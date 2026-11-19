@@ -1,4 +1,4 @@
-"""Synthetic case pcd-ecc-key-sign / alias-import (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case pcd-ecc-key-sign / alias-import (pqscan synthetic generator 1.1). Never executed."""
 from Crypto.Signature import DSS as _dss_mod
 from Crypto.PublicKey import ECC as _ecc_mod
 from Crypto.Hash import SHA256 as _sha256_mod

@@ -31,7 +31,7 @@ from __future__ import annotations
 import argparse, csv, dataclasses, hashlib, json, random, re, sys
 from pathlib import Path
 
-GENERATOR_VERSION = "1.0"
+GENERATOR_VERSION = "1.1"   # 1.1 (2026-11-19, owner decision G02): obvious_from_name null on negatives
 DEFAULT_SEED = 20261113
 OPERATORS = ("identity", "alias-import", "wrapper-function", "class-method", "cross-function", "dict-dispatch")
 EVIDENCE_CHANGE = "loaded-key"
@@ -246,7 +246,7 @@ def labels(b: Base, operator: str) -> dict:
     if b.kind == "neg":
         return {"library": b.library, "algorithm": b.algorithm, "api_call": b.neg_api, "method": "", "key_provenance": "n/a",
                 "gt_role": "NONE", "assessability": "DETERMINATE", "eligible": False, "hybrid_component": False,
-                "obvious_from_name": False, "evidence_needed": "none", "evidence_scope": "call"}
+                "obvious_from_name": None, "evidence_needed": "none", "evidence_scope": "call"}
     algorithm = b.algorithm
     if loaded and b.library == "pyca" and b.algorithm in SINGLE_PURPOSE:
         algorithm = "other"          # a PEM loader does not reveal X25519 vs X448 or Ed25519 vs Ed448

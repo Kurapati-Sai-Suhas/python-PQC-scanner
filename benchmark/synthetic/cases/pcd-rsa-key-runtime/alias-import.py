@@ -1,4 +1,4 @@
-"""Synthetic case pcd-rsa-key-runtime / alias-import (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case pcd-rsa-key-runtime / alias-import (pqscan synthetic generator 1.1). Never executed."""
 from Crypto.Cipher import PKCS1_OAEP as _pkcs1_oaep_mod
 from Crypto.PublicKey import RSA as _rsa_mod
 from Crypto.Hash import SHA256 as _sha256_mod

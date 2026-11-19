@@ -1,4 +1,4 @@
-"""Synthetic case neg-string-literal / identity (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case neg-string-literal / identity (pqscan synthetic generator 1.1). Never executed."""
 
 
 def run(data, sig, ct, peer_public, alg):

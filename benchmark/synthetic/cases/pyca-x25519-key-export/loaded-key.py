@@ -1,4 +1,4 @@
-"""Synthetic case pyca-x25519-key-export / loaded-key (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case pyca-x25519-key-export / loaded-key (pqscan synthetic generator 1.1). Never executed."""
 from cryptography.hazmat.primitives import serialization
 
 

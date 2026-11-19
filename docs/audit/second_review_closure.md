@@ -21,3 +21,5 @@
 | G11 | Tool-attribution files not isolated | `pool_sources_*.json` was written next to the orders; git-ignored, never committed | Moved (hashes unchanged) to `benchmark/restricted/pool_sources/<split>/` (git-ignored); the build refuses to write them inside the order folder; the annotation tool refuses to issue while one sits in a candidate or annotation folder; access attestation template | `candidates.py`, `annotate.py`, `.gitignore`, guide, protocol, template | `test_g11_…`, `test_candidates` | None | **MITIGATED** (procedurally controlled and self-attested; **not technically enforced**) | One investigator can still open the file deliberately; the attestation is the record |
 
 **Owner decisions still required:** G02 (representation), G03 (same-family extra calls), G08 (H4 Part 1 decision set), G10 (whether to run the mixed-sign calibration scenario before F1). Earlier pending items unchanged: external human review (F1 prerequisite), pilot figure, W6.
+
+**Update (r3, 19 Nov 2026).** The owner decided G02, G03, G08 and G10; statuses above are those of r2 and are kept as the historical record. Current statuses: `owner_decisions_g02_g03_g08_g10.md`.

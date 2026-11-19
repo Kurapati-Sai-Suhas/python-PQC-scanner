@@ -1,4 +1,4 @@
-"""Synthetic case pcd-ecc-op-verify / identity (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case pcd-ecc-op-verify / identity (pqscan synthetic generator 1.1). Never executed."""
 from Crypto.Signature import DSS
 from Crypto.PublicKey import ECC
 from Crypto.Hash import SHA256

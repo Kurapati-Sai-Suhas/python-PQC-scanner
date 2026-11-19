@@ -13,6 +13,8 @@ Adopted 2026-11-16 with evaluation protocol v1.0.4 (owner decisions V1, V5, V8, 
 
 **Changes in v1.2:** the multi-call candidate rule (Step A, F03); Step D consumer inheritance as in taxonomy rule 1 (F02) and escape before KEY_MATERIAL_ONLY (F21); the hybrid rule requires a matching PQ family and actual combination (Step F, F08); the unresolved-field convention (Sec. 2, F10); owner and AI example records (Sec. 5, F15); the packet-first rule as implemented (Sec. 5, F11); the forbidden-token gate (Sec. 6, F07).
 
+**Revision r3 (19 Nov 2026; owner decisions G02 and G03; `docs/audit/owner_decisions_g02_g03_g08_g10.md`):** `obvious_from_name` is `null` on ineligible records; the four units of the multi-call rule and the `notes` format for additional same-family calls.
+
 **Editorial revision r2 (19 Nov 2026; second review G01, G04, G11; `docs/audit/second_review_closure.md`):** the protocol-configuration branch of Step C and of the multi-call rule (kind (c) of a supported library; reserved in the current frame); the permitted frozen batch run versus manual scanner use; the tool-attribution files. No eligibility outcome changes: out-of-scope protocol configuration was already ineligible under Step A.
 
 The decision procedure (Steps A–E and G) and the worked examples are unchanged from v1.0, except for the v1.2 changes listed above.
@@ -54,7 +56,7 @@ Use with `docs/specification/role_taxonomy.md` (definitions) and `docs/specifica
 
 ## 3. Decision procedure (follow in order)
 
-**Step A — Is it a site at all?** If the matched text is any of the following, set `eligible = false`, `gt_role = NONE`, and stop:
+**Step A — Is it a site at all?** If the matched text is any of the following, set `eligible = false`, `gt_role = NONE`, `obvious_from_name = null`, and stop:
 - a comment, docstring or string literal;
 - a parameter-object construction on its own (`padding.PKCS1v15()`, `ec.SECP256R1()`, `ec.ECDSA(...)`);
 - a type reference (`isinstance(k, RSAPrivateKey)`);
@@ -67,6 +69,8 @@ Use with `docs/specification/role_taxonomy.md` (definitions) and `docs/specifica
 4. if several calls qualify at the same level, the first in source order (line, then column of the called name).
 
 Calls on post-quantum algorithms (ML-KEM, ML-DSA, SLH-DSA) never become the site; they may be evidence for `hybrid_component`. Record the chosen call in `api_call`; `line_start` and `line_end` stay the statement's lines. Every other eligible call in the statement whose role family differs from the site's is added as an annotator-added site; same-family calls are listed in `notes`. Issued candidates of this kind are marked `multi_call: true`, with their calls listed by name.
+
+**Units (r3, owner decision G03; the F03 rule is retained).** The *candidate-discovery unit* is a statement location (the pool's union, deduplicated by enclosing statement). The *sampling unit* is that candidate statement (seeded order; quotas count eligible candidates). The *primary annotated site* is exactly one call expression per candidate, selected by steps 1–4 above. The *analysis unit* is that primary site: one per eligible candidate, so every denominator and estimand is unchanged. Additional same-family supported calls in the statement are not sites: list each in `notes` as `also-call: <api_call> @<line>:<column>` (name and position only, no label). Additional eligible calls of a different role family are annotator-added sites (reported separately, never in the primary set). Impact bound: at most 8 of the 3,503 development/validation pool candidates contain more than one supported call (`docs/audit/evidence/f03_multicall_pool.json`); the primary sample is never expanded retrospectively.
 
 **Step B — Identify the API.**
 - Resolve the import chain to the fully qualified API (follow `import x as y`, `from a.b import c`).
@@ -150,7 +154,7 @@ An **AI-review** record, written by the script from the verbatim response (`site
 Other `label_kind` values: `packet_first` and `relabel` (owner), `final` (written by the script after adjudication).
 
 **Type rules:**
-- `site.eligible`, `site.hybrid_component` and `site.obvious_from_name` must be JSON booleans. Anything else is rejected, never coerced.
+- `site.eligible` and `site.hybrid_component` must be JSON booleans. `site.obvious_from_name` is a JSON boolean on an eligible record and `null` (not applicable) on an ineligible record (r3, owner decision G02; schema v1.1). Anything else is rejected, never coerced.
 - `meta.ai` is present only for AI-review records.
 
 **`context_used`.** It is set while labelling and cannot be changed after the primary file is hashed:

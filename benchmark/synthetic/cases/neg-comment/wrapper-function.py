@@ -1,4 +1,4 @@
-"""Synthetic case neg-comment / wrapper-function (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case neg-comment / wrapper-function (pqscan synthetic generator 1.1). Never executed."""
 
 
 def _handle(data, sig, ct, peer_public, alg):

@@ -1,4 +1,4 @@
-"""Synthetic case pcd-rsa-op-sign-pss / class-method (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case pcd-rsa-op-sign-pss / class-method (pqscan synthetic generator 1.1). Never executed."""
 from Crypto.PublicKey import RSA
 from Crypto.Hash import SHA256
 from Crypto.Signature import pss

@@ -25,6 +25,13 @@
       "by": "owner",
       "decision": "Approval of the complete pre-F1 decision register resolving the 21 findings of the isolated AI specification review of protocol v1.0.4, including the H1/H3/H4 interpretations H-1 to H-6 (with owner choices C1, C2 and C3 and the eligible-only H4 sensitivity) and the H1b baseline set (F12). No hypothesis, threshold, primary metric, confirmatory family, baseline, D7 or D15 changed.",
       "record": "docs/audit/owner_decision_register_v1.0.5.md"
+    },
+    {
+      "id": "OD-2026-11-19",
+      "date": "2026-11-19",
+      "by": "owner",
+      "decision": "G02: obvious_from_name nullable (null on ineligible records), data-contract correction with migration. G03: F03 primary sampling and annotation rule retained; units clarified; additional same-family calls are notes. G08: H4 Part 1 set = the F-A baseline set. G10: signed guard and threshold retained; an additional pre-specified calibration scenario must run and pass before F1.",
+      "record": "docs/audit/owner_decisions_g02_g03_g08_g10.md"
     }
   ],
   "families": {
@@ -142,7 +149,7 @@
       "eligible_only_sensitivity": "Eligible-only recommendation-flip sensitivity (H4; secondary; reported separately). FR_rec^elig(o, j) = #{pairs in N^elig(o, j) whose recommendation outcome differs between the identity and the variant instance} / |N^elig(o, j)|, where N^elig(o, j) is the set of base–variant pairs for operator o whose frozen Dataset A label is eligible and on which tool j ran successfully on both the identity and the variant instance. It uses the same common recommendation-outcome vocabulary as the primary rate. It is reported separately from the primary all-pair classification and recommendation flip rates, FR_cls(o, j) and FR_rec(o, j), and is never substituted for them in the primary H4 decision.",
       "decision": "All decisions use point estimates, with Wilson 95% confidence intervals reported for every rate. Part 1: for every tool j in the pre-specified H4 baseline set, at least one pre-registered operator o - loaded-key included, because the original hypothesis names it - has FR_cls(o, j) >= 0.30 or FR_rec(o, j) >= 0.30 (wording kept: 'classification or recommendation'). Both flip types are always reported separately. The prediction (loaded-key, cross-function) is reported as confirmed or not. loaded-key is reported separately as an evidence-condition change, not a semantics-preserving transformation. Part 2: for the proposed analyser, separately under alias-import and under wrapper-function: classification stability 1 - FR_cls and recommendation stability 1 - FR_rec are reported separately; a pair is invariant only if neither its classification nor its recommendation flipped; Part 2 is met if the invariant share is >= 0.90 for both operators. loaded-key never enters the invariance calculations.",
       "tool_inventory_G08": {
-        "status": "Inventory of the actual runnable identifiers (second review G08), taken from the code and the manifest. Which of them count as 'every baseline' in H4 Part 1 is an OWNER DECISION, pending.",
+        "status": "Inventory of the actual runnable identifiers (second review G08), from the code and the manifest. Owner decision G08 (19 Nov 2026): the H4 Part 1 set is the F-A baseline set, frozen below.",
         "proposed_analyser": "pqscan:B4-full-T2",
         "runnable_external_tools": [
           "pqcheck",
@@ -170,7 +177,26 @@
           "pqscan/baselines/simple.py ARMS and H2_ARMS",
           "benchmark/baselines_manifest.json not_runnable"
         ],
-        "decision_set_part1": "PENDING OWNER DECISION"
+        "decision_set_part1": [
+          "pqcheck",
+          "pqc-audit",
+          "PostQuant",
+          "qsafe",
+          "QSA-regex",
+          "pqblocks-scan",
+          "pqscan:B1-algorithm",
+          "pqscan:B2-method-args"
+        ],
+        "pqscan_arm_roles": {
+          "pqscan:B1-algorithm": "H4 Part 1 baseline (registered F-A baseline)",
+          "pqscan:B2-method-args": "H4 Part 1 baseline (registered F-A baseline)",
+          "pqscan:B4-full-T2": "proposed analyser (H4 Part 2); not a baseline",
+          "pqscan:B1-dual": "descriptive only (D15); not in Part 1",
+          "pqscan:B3-full-noabst": "T0 comparator (H2 arms); reported separately; not in Part 1",
+          "pqscan:method-args-recv-T0": "T0 comparator (H2-3); reported separately; not in Part 1",
+          "pqscan:method-only-T0": "T0 comparator (H2-4); reported separately; not in Part 1"
+        },
+        "registry": "pqscan/bench/h4.py (PART1_BASELINES, PROPOSED_ANALYSER; tests/test_owner_decisions_r3.py)"
       }
     }
   },

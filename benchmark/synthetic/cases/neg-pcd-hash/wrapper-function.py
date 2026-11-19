@@ -1,4 +1,4 @@
-"""Synthetic case neg-pcd-hash / wrapper-function (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case neg-pcd-hash / wrapper-function (pqscan synthetic generator 1.1). Never executed."""
 from Crypto.Hash import SHA256
 
 

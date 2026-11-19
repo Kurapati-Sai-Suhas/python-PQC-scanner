@@ -1,4 +1,4 @@
-"""Synthetic case pcd-rsa-key-signverify / alias-import (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case pcd-rsa-key-signverify / alias-import (pqscan synthetic generator 1.1). Never executed."""
 from Crypto.PublicKey import RSA as _rsa_mod
 from Crypto.Hash import SHA256 as _sha256_mod
 from Crypto.Signature import pkcs1_15 as _pkcs1_15_mod

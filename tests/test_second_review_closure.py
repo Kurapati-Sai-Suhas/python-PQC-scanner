@@ -57,7 +57,8 @@ def test_g08_inventory_matches_the_code_registry():
     assert set(inv["runnable_pqscan_arms"]) == {f"pqscan:{a}" for a in set(ARMS) | set(H2_ARMS)}
     assert inv["proposed_analyser"] in inv["runnable_pqscan_arms"]
     assert set(inv["not_runnable"]) == {"CBOMkit (sonar-cryptography)", "Mehl ESEM 2026 scanner"}
-    assert inv["decision_set_part1"] == "PENDING OWNER DECISION"                    # not closed silently
+    # owner decision G08 (19 Nov 2026): the F-A baseline set (was "PENDING OWNER DECISION" in r2)
+    assert inv["decision_set_part1"] == SPEC["families"]["F-A"]["baselines"]
 
 
 # ------------------------------------------------------------------ G09

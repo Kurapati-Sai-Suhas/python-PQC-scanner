@@ -1,4 +1,4 @@
-"""Synthetic case pcd-rsa-key-runtime / cross-function (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case pcd-rsa-key-runtime / cross-function (pqscan synthetic generator 1.1). Never executed."""
 from Crypto.Cipher import PKCS1_OAEP
 from Crypto.PublicKey import RSA
 from Crypto.Hash import SHA256

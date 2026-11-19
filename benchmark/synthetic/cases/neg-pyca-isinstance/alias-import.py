@@ -1,4 +1,4 @@
-"""Synthetic case neg-pyca-isinstance / alias-import (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case neg-pyca-isinstance / alias-import (pqscan synthetic generator 1.1). Never executed."""
 from cryptography.hazmat.primitives.asymmetric import rsa as _rsa_mod
 
 

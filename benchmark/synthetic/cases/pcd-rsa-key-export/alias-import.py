@@ -1,4 +1,4 @@
-"""Synthetic case pcd-rsa-key-export / alias-import (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case pcd-rsa-key-export / alias-import (pqscan synthetic generator 1.1). Never executed."""
 from Crypto.PublicKey import RSA as _rsa_mod
 
 

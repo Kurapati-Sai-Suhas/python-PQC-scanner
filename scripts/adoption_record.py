@@ -1,13 +1,14 @@
 """Adoption records of the Phase 3 protocol: SHA-256 of every normative document.
 
-    python scripts/adoption_record.py           # rewrite the CURRENT record (adoption_record_v1.0.5-r2.json)
+    python scripts/adoption_record.py           # rewrite the CURRENT record (adoption_record_v1.0.5-r3.json)
     python scripts/adoption_record.py --check   # exit 1 if any current or historical hash is no longer satisfied
 
 Records, oldest first; only the current one is ever (re)written:
 * adoption_record_v1.0.4.json     (16 Nov 2026; protocol v1.0.4)
 * adoption_record_v1.0.5.json     (18 Nov 2026; protocol v1.0.5, owner-approved pre-F1 decision register)
 * adoption_record_v1.0.5-r1.json  (19 Nov 2026; code fixes G05/G06 after the second isolated AI review)
-* adoption_record_v1.0.5-r2.json  (19 Nov 2026; CURRENT: editorial corrections for G01, G04, G07, G08, G09, G10, G11)
+* adoption_record_v1.0.5-r2.json  (19 Nov 2026; editorial corrections for G01, G04, G07, G08, G09, G10, G11)
+* adoption_record_v1.0.5-r3.json  (19 Nov 2026; CURRENT: owner decisions G02, G03, G08, G10)
 
 --check verifies every document of the current record against the working tree, and every hash of every historical
 record against either the current file or a byte-identical copy in one of the archive folders
@@ -25,9 +26,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SPEC = ROOT / "docs" / "specification"
-RECORD = SPEC / "adoption_record_v1.0.5-r2.json"
+RECORD = SPEC / "adoption_record_v1.0.5-r3.json"
 HISTORY = [SPEC / "adoption_record_v1.0.4.json", SPEC / "adoption_record_v1.0.5.json",
-           SPEC / "adoption_record_v1.0.5-r1.json"]
+           SPEC / "adoption_record_v1.0.5-r1.json", SPEC / "adoption_record_v1.0.5-r2.json"]
 ARCHIVE = SPEC / "archive"
 DOCS = [
     "docs/specification/evaluation_protocol.md",
@@ -51,6 +52,8 @@ DOCS = [
     "docs/specification/amendment_v1.0.5.md",
     # v1.0.5-r2: the policy encoding (its comment was corrected for G09)
     "pqscan/policy/policy_v1_1.yaml",
+    # v1.0.5-r3: the frozen H4 tool registry (owner decision G08)
+    "pqscan/bench/h4.py",
 ]
 
 
@@ -65,19 +68,21 @@ def archive_files() -> list[Path]:
 
 def build() -> dict:
     return {
-        "record": "Phase 3 protocol v1.0.5, revision r2: editorial corrections after the second isolated AI "
-                  "specification review (G01, G04, G07, G08, G09, G10, G11); r1 carried the code fixes G05/G06. "
-                  "No hypothesis, threshold, metric, estimand, test, family, sampling rule or label outcome changed.",
-        "protocol_version": "1.0.5-r2",
-        "annotation_guide_version": "1.2-r2",
-        "analysis_plan_version": "1.0.1-r2",
-        "role_taxonomy_version": "1.1-r2",
-        "data_dictionary_version": "1.1",
+        "record": "Phase 3 protocol v1.0.5, revision r3: owner decisions of 19 Nov 2026 (G02 nullable "
+                  "obvious_from_name, a data-contract correction; G03 units with the F03 rule retained; G08 frozen H4 "
+                  "Part 1 set = the F-A baselines; G10 additional guard calibration, PASS). No hypothesis, threshold, "
+                  "metric, estimand, test, family, sampling rule, label outcome or guard changed.",
+        "protocol_version": "1.0.5-r3",
+        "annotation_guide_version": "1.2-r3",
+        "analysis_plan_version": "1.0.1-r3",
+        "role_taxonomy_version": "1.1-r3",
+        "data_dictionary_version": "1.1-r3",
+        "benchmark_schema_version": "1.1",
+        "synthetic_generator_version": "1.1",
         "scoring_policy_version": "1.0.1",
         "adopted_utc_date": "2026-11-19",
-        "basis": "owner-authorised closure of the second-review findings (docs/audit/second_review_closure.md); "
-                 "previous records adoption_record_v1.0.4.json, adoption_record_v1.0.5.json and "
-                 "adoption_record_v1.0.5-r1.json are kept unchanged",
+        "basis": "owner decisions G02, G03, G08, G10 (docs/audit/owner_decisions_g02_g03_g08_g10.md); previous records "
+                 "adoption_record_v1.0.4.json, v1.0.5.json, v1.0.5-r1.json and v1.0.5-r2.json are kept unchanged",
         "documents": {d: sha256_text(ROOT / d) for d in DOCS},
         "archived": {p.relative_to(ROOT).as_posix(): sha256_text(p) for p in archive_files()},
     }

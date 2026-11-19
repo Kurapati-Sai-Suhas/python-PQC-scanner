@@ -1,4 +1,4 @@
-"""Synthetic case pyca-rsa-key-export / cross-function (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case pyca-rsa-key-export / cross-function (pqscan synthetic generator 1.1). Never executed."""
 from cryptography.hazmat.primitives.asymmetric import rsa
 from cryptography.hazmat.primitives import serialization
 

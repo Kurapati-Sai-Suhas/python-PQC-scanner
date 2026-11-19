@@ -1,4 +1,4 @@
-"""Synthetic case neg-pcd-hash / alias-import (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case neg-pcd-hash / alias-import (pqscan synthetic generator 1.1). Never executed."""
 from Crypto.Hash import SHA256 as _sha256_mod
 
 

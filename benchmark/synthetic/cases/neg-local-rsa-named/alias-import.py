@@ -1,4 +1,4 @@
-"""Synthetic case neg-local-rsa-named / alias-import (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case neg-local-rsa-named / alias-import (pqscan synthetic generator 1.1). Never executed."""
 
 
 def rsa_sign(payload):

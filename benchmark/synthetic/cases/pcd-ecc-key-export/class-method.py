@@ -1,4 +1,4 @@
-"""Synthetic case pcd-ecc-key-export / class-method (pqscan synthetic generator 1.0). Never executed."""
+"""Synthetic case pcd-ecc-key-export / class-method (pqscan synthetic generator 1.1). Never executed."""
 from Crypto.PublicKey import ECC
 
 
