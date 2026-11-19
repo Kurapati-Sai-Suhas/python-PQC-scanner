@@ -32,10 +32,15 @@ from pathlib import Path
 
 RULE = "packet-v1"
 CLASS_MAX_LINES, WINDOW, MAX_CALLERS = 400, 40, 3
-# tool names, the project's name and the study's hypotheses/arms; matched case-insensitively on word boundaries
+# tool names, the project's name and the study's hypotheses/arms; matched case-insensitively on word boundaries.
+# Registered hypothesis and comparison identifiers (protocol v1.0.5 Sec. 1 and 5; analysis plan Sec. 1): H1a, H1b,
+# H2a, H2b, H2-1 ... H2-4, H2-S, F-A, F-B (added 19 Nov 2026 for second-review finding G05; earlier only h2a/h2b).
+# The bare labels H1-H4 are deliberately not listed: they collide with ordinary code (HTML headings, hash variables)
+# and are not specific to this study.
+HYPOTHESIS_IDS = ("h1a", "h1b", "h2a", "h2b", "h2-1", "h2-2", "h2-3", "h2-4", "h2-s", "f-a", "f-b")
 FORBIDDEN = ("pqscan", "pqcheck", "pqc-audit", "pqc_audit", "postquant", "qsafe", "pqblocks", "cbomkit",
              "quantum-safe auditor", "semgrep", "pypqc", "rolebench", "post-quantum crypto scanner", "provenance-aware",
-             "method+args", "h2a", "h2b")
+             "method+args") + HYPOTHESIS_IDS
 _FORBIDDEN_RE = re.compile(r"(?<![a-z0-9_])(" + "|".join(re.escape(t) for t in FORBIDDEN) + r")(?![a-z0-9_])")
 PACKET_SEED = 20261113
 PLANNED_CANDIDATES = {"DV": 468, "T": 630}

@@ -23,7 +23,9 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-RECORD = ROOT / "docs" / "specification" / "adoption_record_v1.0.5.json"
+RECORD = ROOT / "docs" / "specification" / "adoption_record_v1.0.5-r1.json"
+RECORD_V105 = ROOT / "docs" / "specification" / "adoption_record_v1.0.5.json"     # historical; never rewritten
+ARCHIVE_V105 = ROOT / "docs" / "specification" / "archive" / "v1.0.5"
 RECORD_V104 = ROOT / "docs" / "specification" / "adoption_record_v1.0.4.json"
 ARCHIVE_V104 = ROOT / "docs" / "specification" / "archive" / "v1.0.4"
 DOCS = [
@@ -60,19 +62,31 @@ def archived() -> list[str]:
 
 def build() -> dict:
     return {
-        "record": "Phase 3 protocol adoption v1.0.5 (pre-F1 corrections after the isolated specification review)",
+        "record": "Phase 3 protocol v1.0.5, revision r1: implementation fixes G05 (forbidden-token coverage) and G06 (fail-closed AI-response gate) after the second isolated specification review; protocol text unchanged",
         "protocol_version": "1.0.5",
         "annotation_guide_version": "1.2",
         "analysis_plan_version": "1.0.1",
         "role_taxonomy_version": "1.1",
         "data_dictionary_version": "1.1",
         "scoring_policy_version": "1.0.1",
-        "adopted_utc_date": "2026-11-18",
+        "adopted_utc_date": "2026-11-19",
         "basis": "owner approval of the pre-F1 decision register docs/audit/owner_decision_register_v1.0.5.md, "
                  "before any labelling and any test-split access; supersedes adoption_record_v1.0.4.json, which is kept",
         "documents": {d: sha256_text(ROOT / d) for d in DOCS},
         "archived_v1.0.4": {d: sha256_text(ROOT / d) for d in archived()},
+        "archived_v1.0.5": {p.relative_to(ROOT).as_posix(): sha256_text(p) for p in sorted(ARCHIVE_V105.glob("*"))},
     }
+
+
+def check_v105() -> list[str]:
+    """Every v1.0.5 hash must still exist: in the current file or in its archive copy (docs/specification/archive/v1.0.5/)."""
+    rec = json.loads(RECORD_V105.read_text(encoding="utf-8"))
+    bad = []
+    for d, h in rec["documents"].items():
+        arch = ARCHIVE_V105 / Path(d).name
+        if sha256_text(ROOT / d) != h and not (arch.exists() and sha256_text(arch) == h):
+            bad.append(f"v1.0.5 text of {d} is neither current nor archived")
+    return bad
 
 
 def check_v104() -> list[str]:
@@ -93,10 +107,11 @@ def main(argv=None) -> int:
     a = ap.parse_args(argv)
     if a.check:
         rec = json.loads(RECORD.read_text(encoding="utf-8"))
-        bad = [f"hash mismatch: {d}" for d, h in {**rec["documents"], **rec["archived_v1.0.4"]}.items()
+        bad = [f"hash mismatch: {d}" for d, h in {**rec["documents"], **rec["archived_v1.0.4"],
+                                                   **rec.get("archived_v1.0.5", {})}.items()
                if sha256_text(ROOT / d) != h]
         bad += [f"not in the v1.0.5 record: {d}" for d in DOCS if d not in rec["documents"]]
-        bad += check_v104()
+        bad += check_v104() + check_v105()
         for d in bad:
             print(d)
         return 1 if bad else 0

@@ -173,36 +173,15 @@ def _forbidden_gate(a, p: dict, packets: list[dict]) -> tuple[list[dict], list[s
       evaluated tool, this project or its hypotheses).
     Returns (packets to send, excluded candidate IDs, info). The decision file is copied to the work tree and its
     SHA-256 is recorded in the ledger as a `note`. Nothing is redacted."""
-    warned = {pk["candidate_id"]: P._forbidden_in(pk["text"]) for pk in packets}
-    warned = {c: t for c, t in warned.items() if t}
-    if not warned:
+    pairs = _warned_pairs(packets)
+    if not pairs:
         return packets, [], {}
-    pairs = {(c, t) for c, ts in warned.items() for t in ts}
     if not a.warnings_decision:
-        raise SystemExit(f"forbidden token(s) in {len(warned)} packet(s): {sorted(pairs)}. The prompt is not built. "
-                         f"Record a decision per (candidate_id, token) in a CSV with columns {DECISION_COLUMNS} "
-                         "and pass it with --warnings-decision (guide v1.2 Sec. 6).")
+        raise SystemExit(f"forbidden token(s) in {len({c for c, _ in pairs})} packet(s): {sorted(pairs)}. The prompt is "
+                         f"not built. Record a decision per (candidate_id, token) in a CSV with columns "
+                         f"{DECISION_COLUMNS} and pass it with --warnings-decision (guide v1.2 Sec. 6).")
     src = Path(a.warnings_decision)
-    with src.open(encoding="utf-8", newline="") as f:
-        reader = csv.DictReader(f)
-        if reader.fieldnames != DECISION_COLUMNS:
-            raise SystemExit(f"decision file columns must be exactly {DECISION_COLUMNS}")
-        rows = list(reader)
-    got = [(r["candidate_id"], r["token"]) for r in rows]
-    if len(got) != len(set(got)) or set(got) != pairs:
-        raise SystemExit(f"the decision file must cover exactly the warned (candidate, token) pairs {sorted(pairs)}")
-    excluded, fp = set(), set()
-    for r in rows:
-        v = r["verdict"].strip()
-        if v == "genuine":
-            excluded.add(r["candidate_id"])
-        elif v == "false_positive":
-            if not _EVIDENCE_LOC.search(r["evidence"] or ""):
-                raise SystemExit(f"{r['candidate_id']}/{r['token']}: a false positive needs evidence with a file:line "
-                                 "reference showing the match is not forbidden content")
-            fp.add(r["candidate_id"])
-        else:
-            raise SystemExit(f"verdict must be 'genuine' or 'false_positive', not {v!r}")
+    excluded, fp = _read_decision(src, pairs)
     dest = p["work"] / f"forbidden_decision_{a.repo}_{a.batch}.csv"
     if dest.exists() and dest.read_bytes() != src.read_bytes():
         raise SystemExit(f"{dest.name} already exists with a different decision; a change is a new batch decision")
@@ -213,6 +192,56 @@ def _forbidden_gate(a, p: dict, packets: list[dict]) -> tuple[list[dict], list[s
                         f"{sorted(fp - excluded)}")
     return ([pk for pk in packets if pk["candidate_id"] not in excluded], sorted(excluded),
             {"decision_sha256": rec["sha256"], "false_positive": sorted(fp - excluded)})
+
+
+def _warned_pairs(packets: list[dict]) -> set[tuple[str, str]]:
+    """(candidate_id, token) for every forbidden token in the text that would be sent to the AI."""
+    return {(pk["candidate_id"], t) for pk in packets for t in P._forbidden_in(pk["text"])}
+
+
+def _read_decision(src: Path, pairs: set[tuple[str, str]]) -> tuple[set[str], set[str]]:
+    """Validate a forbidden-token decision file against the warned pairs. Returns (excluded, verified false positives).
+    genuine -> excluded (no override); false_positive -> needs file:line evidence. Anything else is refused."""
+    with Path(src).open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames != DECISION_COLUMNS:
+            raise SystemExit(f"decision file columns must be exactly {DECISION_COLUMNS}")
+        rows = list(reader)
+    got = [(r["candidate_id"], r["token"]) for r in rows]
+    if len(got) != len(set(got)) or set(got) != pairs:
+        raise SystemExit(f"the decision file must cover exactly the warned (candidate, token) pairs {sorted(pairs)}")
+    excluded, fp = set(), set()
+    for r in rows:
+        v = (r["verdict"] or "").strip()
+        if v == "genuine":
+            excluded.add(r["candidate_id"])
+        elif v == "false_positive":
+            if not _EVIDENCE_LOC.search(r["evidence"] or ""):
+                raise SystemExit(f"{r['candidate_id']}/{r['token']}: a false positive needs evidence with a file:line "
+                                 "reference showing the match is not forbidden content")
+            fp.add(r["candidate_id"])
+        else:
+            raise SystemExit(f"verdict must be 'genuine' or 'false_positive', not {v!r}")
+    return excluded, fp
+
+
+def _ai_gate(a, p: dict, packets: list[dict], raw: str) -> tuple[list[dict], list[str]]:
+    """Fail-closed check at the AI-response step (second-review finding G06). If any packet of the batch contains a
+    forbidden token, the batch's recorded decision (written by the prompt gate) must exist and be valid; the response
+    is rejected outright if it contains a record for an excluded candidate; excluded candidates are never parsed."""
+    pairs = _warned_pairs(packets)
+    if not pairs:
+        return packets, []
+    dec = p["work"] / f"forbidden_decision_{a.repo}_{a.batch}.csv"
+    if not dec.exists():
+        raise SystemExit(f"forbidden token(s) in {len({c for c, _ in pairs})} packet(s) and no recorded decision: run "
+                         "the prompt step with --warnings-decision first; the AI response is not accepted")
+    excluded, _ = _read_decision(dec, pairs)
+    named = {o.get("candidate_id") for o in R._json_objects(raw)}
+    leaked = sorted(named & excluded)
+    if leaked:
+        raise SystemExit(f"the AI response contains records for excluded candidate(s) {leaked}; it is rejected")
+    return [pk for pk in packets if pk["candidate_id"] not in excluded], sorted(excluded)
 
 
 def _excluded(p: dict, a) -> list[str]:
@@ -237,6 +266,7 @@ def cmd_ai(a, root: Path) -> dict:
     p = paths(a.phase, a.repo, root)
     packets = json.loads((p["work"] / f"packets_{a.repo}_{a.batch}.json").read_text(encoding="utf-8"))
     raw = Path(a.response).read_text(encoding="utf-8")
+    packets, _ = _ai_gate(a, p, packets, raw)
     ident = R.load_identity()
     parsed = R.parse_ai_response(raw, packets, ident, datetime_utc=a.utc, prompt_sha256=R.template_sha256())
     out = p["work"] / f"ai_review_{a.repo}_{a.batch}.jsonl"

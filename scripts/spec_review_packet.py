@@ -27,6 +27,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MAX_PART_CHARS = 30_000
 ARCHIVE_V104 = "docs/specification/archive/v1.0.4"
+ARCHIVE_V105 = "docs/specification/archive/v1.0.5"   # texts the second review saw, for files changed after it (G05)
 V104_PACKET_COMMIT = "547ce08"     # the commit the first-review packet was built from
 
 DOCS_V104 = [   # reading order: what is studied, how it is analysed, decisions, how it is labelled, definitions, formats
@@ -92,6 +93,10 @@ def sha256_text(text: str) -> str:
 
 def read_doc(review: str, rel: str, root: Path) -> str:
     """The text of `rel` as that review saw it."""
+    if review == "v1.0.5":
+        arch = root / ARCHIVE_V105 / Path(rel).name           # basenames in DOCS_V105 are unique
+        if arch.exists():
+            return norm_text(arch)
     if review == "v1.0.4":
         arch = root / ARCHIVE_V104 / Path(rel).name           # basenames in DOCS_V104 are unique
         if arch.exists():
