@@ -1,0 +1,217 @@
+{
+ "status": "NOT READY - DRAFT, NOT APPROVED",
+ "freeze_record_exists": false,
+ "freeze_tag_exists": false,
+ "items": [
+  {
+   "item": "1",
+   "name": "commit and source-tree fingerprint",
+   "status": "COMPUTED",
+   "detail": {
+    "head": "1cdc2d79424956db71340fcaeef28ebe44586cfd",
+    "tracked_changes": false,
+    "tree": "tree sha256 d1ba796675b6b05df9a11a96ae3314d01eb518a19893e9593781c43b6958fd91 over 610 files"
+   }
+  },
+  {
+   "item": "2",
+   "name": "SHA-256 of the normative documents",
+   "status": "COMPUTED",
+   "detail": {
+    "docs/specification/role_taxonomy.md": "59b798bbfe4dc71dc929072392dce79d805364d7f334b6ac0c89475daf840f64",
+    "pqscan/policy/policy_v1_1.yaml": "907a8156d8857f9d649733371299c30a04cfe43d2a37a332ea0854a5b64e469d",
+    "docs/specification/recommendation_policy.md": "4e89ac6cdbce6e0dc5bace2b58e3651240d09e2778f9759d11658d87b57d67ce",
+    "docs/specification/scoring_policy.md": "5916efe74761fea2d437e34cad2be60df96a32c4655ae45e68fb8b211103b4df",
+    "docs/specification/evaluation_protocol.md": "71171fe35083ca98c500a2e005a43b7c7991894e7282cccbea5afbff21fe33c1",
+    "docs/specification/phase3_analysis_plan.md": "7c0fc7b72afef5964faf817653c79ddf48a536b42cb68e13885ea747dd93691b",
+    "docs/specification/phase3_decisions.md": "d0f37c137b1d9b47502a3e71f8ce3881bf9efbca1d317ec231ae520f0c029b93",
+    "docs/specification/data_dictionary.md": "5759de353adb0701789c4daf9baccab8590860a03ddf597f20e88e4e14c603ff",
+    "docs/benchmark/annotation_guide.md": "73faebf7f6a5568de971b29eabb01c98bac5607b10edc805fc7feb5a31af0f3b",
+    "docs/benchmark/benchmark_schema.json": "52b1c0f5ccad3828282aa1a56253e36fe082def6e24cef06db40c4853ae1e32b",
+    "docs/benchmark/meta_schema.json": "71b36e5e347386dc7bfb6eeef76e012fff0b3bb05e54784f23a1fb62b8681f58",
+    "docs/specification/run_specification_pre_f1.md": "663809b9f47d73c0f0abbab15ec194ea976533e584e9fbce5d3c7ec2e3ccb263",
+    "docs/specification/run_specification_pre_f1.json": "eee2f35f7826b1d079050f6d715d318e67d125b05a50788b0afbd3078c99eb1a"
+   }
+  },
+  {
+   "item": "2+",
+   "name": "api_coverage.md (TA10: not yet in the item-2 list)",
+   "status": "COMPUTED",
+   "detail": {
+    "docs/specification/api_coverage.md": "ae6e13051b9d14879a672a230d8a4660577489ea95e403f662dc92c0b5958022"
+   }
+  },
+  {
+   "item": "3",
+   "name": "tau, thresholds and decision rules",
+   "status": "COMPUTED",
+   "detail": "recorded in the item-2 documents (hashed above)"
+  },
+  {
+   "item": "4",
+   "name": "baseline manifest",
+   "status": "COMPUTED",
+   "detail": {
+    "benchmark/baselines_manifest.json": "e785cbc335f81e081d3d0666ddb917defd216e3063b3264f09a5c19876a2835c"
+   }
+  },
+  {
+   "item": "5",
+   "name": "sampling frame and rule",
+   "status": "COMPUTED",
+   "detail": {
+    "benchmark/real/manifest.json": "b8d8ea96912460ab79ee6c89b5e68ff8cfcd0b97157708a5fda33717dcf7a7d3",
+    "pqscan/bench/candidates.py": "125575e917282dc6c91e418709b865cf5c196b852c91d2be60139554758fac08"
+   }
+  },
+  {
+   "item": "6a",
+   "name": "frozen DV labels and ledger heads",
+   "status": "MISSING",
+   "detail": "no annotation has taken place (no benchmark/ledger/)"
+  },
+  {
+   "item": "6b",
+   "name": "synthetic dataset hashes",
+   "status": "COMPUTED",
+   "detail": {
+    "benchmark/synthetic/manifest.json": "eabe8951e85753c8ac66d431492eb3bab70435e63b8d288099f2206d11756c35",
+    "benchmark/synthetic/sites.jsonl": "a2f8f354f3638e172fb58ba2d2e0b60f8fa6a7377cdd1d08549d51939e545390",
+    "benchmark/synthetic/validation_subset.csv": "dc3f38b950204e4a23ce3d3df253150c20439edb5b2f2f0499dda9fff826be77"
+   }
+  },
+  {
+   "item": "7",
+   "name": "hypotheses and families",
+   "status": "COMPUTED",
+   "detail": "in the item-2 documents"
+  },
+  {
+   "item": "8",
+   "name": "experiment commands F1->F2 and E",
+   "status": "MISSING",
+   "detail": "no Experiment E driver or command list yet (third review TA17 notes the E driver is still to write)"
+  },
+  {
+   "item": "9a",
+   "name": "AI interface identity, prompt and packet-rule hashes",
+   "status": "COMPUTED",
+   "detail": {
+    "docs/benchmark/ai_review_identity.json": "e7fb60c4716110e3689d5acfacf0f761903dd390664f1a8c7ad7af9e511e73b2",
+    "docs/benchmark/ai_review_prompt_v1.md": "9c7d183406019c7dae708f9b89dae3fea8dc6969bfb666a8df6865fa76570b38",
+    "pqscan/bench/packets.py": "3aa9ea54e5b3ed44d4348179870447376145845fa0317621e8465ff249922301"
+   }
+  },
+  {
+   "item": "9b",
+   "name": "Phase DV reliability results",
+   "status": "MISSING",
+   "detail": "needs DV labels and the >= 14-day re-label"
+  },
+  {
+   "item": "9c",
+   "name": "frame-audit result",
+   "status": "MISSING",
+   "detail": "needs the owner's blind whole-file audit (pqscan/bench/frame_audit.py)"
+  },
+  {
+   "item": "9d",
+   "name": "specification-review record: EXTERNAL HUMAN REVIEW (mandatory, F14)",
+   "status": "MISSING",
+   "detail": "no completed external human review form; AI reviews do not count"
+  },
+  {
+   "item": "9e",
+   "name": "Phase DV feasibility check (c_DV, k_r)",
+   "status": "MISSING",
+   "detail": "needs DV labels"
+  },
+  {
+   "item": "9f",
+   "name": "production statistical code hashes",
+   "status": "COMPUTED",
+   "detail": {
+    "pqscan/bench/h2.py": "4545fc79e2988bf686c5257d79f14a7d53c9ff99ee59a90f4a227920e8e273b7",
+    "pqscan/bench/stats.py": "104c58e0be5a67b1512d27f2b58ec7297aaa184101b11089edb59259eee60e81",
+    "pqscan/bench/judge.py": "7b7aad4ddacb1d0b2dda3ada9293ae793f4704de13d06b43f6bfab10734d5645",
+    "pqscan/bench/matching.py": "34873f871a962d2cb179c5f31d96c528991ba72643a5366ef79b67cbce5e2a84",
+    "pqscan/bench/fa.py": "28c94532fdcf9b60e5d6ad13936f07123c2b20f51ecd026a3ee0a6704ba85789",
+    "pqscan/bench/h4.py": "3438feff074decf9c934f178023ca1a4dfed41aca4f3ad1f21f2ea33a9ce618f",
+    "pqscan/bench/reliability.py": "773301dea6e72e104431eb93d3ff6153ffc1fbb346fd61e57e07cee55fb7b4ee"
+   }
+  },
+  {
+   "item": "9g",
+   "name": "calibration evidence",
+   "status": "COMPUTED",
+   "detail": {
+    "docs/implementation/acceptance/statistical_acceptance.json": "099cfd7884224764dbfdb7ea90b4d6d29b5288dfccdbbd27993ee500d80304cc",
+    "docs/implementation/acceptance/fa_type1.json": "b222d8446a87c777fc30c7138a9e73253318810032f64911301abb09b6ea75d3",
+    "docs/implementation/acceptance/g10_calibration.json": "6b786c66921b78825eb037cd68596211119335359849f422ec820702cb27dac8"
+   }
+  },
+  {
+   "item": "9h",
+   "name": "source-attribution access attestation (G11)",
+   "status": "MISSING",
+   "detail": "only the template exists; the owner signs it at F1"
+  },
+  {
+   "item": "H4",
+   "name": "H4 Part 1 = the eight confirmed F-A baselines (owner decision 19 Nov 2026)",
+   "status": "VERIFIED",
+   "detail": [
+    "pqcheck",
+    "pqc-audit",
+    "PostQuant",
+    "qsafe",
+    "QSA-regex",
+    "pqblocks-scan",
+    "pqscan:B1-algorithm",
+    "pqscan:B2-method-args"
+   ]
+  },
+  {
+   "item": "T",
+   "name": "test split unopened",
+   "status": "VERIFIED",
+   "detail": "7 test repositories; benchmark/real holds ['manifest.json']; local checkouts found: none"
+  },
+  {
+   "item": "D",
+   "name": "open owner decisions from the third AI review",
+   "status": "MISSING",
+   "detail": {
+    "before annotation": [
+     "TA06 PROTOCOL_CONFIG examples",
+     "TA07 escaped single-purpose keys",
+     "TA11 PyCryptodome split idiom",
+     "TA19 hybrid_component roles"
+    ],
+    "before F1": [
+     "TA01 S16 exemption",
+     "TA03 H3 harmful-rate definition",
+     "TA04 H4 quantifier",
+     "TA05 H4 synthetic split",
+     "TA08 H1a numerator",
+     "TA09 kappa statistic",
+     "TA10 api_coverage.md hash",
+     "TA28 H3 bootstrap procedure",
+     "W6 policy citation",
+     "N1 PyCryptodome PQ modules"
+    ]
+   }
+  }
+ ],
+ "missing_prerequisites": [
+  "6a frozen DV labels and ledger heads: no annotation has taken place (no benchmark/ledger/)",
+  "8 experiment commands F1->F2 and E: no Experiment E driver or command list yet (third review TA17 notes the E driver is still to write)",
+  "9b Phase DV reliability results: needs DV labels and the >= 14-day re-label",
+  "9c frame-audit result: needs the owner's blind whole-file audit (pqscan/bench/frame_audit.py)",
+  "9d specification-review record: EXTERNAL HUMAN REVIEW (mandatory, F14): no completed external human review form; AI reviews do not count",
+  "9e Phase DV feasibility check (c_DV, k_r): needs DV labels",
+  "9h source-attribution access attestation (G11): only the template exists; the owner signs it at F1",
+  "D open owner decisions from the third AI review: {'before annotation': ['TA06 PROTOCOL_CONFIG examples', 'TA07 escaped single-purpose keys', 'TA11 PyCryptodome split idiom', 'TA19 hybrid_component roles'], 'before F1': ['TA01 S16 exemption', 'TA03 H3 harmful-rate definition', 'TA04 H4 quantifier', 'TA05 H4 synthetic split', 'TA08 H1a numerator', 'TA09 kappa statistic', 'TA10 api_coverage.md hash', 'TA28 H3 bootstrap procedure', 'W6 policy citation', 'N1 PyCryptodome PQ modules']}",
+  "explicit owner approval of F1 (not given)"
+ ]
+}
