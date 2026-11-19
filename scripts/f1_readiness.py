@@ -26,21 +26,21 @@ ITEM2_DOCS = [
     "docs/specification/phase3_analysis_plan.md", "docs/specification/phase3_decisions.md",
     "docs/specification/data_dictionary.md", "docs/benchmark/annotation_guide.md", "docs/benchmark/benchmark_schema.json",
     "docs/benchmark/meta_schema.json", "docs/specification/run_specification_pre_f1.md",
-    "docs/specification/run_specification_pre_f1.json",
+    "docs/specification/run_specification_pre_f1.json", "docs/specification/api_coverage.md",
 ]
 STAT_CODE = ["pqscan/bench/h2.py", "pqscan/bench/stats.py", "pqscan/bench/judge.py", "pqscan/bench/matching.py",
              "pqscan/bench/fa.py", "pqscan/bench/h4.py", "pqscan/bench/reliability.py"]
 H4_PART1 = ("pqcheck", "pqc-audit", "PostQuant", "qsafe", "QSA-regex", "pqblocks-scan",
             "pqscan:B1-algorithm", "pqscan:B2-method-args")
-# Third-review findings that settle how a hypothesis is computed or how sites are labelled (owner decisions; F1 or
-# annotation prerequisites). Source: docs/review/spec_review_v1.0.5-r3/review_outputs/third_ai_review_report.md
-# TA06, TA07, TA11 and TA19 were decided on 19 Nov 2026 (revision v1.0.5-r5;
-# docs/audit/owner_decisions_labelling_rules_2026-11-19.md).
+# Owner decisions from the third AI review: TA06, TA07, TA11, TA19 decided in r5; TA03, TA04, TA05, TA08, TA09, TA10,
+# TA17, TA22, TA28, W6, N1, D14 decided in r6 (docs/audit/owner_decisions_pre_f1_analysis_2026-11-19.md). TA01 was
+# approved only conditionally; the historical verification did not establish the condition, so it is open and blocking.
 OPEN_DECISIONS = {
-    "before F1": ["TA01 S16 exemption", "TA03 H3 harmful-rate definition", "TA04 H4 quantifier",
-                  "TA05 H4 synthetic split", "TA08 H1a numerator", "TA09 kappa statistic", "TA10 api_coverage.md hash",
-                  "TA28 H3 bootstrap procedure", "W6 policy citation", "N1 PyCryptodome PQ modules"],
+    "before F1": ["TA01 S16: calibration criterion 2 (plan Sec. 11) is not met under the adopted text "
+                  "(docs/audit/ta01_s16_historical_verification.md); an adopted and calibrated solution is required"],
 }
+CALIBRATION_BLOCKERS = ["S16 Type I 0.0415 > 0.025 + 3 MC-SE (~0.028); the exemption exists only in "
+                        "scripts/phase3_acceptance.py, not in the adopted plan (TA01, r6)"]
 
 
 def sha(p: Path) -> str:
@@ -74,9 +74,6 @@ def run() -> dict:
     tree = subprocess.run([sys.executable, "scripts/tree_hash.py"], cwd=ROOT, capture_output=True, text=True).stdout.strip()
     item("1", "commit and source-tree fingerprint", "COMPUTED", {"head": head, "tracked_changes": dirty, "tree": tree})
     item("2", "SHA-256 of the normative documents", "COMPUTED", {d: sha(ROOT / d) for d in ITEM2_DOCS})
-    item("2+", "api_coverage.md (TA10: not yet in the item-2 list)", "COMPUTED",
-         {"docs/specification/api_coverage.md": sha(ROOT / "docs/specification/api_coverage.md")}
-         if (ROOT / "docs/specification/api_coverage.md").exists() else "file not found")
     item("3", "tau, thresholds and decision rules", "COMPUTED", "recorded in the item-2 documents (hashed above)")
     item("4", "baseline manifest", "COMPUTED", {"benchmark/baselines_manifest.json": sha(ROOT / "benchmark/baselines_manifest.json")})
     item("5", "sampling frame and rule", "COMPUTED", {"benchmark/real/manifest.json": sha(ROOT / "benchmark/real/manifest.json"),
@@ -104,6 +101,7 @@ def run() -> dict:
     item("9g", "calibration evidence", "COMPUTED", {p: sha(ROOT / p) for p in (
         "docs/implementation/acceptance/statistical_acceptance.json", "docs/implementation/acceptance/fa_type1.json",
         "docs/implementation/acceptance/g10_calibration.json")})
+    item("9i", "calibration acceptance under the adopted criterion (plan Sec. 11.2)", "MISSING", CALIBRATION_BLOCKERS)
     att = sorted((ROOT / "docs/audit").glob("source_attribution_access_attestation_2*.md"))
     item("9h", "source-attribution access attestation (G11)", "PRESENT" if att else "MISSING",
          [str(p.relative_to(ROOT)) for p in att] or "only the template exists; the owner signs it at F1")

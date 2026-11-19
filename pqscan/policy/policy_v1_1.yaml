@@ -24,7 +24,7 @@ classes:
     references: [FIPS203, SP800-227, IR8547]
   KEM_DEM:
     family: KEM
-    target: "Redesign as KEM + KDF + AEAD (KEM/DEM, SP 800-227 Secs. 2.1, 5.2); not a drop-in replacement for encrypt/decrypt"
+    target: "Redesign as KEM + KDF + AEAD (KEM/DEM, SP 800-227 Secs. 5.2.1, 4.3); not a drop-in replacement for encrypt/decrypt"
     parameter_set: "ML-KEM-768 (NIST IR 8547 default recommendation) with an approved KDF and AEAD"
     references: [FIPS203, SP800-227, IR8547]
   INVENTORY:
@@ -89,12 +89,12 @@ templates:
     transitional design. ML-KEM uses encapsulate/decapsulate, not a symmetric exchange(peer) call.
   PK_ENCRYPT: >-
     RSA public-key encryption / key transport (PKCS#1 v1.5, OAEP) has no drop-in PQC replacement. Redesign as
-    KEM + KDF + AEAD (SP 800-227 Secs. 2.1, 5.2): the sender encapsulates to the recipient's authenticated ML-KEM key,
+    KEM + KDF + AEAD (SP 800-227 Secs. 5.2.1, 4.3): the sender encapsulates to the recipient's authenticated ML-KEM key,
     derives the content key from the shared secret (FIPS 203 Sec. 3.3), and encrypts with an AEAD. The existing
     encrypt(data) call shape cannot be preserved.
   PK_DECRYPT: >-
     RSA public-key decryption / key unwrapping has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD
-    (SP 800-227 Secs. 2.1, 5.2), decapsulation side: decapsulate with the ML-KEM decapsulation key, derive the content
+    (SP 800-227 Secs. 5.2.1, 4.3), decapsulation side: decapsulate with the ML-KEM decapsulation key, derive the content
     key from the shared secret (FIPS 203 Sec. 3.3), and decrypt with an AEAD. The existing decrypt(ciphertext) call
     shape cannot be preserved.
   KEY_MATERIAL_ONLY: >-

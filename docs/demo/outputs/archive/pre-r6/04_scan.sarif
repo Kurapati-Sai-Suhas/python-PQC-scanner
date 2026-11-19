@@ -1,0 +1,716 @@
+{
+  "$schema": "https://json.schemastore.org/sarif-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "pqscan",
+          "version": "0.1.0.dev0",
+          "rules": [
+            {
+              "id": "pqscan/abstain/sign",
+              "shortDescription": {
+                "text": "ABSTAIN for role SIGN"
+              }
+            },
+            {
+              "id": "pqscan/abstain/unknown",
+              "shortDescription": {
+                "text": "ABSTAIN for role UNKNOWN"
+              }
+            },
+            {
+              "id": "pqscan/flag_no_target/key_material_only",
+              "shortDescription": {
+                "text": "FLAG_NO_TARGET for role KEY_MATERIAL_ONLY"
+              }
+            },
+            {
+              "id": "pqscan/recommend/key_establishment",
+              "shortDescription": {
+                "text": "RECOMMEND for role KEY_ESTABLISHMENT"
+              }
+            },
+            {
+              "id": "pqscan/recommend/pk_decrypt",
+              "shortDescription": {
+                "text": "RECOMMEND for role PK_DECRYPT"
+              }
+            },
+            {
+              "id": "pqscan/recommend/pk_encrypt",
+              "shortDescription": {
+                "text": "RECOMMEND for role PK_ENCRYPT"
+              }
+            },
+            {
+              "id": "pqscan/recommend/sign",
+              "shortDescription": {
+                "text": "RECOMMEND for role SIGN"
+              }
+            },
+            {
+              "id": "pqscan/recommend/verify",
+              "shortDescription": {
+                "text": "RECOMMEND for role VERIFY"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "pqscan/abstain/sign",
+          "level": "note",
+          "message": {
+            "text": "ANY SIGN [T0] -> ABSTAIN: Evidence tier T0 is below the policy threshold T2: the receiver is not resolved to a key object and no algorithm-specific argument is visible. Inferred role (not acted on): SIGN."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "ambiguous.py"
+                },
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 12,
+                  "endLine": 15,
+                  "endColumn": 26
+                }
+              }
+            }
+          ],
+          "properties": {
+            "tier": "T0",
+            "targetClass": "ABSTAIN",
+            "policyVersion": "1.1",
+            "scope": "app"
+          }
+        },
+        {
+          "ruleId": "pqscan/abstain/unknown",
+          "level": "note",
+          "message": {
+            "text": "RSA UNKNOWN [T2] -> ABSTAIN: Role cannot be determined: key material (RSA) reaches consumers of 2 families (PKE, SIG); the role depends on which path runs, so it is not statically determinable. Possible roles: PK_DECRYPT, SIGN, VERIFY. No single target is justified."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "ambiguous.py"
+                },
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 18,
+                  "endLine": 19,
+                  "endColumn": 80
+                }
+              }
+            }
+          ],
+          "properties": {
+            "tier": "T2",
+            "targetClass": "ABSTAIN",
+            "policyVersion": "1.1",
+            "scope": "app"
+          }
+        },
+        {
+          "ruleId": "pqscan/recommend/sign",
+          "level": "warning",
+          "message": {
+            "text": "RSA SIGN [T2] -> SIG: RSA signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "ambiguous.py"
+                },
+                "region": {
+                  "startLine": 21,
+                  "startColumn": 16,
+                  "endLine": 21,
+                  "endColumn": 74
+                }
+              }
+            }
+          ],
+          "properties": {
+            "tier": "T2",
+            "targetClass": "SIG",
+            "policyVersion": "1.1",
+            "scope": "app"
+          }
+        },
+        {
+          "ruleId": "pqscan/recommend/pk_decrypt",
+          "level": "warning",
+          "message": {
+            "text": "RSA PK_DECRYPT [T2] -> KEM_DEM: RSA public-key decryption / key unwrapping has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 2.1, 5.2), decapsulation side: decapsulate with the ML-KEM decapsulation key, derive the content key from the shared secret (FIPS 203 Sec. 3.3), and decrypt with an AEAD. The existing decrypt(ciphertext) call shape cannot be preserved."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "ambiguous.py"
+                },
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 12,
+                  "endLine": 22,
+                  "endColumn": 124
+                }
+              }
+            }
+          ],
+          "properties": {
+            "tier": "T2",
+            "targetClass": "KEM_DEM",
+            "policyVersion": "1.1",
+            "scope": "app"
+          }
+        },
+        {
+          "ruleId": "pqscan/recommend/sign",
+          "level": "warning",
+          "message": {
+            "text": "EC SIGN [T3] -> SIG: ECDSA/ECDH (elliptic-curve) signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "ecdsa_tokens.py"
+                },
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 17,
+                  "endLine": 9,
+                  "endColumn": 56
+                }
+              }
+            }
+          ],
+          "properties": {
+            "tier": "T3",
+            "targetClass": "SIG",
+            "policyVersion": "1.1",
+            "scope": "app"
+          }
+        },
+        {
+          "ruleId": "pqscan/recommend/sign",
+          "level": "warning",
+          "message": {
+            "text": "EC SIGN [T3] -> SIG: ECDSA/ECDH (elliptic-curve) signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "ecdsa_tokens.py"
+                },
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 12,
+                  "endLine": 10,
+                  "endColumn": 60
+                }
+              }
+            }
+          ],
+          "properties": {
+            "tier": "T3",
+            "targetClass": "SIG",
+            "policyVersion": "1.1",
+            "scope": "app"
+          }
+        },
+        {
+          "ruleId": "pqscan/recommend/pk_decrypt",
+          "level": "warning",
+          "message": {
+            "text": "RSA PK_DECRYPT [T3] -> KEM_DEM: RSA public-key decryption / key unwrapping has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 2.1, 5.2), decapsulation side: decapsulate with the ML-KEM decapsulation key, derive the content key from the shared secret (FIPS 203 Sec. 3.3), and decrypt with an AEAD. The existing decrypt(ciphertext) call shape cannot be preserved."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "envelope.py"
+                },
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 21,
+                  "endLine": 9,
+                  "endColumn": 83
+                }
+              }
+            }
+          ],
+          "properties": {
+            "tier": "T3",
+            "targetClass": "KEM_DEM",
+            "policyVersion": "1.1",
+            "scope": "app"
+          }
+        },
+        {
+          "ruleId": "pqscan/recommend/pk_encrypt",
+          "level": "warning",
+          "message": {
+            "text": "RSA PK_ENCRYPT [T3] -> KEM_DEM: RSA public-key encryption / key transport (PKCS#1 v1.5, OAEP) has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 2.1, 5.2): the sender encapsulates to the recipient's authenticated ML-KEM key, derives the content key from the shared secret (FIPS 203 Sec. 3.3), and encrypts with an AEAD. The existing encrypt(data) call shape cannot be preserved."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "envelope.py"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 15,
+                  "endLine": 11,
+                  "endColumn": 68
+                }
+              }
+            }
+          ],
+          "properties": {
+            "tier": "T3",
+            "targetClass": "KEM_DEM",
+            "policyVersion": "1.1",
+            "scope": "app"
+          }
+        },
+        {
+          "ruleId": "pqscan/recommend/pk_decrypt",
+          "level": "warning",
+          "message": {
+            "text": "RSA PK_DECRYPT [T3] -> KEM_DEM: RSA public-key decryption / key unwrapping has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 2.1, 5.2), decapsulation side: decapsulate with the ML-KEM decapsulation key, derive the content key from the shared secret (FIPS 203 Sec. 3.3), and decrypt with an AEAD. The existing decrypt(ciphertext) call shape cannot be preserved."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "envelope.py"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 12,
+                  "endLine": 12,
+                  "endColumn": 48
+                }
+              }
+            }
+          ],
+          "properties": {
+            "tier": "T3",
+            "targetClass": "KEM_DEM",
+            "policyVersion": "1.1",
+            "scope": "app"
+          }
+        },
+        {
+          "ruleId": "pqscan/recommend/key_establishment",
+          "level": "warning",
+          "message": {
+            "text": "X25519 KEY_ESTABLISHMENT [T3] -> KEM: X25519 key establishment is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 4) and is exposed to harvest-now-decrypt-later. Redesign around ML-KEM (FIPS 203; ML-KEM-768 recommended by NIST IR 8547) per SP 800-227; a PQ/T hybrid with the existing scheme via an approved combiner (SP 800-227 Sec. 4.6) is an acceptable transitional design. ML-KEM uses encapsulate/decapsulate, not a symmetric exchange(peer) call."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "key_agreement.py"
+                },
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 12,
+                  "endLine": 8,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "tier": "T3",
+            "targetClass": "KEM",
+            "policyVersion": "1.1",
+            "scope": "app"
+          }
+        },
+        {
+          "ruleId": "pqscan/recommend/key_establishment",
+          "level": "warning",
+          "message": {
+            "text": "X25519 KEY_ESTABLISHMENT [T3] -> KEM: X25519 key establishment is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 4) and is exposed to harvest-now-decrypt-later. Redesign around ML-KEM (FIPS 203; ML-KEM-768 recommended by NIST IR 8547) per SP 800-227; a PQ/T hybrid with the existing scheme via an approved combiner (SP 800-227 Sec. 4.6) is an acceptable transitional design. ML-KEM uses encapsulate/decapsulate, not a symmetric exchange(peer) call."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "key_agreement.py"
+                },
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 14,
+                  "endLine": 9,
+                  "endColumn": 48
+                }
+              }
+            }
+          ],
+          "properties": {
+            "tier": "T3",
+            "targetClass": "KEM",
+            "policyVersion": "1.1",
+            "scope": "app"
+          }
+        },
+        {
+          "ruleId": "pqscan/recommend/key_establishment",
+          "level": "warning",
+          "message": {
+            "text": "X25519 KEY_ESTABLISHMENT [T3] -> KEM: X25519 key establishment is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 4) and is exposed to harvest-now-decrypt-later. Redesign around ML-KEM (FIPS 203; ML-KEM-768 recommended by NIST IR 8547) per SP 800-227; a PQ/T hybrid with the existing scheme via an approved combiner (SP 800-227 Sec. 4.6) is an acceptable transitional design. ML-KEM uses encapsulate/decapsulate, not a symmetric exchange(peer) call."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "key_agreement.py"
+                },
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 12,
+                  "endLine": 10,
+                  "endColumn": 46
+                }
+              }
+            }
+          ],
+          "properties": {
+            "tier": "T3",
+            "targetClass": "KEM",
+            "policyVersion": "1.1",
+            "scope": "app"
+          }
+        },
+        {
+          "ruleId": "pqscan/recommend/key_establishment",
+          "level": "warning",
+          "message": {
+            "text": "EC KEY_ESTABLISHMENT [T3] -> KEM: ECDSA/ECDH (elliptic-curve) key establishment is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 4) and is exposed to harvest-now-decrypt-later. Redesign around ML-KEM (FIPS 203; ML-KEM-768 recommended by NIST IR 8547) per SP 800-227; a PQ/T hybrid with the existing scheme via an approved combiner (SP 800-227 Sec. 4.6) is an acceptable transitional design. ML-KEM uses encapsulate/decapsulate, not a symmetric exchange(peer) call."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "key_agreement.py"
+                },
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 12,
+                  "endLine": 14,
+                  "endColumn": 51
+                }
+              }
+            }
+          ],
+          "properties": {
+            "tier": "T3",
+            "targetClass": "KEM",
+            "policyVersion": "1.1",
+            "scope": "app"
+          }
+        },
+        {
+          "ruleId": "pqscan/recommend/key_establishment",
+          "level": "warning",
+          "message": {
+            "text": "EC KEY_ESTABLISHMENT [T3] -> KEM: ECDSA/ECDH (elliptic-curve) key establishment is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 4) and is exposed to harvest-now-decrypt-later. Redesign around ML-KEM (FIPS 203; ML-KEM-768 recommended by NIST IR 8547) per SP 800-227; a PQ/T hybrid with the existing scheme via an approved combiner (SP 800-227 Sec. 4.6) is an acceptable transitional design. ML-KEM uses encapsulate/decapsulate, not a symmetric exchange(peer) call."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "key_agreement.py"
+                },
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 14,
+                  "endLine": 15,
+                  "endColumn": 53
+                }
+              }
+            }
+          ],
+          "properties": {
+            "tier": "T3",
+            "targetClass": "KEM",
+            "policyVersion": "1.1",
+            "scope": "app"
+          }
+        },
+        {
+          "ruleId": "pqscan/recommend/key_establishment",
+          "level": "warning",
+          "message": {
+            "text": "EC KEY_ESTABLISHMENT [T3] -> KEM: ECDSA/ECDH (elliptic-curve) key establishment is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 4) and is exposed to harvest-now-decrypt-later. Redesign around ML-KEM (FIPS 203; ML-KEM-768 recommended by NIST IR 8547) per SP 800-227; a PQ/T hybrid with the existing scheme via an approved combiner (SP 800-227 Sec. 4.6) is an acceptable transitional design. ML-KEM uses encapsulate/decapsulate, not a symmetric exchange(peer) call."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "key_agreement.py"
+                },
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 12,
+                  "endLine": 16,
+                  "endColumn": 57
+                }
+              }
+            }
+          ],
+          "properties": {
+            "tier": "T3",
+            "targetClass": "KEM",
+            "policyVersion": "1.1",
+            "scope": "app"
+          }
+        },
+        {
+          "ruleId": "pqscan/flag_no_target/key_material_only",
+          "level": "note",
+          "message": {
+            "text": "RSA KEY_MATERIAL_ONLY [T2] -> INVENTORY: RSA key material with no consumer found in the analysed scope. No target is recommended; determine the downstream role first."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "key_inventory.py"
+                },
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 19,
+                  "endLine": 10,
+                  "endColumn": 81
+                }
+              }
+            }
+          ],
+          "properties": {
+            "tier": "T2",
+            "targetClass": "INVENTORY",
+            "policyVersion": "1.1",
+            "scope": "app"
+          }
+        },
+        {
+          "ruleId": "pqscan/recommend/sign",
+          "level": "warning",
+          "message": {
+            "text": "RSA SIGN [T3] -> SIG: RSA signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "legacy_pycryptodome.py"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 11,
+                  "endLine": 11,
+                  "endColumn": 29
+                }
+              }
+            }
+          ],
+          "properties": {
+            "tier": "T3",
+            "targetClass": "SIG",
+            "policyVersion": "1.1",
+            "scope": "app"
+          }
+        },
+        {
+          "ruleId": "pqscan/recommend/sign",
+          "level": "warning",
+          "message": {
+            "text": "RSA SIGN [T3] -> SIG: RSA signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "legacy_pycryptodome.py"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 12,
+                  "endLine": 13,
+                  "endColumn": 42
+                }
+              }
+            }
+          ],
+          "properties": {
+            "tier": "T3",
+            "targetClass": "SIG",
+            "policyVersion": "1.1",
+            "scope": "app"
+          }
+        },
+        {
+          "ruleId": "pqscan/recommend/pk_decrypt",
+          "level": "warning",
+          "message": {
+            "text": "RSA PK_DECRYPT [T3] -> KEM_DEM: RSA public-key decryption / key unwrapping has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 2.1, 5.2), decapsulation side: decapsulate with the ML-KEM decapsulation key, derive the content key from the shared secret (FIPS 203 Sec. 3.3), and decrypt with an AEAD. The existing decrypt(ciphertext) call shape cannot be preserved."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "legacy_pycryptodome.py"
+                },
+                "region": {
+                  "startLine": 17,
+                  "startColumn": 11,
+                  "endLine": 17,
+                  "endColumn": 29
+                }
+              }
+            }
+          ],
+          "properties": {
+            "tier": "T3",
+            "targetClass": "KEM_DEM",
+            "policyVersion": "1.1",
+            "scope": "app"
+          }
+        },
+        {
+          "ruleId": "pqscan/recommend/pk_encrypt",
+          "level": "warning",
+          "message": {
+            "text": "RSA PK_ENCRYPT [T3] -> KEM_DEM: RSA public-key encryption / key transport (PKCS#1 v1.5, OAEP) has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 2.1, 5.2): the sender encapsulates to the recipient's authenticated ML-KEM key, derives the content key from the shared secret (FIPS 203 Sec. 3.3), and encrypts with an AEAD. The existing encrypt(data) call shape cannot be preserved."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "legacy_pycryptodome.py"
+                },
+                "region": {
+                  "startLine": 19,
+                  "startColumn": 12,
+                  "endLine": 19,
+                  "endColumn": 39
+                }
+              }
+            }
+          ],
+          "properties": {
+            "tier": "T3",
+            "targetClass": "KEM_DEM",
+            "policyVersion": "1.1",
+            "scope": "app"
+          }
+        },
+        {
+          "ruleId": "pqscan/recommend/sign",
+          "level": "warning",
+          "message": {
+            "text": "RSA SIGN [T3] -> SIG: RSA signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "signing_service.py"
+                },
+                "region": {
+                  "startLine": 9,
+                  "startColumn": 19,
+                  "endLine": 9,
+                  "endColumn": 81
+                }
+              }
+            }
+          ],
+          "properties": {
+            "tier": "T3",
+            "targetClass": "SIG",
+            "policyVersion": "1.1",
+            "scope": "app"
+          }
+        },
+        {
+          "ruleId": "pqscan/recommend/sign",
+          "level": "warning",
+          "message": {
+            "text": "RSA SIGN [T3] -> SIG: RSA signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "signing_service.py"
+                },
+                "region": {
+                  "startLine": 11,
+                  "startColumn": 17,
+                  "endLine": 11,
+                  "endColumn": 65
+                }
+              }
+            }
+          ],
+          "properties": {
+            "tier": "T3",
+            "targetClass": "SIG",
+            "policyVersion": "1.1",
+            "scope": "app"
+          }
+        },
+        {
+          "ruleId": "pqscan/recommend/verify",
+          "level": "warning",
+          "message": {
+            "text": "RSA VERIFY [T3] -> SIG: Add ML-DSA (FIPS 204) verification so that migrated signers can be accepted. NIST IR 8547 defines 'legacy use' as processing already-protected data such as verifying an existing signature; whether RSA verification of already-issued signatures keeps that status after 2035 is set by SP 800-131A (to be revised). Retain legacy verification only for already-issued signatures; do not accept new RSA signatures after the transition."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "signing_service.py"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 5,
+                  "endLine": 13,
+                  "endColumn": 65
+                }
+              }
+            }
+          ],
+          "properties": {
+            "tier": "T3",
+            "targetClass": "SIG",
+            "policyVersion": "1.1",
+            "scope": "app"
+          }
+        }
+      ],
+      "invocations": [
+        {
+          "executionSuccessful": true,
+          "toolExecutionNotifications": []
+        }
+      ]
+    }
+  ]
+}

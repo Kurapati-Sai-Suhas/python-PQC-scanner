@@ -87,3 +87,15 @@ The outputs were regenerated with the project environment from the same copied l
 | `pycryptodome-4.4.0_scan.json` | `7e7d8e016b6c041305f4c2f435efb20a70ac8681ff74dbe3996627356b9065fd` |
 | `pycryptodome-4.4.0_cbom.json` | `de2f8fb89b5ca10f80d7156cae331040c14d1854d94f36138f728fa5c7f5ed52` |
 | `pycryptodome-4.4.0_scan.sarif` | `903de724b3fa3f4ee1e88db9bc965be56e116284c6cf433418f88dda892a717d` |
+
+## Regeneration in revision r6 (19 Nov 2026; owner decision W6; appended, the records above are unchanged)
+
+Owner decision W6 corrected the SP 800-227 citation in the policy templates from "Secs. 2.1, 5.2" to "Secs. 5.2.1, 4.3". The change is text only. In the PyCryptodome JSON, CBOM and SARIF outputs, the only differences from r5 are that citation (172, 172 and 86 occurrences) and the CBOM serial number, which is derived from the content. This was verified by substituting the citation in the r5 files and comparing hashes. Finding counts, actions, classes, tiers and roles are unchanged. The PyCryptodome summary and all cryptography outputs are byte-identical, since they do not print the citation.
+
+The outputs were regenerated with the project environment (`pqscan 0.1.0.dev0`, Semgrep 1.185.0) from the same copied library sources (source manifest unchanged). The r5 files are archived in `outputs/archive/pre-r6/`. In this run, files written with `-o` have LF line endings, and the `.gz` files hold them as written (`gzip -n -9`). `make_real_stats.py --check` reproduces `real_stats.json`, and `validate_outputs.py` reproduces `validation.txt` unchanged.
+
+| Output (raw, as written) | SHA-256 |
+|---|---|
+| `pycryptodome-4.4.0_scan.json` | `0d967e9b8a15254b801735285b2e655b2f2bd406925420d0929209e75e733715` |
+| `pycryptodome-4.4.0_cbom.json` | `df3973fbefca0ac781db0e292f85e5abb333db960cf006a5c9ad9200e27bb72c` |
+| `pycryptodome-4.4.0_scan.sarif` | `b67dc5ff1845d077e46601639b00cb8b09aedaad1c9eca4851282a62d2f701a5` |

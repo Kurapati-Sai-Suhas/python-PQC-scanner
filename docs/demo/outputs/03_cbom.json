@@ -2,7 +2,7 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
-  "serialNumber": "urn:uuid:085028b7-cc62-57a9-a562-da5b16533e9e",
+  "serialNumber": "urn:uuid:6a943aed-7999-53bc-9d08-8445f9be18bc",
   "version": 1,
   "metadata": {
     "tools": {
@@ -415,11 +415,11 @@
         },
         {
           "name": "pqscan:target",
-          "value": "Redesign as KEM + KDF + AEAD (KEM/DEM, SP 800-227 Secs. 2.1, 5.2); not a drop-in replacement for encrypt/decrypt"
+          "value": "Redesign as KEM + KDF + AEAD (KEM/DEM, SP 800-227 Secs. 5.2.1, 4.3); not a drop-in replacement for encrypt/decrypt"
         },
         {
           "name": "pqscan:rationale",
-          "value": "RSA public-key decryption / key unwrapping has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 2.1, 5.2), decapsulation side: decapsulate with the ML-KEM decapsulation key, derive the content key from the shared secret (FIPS 203 Sec. 3.3), and decrypt with an AEAD. The existing decrypt(ciphertext) call shape cannot be preserved."
+          "value": "RSA public-key decryption / key unwrapping has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 5.2.1, 4.3), decapsulation side: decapsulate with the ML-KEM decapsulation key, derive the content key from the shared secret (FIPS 203 Sec. 3.3), and decrypt with an AEAD. The existing decrypt(ciphertext) call shape cannot be preserved."
         },
         {
           "name": "pqscan:policyVersion",
@@ -743,11 +743,11 @@
         },
         {
           "name": "pqscan:target",
-          "value": "Redesign as KEM + KDF + AEAD (KEM/DEM, SP 800-227 Secs. 2.1, 5.2); not a drop-in replacement for encrypt/decrypt"
+          "value": "Redesign as KEM + KDF + AEAD (KEM/DEM, SP 800-227 Secs. 5.2.1, 4.3); not a drop-in replacement for encrypt/decrypt"
         },
         {
           "name": "pqscan:rationale",
-          "value": "RSA public-key decryption / key unwrapping has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 2.1, 5.2), decapsulation side: decapsulate with the ML-KEM decapsulation key, derive the content key from the shared secret (FIPS 203 Sec. 3.3), and decrypt with an AEAD. The existing decrypt(ciphertext) call shape cannot be preserved."
+          "value": "RSA public-key decryption / key unwrapping has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 5.2.1, 4.3), decapsulation side: decapsulate with the ML-KEM decapsulation key, derive the content key from the shared secret (FIPS 203 Sec. 3.3), and decrypt with an AEAD. The existing decrypt(ciphertext) call shape cannot be preserved."
         },
         {
           "name": "pqscan:policyVersion",
@@ -842,11 +842,11 @@
         },
         {
           "name": "pqscan:target",
-          "value": "Redesign as KEM + KDF + AEAD (KEM/DEM, SP 800-227 Secs. 2.1, 5.2); not a drop-in replacement for encrypt/decrypt"
+          "value": "Redesign as KEM + KDF + AEAD (KEM/DEM, SP 800-227 Secs. 5.2.1, 4.3); not a drop-in replacement for encrypt/decrypt"
         },
         {
           "name": "pqscan:rationale",
-          "value": "RSA public-key encryption / key transport (PKCS#1 v1.5, OAEP) has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 2.1, 5.2): the sender encapsulates to the recipient's authenticated ML-KEM key, derives the content key from the shared secret (FIPS 203 Sec. 3.3), and encrypts with an AEAD. The existing encrypt(data) call shape cannot be preserved."
+          "value": "RSA public-key encryption / key transport (PKCS#1 v1.5, OAEP) has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 5.2.1, 4.3): the sender encapsulates to the recipient's authenticated ML-KEM key, derives the content key from the shared secret (FIPS 203 Sec. 3.3), and encrypts with an AEAD. The existing encrypt(data) call shape cannot be preserved."
         },
         {
           "name": "pqscan:policyVersion",
@@ -961,11 +961,11 @@
         },
         {
           "name": "pqscan:target",
-          "value": "Redesign as KEM + KDF + AEAD (KEM/DEM, SP 800-227 Secs. 2.1, 5.2); not a drop-in replacement for encrypt/decrypt"
+          "value": "Redesign as KEM + KDF + AEAD (KEM/DEM, SP 800-227 Secs. 5.2.1, 4.3); not a drop-in replacement for encrypt/decrypt"
         },
         {
           "name": "pqscan:rationale",
-          "value": "RSA public-key decryption / key unwrapping has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 2.1, 5.2), decapsulation side: decapsulate with the ML-KEM decapsulation key, derive the content key from the shared secret (FIPS 203 Sec. 3.3), and decrypt with an AEAD. The existing decrypt(ciphertext) call shape cannot be preserved."
+          "value": "RSA public-key decryption / key unwrapping has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 5.2.1, 4.3), decapsulation side: decapsulate with the ML-KEM decapsulation key, derive the content key from the shared secret (FIPS 203 Sec. 3.3), and decrypt with an AEAD. The existing decrypt(ciphertext) call shape cannot be preserved."
         },
         {
           "name": "pqscan:policyVersion",
@@ -1970,11 +1970,11 @@
         },
         {
           "name": "pqscan:target",
-          "value": "Redesign as KEM + KDF + AEAD (KEM/DEM, SP 800-227 Secs. 2.1, 5.2); not a drop-in replacement for encrypt/decrypt"
+          "value": "Redesign as KEM + KDF + AEAD (KEM/DEM, SP 800-227 Secs. 5.2.1, 4.3); not a drop-in replacement for encrypt/decrypt"
         },
         {
           "name": "pqscan:rationale",
-          "value": "RSA public-key decryption / key unwrapping has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 2.1, 5.2), decapsulation side: decapsulate with the ML-KEM decapsulation key, derive the content key from the shared secret (FIPS 203 Sec. 3.3), and decrypt with an AEAD. The existing decrypt(ciphertext) call shape cannot be preserved."
+          "value": "RSA public-key decryption / key unwrapping has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 5.2.1, 4.3), decapsulation side: decapsulate with the ML-KEM decapsulation key, derive the content key from the shared secret (FIPS 203 Sec. 3.3), and decrypt with an AEAD. The existing decrypt(ciphertext) call shape cannot be preserved."
         },
         {
           "name": "pqscan:policyVersion",
@@ -2065,11 +2065,11 @@
         },
         {
           "name": "pqscan:target",
-          "value": "Redesign as KEM + KDF + AEAD (KEM/DEM, SP 800-227 Secs. 2.1, 5.2); not a drop-in replacement for encrypt/decrypt"
+          "value": "Redesign as KEM + KDF + AEAD (KEM/DEM, SP 800-227 Secs. 5.2.1, 4.3); not a drop-in replacement for encrypt/decrypt"
         },
         {
           "name": "pqscan:rationale",
-          "value": "RSA public-key encryption / key transport (PKCS#1 v1.5, OAEP) has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 2.1, 5.2): the sender encapsulates to the recipient's authenticated ML-KEM key, derives the content key from the shared secret (FIPS 203 Sec. 3.3), and encrypts with an AEAD. The existing encrypt(data) call shape cannot be preserved."
+          "value": "RSA public-key encryption / key transport (PKCS#1 v1.5, OAEP) has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 5.2.1, 4.3): the sender encapsulates to the recipient's authenticated ML-KEM key, derives the content key from the shared secret (FIPS 203 Sec. 3.3), and encrypts with an AEAD. The existing encrypt(data) call shape cannot be preserved."
         },
         {
           "name": "pqscan:policyVersion",

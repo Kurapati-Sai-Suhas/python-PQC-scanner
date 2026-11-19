@@ -113,3 +113,7 @@ re-running `../commands.md` reproduces equivalent outputs, with the path of what
 | `08_semgrep_raw.json` | `9883e7eb75ded37bea3ff88c7d80328d4b518afdbd198e2d06ffee12ecdb7f66` | 25 |
 
 `../screenshots/01_versions.png` was re-rendered from the redacted transcript with the same script and Pillow version.
+
+## Regeneration in revision r6 (19 Nov 2026; owner decision W6; appended)
+
+`02_scan.json`, `03_cbom.json` and `04_scan.sarif` were regenerated with the commands in `../commands.md`, because the SP 800-227 citation in the policy templates changed from "Secs. 2.1, 5.2" to "Secs. 5.2.1, 4.3". The only differences are that citation and the content-derived CBOM serial number. The four summary outputs (01, 05, 06, 07) were regenerated and are byte-identical. The previous files are in `archive/pre-r6/`. SHA-256 (as written, LF): `02_scan.json` `1e0ec61b4643faef52ff972869f750b7cc008a52faebc3702014d2848a9f9633`, `03_cbom.json` `3841cec2e77d9913536d1c695be8f5984477ba20107a12a266fb969eb432f601`, `04_scan.sarif` `2d5411e5460be4cf4159e7778163f962f38fc64f732f9da36436e53a7b0d79f8`.

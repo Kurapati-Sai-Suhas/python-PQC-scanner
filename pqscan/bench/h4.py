@@ -14,6 +14,6 @@ PART1_BASELINES = ("pqcheck", "pqc-audit", "PostQuant", "qsafe", "QSA-regex", "p
 DESCRIPTIVE_ONLY = ("pqscan:B1-dual",)
 T0_COMPARATORS_SEPARATE = ("pqscan:B3-full-noabst", "pqscan:method-args-recv-T0", "pqscan:method-only-T0")
 EXCLUDED = {"CBOMkit (sonar-cryptography)": "not run, owner decision D4 = A",
-            "Mehl ESEM 2026 scanner": "results-only artefact; no scanner source"}
+            "Mehl ESEM 2026 scanner": "repository-level labels, no per-site migration recommendation (owner decision D14)"}
 # The five pqscan arms that are not in Part 1 (reported separately; owner confirmation of G08, 19 Nov 2026).
 REPORTED_SEPARATELY = (PROPOSED_ANALYSER,) + DESCRIPTIVE_ONLY + T0_COMPARATORS_SEPARATE

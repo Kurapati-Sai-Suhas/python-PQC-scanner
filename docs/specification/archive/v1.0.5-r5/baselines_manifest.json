@@ -1,0 +1,152 @@
+{
+  "description": "Pinned external baselines (Module G). Commits verified 2026-11-12/13; invocations as used in the H1 pilot.",
+  "tools": {
+    "pqcheck": {
+      "url": "https://github.com/Rafael-Ryu/pqcheck",
+      "commit": "3e99c742a3e448c92fedc0e91dd578cbdbd78d83",
+      "kind": "python",
+      "install": [
+        "-e",
+        "."
+      ],
+      "run": [
+        "pqcheck",
+        "scan",
+        "{repo}",
+        "-p",
+        "cryptoct-default",
+        "-f",
+        "sarif",
+        "-o",
+        "{out}/pqcheck_policy_{name}.sarif"
+      ],
+      "file_failure_profile": {
+        "silently_skips": [
+          "syntax-error",
+          "null-byte"
+        ],
+        "whole_run_fails_on": [],
+        "error_log": null
+      }
+    },
+    "pqc-audit": {
+      "url": "https://github.com/rauleteee/pqc-scanner",
+      "commit": "b5ccaac159aa4f4133ff1f6aa72ec119826355f1",
+      "kind": "python",
+      "install": [
+        "-e",
+        "."
+      ],
+      "run": [
+        "pqc-audit",
+        "{repo}",
+        "--json"
+      ],
+      "stdout": "{out}/pqcaudit_{name}.cbom.json",
+      "file_failure_profile": {
+        "silently_skips": [
+          "syntax-error",
+          "null-byte"
+        ],
+        "whole_run_fails_on": [],
+        "error_log": null
+      }
+    },
+    "PostQuant": {
+      "url": "https://github.com/postquantdev/postquant",
+      "commit": "4dc61b7965198e460a8e01c91e04b5c503fd4a2f",
+      "kind": "node",
+      "run": [
+        "node",
+        "dist/index.js",
+        "analyze",
+        "{repo}",
+        "-f",
+        "json",
+        "--show-all",
+        "--verbose"
+      ],
+      "stdout": "{out}/postquant_{name}.json",
+      "file_failure_profile": {
+        "silently_skips": [],
+        "whole_run_fails_on": [],
+        "error_log": null
+      }
+    },
+    "qsafe": {
+      "url": "https://github.com/Miles0sage/quantum-mcp",
+      "commit": "ff4f6dc384431aabe789ffa927e8ea4e111c5a50",
+      "kind": "python",
+      "install": [
+        "-r",
+        "requirements.txt"
+      ],
+      "run": [
+        "python",
+        "pqc_scan_cli.py",
+        "{repo}",
+        "--format",
+        "json"
+      ],
+      "stdout": "{out}/qsafe_{name}.json",
+      "file_failure_profile": {
+        "silently_skips": [],
+        "whole_run_fails_on": [],
+        "error_log": null
+      }
+    },
+    "QSA-regex": {
+      "url": "https://github.com/AnimeshShaw/quantum-safe-auditor",
+      "commit": "4d695503e6aea3f33897dc60c77981f6127f1dda",
+      "kind": "python",
+      "install_packages": [
+        "anthropic",
+        "json_repair",
+        "python-dotenv"
+      ],
+      "run": [
+        "python",
+        "{project}/experiments/pilot/qsa_regex_driver.py",
+        ".",
+        "{repo}",
+        "{out}/qsa_{name}.json"
+      ],
+      "note": "regex stage only; the LLM enrichment stage is not run",
+      "file_failure_profile": {
+        "silently_skips": [
+          "null-byte"
+        ],
+        "whole_run_fails_on": [],
+        "error_log": null
+      }
+    },
+    "pqblocks-scan": {
+      "url": "https://github.com/PQBlocks/cbom-scanner",
+      "commit": "3d1eccfdfc7c283b5c5efe496ca1f0c08219d545",
+      "kind": "python",
+      "install": [
+        "-e",
+        "."
+      ],
+      "run": [
+        "pqblocks-scan",
+        "{repo}",
+        "--sarif",
+        "{out}/pqblocks_{name}.sarif"
+      ],
+      "file_failure_profile": {
+        "silently_skips": [],
+        "whole_run_fails_on": [
+          "syntax-error",
+          "null-byte"
+        ],
+        "error_log": "^Scan error: (?P<path>.+?): "
+      }
+    }
+  },
+  "not_runnable": {
+    "CBOMkit (sonar-cryptography)": "not run by owner decision D4 = A (2026-11-14): inventory tool without per-site migration advice; supports pyca but not PyCryptodome; never scored on recommendations; reported as not run in every table (docs/implementation/cbomkit_route.md, docs/review/owner_decision_package.md).",
+    "Mehl ESEM 2026 scanner": "Zenodo record 10.5281/zenodo.19634475 contains results only, no scanner source; repository-level comparison only"
+  },
+  "file_failure_profile_method": "Measured 2026-11-14 by running every pinned tool on tests/fixtures/baseline_errors/repos/errrepo (one valid RSA file, one with a syntax error, one non-UTF-8 (latin-1) file, one with a null byte; each contains the same RSA keygen and sign). None of the tools records per-file failures in its report. pqcheck and pqc-audit silently drop syntax-error and null-byte files; PostQuant and qsafe report all files (regex fallback); the QSA regex stage silently skips the null-byte file; pqblocks-scan prints 'Scan error: <path>: ...' and exits 2 without writing any report when any file fails. Every tool processed the non-UTF-8 file. Run logs must be saved as <tool-file-prefix>_<repo>.log next to the outputs."
+}

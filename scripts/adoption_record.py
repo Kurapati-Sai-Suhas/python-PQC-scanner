@@ -1,6 +1,6 @@
 """Adoption records of the Phase 3 protocol: SHA-256 of every normative document.
 
-    python scripts/adoption_record.py           # rewrite the CURRENT record (adoption_record_v1.0.5-r5.json)
+    python scripts/adoption_record.py           # rewrite the CURRENT record (adoption_record_v1.0.5-r6.json)
     python scripts/adoption_record.py --check   # exit 1 if any current or historical hash is no longer satisfied
 
 Records, oldest first; only the current one is ever (re)written:
@@ -10,7 +10,8 @@ Records, oldest first; only the current one is ever (re)written:
 * adoption_record_v1.0.5-r2.json  (19 Nov 2026; editorial corrections for G01, G04, G07, G08, G09, G10, G11)
 * adoption_record_v1.0.5-r3.json  (19 Nov 2026; owner decisions G02, G03, G08, G10)
 * adoption_record_v1.0.5-r4.json  (19 Nov 2026; owner confirmation of G08 after third-review finding TB01)
-* adoption_record_v1.0.5-r5.json  (19 Nov 2026; CURRENT: labelling-rule decisions TA06, TA07, TA11, TA19)
+* adoption_record_v1.0.5-r5.json  (19 Nov 2026; labelling-rule decisions TA06, TA07, TA11, TA19)
+* adoption_record_v1.0.5-r6.json  (19 Nov 2026; CURRENT: pre-F1 analysis decisions; TA01 outcome: F1 blocked)
 
 --check verifies every document of the current record against the working tree, and every hash of every historical
 record against either the current file or a byte-identical copy in one of the archive folders
@@ -28,10 +29,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SPEC = ROOT / "docs" / "specification"
-RECORD = SPEC / "adoption_record_v1.0.5-r5.json"
+RECORD = SPEC / "adoption_record_v1.0.5-r6.json"
 HISTORY = [SPEC / "adoption_record_v1.0.4.json", SPEC / "adoption_record_v1.0.5.json",
            SPEC / "adoption_record_v1.0.5-r1.json", SPEC / "adoption_record_v1.0.5-r2.json",
-           SPEC / "adoption_record_v1.0.5-r3.json", SPEC / "adoption_record_v1.0.5-r4.json"]
+           SPEC / "adoption_record_v1.0.5-r3.json", SPEC / "adoption_record_v1.0.5-r4.json",
+           SPEC / "adoption_record_v1.0.5-r5.json"]
 ARCHIVE = SPEC / "archive"
 DOCS = [
     "docs/specification/evaluation_protocol.md",
@@ -57,6 +59,8 @@ DOCS = [
     "pqscan/policy/policy_v1_1.yaml",
     # v1.0.5-r3: the frozen H4 tool registry (owner decision G08)
     "pqscan/bench/h4.py",
+    # v1.0.5-r6: the supported-API list that defines a site (owner decision TA10)
+    "docs/specification/api_coverage.md",
 ]
 
 
@@ -71,12 +75,13 @@ def archive_files() -> list[Path]:
 
 def build() -> dict:
     return {
-        "record": "Phase 3 protocol v1.0.5, revision r5: owner decisions TA06 (PROTOCOL_CONFIG reserved, supported-library "
-                  "objects only), TA07 (escaped single-purpose keys; unknown public/private status gives UNKNOWN; rule 9 "
-                  "exception; classifier changed in all arms), TA11 (PyCryptodome constructor is not a site), TA19 "
-                  "(hybrid_component only for KEY_ESTABLISHMENT, SIGN, VERIFY; schema v1.2). Before any annotation; no "
-                  "existing label, sampling rule, hypothesis, threshold, estimand or statistical method changed.",
-        "protocol_version": "1.0.5-r5",
+        "record": "Phase 3 protocol v1.0.5, revision r6: owner decisions TA03, TA04, TA05, TA08, TA28 (H1a, H3, H4 "
+                  "computation), TA09 (kappa rule names the owner intra-rater kappa), TA10 (api_coverage.md hashed), TA17 "
+                  "(K = 7 asserted in the E driver), TA22 (unresolved bounding for F-A and H1 as sensitivities), W6 "
+                  "(policy citation precision), N1 (limitation), D14 (Mehl reason). TA01: S16 not excluded retrospectively; "
+                  "calibration criterion 2 not met; F1 blocked. No hypothesis, threshold, test, family, sampling rule or "
+                  "label outcome changed.",
+        "protocol_version": "1.0.5-r6",
         "annotation_guide_version": "1.2-r5",
         "analysis_plan_version": "1.0.1-r3",
         "role_taxonomy_version": "1.1-r5",
@@ -84,10 +89,11 @@ def build() -> dict:
         "benchmark_schema_version": "1.2",
         "synthetic_generator_version": "1.1",
         "scoring_policy_version": "1.0.1",
-        "recommendation_policy_version": "1.1 (text clarification r5)",
+        "recommendation_policy_version": "1.1 (citation precision r6)",
         "adopted_utc_date": "2026-11-19",
-        "basis": "owner decisions docs/audit/owner_decisions_labelling_rules_2026-11-19.md; previous records v1.0.4, "
-                 "v1.0.5, v1.0.5-r1 to v1.0.5-r4 are kept unchanged",
+        "basis": "owner decisions docs/audit/owner_decisions_pre_f1_analysis_2026-11-19.md and "
+                 "docs/audit/ta01_s16_historical_verification.md; previous records v1.0.4, v1.0.5, v1.0.5-r1 to "
+                 "v1.0.5-r5 are kept unchanged",
         "documents": {d: sha256_text(ROOT / d) for d in DOCS},
         "archived": {p.relative_to(ROOT).as_posix(): sha256_text(p) for p in archive_files()},
     }

@@ -1,0 +1,2561 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:085028b7-cc62-57a9-a562-da5b16533e9e",
+  "version": 1,
+  "metadata": {
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "pqscan",
+          "version": "0.1.0.dev0",
+          "description": "Post-quantum crypto scanner for Python projects (research prototype)"
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "pqscan:policyVersion",
+        "value": "1.1"
+      },
+      {
+        "name": "pqscan:tierThreshold",
+        "value": "T2"
+      },
+      {
+        "name": "pqscan:arm",
+        "value": "full"
+      },
+      {
+        "name": "pqscan:filesScanned",
+        "value": "7"
+      },
+      {
+        "name": "pqscan:executionFailures",
+        "value": "0"
+      },
+      {
+        "name": "pqscan:semgrepStatus",
+        "value": "ok"
+      },
+      {
+        "name": "pqscan:unsupportedLibraryImports",
+        "value": "0"
+      },
+      {
+        "name": "pqscan:disclaimer",
+        "value": "Migration guidance only; does not establish that a migrated system is secure, compliant or quantum-safe."
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:ambiguous.py:15:12",
+      "name": "RSA-or-ECC (algorithm not statically resolved)",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "ambiguous.py",
+            "line": 15,
+            "offset": 12
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T0"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Evidence tier T0 is below the policy threshold T2: the receiver is not resolved to a key object and no algorithm-specific argument is visible. Inferred role (not acted on): SIGN."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "unknown"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.sign"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .sign() -> SIGN; receiver unresolved (untyped parameter); arguments: no parameters"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "tier T0 < T2"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "sign"
+        },
+        {
+          "name": "pqscan:proximateProvenance",
+          "value": "parameter"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 15: method .sign()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "sign"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:ambiguous.py:19:18",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "ambiguous.py",
+            "line": 19,
+            "offset": 18
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "UNKNOWN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "ABSTAIN"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No recommendation: evidence is insufficient"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Role cannot be determined: key material (RSA) reaches consumers of 2 families (PKE, SIG); the role depends on which path runs, so it is not statically determinable. Possible roles: PK_DECRYPT, SIGN, VERIFY. No single target is justified."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.rsa.generate_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (RSA) reaches consumers of 2 families (PKE, SIG); the role depends on which path runs, so it is not statically determinable"
+        },
+        {
+          "name": "pqscan:abstainReason",
+          "value": "role UNKNOWN"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:possibleRole",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 19: cryptography.hazmat.primitives.asymmetric.rsa.generate_private_key (generated)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 22: consumer .decrypt()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 21: consumer .sign()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.rsa.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key",
+          "size": 3072
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:ambiguous.py:21:16",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "ambiguous.py",
+            "line": 21,
+            "offset": 16
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "RSA signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.sign"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .sign() -> SIGN; receiver resolved: pyca:RSA:private:generated; arguments: padding=PKCS1v15, hash=SHA256; the key may also come from an untyped parameter, or its origin is consumed by another role family or has conflicting consumers, so the tier is capped at T2"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "sign"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:padding",
+          "value": "PKCS1v15"
+        },
+        {
+          "name": "pqscan:hash",
+          "value": "SHA256"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 21: method .sign()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 21: receiver pyca:RSA:private:generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 21: arguments padding=PKCS1v15, hash=SHA256"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 19: key origin rsa.generate_private_key"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "sign"
+          ],
+          "nistQuantumSecurityLevel": 0,
+          "padding": "pkcs1v15"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:ambiguous.py:22:12",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "ambiguous.py",
+            "line": 22,
+            "offset": 12
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "KEM_DEM"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "Redesign as KEM + KDF + AEAD (KEM/DEM, SP 800-227 Secs. 2.1, 5.2); not a drop-in replacement for encrypt/decrypt"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "RSA public-key decryption / key unwrapping has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 2.1, 5.2), decapsulation side: decapsulate with the ML-KEM decapsulation key, derive the content key from the shared secret (FIPS 203 Sec. 3.3), and decrypt with an AEAD. The existing decrypt(ciphertext) call shape cannot be preserved."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.decrypt"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .decrypt() -> PK_DECRYPT; receiver resolved: pyca:RSA:private:generated; arguments: padding=OAEP, hash=SHA256; the key may also come from an untyped parameter, or its origin is consumed by another role family or has conflicting consumers, so the tier is capped at T2"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-KEM-768 (NIST IR 8547 default recommendation) with an approved KDF and AEAD"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "decrypt"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:padding",
+          "value": "OAEP"
+        },
+        {
+          "name": "pqscan:hash",
+          "value": "SHA256"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 22: method .decrypt()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 22: receiver pyca:RSA:private:generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 22: arguments padding=OAEP, hash=SHA256"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 19: key origin rsa.generate_private_key"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "cryptoFunctions": [
+            "decrypt"
+          ],
+          "nistQuantumSecurityLevel": 0,
+          "padding": "oaep"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:ecdsa_tokens.py:9:17",
+      "name": "ECDSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "ecdsa_tokens.py",
+            "line": 9,
+            "offset": 17
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "ECDSA/ECDH (elliptic-curve) signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.ec.generate_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (EC, generated) reaches SIG consumers only"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 9: cryptography.hazmat.primitives.asymmetric.ec.generate_private_key (generated)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 10: consumer .sign()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.ec.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:ecdsa_tokens.py:10:12",
+      "name": "ECDSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "ecdsa_tokens.py",
+            "line": 10,
+            "offset": 12
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "ECDSA/ECDH (elliptic-curve) signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.sign"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .sign() -> SIGN; receiver resolved: pyca:EC:private:generated; arguments: hash=SHA256, ECDSA"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "sign"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:hash",
+          "value": "SHA256"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 10: method .sign()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 10: receiver pyca:EC:private:generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 10: arguments hash=SHA256, ECDSA"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 9: key origin ec.generate_private_key"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "sign"
+          ],
+          "nistQuantumSecurityLevel": 0,
+          "curve": "SECP256R1"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:envelope.py:9:21",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "envelope.py",
+            "line": 9,
+            "offset": 21
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "KEM_DEM"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "Redesign as KEM + KDF + AEAD (KEM/DEM, SP 800-227 Secs. 2.1, 5.2); not a drop-in replacement for encrypt/decrypt"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "RSA public-key decryption / key unwrapping has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 2.1, 5.2), decapsulation side: decapsulate with the ML-KEM decapsulation key, derive the content key from the shared secret (FIPS 203 Sec. 3.3), and decrypt with an AEAD. The existing decrypt(ciphertext) call shape cannot be preserved."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.rsa.generate_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (RSA, generated) reaches PKE consumers only"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-KEM-768 (NIST IR 8547 default recommendation) with an approved KDF and AEAD"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 9: cryptography.hazmat.primitives.asymmetric.rsa.generate_private_key (generated)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 11: consumer .encrypt()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 12: consumer .decrypt()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.rsa.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key",
+          "size": 3072
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:envelope.py:11:15",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "envelope.py",
+            "line": 11,
+            "offset": 15
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "PK_ENCRYPT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "KEM_DEM"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "Redesign as KEM + KDF + AEAD (KEM/DEM, SP 800-227 Secs. 2.1, 5.2); not a drop-in replacement for encrypt/decrypt"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "RSA public-key encryption / key transport (PKCS#1 v1.5, OAEP) has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 2.1, 5.2): the sender encapsulates to the recipient's authenticated ML-KEM key, derives the content key from the shared secret (FIPS 203 Sec. 3.3), and encrypts with an AEAD. The existing encrypt(data) call shape cannot be preserved."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.encrypt"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .encrypt() -> PK_ENCRYPT; receiver resolved: pyca:RSA:public:generated; arguments: padding=OAEP"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-KEM-768 (NIST IR 8547 default recommendation) with an approved KDF and AEAD"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "encrypt"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:padding",
+          "value": "OAEP"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 11: method .encrypt()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 11: receiver pyca:RSA:public:generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 11: arguments padding=OAEP"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 9: key origin rsa.generate_private_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 11: key origin recipient_key.public_key"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "cryptoFunctions": [
+            "encrypt"
+          ],
+          "nistQuantumSecurityLevel": 0,
+          "padding": "oaep"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:envelope.py:12:12",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "envelope.py",
+            "line": 12,
+            "offset": 12
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "KEM_DEM"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "Redesign as KEM + KDF + AEAD (KEM/DEM, SP 800-227 Secs. 2.1, 5.2); not a drop-in replacement for encrypt/decrypt"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "RSA public-key decryption / key unwrapping has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 2.1, 5.2), decapsulation side: decapsulate with the ML-KEM decapsulation key, derive the content key from the shared secret (FIPS 203 Sec. 3.3), and decrypt with an AEAD. The existing decrypt(ciphertext) call shape cannot be preserved."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.decrypt"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .decrypt() -> PK_DECRYPT; receiver resolved: pyca:RSA:private:generated; arguments: padding=OAEP"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-KEM-768 (NIST IR 8547 default recommendation) with an approved KDF and AEAD"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "decrypt"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:padding",
+          "value": "OAEP"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 12: method .decrypt()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 12: receiver pyca:RSA:private:generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 12: arguments padding=OAEP"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 9: key origin rsa.generate_private_key"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "cryptoFunctions": [
+            "decrypt"
+          ],
+          "nistQuantumSecurityLevel": 0,
+          "padding": "oaep"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:key_agreement.py:8:12",
+      "name": "X25519",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "key_agreement.py",
+            "line": 8,
+            "offset": 12
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "KEM"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-KEM-based key-establishment redesign (FIPS 203, SP 800-227); PQ/T hybrid with the existing scheme through an approved combiner is an acceptable transitional design"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "X25519 key establishment is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 4) and is exposed to harvest-now-decrypt-later. Redesign around ML-KEM (FIPS 203; ML-KEM-768 recommended by NIST IR 8547) per SP 800-227; a PQ/T hybrid with the existing scheme via an approved combiner (SP 800-227 Sec. 4.6) is an acceptable transitional design. ML-KEM uses encapsulate/decapsulate, not a symmetric exchange(peer) call."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.x25519.X25519PrivateKey.generate"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (X25519, generated) reaches KE consumers only"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-KEM-768 (NIST IR 8547 default recommendation)"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 8: cryptography.hazmat.primitives.asymmetric.x25519.X25519PrivateKey.generate (generated)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 10: consumer .exchange()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.x25519.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:key_agreement.py:9:14",
+      "name": "X25519",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "key_agreement.py",
+            "line": 9,
+            "offset": 14
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "KEM"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-KEM-based key-establishment redesign (FIPS 203, SP 800-227); PQ/T hybrid with the existing scheme through an approved combiner is an acceptable transitional design"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "X25519 key establishment is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 4) and is exposed to harvest-now-decrypt-later. Redesign around ML-KEM (FIPS 203; ML-KEM-768 recommended by NIST IR 8547) per SP 800-227; a PQ/T hybrid with the existing scheme via an approved combiner (SP 800-227 Sec. 4.6) is an acceptable transitional design. ML-KEM uses encapsulate/decapsulate, not a symmetric exchange(peer) call."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.x25519.X25519PrivateKey.generate"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (X25519, generated) reaches KE consumers only"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-KEM-768 (NIST IR 8547 default recommendation)"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 9: cryptography.hazmat.primitives.asymmetric.x25519.X25519PrivateKey.generate (generated)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 10: consumer peer key of .exchange()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.x25519.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:key_agreement.py:10:12",
+      "name": "X25519",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "key_agreement.py",
+            "line": 10,
+            "offset": 12
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "KEM"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-KEM-based key-establishment redesign (FIPS 203, SP 800-227); PQ/T hybrid with the existing scheme through an approved combiner is an acceptable transitional design"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "X25519 key establishment is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 4) and is exposed to harvest-now-decrypt-later. Redesign around ML-KEM (FIPS 203; ML-KEM-768 recommended by NIST IR 8547) per SP 800-227; a PQ/T hybrid with the existing scheme via an approved combiner (SP 800-227 Sec. 4.6) is an acceptable transitional design. ML-KEM uses encapsulate/decapsulate, not a symmetric exchange(peer) call."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.exchange"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .exchange() -> KEY_ESTABLISHMENT; receiver resolved: pyca:X25519:private:generated; arguments: no parameters"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-KEM-768 (NIST IR 8547 default recommendation)"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "exchange"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 10: method .exchange()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 10: receiver pyca:X25519:private:generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 8: key origin x25519.X25519PrivateKey.generate"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "key-agree",
+          "cryptoFunctions": [
+            "other"
+          ],
+          "nistQuantumSecurityLevel": 0
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:key_agreement.py:14:12",
+      "name": "ECDH",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "key_agreement.py",
+            "line": 14,
+            "offset": 12
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "KEM"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-KEM-based key-establishment redesign (FIPS 203, SP 800-227); PQ/T hybrid with the existing scheme through an approved combiner is an acceptable transitional design"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "ECDSA/ECDH (elliptic-curve) key establishment is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 4) and is exposed to harvest-now-decrypt-later. Redesign around ML-KEM (FIPS 203; ML-KEM-768 recommended by NIST IR 8547) per SP 800-227; a PQ/T hybrid with the existing scheme via an approved combiner (SP 800-227 Sec. 4.6) is an acceptable transitional design. ML-KEM uses encapsulate/decapsulate, not a symmetric exchange(peer) call."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.ec.generate_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (EC, generated) reaches KE consumers only"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-KEM-768 (NIST IR 8547 default recommendation)"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 14: cryptography.hazmat.primitives.asymmetric.ec.generate_private_key (generated)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 16: consumer .exchange()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.ec.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:key_agreement.py:15:14",
+      "name": "ECDH",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "key_agreement.py",
+            "line": 15,
+            "offset": 14
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "KEM"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-KEM-based key-establishment redesign (FIPS 203, SP 800-227); PQ/T hybrid with the existing scheme through an approved combiner is an acceptable transitional design"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "ECDSA/ECDH (elliptic-curve) key establishment is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 4) and is exposed to harvest-now-decrypt-later. Redesign around ML-KEM (FIPS 203; ML-KEM-768 recommended by NIST IR 8547) per SP 800-227; a PQ/T hybrid with the existing scheme via an approved combiner (SP 800-227 Sec. 4.6) is an acceptable transitional design. ML-KEM uses encapsulate/decapsulate, not a symmetric exchange(peer) call."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.ec.generate_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (EC, generated) reaches KE consumers only"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-KEM-768 (NIST IR 8547 default recommendation)"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 15: cryptography.hazmat.primitives.asymmetric.ec.generate_private_key (generated)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 16: consumer peer key of .exchange()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.ec.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:key_agreement.py:16:12",
+      "name": "ECDH",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "key_agreement.py",
+            "line": 16,
+            "offset": 12
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_ESTABLISHMENT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "KEM"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-KEM-based key-establishment redesign (FIPS 203, SP 800-227); PQ/T hybrid with the existing scheme through an approved combiner is an acceptable transitional design"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "ECDSA/ECDH (elliptic-curve) key establishment is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 4) and is exposed to harvest-now-decrypt-later. Redesign around ML-KEM (FIPS 203; ML-KEM-768 recommended by NIST IR 8547) per SP 800-227; a PQ/T hybrid with the existing scheme via an approved combiner (SP 800-227 Sec. 4.6) is an acceptable transitional design. ML-KEM uses encapsulate/decapsulate, not a symmetric exchange(peer) call."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.exchange"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .exchange() -> KEY_ESTABLISHMENT; receiver resolved: pyca:EC:private:generated; arguments: ECDH"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-KEM-768 (NIST IR 8547 default recommendation)"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "exchange"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 16: method .exchange()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 16: receiver pyca:EC:private:generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 16: arguments ECDH"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 14: key origin ec.generate_private_key"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "key-agree",
+          "cryptoFunctions": [
+            "other"
+          ],
+          "nistQuantumSecurityLevel": 0,
+          "curve": "SECP384R1"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:key_inventory.py:10:19",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "key_inventory.py",
+            "line": 10,
+            "offset": 19
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "KEY_MATERIAL_ONLY"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "FLAG_NO_TARGET"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "INVENTORY"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "No migration target at this site; inventory the key material and determine its downstream role"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "RSA key material with no consumer found in the analysed scope. No target is recommended; determine the downstream role first."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.rsa.generate_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (RSA) with no consumer inside the analysed scope and no escape: inventory only"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 10: cryptography.hazmat.primitives.asymmetric.rsa.generate_private_key (generated)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.rsa.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key",
+          "size": 4096
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:legacy_pycryptodome.py:11:11",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "legacy_pycryptodome.py",
+            "line": 11,
+            "offset": 11
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "RSA signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pycryptodome"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "Crypto.PublicKey.RSA.generate"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (RSA, generated) reaches SIG consumers only"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 11: Crypto.PublicKey.RSA.generate (generated)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 13: consumer pkcs1_15.new(key)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pcd.rsa.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key",
+          "size": 3072
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:legacy_pycryptodome.py:13:12",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "legacy_pycryptodome.py",
+            "line": 13,
+            "offset": 12
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "RSA signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pycryptodome"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.sign"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .sign() -> SIGN; receiver resolved: pcd:signer:pkcs1_15(pycryptodome:RSA:private:generated); arguments: padding=pkcs1_15"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "sign"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:padding",
+          "value": "pkcs1_15"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 13: method .sign()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 13: receiver pcd:signer:pkcs1_15(pycryptodome:RSA:private:generated)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 13: arguments padding=pkcs1_15"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 11: key origin RSA.generate"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pcd.signer.new"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pcd.signer.sign"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "sign"
+          ],
+          "nistQuantumSecurityLevel": 0,
+          "padding": "pkcs1v15"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:legacy_pycryptodome.py:17:11",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "legacy_pycryptodome.py",
+            "line": 17,
+            "offset": 11
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "PK_DECRYPT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "KEM_DEM"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "Redesign as KEM + KDF + AEAD (KEM/DEM, SP 800-227 Secs. 2.1, 5.2); not a drop-in replacement for encrypt/decrypt"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "RSA public-key decryption / key unwrapping has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 2.1, 5.2), decapsulation side: decapsulate with the ML-KEM decapsulation key, derive the content key from the shared secret (FIPS 203 Sec. 3.3), and decrypt with an AEAD. The existing decrypt(ciphertext) call shape cannot be preserved."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pycryptodome"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "Crypto.PublicKey.RSA.generate"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (RSA, generated) reaches PKE consumers only"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-KEM-768 (NIST IR 8547 default recommendation) with an approved KDF and AEAD"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 17: Crypto.PublicKey.RSA.generate (generated)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 18: consumer PKCS1_OAEP.new(key)"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pcd.rsa.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key",
+          "size": 3072
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:legacy_pycryptodome.py:19:12",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "legacy_pycryptodome.py",
+            "line": 19,
+            "offset": 12
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "PK_ENCRYPT"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "KEM_DEM"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "Redesign as KEM + KDF + AEAD (KEM/DEM, SP 800-227 Secs. 2.1, 5.2); not a drop-in replacement for encrypt/decrypt"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "RSA public-key encryption / key transport (PKCS#1 v1.5, OAEP) has no drop-in PQC replacement. Redesign as KEM + KDF + AEAD (SP 800-227 Secs. 2.1, 5.2): the sender encapsulates to the recipient's authenticated ML-KEM key, derives the content key from the shared secret (FIPS 203 Sec. 3.3), and encrypts with an AEAD. The existing encrypt(data) call shape cannot be preserved."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pycryptodome"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.encrypt"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .encrypt() -> PK_ENCRYPT; receiver resolved: pcd:cipher:PKCS1_OAEP(pycryptodome:RSA:public:generated); arguments: padding=PKCS1_OAEP"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-KEM-768 (NIST IR 8547 default recommendation) with an approved KDF and AEAD"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "encrypt"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:padding",
+          "value": "PKCS1_OAEP"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 19: method .encrypt()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 19: receiver pcd:cipher:PKCS1_OAEP(pycryptodome:RSA:public:generated)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 19: arguments padding=PKCS1_OAEP"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 17: key origin RSA.generate"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 18: key origin key.publickey"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "pke",
+          "cryptoFunctions": [
+            "encrypt"
+          ],
+          "nistQuantumSecurityLevel": 0,
+          "padding": "oaep"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:signing_service.py:9:19",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "signing_service.py",
+            "line": 9,
+            "offset": 19
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "key-material"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "RSA signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "cryptography.hazmat.primitives.asymmetric.rsa.generate_private_key"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "key material (RSA, generated) reaches SIG consumers only"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 9: cryptography.hazmat.primitives.asymmetric.rsa.generate_private_key (generated)"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 13: consumer .verify()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 11: consumer .sign()"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.pyca.rsa.keygen"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "related-crypto-material",
+        "relatedCryptoMaterialProperties": {
+          "type": "private-key",
+          "size": 3072
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:signing_service.py:11:17",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "signing_service.py",
+            "line": 11,
+            "offset": 17
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "SIGN"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "RSA signing is deprecated after 2030 and disallowed after 2035 (NIST IR 8547 Table 2). Migrate signing to ML-DSA (FIPS 204); dual/hybrid signatures are a transitional option; verifiers and certificate chains must be able to accept ML-DSA before signers switch."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.sign"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .sign() -> SIGN; receiver resolved: pyca:RSA:private:generated; arguments: padding=PSS, hash=SHA256"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "sign"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:padding",
+          "value": "PSS"
+        },
+        {
+          "name": "pqscan:hash",
+          "value": "SHA256"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 11: method .sign()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 11: receiver pyca:RSA:private:generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 11: arguments padding=PSS, hash=SHA256"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 9: key origin rsa.generate_private_key"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "sign"
+          ],
+          "nistQuantumSecurityLevel": 0,
+          "padding": "other"
+        }
+      }
+    },
+    {
+      "type": "cryptographic-asset",
+      "bom-ref": "pqscan:site:signing_service.py:13:5",
+      "name": "RSA",
+      "evidence": {
+        "occurrences": [
+          {
+            "location": "signing_service.py",
+            "line": 13,
+            "offset": 5
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "pqscan:siteKind",
+          "value": "operation"
+        },
+        {
+          "name": "pqscan:role",
+          "value": "VERIFY"
+        },
+        {
+          "name": "pqscan:tier",
+          "value": "T3"
+        },
+        {
+          "name": "pqscan:action",
+          "value": "RECOMMEND"
+        },
+        {
+          "name": "pqscan:targetClass",
+          "value": "SIG"
+        },
+        {
+          "name": "pqscan:target",
+          "value": "ML-DSA (FIPS 204); SLH-DSA (FIPS 205) where its size/speed trade-offs are acceptable"
+        },
+        {
+          "name": "pqscan:rationale",
+          "value": "Add ML-DSA (FIPS 204) verification so that migrated signers can be accepted. NIST IR 8547 defines 'legacy use' as processing already-protected data such as verifying an existing signature; whether RSA verification of already-issued signatures keeps that status after 2035 is set by SP 800-131A (to be revised). Retain legacy verification only for already-issued signatures; do not accept new RSA signatures after the transition."
+        },
+        {
+          "name": "pqscan:policyVersion",
+          "value": "1.1"
+        },
+        {
+          "name": "pqscan:tierThreshold",
+          "value": "T2"
+        },
+        {
+          "name": "pqscan:scope",
+          "value": "app"
+        },
+        {
+          "name": "pqscan:library",
+          "value": "pyca"
+        },
+        {
+          "name": "pqscan:api",
+          "value": "<receiver>.verify"
+        },
+        {
+          "name": "pqscan:reason",
+          "value": "operation .verify() -> VERIFY; receiver resolved: pyca:RSA:public:generated; arguments: padding=PSS, hash=SHA256"
+        },
+        {
+          "name": "pqscan:parameterSet",
+          "value": "ML-DSA-65 (category 3) by default; ML-DSA-44 only with an RBG of >= 192-bit strength if category 2 is required; ML-DSA-87 for category 5"
+        },
+        {
+          "name": "pqscan:operation",
+          "value": "verify"
+        },
+        {
+          "name": "pqscan:provenance",
+          "value": "generated"
+        },
+        {
+          "name": "pqscan:padding",
+          "value": "PSS"
+        },
+        {
+          "name": "pqscan:hash",
+          "value": "SHA256"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 13: method .verify()"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 13: receiver pyca:RSA:public:generated"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 13: arguments padding=PSS, hash=SHA256"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 9: key origin rsa.generate_private_key"
+        },
+        {
+          "name": "pqscan:evidence",
+          "value": "line 12: key origin signing_key.public_key"
+        },
+        {
+          "name": "pqscan:semgrepRule",
+          "value": "pqscan.common.method.candidate"
+        }
+      ],
+      "cryptoProperties": {
+        "assetType": "algorithm",
+        "algorithmProperties": {
+          "primitive": "signature",
+          "cryptoFunctions": [
+            "verify"
+          ],
+          "nistQuantumSecurityLevel": 0,
+          "padding": "other"
+        }
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pqscan:site:ambiguous.py:21:16",
+      "dependsOn": [
+        "pqscan:site:ambiguous.py:19:18"
+      ]
+    },
+    {
+      "ref": "pqscan:site:ambiguous.py:22:12",
+      "dependsOn": [
+        "pqscan:site:ambiguous.py:19:18"
+      ]
+    },
+    {
+      "ref": "pqscan:site:ecdsa_tokens.py:10:12",
+      "dependsOn": [
+        "pqscan:site:ecdsa_tokens.py:9:17"
+      ]
+    },
+    {
+      "ref": "pqscan:site:envelope.py:11:15",
+      "dependsOn": [
+        "pqscan:site:envelope.py:9:21"
+      ]
+    },
+    {
+      "ref": "pqscan:site:envelope.py:12:12",
+      "dependsOn": [
+        "pqscan:site:envelope.py:9:21"
+      ]
+    },
+    {
+      "ref": "pqscan:site:key_agreement.py:10:12",
+      "dependsOn": [
+        "pqscan:site:key_agreement.py:8:12"
+      ]
+    },
+    {
+      "ref": "pqscan:site:key_agreement.py:16:12",
+      "dependsOn": [
+        "pqscan:site:key_agreement.py:14:12"
+      ]
+    },
+    {
+      "ref": "pqscan:site:legacy_pycryptodome.py:13:12",
+      "dependsOn": [
+        "pqscan:site:legacy_pycryptodome.py:11:11"
+      ]
+    },
+    {
+      "ref": "pqscan:site:legacy_pycryptodome.py:19:12",
+      "dependsOn": [
+        "pqscan:site:legacy_pycryptodome.py:17:11"
+      ]
+    },
+    {
+      "ref": "pqscan:site:signing_service.py:11:17",
+      "dependsOn": [
+        "pqscan:site:signing_service.py:9:19"
+      ]
+    },
+    {
+      "ref": "pqscan:site:signing_service.py:13:5",
+      "dependsOn": [
+        "pqscan:site:signing_service.py:9:19"
+      ]
+    }
+  ]
+}

@@ -22,7 +22,7 @@ from .stats import holm, mcnemar_exact_one_sided
 
 ALPHA = 0.025
 SYSTEM = "pqscan:B4-full-T2"
-NOT_SCORED = {"cbomkit": "not run (owner decision D4 = A)", "mehl": "repository-level results only (reported separately)"}
+NOT_SCORED = {"cbomkit": "not run (owner decision D4 = A)", "mehl": "repository-level labels, no per-site migration recommendation (owner decision D14)"}
 # Wording of analysis plan v1.0.1 Sec. 9 (protocol v1.0.5 Sec. 5.4, F05); third-review finding TA02 replaced the v1.0.4
 # text, which still asserted independent pairs. Pinned by tests/test_g08_confirmation_and_fa_assumptions.py.
 ASSUMPTIONS = (

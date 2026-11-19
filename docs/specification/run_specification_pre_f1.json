@@ -39,6 +39,13 @@
       "by": "owner",
       "decision": "G08 confirmation (third review TB01): H4 Part 1 = exactly the eight registered F-A baselines (six external tools, pqscan:B1-algorithm, pqscan:B2-method-args); inclusion by F-A membership only; the other five pqscan arms are reported separately.",
       "record": "docs/audit/owner_decision_g08_confirmation_2026-11-19.md"
+    },
+    {
+      "id": "OD-2026-11-19-r6",
+      "date": "2026-11-19",
+      "by": "owner",
+      "decision": "Pre-F1 analysis decisions TA03, TA04, TA05, TA08, TA09, TA10, TA17, TA22, TA28, W6, N1, D14 as recommended; TA01 conditional on historical verification (outcome: S16 not excluded; F1 blocked).",
+      "record": "docs/audit/owner_decisions_pre_f1_analysis_2026-11-19.md"
     }
   ],
   "families": {
@@ -106,7 +113,7 @@
   },
   "not_run": {
     "CBOMkit (sonar-cryptography)": "owner decision D4 = A; listed as not run in every table",
-    "Mehl ESEM 2026 scanner": "not in F-A; owner decision D14 pending (docs/audit/research_decisions_and_novelty.md)"
+    "Mehl ESEM 2026 scanner": "not in F-A, H1b or H4; produces repository-level readiness labels and no per-site migration recommendation by design (Mehl 2026, p. 3), so it cannot be scored on the recommendation outcome; a source repository exists (owner decision D14, 19 Nov 2026)"
   },
   "unchanged": [
     "the wording of RQ1-RQ4 and H1-H4",
@@ -121,9 +128,9 @@
   ],
   "interpretations": {
     "H-1": "H1a and H1b keep their status as pre-registered threshold decision rules, without any multiplicity-controlled inference. H3 and H4 remain pre-specified secondary/descriptive analyses, without a confirmatory or family-wise error claim. The confirmatory families remain F-A and F-B only.",
-    "H-2": "H1a is met if and only if the point estimate of its proportion is >= 0.25. H1b is met if and only if, for every tool in the H1b set, the point estimate of (harmful + UNDECIDED + UNJUSTIFIED) / n_exec is >= 0.10, where harmful = INCORRECT with a harm category (scoring policy). Wilson 95% confidence intervals are always reported. Neither threshold changes.",
+    "H-2": "H1a is met if and only if the point estimate of its proportion is >= 0.25. H1b is met if and only if, for every tool in the H1b set, the point estimate of (harmful + UNDECIDED + UNJUSTIFIED) / n_exec is >= 0.10, where harmful = INCORRECT with a harm category (scoring policy). Wilson 95% confidence intervals are always reported. Neither threshold changes. H1a numerator (owner decision TA08, r6): eligible primary-set test sites with obvious_from_name = false, including UNKNOWN/INDETERMINATE sites (their role does not follow from the name); denominator: all eligible primary-set test sites. Reported alongside: the evidence_needed categories and a sensitivity excluding INDETERMINATE sites.",
     "H-3": "The primary H1 results use the primary-set eligible sites of the seven test repositories, with F2-frozen owner-final labels; 'the full real set' in the RQ1 row is read this way. Development and validation results are reported separately and never pooled with test results. For tool j, the H1b denominator is n_exec,j: the eligible sites on which j ran (scoring policy Sec. 5). Execution failures per tool are reported separately, by count and reason.",
-    "H-4": "The H1b set is pqcheck, pqc-audit, PostQuant, qsafe, QSA-regex and pqblocks-scan (the external tools; RQ1 asks about existing scanners). The internal arms pqscan:B1-algorithm and pqscan:B2-method-args are reported separately and are not in H1b. Excluded, with reasons: CBOMkit (not run, decision D4: an inventory tool without migration advice); Mehl's scanner (a results-only artefact without scoreable per-site recommendations); pqscan:B1-dual (descriptive only, D15: it emits dual recommendations, not a specific migration choice). A tool in the set that runs but produces no scoreable output is reported as not assessable, and H1b is reported as not decidable for it.",
+    "H-4": "The H1b set is pqcheck, pqc-audit, PostQuant, qsafe, QSA-regex and pqblocks-scan (the external tools; RQ1 asks about existing scanners). The internal arms pqscan:B1-algorithm and pqscan:B2-method-args are reported separately and are not in H1b. Excluded, with reasons: CBOMkit (not run, decision D4: an inventory tool without migration advice); Mehl's scanner (produces repository-level readiness labels and no per-site migration recommendation by design (Mehl 2026, p. 3), so it cannot be scored on the recommendation outcome; a source repository exists (owner decision D14, 19 Nov 2026)); pqscan:B1-dual (descriptive only, D15: it emits dual recommendations, not a specific migration choice). A tool in the set that runs but produces no scoreable output is reported as not assessable, and H1b is reported as not decidable for it.",
     "H-5 (H3)": {
       "status": "pre-specified secondary/descriptive analysis; no multiplicity-controlled or confirmatory claim (H-1)",
       "population": "Dataset B, the seven test repositories, primary-set eligible sites; n_r = sites where pqscan ran (the common evaluable set of both arms; arm-level failures reported)",
@@ -144,7 +151,9 @@
       "harmful_rate": "HR(c) = sum_r H_r(c) / sum_r n_r (frozen scoring: harmful = INCORRECT with a harm category; denominator n_exec); HR_T2(c); HR_AR at natural coverage; HR_k(c) per seed and HR_rand(c) = mean over the 100 seeds.",
       "reported_per_point": "HR_T2(c), HR_AR and HR_rand(c); the random distribution (minimum, 2.5th percentile, median, 97.5th percentile, maximum) and its standard deviation across seeds; a within-repository site bootstrap 95% CI for HR_T2(c) - HR_rand(c) (1,000 resamples, seed 20261113); per-repository values; the existing risk-coverage curves and AURC, unchanged.",
       "decision_C2": "At each coverage point c in {70%, 80%, 90%}, evaluated separately, the point comparison holds if HR_T2(c) < HR_AR (natural coverage) and HR_T2(c) < HR_rand(c), strictly, on point estimates. The overall H3 criterion is MET only if all three points are estimable and the point comparison holds at every point; NOT MET if all three are estimable and any comparison fails; NOT ASSESSABLE if any point is not estimable. Every estimable point is always presented separately.",
-      "code_note": "New H3 code goes in a new module: pqscan/bench/stats.py (risk_coverage, aurc) belongs to the E30 calibration closure and is not modified."
+      "code_note": "New H3 code goes in a new module: pqscan/bench/stats.py (risk_coverage, aurc) belongs to the E30 calibration closure and is not modified.",
+      "always_recommend_reporting_TA03": "The always-recommend half of decision C2 compares at different coverages and is therefore coverage-confounded under the per-site harmful rate (owner decision TA03, r6): it is always printed with both arms' coverages and with each arm's per-recommendation risk (harmful / recommended). The random-withholding half is the coverage-matched comparison. Decision rule C2 is unchanged.",
+      "bootstrap_procedure_TA28": "Bootstrap for HR_T2(c) - HR_rand(c) (owner decision TA28, r6): 1,000 resamples drawn with numpy default_rng(20261113); in each resample, sites are resampled with replacement within each repository; K_r(c) is recomputed from the resampled n_r; the T2 withdrawal uses the frozen SHA-256 order (copies of a duplicated site are ordered by copy index); HR_rand(c) is recomputed as the mean over the 100 frozen withholding orders, each applied to the resampled sites; the 95% CI is the percentile interval. A resample in which a point is not estimable is counted and reported; the interval uses the estimable resamples."
     },
     "H-6 (H4)": {
       "status": "pre-specified secondary/descriptive analysis; no confirmatory or family-wise error claim (H-1)",
@@ -177,7 +186,7 @@
         ],
         "not_runnable": {
           "CBOMkit (sonar-cryptography)": "not run, owner decision D4 = A",
-          "Mehl ESEM 2026 scanner": "results-only artefact; no scanner source"
+          "Mehl ESEM 2026 scanner": "produces repository-level readiness labels and no per-site migration recommendation by design (Mehl 2026, p. 3), so it cannot be scored on the recommendation outcome; a source repository exists (owner decision D14, 19 Nov 2026)"
         },
         "sources": [
           "pqscan/baselines/adapters.py ADAPTERS",
@@ -214,7 +223,9 @@
           "decision": "Confirmed: H4 Part 1 contains exactly the eight registered F-A baselines; the remaining five pqscan arms are reported separately; no threshold, hypothesis, metric, method or estimand changes.",
           "record": "docs/audit/owner_decision_g08_confirmation_2026-11-19.md"
         }
-      }
+      },
+      "operator_quantifier_TA04": "Part 1 uses the per-tool reading (for each baseline some operator meets the threshold; owner decision TA04, r6). Also reported, descriptively only: whether one operator meets FR >= 0.30 for all eight baselines.",
+      "population_TA05": "Part 1 uses all base-variant pairs (61 or 48 per operator). Part 2 (the proposed analyser's invariance) uses the 30 synthetic-holdout base cases as its primary population, because the 31 synthetic-dev base cases were visible during development; Part 2 on all pairs is reported as well (owner decision TA05, r6)."
     }
   },
   "h1b": {
@@ -232,8 +243,13 @@
     ],
     "excluded": {
       "CBOMkit (sonar-cryptography)": "not run, decision D4 = A: an inventory tool without migration advice",
-      "Mehl ESEM 2026 scanner": "results-only artefact without scoreable per-site recommendations",
+      "Mehl ESEM 2026 scanner": "produces repository-level readiness labels and no per-site migration recommendation by design (Mehl 2026, p. 3), so it cannot be scored on the recommendation outcome; a source repository exists (owner decision D14, 19 Nov 2026)",
       "pqscan:B1-dual": "descriptive only (D15): emits dual recommendations, not a specific migration choice"
     }
+  },
+  "pre_f1_analysis_decisions_r6": {
+    "TA17_k_equals_7": "The Experiment E driver asserts that exactly the seven test repositories are present before any comparison is analysed, so K = 7 always (owner decision TA17, r6); pqscan/bench/h2.py, part of the calibration closure, is not changed.",
+    "TA01_s16": "Historical verification of S16 (19 Nov 2026; docs/audit/ta01_s16_historical_verification.md): the planning calibration observed S16 (random repositories) above the criterion before protocol v1.0.4 was adopted; the adopted plan Sec. 11 item 2 lists all 18 single-comparison scenarios, S16 included, without an exemption; the exemption exists only in the acceptance script. S16 is therefore NOT excluded retrospectively: acceptance criterion 2 is not met under the adopted text, and F1 stays blocked until an adopted and calibrated solution exists (owner decision required).",
+    "record": "docs/audit/owner_decisions_pre_f1_analysis_2026-11-19.md"
   }
 }
