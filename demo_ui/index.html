@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PQScan Demo</title>
+<style>
+:root{--bg:#f6f8fb;--card:#fff;--ink:#1d2433;--muted:#5f6b7a;--line:#dde3ec;--navy:#142b4c;--accent:#1f6fd1;
+--rec:#1f8a5b;--flag:#c98a12;--abs:#7a8594;--hl:#fff4c2;--code:#f3f5f8;--shadow:0 1px 3px rgba(20,43,76,.08)}
+@media (prefers-color-scheme:dark){:root{--bg:#0f141c;--card:#171e29;--ink:#e6ebf2;--muted:#9aa6b6;--line:#2a3443;--navy:#0b1830;
+--accent:#5aa2ff;--hl:#3b3416;--code:#121821;--shadow:none}}
+*{box-sizing:border-box}body{margin:0;font:15px/1.5 "Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:var(--navy);color:#fff;padding:18px 28px}header h1{margin:0;font-size:22px}
+header p{margin:4px 0 0;color:#bfd4ee;font-size:14px}.chips{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:rgba(255,255,255,.12);border-radius:999px;padding:3px 10px;font-size:12.5px}
+nav{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line);display:flex;gap:4px;
+padding:8px 20px;overflow-x:auto}nav a{color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:8px;white-space:nowrap;font-size:14px}
+nav a.on{background:var(--accent);color:#fff}main{max-width:1180px;margin:0 auto;padding:20px}
+section{scroll-margin-top:60px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin:0 0 20px;box-shadow:var(--shadow)}
+h2{margin:0 0 4px;font-size:19px}h2 .n{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;
+background:var(--accent);color:#fff;font-size:14px;margin-right:10px}.lead{color:var(--muted);margin:0 0 16px}
+.pipe{display:flex;gap:8px;align-items:stretch;flex-wrap:wrap}.pipe div{flex:1;min-width:150px;border:1px solid var(--line);
+border-radius:10px;padding:10px 12px;background:var(--code)}.pipe b{display:block;color:var(--accent)}.pipe small{color:var(--muted)}
+.arrow{flex:0 0 auto!important;min-width:0!important;border:0!important;background:none!important;align-self:center;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.inp{border:2px solid var(--line);border-radius:12px;padding:14px;cursor:pointer;background:var(--card)}
+.inp:hover{border-color:var(--accent)}.inp.sel{border-color:var(--accent);box-shadow:0 0 0 3px rgba(31,111,209,.15)}
+.badge{display:inline-block;font-size:11.5px;font-weight:600;border-radius:6px;padding:1px 8px;margin-left:6px}
+.b-real{background:#dff3e9;color:#11643f}.b-syn{background:#ece6fb;color:#4b2c9b}
+.inp p{margin:6px 0 0;color:var(--muted);font-size:13.5px}
+.row{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-end}label{font-size:13px;color:var(--muted);display:block}
+select,input[type=text]{font:inherit;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink)}
+button{font:inherit;font-weight:600;border:0;border-radius:9px;padding:9px 18px;background:var(--accent);color:#fff;cursor:pointer}
+button:disabled{opacity:.5;cursor:default}button.ghost{background:none;border:1px solid var(--line);color:var(--ink)}
+code,.mono{font-family:Consolas,"Cascadia Mono",monospace;font-size:13px}
+.cmd{background:var(--code);border:1px solid var(--line);border-radius:8px;padding:8px 12px;margin-top:12px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:16px}
+.stat{border:1px solid var(--line);border-radius:10px;padding:10px 12px}.stat .v{font-size:24px;font-weight:700}.stat .k{color:var(--muted);font-size:12.5px}
+.bar{display:flex;height:30px;border-radius:8px;overflow:hidden;margin:6px 0 4px}.bar span{display:grid;place-items:center;color:#fff;font-size:12.5px;font-weight:600;min-width:2px}
+.legend{display:flex;gap:14px;font-size:13px;color:var(--muted);flex-wrap:wrap}.dot{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:14px}
+.hb{display:grid;grid-template-columns:160px 1fr 50px;gap:8px;align-items:center;font-size:13px;margin:3px 0}
+.hb i{display:block;height:14px;border-radius:4px;background:var(--accent)}.hb .c{text-align:right;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-weight:600;font-size:12.5px}tbody tr{cursor:pointer}tbody tr:hover{background:var(--code)}
+.pill{font-size:12px;font-weight:600;border-radius:6px;padding:1px 7px;color:#fff}.p-RECOMMEND{background:var(--rec)}.p-FLAG_NO_TARGET{background:var(--flag)}.p-ABSTAIN{background:var(--abs)}
+.src{background:var(--code);border:1px solid var(--line);border-radius:8px;overflow:auto;font-family:Consolas,monospace;font-size:13px;margin:10px 0}
+.src div{white-space:pre;padding:0 10px}.src .hit{background:var(--hl)}.src .ln{color:var(--muted);display:inline-block;width:46px}
+.steps{display:grid;gap:10px}.stepc{border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:10px 14px}
+.stepc h4{margin:0 0 4px;font-size:14.5px}.stepc dl{display:grid;grid-template-columns:170px 1fr;gap:2px 12px;margin:0;font-size:13.5px}
+.stepc dt{color:var(--muted)}.stepc dd{margin:0;word-break:break-word}
+.plain{background:rgba(31,111,209,.08);border-radius:10px;padding:12px 16px;margin:10px 0;font-size:15px}
+.warn{background:rgba(201,138,18,.12);border-radius:10px;padding:12px 16px}.muted{color:var(--muted)}
+.spin{display:inline-block;width:16px;height:16px;border:3px solid var(--line);border-top-color:var(--accent);border-radius:50%;animation:s 1s linear infinite;vertical-align:-3px;margin-right:8px}
+@keyframes s{to{transform:rotate(360deg)}}pre.prev{max-height:260px;overflow:auto;background:var(--code);border:1px solid var(--line);border-radius:8px;padding:10px;font-size:12px}
+.hidden{display:none}.pager{display:flex;gap:8px;align-items:center;margin-top:10px}
+</style>
+</head>
+<body>
+<header>
+  <h1>PQScan: role-aware post-quantum migration guidance for Python</h1>
+  <p>Live demonstration. Every scan below runs the real <code>pqscan</code> command on this computer; nothing is pre-recorded.</p>
+  <div class="chips" id="envchips"><span class="chip">loading environment...</span></div>
+</header>
+<nav id="nav">
+  <a href="#s1">1 What it does</a><a href="#s2">2 Choose code</a><a href="#s3">3 Run scan</a><a href="#s4">4 Overview</a>
+  <a href="#s5">5 Findings</a><a href="#s6">6 Explain a finding</a><a href="#s7">7 Exports</a><a href="#s8">8 Limits</a>
+</nav>
+<main>
+<section id="s1">
+  <h2><span class="n">1</span>What PQScan does</h2>
+  <p class="lead">Quantum computers will break RSA and elliptic-curve cryptography. The right post-quantum replacement depends on what each call <b>does</b>: signing → ML-DSA; key agreement → redesign around ML-KEM; RSA encryption → no drop-in, redesign as ML-KEM + KDF + AEAD. PQScan reads the code (never runs it), works out each call's role from evidence, and recommends only when the evidence is strong enough. Otherwise it abstains and says why.</p>
+  <div class="pipe">
+    <div><b>Module A</b>Detect<br><small>Semgrep rules find candidate RSA / EC / Ed25519 / X25519 calls</small></div><div class="arrow">→</div>
+    <div><b>Module B</b>Gather evidence<br><small>Python AST: receiver type, arguments, where the key came from, where it is used</small></div><div class="arrow">→</div>
+    <div><b>Module C</b>Role + tier<br><small>SIGN, VERIFY, KEY_ESTABLISHMENT, PK_ENCRYPT ... with evidence tier T0–T3</small></div><div class="arrow">→</div>
+    <div><b>Module D</b>Policy v1.1<br><small>role → guidance; abstain if UNKNOWN or tier below threshold (T2)</small></div><div class="arrow">→</div>
+    <div><b>Module E</b>Exports<br><small>JSON, CycloneDX 1.6 CBOM (validated), SARIF 2.1.0</small></div>
+  </div>
+</section>
+
+<section id="s2">
+  <h2><span class="n">2</span>Choose the code to scan</h2>
+  <p class="lead"><span class="badge b-real">REAL</span> = real third-party library source installed on this computer. <span class="badge b-syn">SYNTHETIC</span> = small examples written for this project to show each decision path.</p>
+  <div class="cards" id="inputs"></div>
+</section>
+
+<section id="s3">
+  <h2><span class="n">3</span>Run the scan</h2>
+  <p class="lead">The threshold is the minimum evidence tier needed for a recommendation. T2 is the project's pre-registered default; try T3 to see the evidence gate withhold more.</p>
+  <div class="row">
+    <div><label>Evidence threshold</label><select id="thr"><option>T2</option><option>T3</option><option>T1</option><option>T0</option></select></div>
+    <div><label>Evidence arm (ablation)</label><select id="arm"><option value="full">full (all evidence)</option><option>method+args+recv</option><option>method+args</option><option>method-only</option></select></div>
+    <div><label><input type="checkbox" id="ext"> skip test files</label></div>
+    <div><button id="run">Run pqscan</button></div>
+  </div>
+  <div id="runstatus" class="cmd hidden"></div>
+</section>
+
+<section id="s4" class="hidden">
+  <h2><span class="n">4</span>Overview of this scan</h2>
+  <p class="lead">These are counts of what PQScan reported. They are <b>not accuracy</b>: no correct answers (labels) exist for this code.</p>
+  <div class="stats" id="stats"></div>
+  <b>Actions</b>
+  <div class="bar" id="actbar"></div>
+  <div class="legend"><span><i class="dot" style="background:var(--rec)"></i>RECOMMEND: guidance given</span><span><i class="dot" style="background:var(--flag)"></i>FLAG_NO_TARGET: inventory / detected PQ/T combination</span><span><i class="dot" style="background:var(--abs)"></i>ABSTAIN: evidence insufficient</span></div>
+  <div id="diff" class="muted" style="margin-top:8px"></div>
+  <div class="grid2">
+    <div><b>Target classes</b><div id="classes"></div></div>
+    <div><b>Roles</b><div id="roles"></div></div>
+    <div><b>Evidence tiers</b><div id="tiers"></div></div>
+    <div><b>Why it abstained</b><div id="reasons"></div></div>
+  </div>
+</section>
+
+<section id="s5" class="hidden">
+  <h2><span class="n">5</span>Findings: one row per call site</h2>
+  <p class="lead">Click any row to see exactly how PQScan reached its decision.</p>
+  <div class="row" style="margin-bottom:10px">
+    <div><label>Action</label><select id="fa"><option value="">all</option><option>RECOMMEND</option><option>FLAG_NO_TARGET</option><option>ABSTAIN</option></select></div>
+    <div><label>Class</label><select id="fc"><option value="">all</option></select></div>
+    <div><label>Role</label><select id="fr"><option value="">all</option></select></div>
+    <div><label>Search file</label><input type="text" id="fs" placeholder="e.g. envelope"></div>
+  </div>
+  <table><thead><tr><th>Site</th><th>Algorithm</th><th>Role</th><th>Tier</th><th>Action</th><th>Class</th></tr></thead><tbody id="rows"></tbody></table>
+  <div class="pager"><button class="ghost" id="prev">‹ Prev</button><span id="pinfo" class="muted"></span><button class="ghost" id="next">Next ›</button></div>
+</section>
+
+<section id="s6" class="hidden">
+  <h2><span class="n">6</span>Explain one finding, module by module</h2>
+  <p class="lead" id="ftitle"></p>
+  <div class="src" id="src"></div>
+  <div class="plain" id="plain"></div>
+  <div class="steps" id="trace"></div>
+</section>
+
+<section id="s7" class="hidden">
+  <h2><span class="n">7</span>Export the results</h2>
+  <p class="lead">Each button runs <code>pqscan</code> again for the selected code, writes the file, validates it against its official schema, and lets you download it.</p>
+  <div class="row"><button data-f="cbom" class="exp">CycloneDX CBOM</button><button data-f="sarif" class="exp">SARIF</button><button data-f="json" class="exp ghost">JSON</button></div>
+  <div id="expout"></div>
+</section>
+
+<section id="s8">
+  <h2><span class="n">8</span>What this demo shows, and what it does not</h2>
+  <div class="warn">
+    <b>Shows:</b> the implemented analyser working on real and synthetic Python code, its role decisions, evidence tiers, abstentions and validated exports.<br>
+    <b>Does not show:</b> accuracy. Whether the recommendations are <i>correct</i>, and more often correct than name-based tools, will be measured on 7 sealed, labelled repositories in the next phase. The statistical simulation passes for fixed repositories; the random-repository scenario (S16) needs an adopted solution before that phase.<br>
+    <b>Known limits:</b> no TLS/SSH protocol-configuration analysis; tracing stays within one module (2 call levels); PyCryptodome's ML-KEM/ML-DSA modules are not recognised; a detected PQ/T combination shows the data are combined, not that the combiner is certified.
+  </div>
+</section>
+</main>
+<script>
+const $=s=>document.querySelector(s), esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let ENV=null, SEL="demo", REP=null, LAST={}, VIEW=[], PAGE=0; const PER=40;
+const CLS={SIG:"ML-DSA signature (FIPS 204)",KEM:"ML-KEM key-establishment redesign (FIPS 203)",KEM_DEM:"KEM + KDF + AEAD redesign (no drop-in)",
+ INVENTORY:"inventory only: key with no consumer here",NO_ACTION_HYBRID:"classical half of a detected PQ/T combination",PROTOCOL_REVIEW:"protocol review",ABSTAIN:"no recommendation"};
+async function api(p,b){const r=await fetch(p,b?{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(b)}:{});return r.json();}
+function go(id){setTimeout(()=>document.querySelector(id).scrollIntoView({behavior:"smooth",block:"start"}),60);}
+function show(id){$(id).classList.remove("hidden");}
+function count(arr,f){const m={};arr.forEach(x=>{const k=f(x);m[k]=(m[k]||0)+1});return Object.entries(m).sort((a,b)=>b[1]-a[1]);}
+function hbars(el,pairs,color){const mx=Math.max(1,...pairs.map(p=>p[1]));el.innerHTML=pairs.map(([k,v])=>`<div class="hb"><span class="mono">${esc(k)}</span><i style="width:${100*v/mx}%;${color?"background:"+color:""}"></i><span class="c">${v}</span></div>`).join("")||'<span class="muted">none</span>';}
+
+async function init(){
+  ENV=await api("/api/env");
+  $("#envchips").innerHTML=[`${ENV.pqscan}`,`Semgrep ${ENV.semgrep}`,`Python ${ENV.python}`,`commit ${ENV.commit}`].map(t=>`<span class="chip">${esc(t)}</span>`).join("");
+  $("#inputs").innerHTML=ENV.inputs.map(i=>`<div class="inp ${i.key===SEL?"sel":""}" data-k="${i.key}"><b>${esc(i.title)}</b><span class="badge ${i.kind==="real"?"b-real":"b-syn"}">${i.kind==="real"?"REAL":"SYNTHETIC"}</span><p>${esc(i.about)}</p><p class="mono" style="font-size:11.5px">${esc(i.path)}</p></div>`).join("");
+  document.querySelectorAll(".inp").forEach(d=>d.onclick=()=>{SEL=d.dataset.k;document.querySelectorAll(".inp").forEach(x=>x.classList.toggle("sel",x===d));go("#s3");});
+}
+$("#run").onclick=async()=>{
+  const b=$("#run"); b.disabled=true; const st=$("#runstatus"); st.classList.remove("hidden");
+  const t=ENV.inputs.find(i=>i.key===SEL).title; st.innerHTML=`<span class="spin"></span>Running pqscan on <b>${esc(t)}</b> ...`;
+  const body={input:SEL,threshold:$("#thr").value,arm:$("#arm").value,exclude_tests:$("#ext").checked};
+  const r=await api("/api/scan",body); b.disabled=false;
+  if(!r.ok){st.innerHTML=`<b style="color:#c0392b">Scan failed</b> (exit ${r.exit_code??"?"}): <pre class="prev">${esc(r.stderr||r.error)}</pre>`;return;}
+  st.innerHTML=`<span class="mono">$ ${esc(r.command)}</span><br>exit code <b>${r.exit_code}</b> · finished in <b>${r.seconds} s</b> · ${esc(t)}`;
+  const key=SEL+"|"+body.arm, prev=LAST[key]; LAST[key]={thr:body.threshold,rep:r.report}; REP=r.report; render(prev,body);
+  go("#s4");
+};
+function render(prev,body){
+  const F=REP.findings, acts={RECOMMEND:0,FLAG_NO_TARGET:0,ABSTAIN:0}; F.forEach(f=>acts[f.recommendation.action]++);
+  $("#stats").innerHTML=[["Files scanned",REP.files_scanned],["Files skipped",REP.files_skipped.length],["Execution failures",REP.execution_failures.length],
+   ["Public-key call sites",F.length],["Threshold / arm",`${REP.tier_threshold} / ${REP.arm}`],["Semgrep",REP.semgrep_status]].map(([k,v])=>`<div class="stat"><div class="v">${esc(v)}</div><div class="k">${k}</div></div>`).join("");
+  const n=Math.max(1,F.length), col={RECOMMEND:"var(--rec)",FLAG_NO_TARGET:"var(--flag)",ABSTAIN:"var(--abs)"};
+  $("#actbar").innerHTML=Object.entries(acts).filter(e=>e[1]).map(([k,v])=>`<span style="width:${100*v/n}%;background:${col[k]}" title="${k}">${v} (${Math.round(100*v/n)}%)</span>`).join("");
+  if(prev&&prev.thr!==body.threshold){const m=new Map(prev.rep.findings.map(f=>[key(f),f.recommendation.action]));const ch=F.filter(f=>m.has(key(f))&&m.get(key(f))!==f.recommendation.action).length;
+    $("#diff").innerHTML=`Compared with the previous run at threshold <b>${prev.thr}</b>: <b>${ch}</b> site(s) changed action.`;} else $("#diff").innerHTML="";
+  hbars($("#classes"),count(F,f=>f.recommendation.target_class)); hbars($("#roles"),count(F,f=>f.decision.role));
+  hbars($("#tiers"),count(F,f=>f.decision.tier)); hbars($("#reasons"),count(F.filter(f=>f.recommendation.action==="ABSTAIN"),f=>f.recommendation.abstain_reason||"-"),"var(--abs)");
+  const fill=(sel,vals)=>{$(sel).innerHTML='<option value="">all</option>'+[...new Set(vals)].sort().map(v=>`<option>${esc(v)}</option>`).join("");};
+  fill("#fc",F.map(f=>f.recommendation.target_class)); fill("#fr",F.map(f=>f.decision.role));
+  ["#s4","#s5","#s7"].forEach(show); PAGE=0; filt();
+}
+const key=f=>`${f.evidence.location.file}:${f.evidence.location.line}:${f.evidence.location.col}`;
+function filt(){const a=$("#fa").value,c=$("#fc").value,r=$("#fr").value,s=$("#fs").value.toLowerCase();
+  VIEW=REP.findings.filter(f=>(!a||f.recommendation.action===a)&&(!c||f.recommendation.target_class===c)&&(!r||f.decision.role===r)&&(!s||f.evidence.location.file.toLowerCase().includes(s)));table();}
+function table(){const pg=VIEW.slice(PAGE*PER,PAGE*PER+PER);
+  $("#rows").innerHTML=pg.map((f,i)=>`<tr data-i="${PAGE*PER+i}"><td class="mono">${esc(f.evidence.location.file)}:${f.evidence.location.line}</td><td>${esc(f.decision.algorithm)}</td><td>${esc(f.decision.role)}</td><td>${esc(f.decision.tier)}</td><td><span class="pill p-${f.recommendation.action}">${f.recommendation.action}</span></td><td>${esc(f.recommendation.target_class)}</td></tr>`).join("")||'<tr><td colspan="6" class="muted">no matching findings</td></tr>';
+  $("#pinfo").textContent=`${VIEW.length?PAGE*PER+1:0}–${Math.min(VIEW.length,PAGE*PER+PER)} of ${VIEW.length}`;
+  document.querySelectorAll("#rows tr[data-i]").forEach(tr=>tr.onclick=()=>explain(VIEW[+tr.dataset.i]));}
+["#fa","#fc","#fr"].forEach(s=>$(s).onchange=()=>{PAGE=0;filt();}); $("#fs").oninput=()=>{PAGE=0;filt();};
+$("#prev").onclick=()=>{if(PAGE>0){PAGE--;table();}}; $("#next").onclick=()=>{if((PAGE+1)*PER<VIEW.length){PAGE++;table();}};
+
+async function explain(f){
+  const L=f.evidence.location,E=f.evidence,D=f.decision,R=f.recommendation; show("#s6");
+  $("#ftitle").innerHTML=`<span class="mono">${esc(L.file)}:${L.line}</span> · <span class="pill p-${R.action}">${R.action}</span> ${esc(R.target_class)}`;
+  const s=await api(`/api/source?input=${SEL}&file=${encodeURIComponent(L.file)}&line=${L.line}&end=${L.end_line||L.line}`);
+  $("#src").innerHTML=s.lines?s.lines.map((t,i)=>{const n=s.start+i;return `<div class="${n>=s.hit[0]&&n<=s.hit[1]?"hit":""}"><span class="ln">${n}</span>${esc(t)}</div>`}).join(""):`<div>${esc(s.error)}</div>`;
+  const rc=E.receiver||{}, ar=E.args||{}, co=E.consumers||{};
+  const argtxt=[ar.padding&&`padding=${ar.padding}`,ar.hash&&`hash=${ar.hash}`,ar.ecdh&&"ECDH",ar.ecdsa&&"ECDSA",ar.curve&&`curve=${ar.curve}`].filter(Boolean).join(", ")||"none";
+  let p=`PQScan classed this ${E.kind==="operation"?"call":"key"} as <b>${esc(D.role)}</b> with evidence tier <b>${esc(D.tier)}</b> because: <i>${esc(D.reason)}</i>. `;
+  if(R.action==="RECOMMEND") p+=`${esc(D.tier)} meets the threshold ${esc(R.tier_threshold)}, so policy v${esc(R.policy_version)} recommends <b>${esc(R.target_class)}</b> (${esc(CLS[R.target_class]||"")}): ${esc(R.target)}.`;
+  else if(R.action==="ABSTAIN") p+=`So it gives <b>no recommendation</b> (reason: <b>${esc(R.abstain_reason)}</b>). Guessing here could send the migration in the wrong direction.`;
+  else p+=`It flags the site with <b>no migration target</b> (${esc(CLS[R.target_class]||R.target_class)}): ${esc(R.target)}.`;
+  $("#plain").innerHTML=p;
+  const step=(t,rows)=>`<div class="stepc"><h4>${t}</h4><dl>${rows.filter(r=>r[1]!==undefined&&r[1]!==null&&r[1]!=="").map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl></div>`;
+  $("#trace").innerHTML=
+   step("Module A: detection",[["call / API",`<span class="mono">${esc(E.api)}</span>`],["rule",`<span class="mono">${esc(E.rule_id)}</span>`],["site kind",esc(E.kind)],["in function / class",esc([E.function,E.class].filter(Boolean).join(" / ")||"module level")]])+
+   step("Module B: evidence gathered (static analysis, code not executed)",[["receiver (object used)",esc(rc.description)],["key origin (provenance)",esc(rc.provenance||rc.proximate||"not resolved")],["algorithm-specific arguments",esc(argtxt)],
+     ["consumers of the key",esc((co.families||[]).join(", ")||"none in scope")],["key escapes the analysed scope",co.escapes?"yes: "+esc((co.escape_notes||[]).join("; ")):"no"],["conflicts",esc([...(E.conflicts||[]),...(co.conflicts||[])].join("; ")||"none")]])+
+   step("Module C: role and evidence tier",[["role",`<b>${esc(D.role)}</b>`],["evidence tier",`<b>${esc(D.tier)}</b> (T0 weakest … T3 strongest)`],["reason",esc(D.reason)],["other possible roles",esc((D.possible_roles||[]).join(", "))]])+
+   step("Module D: policy v1.1 decision",[["threshold",esc(R.tier_threshold)],["action",`<span class="pill p-${R.action}">${R.action}</span>`],["class",esc(R.target_class)],["guidance",esc(R.target)],["parameter set",esc(R.parameter_set)],["why",esc(R.rationale)],["abstention reason",esc(R.abstain_reason)],["NIST references",esc((R.references||[]).join(" · "))]])+
+   step("Module E: where it appears in the exports",[["JSON","this full record (evidence, decision, recommendation)"],["CycloneDX CBOM","one cryptographic-asset component for this site"],["SARIF","one result at this file and line"]]);
+  go("#s6");
+}
+document.querySelectorAll(".exp").forEach(b=>b.onclick=async()=>{
+  const o=$("#expout"); o.innerHTML=`<p><span class="spin"></span>Running pqscan --format ${b.dataset.f} ...</p>`;
+  const r=await api("/api/export",{input:SEL,format:b.dataset.f});
+  o.innerHTML=r.ok?`<p class="cmd">exit code <b>${r.exit_code}</b> · ${r.seconds} s · <b>${esc(r.check)}</b> · ${esc(r.count)} · ${(r.bytes/1024).toFixed(1)} KB · <a href="${r.download}">download ${esc(r.name)}</a></p><pre class="prev">${esc(r.preview)}\n...</pre>`
+    :`<p><b style="color:#c0392b">Export failed</b> (exit ${r.exit_code??"?"})</p><pre class="prev">${esc(r.stderr||r.error)}</pre>`;
+});
+const secs=[...document.querySelectorAll("main section")];
+addEventListener("scroll",()=>{let cur="s1";secs.forEach(s=>{if(!s.classList.contains("hidden")&&s.getBoundingClientRect().top<120)cur=s.id});document.querySelectorAll("nav a").forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+cur));});
+init();
+</script>
+</body>
+</html>
