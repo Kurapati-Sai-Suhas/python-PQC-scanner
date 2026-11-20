@@ -164,14 +164,20 @@ function hbars(el,pairs,color){const mx=Math.max(1,...pairs.map(p=>p[1]));el.inn
 async function init(){
   ENV=await api("/api/env");
   $("#envchips").innerHTML=[`${ENV.pqscan}`,`Semgrep ${ENV.semgrep}`,`Python ${ENV.python}`,`commit ${ENV.commit}`].map(t=>`<span class="chip">${esc(t)}</span>`).join("");
-  $("#inputs").innerHTML=ENV.inputs.map(i=>`<div class="inp ${i.key===SEL?"sel":""}" data-k="${i.key}"><b>${esc(i.title)}</b><span class="badge ${i.kind==="real"?"b-real":"b-syn"}">${i.kind==="real"?"REAL":"SYNTHETIC"}</span><p>${esc(i.about)}</p><p class="mono" style="font-size:11.5px">${esc(i.path)}</p></div>`).join("");
+  $("#inputs").innerHTML=ENV.inputs.map(i=>`<div class="inp ${i.key===SEL?"sel":""}" data-k="${i.key}"><b>${esc(i.title)}</b><span class="badge ${i.kind==="real"?"b-real":"b-syn"}">${i.kind==="real"?"REAL":"SYNTHETIC"}</span><p>${esc(i.about)}</p><p class="mono" style="font-size:11.5px">${esc(i.path)}</p></div>`).join("")+
+    `<div class="inp" data-k="custom"><b>Your own folder</b><span class="badge" style="background:#fdecd2;color:#8a5300">CUSTOM</span>
+     <p>Any Python project on this computer (e.g. a repository you cloned). Paste its folder path:</p>
+     <input type="text" id="cpath" style="width:100%;margin-top:6px" placeholder="C:\path\to\project" onclick="event.stopPropagation()">
+     <p style="font-size:12px">The 13 benchmark repositories are refused (they must stay unseen until labelling).</p></div>`;
   document.querySelectorAll(".inp").forEach(d=>d.onclick=()=>{SEL=d.dataset.k;document.querySelectorAll(".inp").forEach(x=>x.classList.toggle("sel",x===d));go("#s3");});
 }
 $("#run").onclick=async()=>{
   const b=$("#run"); b.disabled=true; const st=$("#runstatus"); st.classList.remove("hidden");
-  const t=ENV.inputs.find(i=>i.key===SEL).title; st.innerHTML=`<span class="spin"></span>Running pqscan on <b>${esc(t)}</b> ...`;
-  const body={input:SEL,threshold:$("#thr").value,arm:$("#arm").value,exclude_tests:$("#ext").checked};
+  const t=SEL==="custom"?"your folder "+$("#cpath").value:ENV.inputs.find(i=>i.key===SEL).title;
+  if(SEL==="custom"&&!$("#cpath").value.trim()){st.innerHTML="Paste a folder path in the <b>Your own folder</b> card first.";b.disabled=false;return;} st.innerHTML=`<span class="spin"></span>Running pqscan on <b>${esc(t)}</b> ...`;
+  const body={input:SEL,path:$("#cpath").value,threshold:$("#thr").value,arm:$("#arm").value,exclude_tests:$("#ext").checked};
   const r=await api("/api/scan",body); b.disabled=false;
+  if(r.error){st.innerHTML=`<b style="color:#c0392b">${esc(r.error)}</b>`;return;}
   if(!r.ok){st.innerHTML=`<b style="color:#c0392b">Scan failed</b> (exit ${r.exit_code??"?"}): <pre class="prev">${esc(r.stderr||r.error)}</pre>`;return;}
   st.innerHTML=`<span class="mono">$ ${esc(r.command)}</span><br>exit code <b>${r.exit_code}</b> · finished in <b>${r.seconds} s</b> · ${esc(t)}`;
   const key=SEL+"|"+body.arm, prev=LAST[key]; LAST[key]={thr:body.threshold,rep:r.report}; REP=r.report; render(prev,body);
@@ -225,8 +231,8 @@ async function explain(f){
 }
 document.querySelectorAll(".exp").forEach(b=>b.onclick=async()=>{
   const o=$("#expout"); o.innerHTML=`<p><span class="spin"></span>Running pqscan --format ${b.dataset.f} ...</p>`;
-  const r=await api("/api/export",{input:SEL,format:b.dataset.f});
-  o.innerHTML=r.ok?`<p class="cmd">exit code <b>${r.exit_code}</b> · ${r.seconds} s · <b>${esc(r.check)}</b> · ${esc(r.count)} · ${(r.bytes/1024).toFixed(1)} KB · <a href="${r.download}">download ${esc(r.name)}</a></p><pre class="prev">${esc(r.preview)}\n...</pre>`
+  const r=await api("/api/export",{input:SEL,path:$("#cpath").value,format:b.dataset.f});
+  o.innerHTML=r.error?`<p><b style="color:#c0392b">${esc(r.error)}</b></p>`:r.ok?`<p class="cmd">exit code <b>${r.exit_code}</b> · ${r.seconds} s · <b>${esc(r.check)}</b> · ${esc(r.count)} · ${(r.bytes/1024).toFixed(1)} KB · <a href="${r.download}">download ${esc(r.name)}</a></p><pre class="prev">${esc(r.preview)}\n...</pre>`
     :`<p><b style="color:#c0392b">Export failed</b> (exit ${r.exit_code??"?"})</p><pre class="prev">${esc(r.stderr||r.error)}</pre>`;
 });
 const secs=[...document.querySelectorAll("main section")];

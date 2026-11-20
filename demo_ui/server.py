@@ -67,6 +67,36 @@ def _inputs() -> dict:
 INPUTS = _inputs()
 
 
+def _benchmark_names() -> set[str]:
+    m = json.loads((ROOT / "benchmark/real/manifest.json").read_text(encoding="utf-8"))
+    names = set()
+    for split in m["splits"].values():
+        for e in split:
+            owner, repo = e["repo"].split("/")
+            names |= {repo.lower(), f"{owner}__{repo}".lower()}
+    return names
+
+
+BENCHMARK_NAMES = _benchmark_names()
+
+
+def set_custom(path: str) -> None:
+    """A folder chosen by the presenter. Refused: anything that is (or is inside) one of the 13 benchmark
+    repositories, the project's .cache or benchmark folders. Viewing pqscan output on development/validation
+    repositories before they are labelled would break the annotator's blinding; test repositories stay sealed."""
+    p = Path(path.strip().strip('"')).expanduser().resolve()
+    if not p.is_dir():
+        raise ValueError(f"not a folder: {p}")
+    for guarded in (ROOT / ".cache", ROOT / "benchmark"):
+        if p == guarded.resolve() or guarded.resolve() in p.parents:
+            raise ValueError("refused: this is inside the project's benchmark area (kept blind/sealed)")
+    hit = [part for part in p.parts if part.lower() in BENCHMARK_NAMES]
+    if hit:
+        raise ValueError(f"refused: '{hit[0]}' is one of the 13 benchmark repositories; scanning it here would "
+                         "break the annotation blinding (development/validation) or the seal (test)")
+    INPUTS["custom"] = {"title": f"Your folder: {p.name}", "kind": "custom", "path": p, "about": str(p)}
+
+
 def _run(cmd: list[str], timeout: int = 900) -> tuple[int, str, str, float]:
     env = dict(os.environ, PYTHONIOENCODING="utf-8")
     t0 = time.perf_counter()
@@ -76,6 +106,8 @@ def _run(cmd: list[str], timeout: int = 900) -> tuple[int, str, str, float]:
 
 def scan(body: dict) -> dict:
     key = body.get("input")
+    if key == "custom":
+        set_custom(body.get("path", ""))
     if key not in INPUTS:
         raise ValueError("unknown input")
     threshold = body.get("threshold", "T2")
@@ -91,7 +123,7 @@ def scan(body: dict) -> dict:
     if rc != 0:
         return {"ok": False, "exit_code": rc, "stderr": se[-2000:], "seconds": secs}
     report = json.loads(out.read_text(encoding="utf-8"))
-    shown = ["pqscan", "scan", f"<{key}>", "--format", "json", "--tier-threshold", threshold, "--arm", arm]
+    shown = ["pqscan", "scan", "<" + (INPUTS[key]["path"].name if key == "custom" else key) + ">", "--format", "json", "--tier-threshold", threshold, "--arm", arm]
     if body.get("exclude_tests"):
         shown.append("--exclude-tests")
     return {"ok": True, "exit_code": rc, "seconds": secs, "command": " ".join(shown), "report": report}
@@ -99,6 +131,8 @@ def scan(body: dict) -> dict:
 
 def export(body: dict) -> dict:
     key, fmt = body.get("input"), body.get("format")
+    if key == "custom":
+        set_custom(body.get("path", ""))
     if key not in INPUTS or fmt not in ("cbom", "sarif", "json"):
         raise ValueError("bad export request")
     ext = {"cbom": "cbom.json", "sarif": "sarif", "json": "json"}[fmt]
@@ -152,7 +186,7 @@ def environment() -> dict:
         pass
     return {"pqscan": ver(PQSCAN), "semgrep": ver(SEMGREP), "python": sys.version.split()[0], "commit": commit,
             "inputs": [{"key": k, "title": v["title"], "kind": v["kind"], "about": v["about"],
-                        "path": str(v["path"]).replace(str(Path.home()), "~")} for k, v in INPUTS.items()]}
+                        "path": str(v["path"]).replace(str(Path.home()), "~")} for k, v in INPUTS.items() if k != "custom"]}
 
 
 class Handler(BaseHTTPRequestHandler):
